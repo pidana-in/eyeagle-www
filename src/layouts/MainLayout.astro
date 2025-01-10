@@ -1,0 +1,70 @@
+---
+const { title = "EYEAGLE" } = Astro.props;
+
+// Import global tailwind styles
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body class="bg-white text-gray-900">
+    <header class="bg-white shadow">
+      <nav
+        class="container mx-auto flex justify-between items-center py-4 px-4"
+      >
+        <div class="text-xl font-bold">EYEAGLE</div>
+        <ul class="flex space-x-6">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/#features" class="hover:underline">Features</a></li>
+          <li><a href="/#services" class="hover:underline">Services</a></li>
+          <li><a href="/#contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="font-semibold mb-4">Contact</h3>
+            <p>1-800-SAFE-NOW</p>
+            <p>info@example.com</p>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Services</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-red-400">Installation</a></li>
+              <li><a href="#" class="hover:text-red-400">Monitoring</a></li>
+              <li><a href="#" class="hover:text-red-400">Support</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-red-400">About Us</a></li>
+              <li><a href="#" class="hover:text-red-400">Careers</a></li>
+              <li><a href="#" class="hover:text-red-400">Press</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-red-400">Privacy</a></li>
+              <li><a href="#" class="hover:text-red-400">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

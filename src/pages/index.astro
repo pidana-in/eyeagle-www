@@ -1,11 +1,150 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  {
+    title: "Professional Installation",
+    description:
+      "Expert installation of all safety equipment by certified technicians",
+  },
+  {
+    title: "24/7 Monitoring",
+    description: "Round-the-clock monitoring and emergency response services",
+  },
+  {
+    title: "Regular Maintenance",
+    description:
+      "Scheduled maintenance and updates to ensure everything works perfectly",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout>
+  <!-- Hero Section -->
+  <section class="relative h-[600px]">
+    <img
+      src="/placeholder.svg"
+      alt="Emergency prevention"
+      class="w-full h-full object-cover brightness-50"
+    />
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center text-white"
+    >
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Prevent, Don't Regret</h1>
+      <p class="text-2xl md:text-3xl mb-8">A single fall can change it all</p>
+      <a
+        href="#contact"
+        class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700"
+        >Get Started</a
+      >
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-lg mb-8 max-w-3xl mx-auto">
+        According to the World Health Organization, millions of elderly
+        individuals, including our parents, experience falls each year, many
+        leading to serious injury or hospitalization.
+      </p>
+      <p class="text-center text-red-600 text-xl font-semibold">
+        But it doesn't have to be this way.
+      </p>
+    </div>
+  </section>
+
+  <!-- Product Features Section -->
+  <section id="features" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">
+        The most complete bathroom safety you've ever seen
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 shadow rounded-lg">
+          <img
+            src="/placeholder.svg"
+            alt="Bathroom safety"
+            class="rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">
+            Complete safety coverage of bathroom
+          </h3>
+          <p class="text-gray-600">
+            Our comprehensive solution ensures maximum safety in the most
+            dangerous room of the house.
+          </p>
+        </div>
+        <div class="bg-white p-6 shadow rounded-lg">
+          <img
+            src="/placeholder.svg"
+            alt="Mobile app"
+            class="rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">24/7 Emergency Response</h3>
+          <p class="text-gray-600">
+            Immediate assistance at the touch of a button through our mobile
+            app.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">
+        Our team is here to help
+      </h2>
+      <div class="relative h-[300px] mb-8">
+        <img
+          src="/placeholder.svg"
+          alt="Our healthcare team"
+          class="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+      <p class="text-center text-lg max-w-2xl mx-auto">
+        Our trained professionals are available 24/7 to ensure the safety of
+        your loved ones.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">
+        We take care of everything
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          services.map((service) => (
+            <div class="bg-white p-6 shadow rounded-lg">
+              <img
+                src="/placeholder.svg"
+                alt={service.title}
+                class="rounded-lg mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-red-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-8">Your Loved Ones Deserve the Best</h2>
+      <a
+        href="#contact"
+        class="bg-white text-red-600 px-6 py-3 rounded-lg hover:bg-gray-100"
+      >
+        Contact Us Today
+      </a>
+    </div>
+  </section>
+</MainLayout>
