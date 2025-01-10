@@ -1,12 +1,10 @@
 ---
+const { title = "EYEAGLE" } = Astro.props;
 
-import { Image } from "astro:assets";
-import EyeagleLogo from '../assets/Navbar/Eyeagle.png';
-import Account from "../assets/Navbar/Account.png";
 // Import global tailwind styles
 import "../styles/global.css";
-const { title = "EYEAGLE" } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,24 +13,18 @@ const { title = "EYEAGLE" } = Astro.props;
     <title>{title}</title>
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
-  <body class="text-gray-900">
-    <header id="myNav" class="fixed w-full top-0 z-50 px-20 py-5">
-      <nav 
-        class="container mx-auto flex justify-between items-center"
+  <body class="bg-white text-gray-900">
+    <header class="bg-white shadow">
+      <nav
+        class="container mx-auto flex justify-between items-center py-4 px-4"
       >
-        <div class="flex justify-between items-center">
-          <Image src={EyeagleLogo} alt={'Eyeagle Logo'} id="imageBg" class="bg-slate-600"/>
-          <ul class="flex space-x-12 font-semibold ml-14 px-4 text-white" id="content">
-            <li><a href="/manifesto" class="hover:underline">Our manifesto</a></li>
-            <li><a href="/about" class="hover:underline">About us</a></li>
-            <li><a href="/#contact" class="hover:underline">Contact us</a></li>
-          </ul>
-      </div>
-        
-        <div class="flex gap-5">
-          <Image src={Account} alt={'Account logo'}/>
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
-      </div>
+        <div class="text-xl font-bold">EYEAGLE</div>
+        <ul class="flex space-x-6">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/#features" class="hover:underline">Features</a></li>
+          <li><a href="/#services" class="hover:underline">Services</a></li>
+          <li><a href="/#contact" class="hover:underline">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -40,81 +32,39 @@ const { title = "EYEAGLE" } = Astro.props;
       <slot />
     </main>
 
-    <footer class="py-8">
-      <div class="container flex justify-between items-center mx-auto px-32">
-        <div>
-          <h2 class="text-3xl font-medium max-w-[451px] leading-10">Expert advice, updates, and surprises for your inbox</h2>
-          <div class="mt-10 border-2 px-2 py-3 input-wrapper rounded-xl">
-            <input type="text" placeholder="Search...">
-            <button class="bg-red-600 py-2 px-4 text-white rounded-xl" onclick="alert('Button clicked!');">
-                Submit
-            </button>
-        </div>
-        </div>
-        <div class="grid grid-cols-3 max-w-lg">
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <a class="block hover:cursor-pointer hover:underline mb-4">Our manifesto</a>
-            <a class="block hover:cursor-pointer hover:underline">About us</a>
+            <h3 class="font-semibold mb-4">Contact</h3>
+            <p>1-800-SAFE-NOW</p>
+            <p>info@example.com</p>
           </div>
-          <div class="grid gap-2">
-            <a class="block hover:cursor-pointer hover:underline">Facebook</a>
-            <a class="block hover:cursor-pointer hover:underline">Linkedin</a>
-            <a class="block hover:cursor-pointer hover:underline">Youtube</a>
+          <div>
+            <h3 class="font-semibold mb-4">Services</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-red-400">Installation</a></li>
+              <li><a href="#" class="hover:text-red-400">Monitoring</a></li>
+              <li><a href="#" class="hover:text-red-400">Support</a></li>
+            </ul>
           </div>
-          <div class="grid gap-2">
-            <a class="block hover:cursor-pointer hover:underline">Email us:
-              email@emailaddress.com</a>
-            <a class="block hover:cursor-pointer hover:underline">+91 765 4444 222</a>
-            <a class="block hover:cursor-pointer hover:underline">3297 NJ-66,Neptune City,NJ 07753, United States</a>
+          <div>
+            <h3 class="font-semibold mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-red-400">About Us</a></li>
+              <li><a href="#" class="hover:text-red-400">Careers</a></li>
+              <li><a href="#" class="hover:text-red-400">Press</a></li>
+            </ul>
           </div>
-        </div>
-      </div>
-      <div class="my-20 border-2 mx-[120px]"/>
-      <div class="mx-[120px] mb-10 flex justify-between items-center">
-        <h2 class="text-[32px] font-medium">EYEAGLE</h2>
-        <div class="flex gap-20">
-          <a href="" class="block">Privacy Policy</a><a href="" class="block">Terms of Service</a><a href="" class="block">© 2024 EyEagle,inc.</a>
+          <div>
+            <h3 class="font-semibold mb-4">Legal</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-red-400">Privacy</a></li>
+              <li><a href="#" class="hover:text-red-400">Terms</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
   </body>
 </html>
-<style>
-  .input-wrapper {
-      position: relative;
-      display: inline-block;
-  }
-
-  .input-wrapper input {
-      padding-right: 100px;
-      
-  }
-
-  .input-wrapper button {
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      right: 0;
-      border: none;
-      cursor: pointer;
-  }
-</style>
-
-<script is:inline>
-  let nav = document.getElementById("myNav");
-  let imageBg = document.getElementById("imageBg");
-  let content = document.getElementById("content");
-  window.addEventListener("scroll", (event) => {
-    let scroll = this.scrollY;
-    if(scroll >= 855){
-      nav.style.backgroundColor = "white"
-      imageBg.style.backgroundColor = "#475569"
-      content.style.color = "black";
-    }else{
-      nav.style.backgroundColor = "transparent";
-      imageBg.style.backgroundColor = "transparent"
-      content.style.color = "white"
-    }
-});
-</script>
-

@@ -1,126 +1,150 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeroSection from "../assets/Navbar/HeroSection.png"
-import doctorImage1 from "../assets/Navbar/doctorImage1.png";
-import doctorImage2 from "../assets/Navbar/doctorImage2.png";
-import doctorImage3 from "../assets/Navbar/doctorImage3.png";
-import doctorImage4 from "../assets/Navbar/doctorImage4.png";
-import ourTeam from "../assets/Navbar/ourTeam.png";
-import desireImage from "../assets/Navbar/desireImage.png";
-import { Image } from "astro:assets";
-import BathroomSection from "../components/Home/BathroomSection.astro";
-import {bathroomData,takeCareData} from "../components/constants/home";
-import OurTeamSection from "../components/Home/OurTeamSection.astro";
-import DesireSection from "../components/Home/DesireSection.astro";
+
+const services = [
+  {
+    title: "Professional Installation",
+    description:
+      "Expert installation of all safety equipment by certified technicians",
+  },
+  {
+    title: "24/7 Monitoring",
+    description: "Round-the-clock monitoring and emergency response services",
+  },
+  {
+    title: "Regular Maintenance",
+    description:
+      "Scheduled maintenance and updates to ensure everything works perfectly",
+  },
+];
 ---
+
 <MainLayout>
   <!-- Hero Section -->
-  <section class=" h-[856px]">
+  <section class="relative h-[600px]">
     <img
-      src={HeroSection.src}
+      src="/placeholder.svg"
       alt="Emergency prevention"
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover brightness-50"
     />
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center text-white"
+    >
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Prevent, Don't Regret</h1>
+      <p class="text-2xl md:text-3xl mb-8">A single fall can change it all</p>
+      <a
+        href="#contact"
+        class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700"
+        >Get Started</a
+      >
+    </div>
   </section>
 
   <!-- Statistics Section -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <p class="text-center text-[52px] mb-8 mx-32 leading-[62px] font-normal">
+      <p class="text-center text-lg mb-8 max-w-3xl mx-auto">
         According to the World Health Organization, millions of elderly
         individuals, including our parents, experience falls each year, many
         leading to serious injury or hospitalization.
       </p>
-      <p class="text-center text-red-600 text-[52px] font-normal">
+      <p class="text-center text-red-600 text-xl font-semibold">
         But it doesn't have to be this way.
       </p>
     </div>
   </section>
 
-  <!-- Scroll section -->
-  <section class="my-24">
-    <div class="overflow-x-auto w-full h-[333px] flex gap-4 containers pl-11">
-      <Image src={doctorImage1} alt={"doctorImage1"}/>
-      <Image src={doctorImage2} alt={"doctorImage2"}/>
-      <Image src={doctorImage3} alt={"doctorImage3"}/>
-      <Image src={doctorImage4} alt={"doctorImage4"}/>
-    </div>
-  </section>
-
   <!-- Product Features Section -->
-  <section class="py-24 px-20">
+  <section id="features" class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
-      <div class="flex justify-center">
-        <h2 class="text-[52px] mb-8 mx-32 leading-[62px] font-normal text-center max-w-3xl">
-          The most <span class="text-red-600">complete bathroom</span> safety you've ever seen
-        </h2>
-      </div>
-      <div class="pt-12 grid gap-12">
-        {bathroomData?.map((item)=>
-          <BathroomSection item={item} />
-        )}
+      <h2 class="text-3xl font-bold mb-12 text-center">
+        The most complete bathroom safety you've ever seen
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 shadow rounded-lg">
+          <img
+            src="/placeholder.svg"
+            alt="Bathroom safety"
+            class="rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">
+            Complete safety coverage of bathroom
+          </h3>
+          <p class="text-gray-600">
+            Our comprehensive solution ensures maximum safety in the most
+            dangerous room of the house.
+          </p>
+        </div>
+        <div class="bg-white p-6 shadow rounded-lg">
+          <img
+            src="/placeholder.svg"
+            alt="Mobile app"
+            class="rounded-lg mb-4"
+          />
+          <h3 class="text-xl font-semibold mb-2">24/7 Emergency Response</h3>
+          <p class="text-gray-600">
+            Immediate assistance at the touch of a button through our mobile
+            app.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Team Section -->
-  <OurTeamSection item={ourTeam}/>
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center">
+        Our team is here to help
+      </h2>
+      <div class="relative h-[300px] mb-8">
+        <img
+          src="/placeholder.svg"
+          alt="Our healthcare team"
+          class="w-full h-full object-cover rounded-lg"
+        />
+      </div>
+      <p class="text-center text-lg max-w-2xl mx-auto">
+        Our trained professionals are available 24/7 to ensure the safety of
+        your loved ones.
+      </p>
+    </div>
+  </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-16">
+  <section id="services" class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
-      <h2 class="text-[52px] font-normal mb-12 text-center">
-        We take care of <span class="text-red-600">everything</span>
+      <h2 class="text-3xl font-bold mb-12 text-center">
+        We take care of everything
       </h2>
-      <div class="grid gap-8">
-        {takeCareData?.map((item)=>
-        <BathroomSection item={item} />
-      )}
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          services.map((service) => (
+            <div class="bg-white p-6 shadow rounded-lg">
+              <img
+                src="/placeholder.svg"
+                alt={service.title}
+                class="rounded-lg mb-4"
+              />
+              <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- Desire Section -->
-  <DesireSection item={desireImage}/>
-
+  <!-- CTA Section -->
+  <section class="py-16 bg-red-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-8">Your Loved Ones Deserve the Best</h2>
+      <a
+        href="#contact"
+        class="bg-white text-red-600 px-6 py-3 rounded-lg hover:bg-gray-100"
+      >
+        Contact Us Today
+      </a>
+    </div>
+  </section>
 </MainLayout>
-
-<style is:global>
-
-  body::-webkit-scrollbar {
-    border-radius: 15px;
-    width: 10px;
-  }
-
-  body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #b3c0c6;
-    border-radius: 15px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #012E40;
-    border-radius: 10px;
-  }
-  @media screen and (max-width: 768px) {
-    body::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  @media screen and (min-width: 1024px) {
-      .gridTemplateColumns {
-        grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
-      }
-    }
-    @media screen and (max-width: 1023px) {
-      .gridTemplateColumns {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-      }
-    }
-    .containers {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    }
-    .containers::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-    }
-</style>
