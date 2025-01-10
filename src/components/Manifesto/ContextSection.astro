@@ -1,0 +1,36 @@
+---
+const contexts = [
+  {
+    title: "Emergency Delays",
+    description:
+      "Falls in private spaces like bathrooms can delay critical medical assistance, increasing the risk of complications.",
+  },
+  {
+    title: "Financial Burden",
+    description: "Unexpected medical bills and home safety modifications can strain finances, adding pressure to an already difficult situation.",
+  },
+  {
+    title: "Family Stress",
+    description:
+      "Caregiving responsibilities can create tension among family members, especially when the shift is sudden and unplanned.",
+  },
+];
+---
+<section class="py-[120px] px-[80px]">
+    <h1 class="text-[52px] font-normal">A <span class="text-[#CC0000]">Single Fall</span> Can Change Everything.</h1>
+    <p class="mt-10 mb-10 text-[18px]">
+      For many families, a fall can mean more than just a trip to the emergency room—it can take away a loved one’s independence. Falls in the bathroom are often the tipping point that leads to more serious injuries, hospitalization, or worse.
+    </p>
+    <div class="flex justify-between items-center">
+      <div class="flex flex-col gap-10">
+        {contexts.map((context) => (
+          <div>
+            <h4 class="text-[24px] font-semibold mb-3">{context.title}</h4>
+            <p class="text-[18px] max-w-[600px]">{context.description}</p>
+          </div>
+        ))}
+      </div>
+      <div class="h-[487px] w-[600px] rounded-lg bg-[#D9D9D9]"></div>
+    </div>
+  </section>
+  
