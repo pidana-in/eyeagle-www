@@ -1,0 +1,19 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+import DesireSection from "../components/Home/DesireSection.astro";
+import desireImage from "../assets/Navbar/desireImage.png";
+import HeaderSection from "../components/AboutUs/HeaderSection.astro";
+import ValuesSection from "../components/AboutUs/ValuesSection.astro";
+import EmpoweringSection from "../components/AboutUs/EmpoweringSection.astro";
+import FoundersSection from "../components/AboutUs/FoundersSection.astro";
+import BannerSection from "../components/AboutUs/BannerSection.astro";
+---
+<MainLayout>
+  <HeaderSection />
+  <BannerSection />
+  <ValuesSection />
+  <EmpoweringSection />
+  <FoundersSection />
+  <DesireSection item={desireImage} className="mt-0" />
+</MainLayout>
