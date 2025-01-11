@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import EyeagleLogo from '../assets/Navbar/EyeagleLogo.png';
 import Account from "../assets/Navbar/Account.png";
 import EyeagleSecondLogo from "../assets/Navbar/EyeagleSecondLogo.png";
+import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 // Import global tailwind styles
 import "../styles/global.css";
 const { title = "EYEAGLE" } = Astro.props;
@@ -18,18 +19,18 @@ const { pathname } = Astro. url
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body class="text-gray-900">
-    <header id="myNav" class=`fixed w-full top-0 z-50 px-20 py-5 ${pathname !== "/" && "bg-white"}`>
+    <header id="myNav" class=`fixed w-full top-0 z-50 px-20 py-5 ${pathname !== "/" && "bg-[#F6F4F2]"}`>
       <nav 
         class="mx-auto flex justify-between items-center"
       >
         <div class="flex justify-between items-center">
           <a href="/">
-            <img src={pathname === "/" ? EyeagleLogo.src:EyeagleSecondLogo.src} alt={'Eyeagle Logo'} id="imageBg" />
+            <img src={pathname === "/" ? EyeagleLogo.src:EyeagleSecondLogo.src} alt={'Eyeagle Logo'} id="imageBg" class="w-[163px]"/>
           </a>
           <ul class=`flex space-x-12 font-semibold ml-14 px-4 ${pathname === "/" && "text-white"}` id="content">
             <li><a href="/manifesto" class="hover:underline">Our manifesto</a></li>
             <li><a href="/about-us" class="hover:underline">About us</a></li>
-            <li><a href="/#contact" class="hover:underline">Contact us</a></li>
+            <li><a href="/contact" class="hover:underline">Contact us</a></li>
           </ul>
       </div>
         
@@ -57,8 +58,8 @@ const { pathname } = Astro. url
         </div>
         <div class="grid grid-cols-3 max-w-lg">
           <div>
-            <a class="block hover:cursor-pointer hover:underline mb-4">Our manifesto</a>
-            <a class="block hover:cursor-pointer hover:underline">About us</a>
+            <a href="/manifesto" class="block hover:cursor-pointer hover:underline mb-4">Our manifesto</a>
+            <a href="/about-us" class="block hover:cursor-pointer hover:underline">About us</a>
           </div>
           <div class="grid gap-2">
             <a class="block hover:cursor-pointer hover:underline">Facebook</a>
@@ -77,7 +78,7 @@ const { pathname } = Astro. url
       <div class="mx-[120px] mb-10 flex justify-between items-center">
         <h2 class="text-[32px] font-medium">EYEAGLE</h2>
         <div class="flex gap-20">
-          <a href="" class="block">Privacy Policy</a><a href="" class="block">Terms of Service</a><a href="" class="block">© 2024 EyEagle,inc.</a>
+          <a href="" class="block">Privacy Policy</a><a href="/tnc" class="block">Terms of Service</a><a href="" class="block">© 2024 EyEagle,inc.</a>
         </div>
       </div>
     </footer>
@@ -145,7 +146,7 @@ const { pathname } = Astro. url
     }
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{EyeagleLogoBlack,EyeagleLogo}}>
   let nav = document.getElementById("myNav");
   let imageBg = document.getElementById("imageBg");
   let content = document.getElementById("content");
@@ -154,11 +155,12 @@ const { pathname } = Astro. url
     let scroll = this.scrollY;
     if(scroll >= 855){
       nav.style.backgroundColor = "white"
-      imageBg.style.backgroundColor = "#475569"
+      // imageBg.style.backgroundColor = "#475569"
+      imageBg.src = EyeagleLogoBlack.src;
       content.style.color = "black";
     }else{
       nav.style.backgroundColor = "transparent";
-      imageBg.style.backgroundColor = "transparent"
+      imageBg.src = EyeagleLogo.src;
       content.style.color = "white"
     }
 });
