@@ -1,5 +1,6 @@
 ---
 import { aboutUsFoundersData } from "../constants/aboutus";
+import Ellipse from "../../assets/Aboutus/Ellipse.png";
 ---
 <section class="bg-[#F6F4F2] pb-20">
   <h1 class="text-[68px] italic text-center py-20">The Minds Behind EyEagle</h1>
@@ -14,7 +15,7 @@ import { aboutUsFoundersData } from "../constants/aboutus";
           <div class="relative h-[373px] w-[373px]">
             <img src={founder.photo.src} alt={`${founder.name}'s Photo`} class="object-cover h-full w-full" />
             <img
-              src="../../src/assets/Aboutus/Ellipse.png"
+              src={Ellipse.src}
               alt="Ellipse Decoration"
               class="absolute top-[-20px] right-[10px] h-[90px] w-[70px]"
             />
