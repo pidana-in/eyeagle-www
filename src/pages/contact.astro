@@ -1,0 +1,122 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+    <section class="bg-[#F6F4F2] px-[80px] py-[120px] flex justify-around pt-36">
+        <div>
+        <h1 class="font-normal text-[52px]">Contact Us</h1>
+        <h3 class="mt-10 font-normal text-lg">For inquiries, support, or subscription-related questions:</h3>
+        <p class="font-normal text-lg">📧 Support Email: [Insert Email Address]</p>
+        <p class="font-normal text-lg">📞 Phone Number: [Insert Phone Number]</p>
+        </div>
+        <div>
+            <form action="#" method="POST" id="form" class="needs-validation w-full" novalidate>
+                <div class="flex max-md:flex-col gap-5">
+                  <div class=" max-md:w-full max-md:mb-6">
+                    <label for="fname" class="block text-secondary-600 font-medium p-1">Full Name</label>
+                    <input type="text" name="name" id="first_name" placeholder="John" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2"/>
+                    <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+                      Please provide your first name.
+                    </div>
+                  </div>
+                  <div class="max-md:w-full">
+                    <label for="phone" class="block text-secondary-600 font-medium p-1">Last Name</label>
+                    <input type="text" name="name" id="first_name" placeholder="John" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2"/>
+                    <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+                      Please provide your last name.
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="flex space-x-4">
+                  <div class="w-full">
+                    <label for="email" class="block text-secondary-600 font-medium p-1">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+                    <input type="hidden" name="replyto" value="info@ipsator.com">
+                    <div class="empty-feedback text-danger text-sm mt-1">
+                      Please provide your email address.
+                    </div>
+                    <div class="invalid-feedback text-danger text-sm mt-1">
+                      Please provide a valid email address.
+                    </div>
+                  </div>
+                </div>
+                <div class="flex space-x-4">
+                    <div class="w-full">
+                      <label for="email" class="block text-secondary-600 font-medium p-1">Phone Number</label>
+                      <input type="text" name="phone" id="phone" placeholder="+91" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+                    <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+                      Please provide your phone number.
+                    </div>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <div class="w-full">
+                      <label for="email" class="block text-secondary-600 font-medium p-1">Subject</label>
+                      <input type="email" name="email" id="email" placeholder="Subject" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+                      <input type="hidden" name="replyto" value="info@ipsator.com">
+                      <div class="empty-feedback text-danger text-sm mt-1">
+                        Please provide your email address.
+                      </div>
+                      <div class="invalid-feedback text-danger text-sm mt-1">
+                        Please provide a valid email address.
+                      </div>
+                    </div>
+                  </div>
+                <div class="">
+                  <label for="message" class="block text-secondary-600 font-medium p-1">Content</label>
+                  <textarea rows="5" name="message" id="message" placeholder="Write content" class="mt-1 md:h-[145px] block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" required></textarea>
+                  <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+                    Please enter your message.
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <button type="submit" class="flex justify-center items-center gap-3 w-full text-center text-white bg-red-600 font-bold py-4 px-14 rounded-2xl shadow-lg hover:bg-red-400">
+                    Get in Touch
+                      <svg width="10" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.67261 1L6.08335 5.41075C6.36113 5.6885 6.50002 5.82742 6.50002 6C6.50002 6.17258 6.36113 6.3115 6.08335 6.58925L1.67261 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>          
+                  </button>
+                </div>
+              </form>
+        </div>
+    </section>
+</MainLayout>
+<style>
+    .invalid-feedback,
+    .empty-feedback {
+      display: none;
+    }
+  
+    .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+      display: block;
+    }
+  
+    .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+      display: block;
+    }
+  
+    .is-invalid,
+    .was-validated :invalid {
+      border-color: #dc3545;
+    }
+  </style>
+  
+  <script is:inline>
+     const form = document.getElementById("form");
+  
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.classList.add("was-validated");
+      if (!form.checkValidity()) {
+        form.querySelectorAll(":invalid")[0].focus();
+        return;
+      }
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      location.href = `mailto:${object?.replyto}?subject=Request to Connect - ${object.name}&body=Hi,%0D%0A%0D%0A${object?.message}%0D%0A%0D%0ARegards,%0D%0A${object?.name}%0D%0A${object?.phone}%0D%0A${object?.email}`;
+      form.reset();
+      form.classList.remove("was-validated");   
+    });
+  </script>
