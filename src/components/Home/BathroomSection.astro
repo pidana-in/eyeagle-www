@@ -1,0 +1,22 @@
+---
+const item = Astro.props.item;
+---
+    <div class=`flex ${item.id%2 ===0 && "flex-row-reverse"} md:grid-cols-2 gap-36 justify-evenly items-center`>
+        <div class="">
+            <img
+            src={item.image?.src ?? ""}
+            alt={'item.heading'}
+          />
+        </div>
+        <div class="bg-white p-6 w-[535px]"> 
+          <h1 class="text-base font-medium mb-2 text-red-600">
+            {item.heading}
+          </h1>
+          <h2 class="text-3xl font-semibold">
+           {item.title}
+          </h2>
+          <h3>
+            {item.description}
+          </h3>
+        </div>
+      </div>
