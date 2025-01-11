@@ -1,8 +1,9 @@
 import BathroomImage1 from "../../assets/Navbar/bathroomImage1.png";
 import BathroomImage3 from "../../assets/Navbar/bathroomImage3.png";
 import BathroomImage4 from "../../assets/Navbar/bathroomImage4.png";
-import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png"
-import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png"
+import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
+import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png";
+
 
 export const bathroomData = [
     {
@@ -58,3 +59,4 @@ export const takeCareData = [
         image:takeCareImage2
     },
 ]
+
