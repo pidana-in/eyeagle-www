@@ -1,0 +1,21 @@
+---
+import HeroSection from "../components/Manifesto/HeroSection.astro";
+import BannerSection1 from "../components/Manifesto/BannerSection1.astro";
+import ContextSection from "../components/Manifesto/ContextSection.astro";
+import BannerSection2 from "../components/Manifesto/BannerSection2.astro";
+import BottomContextsSection from "../components/Manifesto/BottomSection.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import DesireSection from "../components/Home/DesireSection.astro";
+import desireImage from "../assets/Navbar/desireImage.png";
+---
+
+<MainLayout>
+  <HeroSection />
+  <BannerSection1 />
+  <ContextSection />
+  <BannerSection2 />
+  <BottomContextsSection />
+  <section class="w-full">
+    <DesireSection item={desireImage} className="mt-0"/>
+  </section>
+</MainLayout>
