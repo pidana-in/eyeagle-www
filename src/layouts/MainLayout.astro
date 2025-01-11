@@ -24,7 +24,7 @@ const { pathname } = Astro. url
       >
         <div class="flex justify-between items-center">
           <a href="/">
-            <Image src={pathname === "/" ? EyeagleLogo:EyeagleSecondLogo} alt={'Eyeagle Logo'} id="imageBg" />
+            <img src={pathname === "/" ? EyeagleLogo.src:EyeagleSecondLogo.src} alt={'Eyeagle Logo'} id="imageBg" />
           </a>
           <ul class=`flex space-x-12 font-semibold ml-14 px-4 ${pathname === "/" && "text-white"}` id="content">
             <li><a href="/manifesto" class="hover:underline">Our manifesto</a></li>
@@ -34,7 +34,7 @@ const { pathname } = Astro. url
       </div>
         
         <div class="flex gap-5">
-          <Image src={Account} alt={'Account logo'}/>
+          <img src={Account.src} alt={'Account logo'}/>
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
       </div>
       </nav>
