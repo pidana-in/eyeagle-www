@@ -1,0 +1,17 @@
+---
+const banner2Contexts=[{description:"I make sure we go above and beyond industry norms in developing our safety and sustainability standards. As a mother, I prefer to err on the side of caution—if there’s any question about an ingredient, we don’t include it.",author:"Jackie, Product Innovation + Insights"},{description:"I make sure we go above and beyond industry norms in developing our safety and sustainability standards. As a mother, I prefer to err on the side of caution—if there’s any question about an ingredient, we don’t include it.",author:"Jackie, Product Innovation + Insights"},{description:"I make sure we go above and beyond industry norms in developing our safety and sustainability standards. As a mother, I prefer to err on the side of caution—if there’s any question about an ingredient, we don’t include it.",author:"Jackie, Product Innovation + Insights"}]
+
+---
+<section class="h-[991px] bg-[#F6F4F2] relative">
+    <img src="/src/assets/manifesto_banner_2.png" class="h-[653px] w-full"/>
+    <div class="flex gap-10 absolute bottom-52 left-28">
+      {banner2Contexts.map((context) => (
+        <div class="flex flex-col gap-3 p-8 rounded-lg items-center justify-center bg-[#FFFFFFE5] max-h-[306px] max-w-[373px]">
+          <p class="text-center">"{context?.description}"</p>
+          <div class="w-[30px] h-[2px] text-center m-auto bg-[#CC0000]"></div>
+          <p class="text-center">{context?.author}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+  
