@@ -4,21 +4,21 @@ const className = Astro.props.className ?? '';
 ---
 
 <section>
-    <div class="mx-auto ">
-      <div class={`relative h-[900px] mb-8 mt-20  ${className}`}>
+    <div>
+      <div class={`relative h-[327px] lg:h-[900px] mb-8 mt-20  ${className}`}>
         <img
           src={desireImage.src}
           alt="Our healthcare team"
           class="w-full h-full object-cover brightness-95 rounded-sm"
         />
-        <div class="w-full">
-          <p class="absolute top-20 left-20 text-[52px] font-semibold leading-[62px] max-w-2xl mx-auto  text-white">
+        <div class="w-full font-sans-instrument">
+          <p class="absolute lg:top-20 top-10 lg:left-20 left-5 lg:text-[80px] text-2xl font-semibold lg:leading-[62px] max-w-2xl mx-auto  text-white">
             Your Loved Ones Deserve the Best.
           </p>
-          <p class="absolute top-60 max-w-2xl  text-white left-20">
+          <p class="absolute max-lg:top-20 top-60 max-lg:text-lg lg:max-w-2xl text-white lg:left-20 left-5">
             Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.
           </p>
-          <button class="py-4 flex justify-between items-center w-48 text-white absolute top-[350px] left-20 px-8 rounded-3xl bg-red-600">
+          <button class="py-4 flex justify-between items-center w-48 text-white absolute top-48 lg:top-[350px] lg:left-20 left-5 px-8 lg:rounded-3xl bg-red-600 rounded-full">
             <span>
               Get Started
             </span>
@@ -29,4 +29,5 @@ const className = Astro.props.className ?? '';
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

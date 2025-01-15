@@ -15,21 +15,21 @@ export const bathroomData = [
     },
     {
         id:2,
-        heading:"patented alarm system",
+        heading:"Patented alarm system",
         title:"Our PIDANA Alarm device that lets you help in an emergency",
         description:"In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
         image:BathroomImage1
     },
     {
         id:3,
-        heading:"eyeagle app",
+        heading:"Eyeagle app",
         title:"Comprehensive App that provides quick alerts & help",
         description:"Once the alarm is raised, caregivers are instantly alerted on their smartphones. Whether you’re at home or miles away, EyEagle ensures that help is just a notification away.",
         image:BathroomImage3
     },
     {
         id:4,
-        heading:"trained professional team",
+        heading:"Trained professional team",
         title:"Established and trained team to help battle emergency",
         description:"If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
         image:BathroomImage4
