@@ -1,0 +1,26 @@
+---
+import BathroomSection from "./BathroomSection.astro";
+interface Props {
+    bathroomData:{
+    id: number;
+    heading: string;
+    title: string;
+    description: string;
+    image: ImageMetadata;
+}[]
+}
+const bathroomData = Astro.props.bathroomData;
+---
+
+<section class="lg:py-24 py-12 max-lg:px-4 px-20">
+    <div class="flex justify-center">
+      <h2 class="lg:text-[52px] font-sans-instrument mb-8 leading-10 lg:mx-32 text-[32px] lg:leading-[62px] font-medium lg:font-normal text-center max-w-3xl">
+        The most <span class="text-red-600">complete bathroom</span> safety you've ever seen
+      </h2>
+    </div>
+    <div class="pt-12 grid gap-12">
+      {bathroomData?.map((item)=>
+        <BathroomSection item={item} mobile={false}/>
+      )}
+    </div>
+</section>
