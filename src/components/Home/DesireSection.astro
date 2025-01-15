@@ -4,31 +4,29 @@ const className = Astro.props.className ?? '';
 ---
 
 <section>
-  <div class="mx-auto">
-    <div class={`relative h-[500px] sm:h-[700px] lg:h-[900px] mt-10 ${className}`}>
-      <img
-        src={desireImage.src}
-        alt="Our healthcare team"
-        class="w-full h-full object-cover brightness-95 rounded-sm"
-      />
-      <div class="absolute inset-0 flex flex-col justify-start sm:justify-center gap-6 px-6 sm:px-10 lg:px-20 pt-10 lg:pt-0">
-        <p class="text-[28px] sm:text-[36px] lg:text-[52px] font-semibold leading-[34px] sm:leading-[44px] lg:leading-[62px] text-white max-w-lg lg:max-w-2xl">
-          Your Loved Ones Deserve the Best.
-        </p>
-        <p class="text-[16px] sm:text-[18px] lg:text-[20px] text-white max-w-lg lg:max-w-2xl">
-          Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.
-        </p>
-        <button class="py-3 sm:py-4 flex justify-between items-center w-36 sm:w-48 text-white px-6 sm:px-8 rounded-3xl bg-red-600">
-          <span>Get Started</span>
-          <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z"
-              fill="white"
-            />
-          </svg>
-        </button>
+    <div>
+      <div class={`relative h-[327px] lg:h-[900px] mb-8 mt-20  ${className}`}>
+        <img
+          src={desireImage.src}
+          alt="Our healthcare team"
+          class="w-full h-full object-cover brightness-95 rounded-sm"
+        />
+        <div class="w-full font-sans-instrument">
+          <p class="absolute lg:top-20 top-10 lg:left-20 left-5 lg:text-[80px] text-2xl font-semibold lg:leading-[62px] max-w-2xl mx-auto  text-white">
+            Your Loved Ones Deserve the Best.
+          </p>
+          <p class="absolute max-lg:top-20 top-60 max-lg:text-lg lg:max-w-2xl text-white lg:left-20 left-5">
+            Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.
+          </p>
+          <button class="py-4 flex justify-between items-center w-48 text-white absolute top-48 lg:top-[350px] lg:left-20 left-5 px-8 lg:rounded-3xl bg-red-600 rounded-full">
+            <span>
+              Get Started
+            </span>
+            <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
+              </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>

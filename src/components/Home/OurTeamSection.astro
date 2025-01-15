@@ -2,25 +2,24 @@
 const ourTeam = Astro.props.item;
 ---
 <section>
-    <div class="mx-auto">
-      <div class="flex justify-center">
-        <h2 class="text-[52px] font-normal leading-[62px] mb-12 text-center max-w-3xl">
+      <div class="flex justify-center items-center px-4">
+        <h2 class="lg:text-[52px] font-sans-instrument leading-10 text-[32px] max-lg:font-medium font-medium lg:font-normal lg:leading-[62px] lg:mb-12 text-center lg:max-w-3xl">
           Our complete bathroom safety kit addresses every risk, giving you and your family the peace of mind that they’re safe
         </h2>
       </div>
-      <div class="relative h-[900px] mb-8 mt-20">
+      <div class="relative h-[327px] lg:h-[900px] mb-8 mt-20">
         <img
           src={ourTeam.src}
           alt="Our healthcare team"
           class="w-full h-full object-cover brightness-95"
         />
         <div class="w-full">
-          <p class="absolute bottom-10 left-20 text-[52px] font-normal max-w-2xl mx-auto  text-white">
+          <p class="absolute font-sans-instrument top-10 lg:bottom-10 leading-8 lg:left-20 left-5 lg:text-[52px] lg:leading-[80px] font-normal max-w-2xl mx-auto text-2xl text-white">
             Our trained professionals are available 24/7 to ensure the safety of
             your loved ones.
           </p>
-          <button class="py-4 flex justify-between items-center w-48 text-white absolute bottom-20 right-20 px-8 rounded-3xl bg-red-600">
-            <span>
+          <button class="py-4 font-sans-instrument lg:gap-4 flex justify-center max-lg:gap-8 items-center lg:w-48 text-white absolute max-lg:left-5 bottom-20 lg:right-20 px-8 lg:rounded-3xl rounded-full bg-red-600">
+            <span class="">
               See our plans
             </span>
             <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,5 +28,4 @@ const ourTeam = Astro.props.item;
           </button>
         </div>
       </div>
-    </div>
   </section>

@@ -1,21 +1,23 @@
 ---
 const item = Astro.props.item;
+const mobile = Astro.props.mobile;
 ---
-    <div class=`flex ${item.id%2 ===0 && "flex-row-reverse"} md:grid-cols-2 gap-36 justify-evenly items-center`>
-        <div class="">
+    <div class=`flex ${item.id%2 ===0 && "flex-row-reverse"} max-lg:flex-col md:grid-cols-2 ${mobile ? "max-lg:gap-20":"max-lg:gap-4"}  gap-36 justify-evenly items-center`>
+        <div class="lg:w-1/2">
             <img
             src={item.image?.src ?? ""}
             alt={'item.heading'}
+            class="w-full bg-cover"
           />
         </div>
-        <div class="bg-white p-6 w-[535px]"> 
-          <h1 class="text-base font-medium mb-2 text-red-600">
-            {item.heading}
+        <div class=`bg-white ${mobile && "max-lg:pb-20"} pt-8 lg:p-6 w-full lg:w-1/2`> 
+          <h1 class="text-base max-lg:py-6 max-lg:text-base font-inter font-medium lg:mb-2 text-red-600">
+            {item.heading.toUpperCase()}
           </h1>
-          <h2 class="text-3xl font-semibold">
+          <h2 class="text-3xl max-lg:py-3 max-lg:text-[32px] font-inter max-lg:leading-10 font-semibold">
            {item.title}
           </h2>
-          <h3>
+          <h3 class="max-lg:text-lg font-inter max-lg:pt-4">
             {item.description}
           </h3>
         </div>
