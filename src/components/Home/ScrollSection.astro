@@ -1,0 +1,16 @@
+---
+import doctorImage1 from "../../assets/Navbar/doctorImage1.png";
+import doctorImage2 from "../../assets/Navbar/doctorImage2.png";
+import doctorImage3 from "../../assets/Navbar/doctorImage3.png";
+import doctorImage4 from "../../assets/Navbar/doctorImage4.png";
+import { Image } from "astro:assets";
+---
+
+<section class="lg:my-24 my-16">
+    <div class="overflow-x-auto w-full lg:h-[333px] flex lg:gap-4 gap-8 containers pl-4 lg:pl-11">
+      <Image src={doctorImage1} alt={"doctorImage1"}/>
+      <Image src={doctorImage2} alt={"doctorImage2"}/>
+      <Image src={doctorImage3} alt={"doctorImage3"}/>
+      <Image src={doctorImage4} alt={"doctorImage4"}/>
+    </div>
+  </section>
