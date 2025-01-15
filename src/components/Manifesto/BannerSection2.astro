@@ -1,9 +1,10 @@
 ---
 import { banner2Contexts } from "../constants/manifesto";
 import manifestoBanner2 from "../../assets/Manifesto/manifesto_banner_2.png";
+import { Image } from "astro:assets";
 ---
 <section class="h-auto sm:h-[991px] bg-[#F6F4F2] relative">
-  <img src={manifestoBanner2.src} class="h-[250px] sm:h-[653px] w-full object-cover" alt="Manifesto Banner" />
+  <Image src={manifestoBanner2} class="h-[250px] sm:h-[653px] w-full object-cover" alt="Manifesto Banner" />
   <div class="lg:absolute bottom-10 sm:bottom-52 left-0 right-0 overflow-x-scroll sm:overflow-x-auto flex gap-6 sm:gap-10 px-4 sm:px-40 pt-10 lg:pt-0">
     {banner2Contexts.map((context) => (
       <div

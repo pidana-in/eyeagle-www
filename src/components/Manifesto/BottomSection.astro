@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { explanations } from "../constants/manifesto";
 ---
 
@@ -33,7 +34,7 @@ import { explanations } from "../constants/manifesto";
           </div>
         </div>
         <div class="h-[200px] sm:h-[360px] w-full sm:w-[619px] rounded-lg overflow-hidden">
-          <img src={explanation.imgSrc.src} class="w-full h-full object-cover" alt={explanation.title} />
+          <Image src={explanation.imgSrc} class="w-full h-full object-cover" alt={explanation.title} />
         </div>
       </div>
     ))}
