@@ -1,6 +1,7 @@
 ---
 import { aboutUsFoundersData } from "../constants/aboutus";
 import Ellipse from "../../assets/Aboutus/Ellipse.png";
+import { Image } from "astro:assets";
 ---
 <section class="bg-[#F6F4F2] pb-20">
   <h1 class="text-[36px] sm:text-[48px] lg:text-[68px] italic text-center py-10 sm:py-20 px-5 lg:px-0">The Minds Behind EyEagle</h1>
@@ -14,13 +15,13 @@ import Ellipse from "../../assets/Aboutus/Ellipse.png";
 
         <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 w-full">
           <div class="relative h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] lg:h-[373px] lg:w-[373px]">
-            <img
-              src={founder.photo.src}
+            <Image
+              src={founder.photo}
               alt={`${founder.name}'s Photo`}
               class="object-cover h-full w-full rounded-full"
             />
-            <img
-              src={Ellipse.src}
+            <Image
+              src={Ellipse}
               alt="Ellipse Decoration"
               class="absolute top-[-10px] right-[10px] sm:top-[-20px] sm:right-[20px] h-[50px] w-[40px] sm:h-[70px] sm:w-[60px]"
             />

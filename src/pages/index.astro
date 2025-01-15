@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeroSection from "../assets/Navbar/HeroSection.png"
+import HeroSection from "../assets/Navbar/HeroSection.png";
 import doctorImage1 from "../assets/Navbar/doctorImage1.png";
 import doctorImage2 from "../assets/Navbar/doctorImage2.png";
 import doctorImage3 from "../assets/Navbar/doctorImage3.png";
@@ -16,11 +16,11 @@ import DesireSection from "../components/Home/DesireSection.astro";
 <MainLayout>
   <!-- Hero Section -->
   <section class=" lg:h-[856px]">
-    <img
-      src={HeroSection.src}
+    <Image
+      src={HeroSection}
       alt="Emergency prevention"
       class="w-full h-full object-cover"
-    />
+    /> 
   </section>
 
   <!-- Statistics Section -->
@@ -38,10 +38,10 @@ import DesireSection from "../components/Home/DesireSection.astro";
   <!-- Scroll section -->
   <section class="lg:my-24 my-16">
     <div class="overflow-x-auto w-full lg:h-[333px] flex lg:gap-4 gap-8 containers pl-4 lg:pl-11">
-      <img src={doctorImage1.src} alt={"doctorImage1"}/>
-      <img src={doctorImage2.src} alt={"doctorImage2"}/>
-      <img src={doctorImage3.src} alt={"doctorImage3"}/>
-      <img src={doctorImage4.src} alt={"doctorImage4"}/>
+      <Image src={doctorImage1} alt={"doctorImage1"}/>
+      <Image src={doctorImage2} alt={"doctorImage2"}/>
+      <Image src={doctorImage3} alt={"doctorImage3"}/>
+      <Image src={doctorImage4} alt={"doctorImage4"}/>
     </div>
   </section>
 

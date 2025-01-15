@@ -9,6 +9,7 @@ const footerClass = Astro.props.footerClass ?? '';
 
 // Import global tailwind styles
 import "../styles/global.css";
+import { Image } from 'astro:assets';
 const { title = "EYEAGLE" } = Astro.props;
 const { pathname } = Astro. url
 ---
@@ -31,7 +32,7 @@ const { pathname } = Astro. url
       >
         <div class="flex justify-between items-center">
           <a href="/">
-            <img src={pathname === "/" ? EyeagleLogo.src:EyeagleSecondLogo.src} alt={'Eyeagle Logo'} id="imageBg" class="w-[163px]"/>
+            <Image src={pathname === "/" ? EyeagleLogo:EyeagleSecondLogo} alt={'Eyeagle Logo'} id="imageBg" class="w-[163px]"/>
           </a>
           <ul class=`flex space-x-12 font-semibold ml-14 px-4 ${pathname === "/" && "text-white"}` id="content">
             <li><a href="/manifesto" class="hover:underline">Our manifesto</a></li>
@@ -41,7 +42,7 @@ const { pathname } = Astro. url
       </div>
         
         <div class="flex gap-5">
-          <img src={Account.src} alt={'Account logo'}/>
+          <Image src={Account} alt={'Account logo'}/>
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
       </div>
       </nav>
@@ -50,7 +51,7 @@ const { pathname } = Astro. url
       <nav class="flex justify-between items-center px-5 py-7">
         <div>
           <a href="/">
-            <img src={EyeagleLogoMobileBlack.src} alt=""/>
+            <Image src={EyeagleLogoMobileBlack} alt=""/>
           </a>
         </div>
         <div id="hamburger">

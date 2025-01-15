@@ -2,6 +2,7 @@
 import empowering1 from "../../assets/Aboutus/empowering1.png"
 import seniorCouple from "../../assets/Aboutus/senior-couple.png"
 import empowering2 from "../../assets/Aboutus/empowering2.png"
+import { Image } from "astro:assets"
 ---
 <section class="relative h-auto lg:h-[900px] px-6 sm:px-10 lg:px-[80px] py-10 lg:py-[100px]">
   <div class="text-center lg:absolute lg:inset-x-0 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10">
@@ -14,10 +15,10 @@ import empowering2 from "../../assets/Aboutus/empowering2.png"
   </div>
   
   <div class="grid grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-x-[500px] place-items-center pt-20 lg:pt-0 z-0">
-    <img src={empowering1.src} class="w-[140px] sm:w-[200px] lg:w-[292px] lg:h-[383px] ml-0 lg:ml-[100px]" alt="Empowering seniors" />
-    <img src={seniorCouple.src} class="w-[200px] sm:w-[300px] lg:w-[428px] lg:h-[285px]" alt="Senior couple" />
-    <img src={empowering2.src} class="w-[200px] sm:w-[300px] lg:w-[428px] lg:h-[285px]" alt="Empowering seniors" />
-    <img src={empowering1.src} class="w-[140px] sm:w-[200px] lg:w-[292px] lg:h-[383px] ml-0 lg:ml-[120px]" alt="Empowering seniors" />
+    <Image src={empowering1} class="w-[140px] sm:w-[200px] lg:w-[292px] lg:h-[383px] ml-0 lg:ml-[100px]" alt="Empowering seniors" />
+    <Image src={seniorCouple} class="w-[200px] sm:w-[300px] lg:w-[428px] lg:h-[285px]" alt="Senior couple" />
+    <Image src={empowering2} class="w-[200px] sm:w-[300px] lg:w-[428px] lg:h-[285px]" alt="Empowering seniors" />
+    <Image src={empowering1} class="w-[140px] sm:w-[200px] lg:w-[292px] lg:h-[383px] ml-0 lg:ml-[120px]" alt="Empowering seniors" />
   </div>
 </section>
 

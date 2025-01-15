@@ -1,11 +1,13 @@
 ---
+import { Image } from "astro:assets";
+
 const item = Astro.props.item;
 const mobile = Astro.props.mobile;
 ---
     <div class=`flex ${item.id%2 ===0 && "flex-row-reverse"} max-lg:flex-col md:grid-cols-2 max-lg:gap-4  gap-36 justify-evenly items-center`>
         <div class="lg:w-1/2">
-            <img
-            src={item.image?.src ?? ""}
+            <Image
+            src={item.image ?? ""}
             alt={'item.heading'}
             class="w-full bg-cover"
           />
