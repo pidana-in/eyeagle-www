@@ -1,83 +1,31 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroSection from "../assets/Navbar/HeroSection.png";
-import doctorImage1 from "../assets/Navbar/doctorImage1.png";
-import doctorImage2 from "../assets/Navbar/doctorImage2.png";
-import doctorImage3 from "../assets/Navbar/doctorImage3.png";
-import doctorImage4 from "../assets/Navbar/doctorImage4.png";
 import ourTeam from "../assets/Navbar/ourTeam.png";
 import desireImage from "../assets/Navbar/desireImage.png";
-import { Image } from "astro:assets";
-import BathroomSection from "../components/Home/BathroomSection.astro";
+import HeroSectionComponent from "../components/Home/HeroSectionComponent.astro";
+import HealthOrganization from "../components/Home/HealthOrganization.astro";
 import {bathroomData,takeCareData} from "../components/constants/home";
 import OurTeamSection from "../components/Home/OurTeamSection.astro";
 import DesireSection from "../components/Home/DesireSection.astro";
+import ScrollSection from "../components/Home/ScrollSection.astro";
+import ProductFeature from "../components/Home/ProductFeature.astro";
+import ServiceSection from "../components/Home/ServiceSection.astro";
 ---
 <MainLayout>
   <!-- Hero Section -->
-  <section class=" lg:h-[856px]">
-    <Image
-      src={HeroSection}
-      alt="Emergency prevention"
-      class="w-full h-full object-cover"
-    /> 
-  </section>
-
+   <HeroSectionComponent heroImage={HeroSection}/>
   <!-- Statistics Section -->
-  <section class="lg:py-16 max-lg:pt-20 px-4 bg-white">
-      <p class="text-center max-lg:font-semibold text-2xl font-sans-instrument lg:text-[3.2rem] mb-8 lg:mx-32 lg:leading-[62px] font-normal">
-        According to the World Health Organization, millions of elderly
-        individuals, including our parents, experience falls each year, many
-        leading to serious injury or hospitalization.
-      </p>
-      <p class="text-center font-semibold font-sans-instrument text-2xl max-lg:pt-4 max-lg:font-semibold text-red-600 lg:text-[52px] lg:font-normal">
-        But it doesn't have to be this way.
-      </p>
-  </section>
-
+  <HealthOrganization/>
   <!-- Scroll section -->
-  <section class="lg:my-24 my-16">
-    <div class="overflow-x-auto w-full lg:h-[333px] flex lg:gap-4 gap-8 containers pl-4 lg:pl-11">
-      <Image src={doctorImage1} alt={"doctorImage1"}/>
-      <Image src={doctorImage2} alt={"doctorImage2"}/>
-      <Image src={doctorImage3} alt={"doctorImage3"}/>
-      <Image src={doctorImage4} alt={"doctorImage4"}/>
-    </div>
-  </section>
-
+  <ScrollSection/>
   <!-- Product Features Section -->
-  <section class="lg:py-24 py-12 max-lg:px-4 px-20">
-      <div class="flex justify-center">
-        <h2 class="lg:text-[52px] font-sans-instrument mb-8 leading-10 lg:mx-32 text-[32px] lg:leading-[62px] font-medium lg:font-normal text-center max-w-3xl">
-          The most <span class="text-red-600">complete bathroom</span> safety you've ever seen
-        </h2>
-      </div>
-      <div class="pt-12 grid gap-12">
-        {bathroomData?.map((item)=>
-          <BathroomSection item={item} mobile={false}/>
-        )}
-      </div>
-  </section>
-
+   <ProductFeature bathroomData={bathroomData}/>
   <!-- Team Section -->
   <OurTeamSection item={ourTeam}/>
-
   <!-- Services Section -->
-  <section id="services" class="py-8">
-    <div class="px-4 lg:px-28">
-      <h2 class="lg:text-[52px] font-sans-instrument text-[32px] font-normal mb-12 lg:mb-[60px] text-center max-lg:pb-10">
-        We take care of <span class="text-red-600">everything</span>
-      </h2>
-      <div class="grid gap-8">
-        {takeCareData?.map((item)=>
-        <BathroomSection item={item} mobile={true}/>
-      )}
-      </div>
-    </div>
-  </section>
-
+   <ServiceSection takeCareData={takeCareData}/>
   <!-- Desire Section -->
   <DesireSection item={desireImage}/>
-
 </MainLayout>
 

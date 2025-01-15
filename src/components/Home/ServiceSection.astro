@@ -1,0 +1,26 @@
+---
+import BathroomSection from "./BathroomSection.astro";
+interface Props {
+    takeCareData : {
+    id: number;
+    heading: string;
+    title: string;
+    description: string;
+    image: ImageMetadata;
+}[]
+}
+const takeCareData = Astro.props.takeCareData;
+---
+
+<section id="services" class="py-8">
+    <div class="px-4 lg:px-28">
+      <h2 class="lg:text-[52px] font-sans-instrument text-[32px] font-normal mb-12 lg:mb-[60px] text-center max-lg:pb-10">
+        We take care of <span class="text-red-600">everything</span>
+      </h2>
+      <div class="grid gap-8">
+        {takeCareData?.map((item)=>
+        <BathroomSection item={item} mobile={true}/>
+      )}
+      </div>
+    </div>
+  </section>

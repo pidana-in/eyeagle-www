@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+const heroImage = Astro.props.heroImage;
+---
+<section class=" lg:h-[856px]">
+    <Image
+      src={heroImage}
+      alt="Emergency prevention"
+      class="w-full h-full object-cover"
+    /> 
+  </section>
