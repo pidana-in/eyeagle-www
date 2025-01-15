@@ -2,16 +2,24 @@
 
 import { Values } from "../constants/aboutus";
 ---
-<section class="px-[80px] py-[100px] bg-[#F6F4F2] grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
-  <div class="rounded-lg p-6">
-    <h2 class="text-[40px] text-gray-800 mb-2 font-semibold">{Values[0].title}</h2>
-    <p class="text-[18px]">{Values[0].description}</p>
+<section class="px-6 sm:px-10 lg:px-[80px] py-10 sm:py-[60px] lg:py-[100px] bg-[#F6F4F2] grid grid-cols-1 lg:grid-cols-2 gap-10">
+  <div class="rounded-lg  lg:bg-none p-6 bg-white  shadow-md lg:bg-transparent lg:shadow-none">
+    <h2 class="text-[32px] sm:text-[36px] lg:text-[40px] text-gray-800 mb-4 font-semibold">
+      {Values[0].title}
+    </h2>
+    <p class="text-[16px] sm:text-[18px] text-gray-600">
+      {Values[0].description}
+    </p>
   </div>
-  <div class="grid grid-rows-3 gap-4">
+  <div class="grid grid-rows-3 gap-6">
     {Values.slice(1).map((value) => (
-      <div class="rounded-lg p-6">
-        <h2 class="text-[32px] font-semibold text-gray-800 mb-2">{value.title}</h2>
-        <p class="text-[18px]">{value.description}</p>
+      <div class="rounded-lg bg-white  shadow-md lg:bg-transparent lg:shadow-none p-6">
+        <h2 class="text-[24px] sm:text-[28px] lg:text-[32px] font-semibold text-gray-800 mb-3">
+          {value.title}
+        </h2>
+        <p class="text-[16px] sm:text-[18px] text-gray-600">
+          {value.description}
+        </p>
       </div>
     ))}
   </div>
