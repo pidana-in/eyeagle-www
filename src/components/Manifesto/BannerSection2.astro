@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 ---
 <section class="h-auto font-sans-instrument sm:h-[991px] bg-[#F6F4F2] relative w-full">
   <Image src={manifestoBanner2} class="h-[250px] sm:h-[653px] w-full object-cover" alt="Manifesto Banner" />
-  <div class="lg:absolute lg:bottom-10 sm:bottom-52 lg:left-1/2 lg:transform lg:-translate-x-1/2 overflow-x-scroll sm:overflow-x-auto flex gap-6 sm:gap-10 px-4 sm:px-40 pt-10 lg:pt-0 lg:bottom-60">
+  <div class="lg:absolute lg:bottom-10 sm:bottom-52 lg:left-1/2 lg:transform lg:-translate-x-1/2  max-lg:overflow-x-auto flex gap-6 sm:gap-10 px-4 sm:px-40 pt-10 lg:pt-0 lg:bottom-60">
     {banner2Contexts.map((context) => (
       <div
         class="flex flex-col gap-3 p-6 sm:p-8 rounded-lg items-center justify-center bg-[#FFFFFFE5]  min-w-[280px] w-[373px] shadow-md"
