@@ -12,10 +12,10 @@ import { explanations } from "../constants/manifesto";
       At EyEagle, we believe in absolute safety. That’s why we’ve developed the PIDANA Protocol—a meticulous safety framework designed to ensure your bathroom is as safe as possible for your loved ones.
     </p>
   </div>
-  <div class="px-6 sm:px-[80px] flex flex-col gap-[80px] sm:gap-10">
+  <div class="px-6 sm:px-[80px] grid  gap-[48px] sm:gap-10">
     {explanations.map((explanation) => (
-      <div  class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-[80px] sm:gap-10">
-        <div class="flex flex-col items-start w-full sm:w-auto">
+      <div  class="flex flex-col sm:flex-row items-center sm:items-start justify-evenly gap-[80px] sm:gap-10">
+        <div class="flex flex-col items-start w-full sm:w-auto ">
           <div class="mb-4 h-[36px] w-[36px] rounded-full bg-[#CC0000] flex items-center justify-center text-white">
             <p>{explanation.title[0]}</p>
           </div>
