@@ -73,9 +73,9 @@ const { pathname } = Astro. url
         <li><a href="/manifesto">Our Manifesto</a></li>
         <li><a href="/about-us">About us</a></li>
         <li><a href="/contact">Contact</a></li>
-        <a href="/plan">
+        {pathname === "/plan/"  ? "" :<a href="/plan">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
-        </a>
+        </a>}
       </ul>
     </section>
     <main>
