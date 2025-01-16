@@ -13,13 +13,13 @@ const mobile = Astro.props.mobile;
           />
         </div>
         <div class=`bg-white ${mobile && "max-lg:pb-20"} pt-8 lg:p-6 w-full lg:w-1/2`> 
-          <h1 class="text-base max-lg:py-6 max-lg:text-base font-inter font-medium lg:mb-2 text-red-600">
+          <h1 class="text-base max-lg:text-base font-sans-instrument font-medium lg:mb-2 text-red-600">
             {item.heading.toUpperCase()}
           </h1>
-          <h2 class="text-3xl max-lg:py-3 max-lg:text-[32px] font-inter max-lg:leading-10 font-semibold">
+          <h2 class="text-3xl max-lg:py-3 max-lg:text-[32px] pb-4 font-sans-instrument max-lg:leading-10 font-semibold">
            {item.title}
           </h2>
-          <h3 class="max-lg:text-lg font-inter max-lg:pt-4">
+          <h3 class="max-lg:text-lg font-sans-instrument max-lg:pt-4">
             {item.description}
           </h3>
         </div>
