@@ -32,19 +32,20 @@ const { pathname } = Astro. url
       >
         <div class="flex justify-between items-center">
           <a href="/">
-            <Image src={pathname === "/" ? EyeagleLogo:EyeagleSecondLogo} alt={'Eyeagle Logo'} id="imageBg" class="w-[163px]"/>
+            <Image src={pathname === "/" ? EyeagleLogo:EyeagleLogoBlack} alt={'Eyeagle Logo'} id="imageBg" class="w-[163px]"/>
           </a>
-          <ul class=`flex space-x-12 font-sans-instrument font-semibold ml-14 px-4 ${pathname === "/" && "text-white"}` id="content">
+          <ul class=`flex space-x-12 font-sans-instrument font-medium ml-14 px-4 ${pathname === "/" && "text-white"}` id="content">
             <li><a href="/manifesto" class="hover:underline">Our manifesto</a></li>
             <li><a href="/about-us" class="hover:underline">About us</a></li>
             <li><a href="/contact" class="hover:underline">Contact us</a></li>
           </ul>
       </div>
         
-        <div class="flex gap-5">
-          <Image src={Account} alt={'Account logo'}/>
+      {pathname === "/plan" ? "" : <div class="flex gap-5">
+        <a href="/plan">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
-      </div>
+        </a>
+      </div>}
       </nav>
     </header>
     <header id="mobileNav" class="lg:hidden sticky top-0 shadow z-30 bg-white w-full">
@@ -55,7 +56,7 @@ const { pathname } = Astro. url
           </a>
         </div>
         <div id="hamburger">
-          <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="48" height="48" rx="24" fill="#F6F4F2"/>
             <path d="M17.3335 18.167H30.6668" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M17.3335 24H30.6668" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,7 +70,9 @@ const { pathname } = Astro. url
         <li><a href="/manifesto">Our Manifesto</a></li>
         <li><a href="/about-us">About us</a></li>
         <li><a href="/contact">Contact</a></li>
-        <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
+        <a href="/plan">
+          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
+        </a>
       </ul>
     </section>
     <main>
@@ -77,33 +80,16 @@ const { pathname } = Astro. url
     </main>
 
     <footer class={`py-8 ${footerClass}`}>
-      <div class="flex max-lg:grid max-lg:gap-8 lg:justify-between justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32">
+      <div class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32">
         <div class="w-full">
-          <h2 class="font-sans-instrument lg:max-w-[451px] max-lg:text-center lg:text-3xl text-4xl font-medium leading-10">Expert advice, updates, and surprises for your inbox</h2>
-        </div>
-        <div class="font-inter grid lg:grid-cols-3 max-lg:text-lg max-lg:gap-8 max-lg:text-center grid-cols-1 lg:max-w-lg">
-          <div>
-            <a href="/manifesto" class="block hover:cursor-pointer hover:underline lg:mb-4 mb-8">Our manifesto</a>
-            <a href="/about-us" class="block hover:cursor-pointer hover:underline">About us</a>
-          </div>
-          <div class="grid gap-8 lg:gap-2">
-            <a class="block hover:cursor-pointer hover:underline">Facebook</a>
-            <a class="block hover:cursor-pointer hover:underline">Linkedin</a>
-            <a class="block hover:cursor-pointer hover:underline">Youtube</a>
-          </div>
-          <div class="grid gap-8 lg-gap-2">
-            <a class="block hover:cursor-pointer hover:underline">Email us:
-              email@emailaddress.com</a>
-            <a class="block hover:cursor-pointer hover:underline">+91 765 4444 222</a>
-            <a class="block hover:cursor-pointer hover:underline">3297 NJ-66,Neptune City,NJ 07753, United States</a>
-          </div>
+          <h2 class="font-sans-instrument text-center max-lg:text-center lg:text-3xl text-4xl font-medium leading-10">Expert advice, updates, and surprises for your inbox</h2>
         </div>
       </div>
       <div class="my-20 border-2 lg:mx-[120px] mx-4"/>
-      <div class="font-inter lg:mx-[120px] mx-4 mb-10 grid max-lg:gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center">
-        <h2 class="text-[32px] lg:font-medium">EYEAGLE</h2>
+      <div class="font-sans-instrument lg:mx-[120px] mx-4 mb-10 grid max-lg:gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center">
+        <Image src={EyeagleLogoBlack} alt={'Eyeagle Logo'} class="w-[163px]"/>
         <div class="lg:flex grid lg:gap-20 gap-8 justify-center items-center">
-          <a href="/tnc" class="block">Privacy Policy</a><a href="/tnc" class="block">Terms of Service</a><a href="/tnc" class="block">© 2024 EyEagle,inc.</a>
+          <a href="/refund" class="block">Refund Policy</a><a href="/privacy" class="block">Privacy Policy</a><a href="/tnc" class="block">Terms of Service</a><a href="/" class="block">© 2024 EyEagle,inc.</a>
         </div>
       </div>
     </footer>
