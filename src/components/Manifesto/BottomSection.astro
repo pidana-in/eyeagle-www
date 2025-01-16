@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import { explanations } from "../constants/manifesto";
 ---
 
-<section class="bg-[#F6F4F2] font-sans-instrument pb-10 sm:pb-20">
-  <div class="flex flex-col sm:flex-row items-center justify-between px-6 sm:px-[80px] gap-6 sm:gap-10 py-10 lg:py-0">
+<section class="bg-[#F6F4F2] font-sans-instrument pb-10 sm:pb-20 ">
+  <div class="flex flex-col sm:flex-row items-center justify-between px-6 sm:px-[80px] gap-[10px] sm:gap-10 py-10 lg:pb-60px">
     <h1 class="text-[32px] sm:text-[52px] max-w-full sm:max-w-[611px] text-center sm:text-left">
       Our Comprehensive <span class="text-[#CC0000]">PIDANA</span> Protocol: Leaving No Stone Unturned
     </h1>
@@ -12,19 +12,14 @@ import { explanations } from "../constants/manifesto";
       At EyEagle, we believe in absolute safety. That’s why we’ve developed the PIDANA Protocol—a meticulous safety framework designed to ensure your bathroom is as safe as possible for your loved ones.
     </p>
   </div>
-  <div class="px-6 sm:px-[80px] flex flex-col gap-6 sm:gap-10">
-    {explanations.map((explanation, index) => (
-      <div  class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 sm:gap-10">
+  <div class="px-6 sm:px-[80px] flex flex-col gap-[80px] sm:gap-10">
+    {explanations.map((explanation) => (
+      <div  class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-[80px] sm:gap-10">
         <div class="flex flex-col items-start w-full sm:w-auto">
           <div class="mb-4 h-[36px] w-[36px] rounded-full bg-[#CC0000] flex items-center justify-center text-white">
             <p>{explanation.title[0]}</p>
           </div>
           <div class="flex gap-4 sm:gap-5">
-            <div
-              class={`h-[100px] sm:h-[200px] w-[4px] bg-[#CC0000] ${
-                explanation.id === 1 ? "block" : "hidden"
-              }`}
-            ></div>
             <div>
               <h3 class="font-medium text-[20px] sm:text-[32px]">{explanation.title}</h3>
               <p class="text-[14px] sm:text-[18px] max-w-full sm:max-w-[481px]">
@@ -33,7 +28,7 @@ import { explanations } from "../constants/manifesto";
             </div>
           </div>
         </div>
-        <div class="h-[200px] sm:h-[360px] w-full sm:w-[619px] rounded-lg overflow-hidden">
+        <div class="h-[200px] sm:h-[360px]  sm:w-[619px]  rounded-lg overflow-hidden">
           <Image src={explanation.imgSrc} class="w-full h-full object-cover" alt={explanation.title} />
         </div>
       </div>
