@@ -3,6 +3,7 @@ import EyeagleLogo from '../assets/Navbar/EyeagleLogo.png';
 import Account from "../assets/Navbar/Account.png";
 import EyeagleSecondLogo from "../assets/Navbar/EyeagleSecondLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
+import EyeAgleFavIcon from "../assets/favicon.ico";
 import EyeagleLogoMobile from "../assets/Navbar/EyeagleLogoMobile.png";
 import EyeagleLogoMobileBlack from "../assets/Navbar/EyeagleLogoMobileBlack.png";
 const footerClass = Astro.props.footerClass ?? '';
@@ -24,7 +25,7 @@ const { pathname } = Astro. url
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="/src/assets/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
 
   </head>
   <body class="text-gray-900">
