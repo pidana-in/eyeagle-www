@@ -6,11 +6,12 @@ export default {
       fontFamily:{
         'sans-instrument':['Instrument Sans'],
         'inter':['Inter']
-      }
+      },
+      
     },
-    container: {
-      center: true,
-    },
+    container:{
+      center:true
+    }
   },
   plugins: [],
 }
