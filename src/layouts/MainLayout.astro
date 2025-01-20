@@ -29,9 +29,9 @@ const { pathname } = Astro. url
 
   </head>
   <body class="text-gray-900">
-    <header id="myNav" class=`fixed max-lg:hidden w-full top-0 z-50 px-20 py-5 ${pathname !== "/" && "bg-[#F6F4F2]"}`>
+    <header id="myNav" class=`fixed max-lg:hidden w-full top-0 z-50 right-0 px-20 py-5 ${pathname !== "/" && "bg-[#F6F4F2]"}`>
       <nav 
-        class="mx-auto flex justify-between items-center"
+        class="flex justify-between items-center xl:container"
       >
         <div class="flex justify-between items-center">
           <a href="/">
@@ -45,7 +45,7 @@ const { pathname } = Astro. url
       </div>
         
       {pathname === "/plan/" ? "" : <div class="flex gap-5">
-        <a href="/plan">
+        <a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
         </a>
       </div>}
@@ -73,7 +73,7 @@ const { pathname } = Astro. url
         <li><a href="/manifesto">Our Manifesto</a></li>
         <li><a href="/about-us">About us</a></li>
         <li><a href="/contact">Contact</a></li>
-        {pathname === "/plan/"  ? "" :<a href="/plan">
+        {pathname === "/plan/"  ? "" :<a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
         </a>}
       </ul>
@@ -82,7 +82,7 @@ const { pathname } = Astro. url
       <slot />
     </main>
 
-    <footer class={`py-8 ${footerClass}`}>
+    <footer class={`py-8 ${footerClass} xl:container`}>
       <div class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32">
         <div class="w-full">
           <h2 class="font-sans-instrument text-center max-lg:text-center lg:text-3xl text-4xl font-medium leading-10">Expert advice, updates, and surprises for your inbox</h2>

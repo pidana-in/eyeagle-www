@@ -8,6 +8,9 @@ export default {
         'inter':['Inter']
       }
     },
+    container: {
+      center: true,
+    },
   },
   plugins: [],
 }
