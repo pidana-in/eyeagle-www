@@ -7,15 +7,16 @@ interface Props {
     title: string;
     description: string;
     image: ImageMetadata;
-}[]
+}[],
+productFeatureTitle:string
 }
 const bathroomData = Astro.props.bathroomData;
+const productFeatureTitle = Astro.props.productFeatureTitle;
 ---
 
 <section class="lg:py-24 py-12 max-lg:px-4 px-20 xl:container">
     <div class="flex justify-center">
-      <h2 class="lg:text-[52px] font-sans-instrument mb-8 leading-10 lg:mx-32 text-[32px] lg:leading-[62px] font-medium lg:font-normal text-center max-w-3xl">
-        The most <span class="text-red-600">complete bathroom</span> safety you've ever seen
+      <h2 set:html={productFeatureTitle} class="lg:text-[52px] font-sans-instrument mb-8 leading-10 lg:mx-32 text-[32px] lg:leading-[62px] font-medium lg:font-normal text-center max-w-3xl">
       </h2>
     </div>
     <div class="pt-12 grid gap-12">

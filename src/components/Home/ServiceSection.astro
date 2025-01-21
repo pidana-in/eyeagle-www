@@ -7,15 +7,16 @@ interface Props {
     title: string;
     description: string;
     image: ImageMetadata;
-}[]
+}[],
+serviceSectionTitle:string;
 }
 const takeCareData = Astro.props.takeCareData;
+const serviceSectionTitle = Astro.props.serviceSectionTitle;
 ---
 
 <section id="services" class="py-8 xl:container">
     <div class="px-4 lg:px-28">
-      <h2 class="lg:text-[52px] font-sans-instrument text-[32px] font-normal mb-12 lg:mb-[60px] text-center max-lg:pb-10">
-        We take care of <span class="text-red-600">everything</span>
+      <h2 set:html={serviceSectionTitle} class="lg:text-[52px] font-sans-instrument text-[32px] font-normal mb-12 lg:mb-[60px] text-center max-lg:pb-10">
       </h2>
       <div class="grid gap-8">
         {takeCareData?.map((item)=>

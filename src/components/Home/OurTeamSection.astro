@@ -2,11 +2,14 @@
 import { Image } from "astro:assets";
 
 const ourTeam = Astro.props.item;
+const ourTeamButton = Astro.props.ourTeamButton;
+const ourTeamHeading1 = Astro.props.ourTeamHeading1;
+const ourTeamHeading2 = Astro.props.ourTeamHeading2;
 ---
 <section>
       <div class="flex justify-center items-center px-4">
         <h2 class="lg:text-[52px] xl:container font-sans-instrument leading-10 text-[32px] max-lg:font-medium font-medium lg:font-normal lg:leading-[62px] lg:mb-12 text-center lg:max-w-3xl">
-          Our complete bathroom safety kit addresses every risk, giving you and your family the peace of mind that they’re safe
+          {ourTeamHeading1}
         </h2>
       </div>
       <div class="relative mb-8 mt-20">
@@ -17,13 +20,12 @@ const ourTeam = Astro.props.item;
         />
         <div class="w-full">
           <p class="absolute xl:container xl:w-[700px] xl:right-[580px] xl:left-0 font-sans-instrument top-10 lg:bottom-10 leading-8 lg:left-20 left-0 lg:text-[52px] lg:leading-[62px] font-normal max-w-2xl mx-auto text-2xl text-white max-lg:px-4">
-            Our trained professionals are available 24/7 to ensure the safety of
-            your loved ones.
+            {ourTeamHeading2}
           </p>
           <a href="/plan">
             <button class="xl:container xl:right-0 xl:w-[250px] xl:left-[900px] py-4 font-sans-instrument lg:gap-4 flex justify-center max-lg:gap-8 items-center text-white absolute max-lg:left-3 lg:bottom-20 bottom-4 lg:right-20 px-8 lg:rounded-3xl rounded-full bg-[#cc0000]">
               <span class="">
-                See our plans
+                {ourTeamButton}
               </span>
               <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
