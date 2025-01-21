@@ -58,5 +58,27 @@ export const takeCareData = [
         description:"If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
         image:takeCareImage2
     },
-]
+];
+
+export const heroDescription = "Prevent, Don’t Regret A single fall can change it all";
+
+export const healthOrganization1 = "According to the World Health Organization, millions of elderly individuals, including our parents, experience falls each year, many leading to serious injury or hospitalization.";
+export const healthOrganization2 = "But it doesn't have to be this way.";
+
+export const productFeatureTitle = `The most <span class="text-red-600">complete bathroom</span> safety you've ever seen`;
+
+export const ourTeamHeading1 = "Our complete bathroom safety kit addresses every risk, giving you and your family the peace of mind that they’re safe";
+
+export const ourTeamHeading2 = " Our trained professionals are available 24/7 to ensure the safety of your loved ones.";
+
+export const ourTeamButton = "See our plans";
+
+export const serviceSectionTitle = `We take care of <span class="text-red-600">everything</span>`;
+
+export const desireSection1 = "Your Loved Ones Deserve the Best.";
+
+export const desireSection2 = "Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.";
+
+export const descriptionButton = "Get Started";
+
 

@@ -3,6 +3,9 @@ import { Image } from "astro:assets";
 
 const desireImage = Astro.props.item;
 const className = Astro.props.className ?? '';
+const desireSection1 = Astro.props.desireSection1;
+const desireSection2 = Astro.props.desireSection2;
+const descriptionButton = Astro.props.descriptionButton;
 ---
 
 <section>
@@ -15,15 +18,15 @@ const className = Astro.props.className ?? '';
         />
         <div class="w-full font-sans-instrument">
           <p class="xl:container xl:w-[700px] xl:right-[580px] xl:left-0 absolute lg:top-20 top-10 lg:left-20 left-5 lg:text-[80px] text-2xl font-semibold lg:leading-[92px] max-w-2xl mx-auto  text-white">
-            Your Loved Ones Deserve the Best.
+            {desireSection1}
           </p>
           <p class="xl:container xl:w-[700px] xl:right-[580px] xl:left-0 absolute max-lg:top-28 top-[270px] max-lg:text-lg lg:max-w-2xl text-white lg:left-20 left-5">
-            Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.
+            {desireSection2}
           </p>
           <a href="/plan">  
             <button class="xl:container xl:w-[250px] xl:right-[1020px] xl:left-0 py-4 flex justify-between items-center w-48 text-white absolute top-56 lg:top-[350px] lg:left-20 left-5 px-8 lg:rounded-[99px] bg-[#cc0000] rounded-full">
               <span>
-                Get Started
+                {descriptionButton}
               </span>
               <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
