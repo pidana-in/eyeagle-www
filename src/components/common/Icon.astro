@@ -1,0 +1,16 @@
+---
+  const { iconName, classNames = '' } = Astro.props ;
+
+---
+<script>
+  export interface IconProps {
+    iconName: string;
+    classNames?: string;
+  }
+
+</script>
+
+
+  <span class=`material-symbols-outlined  text-[20px] md:text-[24px] ${classNames}`>
+    {iconName}
+  </span>

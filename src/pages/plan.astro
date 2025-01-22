@@ -1,6 +1,7 @@
 ---
 import { options, safetyOptionsTop,safetyOptionsBottom } from "../components/constants/plans";
 import MainLayout from "../layouts/MainLayout.astro";
+import Icon from "../components/common/Icon.astro";
 ---
 
 <MainLayout >
@@ -62,9 +63,7 @@ Special Launch Offer
             <div class="flex flex-col gap-[19px]">
               {safetyOptionsBottom.map((option) => (
                 <div class="flex gap-3 items-center">
-                  <span class="material-symbols-outlined text-white text-[20px] md:text-[24px]">
-                    check_circle
-                  </span>
+<Icon iconName="check_circle" classNames="text-white"/>
                   <p class="text-[16px] md:text-[18px] lg:text-[20px] text-white font-semibold">
                     {option.title}
                   </p>
