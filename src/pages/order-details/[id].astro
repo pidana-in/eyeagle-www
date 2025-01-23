@@ -1,0 +1,27 @@
+---
+export const prerender = false;
+import StatusCard from "../../components/common/StatusCard.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Tick from "../../assets/Common/Tick.png";
+import OrderDetailsSection from "../../components/OrderDetails/OrderDetailsSection.astro";
+import OrderFlow from "../../components/OrderDetails/OrderFlow.astro";
+---
+
+<MainLayout>
+  <section class="mt-0 lg:mt-[85px]">
+    <StatusCard
+      classNames="w-full px-6 py-5"
+      img={Tick}
+      imgClassNames="min-h-[2.25rem] min-w-[2.25rem]"
+      title="Shipping address added"
+      subTitle="We hope we are able to provide the right protection for your loved ones. In the next step, please tell us where the shipping needs to be done."
+    />
+  </section>
+
+  <section class="bg-[#F6F4F2] md:p-0">
+    <div class="flex xl:container flex-col md:flex-row md:flex-row-reverse">
+      <OrderDetailsSection />
+      <OrderFlow />
+    </div>
+  </section>
+</MainLayout>
