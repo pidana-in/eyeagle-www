@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+const item = Astro.props.item;
+---
+
+<section class="lg:px-5">
+    <div class="flex max-sm:grid justify-between gap-5 items-center max-md:px-2 pb-8">
+        <Image src={item.imageSrc} alt={item.title}/>
+        <div>
+            <h2 class="font-bold text-xl">{item.title}</h2>
+            <p class="font-normal text-lg line-clamp-2 leading-6">{item.description}</p>
+        </div>
+        <div id={item.id} class="flex gap-2 lg:justify-center lg:items-center">
+            <button id={`removeButton-${item.id}`} class="h-8 w-8 rounded-full border font-normal border-black">-</button><p id={`quantityShow-${item.id}`} class="font-normal w-4 flex justify-center items-center">1</p><button id={`addButton-${item.id}`} class="h-8 w-8 rounded-full border font-normal border-black">+</button>
+        </div>
+    </div>
+</section>
+
+<script is:inline define:vars={{item}}>
+    let addButton = document.getElementById(`addButton-${item?.id}`);
+    let removeButton = document.getElementById(`removeButton-${item?.id}`);
+    let quantityShow = document.getElementById(`quantityShow-${item?.id}`);
+    addButton.addEventListener("click",()=>{
+        let addedItem = Number(quantityShow.innerText) + 1;
+        quantityShow.innerHTML = addedItem;
+    });
+    removeButton.addEventListener("click",()=>{
+        if(quantityShow.innerText == "1") return;
+        let removeItem = Number(quantityShow.innerText) - 1;
+        quantityShow.innerHTML = removeItem;
+    });
+</script>
