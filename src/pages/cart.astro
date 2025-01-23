@@ -1,0 +1,62 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import BillingDetail from "../components/Cart/BillingDetail.astro";
+import ItemDetail from "../components/Cart/ItemDetail.astro";
+import {productData} from "../components/constants/cart.ts";
+---
+
+<MainLayout>
+    <section class="justify-evenly bg-[#F6F4F2] lg:px-[80px] font-sans-instrument px-4 gap-20 lg:py-[120px] flex max-lg:flex-col-reverse max-lg:gap-10 py-10 lg:justify-around max-lg:items-center lg:pt-36">
+        <div class="">
+            <BillingDetail/>
+        </div>
+        <div class="flex flex-col max-md:flex-col-reverse gap-3 max-lg:w-full max-lg:gap-10 lg:bg-[#00000005] py-10 xl:container">
+            <div id="dropDownItem">
+                {productData?.map((item)=><ItemDetail item={item}/>)}
+            </div>
+            <div id="dropDownItem1" class="border my-10 border-gray-300"></div>
+            <div id="dropDownItem2" class="flex justify-between items-center px-5 pb-2">
+                <p class="text-lg font-normal">Subtotal (3 items)</p>
+                <p class="font-bold text-xl">₹29,999</p>
+            </div>
+            <div id="dropDownItem3" class="flex justify-between items-center px-5 pb-2">
+                <p class="text-lg font-normal">Shipping</p>
+                <p class="font-bold text-xl">Free</p>
+            </div>
+            <div id="dropDownItem4" class="flex justify-between items-center px-5 pb-2">
+                <p class="text-lg font-normal">Taxes</p>
+                <p class="font-bold text-xl">0</p>
+            </div>
+            <div id="dropDownItem5" class="border my-4 border-gray-300 mx-4"></div>
+            <div id="dropDown" class="flex justify-between items-center px-5 pb-2">
+                <p class="text-xl font-bold flex items-center gap-2">Total <svg id="mySvg" class="md:hidden" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 9.99997C4 9.99997 6.94593 6 8 6C9.05413 6 12 10 12 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    </p>
+                <p class="font-bold text-xl">₹29,999</p>
+            </div>
+        </div>
+    </section>
+</MainLayout>
+
+<script is:inline>
+    const dropDown = document.getElementById('dropDown');
+    const dropDownItem = document.getElementById('dropDownItem');
+    const dropDownItem1 = document.getElementById('dropDownItem1');
+    const dropDownItem2 = document.getElementById('dropDownItem2');
+    const dropDownItem3 = document.getElementById('dropDownItem3');
+    const dropDownItem4 = document.getElementById('dropDownItem4');
+    const dropDownItem5 = document.getElementById('dropDownItem5');
+    dropDown.addEventListener('click',()=>{
+        const svgElement = document.getElementById('mySvg');
+        svgElement.style.transform = `${svgElement.style.transform === "rotate(180deg)" ? "" : "rotate(180deg)"}`;
+        svgElement.style.transition = 'transform 0.3s ease-in-out';
+        let display = dropDownItem.style.display;
+        dropDownItem.style.display = `${display ? "" : "none"}`;
+        dropDownItem1.style.display = `${display ? "" : "none"}`;
+        dropDownItem2.style.display = `${display ? "" : "none"}`;
+        dropDownItem3.style.display = `${display ? "" : "none"}`;
+        dropDownItem4.style.display = `${display ? "" : "none"}`;
+        dropDownItem5.style.display = `${display ? "" : "none"}`;
+    })
+</script>
