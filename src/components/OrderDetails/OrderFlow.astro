@@ -1,0 +1,31 @@
+---
+import { orderDetailsFlow } from "../../components/constants/orderDetails";
+---
+
+<div class="flex md:pl-[90px] w-full md:w-[60vw] bg-white md:bg-transparent p-10">
+  <div>
+    <h2 class="text-[20px] mb-[40px] font-semibold hidden md:block">My orders > Order Details</h2>
+    <div class="flex gap-5">
+      <div class="flex flex-col gap-[52px] md:gap-0">
+        {orderDetailsFlow.Icons.map((icon, index) => (
+          <div class="flex flex-col justify-center items-center">
+            <img src={icon.src} alt="" />
+            <div
+              class={`bg-[#D9D9D9] h-[52px] w-[3px] hidden md:block ${
+                index === orderDetailsFlow.Icons.length - 1 && "md:hidden"
+              }`}
+            ></div>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-col gap-8">
+        {orderDetailsFlow.Context.map((context) => (
+          <div class="flex flex-col">
+            <h2 class="text-[20px] font-bold">{context.title}</h2>
+            <p class="text-[18px]">{context.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

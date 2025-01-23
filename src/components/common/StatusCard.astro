@@ -2,7 +2,7 @@
 import Image from "astro/components/Image.astro";
 import Icon from "./Icon.astro";
 
-  const { iconName, img,imgClassNames,classNames = '' } = Astro.props ;
+  const { iconName, img,imgClassNames,classNames = '',title,subTitle } = Astro.props ;
 
 ---
 <script>
@@ -12,7 +12,9 @@ import Icon from "./Icon.astro";
     img?: string;
     imgClassNames?:string;
     classNames?:string;
-    content?:string
+    content?:string;
+    title?:string;
+    subTitle?:string
 }
   
 </script>
@@ -25,8 +27,8 @@ import Icon from "./Icon.astro";
       {iconName && <Icon iconName={iconName}/>}
     </div>
     <div class={"flex flex-col gap-3"}>
-      <h3 class="text-[16px] lg:text-[20px] font-semibold">Thank you for your order, Jane</h3>
-      <p class="text-[14px] lg:text-[18px]">We hope we are able to provide the right protection for your loved ones. In the next step, please tell us where the shipping needs ot be done</p>
+     { title && <h3 class="text-[16px] lg:text-[20px] font-semibold">{title}</h3>}
+     {subTitle && <p class="text-[14px] lg:text-[18px]">{subTitle}</p>}
     </div>
   </div>
   </div>
