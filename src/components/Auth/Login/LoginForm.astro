@@ -1,0 +1,72 @@
+---
+const { pathname } = Astro. url;
+const {formType}=Astro.props;
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("userName");
+    const email = data.get("userEmail");
+    const password = data.get("userPassword");
+    const countryCode = data.get("countryCode");
+    const phoneNumber=data.get("phoneNumber");
+   
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<section class=" bg-[#F6F4F2] ">
+    <div class="flex flex-col justify-center items-center mt-0 lg:mt-[85px] gap-3 pt-8 py-28 md:py-28 xl:container">
+
+        <h1 class="text-[30px] md:text-[60px] mb-[28px]">{formType === "login" ? "My Account" : "Create account" }</h1>
+        
+        <form method="POST" class="flex flex-col gap-3">
+            <label class={` ${formType==="signUp" ? "block" : "hidden"}`}>
+                Name
+            </label>
+            <input type="text" name="userName" placeholder="Enter name" required class={`w-[353px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]  ${formType==="signUp" ? "block" : "hidden"}`} />
+            <label class={` ${formType==="signUp" ? "block" : "hidden"}`}>
+                Phone number
+            </label>
+            <div class={`relative w-[353px] ${
+                    formType === "signUp" ? "block" : "hidden"
+                  }`}>
+                <select
+                  name="countryCode"
+                  class="absolute inset-y-0 left-0 bg-transparent pl-2 pr-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0  rounded-l-xl focus:outline-none h-full bg-[#F6F6F6]"
+                  required
+                >
+                  <option value="+91">+91</option>
+                  <option value="+1">+1</option>
+                  <option value="+44">+44</option>
+                </select>
+              
+                <input
+                  type="number"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  maxlength="10"
+                  required
+                  class={`w-[353px] pl-[75px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
+                />
+              </div>
+              
+              
+            <label>
+                Email Name
+            </label>
+            <input type="email" name="userEmail" placeholder="Enter mail address" required class="w-[353px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]" />
+
+            <label>
+                Password
+            </label>
+            <input type="password" name="userPassword" placeholder="Enter Password" required class="w-[353px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"/>
+            <button class="w-[353px] p-4  rounded-xl text-white bg-[#CC0000] font-semibold mt-[8px]">Submit</button>
+        </form>
+        
+        <p class="tpxext-[18]">{formType === "signUp" ? "Already a member?" : "No account yet?"}  <a class="underline cursor-pointer" href={formType === "signUp" ? "/login" : "sign-up"}> {formType === "signUp" ? "Sign in" : "Create one" }</a></p>
+    </div>
+</section>
