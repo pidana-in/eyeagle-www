@@ -5,7 +5,9 @@ import node from '@astrojs/node';
 import netlify from '@astrojs/netlify';
 
 const isNetlify = process.env.SERVER_ADAPTER === 'NETLIFY';
-const adapter = isNetlify ? netlify() : node({
+const adapter = isNetlify ? netlify({
+  imageCDN: false,
+}) : node({
   mode: 'standalone',
 });
 
