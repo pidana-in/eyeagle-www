@@ -1,0 +1,46 @@
+---
+import OrderItemImage from "../../assets/Orders/OrderItemImage.png";
+import { Image } from "astro:assets";
+---
+
+<div class="px-5 font-sans-instrument">
+  <div class="flex items-center justify-between">
+    <h1 id="header" class="font-bold text-[20px] md:text-[28px] mb-[40px]">Kit Details</h1>
+    <div id="dropDown" class="mb-[40px]">
+      <svg id="mySvg" class="md:hidden" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 9.99997C4 9.99997 6.94593 6 8 6C9.05413 6 12 10 12 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  </div>
+  <section id="kitContent" class="w-full max-md:p-4 lg:px-8 bg-white rounded-3xl md:bg-[#F1EFED]">
+    <div class="flex gap-5 items-center">
+      <Image src={OrderItemImage} alt={"OrderItemImage"} class={"rounded-lg"} />
+      <div>
+        <h3 class="font-bold text-[20px]">Gold Plan Kit</h3>
+        <p class="text-[18px] mt-2">The big size to stand on its own</p>
+        <p class="underline mt-2 hover:cursor-pointer">See what’s included</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+    const dropDown = document.getElementById("dropDown");
+    const kitContent = document.getElementById("kitContent");
+    const header = document.getElementById('header');
+    window.addEventListener('resize',()=>{
+        if(header){
+            if(screen.width < 768){
+            header.innerHTML = "Order Details";
+        }else {
+            header.innerHTML = "Kit Details";
+        }
+        }
+    })
+    dropDown?.addEventListener("click", () => {
+      dropDown.style.transform = `${dropDown.style.transform === "rotate(180deg)" ? "" : "rotate(180deg)"}`;
+      dropDown.style.transition = "transform 0.3s ease-in-out";
+      kitContent.style.display = `${kitContent.style.display === "none" ? "" : "none"}`;
+    });
+  </script>
+  
