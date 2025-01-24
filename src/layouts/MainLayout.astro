@@ -1,80 +1,141 @@
 ---
-import EyeagleLogo from '../assets/Navbar/EyeagleLogo.png';
+import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
 import Account from "../assets/Navbar/Account.png";
 import EyeagleSecondLogo from "../assets/Navbar/EyeagleSecondLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
 import EyeagleLogoMobile from "../assets/Navbar/EyeagleLogoMobile.png";
 import EyeagleLogoMobileBlack from "../assets/Navbar/EyeagleLogoMobileBlack.png";
-const footerClass = Astro.props.footerClass ?? '';
+const footerClass = Astro.props.footerClass ?? "";
 
 // Import global tailwind styles
 import "../styles/global.css";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 const { title = "EYEAGLE" } = Astro.props;
-const { pathname } = Astro. url
+const { pathname } = Astro.url;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
-    <meta name="viewport" content="width=device-width" >
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
-
   </head>
   <body class="text-gray-900">
-    <header id="myNav" class=`fixed max-lg:hidden w-full top-0 z-50 right-0 px-20 py-5 ${pathname !== "/" && "bg-[#F6F4F2]"}`>
-      <nav 
-        class="flex justify-between items-center xl:container"
-      >
+    <header
+      id="myNav"
+      class=`fixed max-lg:hidden w-full top-0 z-50 right-0 px-20 py-5 ${pathname !== "/" && "bg-[#F6F4F2]"}`
+    >
+      <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center">
-          <a href="/">
-            <Image src={pathname === "/" ? EyeagleLogo:EyeagleLogoBlack} alt={'Eyeagle Logo'} id="imageBg" class="w-[163px]"/>
+          <a href="/" aria-label="EyEagle Home Page">
+            <Image
+              src={pathname === "/" ? EyeagleLogo : EyeagleLogoBlack}
+              alt={"Eyeagle Logo"}
+              id="imageBg"
+              class="w-[163px]"
+            />
           </a>
-          <ul class=`flex space-x-12 font-sans-instrument font-medium ml-14 px-4 ${pathname === "/" && "text-white"}` id="content">
-            <li><a href="/manifesto" class="hover:underline">Our manifesto</a></li>
+          <ul
+            class=`flex space-x-12 font-sans-instrument font-medium ml-14 px-4 ${pathname === "/" && "text-white"}`
+            id="content"
+          >
+            <li>
+              <a href="/manifesto" class="hover:underline">Our manifesto</a>
+            </li>
             <li><a href="/about-us" class="hover:underline">About us</a></li>
             <li><a href="/contact" class="hover:underline">Contact us</a></li>
           </ul>
-      </div>
-        
-      {pathname === "/plan/" ? "" : <div class="flex gap-5">
-        <a href="/plan/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
-        </a>
-      </div>}
+        </div>
+
+        {
+          pathname === "/plan/" ? (
+            ""
+          ) : (
+            <div class="flex gap-5">
+              <a href="/plan/">
+                <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">
+                  Order now
+                </button>
+              </a>
+            </div>
+          )
+        }
       </nav>
     </header>
-    <header id="mobileNav" class="lg:hidden sticky top-0 shadow z-30 bg-white w-full">
+    <header
+      id="mobileNav"
+      class="lg:hidden sticky top-0 shadow z-30 bg-white w-full"
+    >
       <nav class="flex justify-between items-center px-5 py-7">
         <div>
-          <a href="/">
-            <Image src={EyeagleLogoMobileBlack} alt=""/>
+          <a href="/" aria-label="EyEagle Home Page">
+            <Image src={EyeagleLogoMobileBlack} alt="" />
           </a>
         </div>
         <div id="hamburger">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="24" fill="#F6F4F2"/>
-            <path d="M17.3335 18.167H30.6668" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M17.3335 24H30.6668" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M17.3335 29.833H30.6668" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>            
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="48" height="48" rx="24" fill="#F6F4F2"></rect>
+            <path
+              d="M17.3335 18.167H30.6668"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M17.3335 24H30.6668"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M17.3335 29.833H30.6668"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
         </div>
       </nav>
     </header>
-    <section id="mobileNavContent" style={{display:"none"}} class="lg:hidden fixed z-30 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow">
+    <section
+      id="mobileNavContent"
+      style={{ display: "none" }}
+      class="lg:hidden fixed z-30 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
+    >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         <li><a href="/manifesto">Our Manifesto</a></li>
         <li><a href="/about-us">About us</a></li>
         <li><a href="/contact">Contact</a></li>
-        {pathname === "/plan/"  ? "" :<a href="/plan/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
-        </a>}
+        {
+          pathname === "/plan/" ? (
+            ""
+          ) : (
+            <a href="/plan/">
+              <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">
+                Order now
+              </button>
+            </a>
+          )
+        }
       </ul>
     </section>
     <main>
@@ -82,17 +143,31 @@ const { pathname } = Astro. url
     </main>
 
     <footer class={`py-8 ${footerClass} xl:container`}>
-      <div class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32">
+      <div
+        class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32"
+      >
         <div class="w-full">
-          <h2 class="font-sans-instrument text-center max-lg:text-center lg:text-3xl text-4xl font-medium leading-10">Expert advice, updates, and surprises for your inbox</h2>
+          <h2
+            class="font-sans-instrument text-center max-lg:text-center lg:text-3xl text-4xl font-medium leading-10"
+          >
+            Expert advice, updates, and surprises for your inbox
+          </h2>
         </div>
       </div>
-      <div class="my-20 border-2 lg:mx-[120px] mx-4"/>
-      <div class="font-sans-instrument lg:mx-[120px] mx-4 mb-10 grid max-lg:gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center">
-        <Image src={EyeagleLogoBlack} alt={'Eyeagle Logo'} class="w-[163px]"/>
+      <div class="my-20 border-2 lg:mx-[120px] mx-4"></div>
+      <div
+        class="font-sans-instrument lg:mx-[120px] mx-4 mb-10 grid max-lg:gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center"
+      >
+        <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
         <div class="lg:flex grid lg:gap-20 gap-8 justify-center items-center">
           <a href="/shipping" class="block">Shipping Policy</a>
-          <a href="/refund" class="block">Refund Policy</a><a href="/privacy" class="block">Privacy Policy</a><a href="/tnc" class="block">Terms of Service</a><a href="/" class="block">© 2024 EyEagle,inc.</a>
+          <a href="/refund" class="block">Refund Policy</a><a
+            href="/privacy"
+            class="block">Privacy Policy</a
+          ><a href="/tnc" class="block">Terms of Service</a><a
+            href="/"
+            class="block">© 2024 EyEagle,inc.</a
+          >
         </div>
       </div>
     </footer>
@@ -100,7 +175,6 @@ const { pathname } = Astro. url
 </html>
 
 <style is:global>
-
   body::-webkit-scrollbar {
     border-radius: 15px;
     width: 10px;
@@ -111,7 +185,7 @@ const { pathname } = Astro. url
     border-radius: 15px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #012E40;
+    background: #012e40;
     border-radius: 10px;
   }
   @media screen and (max-width: 768px) {
@@ -121,50 +195,49 @@ const { pathname } = Astro. url
   }
 
   @media screen and (min-width: 1024px) {
-      .gridTemplateColumns {
-        grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
-      }
+    .gridTemplateColumns {
+      grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
     }
-    @media screen and (max-width: 1023px) {
-      .gridTemplateColumns {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-      }
+  }
+  @media screen and (max-width: 1023px) {
+    .gridTemplateColumns {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
     }
-    .containers {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    }
-    .containers::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-    }
+  }
+  .containers {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .containers::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
 </style>
 
-<script is:inline define:vars={{EyeagleLogoBlack,EyeagleLogo}}>
+<script is:inline define:vars={{ EyeagleLogoBlack, EyeagleLogo }}>
   let nav = document.getElementById("myNav");
   let hamburger = document.getElementById("hamburger");
   let mobileNavContent = document.getElementById("mobileNavContent");
   let imageBg = document.getElementById("imageBg");
   let content = document.getElementById("content");
 
-  hamburger.addEventListener("click",function(){
-    let display = mobileNavContent.style.display
+  hamburger.addEventListener("click", function () {
+    let display = mobileNavContent.style.display;
     mobileNavContent.style.display = `${display ? "" : "none"}`;
-  })
+  });
 
   window.addEventListener("scroll", (event) => {
-  if(location.pathname !== "/") return;
+    if (location.pathname !== "/") return;
     let scroll = this.scrollY;
     // console.log("scroll",scroll,"wndow",window.innerWidth)
-    if(scroll >= 855){
-      nav.style.backgroundColor = "white"
+    if (scroll >= 855) {
+      nav.style.backgroundColor = "white";
       // imageBg.style.backgroundColor = "#475569"
       imageBg.src = EyeagleLogoBlack.src;
       content.style.color = "black";
-    }else{
+    } else {
       nav.style.backgroundColor = "transparent";
       imageBg.src = EyeagleLogo.src;
-      content.style.color = "white"
+      content.style.color = "white";
     }
-});
-</script> 
-
+  });
+</script>
