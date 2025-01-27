@@ -32,6 +32,11 @@ import { Image } from "astro:assets";
 <script>
     const dropDown = document.getElementById("dropDown");
     const kitContent = document.getElementById("kitContent");
+    const screenWidth= window.matchMedia("(max-width: 700px)");
+    screenWidth.addEventListener("change",()=>{
+     kitContent.style.display = `${kitContent.style.display === "none" ? "" : ""}`
+    })
+    
     dropDown?.addEventListener("click", () => {
       dropDown.style.transform = `${dropDown.style.transform === "rotate(180deg)" ? "" : "rotate(180deg)"}`;
       dropDown.style.transition = "transform 0.3s ease-in-out";
