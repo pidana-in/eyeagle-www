@@ -1,35 +1,39 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "../common/Icon.astro";
-import { ordersInstallation } from "../constants/orders";
+import { orderCards, ordersInstallation } from "../constants/orders";
 import OrderItemImage from "../../assets/Orders/OrderItemImage.png"
-
 ---
 
 <section class="bg-[#F6F4F2]">
     <div class="xl:container flex flex-col md:flex-row lg:items-center lg:justify-center w-full">
-      <div class="h-auto lg:h-[633px] lg:w-[60vw] px-5 lg:px-10 pt-10">
+      <div class="h-auto lg:h-auto lg:w-[60vw] px-5 lg:px-10 pt-10">
         <h1 class="text-[20px] md:text-[2rem] font-bold lg:mb-10">My Orders</h1>
         <div class="bg-[#D9D9D9] h-[1px] w-full lg:hidden my-5"></div>
-        <div class="bg-white h-auto p-3 rounded-lg w-auto">
-          <div class="flex gap-2 items-center mb-4">
-            <div class="h-8 w-8 rounded-full bg-[#CC0000] p-2 flex items-center justify-center">
-              <Icon iconName="package_2" classNames="text-white" />
-            </div>
-            <p class="text-[16px] font-medium">Waiting for address</p>
-          </div>
-          <div class="flex flex-col md:flex-row gap-4 justify-between lg:items-center">
-            <div class="flex gap-4">
-                <Image src={OrderItemImage} alt="OrderItem" class={"rounded-lg w-[101px] h-[101px] md:w-auto md:h-auto"}/>
-              <div class="flex flex-col gap-2 justify-center">
-                <h3 class="font-bold text-[20px]">Gold Plan Kit</h3>
-                <p class="text-[18px]">Order on 12 Oct 2024</p>
+        <div class="flex flex-col gap-4 pb-0 md:pb-10">
+          {orderCards?.map((orderCardItem)=>(
+            
+            <div class="bg-white h-auto p-3 rounded-lg w-auto">
+            <div class="flex gap-2 items-center mb-4">
+              <div class="h-8 w-8 rounded-full bg-[#CC0000] p-2 flex items-center justify-center">
+                <Icon iconName={orderCardItem?.iconName} classNames="text-white" />
               </div>
+              <p class="text-[16px] font-medium">{orderCardItem?.orderStatus}</p>
             </div>
-            <a class="underline text-[16px] font-medium">
-              Add installation address
-            </a>
+            <div class="flex flex-col md:flex-row gap-4 justify-between lg:items-center">
+              <div class="flex gap-4">
+                  <Image src={OrderItemImage} alt="OrderItem" class={"rounded-lg w-[101px] h-[101px] md:w-auto md:h-auto"}/>
+                <div class="flex flex-col gap-2 justify-center">
+                  <h3 class="font-bold text-[20px]">{orderCardItem?.itemName}</h3>
+                  <p class="text-[18px]">{orderCardItem?.orderDate}</p>
+                </div>
+              </div>
+              <a class="underline text-[16px] font-medium">
+                {orderCardItem?.linkTitle}
+              </a>
+            </div>
           </div>
+        ))}
         </div>
       </div>
 
