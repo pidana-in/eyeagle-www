@@ -12,7 +12,8 @@ const footerClass = Astro.props.footerClass ?? '';
 import "../styles/global.css";
 import { Image } from 'astro:assets';
 const { title = "EYEAGLE" } = Astro.props;
-const { pathname } = Astro. url
+const { pathname } = Astro. url;
+const loginCredential = true;
 ---
 <!doctype html>
 <html lang="en">
@@ -44,6 +45,24 @@ const { pathname } = Astro. url
       </div>
         
       {pathname === "/plan/" ? "" : <div class="flex gap-5">
+        <button id="account" class="relative">
+          <Image src={Account} alt={'Account'}/>
+        </button>
+            <ul id="accountDetails" style={{display:"none"}} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[136px] rounded-xl font-sans-instrument font-normal text-lg">
+              {!loginCredential ? <a href="/login">
+                <li class="p-3 hover:text-[#CC0000]">Login</li>
+              </a> : 
+              <a href="/profile">
+              <li class="p-3 hover:text-[#CC0000]">Profile</li>
+              </a>
+              <a href="/orders">
+              <li class="p-3 hover:text-[#CC0000]">My Orders</li>
+              </a>
+              <a href="">
+              <li class="p-3 hover:text-[#CC0000]">Logout</li>
+              </a>
+              }
+            </ul>
         <a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
         </a>
@@ -65,13 +84,26 @@ const { pathname } = Astro. url
             <path d="M17.3335 29.833H30.6668" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>            
         </div>
+        <div id="crossButton" style={{display:"none"}}>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="24" fill="white"/>
+            <path d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>            
+        </div>
       </nav>
     </header>
     <section id="mobileNavContent" style={{display:"none"}} class="lg:hidden fixed z-30 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow">
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
-        <li><a href="/manifesto">Our Manifesto</a></li>
-        <li><a href="/about-us">About us</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/manifesto">Our Manifesto</a></li>
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/about-us">About us</a></li>
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/contact">Contact</a></li>
+        {!loginCredential ?
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/login">Login</a></li> :
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/profile">Profile</a></li>
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/orders">My Orders</a></li>
+        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="">Logout</a></li>
+        }
+        
         {pathname === "/plan/"  ? "" :<a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
         </a>}
@@ -145,10 +177,25 @@ const { pathname } = Astro. url
   let mobileNavContent = document.getElementById("mobileNavContent");
   let imageBg = document.getElementById("imageBg");
   let content = document.getElementById("content");
+  let account = document.getElementById('account');
+  let accountDetails = document.getElementById('accountDetails');
+  let crossButton = document.getElementById('crossButton');
 
   hamburger.addEventListener("click",function(){
-    let display = mobileNavContent.style.display
-    mobileNavContent.style.display = `${display ? "" : "none"}`;
+    hamburger.style.display = "none";
+    crossButton.style.display = "block";
+    mobileNavContent.style.display = "";
+  });
+
+  crossButton.addEventListener("click",()=>{
+    hamburger.style.display = "block";
+    crossButton.style.display = "none";
+    mobileNavContent.style.display = `none`;
+  })
+
+  account.addEventListener('click',()=>{
+    let display = accountDetails.style.display
+    accountDetails.style.display = `${display ? "" : "none"}`;
   })
 
   window.addEventListener("scroll", (event) => {
