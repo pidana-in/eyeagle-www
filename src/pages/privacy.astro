@@ -1,50 +1,27 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { title,heading1,heading2,heading3,list1,list2,list3,heading4,list4,list5,list6,list7,list8,heading5,list9,list10,list11,heading6,heading7,list12,list13,list14,list15,list16,heading8,heading9,heading10,heading11 } from "../components/constants/privacy";
+import { privacyContent } from "../components/constants/privacy";
 ---
 
 <MainLayout>
     <section class="bg-[#F6F4F2] lg:px-[80px] lg:py-[120px] px-4 lg:h-[500px] grid lg:gap-0 gap-11 py-10">
         <h1 class="lg:text-[52px] font-sans-instrument text-3xl lg:max-w-[693px] text-center m-auto xl:container">
-            {title}
+            {privacyContent.title}
         </h1>
       </section>
       <section class="lg:px-20 lg:py-[120px] px-4 py-16 font-sans-instrument xl:container">
-        <h2 class="font-bold text-lg">{heading1}</h2>
-        <h3 class="mt-20 font-semibold text-2xl">{heading2}</h3>
-        <h3 class="mt-20 font-semibold text-2xl">{heading3}</h3>
-        <ul>
-            <li>{list1}</li>
-            <li>{list2}</li>
-            <li>{list3}</li>
-        </ul>
-        <h3 class="mt-10 font-semibold text-2xl">{heading4}</h3>
-        <ul>
-            <li>{list4}</li>
-            <li>{list5}</li>
-            <li>{list6}</li>
-            <li>{list7}</li>
-            <li>{list8}</li>
-        </ul>
-        <h3 class="mt-10 font-semibold text-2xl">{heading5}</h3>    
-        <ul>
-            <li>{list9}</li>
-            <li>{list10}</li>
-            <li>{list11}</li>
-        </ul>
-        <h3 class="mt-10 font-semibold text-2xl">{heading6}</h3>
-        <h3 class="mt-10 font-semibold text-2xl">{heading7}</h3>
-        <ul>
-            <li>{list12}</li>
-            <li>{list13}</li>
-            <li>{list14}</li>
-            <li>{list15}</li>
-            <li>{list16}</li>   
-        </ul> 
-        <h3 class="mt-10 font-semibold text-2xl">{heading8}</h3>
-        <h3 class="mt-10 font-semibold text-2xl">{heading9}</h3> 
-        <h3 class="mt-10 font-semibold text-2xl">{heading10}</h3>
-        <h3 class="mt-10 font-semibold text-2xl">{heading11}</h3>
+        <h2 class="font-bold text-lg">{privacyContent.heading1}</h2>
+        <h3 class="mt-20 font-semibold text-2xl">{privacyContent.heading2}</h3>
+        {
+            privacyContent.description?.map((item)=>
+                <h3 class="mt-20 font-semibold text-2xl">{item.heading}</h3>
+            <ul>
+                {item.list?.map((subItem)=>
+                <li>{subItem}</li>
+                )}
+            </ul>
+            )
+        }
     </section>
     <style>
         li {

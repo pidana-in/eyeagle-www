@@ -1,27 +1,23 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import {title,heading1,heading2,heading3,paragraph1,heading4,paragraph2,heading5,paragraph3,heading6,paragraph4,heading7,paragraph5} from "../components/constants/shipping";
+import {shippingData} from "../components/constants/shipping";
 ---
 
 <MainLayout>
     <section class="bg-[#F6F4F2] lg:px-[80px] lg:py-[120px] px-4 lg:h-[500px] grid lg:gap-0 gap-11 py-10 ">
         <h1 class="lg:text-[52px] font-sans-instrument text-3xl lg:max-w-[693px] text-center m-auto xl:container">
-            {title}
+            {shippingData.title}
         </h1>
       </section>
       <section class="lg:px-20 lg:py-[120px] px-4 py-16 font-sans-instrument xl:container">
-        <h2 class="font-bold text-lg">{heading1}</h2>
-        <h3 class="mt-20 font-semibold text-2xl">{heading2}</h3>
-        <h3 class="mt-20 font-semibold text-2xl">{heading3}</h3>
-        <p>{paragraph1}</p>
-        <h3 class="mt-10 font-semibold text-2xl">{heading4}</h3>
-        <p>{paragraph2}</p>
-        <h3 class="mt-10 font-semibold text-2xl">{heading5}</h3>    
-        <p>{paragraph3}</p>
-        <h3 class="mt-10 font-semibold text-2xl">{heading6}</h3>
-        <p>{paragraph4}</p>
-        <h3 class="mt-10 font-semibold text-2xl">{heading7}</h3>
-        <p>{paragraph5}</p>
+        <h2 class="font-bold text-lg">{shippingData.heading1}</h2>
+        <h3 class="mt-20 font-semibold text-2xl">{shippingData.heading2}</h3>
+        {
+            shippingData.list.map((item)=>
+            <h3 class="mt-10 font-semibold text-2xl">{item.subtitle}</h3>
+            <p>{item.description}</p>
+            )
+        }
     </section>
     <style>
         li {

@@ -1,22 +1,21 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import {title,heading1,heading2,list1,list2,list3,list4} from "../components/constants/refund";
+import {refundData} from "../components/constants/refund";
 ---
 
 <MainLayout>
     <section class="bg-[#F6F4F2] lg:px-[80px] lg:py-[120px] px-4 lg:h-[500px] grid lg:gap-0 gap-11 py-10">
         <h1 class="lg:text-[52px] font-sans-instrument text-3xl lg:max-w-[693px] text-center m-auto xl:container">
-            {title}
+            {refundData.title}
         </h1>
       </section>
     <section class="lg:px-20 lg:py-[120px] px-4 py-16 font-sans-instrument xl:container">
-        <h2 class="font-bold text-lg">{heading1}</h2>
-        <h3 class="mt-20 lg:font-semibold font-medium text-2xl">{heading2}</h3>
+        <h2 class="font-bold text-lg">{refundData.heading1}</h2>
+        <h3 class="mt-20 lg:font-semibold font-medium text-2xl">{refundData.heading2}</h3>
         <ul class="grid gap-8 mt-8">
-            <li>{list1}</li>
-            <li>{list2}</li>
-            <li>{list3}</li>
-            <li>{list4}</li>
+            {refundData.list?.map((item)=>
+                <li>{item}</li>
+            )}
         </ul>
     </section>
     <style>
