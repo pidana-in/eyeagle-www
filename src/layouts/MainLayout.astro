@@ -1,19 +1,16 @@
 ---
 import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
 import Account from "../assets/Navbar/Account.png";
-import EyeagleSecondLogo from "../assets/Navbar/EyeagleSecondLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
-import EyeagleLogoMobile from "../assets/Navbar/EyeagleLogoMobile.png";
 import EyeagleLogoMobileBlack from "../assets/Navbar/EyeagleLogoMobileBlack.png";
-const footerClass = Astro.props.footerClass ?? "";
-
-// Import global tailwind styles
+import {footerPolicy,footerHeading,buttonContent,popUpMenu,navbarContent} from "../components/constants/mainLayoutcontent";
 import "../styles/global.css";
 import { Image } from "astro:assets";
 const { title = "EYEAGLE" } = Astro.props;
 const { pathname } = Astro. url;
 const loginCredential = true;
+const footerClass = Astro.props.footerClass ?? "";
 ---
 
 <!doctype html>
@@ -53,11 +50,11 @@ const loginCredential = true;
             class=`flex space-x-12 font-sans-instrument font-medium ml-14 px-4 ${pathname === "/" && "text-white"}`
             id="content"
           >
+          {navbarContent?.map((item)=>
             <li>
-              <a href="/manifesto" class="hover:underline">Our manifesto</a>
+              <a href={`${item.url}`} class="hover:underline">{item.title}</a>
             </li>
-            <li><a href="/about-us" class="hover:underline">About us</a></li>
-            <li><a href="/contact" class="hover:underline">Contact us</a></li>
+          )}
           </ul>
       </div>
         
@@ -66,22 +63,23 @@ const loginCredential = true;
           <Image src={Account} alt={'Account'}/>
         </button>
             <ul id="accountDetails" style={{display:"none"}} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[136px] rounded-xl font-sans-instrument font-normal text-lg">
-              {!loginCredential ? <a href="/login">
-                <li class="p-3 hover:text-[#CC0000]">Login</li>
-              </a> : 
-              <a href="/profile">
-              <li class="p-3 hover:text-[#CC0000]">Profile</li>
+              {popUpMenu?.map((item)=>
+                <>
+                {!loginCredential && item.title === "Login" &&
+                  <a href={`${item.url}`}>
+              <li class="p-3 hover:text-[#CC0000]">{item.title}</li>
               </a>
-              <a href="/orders">
-              <li class="p-3 hover:text-[#CC0000]">My Orders</li>
+                }
+                { item.title !== "Login" &&
+                  <a href={`${item.url}`}>
+              <li class="p-3 hover:text-[#CC0000]">{item.title}</li>
               </a>
-              <a href="">
-              <li class="p-3 hover:text-[#CC0000]">Logout</li>
-              </a>
-              }
+                }
+                </>
+              )}
             </ul>
         <a href="/plan/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
+          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>
       </div>}
       </nav>
@@ -139,18 +137,21 @@ const loginCredential = true;
       class="lg:hidden fixed z-30 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/manifesto">Our Manifesto</a></li>
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/about-us">About us</a></li>
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/contact">Contact</a></li>
-        {!loginCredential ?
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/login">Login</a></li> :
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/profile">Profile</a></li>
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="/orders">My Orders</a></li>
-        <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href="">Logout</a></li>
+        {navbarContent?.map((item)=>
+         <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+        )}
+        {popUpMenu?.map((item)=>
+        <>
+        {!loginCredential && item.title === "Login" &&
+          <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
         }
-        
+        {
+          item.title !== "Login" && <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+        }
+        </>
+        )}
         {pathname === "/plan/"  ? "" :<a href="/plan/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">Order now</button>
+          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>}
       </ul>
     </section>
@@ -166,7 +167,7 @@ const loginCredential = true;
           <h2
             class="font-sans-instrument text-center max-lg:text-center lg:text-3xl text-4xl font-medium leading-10"
           >
-            Expert advice, updates, and surprises for your inbox
+            {footerHeading}
           </h2>
         </div>
       </div>
@@ -176,14 +177,9 @@ const loginCredential = true;
       >
         <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
         <div class="lg:flex grid lg:gap-20 gap-8 justify-center items-center">
-          <a href="/shipping" class="block">Shipping Policy</a>
-          <a href="/refund" class="block">Refund Policy</a><a
-            href="/privacy"
-            class="block">Privacy Policy</a
-          ><a href="/tnc" class="block">Terms of Service</a><a
-            href="/"
-            class="block">© 2024 EyEagle,inc.</a
-          >
+          {footerPolicy?.map((item)=>
+            <a href={`${item.url}`} class="block">{item.title}</a>
+          )}
         </div>
       </div>
     </footer>

@@ -1,0 +1,6 @@
+export const shippingData = {
+    title:"Shipping Policy",
+    heading1:"Last updated on 09-01-2025",
+    heading2:"At PIDANA TECHNOLOGIES PRIVATE LIMITED, we strive to provide efficient and reliable shipping services. The following terms apply to the shipping of our products:",
+    list:[{subtitle:"1. Shipping Times:",description:"Orders are processed and shipped within 2-5 business days unless otherwise stated. Delivery times may vary based on the shipping destination and method selected."},{subtitle:"2. Shipping Charges:",description:"Shipping charges are calculated at checkout based on the weight, dimensions, and destination of the order. Any applicable taxes or duties are the responsibility of the customer."},{subtitle:"3. Order Tracking:",description:"Once your order is shipped, you will receive a tracking number via email to monitor the delivery status."},{subtitle:"4. Damaged or Lost Shipments:",description:"If your order is damaged or lost during transit, please contact our Customer Service team within 7 days of the expected delivery date for assistance."},{subtitle:"5. International Shipping:",description:"For international orders, delivery times and costs may vary. Customers are responsible for any customs duties or import taxes imposed by their country."}]
+}
