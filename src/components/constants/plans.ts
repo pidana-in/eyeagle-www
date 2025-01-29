@@ -18,3 +18,14 @@ export const safetyOptionsBottom=[
     {title:"Nylon coated kit for better grip and better lasting"},
     {title:"3 Free Ambulance Charge in-case of emergency"},
 ]
+
+export const ultimateSafetyContext={
+    heading:"Ultimate Safety",
+    offerDesc:"Special Launch Offer",
+    actualPrice:"₹49,999",
+    cutPrice:"₹89,999",
+    gst:"₹70,799 including GST",
+    solutionDesc:"Best in class complete solution",
+    btnText:"Get it now",
+    kitBtnText:"Free kit update for the next upgraded version"
+}
