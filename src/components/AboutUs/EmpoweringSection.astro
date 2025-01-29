@@ -3,14 +3,14 @@ import empowering1 from "../../assets/Aboutus/empowering1.png"
 import seniorCouple from "../../assets/Aboutus/senior-couple.png"
 import empowering2 from "../../assets/Aboutus/empowering2.png"
 import { Image } from "astro:assets"
+import { empoweringSection } from "../constants/aboutus"
 ---
 <section class="relative font-sans-instrument h-auto lg:h-[900px] px-6 sm:px-10 lg:px-[80px] py-10 lg:py-[100px]  xl:container">
   <div class="text-center lg:absolute lg:inset-x-0 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10">
-    <h1 class="text-[28px] sm:text-[40px] lg:text-[52px] max-w-[485px] mx-auto font-semibold">
-      <span class="text-[#CC0000]">Empowering</span> Seniors to Live Independently
+    <h1 class="text-[28px] sm:text-[40px] lg:text-[52px] max-w-[485px] mx-auto font-semibold" set:html={empoweringSection.title}>
     </h1>
     <p class="text-[16px] sm:text-[18px] max-w-[485px] mx-auto pt-6 text-gray-700">
-      We believe that every older adult deserves to feel secure and confident in their own homes.
+  {empoweringSection.desc}
     </p>
   </div>
   

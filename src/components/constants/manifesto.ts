@@ -33,3 +33,24 @@ export const contexts = [
         "Caregiving responsibilities can create tension among family members, especially when the shift is sudden and unplanned.",
     },
   ];
+
+export const HeroSectionData={
+  buttonTitle:"Our Manifesto",
+  heroSectionTitle:`Because <span class="text-[#CC0000]">Prevention</span> is<br />
+      Better Than <span class="text-[#CC0000]">Reaction</span>`,
+  heroSectionDesc:"Every year, millions of elderly people experience falls in their homes, with the bathroom being the highest-risk area. These falls aren’t just accidents—they’re preventable events that can drastically impact quality of life."
+}
+
+export const BannerSection1Data={
+  title:"For our aging parents, these seemingly small mishaps can have life-changing consequences"
+}
+
+export const contextSection={
+  title:` A <span class="text-[#CC0000]">Single Fall</span> Can Change Everything.`,
+  desc:"For many families, a fall can mean more than just a trip to the emergency room—it can take away a loved one’s independence. Falls in the bathroom are often the tipping point that leads to more serious injuries, hospitalization, or worse."
+}
+
+export const BottomSectionData={
+  title:` Our Comprehensive <span class="text-[#CC0000]">PIDANA</span> Protocol: Leaving No Stone Unturned`,
+  desc:"At EyEagle, we believe in absolute safety. That’s why we’ve developed the PIDANA Protocol—a meticulous safety framework designed to ensure your bathroom is as safe as possible for your loved ones. Our protocol covers every aspect of bathroom safety, from prevention to immediate emergency response."
+}
