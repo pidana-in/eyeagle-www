@@ -1,11 +1,12 @@
 ---
 import OrderItemImage from "../../assets/Orders/OrderItemImage.png";
 import { Image } from "astro:assets";
+import {cartDetailItemData} from "../constants/cartDetailItem";
 ---
 
 <div class="px-5 font-sans-instrument">
   <div class="flex items-center justify-between">
-    <h1 id="header" class="font-bold text-[20px] md:text-[28px] mb-[40px]">Kit Details</h1>
+    <h1 id="header" class="font-bold text-[20px] md:text-[28px] mb-[40px]">{cartDetailItemData.title}</h1>
     <div id="dropDown" class="mb-[40px]">
       <svg id="mySvg" class="md:hidden" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 9.99997C4 9.99997 6.94593 6 8 6C9.05413 6 12 10 12 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -13,18 +14,22 @@ import { Image } from "astro:assets";
     </div>
   </div>
   <section id="kitContent" class="w-full max-md:p-4 lg:px-8 bg-white rounded-3xl md:bg-[#F1EFED]">
-    <div class="flex gap-5 items-center">
-      <Image src={OrderItemImage} alt={"OrderItemImage"} class={"rounded-lg"} />
+    {
+      cartDetailItemData.productData.map((item)=>
+      <div class="flex gap-5 items-center">
+      <Image src={item.img} alt={"OrderItemImage"} class={"rounded-lg"} />
       <div>
-        <h3 class="font-bold text-[20px]">Gold Plan Kit</h3>
-        <p class="text-[18px] mt-2">The big size to stand on its own</p>
-        <p class="underline mt-2 hover:cursor-pointer">See what’s included</p>
+        <h3 class="font-bold text-[20px]">{item.name}</h3>
+        <p class="text-[18px] mt-2">{item.description}</p>
+        <p class="underline mt-2 hover:cursor-pointer">{item.info}</p>
       </div>
     </div>
+    )
+    }
   </section>
 </div>
 
-<script>
+<script is:inline>
     const dropDown = document.getElementById("dropDown");
     const kitContent = document.getElementById("kitContent");
     const header = document.getElementById('header');

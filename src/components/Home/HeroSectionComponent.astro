@@ -1,5 +1,9 @@
 ---
 import { Image } from "astro:assets";
+interface Props {
+  heroImage:ImageMetadata,
+  heroDescription:string
+}
 const heroImage = Astro.props.heroImage;
 const heroDescription = Astro.props.heroDescription;
 ---

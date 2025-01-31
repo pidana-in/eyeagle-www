@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
-
+interface Props {
+  item:ImageMetadata,
+  ourTeamButton:string,
+  ourTeamHeading1:string,
+  ourTeamHeading2:string
+}
 const ourTeam = Astro.props.item;
 const ourTeamButton = Astro.props.ourTeamButton;
 const ourTeamHeading1 = Astro.props.ourTeamHeading1;
