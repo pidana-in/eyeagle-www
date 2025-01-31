@@ -21,8 +21,8 @@ const productData = Astro.props.productData;
     <div class="max-md:flex-col-reverse max-md:flex">
         <div id="dropDownItem1" class="border my-10 border-gray-300"></div>
             <div id="dropDownItem2" class="flex justify-between items-center px-5 pb-2">
-                <p class="text-lg font-normal">Subtotal (<span id="subtotalItem">2</span> items)</p>
-                <p id="subtotalPrice" class="font-bold text-xl">₹49,999</p>
+                <p class="text-lg font-normal">Subtotal (<span id="subtotalItem"></span> items)</p>
+                <p id="subtotalPrice" class="font-bold text-xl"></p>
             </div>
             <div id="dropDownItem3" class="flex justify-between items-center px-5 pb-2">
                 <p class="text-lg font-normal">Shipping</p>
@@ -38,7 +38,7 @@ const productData = Astro.props.productData;
                     <path d="M4 9.99997C4 9.99997 6.94593 6 8 6C9.05413 6 12 10 12 10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     </p>
-                <p id="total" class="font-bold text-xl">₹49,999</p>
+                <p id="total" class="font-bold text-xl"></p>
             </div>
     </div>
 </section>
@@ -107,9 +107,5 @@ const productData = Astro.props.productData;
         dropDownItem4.style.display = `${display ? "" : "none"}`;
         dropDownItem5.style.display = `${display ? "" : "none"}`;
     })
-    
-</script>
-
-<script is:inline>
     
 </script>
