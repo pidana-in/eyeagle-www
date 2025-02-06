@@ -1,0 +1,49 @@
+---
+export const prerender = false;
+import MainLayout from "../layouts/MainLayout.astro";
+import { WaitlistHeaderData } from "../components/constants/waitlist";
+import Icon from "../components/common/Icon.astro";
+import WaitListForm from "../components/Waitlist/WaitListForm.astro";
+import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("userName");
+    const email = data.get("userEmail");
+    const phoneNumber = data.get("phoneNumber");
+    const city = data.get("userCity");
+    const acceptance = data.get("userAcceptCheck");
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<MainLayout>
+  <section class="bg-[#F6F4F2]">
+    <section
+      class="xl:container px-[20px] py-[20px] md:px-[80px] md:py-[100px]"
+    >
+      <section class="p-10">
+        <h1
+          class="lg-max-w-[1200px] text-center"
+          set:html={WaitlistHeaderData.title}
+        />
+        <p
+          class="text-[18px] font-medium text-center lg:max-w-[863px] m-auto my-10"
+        >
+          {WaitlistHeaderData.description}
+        </p>
+      </section>
+      <section
+        class="flex flex-col md:flex-row justify-center gap-[50px] lg:gap-[120px]"
+      >
+        <WaitListBanner />
+        <WaitListForm />
+      </section>
+    </section>
+  </section>
+</MainLayout>

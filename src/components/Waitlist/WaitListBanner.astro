@@ -1,0 +1,32 @@
+---
+import Icon from "../common/Icon.astro";
+import { WaitlistBannerData } from "../constants/waitlist";
+---
+
+<div>
+    <div  class="flex flex-col border-2 border-[#CC0000] rounded-3xl md:w-[532px] ">
+
+      <div>
+        <h2 class="font-medium text-[20px] p-[20px]">
+          {WaitlistBannerData.title}
+        </h2>
+      </div>
+      <div
+        class="flex flex-col p-[20px] gap-6 bg-[#CC0000] justify-start rounded-b-[20px]"
+      >
+        <h1 class="font-bold text-[48px] text-white">
+          {WaitlistBannerData.price}<span class="font-normal text-[24px]"
+            >{WaitlistBannerData.planDuration}</span
+          >
+        </h1>
+        {
+          WaitlistBannerData.pointers.map((pointer) => (
+            <div class="flex items-center justify-start gap-2">
+              <Icon iconName="check_circle" classNames="text-white" />
+              <p class="text-[18px] font-medium text-white">{pointer}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    </div>
