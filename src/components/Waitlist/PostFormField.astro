@@ -1,0 +1,22 @@
+---
+import Icon from "../common/Icon.astro";
+import { postFormFillData } from "../constants/waitlist";
+---
+
+<section>
+    <h1 class="font-medium text-[40px] pb-4" set:html={postFormFillData.title}></h1>
+    <p class="text-[#282828] font-medium text-[20px] pb-6">{postFormFillData.description}</p>
+<div class="flex flex-col gap-6">
+    {postFormFillData.contacts.map((contact)=>(
+        <div class="flex gap-4 items-center justify-start">
+            <div class="bg-[#CC0000] h-[40px] w-[40px] rounded-full flex justify-center items-center">
+
+            <Icon iconName={contact.iconType} classNames="text-white text-[16px]"/>
+</div>
+<div>
+    <p>{contact.title}</p>
+</div>
+        </div>
+    ))}
+</div>
+</section>

@@ -18,3 +18,13 @@ export const WaitlistFormData={
     acceptation:"I want to subscribe to the newsletter",
     buttonTitile:"Reserve My Safety Now!"
 }
+
+export const postFormFillData={
+    title:`Thank You for Joining <span class="text-[#CC0000]">EyEagle!</span>`,
+    description:"Your Spot is Reserved",
+    contacts:[
+        {iconType:"mail",title:"Check your email for a confirmation."},
+        {iconType:"call",title:"Expect a call from our team for verification."},
+        {iconType:"notifications",title:"Stay tuned for exclusive updates and early access."},
+    ]
+}
