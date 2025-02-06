@@ -11,6 +11,10 @@ import DesireSection from "../components/Home/DesireSection.astro";
 import ScrollSection from "../components/Home/ScrollSection.astro";
 import ProductFeature from "../components/Home/ProductFeature.astro";
 import ServiceSection from "../components/Home/ServiceSection.astro";
+import EmergencySection from "../components/Home/EmergencySection.astro";
+import HandleSection from "../components/Home/HandleSection.astro";
+import HomePageEmergencyBanner from "../assets/Home/HomePageEmergencyBanner.png";
+
 ---
 <MainLayout>
   <!-- Hero Section -->
@@ -25,7 +29,13 @@ import ServiceSection from "../components/Home/ServiceSection.astro";
   <OurTeamSection item={ourTeam} ourTeamHeading1={ourTeamHeading1} ourTeamHeading2={ourTeamHeading2} ourTeamButton={ourTeamButton}/>
   <!-- Services Section -->
    <ServiceSection takeCareData={takeCareData} serviceSectionTitle={serviceSectionTitle}/>
+   <!-- Emergency Section -->
+    <EmergencySection HomePageEmergencyBanner={HomePageEmergencyBanner}/>
+     <!-- Handle Evereything Section -->
+     <HandleSection />
   <!-- Desire Section -->
   <DesireSection item={desireImage} desireSection1={desireSection1} desireSection2={desireSection2} descriptionButton={descriptionButton}/>
+
+   
 </MainLayout>
 

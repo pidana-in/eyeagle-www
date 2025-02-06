@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import { HandleSectionData } from "../constants/home";
+---
+
+<section class="bg-white pt-[50px] lg:py-[200px] lg:px-[60px]">
+<div class="mb-5 lg:mb-[100px]">
+<p class="text-[#CC0000] font-medium text-[18px] text-center">{HandleSectionData.title}</p>
+<h1 class=" font-medium text-[32px] lg:text-[73px] text-center max-w-[1320px] m-auto ">{HandleSectionData.subTitle}</h1>
+</div>
+
+<div class="flex flex-col md:flex-row justify-center items-center gap-[80px] bg-[#F0F0F0] p-[60px] rounded-2xl">
+    <div class="flex flex-col gap-[23px]">
+        {HandleSectionData.instructions.map((inst,index)=>(
+            <div class="flex flex-col gap-[23px]">
+                <h2 class="font-medium text-[28px]">{inst.title}</h2>
+                <p class="text-[18px] font-normal">{inst.desc}</p>
+                <div class={`h-[1px] bg-[#D9D9D9] ${index===HandleSectionData.instructions.length-1 ? "hidden" : "block"}`}></div>
+            </div>
+        ))}
+    </div>
+    <div>
+        <Image
+        src={HandleSectionData.imgSrc}
+        alt="emergencyBanner"
+        />
+    </div>
+</div>
+</section>

@@ -3,7 +3,7 @@ import BathroomImage3 from "../../assets/Navbar/bathroomImage3.png";
 import BathroomImage4 from "../../assets/Navbar/bathroomImage4.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
 import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png";
-
+import HomePageHandleBanner from "../../assets/Home/HandleImage.png";
 
 export const bathroomData = [
     {
@@ -82,3 +82,33 @@ export const desireSection2 = "Don’t wait for the worst to happen—be proacti
 export const descriptionButton = "Get Started";
 
 
+
+
+export const EmergencyResponseData={
+    title:"ACTION",
+    subTitle:"Emergency Response, Anytime, Anywhere",
+    midTitle:`Trained <span class="text-[#CC0000]">responders, medical professionals, and specialists</span> — ready to act when every second counts.`,
+desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
+bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">18 hours<span/>. EyEagle team takes <span class="text-[#CC0000]">18 minutes</span>”`,
+bannerDesc2:`“becuase some things can wait. <span class="text-[#CC0000]">Emergencies</span> can’t. EyeEgle knows the difference.”`,
+remarks:[
+    "24/7 guidance & support",
+    "Provide support in absence of caregivers",
+    "Free Ambulance Services",
+    "Quick Alert during emergency"
+]
+
+}
+
+export const HandleSectionData={
+    title:"INSTALLATION",
+    subTitle:"We handle everything, so you don’t have to.",
+    imgSrc:HomePageHandleBanner,
+    instructions:[
+        {title:"Full Installation",desc:"From grab bars and anti-slip mats to the alarm kit, we set up everything for maximum safety."},
+        {title:"Personalized Safety Audit",desc:" We assess your bathroom and recommend the best safety upgrades."},
+        {title:"Seamless App Onboarding",desc:" Connect your Circle and customize alerts with ease."},
+        {title:"Thorough Testing",desc:" We ensure every device and alert system works flawlessly."},
+
+    ]
+}
