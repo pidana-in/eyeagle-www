@@ -19,7 +19,8 @@ const takeCareData = Astro.props.takeCareData;
 const serviceSectionTitle = Astro.props.serviceSectionTitle;
 ---
 
-<section id="services" class="py-8 xl:container bg-black lg:py-[120px] font-sans-instrument">
+<section id="services" class="py-8  bg-black lg:py-[120px] font-sans-instrument">
+  <div class="xl:container">
   <div class="lg:pb-[200px] pb-20">
     <h2 class="text-[#CC0000] text-center font-medium text-lg leading-[22px] mb-2">INTERACTION</h2>
         <h2 class="lg:text-[73px] text-white xl:container font-sans-instrument leading-10 text-[32px] font-medium lg:font-normal lg:leading-[80.3px] text-center">
@@ -56,20 +57,21 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
         </div>
       </div>
     </div>
-    <div class="w-full grid lg:grid-cols-2 gap-5 px-10 text-white">
-      <div class="w-full grid gap-5 items-center">
-        <div class="w-full">
+    <div class="w-full grid lg:grid-cols-2 gap-5 px-10 py-10 text-white">
+      <div class="w-full grid gap-5 items-center ">
+        <div class="w-full pb-5 md:pb-0">
           <Image src={guardiankit1} alt={'guardiankit1'} class="w-full bg-cover"/>
           <p class="pt-3 text-center">Automatically detects and alerts when the door remains locked for too long</p>
         </div>
-        <div class="w-full">
-          <Image src={guardiankit2} alt={'guardiankit2'} class="w-full bg-cover"/>
+        <div class="w-full h-full pb-16 md:pb-0">
+          <Image src={guardiankit2} alt={'guardiankit2'} class="w-full h-full bg-cover"/>
           <p class="pt-3 text-center">Precisely positioned alarm switch ensures easy access during emergencies</p>
         </div>
       </div>
-      <div class="w-full">
-        <Image src={guardiankit3} alt={'guardiankit3'} class="w-full bg-cover"/>
+      <div class="w-full  h-full">
+        <Image src={guardiankit3} alt={'guardiankit3'} class="w-full h-full  bg-cover "/>
         <p class="pt-3 text-center" >Place the alarm in an optimal location for maximum sound and quick response.</p>
       </div>
     </div>
+  </div>
   </section>

@@ -85,9 +85,15 @@ const footerClass = Astro.props.footerClass ?? "";
       </div>}
       </nav>
     </header>
-   {pathname === "/" && <a href="waitlist"  class="w-full fixed bottom-10 flex justify-center z-50">
-        <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-[#CC0000] w-[187px] h-[52px]">JOIN WAITING LIST</button>
-    </a>}
+    {pathname === "/" && (
+    <div id="waitlist-button" class="fixed bottom-10 w-full flex justify-center z-50">
+      <a href="/waitlist">
+        <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-[#CC0000] w-[187px] h-[52px]">
+          JOIN WAITING LIST
+        </button>
+      </a>
+    </div>
+  )}
     <header
       id="mobileNav"
       class="lg:hidden sticky top-0 shadow z-50 bg-black w-full"
@@ -255,4 +261,5 @@ const footerClass = Astro.props.footerClass ?? "";
     let display = accountDetails.style.display
     accountDetails.style.display = `${display ? "" : "none"}`;
   })
+  
 </script>

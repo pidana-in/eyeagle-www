@@ -2,10 +2,10 @@
 export const prerender = false;
 import MainLayout from "../layouts/MainLayout.astro";
 import { WaitlistHeaderData } from "../components/constants/waitlist";
-import Icon from "../components/common/Icon.astro";
 import WaitListForm from "../components/Waitlist/WaitListForm.astro";
 import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
 import PostFormField from "../components/Waitlist/PostFormField.astro";
+
 let formPosted=false;
 
 if (Astro.request.method === "POST") {
@@ -16,7 +16,8 @@ if (Astro.request.method === "POST") {
     const phoneNumber = data.get("phoneNumber");
     const city = data.get("userCity");
     const acceptance = data.get("userAcceptCheck");
-    formPosted=true;
+    formPosted = true
+  
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);

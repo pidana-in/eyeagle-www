@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import { PowerfulBentoData } from "../constants/home";
+---
+
+<section class="xl:container px-[40px]  md:pt-0 pb-[100px] lg:pb-[200px] ">
+    <div class="pb-[30px] lg:pb-[80px]">
+
+        <h1 class="font-normal text-[32px] lg:text-[48px] mb-3">{PowerfulBentoData.title}</h1>
+        <h1 class="font-normal text-[32px] text-[#666666] lg:text-[48px]">{PowerfulBentoData.subTitle}</h1>
+    </div>
+    
+    <div class="flex flex-col justify-center items-center gap-5">
+<div><Image src={PowerfulBentoData.bentoImgSrc} alt={"bentoImg"}/></div>
+<div class="flex flex-col gap-5 lg:flex-row justify-center items-center">
+    <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"}/>
+    <Image src={PowerfulBentoData.featsrc2} alt={"featSrc2"}/>
+</div>
+    </div>
+</section>

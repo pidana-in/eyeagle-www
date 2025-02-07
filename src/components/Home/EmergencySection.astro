@@ -32,16 +32,16 @@ const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
 <p class="text-white text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc2}></p>
 </div>
 </section>
-<section class="mt-[80px] flex justify-center items-center gap-[20px] flex-wrap">
+<section class="mt-[80px] flex flex-col md:flex-row justify-center items-center gap-[20px]">
 {EmergencyResponseData.remarks.map((remark)=>(
     <div class="flex flex-col gap-5 justify-center items-center">
         <div>
 
-              <Icon iconName="check_circle" classNames="text-white text-[40px] md:text-[80px]" />
+              <Icon iconName={remark.iconType} classNames="text-white text-[40px] md:text-[80px]" />
         </div>
         <div class="max-h-[56px]">
 
-              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] text-white text-center ">{remark}</p>
+              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] text-white text-center ">{remark.context}</p>
         </div>
     </div>
 ))}
