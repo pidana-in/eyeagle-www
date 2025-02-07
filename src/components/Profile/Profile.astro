@@ -1,0 +1,119 @@
+<div class="w-full xl:container">
+    <div>
+        <div class="flex justify-between mb-5">
+            <div>
+                <h1 class="text-xl font-bold mb-3">Full Name</h1>
+                <p id="editableName">John Wick</p>
+            </div>
+            <p id="nameEdit" class="hover:cursor-pointer">Edit</p>
+        </div>
+        <div id="nameEditContent" style={{display:'none'}} class="grid grid-cols-1 gap-3">
+            <label for="">Name</label>
+            <input type="text" id="name" onchange="handleChange(event)" placeholder="Name" class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2">
+            <div>
+                <button id="nameSave" class="text-white bg-[#CC0000] py-3 px-6 rounded-xl">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="border my-4"></div>
+    <div>
+        <div class="flex justify-between mb-5">
+            <div>
+                <h1 class="text-xl font-bold mb-3">Email</h1>
+                <p>johnwick@gmail.com</p>
+            </div>
+            <p id="emailEdit" class="hover:cursor-pointer">Edit</p>
+        </div>
+        <div id="emailEditContent" style={{display:'none'}} class="grid grid-cols-1 gap-3">
+            <label for="">Email</label>
+            <input type="email" placeholder="Email" class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2">
+            <div>
+                <button class="text-white bg-[#CC0000] py-3 px-6 rounded-xl">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="border my-4"></div>
+    <div>
+        <div class="flex justify-between mb-5">
+            <div>
+                <h1 class="text-xl font-bold mb-3">Phone number</h1>
+                <p>+9148484515</p>
+            </div>
+            <p id="phoneEdit" class="hover:cursor-pointer">Edit</p>
+        </div>
+        <div id="phoneEditContent" style={{display:'none'}} class="grid grid-cols-1 gap-3">
+            <label for="">Phone number</label>
+            <input type="number" placeholder="Phone number" class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2">
+            <div>
+                <button class="text-white bg-[#CC0000] py-3 px-6 rounded-xl">Save</button>   
+            </div>
+        </div>
+    </div>
+    <div class="border my-4"></div>
+    <div>
+        <div class="flex justify-between mb-5">
+            <div>
+                <h1 class="text-xl font-bold mb-3 line-clamp-1">Password</h1>
+                <p>Password needs to be 8 characters and contain at least one alphabet and one number.</p>
+            </div>
+            <p id="passwordEdit" class="hover:cursor-pointer">Edit</p>
+        </div>
+        <div id="passwordEditContent" style={{display:'none'}}>
+            <div class="grid grid-cols-1 gap-3">
+                <label for="">Enter Current Password</label>
+            <input type="text" class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2" placeholder="******">
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+                <label for="">Enter New Password</label>
+            <input type="text" class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2" placeholder="******">
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+                <label for="">Repeat new Password</label>
+            <input type="text" class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2" placeholder="******">
+            <div>
+                <button class="text-white bg-[#CC0000] py-3 px-6 rounded-xl">Save</button>   
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="text-[#CC0000]">Logout my account</button>
+
+<style>
+    input {
+        padding: 12px;
+        border-radius: 12px;
+    }
+</style>
+
+<script is:inline>
+    let nameEdit = document.getElementById('nameEdit');
+    let nameEditContent = document.getElementById('nameEditContent');
+    let emailEdit = document.getElementById('emailEdit');
+    let emailEditContent = document.getElementById('emailEditContent');
+    let phoneEdit = document.getElementById('phoneEdit');
+    let phoneEditContent = document.getElementById('phoneEditContent');
+    let passwordEdit = document.getElementById('passwordEdit');
+    let passwordEditContent = document.getElementById('passwordEditContent');
+
+    nameEdit.addEventListener('click',()=>{
+        nameEdit.innerHTML = `${nameEdit.innerText === "Edit" ? "Cancel" : "Edit"}`;
+        let display = nameEditContent.style.display;
+        nameEditContent.style.display = `${display ? "":"none"}`;
+    })
+    emailEdit.addEventListener('click',()=>{
+        emailEdit.innerHTML = `${emailEdit.innerText === "Edit" ? "Cancel" : "Edit"}`;
+        let display = emailEditContent.style.display;
+        emailEditContent.style.display = `${display ? "":"none"}`;
+    })
+    phoneEdit.addEventListener('click',()=>{
+        phoneEdit.innerHTML = `${phoneEdit.innerText === "Edit" ? "Cancel" : "Edit"}`;
+        let display = phoneEditContent.style.display;
+        phoneEditContent.style.display = `${display ? "":"none"}`;
+    })
+    passwordEdit.addEventListener('click',()=>{
+        passwordEdit.innerHTML = `${passwordEdit.innerText === "Edit" ? "Cancel" : "Edit"}`;
+        let display = passwordEditContent.style.display;
+        passwordEditContent.style.display = `${display ? "":"none"}`;
+    })
+</script>

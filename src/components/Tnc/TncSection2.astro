@@ -1,137 +1,140 @@
+---
+import {
+  tncDefinitions,
+  productUsage,
+  emergencyHandling,
+  userRes,
+  limitations,
+  modifications,
+  contactUs,
+  paymentPolicies,
+  governingLaw,
+  returnRefunds,
+  dataPrivacy,
+  subScriptionPayment,
+  groupManagement,
+  tncScope,
+  tncIntro,
+  tncDate
+} from "../constants/tnc";
+---
+
 <section class="lg:px-20 lg:py-[120px] px-4 py-16 font-sans-instrument xl:container">
-    <h2 class="font-bold text-lg">Effective Date: 10 January 2024</h2>
-    <h3 class="mt-20 font-semibold text-2xl">1. Introduction</h3>
-    <p>Eyeagle provides a holistic safety solution for elderly care, combining physical safety products with proactive emergency response technology. Our services aim to reduce the risk of accidents, provide timely emergency alerts, and offer professional emergency response support</p>
-    <h3 class="mt-10 font-semibold text-2xl">2. Definitions</h3>
+    <h2 class="font-bold text-lg">{tncDate.dateText}</h2>
+    <h3 class="mt-20 font-semibold text-2xl">{tncIntro.heading}</h3>
+    <p>{tncIntro.desc}</p>
+    <h3 class="mt-10 font-semibold text-2xl">{tncDefinitions.heading}</h3>
     <ul>
-        <li>Device: The safety device installed in the bathroom for fall detection and emergency alerts.</li>
-        <li>Bathroom Safety Kit: A collection of safety products including grab bars, non-slip mats, and the Eyeagle device.</li>
-        <li>App: The Eyeagle mobile application used to manage the safety device, receive alerts, and handle emergency response coordination.</li>
-        <li>Owner: The primary account holder with full control over device settings, caregiver management, and emergency contacts.</li>
-        <li>Caregiver: A trusted individual (on-site or remote) who can receive alerts and manage certain safety settings.</li>
-        <li>Elder: The individual for whom the safety system is primarily installed.</li>
-        <li>Emergency Response Team: Eyeagle’s professional team that responds in critical situations when caregivers are unavailable.</li>
+{tncDefinitions.lists.map((list)=>(
+    <li>{list}</li>
+))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">3. Scope of Services</h3>    
-    <h4 class="font-bold text-lg">Eyeagle offers:</h4>
+    <h3 class="mt-10 font-semibold text-2xl">{tncScope.heading}</h3>    
+    <h4 class="font-bold text-lg">{tncScope.desc}</h4>
     <ul>
-        <li>Safety Devices: Fall detection, door sensors, and manual emergency buttons.</li>
-        <li>Bathroom Safety Kit: Physical safety enhancements for fall prevention.</li>
-        <li>App Features:
+       {tncScope.lists.map((list)=>(
+        <li>{list}</li>
+       ))}
             <ul>
-                <li>Group creation and caregiver management</li>
-                <li>Emergency alert notifications</li>
-                <li>Document storage for medical information</li>
-                <li>Direct access to Eyeagle’s emergency response team (for paid members)</li>
+               {tncScope.subLists.map((subList)=>(
+                <li>{subList}</li>
+               ))}
             </ul>
         </li>
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">4. Product Usage and Setup</h3>
-    <p>Device Activation & Pairing:</p> 
+    <h3 class="mt-10 font-semibold text-2xl">{productUsage.heading}</h3>
+    <p>{productUsage.desc}</p> 
     <ul>
-        <li>Devices purchased via the official Eyeagle website must be paired with the app to activate full functionality.</li>
-        <li>Users can create a caregiver group before device pairing but must connect the device to unlock safety monitoring features.
-            Device Placement:</li>
-        <li>The safety device is intended for bathroom installation, where fall risks are highest.</li>
+       
+       
+        {
+            productUsage.list.map((list)=>(
+                <li>{list}</li>
+            ))
+        }
+        {
+            productUsage.subDesc
+        }
+        {
+          productUsage.subList.map((subList)=>(
+            <li>{subList}</li>
+          ))  
+        }
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">5. Group Management & Access</h3>
+    <h3 class="mt-10 font-semibold text-2xl">{groupManagement.heading}</h3>
     <ul>
-        <li>Creating a Group: The Owner can create multiple caregiver groups for different elders and households.</li>
-        <li>Joining a Group: Caregivers can join a group via an invite link shared by the Owner.</li>
-        <li>Permissions:
-            <ul>
-                <li>Owner: Full access to device settings, caregiver management, and document storage.</li>
-                <li>On-Site Caregiver: Access to adjust time-sensitive settings like the door lock timer.</li>
-                <li>Remote Caregiver: Access to alerts, document viewing, and notifications.</li>    
-            </ul>    
-        </li>    
+      {groupManagement.lists.map((list)=>(
+        <li>{list}</li>
+      ))}
+       <ul>
+        {groupManagement.subLists.map((list)=>(
+            <li>{list}</li>
+          ))}
+        </ul>   
     </ul> 
-    <h3 class="mt-10 font-semibold text-2xl">6. Emergency Handling & Response</h3>
-    <p>Trigger Scenarios:</p>
+    <h3 class="mt-10 font-semibold text-2xl">{emergencyHandling.heading}</h3>
+    <p>{emergencyHandling.desc}</p>
     <ul>
-        <li>Device Trigger: The safety device raises an alarm if the manual button is pressed or if fall detection is activated.</li>    
-        <li>Door Timer Alarm: If the bathroom door remains locked beyond the set time, an alarm is raised.</li>
+        {emergencyHandling.lists.map((list)=>(
+            <li>{list}</li>
+        ))}
     </ul> 
-    <p>Response Workflow:</p>
+    <p>{emergencyHandling.subDesc}</p>
     <ul>
-        <li>Immediate Alert: All caregivers receive an alert simultaneously.</li>
-        <li>Priority Handling: If an on-site caregiver is present, they receive priority.</li>
-        <li>Unanswered Alerts: If no caregiver responds, Eyeagle’s Emergency Response Team will be dispatched.</li>
+       {emergencyHandling.subLists.map((list)=>(
+        <li>{list}</li>
+       ))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">7. Subscription & Payment Terms</h3> 
+    <h3 class="mt-10 font-semibold text-2xl">{subScriptionPayment.heading}</h3> 
     <ul>
-        <li>Free Tier: Basic device alerts and group management.</li>
-        <li>Paid Membership: Access to professional emergency response services and advanced app features.</li>
+      {subScriptionPayment.lists.map((list)=>(
+        <li>{list}</li>
+      ))}
     </ul>
-    <p>Payments:</p>
+    <p>{subScriptionPayment.desc}</p>
     <ul>
-        <li>Subscriptions are billed monthly/yearly based on your selected plan.</li>
-        <li>Non-payment will result in the suspension of emergency response services but not device alerts.</li>
+        {subScriptionPayment.subLists.map((list)=>(
+            <li>{list}</li>
+        ))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">8. User Responsibilities</h3>
+    <h3 class="mt-10 font-semibold text-2xl">{userRes.heading}</h3>
     <ul>
-        <li>Proper Installation: Users must ensure the proper installation of the device and safety equipment.</li>
-        <li>Accurate Information: Emergency contacts and caregiver details must be kept up to date.</li>
-        <li>Device Maintenance: Users are responsible for keeping the device powered and connected.</li>
+      {userRes.lists.map((list)=>(
+        <li>{list}</li>
+      ))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">9. Data Privacy & Security</h3>
+    <h3 class="mt-10 font-semibold text-2xl">{dataPrivacy.heading}</h3>
     <ul>
-        <li>Eyeagle collects and stores personal data, including health-related documents, only for safety and emergency handling purposes.</li>
-        <li>Your data is encrypted and will not be shared with third parties outside service operations.</li>
-        <li>Users can request data deletion by contacting support.</li>
+        {dataPrivacy.lists.map((list)=>(
+            <li>{list}</li>
+        ))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">10. Limitations of Liability</h3>
-    <p>Eyeagle provides proactive safety tools but cannot guarantee the prevention of all accidents.</p>
-    <p>We are not liable for:</p>
+    <h3 class="mt-10 font-semibold text-2xl">{limitations.heading}</h3>
+    <p>{limitations.desc}</p>
+    <p>{limitations.subDesc}</p>
     <ul>
-        <li>Delayed emergency responses due to network issues.</li>
-        <li>User failure to maintain the device properly.</li>
-        <li>Incomplete or inaccurate information entered by the user.</li>
+        {limitations.lists.map((list)=>(
+            <li>{list}</li>
+        ))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">11. Returns, Refunds, & Cancellations</h3>
+    <h3 class="mt-10 font-semibold text-2xl">{returnRefunds.heading}</h3>
     <ul>
-        <li>Device Returns: Refunds are available within 14 days for unused products.</li>
-        <li>Subscription Cancellations: Cancel anytime, but partial refunds are not provided for ongoing billing periods.</li>
+  {returnRefunds.lists.map((list)=>(
+    <li>{list}</li>
+  ))}
     </ul>
-    <h3 class="mt-10 font-semibold text-2xl">12. Modifications to Terms</h3>
-    <p>We reserve the right to update these Terms & Conditions. Continued use of the services after updates constitutes acceptance of the revised terms.</p>
-    <h3 class="mt-10 font-semibold text-2xl">13. Governing Law</h3>
-    <p>These Terms & Conditions are governed by the laws of Indi.</p>
-    <h3 class="mt-10 font-semibold text-2xl">14. Contact Us</h3>
-    <p>For inquiries, support, or subscription-related questions:</p>
-    <p>📧 Support Email: contact.eyeagle@gmail.com</p>
-    <h3 class="mt-10 font-semibold text-2xl">15. Payment Policy</h3>
+    <h3 class="mt-10 font-semibold text-2xl">{modifications.heading}</h3>
+    <p>{modifications.desc}</p>
+    <h3 class="mt-10 font-semibold text-2xl">{governingLaw.heading}</h3>
+    <p>{governingLaw.desc}</p>
+    <h3 class="mt-10 font-semibold text-2xl">{contactUs.heading}</h3>
+    <p>{contactUs.desc}</p>
+    <p>{contactUs.subDesc}</p>
+    <h3 class="mt-10 font-semibold text-2xl">{paymentPolicies.heading}</h3>
     <ul>
-        <li>To access and use the Services, you agree to provide true, accurate and complete information to us
-            during and after registration, and you shall be responsible for all acts done through the use of your
-            registered account.
-        </li>
-        <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness,
-            performance, completeness or suitability of the information and materials offered on this website
-            or through the Services, for any specific purpose. You acknowledge that such information and
-            materials may contain inaccuracies or errors and we expressly</li>
-        <li>Your use of our Services and the websiteis solely at your own risk and discretion.. You are
-            required to independently assess and ensure that the Services meet your requirements</li>
-        <li>The contents of the Website and the Services are proprietary to Us and you will not have any
-            authority to claim any intellectual property rights, title, or interest in its contents.</li>
-        <li>You agree and acknowledge that website and the Services may contain links to other third party
-            websites. On accessing these links, you will be governed by the terms of use, privacy policy and
-            such other policies of such third party websites</li>
-        <li>You understand that upon initiating a transaction for availing the Services you are entering into a
-            legally binding and enforceable contract with the us for the Services</li>
-        <li>You shall be entitled to claim a refund of the payment made by you in case we are not able to
-            provide the Service. The timelines for such return and refund will be according to the specific
-            Service you have availed or within the time period provided in our policies (as applicable). In case
-            you do not raise a refund claim within the stipulated time, than this would make you ineligible for
-            a refund.</li>
-        <li>Notwithstanding anything contained in these Terms, the parties shall not be liable for any failure to
-            perform an obligation under these Terms if performance is prevented or delayed by a force majeure
-            event.</li>
-        <li>All disputes arising out of or in connection with these Terms shall be subject to the exclusive
-            jurisdiction of the courts in BANGALORE, Karnataka
-            </li>
-        <li>All concerns or communications relating to these Terms must be communicated to us using the
-            contact information provided on this website.</li>
+        {paymentPolicies.lists.map((list)=>(
+            <li>{list}</li>
+        ))}
     </ul>
 </section>
 <style>

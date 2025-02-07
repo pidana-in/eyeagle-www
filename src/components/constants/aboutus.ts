@@ -16,3 +16,19 @@ export const Values=[
     {title:"Reliability",description:"We are dedicated to delivering a reliable and effective product that exceeds customer expectations."},
     {title:"Customer Focus",description:"We prioritize the needs and satisfaction of our customers, always putting their well-being first."}
 ]
+
+export const HeaderData={
+    title:` A Legacy of <span class="text-[#CC0000]">Care</span> and <span class="text-[#CC0000]">Innovation</span> Engaging and Intriguing`
+}
+
+export const inspirationContext={
+    title:" Our Inspiration: A Legacy of Love and Resilience",
+    desc1:"Savitri Devi Sharma, our beloved Naniji, was a woman of extraordinary strength and resilience. Married at the tender age of 16 in pre-independence India, she faced the unimaginable loss of her husband at just 24, leaving her to raise five children alone.",
+    desc2:"Despite the challenges she faced, Naniji never wavered in her determination to provide for her family. She migrated from a village in Rajasthan to Kolkata, single-handedly raising her three daughters and two sons. Her unwavering spirit and infectious laughter were a constant source of inspiration for us all.",
+    desc3:"Tragically, we lost Naniji to a fall in the bathroom. This heartbreaking event sparked a realization: falls are a significant risk for older adults, and many can be prevented. It is in honor of Naniji's legacy that we founded EyEagle."
+}
+
+export const empoweringSection={
+    title:`<span class="text-[#CC0000]">Empowering</span> Seniors to Live Independently`,
+    desc:"We believe that every older adult deserves to feel secure and confident in their own homes."
+}

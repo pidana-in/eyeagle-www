@@ -1,0 +1,10 @@
+---
+export const prerender = false;
+import MainLayout from "../layouts/MainLayout.astro";
+import LoginSignupForm from "../components/Auth/LoginSignupForm.astro"
+
+---
+
+<MainLayout>
+    <LoginSignupForm formType="signUp"/>
+</MainLayout>

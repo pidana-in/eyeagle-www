@@ -1,12 +1,12 @@
 ---
-import { contexts } from "../constants/manifesto";
+import { contexts, contextSection } from "../constants/manifesto";
 ---
 <section class="py-10 font-sans-instrument sm:py-[120px] px-6 sm:px-[80px] xl:container">
-  <h1 class="text-[32px] sm:text-[52px] font-normal text-center sm:text-left">
-    A <span class="text-[#CC0000]">Single Fall</span> Can Change Everything.
+  <h1 class="text-[32px] sm:text-[52px] font-normal text-center sm:text-left" set:html={contextSection.title}>
+   
   </h1>
   <p class="mt-6 sm:mt-10 mb-6 sm:mb-10 text-[16px] sm:text-[18px] text-center sm:text-left">
-    For many families, a fall can mean more than just a trip to the emergency room—it can take away a loved one’s independence. Falls in the bathroom are often the tipping point that leads to more serious injuries, hospitalization, or worse.
+    {contextSection.desc}
   </p>
   <div class="flex flex-col sm:flex-row justify-between items-center gap-10">
     <div class="flex flex-col gap-6 sm:gap-10">

@@ -1,19 +1,16 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import {contactData} from "../components/constants/contact";
 ---
 
 <MainLayout>
     <section class="bg-[#F6F4F2] lg:px-[80px] font-sans-instrument px-4 lg:py-[120px] lg:flex grid max-lg:gap-10 py-10 lg:justify-around justify-center max-lg:items-center lg:pt-36">
         <div class="grid gap-8 justify-center items-center text-center">
-        <h1 class="font-normal text-[52px]">Contact Us</h1>
-        <h3 class="mt-10 font-normal text-lg">For inquiries, support, or subscription-related questions:</h3>
-        <p class="font-normal text-lg">Merchant Legal entity name: PIDANA TECHNOLOGIES PRIVATE LIMITED</p>
-        <p class="font-normal text-lg">Registered Address: A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka, PIN:
-          560102</p>
-        <p class="font-normal text-lg">Operational Address: A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka, PIN:
-          560102</p>
-        <p class="font-normal text-lg">📧 Support Email: contact.eyeagle@gmail.com</p>
-        </div>
+        <h1 class="font-normal text-[52px]">{contactData.title}</h1>
+        <h3 class="mt-10 font-normal text-lg">{contactData.description}</h3>
+        {contactData.list.map((item)=>
+          <p class="font-normal text-lg">{item}</p>
+        )}
     </section>
 </MainLayout>
 <style>

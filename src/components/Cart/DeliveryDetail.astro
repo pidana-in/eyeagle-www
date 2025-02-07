@@ -1,0 +1,182 @@
+---
+---
+
+<section class="lg:px-[80px] lg:pb-20 lg:pt-[52px]">
+    <h1 class="font-semibold text-xl leading-[22px] pb-4">
+        Delivery Information
+    </h1>
+    <form action="#" method="POST" id="form" class="needs-validation w-[90vw] lg:w-[45vw]" novalidate>
+          <div class="max-md:mb-6">
+            <label for="fname" class="block font-medium pb-3">Name</label>
+            <input type="text" name="name" id="first_name" placeholder="John" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your first name.
+            </div>
+          </div>
+    
+        <div class="flex mb-5">
+          <div class="w-full">
+            <label for="email" class="block text-secondary-600 font-medium pb-3">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="Email" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+            <input type="hidden" name="replyto" value="info@ipsator.com">
+            <div class="empty-feedback text-danger text-sm mt-1">
+              Please provide your email address.
+            </div>
+            <div class="invalid-feedback text-danger text-sm mt-1">
+              Please provide a valid email address.
+            </div>
+          </div>
+        </div>
+        <div class="flex mb-5">
+            <div class="w-full">
+              <label for="email" class="block text-secondary-600 font-medium pb-3">Contact Number</label>
+              <input type="text" name="phone" id="phone" placeholder="+91" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your phone number.
+            </div>
+            </div>
+        </div>
+        <h2 class="font-semibold text-xl leading-[22px] py-4">
+            Shipping Address
+        </h2>
+        <div class="flex mb-5">
+            <div class="w-full">
+              <label for="email" class="block text-secondary-600 font-medium pb-3">Country</label>
+              <input type="email" name="email" id="email" placeholder="Enter Country" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+              <input type="hidden" name="replyto" value="info@ipsator.com">
+              <div class="empty-feedback text-danger text-sm mt-1">
+                Please provide your country name.
+              </div>
+              <div class="invalid-feedback text-danger text-sm mt-1">
+                Please provide a valid country name.
+              </div>
+            </div>
+        </div>
+        <div class="max-md:mb-6 flex justify-between items-center gap-8">
+            <div class="w-full">
+                <label for="fname" class="block font-medium pb-3">First Name</label>
+            <input type="text" name="name" id="first_name" placeholder="John" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your first name.
+            </div>
+            </div>
+            <div class="w-full">
+                <label for="lname" class="block font-medium pb-3">Last Name</label>
+            <input type="text" name="name" id="last_name" placeholder="Wick" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your Last name.
+            </div>
+            </div>
+        </div>
+        <div class="flex my-5">
+            <div class="w-full">
+              <label for="email" class="block text-secondary-600 font-medium pb-3">Company (Optional)</label>
+              <input type="text" name="company" id="company" placeholder="Company" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your Company.
+            </div>
+            </div>
+        </div>
+        <div class="flex my-5">
+            <div class="w-full">
+              <label for="email" class="block text-secondary-600 font-medium pb-3">Apartment, Suite, etc</label>
+              <input type="text" name="Apartment" id="Apartment" placeholder="Apartment" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your Apartment, Suite, etc.
+            </div>
+            </div>
+        </div>
+        <div class="mb-6 flex justify-between items-center gap-8">
+            <div class="w-full">
+                <label for="postal_code" class="block font-medium pb-3">Postal Code</label>
+            <input type="text" name="postal_code" id="postal_code" placeholder="Postal Code" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your Postal Code.
+            </div>
+            </div>
+            <div class="w-full">
+                <label for="city" class="block font-medium pb-3">City</label>
+            <input type="text" name="city" id="city" placeholder="City" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your City.
+            </div>
+            </div>
+        </div>
+        <div class="mb-6 flex justify-between items-center gap-8">
+            <div class="w-full">
+                <label for="state" class="block font-medium pb-3">State</label>
+            <input type="text" name="state" id="state" placeholder="State" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your State.
+            </div>
+            </div>
+            <div class="w-full">
+                <label for="country" class="block font-medium pb-3">Country</label>
+            <input type="text" name="country" id="country" placeholder="Country" required class="mt-1 block w-full p-3 border border-gray-400  focus:outline-none focus:border-primary-600 focus:border-2"/>
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your Country.
+            </div>
+            </div>
+        </div>
+        <div class="flex mb-5">
+            <div class="w-full">
+              <label for="email" class="block text-secondary-600 font-medium pb-3">Phone (Optional)</label>
+              <input type="text" name="phone" id="phone" placeholder="+91" required class="mt-1 block w-full p-3 border border-gray-400 rounded-2xl focus:outline-none focus:border-primary-600 focus:border-2" />
+            <div class="empty-feedback invalid-feedback text-danger text-sm mt-1">
+              Please provide your phone number.
+            </div>
+            </div>
+        </div>
+        <div class="border my-10 border-gray-300"></div>
+        <div class="mt-4">
+          <button type="submit" class="flex justify-center items-center gap-3 w-full text-center text-white bg-red-600 font-bold py-4 px-14 rounded-2xl shadow-lg hover:bg-red-400">
+            Pay Now         
+          </button>
+        </div>
+      </form>
+    </section>
+    <style>
+        input{
+            padding: 12px;
+            border-radius: 12px;
+        }
+        textarea{
+            border-radius: 12px;
+            padding: 12px;
+        }
+        .invalid-feedback,
+        .empty-feedback {
+          display: none;
+        }
+      
+        .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+          display: block;
+        }
+      
+        .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+          display: block;
+        }
+      
+        .is-invalid,
+        .was-validated :invalid {
+          border-color: #dc3545;
+        }
+      </style>
+      
+      <script is:inline>
+         const form = document.getElementById("form");
+      
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          form.classList.add("was-validated");
+          if (!form.checkValidity()) {
+            form.querySelectorAll(":invalid")[0].focus();
+            return;
+          }
+          const formData = new FormData(form);
+          const object = Object.fromEntries(formData);
+          location.href = `mailto:${object?.replyto}?subject=Request to Connect - ${object.name}&body=Hi,%0D%0A%0D%0A${object?.message}%0D%0A%0D%0ARegards,%0D%0A${object?.name}%0D%0A${object?.phone}%0D%0A${object?.email}`;
+          form.reset();
+          form.classList.remove("was-validated");   
+        });
+      </script>

@@ -1,5 +1,5 @@
 ---
-import { options, safetyOptionsTop,safetyOptionsBottom } from "../components/constants/plans";
+import { options, safetyOptionsTop,safetyOptionsBottom, ultimateSafetyContext } from "../components/constants/plans";
 import MainLayout from "../layouts/MainLayout.astro";
 import Icon from "../components/common/Icon.astro";
 ---
@@ -26,22 +26,22 @@ import Icon from "../components/common/Icon.astro";
             <div class="flex flex-col gap-[12px]">
 
               <h1 class="italic font-sans-instrument text-[28px] md:text-[36px] lg:text-[40px] text-white">
-                Ultimate Safety
+                {ultimateSafetyContext.heading}
             </h1>
             <h3 class="text-[21px] md:text-[24px] lg:text-[28px] text-white font-bold">
-Special Launch Offer
+{ultimateSafetyContext.offerDesc}
             </h3>
             <h3 class="text-[24px] md:text-[28px] lg:text-[32px] text-white font-bold mt-[-10px]">
-              ₹49,999  <span class="line-through ml-2">₹89,999</span> 
+             {ultimateSafetyContext.actualPrice}  <span class="line-through ml-2">{ultimateSafetyContext.cutPrice}</span> 
             </h3>
-            <p class=" text-white font-normal text-[18px] mt-[-10px]">₹70,799 including GST</p>
+            <p class=" text-white font-normal text-[18px] mt-[-10px]">{ultimateSafetyContext.gst}</p>
             <p class="text-[16px] md:text-[18px] text-white">
-              Best in class complete solution
+            {ultimateSafetyContext.solutionDesc}
             </p>
           </div>
           <a href="https://payments.cashfree.com/forms/eyeagle-ultimate" target="_blank">
             <button class="bg-[#CC0000] text-white px-5 py-3 my-[28px] rounded-lg text-[16px] md:text-[18px] font-semibold w-full">
-                Get it now
+              {ultimateSafetyContext.btnText}
               </button>
             </a>
             
@@ -76,7 +76,7 @@ Special Launch Offer
                 check_circle
               </span>
               <p class="text-[14px] md:text-[16px] lg:text-[18px] text-[#FB4C51] font-semibold">
-                Free kit update for the next upgraded version
+                {ultimateSafetyContext.kitBtnText}
               </p>
             </button>
           </div>
