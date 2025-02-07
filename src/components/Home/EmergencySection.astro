@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import { EmergencyResponseData } from "../constants/home";
+import Icon from "../common/Icon.astro";
+
+const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
+---
+
+<section class="bg-[#222222] pt-10 lg:pt-[200px] pb-[120px] px-[40px]">
+<div class="xl:container ">
+<section class="pb-10 lg:pb-[200px]">
+<p class="text-center text-[#CC0000] font-medium text-[18px]">{EmergencyResponseData.title}</p>
+<h1 class="lg:max-w-[1360px] text-center text-white font-medium text-[32px] lg:text-[73px] m-auto">{EmergencyResponseData.subTitle}</h1>
+</section>
+    
+<section>
+    <h1 class="lg:max-w-[1240px] text-center text-white font-medium text-[32px] lg:text-[47px] font-normal m-auto" set:html={EmergencyResponseData.midTitle}></h1>
+    <p class="text-center text-[#FFFFFF] font-medium text-[18px] mt-8 lg:max-w-[1160px] m-auto">{EmergencyResponseData.desc}</p>
+</section>
+
+<section class="flex flex-col md:flex-row justify-center items-center mt-[80px] gap-[20px] lg:gap-[125px]">
+    <div>
+        <Image
+        src={HomePageEmergencyBanner}
+        alt="emergencyBanner"
+        />
+    </div>
+<div class="flex flex-col gap-10">
+    <div class="h-[1px] bg-[#D5D5D5]"></div>
+<p class="text-white text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc1}></p>
+<div class="h-[1px] bg-[#D5D5D5]"></div>
+<p class="text-white text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc2}></p>
+</div>
+</section>
+<section class="mt-[80px] flex justify-center items-center gap-[20px] flex-wrap">
+{EmergencyResponseData.remarks.map((remark)=>(
+    <div class="flex flex-col gap-5 justify-center items-center">
+        <div>
+
+              <Icon iconName="check_circle" classNames="text-white text-[40px] md:text-[80px]" />
+        </div>
+        <div class="max-h-[56px]">
+
+              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] text-white text-center ">{remark}</p>
+        </div>
+    </div>
+))}
+</section>
+</div>
+</section>
