@@ -1,37 +1,51 @@
 ---
+import tick from "../../assets/Navbar/tick.png"
 import { Image } from "astro:assets";
-
+import kitImage1 from "../../assets/Navbar/kitItem1.png"
+import kitImage2 from "../../assets/Navbar/kitItem2.png"
+import kitImage3 from "../../assets/Navbar/kitItem3.png"
+import kitImage4 from "../../assets/Navbar/kitItem4.png"
+import kitImage5 from "../../assets/Navbar/kitItem5.png"
 const ourTeam = Astro.props.item;
 const ourTeamButton = Astro.props.ourTeamButton;
 const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 const ourTeamHeading2 = Astro.props.ourTeamHeading2;
 ---
-<section>
-      <div class="flex justify-center items-center px-4">
-        <h2 class="lg:text-[52px] xl:container font-sans-instrument leading-10 text-[32px] max-lg:font-medium font-medium lg:font-normal lg:leading-[62px] lg:mb-12 text-center lg:max-w-3xl">
+<section class="xl:container font-sans-instrument lg:px-10 px-4">
+  <div class=" lg:py-[200px] max-lg:pt-20 max-lg:pb-10">
+    <h2 class="text-[#CC0000] text-center font-medium text-lg leading-[22px] mb-2">PREVENTION</h2>
+        <h2 class="lg:text-[73px] xl:container font-sans-instrument leading-10 text-[32px] font-medium lg:font-normal lg:leading-[80.3px] text-center">
           {ourTeamHeading1}
         </h2>
-      </div>
-      <div class="relative mb-8 mt-20">
-        <Image
-          src={ourTeam}
-          alt="Our healthcare team"
-          class="w-full h-full object-cover brightness-95"
-        />
-        <div class="w-full">
-          <p class="absolute xl:container xl:w-[700px] xl:right-[580px] xl:left-0 font-sans-instrument top-10 lg:bottom-10 leading-8 lg:left-20 left-0 lg:text-[52px] lg:leading-[62px] font-normal max-w-2xl mx-auto text-2xl text-white max-lg:px-4">
-            {ourTeamHeading2}
-          </p>
-          <a href="/plan">
-            <button class="xl:container xl:right-0 xl:w-[250px] xl:left-[900px] py-4 font-sans-instrument lg:gap-4 flex justify-center max-lg:gap-8 items-center text-white absolute max-lg:left-3 lg:bottom-20 bottom-4 lg:right-20 px-8 lg:rounded-3xl rounded-full bg-[#cc0000]">
-              <span class="">
-                {ourTeamButton}
-              </span>
-              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
-              </svg>
-            </button>
-          </a>
+  </div>
+  <div>
+    <h3 class="font-normal text-4xl lg:text-5xl leading-[67.2px] max-lg:text-center">Top-Tier Quality,</h3>
+    <h3 class="font-normal text-4xl lg:text-5xl leading-[67.2px] opacity-60 max-lg:text-center">Zero Compromise</h3>
+    <div class="mt-4 flex max-lg:flex-col items-center lg:gap-[120px] gap-10 w-full">
+      <h3 class="font-medium text-lg leading-[28px] lg:w-[75%] max-lg:text-center">Providing essential support in high-risk areas, these features focus on preventing accidents in the first place by improving stability and reducing slip risks</h3>
+      <div class="flex gap-20 items-center justify-center">
+        <div class="font-medium text-lg leading-[28px]">
+          <Image src={tick} alt={"tick"}/>
+          <p>Total Prevention Kit</p>          
         </div>
+        <div class="font-medium text-lg leading-[28px]">
+          <Image src={tick} alt={"tick"}/>
+          <p>Assess Risk</p>          
       </div>
-  </section>
+      </div>
+    </div>
+    <div class="flex max-lg:flex-col lg:justify-evenly gap-5 items-center mt-20 lg:pb-[200px] pb-20">
+      <div class="max-md:w-full">
+        <Image src={kitImage1} alt={"kitImage1"} class="w-full bg-cover"/>
+      </div>
+      <div class="grid gap-5">
+        <Image src={kitImage2} alt={"kitImage1"}/>
+        <Image src={kitImage3} alt={"kitImage1"}/>
+      </div>
+      <div class="grid gap-5 max-md:w-full">
+        <Image src={kitImage4} alt={"kitImage1"} class="w-full bg-cover"/>
+        <Image src={kitImage5} alt={"kitImage1"} class="w-full bg-cover"/>
+      </div>
+    </div>
+  </div>        
+</section>

@@ -1,18 +1,17 @@
 ---
 import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
 import Account from "../assets/Navbar/Account.png";
-import EyeagleSecondLogo from "../assets/Navbar/EyeagleSecondLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
-import EyeagleLogoMobile from "../assets/Navbar/EyeagleLogoMobile.png";
 import EyeagleLogoMobileBlack from "../assets/Navbar/EyeagleLogoMobileBlack.png";
-const footerClass = Astro.props.footerClass ?? "";
-
-// Import global tailwind styles
+import {footerPolicy,footerHeading,buttonContent,popUpMenu,navbarContent} from "../components/constants/mainLayoutContent";
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import EyeagleRevampLogo from "../assets/Navbar/EyeagleRevampLogo.png";
 const { title = "EYEAGLE" } = Astro.props;
-const { pathname } = Astro.url;
+const { pathname } = Astro. url;
+const loginCredential = false;
+const footerClass = Astro.props.footerClass ?? "";
 ---
 
 <!doctype html>
@@ -36,45 +35,59 @@ const { pathname } = Astro.url;
   <body class="text-gray-900">
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-0 z-50 right-0 px-20 py-5 ${pathname !== "/" && "bg-[#F6F4F2]"}`
+      class=`fixed max-lg:hidden w-full top-0 z-50 right-0 px-10 py-5 bg-[#000000]`
     >
       <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={pathname === "/" ? EyeagleLogo : EyeagleLogoBlack}
+              src={EyeagleRevampLogo}
               alt={"Eyeagle Logo"}
               id="imageBg"
               class="w-[163px]"
             />
           </a>
-          <ul
-            class=`flex space-x-12 font-sans-instrument font-medium ml-14 px-4 ${pathname === "/" && "text-white"}`
+      </div>
+      <ul
+            class=`flex space-x-12 font-sans-instrument font-medium px-4 text-white`
             id="content"
           >
+          {navbarContent?.map((item)=>
             <li>
-              <a href="/manifesto" class="hover:underline">Our manifesto</a>
+              <a href={`${item.url}`} class="hover:underline">{item.title.toUpperCase()}</a>
             </li>
-            <li><a href="/about-us" class="hover:underline">About us</a></li>
-            <li><a href="/contact" class="hover:underline">Contact us</a></li>
+          )}
           </ul>
-        </div>
-
-        {
-          pathname === "/plan/" ? (
-            ""
-          ) : (
-            <div class="flex gap-5">
-              <a href="/plan/">
-                <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">
-                  Order now
-                </button>
+        
+      {pathname === "/plan/" ? "" : <div class="flex gap-5">
+        {/* <button class="relative">
+          <Image id="account" src={Account} alt={'Account'}/>
+        </button> */}
+            <ul id="accountDetails" style={{display:"none"}} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[136px] rounded-xl font-sans-instrument font-normal text-lg">
+              {popUpMenu?.map((item)=>
+                <>
+                {!loginCredential && item.title === "Login" &&
+                  <a href={`${item.url}`}>
+              <li class="p-3 hover:text-[#CC0000]">{item.title}</li>
               </a>
-            </div>
-          )
-        }
+                }
+                { item.title !== "Login" &&
+                  <a href={`${item.url}`}>
+              <li class="p-3 hover:text-[#CC0000]">{item.title}</li>
+              </a>
+                }
+                </>
+              )}
+            </ul>
+        <a href="/plan/">
+          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+        </a>
+      </div>}
       </nav>
     </header>
+   {pathname === "/" && <a href="waitlist"  class="w-full fixed bottom-10 flex justify-center z-50">
+        <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-[#CC0000] w-[187px] h-[52px]">JOIN WAITING LIST</button>
+    </a>}
     <header
       id="mobileNav"
       class="lg:hidden sticky top-0 shadow z-30 bg-white w-full"
@@ -114,6 +127,12 @@ const { pathname } = Astro.url;
               stroke-linejoin="round"></path>
           </svg>
         </div>
+        <div id="crossButton" style={{display:"none"}}>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="24" fill="white"/>
+            <path d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>            
+        </div>
       </nav>
     </header>
     <section
@@ -122,20 +141,22 @@ const { pathname } = Astro.url;
       class="lg:hidden fixed z-30 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
-        <li><a href="/manifesto">Our Manifesto</a></li>
-        <li><a href="/about-us">About us</a></li>
-        <li><a href="/contact">Contact</a></li>
-        {
-          pathname === "/plan/" ? (
-            ""
-          ) : (
-            <a href="/plan/">
-              <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">
-                Order now
-              </button>
-            </a>
-          )
+        {navbarContent?.map((item)=>
+         <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+        )}
+        <!-- {popUpMenu?.map((item)=>
+        <>
+        {!loginCredential && item.title === "Login" &&
+          <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
         }
+        {
+          item.title !== "Login" && <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+        }
+        </>
+        )} -->
+        {pathname === "/plan/"  ? "" :<a href="/plan/">
+          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+        </a>}
       </ul>
     </section>
     <main>
@@ -150,7 +171,7 @@ const { pathname } = Astro.url;
           <h2
             class="font-sans-instrument text-center max-lg:text-center lg:text-3xl text-4xl font-medium leading-10"
           >
-            Expert advice, updates, and surprises for your inbox
+            {footerHeading}
           </h2>
         </div>
       </div>
@@ -160,14 +181,9 @@ const { pathname } = Astro.url;
       >
         <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
         <div class="lg:flex grid lg:gap-20 gap-8 justify-center items-center">
-          <a href="/shipping" class="block">Shipping Policy</a>
-          <a href="/refund" class="block">Refund Policy</a><a
-            href="/privacy"
-            class="block">Privacy Policy</a
-          ><a href="/tnc" class="block">Terms of Service</a><a
-            href="/"
-            class="block">© 2024 EyEagle,inc.</a
-          >
+          {footerPolicy?.map((item)=>
+            <a href={`${item.url}`} class="block">{item.title}</a>
+          )}
         </div>
       </div>
     </footer>
@@ -177,7 +193,7 @@ const { pathname } = Astro.url;
 <style is:global>
   body::-webkit-scrollbar {
     border-radius: 15px;
-    width: 10px;
+    width: 0px;
   }
 
   body::-webkit-scrollbar-track {
@@ -219,25 +235,24 @@ const { pathname } = Astro.url;
   let mobileNavContent = document.getElementById("mobileNavContent");
   let imageBg = document.getElementById("imageBg");
   let content = document.getElementById("content");
+  let account = document.getElementById('account');
+  let accountDetails = document.getElementById('accountDetails');
+  let crossButton = document.getElementById('crossButton');
 
-  hamburger.addEventListener("click", function () {
-    let display = mobileNavContent.style.display;
-    mobileNavContent.style.display = `${display ? "" : "none"}`;
+  hamburger.addEventListener("click",function(){
+    hamburger.style.display = "none";
+    crossButton.style.display = "block";
+    mobileNavContent.style.display = "";
   });
 
-  window.addEventListener("scroll", (event) => {
-    if (location.pathname !== "/") return;
-    let scroll = this.scrollY;
-    // console.log("scroll",scroll,"wndow",window.innerWidth)
-    if (scroll >= 855) {
-      nav.style.backgroundColor = "white";
-      // imageBg.style.backgroundColor = "#475569"
-      imageBg.src = EyeagleLogoBlack.src;
-      content.style.color = "black";
-    } else {
-      nav.style.backgroundColor = "transparent";
-      imageBg.src = EyeagleLogo.src;
-      content.style.color = "white";
-    }
-  });
+  crossButton.addEventListener("click",()=>{
+    hamburger.style.display = "block";
+    crossButton.style.display = "none";
+    mobileNavContent.style.display = `none`;
+  })
+
+  account.addEventListener('click',()=>{
+    let display = accountDetails.style.display
+    accountDetails.style.display = `${display ? "" : "none"}`;
+  })
 </script>

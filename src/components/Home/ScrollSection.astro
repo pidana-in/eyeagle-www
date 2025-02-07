@@ -1,16 +1,17 @@
 ---
-import doctorImage1 from "../../assets/Navbar/doctorImage1.png";
-import doctorImage2 from "../../assets/Navbar/doctorImage2.png";
-import doctorImage3 from "../../assets/Navbar/doctorImage3.png";
-import doctorImage4 from "../../assets/Navbar/doctorImage4.png";
 import { Image } from "astro:assets";
+const struggleData = Astro.props.struggleData;
 ---
 
-<section class="xl:container lg:my-24 my-16 lg:px-[80px] px-4">
-    <div class="w-full grid lg:grid-cols-3 grid-cols-1 lg:gap-4 gap-8 containers">
-      <Image src={doctorImage1} alt={"doctorImage1"}/>
-      <Image src={doctorImage2} alt={"doctorImage2"}/>
-      <Image src={doctorImage3} alt={"doctorImage3"}/>
-      <Image src={doctorImage4} alt={"doctorImage4"}/>
+<section class="xl:container lg:my-24 my-16 lg:px-10 px-4">
+    <div class="w-full grid grid-cols-3 max-lg:grid-cols-1 justify-center items-center gap-20 containers">
+      {struggleData?.map((item:any)=>{
+        return(
+          <div class="grid justify-center items-center">
+            <Image src={item.img} alt={"doctorImage1"}/>
+            <p set:html={item.content} class="text-center p-2 font-medium leading-7 text-xl max-w-[410px]"></p>
+          </div>
+        )
+      })}
     </div>
   </section>
