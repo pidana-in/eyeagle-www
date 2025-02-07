@@ -5,7 +5,7 @@ description:"Your loved ones deserve the best protection. With Eyeagle, you get 
 
 export const WaitlistBannerData={
     title:"Exclusive Launch Price",
-    price:"$50,000",
+    price:"₹49,999",
     planDuration:"/ 3 year plan",
     pointers:[
         "Priority Installation",
