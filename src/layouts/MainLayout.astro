@@ -261,23 +261,5 @@ const footerClass = Astro.props.footerClass ?? "";
     let display = accountDetails.style.display
     accountDetails.style.display = `${display ? "" : "none"}`;
   })
-  document.addEventListener("DOMContentLoaded", () => {
-    const waitlistButton = document.getElementById("waitlist-button");
-    const footer = document.querySelector("footer");
-
-    function checkFooterVisibility() {
-      const footerRect = footer.getBoundingClientRect();
-      if (footerRect.top < window.innerHeight) {
-        waitlistButton.style.opacity = "0";
-        waitlistButton.style.pointerEvents = "none";
-      } else {
-        waitlistButton.style.opacity = "1";
-        waitlistButton.style.pointerEvents = "auto";
-      }
-    }
-
-    window.addEventListener("scroll", checkFooterVisibility);
-    checkFooterVisibility(); // Run on load
-  });
   
 </script>
