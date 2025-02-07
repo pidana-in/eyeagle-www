@@ -1,4 +1,4 @@
-export const navbarContent = [{title:"How it works",ur:"/manifesto"},{title:"About us",url:"/about-us"},{title:"Contact us",url:"/contact"}];
+export const navbarContent = [{title:"How it works",url:"/manifesto"},{title:"About us",url:"/about-us"},{title:"Contact us",url:"/contact"}];
 
 export const popUpMenu = [{title:"Login",url:"/login"},{title:"Profile",url:"/profile"},{title:"My Orders",url:"/orders"},{title:"Logout",url:""}];
 
