@@ -4,23 +4,16 @@ import { Image } from "astro:assets";
 const item = Astro.props.item;
 const mobile = Astro.props.mobile;
 ---
-    <div class=`flex ${item.id%2 ===0 && "flex-row-reverse"} max-lg:flex-col md:grid-cols-2 max-lg:gap-4  gap-36 justify-evenly items-center`>
-        <div class="lg:w-1/2">
+    <div class="relative">
+          <h2 class="absolute top-3 z-30 bg-[#FFFFFFB2] p-[10px] rounded-[54px] font-medium text-xl leading-8 flex justify-center items-center w-[95%] mx-2">{item.heading}</h2>
             <Image
             src={item.image ?? ""}
             alt={'item.heading'}
-            class="w-full bg-cover"
+            class="w-full bg-cover rounded-[20px]"
           />
-        </div>
-        <div class=`bg-white ${mobile && "max-lg:pb-20"} pt-8 lg:p-6 w-full lg:w-1/2`> 
-          <h1 class="text-base max-lg:text-base font-sans-instrument font-medium lg:mb-2 text-red-600">
-            {item.heading.toUpperCase()}
-          </h1>
-          <h2 class="text-3xl max-lg:py-3 max-lg:text-[32px] pb-4 font-sans-instrument max-lg:leading-10 font-semibold">
-           {item.title}
-          </h2>
-          <h3 class="max-lg:text-lg font-sans-instrument max-lg:pt-4">
-            {item.description}
-          </h3>
-        </div>
+          <button class=`absolute bottom-5 right-5 z-30 ${item.id === 4 ? "bg-white" :"bg-[#CC0000]"} h-10 w-10 rounded-[100px] grid justify-center items-center`>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0.804688 8.8994H11.7775L6.74081 13.9361L7.99999 15.1953L15.1953 7.99999L7.99999 0.804688L6.74081 2.06386L11.7775 7.10058H0.804688L0.804688 8.8994Z" fill=`${item.id === 4 ? "#CC0000":"white"}`/>
+              </svg>              
+          </button>
       </div>
