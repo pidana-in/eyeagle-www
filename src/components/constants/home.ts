@@ -8,6 +8,10 @@ import HomePageHandleBanner from "../../assets/Home/HandleImage.png";
 import struggle1 from "../../assets/Navbar/struggle1.png";
 import struggle2 from "../../assets/Navbar/struggle2.png";
 import struggle3 from "../../assets/Navbar/struggle3.png";
+import circleApp from "../../assets/Home/circleApp.png";
+import powerfulBento from "../../assets/Home/powerfulBento.png";
+import powerfulFeat1 from "../../assets/Home/powerfulFeat1.png";
+import powerfulFeat2 from "../../assets/Home/powerfulFeat2.png";
 
 export const bathroomData = [
     {
@@ -112,12 +116,11 @@ desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our ex
 bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">18 hours<span/>. EyEagle team takes <span class="text-[#CC0000]">18 minutes</span>”`,
 bannerDesc2:`“becuase some things can wait. <span class="text-[#CC0000]">Emergencies</span> can’t. EyeEgle knows the difference.”`,
 remarks:[
-    "24/7 guidance & support",
-    "Provide support in absence of caregivers",
-    "Free Ambulance Services",
-    "Quick Alert during emergency"
-]
-
+    {iconType:"help_clinic",context:"24/7 guidance & support"},
+    {iconType:"support_agent",context:"Provide support in absence of caregivers"},
+    {iconType:"help_clinic",context:"Free Ambulance Services"},
+    {iconType:"e911_emergency",context:"Quick Alert during emergency"}
+],
 }
 
 export const HandleSectionData={
@@ -131,4 +134,21 @@ export const HandleSectionData={
         {title:"Thorough Testing",desc:" We ensure every device and alert system works flawlessly."},
 
     ]
+}
+
+export const CircleMembershipData={
+    title:"APP",
+    subTItle:"EyEagle Circle App Membership",
+    midTitle:"Introducing Eyeagle Circle – The Best-in-Class Connected Care Network for Your Loved Ones",
+    desc:"Eyeagle Circle is a smart, connected network that links caregivers and family members to ensure constant safety and support. Whether you’re nearby or miles away, stay informed, respond instantly, and make sure your loved ones are never alone in an emergency",
+    imgSrc:circleApp
+
+}
+
+export const PowerfulBentoData={
+title:"Powerful Features Designed for",
+subTitle:"Complete Peace of Mind.",
+bentoImgSrc:powerfulBento,
+featsrc1:powerfulFeat1,
+featsrc2:powerfulFeat2,
 }

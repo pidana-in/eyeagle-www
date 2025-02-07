@@ -14,6 +14,8 @@ import ServiceSection from "../components/Home/ServiceSection.astro";
 import EmergencySection from "../components/Home/EmergencySection.astro";
 import HandleSection from "../components/Home/HandleSection.astro";
 import HomePageEmergencyBanner from "../assets/Home/HomePageEmergencyBanner.png";
+import CircleMembership from "../components/Home/CircleMembership.astro";
+import PowerfulFeat from "../components/Home/PowerfulFeat.astro";
 
 ---
 <MainLayout>
@@ -33,6 +35,10 @@ import HomePageEmergencyBanner from "../assets/Home/HomePageEmergencyBanner.png"
     <EmergencySection HomePageEmergencyBanner={HomePageEmergencyBanner}/>
      <!-- Handle Evereything Section -->
      <HandleSection />
+     <!--CirleSection -->
+     <CircleMembership/>
+     <!--PowerfulFeatSection -->
+     <PowerfulFeat/>
   <!-- Desire Section -->
   <DesireSection item={desireImage} desireSection1={desireSection1} desireSection2={desireSection2} descriptionButton={descriptionButton}/>
 
