@@ -8,6 +8,8 @@ import ValuesSection from "../components/AboutUs/ValuesSection.astro";
 import EmpoweringSection from "../components/AboutUs/EmpoweringSection.astro";
 import FoundersSection from "../components/AboutUs/FoundersSection.astro";
 import BannerSection from "../components/AboutUs/BannerSection.astro";
+import {descriptionButton} from "../components/constants/home";
+
 ---
 <MainLayout>
   <HeaderSection />
@@ -15,5 +17,5 @@ import BannerSection from "../components/AboutUs/BannerSection.astro";
   <ValuesSection />
   <EmpoweringSection />
   <FoundersSection />
-  <DesireSection item={desireImage} className={"!mt-0"} />
+  <DesireSection item={desireImage} descriptionButton={descriptionButton} className={"!mt-0"} />
 </MainLayout>
