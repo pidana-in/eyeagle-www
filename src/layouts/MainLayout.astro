@@ -41,7 +41,7 @@ const footerClass = Astro.props.footerClass ?? "";
         <div class="flex justify-between items-center">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleRevampLogo}
+              src={EyeagleLogo}
               alt={"Eyeagle Logo"}
               id="imageBg"
               class="w-[163px]"
@@ -90,12 +90,12 @@ const footerClass = Astro.props.footerClass ?? "";
     </a>}
     <header
       id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-30 bg-white w-full"
+      class="lg:hidden sticky top-0 shadow z-50 bg-black w-full"
     >
       <nav class="flex justify-between items-center px-5 py-7">
         <div>
           <a href="/" aria-label="EyEagle Home Page">
-            <Image src={EyeagleLogoMobileBlack} alt="" />
+            <Image src={EyeagleLogo} alt="" />
           </a>
         </div>
         <div id="hamburger">
