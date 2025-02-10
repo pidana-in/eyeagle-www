@@ -1,0 +1,144 @@
+---
+export const prerender = false;
+import MainLayout from "../layouts/MainLayout.astro";
+import { WaitlistFormData, WaitlistHeaderData } from "../components/constants/waitlist";
+import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
+import PostFormField from "../components/Waitlist/PostFormField.astro";
+import { URLS } from "../utils/urls";
+import { countries } from "../components/constants/common";
+
+let formPosted=false;
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("userName");
+    const email = data.get("userEmail");
+    const countryCode = data.get("countryCode");
+    const phoneNumber = data.get("phoneNumber");
+    const city = data.get("userCity");
+    const acceptance = data.get("userAcceptCheck");
+  
+    const payload={
+      name,
+      countryCode,
+      mobileNumber:phoneNumber,
+      email,
+      city,
+      isNewsletterSubscribed: acceptance==='on' ? true : false
+    }
+ 
+ const response = await fetch(URLS.USER_WAITLIST_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const resData = await response.json();    
+    formPosted = true; 
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
+---
+
+<MainLayout>
+  <section class="bg-[#F6F4F2]">
+    <section
+      class="xl:container px-[20px] py-[20px] md:px-[80px] md:py-[100px]"
+    >
+      <section class="p-10">
+        <h1
+          class="lg-max-w-[1200px] text-center"
+          set:html={WaitlistHeaderData.title}
+        />
+        <p
+          class="text-[18px] font-medium text-center lg:max-w-[863px] m-auto my-10"
+        >
+          {WaitlistHeaderData.description}
+        </p>
+      </section>
+      <section
+        class="flex flex-col md:flex-row justify-center gap-[50px] lg:gap-[120px]"
+      >
+        <WaitListBanner />
+        <div class=`${formPosted ? "hidden" : "block"}`>
+
+          <div
+          class="flex flex-col justify-center items-center gap-3 "
+        >
+          <form method="POST"  class="flex flex-col gap-3">
+            <label> Name* </label>
+            <input
+              type="text"
+              name="userName"
+              placeholder="Enter name"
+              required
+              class={`md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]  `}
+            />
+            <label> Phone number* </label>
+            <div class={`relative md:w-[628px] `}>
+              <select
+              id="countryCodeSelect"
+              name="countryCode"
+              class="absolute inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-[110px]"
+              required
+            >
+              {countries.map((country) => (
+                <option value={country.dial_code}>{country.code} {country.dial_code}</option>
+              ))}
+            </select>
+              <input
+                type="number"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                maxlength="10"
+                required
+                class={`md:w-[628px] pl-[130px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
+              />
+            </div>
+    
+            <label> Email* </label>
+            <input
+              type="email"
+              name="userEmail"
+              placeholder="Enter Email"
+              required
+              class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
+            />
+    
+            <label> City of Installation* </label>
+            <input
+              type="text"
+              name="userCity"
+              placeholder="City Name"
+              required
+              class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
+            />
+            <div class="flex justify-start items-center gap-2">
+    
+            <input type="checkbox" name="userAcceptCheck" class="h-[18px] w-[18px]  border border-gray-400" required/><span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
+            </div>
+    
+            <button
+              class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-[8px]"
+              >{WaitlistFormData.buttonTitile}</button
+            >
+          </form>
+        </div>
+        </div>
+        <div  class=`${formPosted ? "block" : "hidden"}`>
+            <PostFormField/>
+            </div>
+
+      </section>
+    </section>
+  </section>
+</MainLayout>
+
+=
