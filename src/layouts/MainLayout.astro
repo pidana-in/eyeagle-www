@@ -86,7 +86,7 @@ const footerClass = Astro.props.footerClass ?? "";
       </nav>
     </header>
     {pathname === "/" && (
-    <div id="waitlist-button" class="fixed bottom-10 w-full flex justify-center z-50">
+    <div id="waitBtn" class="fixed bottom-10 w-full flex justify-center z-50">
       <a href="/waitlist">
         <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-[#CC0000] w-[187px] h-[52px]">
           JOIN WAITING LIST
@@ -169,7 +169,7 @@ const footerClass = Astro.props.footerClass ?? "";
       <slot />
     </main>
 
-    <footer class={`py-8 ${footerClass} xl:container`}>
+    <footer id="footer" class={`py-8 ${footerClass} xl:container`}>
       <div
         class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32"
       >
@@ -236,6 +236,8 @@ const footerClass = Astro.props.footerClass ?? "";
 </style>
 
 <script is:inline define:vars={{ EyeagleLogoBlack, EyeagleLogo }}>
+  let waitButton = document.getElementById('waitBtn');
+  let footer = document.getElementById('footer');
   let nav = document.getElementById("myNav");
   let hamburger = document.getElementById("hamburger");
   let mobileNavContent = document.getElementById("mobileNavContent");
@@ -244,6 +246,20 @@ const footerClass = Astro.props.footerClass ?? "";
   let account = document.getElementById('account');
   let accountDetails = document.getElementById('accountDetails');
   let crossButton = document.getElementById('crossButton');
+
+  function toggleButtonVisibility() {
+      const footerRect = footer.getBoundingClientRect();
+      const buttonRect = waitButton.getBoundingClientRect();
+
+      if (footerRect.top <= window.innerHeight && footerRect.bottom >= buttonRect.bottom) {
+        waitButton.style.display = 'none'; // Hide button if it overlaps with the footer
+      } else {
+        waitButton.style.display = ''; // Show button otherwise
+      }
+    }
+
+    window.addEventListener('scroll', toggleButtonVisibility);
+    window.addEventListener('resize', toggleButtonVisibility);
 
   hamburger.addEventListener("click",function(){
     hamburger.style.display = "none";
