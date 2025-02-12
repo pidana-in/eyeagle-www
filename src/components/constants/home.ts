@@ -105,6 +105,7 @@ export const desireSection2 = "Don’t wait for the worst to happen—be proacti
 
 export const descriptionButton = "Join waiting list";
 
+export const scrollDataSection = {1:"prevention",2:"services",3:"emergency",4:"installation"};
 
 
 

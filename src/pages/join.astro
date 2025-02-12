@@ -7,6 +7,8 @@ import PostFormField from "../components/Waitlist/PostFormField.astro";
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
 import Icon from "../components/common/Icon.astro";
+import BathroomSection from "../components/Home/BathroomSection.astro";
+import { bathroomData } from "../components/constants/home";
 
 let formPosted=false;
 
@@ -37,7 +39,7 @@ if (Astro.request.method === "POST") {
       body: JSON.stringify(payload)
     });
 
-    const resData = await response.json();   
+    const resData = await response.json();       
       if(resData?.status==="success"){
         formPosted = true; 
       }   
@@ -110,11 +112,7 @@ if (Astro.request.method === "POST") {
                       <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt="India Flag" width="20"/> {country?.code} {country.dial_code}
                     </div>
                   ))}
-
-                                    
-                                    
-                                  </div>
-
+                </div>
             </div>   
                        <input
                 type="number"
@@ -161,6 +159,11 @@ if (Astro.request.method === "POST") {
             </div>
 
       </section>
+      <div class="pt-60 grid lg:grid-cols-4 gap-12">
+        {bathroomData?.map((item)=>
+          <BathroomSection item={item} mobile={false}/>
+        )}
+      </div>
     </section>
   </section>
 </MainLayout>
