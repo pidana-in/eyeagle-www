@@ -6,6 +6,7 @@ import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
 import PostFormField from "../components/Waitlist/PostFormField.astro";
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
+import Icon from "../components/common/Icon.astro";
 
 let formPosted=false;
 
@@ -14,7 +15,7 @@ if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
     const name = data.get("userName");
     const email = data.get("userEmail");
-    const countryCode = data.get("countryCode");
+    const countryCode = data.get("phCode");
     const phoneNumber = data.get("phoneNumber");
     const city = data.get("userCity");
     const acceptance = data.get("userAcceptCheck");
@@ -27,8 +28,8 @@ if (Astro.request.method === "POST") {
       city,
       isNewsletterSubscribed: acceptance==='on' ? true : false
     }
- 
- const response = await fetch(URLS.USER_WAITLIST_API, {
+  
+    const response = await fetch(URLS.USER_WAITLIST_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -36,8 +37,10 @@ if (Astro.request.method === "POST") {
       body: JSON.stringify(payload)
     });
 
-    const resData = await response.json();    
-    formPosted = true; 
+    const resData = await response.json();   
+      if(resData?.status==="success"){
+        formPosted = true; 
+      }   
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
@@ -48,7 +51,7 @@ if (Astro.request.method === "POST") {
 ---
 
 <MainLayout>
-  <section class="bg-[#F6F4F2]">
+  <section class="bg-[#F6F4F2] font-sans-instrument">
     <section
       class="xl:container px-[20px] py-[20px] md:px-[80px] md:py-[100px]"
     >
@@ -72,7 +75,7 @@ if (Astro.request.method === "POST") {
           <div
           class="flex flex-col justify-center items-center gap-3 "
         >
-          <form method="POST"  class="flex flex-col gap-3">
+          <form method="POST"  class="flex flex-col gap-3" onsubmit="handleSubmit()">
             <label> Name* </label>
             <input
               type="text"
@@ -83,23 +86,44 @@ if (Astro.request.method === "POST") {
             />
             <label> Phone number* </label>
             <div class={`relative md:w-[628px] `}>
-              <select
-              id="countryCodeSelect"
-              name="countryCode"
-              class="absolute inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-[110px]"
-              required
-            >
-              {countries.map((country) => (
-                <option value={country.dial_code}>{country.code} {country.dial_code}</option>
-              ))}
-            </select>
-              <input
+
+            <div class="absolute  h-full">
+              <div id="dropdownButton" class="inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-auto max-w-[130px] flex justify-between items-center">
+                <span>
+                    <Icon iconName="keyboard_arrow_down" classNames="mt-2"/>
+                </span>
+              </div>
+              <input id="phCode" name="phCode" value="" class="hidden"/>
+                          <div id="dropdownMenu" class="absolute mt-1  bg-white border border-gray-300 rounded-md shadow-md hidden text-black  max-h-[250px] overflow-y-scroll w-52">
+                
+                  {countries
+                  .sort((a, b) => a.code.localeCompare(b.code))
+                  .map((country) => (
+                    <div
+                    id="options"
+                    class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                      data-value={country?.dial_code}
+                    >
+                      {/* <span class="emoji">{country.code.split('').map(letter=>letter.charCodeAt(0) % 32 + 0x1F1E5).map(n=>String.fromCodePoint(n)).join('')}
+                      </span> */}
+                      
+                      <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt="India Flag" width="20"/> {country?.code} {country.dial_code}
+                    </div>
+                  ))}
+
+                                    
+                                    
+                                  </div>
+
+            </div>   
+                       <input
                 type="number"
                 name="phoneNumber"
                 placeholder="Phone Number"
-                maxlength="10"
+                id="phoneNumField"
+                maxlength="10"  
                 required
-                class={`md:w-[628px] pl-[130px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
+                class={`md:w-[628px]  p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
               />
             </div>
     
@@ -141,4 +165,45 @@ if (Astro.request.method === "POST") {
   </section>
 </MainLayout>
 
-=
+<script is:inline>
+  const dropdownButton = document.getElementById("dropdownButton");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+  const phCode = document.getElementById("phCode");
+  const phoneNumField = document.getElementById("phoneNumField");
+
+  dropdownButton.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
+  });
+
+  dropdownMenu.addEventListener("click", (event) => {
+    const option = event.target.closest("[data-value]");
+    if (option) {
+      dropdownButton.textContent = option.dataset.value;
+      phCode.value = option.dataset.value;
+      dropdownMenu.classList.add("hidden");
+
+      document.querySelectorAll("#options").forEach(el => el.classList.remove("bg-gray-300"));
+      option.classList.add("bg-gray-300");
+    }
+});
+
+
+  document.addEventListener("click", (event) => {
+    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.classList.add("hidden");
+    }
+  });
+  function checkPhoneAvail(){
+  phoneNumField.classList.add("pl-[60px]") 
+  dropdownButton.classList.add("max-w-[70px]")
+
+dropdownButton.textContent="+91";
+phCode.value = "+91";
+const defaultOption = document.querySelector(`[data-value="+91"]`);
+  if (defaultOption) {
+    defaultOption.classList.add("bg-gray-300"); 
+  }
+  }
+  checkPhoneAvail()
+  
+</script>
