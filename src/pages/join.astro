@@ -6,6 +6,8 @@ import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
 import PostFormField from "../components/Waitlist/PostFormField.astro";
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
+import BathroomSection from "../components/Home/BathroomSection.astro";
+import { bathroomData } from "../components/constants/home";
 
 let formPosted=false;
 
@@ -137,8 +139,11 @@ if (Astro.request.method === "POST") {
             </div>
 
       </section>
+      <div class="pt-60 grid lg:grid-cols-4 gap-12">
+        {bathroomData?.map((item)=>
+          <BathroomSection item={item} mobile={false}/>
+        )}
+      </div>
     </section>
   </section>
 </MainLayout>
-
-=

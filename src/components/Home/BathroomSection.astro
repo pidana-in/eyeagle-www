@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
+import {scrollDataSection} from "../constants/home";
 
 const item = Astro.props.item;
 const mobile = Astro.props.mobile;
+const { pathname } = Astro. url;
 ---
     <div class="relative">
           <h2 class="absolute top-3 z-30 bg-[#FFFFFFB2] p-[10px] rounded-[54px] font-medium text-xl leading-8 flex justify-center items-center w-[95%] mx-2">{item.heading}</h2>
@@ -11,9 +13,26 @@ const mobile = Astro.props.mobile;
             alt={'item.heading'}
             class="w-full bg-cover rounded-[20px]"
           />
-          <button class=`absolute bottom-5 right-5 z-30 ${item.id === 4 ? "bg-white" :"bg-[#CC0000]"} h-10 w-10 rounded-[100px] grid justify-center items-center`>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <button id={item.id} class=`absolute bottom-5 right-5 z-30 ${item.id === 4 ? "bg-white" :"bg-[#CC0000]"} h-10 w-10 rounded-[100px] grid justify-center items-center`>
+            <svg class="hover:cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M0.804688 8.8994H11.7775L6.74081 13.9361L7.99999 15.1953L15.1953 7.99999L7.99999 0.804688L6.74081 2.06386L11.7775 7.10058H0.804688L0.804688 8.8994Z" fill=`${item.id === 4 ? "#CC0000":"white"}`/>
               </svg>              
           </button>
       </div>
+
+
+      <script is:inline define:vars={{item,scrollDataSection,pathname}}>
+        
+        const buttonScroll = document.getElementById(`${item.id}`); 
+        function scrollFunction() {
+          const element = document.getElementById(`${scrollDataSection[item.id]}`);
+          element.scrollIntoView({behavior:"smooth"});
+        }
+        if(pathname === "/join"){
+          buttonScroll.addEventListener('click',()=>{
+            window.location.href = "/"
+          })
+        }else{
+          buttonScroll.addEventListener('click',()=>scrollFunction());
+        }
+      </script>
