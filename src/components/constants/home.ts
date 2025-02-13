@@ -99,7 +99,7 @@ export const ourTeamButton = "See our plans";
 
 export const serviceSectionTitle = `We take care of <span class="text-red-600">everything</span>`;
 
-export const desireSection1 = "Your Loved Ones Deserve the Best.";
+export const desireSection1 = "Get EyEagle now – Stay One Step Ahead of Emergencies";
 
 export const desireSection2 = "Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.";
 

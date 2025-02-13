@@ -39,7 +39,8 @@ if (Astro.request.method === "POST") {
       body: JSON.stringify(payload)
     });
 
-    const resData = await response.json();       
+    const resData = await response.json();
+        
       if(resData?.status==="success"){
         formPosted = true; 
       }   
@@ -77,7 +78,9 @@ if (Astro.request.method === "POST") {
           <div
           class="flex flex-col justify-center items-center gap-3 "
         >
-          <form method="POST"  class="flex flex-col gap-3" onsubmit="handleSubmit()">
+          <form method="POST"  class="flex flex-col gap-3" onsubmit="
+
+handleSubmit()">
             <label> Name* </label>
             <input
               type="text"
@@ -90,10 +93,12 @@ if (Astro.request.method === "POST") {
             <div class={`relative md:w-[628px] `}>
 
             <div class="absolute  h-full">
-              <div id="dropdownButton" class="inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-auto max-w-[130px] flex justify-between items-center">
+              <div id="dropdownButton" class="inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-auto max-w-[150px] flex justify-between items-center">
                 <span>
-                    <Icon iconName="keyboard_arrow_down" classNames="mt-2"/>
+                    <Icon iconName="keyboard_arrow_down" classNames="mt-2 hidden"/>
                 </span>
+                <div class="flex items-center gap-2">
+              </div>
               </div>
               <input id="phCode" name="phCode" value="" class="hidden"/>
                           <div id="dropdownMenu" class="absolute mt-1  bg-white border border-gray-300 rounded-md shadow-md hidden text-black  max-h-[250px] overflow-y-scroll w-52">
@@ -102,14 +107,11 @@ if (Astro.request.method === "POST") {
                   .sort((a, b) => a.code.localeCompare(b.code))
                   .map((country) => (
                     <div
-                    id="options"
+                    id={country?.code}
                     class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
                       data-value={country?.dial_code}
-                    >
-                      {/* <span class="emoji">{country.code.split('').map(letter=>letter.charCodeAt(0) % 32 + 0x1F1E5).map(n=>String.fromCodePoint(n)).join('')}
-                      </span> */}
-                      
-                      <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt="India Flag" width="20"/> {country?.code} {country.dial_code}
+                    >      
+                      <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt={`${country?.code}flag`} width="20"/> {country.dial_code}
                     </div>
                   ))}
                 </div>
@@ -168,11 +170,15 @@ if (Astro.request.method === "POST") {
   </section>
 </MainLayout>
 
-<script is:inline>
+<script is:inline define:vars={{countries}}>
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownMenu = document.getElementById("dropdownMenu");
   const phCode = document.getElementById("phCode");
   const phoneNumField = document.getElementById("phoneNumField");
+  const iconSpan = document.createElement('span');
+
+  iconSpan.className = `material-symbols-outlined text-[20px] md:text-[24px] ml-2`;
+  iconSpan.textContent = 'keyboard_arrow_down';
 
   dropdownButton.addEventListener("click", () => {
     dropdownMenu.classList.toggle("hidden");
@@ -182,11 +188,24 @@ if (Astro.request.method === "POST") {
     const option = event.target.closest("[data-value]");
     if (option) {
       dropdownButton.textContent = option.dataset.value;
+      const countryCode=countries.find((country)=>country.dial_code===option.dataset.value).code;
+      
+      const flagImage = document.createElement('img');
+        flagImage.src = `https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`;
+        flagImage.alt = `${"in"} flag`;
+        flagImage.width = 20;
+        flagImage.className = 'mr-2';
+        dropdownButton.innerHTML = '';
+        dropdownButton.appendChild(flagImage);
+        dropdownButton.appendChild(document.createTextNode(option.dataset.value));
+        dropdownButton.appendChild(iconSpan);
       phCode.value = option.dataset.value;
       dropdownMenu.classList.add("hidden");
 
       document.querySelectorAll("#options").forEach(el => el.classList.remove("bg-gray-300"));
       option.classList.add("bg-gray-300");
+
+  
     }
 });
 
@@ -197,12 +216,21 @@ if (Astro.request.method === "POST") {
     }
   });
   function checkPhoneAvail(){
-  phoneNumField.classList.add("pl-[60px]") 
+  phoneNumField.classList.add("pl-[125px]") 
   dropdownButton.classList.add("max-w-[70px]")
 
-dropdownButton.textContent="+91";
-phCode.value = "+91";
-const defaultOption = document.querySelector(`[data-value="+91"]`);
+  const flagImage = document.createElement('img');
+        flagImage.src = `https://flagcdn.com/w40/${"in"}.png`;
+        flagImage.alt = `${"in"} flag`;
+        flagImage.width = 20;
+        flagImage.className = 'mr-2';
+        dropdownButton.innerHTML = '';
+        dropdownButton.appendChild(flagImage);
+        dropdownButton.appendChild(document.createTextNode("+91"));
+        dropdownButton.appendChild(iconSpan);
+        phCode.value = "+91";
+
+  const defaultOption = document.querySelector(`[data-value="+91"]`);
   if (defaultOption) {
     defaultOption.classList.add("bg-gray-300"); 
   }

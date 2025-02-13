@@ -1,14 +1,17 @@
+---
+import { HeroSectionData } from "../constants/manifesto";
+---
+
 <section class="h-auto lg:h-[657px] border-2 font-sans-instrument bg-[#F6F4F2] lg:pt-[116px] pb-10 lg:p-0 ">
-  <div class="mt-16 lg:mt-28 flex flex-col items-center justify-center px-4 xl:container">
-    <button class="py-2 px-4 rounded-full font-medium text-[#CC0000]  text-sm lg:text-base">
-      OUR MANIFESTO
+  <div class="mt-[36px] lg:mt-[116px] flex flex-col items-center justify-center px-4 xl:container">
+    <button class="py-2 px-4 rounded-full font-medium text-[#CC0000]  text-[18px] font-medium lg:text-base">
+      {HeroSectionData.btnText}
     </button>
-    <h1 class="mt-4 lg:mt-6 text-[24px] lg:text-[88px] leading-[32px] lg:leading-[92px] text-center max-w-[280px] sm:max-w-[361px] lg:max-w-[1090px] font-medium">
-      Because <span class="text-[#CC0000]">Prevention</span> is<br />
-      Better Than <span class="text-[#CC0000]">Reaction</span>
+    <h1 class="mt-2  text-[24px] lg:text-[72px] leading-[32px] lg:leading-[92px] text-center max-w-[280px] sm:max-w-[361px] lg:max-w-[1090px] font-medium" set:html={HeroSectionData.title}>
+    
     </h1>
-    <p class="text-center text-black text-sm sm:text-lg mt-6 sm:mt-8 lg:mt-[88px] max-w-[280px] sm:max-w-[720px]">
-      Every year, millions of elderly people experience falls in their homes, with the bathroom being the highest-risk area. These falls aren’t just accidents—they’re preventable events that can drastically impact quality of life.
+    <p class="text-center text-black text-[18px] sm:text-lg mt-6 mt-8  max-w-[280px] sm:max-w-[720px]">
+      {HeroSectionData.desc}
     </p>
   </div>
 </section>
