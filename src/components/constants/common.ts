@@ -1,4 +1,4 @@
-export const countries=[
+export const allCountries=[
     {
         "name": "Afghanistan",
         "dial_code": "+93",
@@ -1209,4 +1209,157 @@ export const countries=[
         "dial_code": "+263",
         "code": "ZW"
         }
+]
+
+export const countries = [
+    {
+        "name": "Austria",
+        "dial_code": "+43",
+        "code": "AT"
+    },
+    {
+        "name": "Belgium",
+        "dial_code": "+32",
+        "code": "BE"
+    },
+    {
+        "name": "Bulgaria",
+        "dial_code": "+359",
+        "code": "BG"
+    },
+    {
+        "name": "Canada",
+        "dial_code": "+1",
+        "code": "CA"
+    },
+    {
+        "name": "Croatia",
+        "dial_code": "+385",
+        "code": "HR"
+    },
+    {
+        "name": "Czech Republic",
+        "dial_code": "+420",
+        "code": "CZ"
+    },
+    {
+        "name": "Denmark",
+        "dial_code": "+45",
+        "code": "DK"
+    },
+    {
+        "name": "Estonia",
+        "dial_code": "+372",
+        "code": "EE"
+    },
+    {
+        "name": "Finland",
+        "dial_code": "+358",
+        "code": "FI"
+    },
+    {
+        "name": "France",
+        "dial_code": "+33",
+        "code": "FR"
+    },
+    {
+        "name": "Germany",
+        "dial_code": "+49",
+        "code": "DE"
+    },
+    {
+        "name": "Greece",
+        "dial_code": "+30",
+        "code": "GR"
+    },
+    {
+        "name": "Hungary",
+        "dial_code": "+36",
+        "code": "HU"
+    },
+    {
+        "name": "India",
+        "dial_code": "+91",
+        "code": "IN"
+    },
+    {
+        "name": "Ireland",
+        "dial_code": "+353",
+        "code": "IE"
+    },
+    {
+        "name": "Italy",
+        "dial_code": "+39",
+        "code": "IT"
+    },
+    {
+        "name": "Latvia",
+        "dial_code": "+371",
+        "code": "LV"
+    },
+    {
+        "name": "Lithuania",
+        "dial_code": "+370",
+        "code": "LT"
+    },
+    {
+        "name": "Luxembourg",
+        "dial_code": "+352",
+        "code": "LU"
+    },
+    {
+        "name": "Netherlands",
+        "dial_code": "+31",
+        "code": "NL"
+    },
+    {
+        "name": "Poland",
+        "dial_code": "+48",
+        "code": "PL"
+    },
+    {
+        "name": "Portugal",
+        "dial_code": "+351",
+        "code": "PT"
+    },
+    {
+        "name": "Romania",
+        "dial_code": "+40",
+        "code": "RO"
+    },
+    {
+        "name": "Singapore",
+        "dial_code": "+65",
+        "code": "SG"
+    },
+    {
+        "name": "Slovakia",
+        "dial_code": "+421",
+        "code": "SK"
+    },
+    {
+        "name": "Slovenia",
+        "dial_code": "+386",
+        "code": "SI"
+    },
+    {
+        "name": "Spain",
+        "dial_code": "+34",
+        "code": "ES"
+    },
+    {
+        "name": "Sweden",
+        "dial_code": "+46",
+        "code": "SE"
+    },
+    {
+        "name": "United Kingdom",
+        "dial_code": "+44",
+        "code": "GB"
+    },
+    {
+        "name": "United States",
+        "dial_code": "+1",
+        "code": "US"
+    }
 ]

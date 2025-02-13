@@ -1,30 +1,38 @@
 ---
 import { Image } from "astro:assets";
-import { explanations } from "../constants/manifesto";
+import { BottomSectionData, explanations } from "../constants/manifesto";
 ---
 
 <section class="bg-[#F6F4F2] font-sans-instrument pb-10 sm:pb-20 ">
-  <div class="flex flex-col md:flex-row sm:flex-row items-center justify-between px-10 sm:px-[80px] gap-10 md:gap-5 sm:gap-[88px]  py-10 lg:pb-[60px] xl:container">
-    <h1 class="text-[32px] md:text-[32px] sm:text-[52px] max-w-[611px]  text-center sm:text-left">
-      Our Comprehensive <span class="text-[#CC0000]">PIDANA</span> Protocol: Leaving No Stone Unturned
+  <div class="flex flex-col md:flex-row sm:flex-row items-center justify-center lg:gap-[120px] px-10 sm:px-[80px] gap-[60px] md:gap-5 sm:gap-[88px]  py-10 lg:pb-[60px] xl:container">
+    <h1 class="text-[32px] md:text-[64px] font-medium sm:text-[52px] max-w-[611px]  text-center sm:text-left" set:html={BottomSectionData.title}>
+  
     </h1>
-    <p class="text-[16px] sm:text-[18px] max-w-[581px]  text-center sm:text-left">
-      At EyEagle, we believe in absolute safety. That’s why we’ve developed the PIDANA Protocol—a meticulous safety framework designed to ensure your bathroom is as safe as possible for your loved ones. Our protocol covers every aspect of bathroom safety, from prevention to immediate emergency response.
-    </p>
+    <div class="flex flex-col gap-5 lg:gap-10">
+
+      <p class="lg:text-[22px] text-[18px] max-w-[581px]  text-center sm:text-left font-medium">
+        {BottomSectionData.desc1}
+      </p>
+      <p class="lg:text-[22px] text-[18px] max-w-[581px]  text-center sm:text-left font-medium"> 
+        {BottomSectionData.desc2}
+      </p>
+    </div>
   </div>
-  <div class="px-6 sm:px-[80px] grid gap-[48px] sm:gap-10 xl:container">
-    {explanations.map((explanation) => (
-      <div  class="flex flex-col md:flex-row md:items-center lg:flex-row items-center sm:items-start justify-between gap-[80px] sm:gap-10">
+  <div class="px-6 sm:px-[80px] grid gap-[48px] sm:gap-10 xl:container lg:mt-[140px] lg:mb-[150px]">
+    {explanations.map((explanation,index) => (
+      <div  class="flex flex-col md:flex-row md:items-center lg:flex-row items-center sm:items-start justify-center gap-10 lg:gap-[120px]  ">
         <div class="flex flex-col items-start w-full sm:w-auto ">
           <div class="mb-4 h-[36px] w-[36px] rounded-full bg-[#CC0000] flex items-center justify-center text-white">
             <p>{explanation.title[0]}</p>
           </div>
           <div class="flex gap-4 sm:gap-5">
             <div>
-              <h3 class="font-medium text-[20px] sm:text-[32px]">{explanation.title}</h3>
-              <p class="text-[14px] sm:text-[18px] max-w-full sm:max-w-[481px]">
-                {explanation.description}
-              </p>
+              <h3 class="font-medium text-[32px] sm:text-[32px]">{explanation.title}</h3>
+              {index === 0 ? (
+            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px]" set:html={explanation.description } />
+          ) : (
+            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px]">{explanation.description}</p>
+          )}
             </div>
           </div>
         </div>
