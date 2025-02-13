@@ -93,7 +93,7 @@ handleSubmit()">
             <div class={`relative md:w-[628px] `}>
 
             <div class="absolute  h-full">
-              <div id="dropdownButton" class="inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-auto max-w-[150px] flex justify-between items-center">
+              <div id="dropdownButton" class="inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-auto min-w-[110px] flex justify-between items-center cursor-pointer">
                 <span>
                     <Icon iconName="keyboard_arrow_down" classNames="mt-2 hidden"/>
                 </span>
@@ -117,11 +117,15 @@ handleSubmit()">
                 </div>
             </div>   
                        <input
-                type="number"
+                type="tel"
                 name="phoneNumber"
                 placeholder="Phone Number"
                 id="phoneNumField"
-                maxlength="10"  
+                maxlength={10} 
+                pattern="\d{10}" 
+                oninput={(e) => {
+                  e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
+                }} 
                 required
                 class={`md:w-[628px]  p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
               />
