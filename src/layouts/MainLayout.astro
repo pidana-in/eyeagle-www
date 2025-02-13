@@ -8,7 +8,7 @@ import {footerPolicy,footerHeading,buttonContent,popUpMenu,navbarContent} from "
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import EyeagleRevampLogo from "../assets/Navbar/EyeagleRevampLogo.png";
-const { title = "EYEAGLE" } = Astro.props;
+const { title = "EyEagle: Smart Protection for Your Loved Ones" } = Astro.props;
 const { pathname } = Astro. url;
 const loginCredential = false;
 const footerClass = Astro.props.footerClass ?? "";
@@ -31,7 +31,16 @@ const footerClass = Astro.props.footerClass ?? "";
       rel="stylesheet"
     />
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7HPVGH0CKQ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7HPVGH0CKQ');
+    </script>
   </head>
+  
   <body class="text-gray-900">
     <header
       id="myNav"
@@ -279,3 +288,4 @@ const footerClass = Astro.props.footerClass ?? "";
   })
   
 </script>
+

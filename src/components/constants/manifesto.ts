@@ -9,7 +9,7 @@ export const banner2Contexts=[{description:"I make sure we go above and beyond i
 
 
 export const explanations=[
-    {id:1,title:"Prevention",description:"Our first line of defense is prevention. We install non-slip mats, grab bars, and handrails to minimize the risk of slips and falls, creating a safer environment for your loved ones.",imgSrc:manifestoExplanation1},
+    {id:1,title:"Prevention",description:`Our first line of defense is prevention. We <span class="font-bold text-[18px]">install non-slip mats, grab bars</span>, and <span class="font-bold text-[18px]">handrails</span> to <span class="font-bold text-[18px]">minimize</span> the risk of slips and falls, creating a safer environment for your loved ones.`,imgSrc:manifestoExplanation1},
     {id:2,title:"Interaction",description:"EyEagle’s system seamlessly integrates with the way you and your caregivers interact with your environment. With customizable settings and an easy-to-use app, we ensure that our safety solution works in harmony with your lifestyle.",imgSrc:manifestoExplanation2},
     {id:3,title:"Detection",description:"Our system constantly monitors for any signs of trouble. If a fall or emergency occurs, EyEagle’s detection system is immediately activated, ensuring no delay in response.",imgSrc:manifestoExplanation3},
     {id:4,title:"Alarm",description:"The moment an incident is detected, the EyEagle alarm system springs into action. Our patented alarm system is designed for maximum reliability, ensuring that help is alerted right away.",imgSrc:manifestoExplanation4},
@@ -33,3 +33,26 @@ export const contexts = [
         "Caregiving responsibilities can create tension among family members, especially when the shift is sudden and unplanned.",
     },
   ];
+
+
+  export const BannerSection1Data={
+    title:"For our aging parents, these seemingly small mishaps can have life-changing consequences"
+  }
+
+  export const BottomSectionData={
+    title:`Our Comprehensive <span class="text-[#CC0000]">PIDANA</span> Protocol: Leaving No Stone Unturned`,
+    desc1:"    At EyEagle, we believe in absolute safety. That’s why we’ve developed the PIDANA Protocol—a meticulous safety framework designed to ensure your bathroom is as safe as possible for your loved ones.",
+    desc2:"Our protocol covers every aspect of bathroom safety, from prevention to immediate emergency response."
+  }
+  
+  export const ContextSectionData={
+    title:`A <span class="text-[#CC0000]">Single Fall</span> Can Change Everything.`,
+    desc:" For many families, a fall can mean more than just a trip to the emergency room—it can take away a loved one’s independence. Falls in the bathroom are often the tipping point that leads to more serious injuries, hospitalization, or worse."
+  }
+
+  export const HeroSectionData={
+    btnText:"HOW WE DO",
+    title:` Because <span class="text-[#CC0000]">Prevention</span> is<br />
+      Better Than <span class="text-[#CC0000]">Reaction</span>`,
+      desc:"Every year, millions of elderly people experience falls in their homes, with the bathroom being the highest-risk area. These falls aren’t just accidents—they’re preventable events that can drastically impact quality of life."
+  }
