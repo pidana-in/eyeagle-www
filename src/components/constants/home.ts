@@ -83,7 +83,8 @@ export const takeCareData = [
     },
 ];
 
-export const heroDescription = `<span class="text-[#CC0000]">PREVENT</span>, DON'T <span class="text-[#CC0000]">REGRET</span> A SINGLE FALL CAN <span class="text-[#CC0000]">CHANGE</span> IT ALL`;
+export const heroDescription = `<span class="text-[#CC0000]">PREVENT</span>, DON'T <span class="text-[#CC0000]">REGRET</span>`;
+export const heroDescription2 = `A SINGLE FALL CAN <span class="text-[#CC0000]">CHANGE</span> IT ALL`
 
 export const healthOrganization1 = `The Silent Crisis Affecting <span class="text-[#CC0000]">Millions like You</span>`;
 export const healthOrganization2 = `Falls aren't just accidents;
