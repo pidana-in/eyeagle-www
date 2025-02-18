@@ -37,7 +37,7 @@ export const bathroomData = [
     },
     {
         id:4,
-        heading:"Realtime Alerts",
+        heading:"Rapid Response",
         title:"Established and trained team to help battle emergency",
         description:"If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
         image:BathroomImage4
@@ -47,15 +47,15 @@ export const bathroomData = [
 export const struggleData = [
     {
         img:struggle1,
-        content:`1 in 4 seniors falls each<span class="text-[#CC0000]"> year— 37% in the bathroom</span>`,
+        content:`1 in 4 seniors will fall each year, with<span class="text-[#CC0000]"> 37%</span> of those falls occurring in<span class="text-[#CC0000]"> the bathroom</span>`,
     },
     {
         img:struggle2,
-        content:`<span>95%</span> of hip fractures are from falls, many in bathrooms.`,
+        content:`<span class="text-[#CC0000]">95% of hip fractures</span> in seniors are caused by falls, many of which occur<span class="text-[#CC0000]"> in bathrooms.</span>`,
     },
     {
         img:struggle3,
-        content:`<span>10-15%</span> of bathroom falls lead to hospitalization.`,
+        content:`<span class="text-[#CC0000]">10-15%</span> of falls in the bathroom lead to <span class="text-[#CC0000]">hospitalization.</span>`,
     },
 ]
 
@@ -113,9 +113,9 @@ export const scrollDataSection = {1:"prevention",2:"services",3:"emergency",4:"i
 export const EmergencyResponseData={
     title:"ACTION",
     subTitle:"Emergency Response, Anytime, Anywhere",
-    midTitle:`Trained <span class="text-[#CC0000]">responders, medical professionals, and specialists</span> — ready to act when every second counts.`,
+    midTitle:`Trained <span class="text-[#CC0000]">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
 desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
-bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">18 hours<span/>. EyEagle team takes <span class="text-[#CC0000]">18 minutes</span>”`,
+bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-[#CC0000]">30 minutes</span>”`,
 bannerDesc2:`“becuase some things can wait. <span class="text-[#CC0000]">Emergencies</span> can’t. EyeEgle knows the difference.”`,
 remarks:[
     {iconType:"help_clinic",context:"24/7 guidance & support"},
@@ -142,7 +142,7 @@ export const CircleMembershipData={
     title:"APP",
     subTItle:"EyEagle Circle App Membership",
     midTitle:"Introducing Eyeagle Circle – The Best-in-Class Connected Care Network for Your Loved Ones",
-    desc:"Eyeagle Circle is a smart, connected network that links caregivers and family members to ensure constant safety and support. Whether you’re nearby or miles away, stay informed, respond instantly, and make sure your loved ones are never alone in an emergency",
+    desc:"EyeEagle Circle is a smart, connected network linking caregivers and family members to provide continuous safety and support.",
     imgSrc:circleApp
 
 }
