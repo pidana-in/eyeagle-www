@@ -155,7 +155,7 @@ const footerClass = Astro.props.footerClass ?? "";
     <section
       id="mobileNavContent"
       style={{ display: "none" }}
-      class="lg:hidden fixed z-30 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
+      class="lg:hidden fixed z-50 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         {navbarContent?.map((item)=>
@@ -176,7 +176,7 @@ const footerClass = Astro.props.footerClass ?? "";
         </a>}
       </ul>
     </section>
-    <main>
+    <main class="font-sans-instrument">
       <slot />
     </main>
 

@@ -3,18 +3,13 @@ import { Image } from "astro:assets";
 import { BottomSectionData, explanations } from "../constants/manifesto";
 ---
 
-<section class="bg-[#F6F4F2] font-sans-instrument pb-10 sm:pb-20 ">
+<section class="bg-[#222222] font-sans-instrument pb-10 sm:pb-20 ">
   <div class="flex flex-col md:flex-row sm:flex-row items-center justify-center lg:gap-[120px] px-10 sm:px-[80px] gap-[60px] md:gap-5 sm:gap-[88px]  py-10 lg:pb-[60px] xl:container">
-    <h1 class="text-[32px] md:text-[64px] font-medium sm:text-[52px] max-w-[611px]  text-center sm:text-left" set:html={BottomSectionData.title}>
-  
+    <h1 class="text-[32px] md:text-[64px] font-medium sm:text-[52px] max-w-[611px] text-white text-center sm:text-left leading-[50px] lg:leading-[76px]" set:html={BottomSectionData.title}>
     </h1>
     <div class="flex flex-col gap-5 lg:gap-10">
 
-      <p class="lg:text-[22px] text-[18px] max-w-[581px]  text-center sm:text-left font-medium">
-        {BottomSectionData.desc1}
-      </p>
-      <p class="lg:text-[22px] text-[18px] max-w-[581px]  text-center sm:text-left font-medium"> 
-        {BottomSectionData.desc2}
+      <p class="lg:text-[22px]  text-white text-[18px] max-w-[581px]  text-center sm:text-left font-medium leading-9" set:html={BottomSectionData.desc1}>
       </p>
     </div>
   </div>
@@ -25,13 +20,13 @@ import { BottomSectionData, explanations } from "../constants/manifesto";
           <div class="mb-4 h-[36px] w-[36px] rounded-full bg-[#CC0000] flex items-center justify-center text-white">
             <p>{explanation.title[0]}</p>
           </div>
-          <div class="flex gap-4 sm:gap-5">
-            <div>
-              <h3 class="font-medium text-[32px] sm:text-[32px]">{explanation.title}</h3>
+          <div class="flex gap-5 sm:gap-5">
+            <div class="flex flex-col gap-5">
+              <h3 class="font-medium text-[32px] sm:text-[32px] text-white">{explanation.title}</h3>
               {index === 0 ? (
-            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px]" set:html={explanation.description } />
+            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px] text-white" set:html={explanation.description } />
           ) : (
-            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px]">{explanation.description}</p>
+            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px] text-white leading-8">{explanation.description}</p>
           )}
             </div>
           </div>

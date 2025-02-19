@@ -1,0 +1,23 @@
+---
+import Icon from "../common/Icon.astro";
+import { BenifitsData } from "../constants/manifesto";
+---
+
+<section class="bg-[#222222] font-sans-instrument pb-10 sm:pb-20 px-6 py-10 lg:py-[200px] lg:px-[80px]">       
+    <div class="xl:container">
+        <p class="font-medium text-center text-[#CC0000] text-[18px] pb-2">{BenifitsData.title}</p>
+        <p class="font-medium text-center text-white text-[32px] lg:text-[73px] pb-10 lg:pb-[80px]">{BenifitsData.subTitle}</p>
+<div class="flex flex-col md:flex-row justify-center items-center gap-[20px]">
+    {BenifitsData.remarks.map((remark)=>(
+        <div class="flex flex-col gap-5 justify-center items-center">
+        <div>
+              <Icon iconName={remark.iconType} classNames="text-white text-[40px] md:text-[80px]" />
+        </div>
+        <div class="max-h-[56px]">
+              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] text-white text-center ">{remark.context}</p>
+        </div>
+    </div>
+))}
+</div>
+</div>
+</section>
