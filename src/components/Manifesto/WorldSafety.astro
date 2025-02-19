@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import {WorldSafetyData} from "../constants/manifesto";
+---
+
+<section class="bg-[#FFFFFF] font-sans-instrument pb-10 sm:pb-20 px-6 py-10 lg:py-[200px] lg:px-[80px] xl:container">
+ <div>
+    <p class="font-medium text-[32px] lg:text-[72px] text-center text-[#666666] lg:max-w-[1120px] m-auto leading-[50px] lg:leading-[100px] pb-10 lg:pb-[200px]">{WorldSafetyData.title}</p>
+ </div>
+ <div class="flex flex-col gap-10 lg:gap-[93px] justify-center items-center">
+    {
+        WorldSafetyData.contextList.map((context,index) => (
+<div class={`flex flex-col lg:flex-row gap-10 lg:gap-[120px] justify-start items-center  ${index % 2 !==0 && "lg:flex lg:flex-row-reverse"}`}>
+    <div class="lg:h-[500px] lg:w-[500px] rounded-lg">
+    <Image src={context.imgSrc} class="lg:min-w-[500px] h-full m-auto object-contain rounded-lg" alt={context.title} />
+    </div>
+    <div class={`flex flex-col gap-3 justify-center items-center lg:items-start `}>
+<p class="font-medium text-[32px] lg:text-[48px] leading-[52px]">{context.title}</p>
+<ul class="list-disc px-6 ">
+ {context.lists.map((list)=>(<li class="leading-8 font-medium text-[18px] lg:text-[20px]">{list}</li>))}
+</ul>
+    </div>
+</div>
+        ))
+    }
+    </div>
+
+</section>

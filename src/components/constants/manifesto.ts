@@ -4,12 +4,16 @@ import manifestoExplanation3 from "../../assets/Manifesto/manifesto_explanation3
 import manifestoExplanation4 from "../../assets/Manifesto/manifesto_explanation4.png"
 import manifestoExplanation5 from "../../assets/Manifesto/manifesto_explanation5.png"
 import manifestoExplanation6 from "../../assets/Manifesto/manifesto_explanation6.png"
+import worldSafety1 from "../../assets/Manifesto/worldSafety1.png"
+import worldSafety2 from "../../assets/Manifesto/worldSafety2.png"
+import worldSafety3 from "../../assets/Manifesto/worldSafety3.png"
+
 
 export const banner2Contexts=[{description:"I make sure we go above and beyond industry norms in developing our safety and sustainability standards. As a mother, I prefer to err on the side of caution—if there’s any question about an ingredient, we don’t include it.",author:"Jackie, Product Innovation + Insights"},{description:"I make sure we go above and beyond industry norms in developing our safety and sustainability standards. As a mother, I prefer to err on the side of caution—if there’s any question about an ingredient, we don’t include it.",author:"Jackie, Product Innovation + Insights"},{description:"I make sure we go above and beyond industry norms in developing our safety and sustainability standards. As a mother, I prefer to err on the side of caution—if there’s any question about an ingredient, we don’t include it.",author:"Jackie, Product Innovation + Insights"}];
 
 
 export const explanations=[
-    {id:1,title:"Prevention",description:`Our first line of defense is prevention. We <span class="font-bold text-[18px]">install non-slip mats, grab bars</span>, and <span class="font-bold text-[18px]">handrails</span> to <span class="font-bold text-[18px]">minimize</span> the risk of slips and falls, creating a safer environment for your loved ones.`,imgSrc:manifestoExplanation1},
+    {id:1,title:"Prevention",description:`Our first line of defense is prevention. We install non-slip mats, grab bars, and handrails to minimize the risk of slips and falls, creating a safer environment for your loved ones.`,imgSrc:manifestoExplanation1},
     {id:2,title:"Interaction",description:"EyEagle’s system seamlessly integrates with the way you and your caregivers interact with your environment. With customizable settings and an easy-to-use app, we ensure that our safety solution works in harmony with your lifestyle.",imgSrc:manifestoExplanation2},
     {id:3,title:"Detection",description:"Our system constantly monitors for any signs of trouble. If a fall or emergency occurs, EyEagle’s detection system is immediately activated, ensuring no delay in response.",imgSrc:manifestoExplanation3},
     {id:4,title:"Alarm",description:"The moment an incident is detected, the EyEagle alarm system springs into action. Our patented alarm system is designed for maximum reliability, ensuring that help is alerted right away.",imgSrc:manifestoExplanation4},
@@ -40,9 +44,9 @@ export const contexts = [
   }
 
   export const BottomSectionData={
-    title:`Our Comprehensive <span class="text-[#CC0000]">PIDANA</span> Protocol: Leaving No Stone Unturned`,
-    desc1:"    At EyEagle, we believe in absolute safety. That’s why we’ve developed the PIDANA Protocol—a meticulous safety framework designed to ensure your bathroom is as safe as possible for your loved ones.",
-    desc2:"Our protocol covers every aspect of bathroom safety, from prevention to immediate emergency response."
+    title:`<span class="text-[#CC0000]">World’s first PIDANA</span> Protocol. End to End Solution`,
+    desc1:`At the core of EyeEagle’s safety philosophy is the 6-step protection system <span class="text-[#CC0000]">(Prevention, Interaction, Detection, Alarm, Notification, and Action)</span> that ensures your loved ones are safe, even when you’re not around`,
+
   }
   
   export const ContextSectionData={
@@ -55,4 +59,25 @@ export const contexts = [
     title:` Because <span class="text-[#CC0000]">Prevention</span> is<br />
       Better Than <span class="text-[#CC0000]">Reaction</span>`,
       desc:"Every year, millions of elderly people experience falls in their homes, with the bathroom being the highest-risk area. These falls aren’t just accidents—they’re preventable events that can drastically impact quality of life."
+  }
+
+  export const WorldSafetyData={
+    title:"World Class Safety in the palm of your hands",
+    contextList:[
+      {imgSrc:worldSafety1,title:"Professional Installation & Personalization",lists:["Our trained professionals install the kit in your home.","The system is calibrated to match your household’s needs."]},
+      {imgSrc:worldSafety2,title:"Connect & Customize the App",lists:["Download the Eyeagle app and connect it to your device." ,"Add caregivers, set notifications, and customize settings."]},
+      {imgSrc:worldSafety3,title:"Continuous Safety & Instant Alerts",lists:["When the emergency button is pressed or the bathroom door remains closed beyond a set time, an alert is triggered.","Caregivers get notified instantly, and if needed, Eyeagle’s safety team takes action."]},
+    ]
+  }
+
+  export const BenifitsData={
+    title:"BENEFITS",
+    subTitle:"Why Eyeagle Works Best",
+    remarks:[
+      {iconType:"help_clinic",context:"Reliable Emergency Alerts"},
+      {iconType:"support_agent",context:"Caregivers + Eyeagle’s safety team act immediately."},
+      {iconType:"airport_shuttle",context:"Free Ambulance Services in case of emergency"},
+      {iconType:"guardian",context:" You’re always in control, even from miles away."}
+  ],
+
   }
