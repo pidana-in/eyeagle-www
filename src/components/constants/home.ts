@@ -86,13 +86,13 @@ export const takeCareData = [
 export const heroDescription = `<span class="text-[#CC0000]">PREVENT</span>, DON'T <span class="text-[#CC0000]">REGRET</span>`;
 export const heroDescription2 = `A SINGLE FALL CAN <span class="text-[#CC0000]">CHANGE</span> IT ALL`
 
-export const healthOrganization1 = `The Silent Crisis Affecting <span class="text-[#CC0000]">Millions like You</span>`;
+export const healthOrganization1 = `The Silent Crisis <br>Affecting <br><span class="text-[#CC0000]">Millions like You</span>`;
 export const healthOrganization2 = `Falls aren't just accidents;
 they're <span class="text-[#CC0000] font-bold">life-altering</span> events for seniors.`;
 
 export const productFeatureTitle = `With advanced monitoring, real-time alerts, and professional intervention, Eyeagle isn’t just a device—it’s a 24/7 guardian for your loved ones, providing peace of mind no matter where you are.`;
 
-export const ourTeamHeading1 = "World Class Prevention System";
+export const ourTeamHeading1 = "World Class <br> Prevention System";
 
 export const ourTeamHeading2 = " Our trained professionals are available 24/7 to ensure the safety of your loved ones.";
 
@@ -112,7 +112,7 @@ export const scrollDataSection = {1:"prevention",2:"services",3:"emergency",4:"i
 
 export const EmergencyResponseData={
     title:"ACTION",
-    subTitle:"Emergency Response, Anytime, Anywhere",
+    subTitle:"Emergency Response, <br>Anytime, Anywhere",
     midTitle:`Trained <span class="text-[#CC0000]">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
 desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
 bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-[#CC0000]">30 minutes</span>”`,
@@ -127,7 +127,8 @@ remarks:[
 
 export const HandleSectionData={
     title:"INSTALLATION",
-    subTitle:"We handle everything, so you don’t have to.",
+    subTitle1:"We handle everything,",
+    subTitle2:"so you don’t have to.",
     imgSrc:HomePageHandleBanner,
     instructions:[
         {title:"Full Installation",desc:"From grab bars and anti-slip mats to the alarm kit, we set up everything for maximum safety."},
@@ -140,8 +141,9 @@ export const HandleSectionData={
 
 export const CircleMembershipData={
     title:"APP",
-    subTItle:"EyEagle Circle App Membership",
-    midTitle:"Introducing Eyeagle Circle – The Best-in-Class Connected Care Network for Your Loved Ones",
+    subTItle1:"EyEagle Circle",
+    subTItle2:"App Membership",
+    midTitle:"Introducing Eyeagle Circle – <br>The Best-in-Class Connected Care Network for<br> Your Loved Ones",
     desc:"EyeEagle Circle is a smart, connected network linking caregivers and family members to provide continuous safety and support.",
     imgSrc:circleApp
 
