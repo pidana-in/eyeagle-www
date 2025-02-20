@@ -4,12 +4,18 @@ const struggleData = Astro.props.struggleData;
 ---
 
 <section class="xl:container lg:my-24 my-16 lg:px-10 px-4 font-sans-instrument">
-    <div class="w-full grid grid-cols-3 max-lg:grid-cols-1 justify-center items-center gap-20 containers">
+    <div class="w-full grid grid-cols-3 max-lg:grid-cols-1 justify-center items-center gap-10 lg:gap-20 containers">
       {struggleData?.map((item:any)=>{
         return(
           <div class="grid justify-center items-center">
+            <div>
+              
             <Image src={item.img} alt={"doctorImage1"}/>
-            <p set:html={item.content} class="text-center p-2 font-medium leading-7 text-xl max-w-[410px]"></p>
+            </div>
+            <div>
+
+            <p set:html={item.content} class="text-center p-2 pt-3  font-medium leading-[24px] lg:leading-7 text-[16px] lg:text-xl max-w-[410px]"></p>
+            </div>
           </div>
         )
       })}

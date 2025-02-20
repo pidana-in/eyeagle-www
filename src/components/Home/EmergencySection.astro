@@ -6,16 +6,16 @@ import Icon from "../common/Icon.astro";
 const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
 ---
 
-<section id="emergency" class="bg-[#222222] pt-10 lg:pt-[200px] pb-[120px] px-[40px] font-sans-instrument">
+<section id="emergency" class="bg-[#222222] pt-[100px] lg:pt-[200px] pb-[120px] px-[40px] font-sans-instrument">
 <div class="xl:container ">
-<section class="pb-10 lg:pb-[200px]">
-<p class="text-center text-[#CC0000] font-medium text-[18px]">{EmergencyResponseData.title}</p>
-<h1 class="lg:max-w-[1360px] text-center text-white font-medium text-[32px] lg:text-[73px] m-auto">{EmergencyResponseData.subTitle}</h1>
+<section class="pb-[100px] lg:pb-[200px]">
+<p class="text-center text-[#CC0000] font-medium text-[16px] lg:text-[18px] pb-2">{EmergencyResponseData.title}</p>
+<h1 set:html={EmergencyResponseData.subTitle} class="lg:max-w-[1360px] text-center text-white font-medium text-[40px] leading-[44px] lg:leading-[80px] lg:text-[73px] m-auto"></h1>
 </section>
     
 <section>
-    <h1 class="lg:max-w-[1240px] text-center text-white font-medium text-[32px] lg:text-[47px] font-normal m-auto" set:html={EmergencyResponseData.midTitle}></h1>
-    <p class="text-center text-[#FFFFFF] font-medium text-[18px] mt-8 lg:max-w-[1160px] m-auto">{EmergencyResponseData.desc}</p>
+    <h1 class="lg:max-w-[1240px] text-center text-white text-[32px] lg:text-[47px] font-normal m-auto leading-[40px] lg:leading-[67px]" set:html={EmergencyResponseData.midTitle}></h1>
+    <p class="text-center text-[#FFFFFF] font-medium text-[18px] mt-6 lg:mt-8 lg:max-w-[1160px] m-auto leading-7">{EmergencyResponseData.desc}</p>
 </section>
 
 <section class="flex flex-col md:flex-row justify-center items-center mt-[80px] gap-[20px] lg:gap-[125px]">
@@ -25,23 +25,23 @@ const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
         alt="emergencyBanner"
         />
     </div>
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5 lg:gap-10">
     <div class="h-[1px] bg-[#D5D5D5]"></div>
-<p class="text-white text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc1}></p>
+<p class="text-white text-[20px] leading-8 lg:leading-[40px] lg:text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc1}></p>
 <div class="h-[1px] bg-[#D5D5D5]"></div>
-<p class="text-white text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc2}></p>
+<p class="text-white lg:text-[28px] lg:max-w-[427px] text-[20px] leading-8 lg:leading-[40px]" set:html={EmergencyResponseData.bannerDesc2}></p>
 </div>
 </section>
-<section class="mt-[80px] flex flex-col md:flex-row justify-center items-center gap-[20px]">
+<section class="mt-[80px] flex flex-col md:flex-row justify-center items-center gap-[24px]">
 {EmergencyResponseData.remarks.map((remark)=>(
-    <div class="flex flex-col gap-5 justify-center items-center">
+    <div class="flex flex-col gap-[13px] lg:gap-5 justify-center items-center">
         <div>
 
               <Icon iconName={remark.iconType} classNames="text-white text-[40px] md:text-[80px]" />
         </div>
         <div class="max-h-[56px]">
 
-              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] text-white text-center ">{remark.context}</p>
+              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] leading-7 text-white text-center ">{remark.context}</p>
         </div>
     </div>
 ))}

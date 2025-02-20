@@ -3,18 +3,20 @@ import { Image } from "astro:assets";
 import { HandleSectionData } from "../constants/home";
 ---
 
-<section id="installation" class="bg-white pt-[50px] lg:py-[200px] lg:px-[60px]">
-<div class="mb-5 lg:mb-[100px]">
-<p class="text-[#CC0000] font-medium text-[18px] text-center">{HandleSectionData.title}</p>
-<h1 class=" font-medium text-[32px] lg:text-[73px] text-center max-w-[1320px] m-auto ">{HandleSectionData.subTitle}</h1>
+<section id="installation" class="bg-white pt-[50px] pb-[100px] lg:py-[200px] px-5 lg:px-[60px]">
+<div class="mb-[100px]">
+<p class="text-[#CC0000] font-medium text-[16px] lg:text-[18px] text-center">{HandleSectionData.title}</p>
+<h1 class="font-medium text-[32px] lg:text-[73px] text-center max-w-[353px] lg:max-w-[1320px] m-auto mt-2 leading-[44px] lg:leading-[80px]">{HandleSectionData.subTitle1}</h1>
+<h1 class="font-medium text-[32px] lg:text-[73px] text-center max-w-[353px] lg:max-w-[1320px] m-auto mt-2 leading-[44px] lg:leading-[80px]">{HandleSectionData.subTitle2}</h1>
 </div>
 
-<div class="flex flex-col md:flex-row justify-center items-center gap-[80px] bg-[#F0F0F0] p-[60px] rounded-2xl">
-    <div class="flex flex-col gap-[23px]">
-        {HandleSectionData.instructions.map((inst,index)=>(
-            <div class="flex flex-col gap-[23px]">
-                <h2 class="font-medium text-[28px]">{inst.title}</h2>
-                <p class="text-[18px] font-normal">{inst.desc}</p>
+
+    <div class="flex flex-col md:flex-row justify-center items-center gap-[80px] bg-[#F0F0F0] p-[30px] lg:p-[60px] rounded-2xl">
+        <div class="flex flex-col gap-[23px]">
+            {HandleSectionData.instructions.map((inst,index)=>(
+                <div class="flex flex-col gap-[23px]">
+                <h2 class="font-medium text-[20px] leading-8 lg:text-[28px]">{inst.title}</h2>
+                <p class="text-[18px] font-normal leadin-[22px] lg:leading-[25px]">{inst.desc}</p>
                 <div class={`h-[1px] bg-[#D9D9D9] ${index===HandleSectionData.instructions.length-1 ? "hidden" : "block"}`}></div>
             </div>
         ))}
