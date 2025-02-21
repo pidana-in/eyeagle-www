@@ -68,7 +68,9 @@ if (Astro.request.method === "POST") {
           {WaitlistHeaderData.description}
         </p>
       </section>
-      <WaitListBanner />
+      <div id="pointers" class=`${formPosted ? "hidden" : "block"}`>
+        <WaitListBanner />
+      </div>
       <section
         class="flex flex-col md:flex-row justify-center gap-[50px] lg:gap-[120px]"
       >

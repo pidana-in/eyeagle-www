@@ -20,11 +20,18 @@ export const WaitlistFormData={
 }
 
 export const postFormFillData={
-    title:`Thank You for Joining <span class="text-[#CC0000]">EyEagle!</span>`,
-    description:"Your Spot is Reserved",
+    floatingText:"SPECIAL LAUNCH OFFER",
+    boxContent:"For the next 100 people",
+    title:`<span class="text-[#CC0000]">Less</span> than an <span class="text-[#CC0000]">emergency</span> flight ticket`,
+    cutPrice:`₹9,999 + <span class="line-through">₹9,999</span> (1 year Circle membership)`,
+originalPrice:"₹9,999",
+duration:"/ 1 year",
     contacts:[
-        {iconType:"mail",title:"Check your email for a confirmation."},
-        {iconType:"call",title:"Expect a call from our team for verification."},
-        {iconType:"notifications",title:"Stay tuned for exclusive updates and early access."},
-    ]
+        {iconType:"check",title:"12 months circle membership worth ₹9999"},
+        {iconType:"check",title:"Full bathroom support"},
+        {iconType:"check",title:"12 months membership plan"},
+        {iconType:"check",title:"Patented Alarm Kit System"},
+        {iconType:"check",title:"Ambulance & Emergency Services"},
+    ],
+    btnText:"Reserve my kit"
 }
