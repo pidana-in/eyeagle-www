@@ -68,10 +68,10 @@ if (Astro.request.method === "POST") {
           {WaitlistHeaderData.description}
         </p>
       </section>
+      <WaitListBanner />
       <section
         class="flex flex-col md:flex-row justify-center gap-[50px] lg:gap-[120px]"
       >
-        <WaitListBanner />
         <div class=`${formPosted ? "hidden" : "block"}`>
 
           <div
@@ -145,7 +145,7 @@ handleSubmit()">
             />
             <div class="flex justify-start items-center gap-2">
     
-            <input type="checkbox" name="userAcceptCheck" class="h-[18px] w-[18px]  border border-gray-400" required/><span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
+            <input type="checkbox" name="userAcceptCheck" class="h-[18px] w-[18px]  border border-gray-400"/><span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
             </div>
     
             <button

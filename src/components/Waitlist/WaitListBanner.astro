@@ -4,26 +4,12 @@ import { WaitlistBannerData } from "../constants/waitlist";
 ---
 
 <div>
-    <div  class="flex flex-col border-2 border-[#CC0000] rounded-3xl md:w-[532px] ">
-
-      <div>
-        <h2 class="font-medium text-[20px] p-[20px]">
-          {WaitlistBannerData.title}
-        </h2>
-      </div>
-      <div
-        class="flex flex-col p-[20px] gap-6 bg-[#CC0000] justify-start rounded-b-[20px]"
-      >
-        <h1 class="font-bold text-[48px] text-white">
-          {WaitlistBannerData.price}<span class="font-normal text-[24px]"
-            >{WaitlistBannerData.planDuration}</span
-          >
-        </h1>
+    <div  class="flex justify-center lg:justify-evenly flex-col  lg:flex-row items-center pb-10">
         {
           WaitlistBannerData.pointers.map((pointer) => (
             <div class="flex items-center justify-start gap-2">
-              <Icon iconName="check_circle" classNames="text-white" />
-              <p class="text-[18px] font-medium text-white">{pointer}</p>
+              <Icon iconName="check_circle" classNames="text-[#000000]" />
+              <p class="text-[18px] font-medium text-[#000000] ">{pointer}</p>
             </div>
           ))
         }

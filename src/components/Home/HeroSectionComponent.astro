@@ -1,16 +1,23 @@
 ---
 import { Image } from "astro:assets";
 const heroImage = Astro.props.heroImage;
+const HeroImageTitle=Astro.props.HeroImageTitle;
 const heroDescription = Astro.props.heroDescription;
 const heroDescription2 = Astro.props.heroDescription2;
 ---
-<section class="lg:h-auto lg:mt-[88px] bg-black">
-  <!-- <h1 set:html={heroDescription} class="xl:container pt-10 px-4 lg:pt-20 text-[#B9B5B5] lg:px-10 font-bold text-[32px] w-full font-sans-instrument lg:text-[88px] lg:leading-[92px]">
-    </h1>
-    <h2 set:html={heroDescription2} class="xl:container pb-10 px-4 lg:pb-20 text-[#B9B5B5] lg:px-10 font-bold text-[32px] w-full font-sans-instrument lg:text-[88px] lg:leading-[92px]"></h2> -->
-    <Image
-      src={heroImage}
-      alt="Emergency prevention"
-      class="w-full h-full object-cover"
-    /> 
-  </section>
+<section class="lg:h-auto lg:mt-[88px] bg-black relative">
+  <Image
+    src={heroImage}
+    alt="Emergency prevention"
+    class="w-full h-full object-cover"
+  />
+  {/* Top Text Centered */}
+  <h1 class="absolute top-0 lg:top-5 left-1/2 -translate-x-1/2 text-[16px] md:text-[32px] lg:text-[72px] leading-[87px] text-center font-medium text-white  w-full drop-shadow-xl" style={{textShadow:"3px 3px 6px rgba(0, 0, 0, 1)"}}>
+    {HeroImageTitle.title1}
+  </h1>
+
+  {/* Bottom Text Centered */}
+  <h1 class="absolute bottom-0 lg:bottom-5 left-1/2 -translate-x-1/2 text-[16px] md:text-[32px] lg:text-[72px] leading-[87px] text-center font-medium text-white  w-full " style={{textShadow:"3px 3px 6px rgba(0, 0, 0, 1)"}}>
+    {HeroImageTitle.title2}
+  </h1>
+</section>

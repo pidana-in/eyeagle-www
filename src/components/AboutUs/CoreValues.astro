@@ -1,0 +1,26 @@
+---
+import { CoreValuesData } from "../constants/aboutus"
+---
+<section class="px-5 lg:px-[40px] py-[100px] xl:container">
+    <div class="pb-[100px]">
+
+        <p set:html={CoreValuesData.title} class="font-medium text-center text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px]"></p>
+        <p set:html={CoreValuesData.desc} class="text-[#BDBDBD] font-medium text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px] pt-10 lg:pt-[20px] text-center"></p>
+    </div>
+    <div>
+<p set:html={CoreValuesData.coreTitle} class="text-center font-medium text-[40px] lg:text-[72px] leading-[44px] lg:leading-[86px] pb-[100px] lg:pb-[100px] "></p>
+<div class="flex flex-col gap-[40px] "> 
+    {CoreValuesData.values.map((value,index)=>(
+        <div class={`flex flex-col lg:flex-row justify-between items-center gap-5 border-b ${CoreValuesData.values?.length-1===index ? "border-none" : "pb-5 border-[#768087]"}`}>
+            <div>
+                
+            <p class="leading-[40px] text-[32px] font-normal lg:font-medium text-center">{value.title}</p>
+            </div>
+            <div> 
+            <p class="text-[18px] leading-[28px] lg:max-w-[646px] text-center font-normal">{value.desc}</p>
+            </div>
+        </div>
+    ))}
+</div>
+    </div>
+    </section>

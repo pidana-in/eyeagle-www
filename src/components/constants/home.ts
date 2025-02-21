@@ -149,6 +149,11 @@ export const CircleMembershipData={
 
 }
 
+export const HeroImageTitle={
+    title1:"ONE FALL CAN DESTROY ALL",
+    title2:"PREVENT TODAY, DON’T REGRET TOMORROW"
+}
+
 export const PowerfulBentoData={
 title:"Powerful Features Designed for",
 subTitle:"Complete Peace of Mind.",

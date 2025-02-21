@@ -45,7 +45,7 @@ export const contexts = [
 
   export const BottomSectionData={
     title:`<span class="text-[#CC0000]">World’s first PIDANA</span> Protocol. End to End Solution`,
-    desc1:`At the core of EyeEagle’s safety philosophy is the 6-step protection system <span class="text-[#CC0000]">(Prevention, Interaction, Detection, Alarm, Notification, and Action)</span> that ensures your loved ones are safe, even when you’re not around`,
+    desc1:`At the core of EyeEagle’s safety philosophy is the 6-step protection system (Prevention, Interaction, Detection, Alarm, Notification, and Action) that ensures your loved ones are safe, even when you’re not around`,
 
   }
   

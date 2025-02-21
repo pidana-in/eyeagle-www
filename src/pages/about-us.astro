@@ -9,13 +9,17 @@ import EmpoweringSection from "../components/AboutUs/EmpoweringSection.astro";
 import FoundersSection from "../components/AboutUs/FoundersSection.astro";
 import BannerSection from "../components/AboutUs/BannerSection.astro";
 import {descriptionButton} from "../components/constants/home";
+import CoreValues from "../components/AboutUs/CoreValues.astro";
+import Explanation from "../components/AboutUs/Explanation.astro";
 
 ---
 <MainLayout title="About us">
   <HeaderSection />
   <BannerSection />
-  <ValuesSection />
-  <EmpoweringSection />
+  <CoreValues/>
+  <Explanation/>
+  <!-- <ValuesSection />
+  <EmpoweringSection /> -->
   <FoundersSection />
   <DesireSection item={desireImage} descriptionButton={descriptionButton} className={"!mt-0"} />
 </MainLayout>
