@@ -12,6 +12,7 @@ import circleApp from "../../assets/Home/circleApp.png";
 import powerfulBento from "../../assets/Home/powerfulBento.png";
 import powerfulFeat1 from "../../assets/Home/powerfulFeat1.png";
 import powerfulFeat2 from "../../assets/Home/powerfulFeat2.png";
+import bentoMobile from "../../assets/Home/bentoMobile.png";
 
 export const bathroomData = [
     {
@@ -155,4 +156,5 @@ subTitle:"Complete Peace of Mind.",
 bentoImgSrc:powerfulBento,
 featsrc1:powerfulFeat1,
 featsrc2:powerfulFeat2,
+featsrc3:bentoMobile,
 }
