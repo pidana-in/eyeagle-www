@@ -23,7 +23,7 @@ export const bathroomData = [
     },
     {
         id:2,
-        heading:"Advanced Fall Dection",
+        heading:"Advanced Fall Alert System",
         title:"Our PIDANA Alarm device that lets you help in an emergency",
         description:"In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
         image:BathroomImage2
@@ -47,11 +47,11 @@ export const bathroomData = [
 export const struggleData = [
     {
         img:struggle1,
-        content:`1 in 4 seniors will fall each year, with<span class="text-[#CC0000]"> 37%</span> of those falls occurring in<span class="text-[#CC0000]"> the bathroom</span>`,
+        content:`Every year <span class="text-[#CC0000]">1 in 4 senior </span> fall in the bathroom`,
     },
     {
         img:struggle2,
-        content:`<span class="text-[#CC0000]">95% of hip fractures</span> in seniors are caused by falls, many of which occur<span class="text-[#CC0000]"> in bathrooms.</span>`,
+        content:`<span class="text-[#CC0000]">95% of hip fractures</span> in seniors are caused by falls in bathroom`,
     },
     {
         img:struggle3,
@@ -77,7 +77,7 @@ export const takeCareData = [
     {
         id:2,
         heading:"How it works",
-        title:"Calibirated Alarm Placement",
+        title:"Calibrated Alarm Placement",
         description:"If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
         image:takeCareImage2
     },
@@ -116,7 +116,7 @@ export const EmergencyResponseData={
     midTitle:`Trained <span class="text-[#CC0000]">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
 desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
 bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-[#CC0000]">30 minutes</span>”`,
-bannerDesc2:`“becuase some things can wait. <span class="text-[#CC0000]">Emergencies</span> can’t. EyeEgle knows the difference.”`,
+bannerDesc2:`“because some things can wait. <span class="text-[#CC0000]">Emergencies</span> can’t. Eyeagle knows the difference.”`,
 remarks:[
     {iconType:"help_clinic",context:"24/7 guidance & support"},
     {iconType:"support_agent",context:"Provide support in absence of caregivers"},

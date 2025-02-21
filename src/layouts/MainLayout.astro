@@ -194,10 +194,10 @@ const footerClass = Astro.props.footerClass ?? "";
       </div>
       <div class="my-20 border-2 lg:mx-[120px] mx-4"></div>
       <div
-        class="font-sans-instrument lg:mx-[120px] mx-4 mb-10 grid max-lg:gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center"
+        class="font-sans-instrument lg:mx-[120px] mx-4 mb-10 grid gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center"
       >
         <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
-        <div class="lg:flex grid lg:gap-20 gap-8 justify-center items-center">
+        <div class="lg:flex grid gap-8 justify-center items-center">
           {footerPolicy?.map((item)=>
             <a href={`${item.url}`} class="block">{item.title}</a>
           )}
