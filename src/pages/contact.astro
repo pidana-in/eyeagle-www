@@ -1,19 +1,44 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
+import contactLogo1 from "../assets/Common/contactLogo1.png";
+import contactLogo2 from "../assets/Common/contactLogo2.png";
+import contactLogo3 from "../assets/Common/contactLogo3.png";
 ---
 
 <MainLayout title="Contact Us">
-    <section class="bg-[#F6F4F2] lg:px-[80px] font-sans-instrument px-4 lg:py-[120px] lg:flex grid max-lg:gap-10 py-10 lg:justify-around justify-center max-lg:items-center lg:pt-36">
-        <div class="grid gap-8 justify-center items-center text-center">
-        <h1 class="font-normal text-[52px]">Contact Us</h1>
-        <h3 class="mt-10 font-normal text-lg">For inquiries, support, or subscription-related questions:</h3>
-        <p class="font-normal text-lg">Merchant Legal entity name: PIDANA TECHNOLOGIES PRIVATE LIMITED</p>
-        <p class="font-normal text-lg">Registered Address: A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka, PIN:
-          560102</p>
-        <p class="font-normal text-lg">Operational Address: A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka, PIN:
-          560102</p>
-        <p class="font-normal text-lg">📧 Support Email: contact.eyeagle@gmail.com</p>
+    <section class="bg-[#F6F4F2] lg:px-[56px] font-sans-instrument px-4 lg:py-[120px] grid max-lg:gap-10 py-10 lg:pt-36">
+        <div class="text-center">
+        <h1 class="font-medium text-lg leading-[21px] text-[#CC0000] mb-2">CONTACT US</h1>
+        <h3 class="font-medium lg:text-[72px] lg:leading-[79px] text-[40px] leading-[44px] lg:mb-10 mb-5">Get in Touch <br/> With Our <span class="text-[#CC0000]">Team</span></h3>
+        <p class="font-medium text-[32px] lg:leading-7 leading-[44px] lg:mb-20 mb-[60px]">For inquiries, support, or subscription-related questions</p>
         </div>
+       <div class="grid lg:grid-cols-2 justify-center items-center gap-[60px]">
+        <div class="border-[#0000001A] p-6 rounded-[10px] border">
+          <Image src={contactLogo1} alt={'contactLogo1'} class="pb-8"/>
+          <h3 class="font-medium text-2xl leading-6 pb-5">Merchant Legal entity name</h3>
+          <p class="font-medium text-lg lg:leading-[21px] leading-[40px]">PIDANA TECHNOLOGIES PRIVATE LIMITED</p>
+        </div>
+        <div class="border-[#0000001A] p-6 rounded-[10px] border">
+          <Image src={contactLogo2} alt={'contactLogo1'} class="pb-8"/>
+          <h3 class="font-medium text-2xl leading-6 pb-5">Support Email</h3>
+          <a href="mailto:contact.eyeagle@gmail.com" class="font-medium text-lg text-[#CC0000] leading-[21px] hover:cursor-pointer hover:underline">contact.eyeagle@gmail.com</a>
+        </div>
+        <div class="border-[#0000001A] p-6 rounded-[10px] border">
+          <Image src={contactLogo3} alt={'contactLogo1'} class="pb-8"/>
+          <h3 class="font-medium text-2xl leading-6 pb-5">Registered Address</h3>
+          <p class="font-medium pb-8 text-lg lg:leading-[21px] leading-[40px]">A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka
+            PIN: 560102</p>
+            <a href="https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9" class="text-base leading-7 font-medium px-3 py-3 border-2 rounded-[8px]">GET DIRECTION</a>
+        </div>
+        <div class="border-[#0000001A] p-6 rounded-[10px] border">
+          <Image src={contactLogo3} alt={'contactLogo1'} class="pb-8"/>
+          <h3 class="font-medium text-2xl leading-6 pb-5">Operational Address</h3>
+          <p class="font-medium pb-8 text-lg lg:leading-[21px] leading-[40px]">A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka
+            PIN: 560102</p>
+            <a href="https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9" class="text-base leading-7 font-medium px-3 py-3 border-2 rounded-[8px]">GET DIRECTION</a>
+        </div>
+       </div>
     </section>
 </MainLayout>
 <style>
