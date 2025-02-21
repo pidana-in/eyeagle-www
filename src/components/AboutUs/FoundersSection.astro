@@ -1,36 +1,64 @@
 ---
 import { aboutUsFoundersData } from "../constants/aboutus";
-import Ellipse from "../../assets/Aboutus/Ellipse.png";
 import { Image } from "astro:assets";
 ---
-<section class="bg-[#F6F4F2] font-sans-instrument pb-20 ">
-  <h1 class="text-[36px] sm:text-[48px] lg:text-[68px] italic text-center py-10 sm:py-20 px-5 lg:px-0  xl:container">The Minds Behind EyEagle</h1>
-  <div class="flex flex-col gap-10 items-center justify-center px-6  xl:container">
-    {aboutUsFoundersData.map((founder) => (
-      <div class="bg-white rounded-md flex flex-col lg:flex-row gap-5 p-6 sm:py-[54px] sm:px-[46px] w-full max-w-[1280px] relative">
-        <div class="flex-shrink-0">
-          <h1 class="text-[24px] sm:text-[32px] font-semibold">{founder.name}</h1>
-          <p class="text-[16px] sm:text-[18px] text-gray-600">{founder.title}</p>
-        </div>
+<section class="bg-white font-sans-instrument pb-20 px-5 lg:px-[40px] py-[100px] lg:py-[200px]">
+  <div class="xl:container">
+    <div class="w-full pb-[100px] lg:pb-[200px]">
+      <p class="text-[#CC0000] font-medium text-center text-[18px] leading-[21px] mb-2">TEAM</p>
+      <h1 class="font-semibold text-center text-[40px] lg:text-[68px] leading-[44px] lg:leading-[78px]">The Minds Behind <span class="text-[#CC0000]">EyEagle</span></h1>
+    </div>
+<div class="w-full flex flex-col gap-[80px] lg:flex-row justify-center items-center">
+  {aboutUsFoundersData.map((founder, index) => (
+    <div class="bg-[#ffffff] rounded-lg flex flex-col gap-5 h-full relative overflow-hidden group">
+            <div class="relative bg-white m-auto rounded-lg">
+        <Image
+          src={founder.photo}
+          alt={`${founder.name}'s Photo`}
+          class="rounded-lg w-full h-full object-cover transition-all duration-300 group-hover:opacity-60"
+        />
+        <div 
+  class="absolute inset-0 bg-gradient-to-b from-[#CC0000] to-[#660000] flex items-center justify-center text-center p-5 opacity-0 pointer-events-none transition-all duration-300 group-hover:opacity-90 group-hover:pointer-events-auto md:opacity-0 md:pointer-events-none" 
+  data-speech-overlay
+>
+  <p class="font-medium text-[20px] leading-7 text-white pt-5 min-h-[120px]">
+    {founder.speech}
+  </p>
 
-        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 w-full">
-          <div class="relative h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] lg:h-[373px] lg:w-[373px]">
-            <Image
-              src={founder.photo}
-              alt={`${founder.name}'s Photo`}
-              class="object-cover h-full w-full rounded-full"
-            />
-            <Image
-              src={Ellipse}
-              alt="Ellipse Decoration"
-              class="absolute top-[-10px] right-[10px] sm:top-[-20px] sm:right-[20px] h-[50px] w-[40px] sm:h-[70px] sm:w-[60px]"
-            />
-          </div>
-          <p class="text-[18px] sm:text-[24px] lg:text-[32px] font-semibold text-center lg:text-left max-w-full lg:max-w-[482px]">
-            {founder.speech}
+  <button 
+    class="absolute top-3 right-3 text-white text-[24px] md:hidden"
+    data-close-btn
+  >
+    ✖
+  </button>
+</div>
+      </div>
+      <div>
+        <div class="flex-grow flex flex-col">
+          <h1 class="text-[16px] font-medium leading-[17px] text-[#000000]">{founder.name}</h1>
+          <p class="font-medium leading-[13px] text-[14px] text-[#828282]">{founder.title}</p>
+          <p class="font-medium leading-[16px] text-[16px] text-[#000000] max-w-[226px] mt-2">
+            {founder.experience}
           </p>
         </div>
       </div>
-    ))}
-  </div>
+
+    </div>
+  ))}
+</div>
+    
+</div>
 </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const overlays = document.querySelectorAll("[data-speech-overlay]");
+    const closeButtons = document.querySelectorAll("[data-close-btn]");
+
+    closeButtons.forEach((button, index) => {
+      button.addEventListener("click", function () {        
+        overlays[index].classList.add("hidden"); // Hide the speech overlay
+      });
+    });
+  });
+</script>

@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeroSection from "../assets/Navbar/HeroSection.png";
+import HeroSection from "../assets/Navbar/HeroImage.png";
 import ourTeam from "../assets/Navbar/ourTeam.png";
 import desireImage from "../assets/Navbar/desireImage.png";
 import HeroSectionComponent from "../components/Home/HeroSectionComponent.astro";
@@ -16,11 +16,12 @@ import HandleSection from "../components/Home/HandleSection.astro";
 import HomePageEmergencyBanner from "../assets/Home/HomePageEmergencyBanner.png";
 import CircleMembership from "../components/Home/CircleMembership.astro";
 import PowerfulFeat from "../components/Home/PowerfulFeat.astro";
+import {HeroImageTitle} from "../components/constants/home";
 
 ---
 <MainLayout >
   <!-- Hero Section -->
-   <HeroSectionComponent heroImage={HeroSection} heroDescription={heroDescription} heroDescription2={heroDescription2}/>
+   <HeroSectionComponent heroImage={HeroSection} heroDescription={heroDescription} heroDescription2={heroDescription2} HeroImageTitle={HeroImageTitle}/>
   <!-- Statistics Section -->
   <HealthOrganization healthOrganization1={healthOrganization1} healthOrganization2={healthOrganization2}/>
   <!-- Scroll section -->
