@@ -91,7 +91,7 @@ export const healthOrganization1 = `The Silent Crisis <br>Affecting <br><span cl
 export const healthOrganization2 = `Falls aren't just accidents;
 they're <span class="text-[#CC0000] font-bold">life-altering</span> events for seniors.`;
 
-export const productFeatureTitle = `With advanced monitoring, real-time alerts, and professional intervention, Eyeagle isn’t just a device—it’s a 24/7 guardian for your loved ones, providing peace of mind no matter where you are.`;
+export const productFeatureTitle = `With advanced monitoring, real-time alerts, and professional intervention, Eyeagle isn’t just a device—it’s a 24/7 complete guardian for your loved ones, providing peace of mind no matter where you are.`;
 
 export const ourTeamHeading1 = "World Class <br> Prevention System";
 
@@ -144,8 +144,8 @@ export const CircleMembershipData={
     title:"APP",
     subTItle1:"EyEagle Circle",
     subTItle2:"App Membership",
-    midTitle:"Introducing Eyeagle Circle – <br>The Best-in-Class Connected Care Network for<br> Your Loved Ones",
-    desc:"EyeEagle Circle is a smart, connected network linking caregivers and family members to provide continuous safety and support.",
+    midTitle:"Introducing EyEagle Circle – <br>The Best-in-Class Connected Care Network for<br> Your Loved Ones",
+    desc:"EyEagle Circle is a smart, connected network linking caregivers and family members to provide continuous safety and support.",
     imgSrc:circleApp
 
 }
