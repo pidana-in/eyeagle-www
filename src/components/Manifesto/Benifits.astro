@@ -11,7 +11,7 @@ import { BenifitsData } from "../constants/manifesto";
     {BenifitsData.remarks.map((remark)=>(
         <div class="flex flex-col gap-5 justify-center items-center">
         <div>
-              <Icon iconName={remark.iconType} classNames="text-white text-[100px] md:text-[120px] " />
+              <Icon iconName={remark.iconType} classNames="text-white !text-[100px] !md:text-[120px]" />
         </div>
         <div class="max-h-[56px]">
               <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] text-white text-center ">{remark.context}</p>
