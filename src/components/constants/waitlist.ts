@@ -23,7 +23,8 @@ export const postFormFillData={
     floatingText:"SPECIAL LAUNCH OFFER",
     boxContent:"For the next 100 people",
     title:`<span class="text-[#CC0000]">Less</span> than an <span class="text-[#CC0000]">emergency</span> flight ticket`,
-    cutPrice:`₹9,999 + <span class="line-through">₹9,999</span> (1 year Circle membership)`,
+    mobileTtle:`For Less than an <span class="text-[#CC0000]">emergency</span> flight ticket`,
+    cutPrice:` + <span class="line-through">9999</span>  <span  class="text-[#CC0000] text-[24px] font-medium leading-7 mb-[-20px]">FREE</span> `,
 originalPrice:"₹9,999",
 duration:"/ 1 year",
     contacts:[
@@ -33,5 +34,6 @@ duration:"/ 1 year",
         {iconType:"check",title:"Patented Alarm Kit System"},
         {iconType:"check",title:"Ambulance & Emergency Services"},
     ],
-    btnText:"Reserve my kit"
+    btnText:"Reserve my kit",
+    shippingText:"Shipping Starts This June! Secure your order today"
 }
