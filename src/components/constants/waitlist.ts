@@ -30,7 +30,6 @@ duration:"/ 1 year",
     contacts:[
         {iconType:"check",title:"12 months circle membership worth ₹9999"},
         {iconType:"check",title:"Full bathroom support"},
-        {iconType:"check",title:"12 months membership plan"},
         {iconType:"check",title:"Patented Alarm Kit System"},
         {iconType:"check",title:"Ambulance & Emergency Services"},
     ],

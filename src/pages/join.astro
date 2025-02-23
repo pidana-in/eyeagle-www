@@ -9,6 +9,13 @@ import { countries } from "../components/constants/common";
 import Icon from "../components/common/Icon.astro";
 import BathroomSection from "../components/Home/BathroomSection.astro";
 import { bathroomData } from "../components/constants/home";
+import nodemailer from 'nodemailer';
+const smtpHost = import.meta.env.PUBLIC_SMTP_HOST;
+const smtpUser = import.meta.env.PUBLIC_SMTP_USER;
+const smtpPassword = import.meta.env.PUBLIC_SMTP_PASS;
+const smtpFrom = import.meta.env.PUBLIC_SMTP_FROM;
+const smtpTo = import.meta.env.PUBLIC_SMTP_TO;
+const smtpPort = import.meta.env.PUBLIC_SMTP_PORT;
 
 let formPosted=false;
 
@@ -21,7 +28,17 @@ if (Astro.request.method === "POST") {
     const phoneNumber = data.get("phoneNumber");
     const city = data.get("userCity");
     const acceptance = data.get("userAcceptCheck");
-  
+      
+    const transporter = nodemailer.createTransport({
+  host: `${smtpHost}`,
+  port: `${smtpPort}`,
+  secure: false,
+  auth: {
+    user: `${smtpUser}`,
+    pass: `${smtpPassword}`
+  }
+});
+
     const payload={
       name,
       countryCode,
@@ -41,6 +58,24 @@ if (Astro.request.method === "POST") {
 
     const resData = await response.json();        
       if(resData?.status==="success"){
+        const emailContent = `
+        New Waitlist Registration:
+        
+        Name: ${name}
+        Email: ${email}
+        Phone: ${countryCode}${phoneNumber}
+        City: ${city}
+        Newsletter: ${acceptance === 'on' ? 'Yes' : 'No'}
+      `;
+
+      const mailOptions = {
+        from: `${smtpFrom}`,
+        to: `${smtpTo}`,
+        subject: 'New Waitlist Registration',
+        text: emailContent
+      };
+
+      await transporter.sendMail(mailOptions);
         formPosted = true; 
       }   
   } catch (error) {
