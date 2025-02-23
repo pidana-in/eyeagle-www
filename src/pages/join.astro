@@ -56,9 +56,7 @@ if (Astro.request.method === "POST") {
       body: JSON.stringify(payload)
     });
 
-    const resData = await response.json();        
-      if(resData?.status==="success"){
-        const emailContent = `
+    const emailContent = `
         New Waitlist Registration:
         
         Name: ${name}
@@ -75,7 +73,10 @@ if (Astro.request.method === "POST") {
         text: emailContent
       };
 
-      await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
+
+    const resData = await response.json();        
+      if(resData?.status==="success"){
         formPosted = true; 
       }   
   } catch (error) {
