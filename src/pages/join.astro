@@ -1,7 +1,11 @@
 ---
 export const prerender = false;
+
 import MainLayout from "../layouts/MainLayout.astro";
-import { WaitlistFormData, WaitlistHeaderData } from "../components/constants/waitlist";
+import {
+  WaitlistFormData,
+  WaitlistHeaderData,
+} from "../components/constants/waitlist";
 import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
 import PostFormField from "../components/Waitlist/PostFormField.astro";
 import { URLS } from "../utils/urls";
@@ -10,232 +14,326 @@ import Icon from "../components/common/Icon.astro";
 import BathroomSection from "../components/Home/BathroomSection.astro";
 import { bathroomData } from "../components/constants/home";
 
-let formPosted=false;
+import nodemailer from "nodemailer";
 
+const {
+  PUBLIC_SMTP_HOST: smtpHost,
+  PUBLIC_SMTP_USER: smtpUser,
+  PUBLIC_SMTP_PASS: smtpPassword,
+  PUBLIC_SMTP_FROM: smtpFrom,
+  PUBLIC_SMTP_TO: smtpTo,
+  PUBLIC_SMTP_PORT: smtpPort,
+} = import.meta.env;
+
+let formPosted = false;
+
+// Handle server-side form submission
 if (Astro.request.method === "POST") {
   try {
-    const data = await Astro.request.formData();
-    const name = data.get("userName");
-    const email = data.get("userEmail");
-    const countryCode = data.get("phCode");
-    const phoneNumber = data.get("phoneNumber");
-    const city = data.get("userCity");
-    const acceptance = data.get("userAcceptCheck");
-  
-    const payload={
-      name,
-      countryCode,
-      mobileNumber:phoneNumber,
-      email,
-      city,
-      isNewsletterSubscribed: acceptance==='on' ? true : false
-    }
-  
-    const response = await fetch(URLS.USER_WAITLIST_API, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
+    const formData = await Astro.request.formData();
+
+    const name = formData.get("userName");
+    const email = formData.get("userEmail");
+    const countryCode = formData.get("phCode");
+    const phoneNumber = formData.get("phoneNumber");
+    const city = formData.get("userCity");
+    const acceptance = formData.get("userAcceptCheck") === "on";
+
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port: Number(smtpPort),
+      secure: false,
+      auth: {
+        user: smtpUser,
+        pass: smtpPassword,
       },
-      body: JSON.stringify(payload)
     });
 
-    const resData = await response.json();        
-      if(resData?.status==="success"){
-        formPosted = true; 
-      }   
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
+    const apiPayload = {
+      name,
+      countryCode,
+      mobileNumber: phoneNumber,
+      email,
+      city,
+      isNewsletterSubscribed: acceptance,
+    };
+
+    const fetchResponse = await fetch(URLS.USER_WAITLIST_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(apiPayload),
+    });
+
+    const apiResult = await fetchResponse.json();
+
+    const emailContent = `
+New Waitlist Registration:
+
+Name: ${name}
+Email: ${email}
+Phone: ${countryCode}${phoneNumber}
+City: ${city}
+Newsletter: ${acceptance ? "Yes" : "No"}
+    `;
+
+    await transporter.sendMail({
+      from: smtpFrom,
+      to: smtpTo,
+      subject: "New Waitlist Registration",
+      text: emailContent,
+    });
+
+    if (apiResult?.status === "success") {
+      formPosted = true;
     }
+  } catch (error) {
+    console.error("Error while submitting form:", error);
   }
 }
-
 ---
 
 <MainLayout title="Join">
   <section class="bg-[#F6F4F2] font-sans-instrument">
-    <section
-      class="xl:container px-[20px] py-[20px] md:px-[80px] md:py-[100px]"
-    >
+    <section class="xl:container px-5 py-5 md:px-20 md:py-24">
       <section class="p-10">
         <h1
-          class="lg-max-w-[1200px] text-center"
+          class="text-center lg:max-w-[1200px]"
           set:html={WaitlistHeaderData.title}
         />
         <p
-          class="text-[18px] font-medium text-center lg:max-w-[863px] m-auto my-10"
+          class="text-lg font-medium text-center lg:max-w-[863px] mx-auto my-10"
         >
           {WaitlistHeaderData.description}
         </p>
       </section>
-      <div id="pointers" class=`${formPosted ? "hidden" : "block"}`>
+
+      {/* Banner shown only if the form has not been posted */}
+      <div id="pointers" class={formPosted ? "hidden" : "block"}>
         <WaitListBanner />
       </div>
+
       <section
-        class="flex flex-col md:flex-row justify-center gap-[50px] lg:gap-[120px]"
+        class="flex flex-col md:flex-row justify-center gap-12 lg:gap-28"
       >
-        <div class=`${formPosted ? "hidden" : "block"}`>
-
-          <div
-          class="flex flex-col justify-center items-center gap-3 "
-        >
-          <form method="POST"  class="flex flex-col gap-3" onsubmit="
-
-handleSubmit()">
-            <label> Name* </label>
-            <input
-              type="text"
-              name="userName"
-              placeholder="Enter name"
-              required
-              class={`md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]  `}
-            />
-            <label> Phone number* </label>
-            <div class={`relative md:w-[628px] `}>
-
-            <div class="absolute  h-full">
-              <div id="dropdownButton" class="inset-y-0 left-0  bg-transparent px-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6] w-auto min-w-[110px] flex justify-between items-center cursor-pointer">
-                <span>
-                    <Icon iconName="keyboard_arrow_down" classNames="mt-2 hidden"/>
-                </span>
-                <div class="flex items-center gap-2">
-              </div>
-              </div>
-              <input id="phCode" name="phCode" value="" class="hidden"/>
-                          <div id="dropdownMenu" class="absolute mt-1  bg-white border border-gray-300 rounded-md shadow-md hidden text-black  max-h-[250px] overflow-y-scroll w-52">
-                
-                  {countries
-                  .sort((a, b) => a.code.localeCompare(b.code))
-                  .map((country) => (
-                    <div
-                    id={country?.code}
-                    class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
-                      data-value={country?.dial_code}
-                    >      
-                      <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt={`${country?.code}flag`} width="20"/> {country.dial_code}
-                    </div>
-                  ))}
-                </div>
-            </div>   
-                       <input
-                type="number"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                id="phoneNumField"
-                maxlength={10} 
+        {/* Waitlist Form */}
+        <div class={formPosted ? "hidden" : "block"}>
+          <div class="flex flex-col items-center gap-3">
+            <form method="POST" class="flex flex-col gap-3">
+              <label>Name*</label>
+              <input
+                type="text"
+                name="userName"
+                placeholder="Enter name"
                 required
-                class={`md:w-[628px]  p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
+                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
               />
-            </div>
-    
-            <label> Email* </label>
-            <input
-              type="email"
-              name="userEmail"
-              placeholder="Enter Email"
-              required
-              class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
-            />
-    
-            <label> City of Installation* </label>
-            <input
-              type="text"
-              name="userCity"
-              placeholder="City Name"
-              required
-              class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
-            />
-            <div class="flex justify-start items-center gap-2">
-    
-            <input type="checkbox" name="userAcceptCheck" class="h-[18px] w-[18px]  border border-gray-400"/><span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
-            </div>
-    
-            <button
-              class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-[8px]"
-              >{WaitlistFormData.buttonTitile}</button
-            >
-          </form>
-        </div>
-        </div>
-        <div  class=`${formPosted ? "block" : "hidden"}`>
-            <PostFormField/>
-            </div>
 
+              <label>Phone number*</label>
+              <div class="relative md:w-[628px]">
+                {/* Country Code Button */}
+                <div
+                  id="dropdownButton"
+                  class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border-2 border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
+                >
+                  <span class="flex items-center">
+                    <Icon iconName="keyboard_arrow_down" classNames="hidden" />
+                  </span>
+                  <div class="flex items-center gap-2"></div>
+                </div>
+
+                {/* Hidden input for country code */}
+                <input id="phCode" name="phCode" value="" class="hidden" />
+
+                {/* Dropdown Menu */}
+                <div
+                  id="dropdownMenu"
+                  class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
+                >
+                  {
+                    countries
+                      .sort((a, b) => a.code.localeCompare(b.code))
+                      .map((country) => (
+                        <div
+                          class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                          data-value={country.dial_code}
+                        >
+                          <img
+                            src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                            alt={`${country.code} flag`}
+                            width="20"
+                          />
+                          {country.dial_code}
+                        </div>
+                      ))
+                  }
+                </div>
+
+                {/* Phone Number Input */}
+                <input
+                  id="phoneNumField"
+                  type="number"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  maxlength="10"
+                  required
+                  class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                />
+              </div>
+
+              <label>Email*</label>
+              <input
+                type="email"
+                name="userEmail"
+                placeholder="Enter Email"
+                required
+                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+              />
+
+              <label>City of Installation*</label>
+              <input
+                type="text"
+                name="userCity"
+                placeholder="City Name"
+                required
+                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+              />
+
+              <div class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="userAcceptCheck"
+                  class="h-4 w-4 border border-gray-400"
+                />
+                <span class="text-[#666666]"
+                  >{WaitlistFormData.acceptation}</span
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2"
+              >
+                {WaitlistFormData.buttonTitile}
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Success Message or Next Step after form submission */}
+        <div class={formPosted ? "block" : "hidden"}>
+          <PostFormField />
+        </div>
       </section>
+
+      {/* Additional Section */}
       <div class="pt-60 grid lg:grid-cols-4 gap-12">
-        {bathroomData?.map((item)=>
-          <BathroomSection item={item} mobile={false}/>
-        )}
+        {
+          bathroomData?.map((item) => (
+            <BathroomSection item={item} mobile={false} />
+          ))
+        }
       </div>
     </section>
   </section>
 </MainLayout>
 
-<script is:inline define:vars={{countries}}>
+<script is:inline define:vars={{ countries }}>
+  // DOM references
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownMenu = document.getElementById("dropdownMenu");
   const phCode = document.getElementById("phCode");
   const phoneNumField = document.getElementById("phoneNumField");
-  const iconSpan = document.createElement('span');
 
-  iconSpan.className = `material-symbols-outlined text-[20px] md:text-[24px] ml-2`;
-  iconSpan.textContent = 'keyboard_arrow_down';
+  // Arrow-down icon
+  const iconSpan = document.createElement("span");
+  iconSpan.className = "material-symbols-outlined text-base md:text-lg ml-2";
+  iconSpan.textContent = "keyboard_arrow_down";
 
+  // Toggle dropdown menu
   dropdownButton.addEventListener("click", () => {
     dropdownMenu.classList.toggle("hidden");
   });
 
+  // Handle dropdown selection
   dropdownMenu.addEventListener("click", (event) => {
     const option = event.target.closest("[data-value]");
-    if (option) {
-      dropdownButton.textContent = option.dataset.value;
-      const countryCode=countries.find((country)=>country.dial_code===option.dataset.value).code;
-      
-      const flagImage = document.createElement('img');
-        flagImage.src = `https://flagcdn.com/w40/${countryCode.toLowerCase()}.png`;
-        flagImage.alt = `${"in"} flag`;
-        flagImage.width = 20;
-        flagImage.className = 'mr-2';
-        dropdownButton.innerHTML = '';
-        dropdownButton.appendChild(flagImage);
-        dropdownButton.appendChild(document.createTextNode(option.dataset.value));
-        dropdownButton.appendChild(iconSpan);
-      phCode.value = option.dataset.value;
-      dropdownMenu.classList.add("hidden");
+    if (!option) return;
 
-      document.querySelectorAll("#options").forEach(el => el.classList.remove("bg-gray-300"));
-      option.classList.add("bg-gray-300");
+    // Selected dial code
+    const selectedDialCode = option.dataset.value;
+    const country = countries.find((c) => c.dial_code === selectedDialCode);
 
-  
-    }
-});
+    // Update button content with selected flag and dial code
+    dropdownButton.innerHTML = "";
+    const flagImage = document.createElement("img");
+    flagImage.src = `https://flagcdn.com/w40/${country.code.toLowerCase()}.png`;
+    flagImage.alt = `${country.code} flag`;
+    flagImage.width = 20;
+    flagImage.className = "mr-2";
 
+    dropdownButton.appendChild(flagImage);
+    dropdownButton.appendChild(document.createTextNode(selectedDialCode));
+    dropdownButton.appendChild(iconSpan);
 
+    // Set hidden input value
+    phCode.value = selectedDialCode;
+
+    // Close menu
+    dropdownMenu.classList.add("hidden");
+
+    // Highlight selected in the dropdown
+    document
+      .querySelectorAll("#dropdownMenu > div[data-value]")
+      .forEach((el) => el.classList.remove("bg-gray-300"));
+    option.classList.add("bg-gray-300");
+  });
+
+  // Close the dropdown if clicked elsewhere
   document.addEventListener("click", (event) => {
-    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    if (
+      !dropdownButton.contains(event.target) &&
+      !dropdownMenu.contains(event.target)
+    ) {
       dropdownMenu.classList.add("hidden");
     }
   });
-  function checkPhoneAvail(){
-  phoneNumField.classList.add("pl-[125px]") 
-  dropdownButton.classList.add("max-w-[70px]")
 
-  const flagImage = document.createElement('img');
-        flagImage.src = `https://flagcdn.com/w40/${"in"}.png`;
-        flagImage.alt = `${"in"} flag`;
-        flagImage.width = 20;
-        flagImage.className = 'mr-2';
-        dropdownButton.innerHTML = '';
-        dropdownButton.appendChild(flagImage);
-        dropdownButton.appendChild(document.createTextNode("+91"));
-        dropdownButton.appendChild(iconSpan);
-        phCode.value = "+91";
+  // Set a default code on page load (e.g., "+91")
+  function initializeDefaultPhoneCode() {
+    phoneNumField.classList.add("pl-[125px]");
+    dropdownButton.classList.add("max-w-[70px]");
 
-  const defaultOption = document.querySelector(`[data-value="+91"]`);
-  if (defaultOption) {
-    defaultOption.classList.add("bg-gray-300"); 
+    const defaultDialCode = "+91";
+    const defaultCountry = countries.find(
+      (c) => c.dial_code === defaultDialCode
+    );
+
+    if (defaultCountry) {
+      // Create the flag image
+      const flagImage = document.createElement("img");
+      flagImage.src = `https://flagcdn.com/w40/${defaultCountry.code.toLowerCase()}.png`;
+      flagImage.alt = `${defaultCountry.code} flag`;
+      flagImage.width = 20;
+      flagImage.className = "mr-2";
+
+      // Reset dropdown button
+      dropdownButton.innerHTML = "";
+      dropdownButton.appendChild(flagImage);
+      dropdownButton.appendChild(document.createTextNode(defaultDialCode));
+      dropdownButton.appendChild(iconSpan);
+
+      phCode.value = defaultDialCode;
+
+      // Highlight default in the dropdown
+      const defaultOption = Array.from(
+        dropdownMenu.querySelectorAll("[data-value]")
+      ).find((el) => el.dataset.value === defaultDialCode);
+
+      if (defaultOption) {
+        defaultOption.classList.add("bg-gray-300");
+      }
+    }
   }
-  }
-  checkPhoneAvail()
-  
+
+  initializeDefaultPhoneCode();
 </script>
