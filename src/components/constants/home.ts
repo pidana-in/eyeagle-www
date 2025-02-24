@@ -26,7 +26,7 @@ export const bathroomData = [
     },
     {
         id:2,
-        heading:"Advanced Fall Alert System",
+        heading:"Advanced Fall Alert",
         title:"Our PIDANA Alarm device that lets you help in an emergency",
         description:"In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
         image:BathroomImage2
@@ -146,7 +146,7 @@ export const CircleMembershipData={
     title:"APP",
     subTItle1:"EyEagle Circle",
     subTItle2:"App Membership",
-    midTitle:"Introducing EyEagle Circle – <br>The Best-in-Class Connected Care Network for<br> Your Loved Ones",
+    midTitle:"Introducing EyEagle Circle – Connected Care Network for<br> Your Loved Ones",
     desc:"EyEagle Circle is a smart, connected network linking caregivers and family members to provide continuous safety and support.",
     imgSrc:circleApp
 
@@ -167,3 +167,12 @@ featsrc3:bentoMobile,
 featsrc4:powerfulFeat1Mobile,
 featsrc5:powerfulFeat2Mobile,
 }
+
+export const HomeFaqsData={title:"FAQs",content:[
+    {title:"What is EyEagle and how does it work?",desc:"EyEagle is a comprehensive bathroom safety system designed to prevent accidents and provide quick emergency response. It includes a patented alarm system, non-slip surfaces, grab bars, and an app that sends instant notifications to caregivers or emergency contacts when an incident is detected."},
+    {title:"Do I need Wi-Fi for the system to work?",desc:"No, EyEagle does not rely on Wi-Fi. It operates independently to ensure that safety is never compromised due to internet connectivity issues."},
+    {title:"Can I customize the settings for my bathroom?",desc:"Yes! EyEagle offers customizable settings that allow you to adjust alarm sensitivity, notification preferences, and system configurations to match the layout and specific needs of your bathroom"},
+    {title:"What happens if there’s a power outage?",desc:"Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customize who gets notified through the EyEagle app."},
+    {title:"Who receives the alerts when the alarm is triggered?",desc:"EyEagle comes equipped with a battery that lasts up to 60 hours, ensuring continuous protection even during power outages."},
+    {title:"How is the system installed?",desc:"Our team of experts will install the system based on your bathroom’s specific floor plan. We ensure everything is placed optimally for maximum safety and effectiveness."},
+    ]}

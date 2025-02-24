@@ -8,10 +8,10 @@ import HeaderBanner2 from "../../assets/Aboutus/HeaderBanner2.png";
 
 export const aboutUsFoundersData=[
    
-    {id:1,name:"Ajay Sharma",title:"Founder",experience:"Tech Enthusiast, IIT, Preventing accidents, Building safety",photo:AjaySharma,speech:"“Elder safety isn’t just about preventing accidents; it’s about preserving independence and dignity. At EyEagle, we strive to make every bathroom a safer space, so families can focus on living, not worrying.”"},
-    {id:2,name:"Abhinav Kushawaha",title:"Co-founder",experience:"Tech Enthusiast, IIT, Preventing accidents, Building safety",photo:Abhinav,speech:"“Our mission is simple: to protect the ones who protected us. With EyEagle, we ensure that every home is equipped with the right tools to keep our loved ones safe in the places where accidents are most likely to happen.”"},
-    {id:3,name:"Gaurav Kumar",title:"Co-founder",experience:"Tech Enthusiast, IIT, Preventing accidents, Building safety",photo:Gaurav,speech:"“Every detail matters when it comes to elder safety. From the precision of our installations to the speed of our response, EyEagle is committed to ensuring that your loved ones are never left vulnerable.”"},
-    {id:4,name:"Vaibhav Saxena",title:"Co-founder",experience:"Tech Enthusiast, IIT, Preventing accidents, Building safety",photo:Vaibhav,speech:"“Safety for the elderly isn’t just a necessity—it’s a right. At EyEagle, we’re not just installing products; we’re creating peace of mind for families, knowing that their loved ones are protected, even in the most challenging situations.”"}
+    {id:1,name:"Ajay Sharma",title:"Founder",experience:"IIT BHU, Digital Tech Evangelist",photo:AjaySharma,speech:"“Elder safety isn’t just about preventing accidents; it’s about preserving independence and dignity. At EyEagle, we strive to make every bathroom a safer space, so families can focus on living, not worrying.”"},
+    {id:2,name:"Abhinav Kushawaha",title:"Co-founder",experience:"IIT BHU, Tech Aficionado",photo:Abhinav,speech:"“Our mission is simple: to protect the ones who protected us. With EyEagle, we ensure that every home is equipped with the right tools to keep our loved ones safe in the places where accidents are most likely to happen.”"},
+    {id:3,name:"Gaurav Kumar",title:"Co-founder",experience:"IIT BHU, Technologist",photo:Gaurav,speech:"“Every detail matters when it comes to elder safety. From the precision of our installations to the speed of our response, EyEagle is committed to ensuring that your loved ones are never left vulnerable.”"},
+    {id:4,name:"Vaibhav Saxena",title:"Co-founder",experience:"IIT BHU, Technopreneur",photo:Vaibhav,speech:"“Safety for the elderly isn’t just a necessity—it’s a right. At EyEagle, we’re not just installing products; we’re creating peace of mind for families, knowing that their loved ones are protected, even in the most challenging situations.”"}
 ]
 export const Values=[
     {title:"Our Values",description:"The safety system activates to contain and manage the situation. Alarms will sound and alerts will be sent to ensure immediate response. The system is designed to minimize damage and ensure safety. 4o mini"},
@@ -25,7 +25,7 @@ export const AboutUsHeaderData={headerBannerSrc:HeaderBanner,headerBannerSrc2:He
 
 export const CoreValuesData={
     title:`At <span class="text-[#CC0000]">EyEagle</span>, we’re redefining elder safety.`,
-    desc:"We are committed to redefining elder safety with cutting-edge security systems, emergency alarms, and our Circle app membership. We strive to provide unmatched protection and peace of mind—ensuring safety doesn’t come at an overwhelming cost.",
+    desc:"We strive to provide unmatched protectio n and peace of mind—ensuring safety doesn’t come at an overwhelming cost.",
     coreTitle:`Guided by Our <span class="text-[#CC0000]">Core Values</span>`,
     values:[
        { title:"Innovation",desc:"We are committed to staying at the forefront of technology and innovation to develop cutting-edge solutions for senior safety."},
