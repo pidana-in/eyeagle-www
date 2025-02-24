@@ -13,6 +13,8 @@ import powerfulBento from "../../assets/Home/powerfulBento.png";
 import powerfulFeat1 from "../../assets/Home/powerfulFeat1.png";
 import powerfulFeat2 from "../../assets/Home/powerfulFeat2.png";
 import bentoMobile from "../../assets/Home/bentoMobile.png";
+import powerfulFeat1Mobile from "../../assets/Home/powerfulFeat1Mobile.png";
+import powerfulFeat2Mobile from "../../assets/Home/powerfulFeat2Mobile.png";
 
 export const bathroomData = [
     {
@@ -162,4 +164,6 @@ bentoImgSrc:powerfulBento,
 featsrc1:powerfulFeat1,
 featsrc2:powerfulFeat2,
 featsrc3:bentoMobile,
+featsrc4:powerfulFeat1Mobile,
+featsrc5:powerfulFeat2Mobile,
 }
