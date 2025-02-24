@@ -15,7 +15,7 @@ export const banner2Contexts=[{description:"I make sure we go above and beyond i
 export const explanations=[
     {id:1,title:"Prevention",description:`Our first line of defense is prevention. We install non-slip mats, grab bars, and handrails to minimize the risk of slips and falls, creating a safer environment for your loved ones.`,imgSrc:manifestoExplanation1},
     {id:2,title:"Interaction",description:"EyEagle’s system seamlessly integrates with the way you and your caregivers interact with your environment. With customizable settings and an easy-to-use app, we ensure that our safety solution works in harmony with your lifestyle.",imgSrc:manifestoExplanation2},
-    {id:3,title:"Detection",description:"Our system constantly monitors for any signs of trouble. If a fall or emergency occurs, EyEagle’s advanced fall alert falls is always there to ensure easy access to emergency with SOS button and automatic door system",imgSrc:manifestoExplanation3},
+    {id:3,title:"Detection",description:"Our system constantly monitors for any signs of trouble. If a fall or emergency occurs, EyEagle’s detection system is immediately activated, ensuring no delay in response.",imgSrc:manifestoExplanation3},
     {id:4,title:"Alarm",description:"The moment an incident is detected, the EyEagle alarm system springs into action. Our patented alarm system is designed for maximum reliability, ensuring that help is alerted right away.",imgSrc:manifestoExplanation4},
     {id:5,title:"Notification",description:"Once the alarm is triggered, notifications are instantly sent to caregivers and emergency contacts through the EyEagle app, so you’re never in the dark about your loved one’s safety.",imgSrc:manifestoExplanation5},
     {id:6,title:"Action",description:"Whether it’s dispatching emergency services or guiding family members through the next steps, EyEagle ensures rapid and decisive action. Our system coordinates the response to make sure help arrives as quickly as possible.",imgSrc:manifestoExplanation6},
@@ -45,7 +45,7 @@ export const contexts = [
 
   export const BottomSectionData={
     title:`<span class="text-[#CC0000]">World’s first PIDANA</span> Protocol. End to End Solution`,
-    desc1:`At the core of EyeEagle’s safety philosophy is the 6-step protection system (Prevention, Interaction, Detection, Alarm, Notification, and Action) that ensures your loved ones are safe, even when you’re not around`,
+    desc1:`At the core of EyeEagle’s safety philosophy is the 6-step protection system PIDANA(Prevention, Interaction, Detection, Alarm, Notification, and Action) that ensures your loved ones are safe, even when you’re not around`,
 
   }
   

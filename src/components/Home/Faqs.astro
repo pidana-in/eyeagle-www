@@ -1,0 +1,54 @@
+---
+import Icon from "../common/Icon.astro";
+import { HomeFaqsData } from "../constants/home";
+---
+
+<section class="bg-[#222222] px-5 lg:px-[195px] py-[100px]">
+<div class="xl:container">
+<h1 class="font-medium text-center text-white leading-[44px] text-[40px] lg:leading-[80px] lg:text-[73px] pb-10">{HomeFaqsData.title}</h1>
+<div class="flex flex-col gap-5">
+    {HomeFaqsData.content.map((contnet,index)=>(
+        <div id={`${index}faq`} class="faq-header flex items-center justify-between">
+            <h2 class="cursor-pointer font-medium text-[18px] leading-6 lg:text-[20px] lg:leading-7 text-white">{contnet.title}</h2>
+            <Icon iconName="stat_minus_1" classNames="cursor-pointer text-white text-[24px] text-white faq-icon"/>
+        </div>
+        <div class="hidden">
+           <h3 class=" text-white opacity-[60%] font-normal text-[16px] lg:text-[18px] leading-6 lg:leading-7">{contnet.desc}</h3> 
+        </div>
+        <div class="border-b border-[#D9D9D9] pt-5 lg:pt-5"></div>
+    ))}
+</div>
+</div>
+</section>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const allContents = document.querySelectorAll('.faq-content');
+      allContents.forEach(content => {
+        content.classList.add('hidden');
+      });
+  
+      const faqHeaders = document.querySelectorAll('.faq-header');
+      
+      faqHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          const icon = header.querySelector('.faq-icon');
+          
+          faqHeaders.forEach(otherHeader => {
+            if (otherHeader !== header) {
+              const otherContent = otherHeader.nextElementSibling;
+              const otherIcon = otherHeader.querySelector('.faq-icon');
+              otherContent.classList.add('hidden');
+              otherIcon.textContent = 'keyboard_arrow_down';
+            }
+          });
+  
+          content.classList.toggle('hidden');
+          icon.textContent = content.classList.contains('hidden') 
+            ? 'keyboard_arrow_down' 
+            : 'keyboard_arrow_up';
+        });
+      });
+    });
+  </script>
