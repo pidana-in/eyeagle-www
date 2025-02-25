@@ -7,7 +7,7 @@ const mobile = Astro.props.mobile;
 const { pathname } = Astro. url;
 ---
     <div class="relative">
-          <h2 class="absolute top-3 z-30 bg-[#FFFFFFB2] p-[10px] rounded-[54px] font-medium text-[20px] lg:text-xl leading-8 flex justify-center items-center w-[95%] mx-2">{item.heading}</h2>
+          <h2 class="absolute top-3 z-30 bg-white/70 backdrop-blur-md  isolate p-[10px] rounded-[54px] font-medium text-[20px] lg:text-xl leading-8 flex justify-center items-center w-[95%] mx-2">{item.heading}</h2>
             <Image
             src={item.image ?? ""}
             alt={'item.heading'}
