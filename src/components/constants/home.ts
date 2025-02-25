@@ -107,7 +107,7 @@ export const desireSection1 = "Get EyEagle now – Stay One Step Ahead of Emerge
 
 export const desireSection2 = "Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.";
 
-export const descriptionButton = "Join waiting list";
+export const descriptionButton = "Join waitlist";
 
 export const scrollDataSection = {1:"prevention",2:"services",3:"emergency",4:"installation"};
 
@@ -116,10 +116,10 @@ export const scrollDataSection = {1:"prevention",2:"services",3:"emergency",4:"i
 export const EmergencyResponseData={
     title:"ACTION",
     subTitle:"Emergency Response, <br>Anytime, Anywhere",
-    midTitle:`Trained <span class="text-[#CC0000]">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
+    midTitle:`Trained <span class="text-white">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
 desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
-bannerDesc1:`“A flight home takes <span class="text-[#CC0000]">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-[#CC0000]">30 minutes</span>”`,
-bannerDesc2:`“because some things can wait. <span class="text-[#CC0000]">Emergencies</span> can’t. Eyeagle knows the difference.”`,
+bannerDesc1:`“A flight home takes <span class="text-white">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-white">30 minutes</span>”`,
+bannerDesc2:`“because some things can wait. <span class="text-white">Emergencies</span> can’t. Eyeagle knows the difference.”`,
 remarks:[
     {iconType:"help_clinic",context:"24/7 guidance & support"},
     {iconType:"support_agent",context:"Provide support in absence of caregivers"},

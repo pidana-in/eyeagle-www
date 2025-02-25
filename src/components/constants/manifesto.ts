@@ -45,7 +45,7 @@ export const contexts = [
 
   export const BottomSectionData={
     title:`<span class="text-[#CC0000]">World’s first PIDANA</span> Protocol. End to End Solution`,
-    desc1:`At the core of EyeEagle’s safety philosophy is the 6-step protection system PIDANA(Prevention, Interaction, Detection, Alarm, Notification, and Action) that ensures your loved ones are safe, even when you’re not around`,
+    desc1:`At the core of EyEagle’s safety philosophy is the 6-step protection system PIDANA(Prevention, Interaction, Detection, Alarm, Notification, and Action) that ensures your loved ones are safe, even when you’re not around`,
 
   }
   
@@ -76,7 +76,7 @@ export const contexts = [
     remarks:[
       {iconType:"help_clinic",context:"Reliable Emergency Alerts"},
       {iconType:"support_agent",context:"Caregivers + Eyeagle’s safety team act immediately."},
-      {iconType:"airport_shuttle",context:"Free Ambulance Services in case of emergency"},
+      {iconType:"airport_shuttle",context:"Ambulance Services in case of emergency"},
       {iconType:"guardian",context:" You’re always in control, even from miles away."}
   ],
 
