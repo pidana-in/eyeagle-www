@@ -46,7 +46,7 @@ const footerClass = Astro.props.footerClass ?? "";
   <body class="text-gray-900">
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-0 z-50 right-0 px-10 py-5 bg-[#222222]`
+      class=`fixed max-lg:hidden h-[84px] w-full top-0 z-50 right-0 px-10 py-5 bg-[#222222]`
     >
       <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center">
@@ -56,6 +56,7 @@ const footerClass = Astro.props.footerClass ?? "";
               alt={"Eyeagle Logo"}
               id="imageBg"
               class="w-[163px]"
+              quality={'max'}
             />
           </a>
       </div>
@@ -90,9 +91,10 @@ const footerClass = Astro.props.footerClass ?? "";
                 </>
               )}
             </ul>
-        <a href="/plan/">
+            {/* order button */}
+        {/* <a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
-        </a>
+        </a> */}
       </div>}
       </nav>
     </header>
@@ -112,7 +114,7 @@ const footerClass = Astro.props.footerClass ?? "";
       <nav class="flex justify-between items-center px-5 py-4">
         <div>
           <a href="/" aria-label="EyEagle Home Page">
-            <Image src={EyeagleLogo} alt="" />
+            <Image src={EyeagleLogo} alt="" quality={'max'} class={'w-[147px]'}/>
           </a>
         </div>
         <div id="hamburger">
@@ -171,9 +173,10 @@ const footerClass = Astro.props.footerClass ?? "";
         }
         </>
         )} -->
-        {pathname === "/plan/"  ? "" :<a href="/plan/">
+        <!-- order button -->
+        <!-- {pathname === "/plan/"  ? "" :<a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
-        </a>}
+        </a>} -->
       </ul>
     </section>
     <main class="font-sans-instrument">
