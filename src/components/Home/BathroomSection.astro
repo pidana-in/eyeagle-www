@@ -12,6 +12,7 @@ const { pathname } = Astro. url;
             src={item.image ?? ""}
             alt={'item.heading'}
             class="w-full bg-cover rounded-[20px]"
+            quality={'max'}
           />
           <button id={item.id} class=`absolute bottom-5 right-5 z-30 ${item.id === 4 ? "bg-white" :"bg-[#CC0000]"} h-10 w-10 rounded-[100px] grid justify-center items-center`>
             <svg class="hover:cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

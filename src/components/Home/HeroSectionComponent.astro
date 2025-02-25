@@ -11,11 +11,13 @@ const heroDescription2 = Astro.props.heroDescription2;
     src={heroImage}
     alt="Emergency prevention"
     class="w-full h-full object-cover hidden md:block"
+    quality={'max'}
   />
   <Image
     src={HeroImageMob}
     alt="Emergency prevention"
     class="w-full h-full object-cover block md:hidden"
+    quality={'max'}
   />
   <h1 class="absolute top-0 lg:top-5 left-1/2 -translate-x-1/2 text-[16px] md:text-[32px] lg:text-[72px] leading-[87px] text-center font-medium text-white  w-full drop-shadow-xl hidden md:block" style={{textShadow:"3px 3px 6px rgba(0, 0, 0, 1)"}}>
     {HeroImageTitle.title1}
