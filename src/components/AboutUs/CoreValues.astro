@@ -2,7 +2,7 @@
 import { CoreValuesData } from "../constants/aboutus"
 ---
 <section class="px-5 lg:px-[40px] py-[100px] xl:container">
-    <div class="pb-[100px]">
+    <div class="pb-[100px] lg:pb-[160px]">
 
         <p set:html={CoreValuesData.title} class="font-medium text-center text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px]"></p>
         <p set:html={CoreValuesData.desc} class="text-[#BDBDBD] font-medium text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px] pt-10 lg:pt-[20px] text-center"></p>
@@ -17,7 +17,7 @@ import { CoreValuesData } from "../constants/aboutus"
             <p class="leading-[40px] text-[32px] font-normal lg:font-medium text-center">{value.title}</p>
             </div>
             <div> 
-            <p class="text-[18px] leading-[28px] lg:max-w-[646px] text-center font-normal">{value.desc}</p>
+            <p class="text-[18px] leading-[28px] lg:max-w-[646px] text-center lg:text-start font-normal">{value.desc}</p>
             </div>
         </div>
     ))}
