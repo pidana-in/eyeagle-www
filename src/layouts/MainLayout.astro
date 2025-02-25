@@ -150,6 +150,7 @@ const footerClass = Astro.props.footerClass ?? "";
               stroke-linecap="round"
               stroke-linejoin="round"></path>
           </svg>
+          
         </div>
         <div id="crossButton" style={{display:"none"}}>
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,6 +183,9 @@ const footerClass = Astro.props.footerClass ?? "";
         <!-- {pathname === "/plan/"  ? "" :<a href="/plan/">
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>} -->
+        <a href="/join/">
+          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+        </a>
       </ul>
     </section>
     
