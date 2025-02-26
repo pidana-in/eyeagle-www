@@ -76,10 +76,12 @@ City: ${city}
 Newsletter: ${acceptance ? "Yes" : "No"}
     `;
 
+    const currentDate = new Date().toISOString().slice(0, 10);
+
     await transporter.sendMail({
       from: smtpFrom,
       to: smtpTo,
-      subject: "New Waitlist Registration",
+      subject: `New Waitlist Registration - ${currentDate}`,
       text: emailContent,
     });
 
