@@ -25,7 +25,7 @@ export const AboutUsHeaderData={headerBannerSrc:HeaderBanner,headerBannerSrc2:He
 
 export const CoreValuesData={
     title:`At <span class="text-[#CC0000]">EyEagle</span>, we’re redefining elder safety.`,
-    desc:"We strive to provide unmatched protectio n and peace of mind—ensuring safety doesn’t come at an overwhelming cost.",
+    desc:"We strive to provide unmatched protection and peace of mind—ensuring safety doesn’t come at an overwhelming cost.",
     coreTitle:`Guided by Our <span class="text-[#CC0000]">Core Values</span>`,
     values:[
        { title:"Innovation",desc:"We are committed to staying at the forefront of technology and innovation to develop cutting-edge solutions for senior safety."},

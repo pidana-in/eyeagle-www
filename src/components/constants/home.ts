@@ -174,8 +174,8 @@ export const HomeFaqsData={title:"FAQs",content:[
     {title:"Do I need Wi-Fi for the system to work?",desc:"No, EyEagle does not rely on Wi-Fi. It operates independently to ensure that safety is never compromised due to internet connectivity issues."},
     {title:"How does Eyeagle ensure notifications are reliable?",desc:"Our patent-pending device is designed to function in any corner of the house, even on low-bandwidth 2G networks. This ensures that critical alerts are always delivered, even in areas with poor connectivity."},
     {title:"Can I customize the settings for my bathroom?",desc:"Yes! EyEagle offers customizable settings that allow you to adjust alarm sensitivity, notification preferences, and system configurations to match the layout and specific needs of your bathroom"},
-    {title:"What happens if there’s a power outage?",desc:"Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customize who gets notified through the EyEagle app."},
-    {title:"Who receives the alerts when the alarm is triggered?",desc:"EyEagle comes equipped with a battery that lasts up to 6 hours, ensuring continuous protection even during power outages."},
+    {title:"What happens if there’s a power outage?",desc:"EyEagle comes equipped with a battery that lasts up to 6 hours, ensuring continuous protection even during power outages."},
+    {title:"Who receives the alerts when the alarm is triggered?",desc:"Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customize who gets notified through the EyEagle app."},
     {title:"How is the system installed?",desc:"Our team of experts will install the system based on your bathroom’s specific floor plan. We ensure everything is placed optimally for maximum safety and effectiveness."},
     {title:"What if my device goes offline?",desc:"If a device disconnects, you’ll receive a “Device Offline” alert, prompting you to check power and connectivity."}
     ]}
