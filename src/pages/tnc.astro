@@ -2,9 +2,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import TncSection1 from "../components/Tnc/TncSection1.astro";
 import TncSection2 from "../components/Tnc/TncSection2.astro";
+
+const metaTitle="Terms & Conditions – EyEagle | User Agreement";
+const metaDesc="Read EyEagle’s terms and conditions for using our website and emergency alarm systems. Transparent policies for a trusted experience.";
+
 ---
 
-<MainLayout>
+<MainLayout title={metaTitle} desc={metaDesc}>
     <TncSection1/>
     <TncSection2/>
 </MainLayout>

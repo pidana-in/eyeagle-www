@@ -16,6 +16,9 @@ import { bathroomData } from "../components/constants/home";
 
 import nodemailer from "nodemailer";
 
+const metaTitle="Join Our Community for Elderly Safety Solutions – EyEagle";
+const metaDesc="Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
+
 const {
   PUBLIC_SMTP_HOST: smtpHost,
   PUBLIC_SMTP_USER: smtpUser,
@@ -94,12 +97,12 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 }
 ---
 
-<MainLayout title="Join">
+<MainLayout title={metaTitle} desc={metaDesc}>
   <section class="bg-[#F6F4F2] font-sans-instrument">
     <section class="xl:container px-5 py-5 md:px-20 md:py-24">
       <section class="py-10">
-        <h1
-          class="text-center lg:max-w-[1200px]"
+        <div
+          class="text-center m-auto lg:max-w-[1200px]"
           set:html={WaitlistHeaderData.title}
         />
         <p

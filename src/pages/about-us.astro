@@ -4,16 +4,17 @@ import MainLayout from "../layouts/MainLayout.astro";
 import DesireSection from "../components/Home/DesireSection.astro";
 import desireImage from "../assets/Navbar/desireImage.png";
 import HeaderSection from "../components/AboutUs/HeaderSection.astro";
-import ValuesSection from "../components/AboutUs/ValuesSection.astro";
-import EmpoweringSection from "../components/AboutUs/EmpoweringSection.astro";
 import FoundersSection from "../components/AboutUs/FoundersSection.astro";
 import BannerSection from "../components/AboutUs/BannerSection.astro";
 import {descriptionButton, desireSection1} from "../components/constants/home";
 import CoreValues from "../components/AboutUs/CoreValues.astro";
 import Explanation from "../components/AboutUs/Explanation.astro";
 
+const metaTitle="About Our Mission for Elderly Safety – EyEagle Alarm system";
+const metaDesc="Discover the story behind EyEagle. Learn how we provide innovative emergency alarm systems for elderly safety and peace of mind.";
+
 ---
-<MainLayout title="About us">
+<MainLayout title={metaTitle} desc={metaDesc}>
   <HeaderSection />
   <BannerSection />
   <CoreValues/>
