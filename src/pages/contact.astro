@@ -4,9 +4,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 import contactLogo1 from "../assets/Common/contactLogo1.png";
 import contactLogo2 from "../assets/Common/contactLogo2.png";
 import contactLogo3 from "../assets/Common/contactLogo3.png";
+
+const metaTitle="Reach Out for Queries & Support - Contact EyEagle";
+const metaDesc="Need help or have questions about EyEagle’s emergency alarm systems? Contact us today for reliable customer support and assistance.";
 ---
 
-<MainLayout title="Contact Us">
+<MainLayout title="Contact Us" title={metaTitle} desc={metaDesc}>
     <section class="bg-[#F6F4F2] lg:px-[56px] font-sans-instrument px-4 lg:py-[120px] grid max-lg:gap-10 py-10 lg:pt-40 pt-[82px]">
         <div class="text-center">
         <h1 class="font-medium text-lg leading-[21px] text-[#CC0000] mb-2">CONTACT US</h1>

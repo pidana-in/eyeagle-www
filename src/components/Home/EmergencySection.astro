@@ -10,11 +10,11 @@ const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
 <div class="xl:container ">
 <section class="pb-[100px] lg:pb-[200px]">
 <p class="text-center text-white opacity-[60%] font-medium text-[16px] lg:text-[18px] pb-2">{EmergencyResponseData.title}</p>
-<h1 set:html={EmergencyResponseData.subTitle} class="lg:max-w-[1360px] text-center text-white font-medium text-[40px] leading-[44px] lg:leading-[80px] lg:text-[73px] m-auto"></h1>
+<h3 set:html={EmergencyResponseData.subTitle} class="lg:max-w-[1360px] text-center text-white font-medium text-[40px] leading-[44px] lg:leading-[80px] lg:text-[73px] m-auto"></h3>
 </section>
     
 <section>
-    <h1 class="lg:max-w-[1240px] text-center text-white text-[32px] lg:text-[47px] font-normal m-auto leading-[40px] lg:leading-[67px]" set:html={EmergencyResponseData.midTitle}></h1>
+    <h3 class="lg:max-w-[1240px] text-center text-white text-[32px] lg:text-[47px] font-normal m-auto leading-[40px] lg:leading-[67px]" set:html={EmergencyResponseData.midTitle}></h3>
     <p class="text-center text-[#FFFFFF] font-medium text-[18px] mt-6 lg:mt-8 lg:max-w-[1160px] m-auto leading-7">{EmergencyResponseData.desc}</p>
 </section>
 

@@ -19,9 +19,10 @@ import CircleMembership from "../components/Home/CircleMembership.astro";
 import PowerfulFeat from "../components/Home/PowerfulFeat.astro";
 import {HeroImageTitle} from "../components/constants/home";
 import Faqs from "../components/Home/Faqs.astro";
-
+const metaTitle="Emergency Alarm Systems for the Elderly – EyEagle";
+const metaDesc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!";
 ---
-<MainLayout >
+<MainLayout title={metaTitle} desc={metaDesc}>
   <!-- Hero Section -->
    <HeroSectionComponent heroImage={HeroSection} heroImageMob={HeroImageMobile} heroDescription={heroDescription} heroDescription2={heroDescription2} HeroImageTitle={HeroImageTitle}/>
   <!-- Statistics Section -->

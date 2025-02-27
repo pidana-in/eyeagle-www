@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
   <div class="xl:container">
     <div class="w-full pb-[100px] lg:pb-[200px]">
       <p class="text-[#CC0000] font-medium text-center text-[18px] leading-[21px] mb-2">TEAM</p>
-      <h1 class="font-semibold text-center text-[40px] lg:text-[68px] leading-[44px] lg:leading-[78px]">The Minds Behind <span class="text-[#CC0000]">EyEagle</span></h1>
+      <h2 class="font-semibold text-center text-[40px] lg:text-[68px] leading-[44px] lg:leading-[78px]">The Minds Behind <span class="text-[#CC0000]">EyEagle</span></h2>
     </div>
 <div class="w-full flex flex-col gap-[80px] lg:flex-row justify-center items-center">
   {aboutUsFoundersData.map((founder, index) => (
@@ -35,7 +35,7 @@ import { Image } from "astro:assets";
       </div>
       <div>
         <div class="flex-grow flex flex-col">
-          <h1 class="text-[20px] font-medium leading-6 text-[#000000]">{founder.name.toUpperCase()}</h1>
+          <h2 class="text-[20px] font-medium leading-6 text-[#000000]">{founder.name.toUpperCase()}</h2>
           <p class="font-medium leading-[17px] text-[16px] text-[#828282]">{founder.title}</p>
           <p class="font-medium leading-[20px] text-[14px] text-[#000000] max-w-[226px] mt-2">
             {founder.experience}
