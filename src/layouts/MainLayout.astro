@@ -1,13 +1,10 @@
 ---
 import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
-import Account from "../assets/Navbar/Account.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
-import EyeagleLogoMobileBlack from "../assets/Navbar/EyeagleLogoMobileBlack.png";
-import {footerPolicy,footerHeading,buttonContent,popUpMenu,navbarContent, footerReserve} from "../components/constants/mainLayoutContent";
+import {footerPolicy,buttonContent,popUpMenu,navbarContent, footerReserve} from "../components/constants/mainLayoutContent";
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import EyeagleRevampLogo from "../assets/Navbar/EyeagleRevampLogo.png";
 const { title = "Emergency Alarm Systems for the Elderly – EyEagle",desc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!" } = Astro.props;
 const { pathname } = Astro. url;
 const loginCredential = false;
@@ -46,7 +43,7 @@ const footerClass = Astro.props.footerClass ?? "";
   <body class="text-gray-900">
     <header
       id="myNav"
-      class=`fixed max-lg:hidden h-[84px] w-full top-0 z-50 right-0 px-10 py-5 bg-[#222222]`
+      class=`fixed max-lg:hidden h-[5.25rem] w-full top-0 z-50 right-0 px-10 py-5 bg-secondary`
     >
       <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center">
@@ -55,7 +52,7 @@ const footerClass = Astro.props.footerClass ?? "";
               src={EyeagleLogo}
               alt={"Eyeagle Logo"}
               id="imageBg"
-              class="w-[163px]"
+              class="w-[10.188rem]"
               quality={'max'}
             />
           </a>
@@ -75,17 +72,17 @@ const footerClass = Astro.props.footerClass ?? "";
         {/* <button class="relative">
           <Image id="account" src={Account} alt={'Account'}/>
         </button> */}
-            <ul id="accountDetails" style={{display:"none"}} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[136px] rounded-xl font-sans-instrument font-normal text-lg">
+            <ul id="accountDetails" style={{display:"none"}} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[8.5rem] rounded-xl font-sans-instrument font-normal text-lg">
               {popUpMenu?.map((item)=>
                 <>
                 {!loginCredential && item.title === "Login" &&
                   <a href={`${item.url}`}>
-              <li class="p-3 hover:text-[#CC0000]">{item.title}</li>
+              <li class="p-3 hover:text-primary">{item.title}</li>
               </a>
                 }
                 { item.title !== "Login" &&
                   <a href={`${item.url}`}>
-              <li class="p-3 hover:text-[#CC0000]">{item.title}</li>
+              <li class="p-3 hover:text-primary">{item.title}</li>
               </a>
                 }
                 </>
@@ -93,20 +90,20 @@ const footerClass = Astro.props.footerClass ?? "";
             </ul>
             {/* order button */}
         <a href="/join/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+          <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>
       </div>}
       </nav>
     </header>
-    <div class="fixed z-50 w-full top-20 font-sans-instrument text-white text-center font-bold text-lg leading-6 bg-[#CC0000]">
-      <h2 class="lg:tracking-[0.2rem] tracking-widest h-[52px] grid justify-center items-center w-full">
+    <div class="fixed z-50 w-full top-20 font-sans-instrument text-white text-center font-bold text-lg leading-6 bg-primary">
+      <h2 class="lg:tracking-[0.2rem] tracking-widest h-[3.25rem] grid justify-center items-center w-full">
         PREVENTING FALLS, SAVING LIVES
       </h2>
     </div>
     {(pathname === "/" || pathname==="/solution/" || pathname==="/about-us/" || pathname==="/contact/") && (
     <div id="waitBtn" class="fixed bottom-10 w-full flex justify-center z-50">
       <a href="/join">
-        <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-[#CC0000] w-[187px] h-[52px]">
+        <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-primary w-[11.688rem] h-[3.25rem]">
           JOIN WAITING LIST
         </button>
       </a>
@@ -119,7 +116,7 @@ const footerClass = Astro.props.footerClass ?? "";
       <nav class="flex justify-between items-center px-5 py-4">
         <div>
           <a href="/" aria-label="EyEagle Home Page">
-            <Image src={EyeagleLogo} alt="" quality={'max'} class={'w-[147px]'}/>
+            <Image src={EyeagleLogo} alt="" quality={'max'} class={'w-[9.188rem]'}/>
           </a>
         </div>
         <div id="hamburger">
@@ -167,15 +164,15 @@ const footerClass = Astro.props.footerClass ?? "";
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         {navbarContent?.map((item)=>
-         <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+         <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
         )}
         <!-- {popUpMenu?.map((item)=>
         <>
         {!loginCredential && item.title === "Login" &&
-          <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+          <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
         }
         {
-          item.title !== "Login" && <li class="hover:cursor-pointer hover:text-[#CC0000]"><a href={`${item.url}`}>{item.title}</a></li>
+          item.title !== "Login" && <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
         }
         </>
         )} -->
@@ -184,7 +181,7 @@ const footerClass = Astro.props.footerClass ?? "";
           <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>} -->
         <a href="/join/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+          <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>
       </ul>
     </section>
@@ -199,7 +196,7 @@ const footerClass = Astro.props.footerClass ?? "";
       >
       </div>
       <div
-        class="font-sans-instrument lg:mx-[120px] mx-4 mb-10 grid gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center"
+        class="font-sans-instrument lg:mx-[7.5rem] mx-4 mb-10 grid gap-8 max-lg:text-center lg:flex justify-center lg:justify-between items-center"
       >
         <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
         <div class="lg:flex grid gap-8 justify-center items-center">
@@ -208,7 +205,7 @@ const footerClass = Astro.props.footerClass ?? "";
           )}
         </div>
       </div>
-      <p class="text-center font-sans-instrument font-normal text-[14px] leading-[22.4px] opacity-70">{footerReserve}</p>
+      <p class="text-center font-sans-instrument font-normal text-sm leading-[1.4rem] opacity-70">{footerReserve}</p>
     </footer>
   </body>
 </html>

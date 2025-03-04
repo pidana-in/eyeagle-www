@@ -51,15 +51,15 @@ export const bathroomData = [
 export const struggleData = [
     {
         img:struggle1,
-        content:`Every year <span class="text-[#CC0000]">1 in 4 seniors </span> fall in the bathroom`,
+        content:`Every year <span class="text-primary">1 in 4 seniors </span> fall in the bathroom`,
     },
     {
         img:struggle2,
-        content:`<span class="text-[#CC0000]">95% of hip fractures</span> in seniors are caused by falls in the bathroom`,
+        content:`<span class="text-primary">95% of hip fractures</span> in seniors are caused by falls in the bathroom`,
     },
     {
         img:struggle3,
-        content:`<span class="text-[#CC0000]">10-15%</span> of falls in the bathroom lead to <span class="text-[#CC0000]">hospitalization.</span>`,
+        content:`<span class="text-primary">10-15%</span> of falls in the bathroom lead to <span class="text-primary">hospitalization.</span>`,
     },
 ]
 
@@ -87,12 +87,12 @@ export const takeCareData = [
     },
 ];
 
-export const heroDescription = `<span class="text-[#CC0000]">PREVENT</span>, DON'T <span class="text-[#CC0000]">REGRET</span>`;
-export const heroDescription2 = `A SINGLE FALL CAN <span class="text-[#CC0000]">CHANGE</span> IT ALL`
+export const heroDescription = `<span class="text-primary">PREVENT</span>, DON'T <span class="text-primary">REGRET</span>`;
+export const heroDescription2 = `A SINGLE FALL CAN <span class="text-primary">CHANGE</span> IT ALL`
 
-export const healthOrganization1 = `The Silent Crisis <br>Affecting <br><span class="text-[#CC0000]">Millions Like You</span>`;
+export const healthOrganization1 = `The Silent Crisis <br>Affecting <br><span class="text-primary">Millions Like You</span>`;
 export const healthOrganization2 = `Falls aren't just accidents;
-they're <span class="text-[#CC0000] font-bold">life-altering</span> events for seniors.`;
+they're <span class="text-primary font-bold">life-altering</span> events for seniors.`;
 
 export const productFeatureTitle = `With advanced monitoring, real-time alerts, and professional intervention, EyEagle is a 24/7 guardian for your loved ones, providing peace of mind no matter where you are.`;
 
@@ -102,7 +102,7 @@ export const ourTeamHeading2 = " Our trained professionals are available 24/7 to
 
 export const ourTeamButton = "See our plans";
 
-export const serviceSectionTitle = `We take care of <span class="text-red-600">everything</span>`;
+export const serviceSectionTitle = `We take care of <span class="text-primary">everything</span>`;
 
 export const desireSection1 = "Get EyEagle now – Stay One Step Ahead of Emergencies";
 

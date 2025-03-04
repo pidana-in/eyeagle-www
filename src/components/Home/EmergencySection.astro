@@ -6,19 +6,19 @@ import Icon from "../common/Icon.astro";
 const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
 ---
 
-<section id="emergency" class="bg-[#222222] pt-[100px] lg:pt-[200px] pb-[120px] lg:px-10 px-5 font-sans-instrument">
+<section id="emergency" class="bg-secondary pt-[6.25rem] lg:pt-[12.5rem] pb-[7.5rem] lg:px-10 px-5 font-sans-instrument">
 <div class="xl:container ">
-<section class="pb-[100px] lg:pb-[200px]">
-<p class="text-center text-white opacity-[60%] font-medium text-[16px] lg:text-[18px] pb-2">{EmergencyResponseData.title}</p>
-<h3 set:html={EmergencyResponseData.subTitle} class="lg:max-w-[1360px] text-center text-white font-medium text-[40px] leading-[44px] lg:leading-[80px] lg:text-[73px] m-auto"></h3>
+<section class="pb-[6.25rem] lg:pb-[12.5rem]">
+<p class="text-center text-white opacity-[60%] font-medium text-base lg:text-lg pb-2">{EmergencyResponseData.title}</p>
+<h3 set:html={EmergencyResponseData.subTitle} class="lg:max-w-[85rem] text-center text-white font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[5rem] lg:text-[4.563rem] m-auto"></h3>
 </section>
     
 <section>
-    <h3 class="lg:max-w-[1240px] text-center text-white text-[32px] lg:text-[47px] font-normal m-auto leading-[40px] lg:leading-[67px]" set:html={EmergencyResponseData.midTitle}></h3>
-    <p class="text-center text-[#FFFFFF] font-medium text-[18px] mt-6 lg:mt-8 lg:max-w-[1160px] m-auto leading-7">{EmergencyResponseData.desc}</p>
+    <h3 class="lg:max-w-[77.5rem] text-center text-white text-[2rem] lg:text-[2.938rem] font-normal m-auto leading-[2.5rem] lg:leading-[4.188rem]" set:html={EmergencyResponseData.midTitle}></h3>
+    <p class="text-center text-[#FFFFFF] font-medium text-[18px] mt-6 lg:mt-8 lg:max-w-[72.5rem] m-auto leading-7">{EmergencyResponseData.desc}</p>
 </section>
 
-<section class="flex flex-col md:flex-row justify-center items-center mt-[80px] gap-[20px] lg:gap-[125px]">
+<section class="flex flex-col md:flex-row justify-center items-center mt-[5rem] gap-5 lg:gap-[7.813rem]">
     <div>
         <Image
         src={HomePageEmergencyBanner}
@@ -27,21 +27,21 @@ const HomePageEmergencyBanner=Astro.props.HomePageEmergencyBanner;
     </div>
 <div class="flex flex-col gap-5 lg:gap-10">
     <div class="h-[1px] bg-[#D5D5D5]"></div>
-<p class="text-white text-[20px] leading-8 lg:leading-[40px] lg:text-[28px] lg:max-w-[427px]" set:html={EmergencyResponseData.bannerDesc1}></p>
+<p class="text-white text-xl leading-8 lg:leading-10 lg:text-[1.75rem] lg:max-w-[26.688rem]" set:html={EmergencyResponseData.bannerDesc1}></p>
 <div class="h-[1px] bg-[#D5D5D5]"></div>
-<p class="text-white lg:text-[28px] lg:max-w-[427px] text-[20px] leading-8 lg:leading-[40px]" set:html={EmergencyResponseData.bannerDesc2}></p>
+<p class="text-white lg:text-[1.75rem] lg:max-w-[26.688rem] text-xl leading-8 lg:leading-10" set:html={EmergencyResponseData.bannerDesc2}></p>
 </div>
 </section>
-<section class="mt-[80px] flex flex-col md:flex-row justify-center items-center gap-[24px]">
+<section class="mt-[5rem] flex flex-col md:flex-row justify-center items-center gap-6">
 {EmergencyResponseData.remarks.map((remark)=>(
-    <div class="flex flex-col gap-[13px] lg:gap-5 justify-center items-center">
+    <div class="flex flex-col gap-[0.813rem] lg:gap-5 justify-center items-center">
         <div>
 
-              <Icon iconName={remark.iconType} classNames="text-white text-[40px] md:text-[80px]" />
+              <Icon iconName={remark.iconType} classNames="text-white text-[2.5rem] md:text-[5rem]" />
         </div>
-        <div class="max-h-[56px]">
+        <div class="max-h-[3.5rem]">
 
-              <p class="w-auto lg:max-w-[190px]  font-normal text-[18px] leading-7 text-white text-center ">{remark.context}</p>
+              <p class="w-auto lg:max-w-[11.875rem]  font-normal text-lg leading-7 text-white text-center ">{remark.context}</p>
         </div>
     </div>
 ))}
