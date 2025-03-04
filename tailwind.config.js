@@ -7,7 +7,10 @@ export default {
         'sans-instrument':['Instrument Sans'],
         'inter':['Inter']
       },
-      
+      colors:{
+        primary:"#CC0000",
+        secondary:"#222222"
+      }
     },
     container:{
       center:true

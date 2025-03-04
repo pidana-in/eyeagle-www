@@ -3,17 +3,17 @@ import Icon from "../common/Icon.astro";
 import { HomeFaqsData } from "../constants/home";
 ---
 
-<section class="bg-[#222222] px-5 lg:px-[195px] py-[100px]">
+<section class="bg-secondary px-5 lg:px-[12.188rem] py-[6.25rem]">
 <div class="xl:container">
-<h2 class="font-medium text-center text-white leading-[44px] text-[40px] lg:leading-[80px] lg:text-[73px] pb-10">{HomeFaqsData.title}</h2>
+<h2 class="font-medium text-center text-white leading-[2.75rem] text-[2.5rem] lg:leading-[5rem] lg:text-[4.563rem] pb-10">{HomeFaqsData.title}</h2>
 <div class="flex flex-col gap-5">
     {HomeFaqsData.content.map((contnet,index)=>(
         <div id={`${index}faq`} class="faq-header flex items-center justify-between">
-            <h2 class="cursor-pointer font-medium text-[18px] leading-6 lg:text-[20px] lg:leading-7 text-white">{contnet.title}</h2>
-            <Icon iconName="stat_minus_1" classNames="cursor-pointer text-white text-[24px] text-white faq-icon"/>
+            <h2 class="cursor-pointer font-medium text-lg leading-6 lg:text-xl lg:leading-7 text-white">{contnet.title}</h2>
+            <Icon iconName="stat_minus_1" classNames="cursor-pointer text-white text-[1.5rem] text-white faq-icon"/>
         </div>
         <div class="hidden">
-           <h3 class=" text-white opacity-[60%] font-normal text-[16px] lg:text-[18px] leading-6 lg:leading-7">{contnet.desc}</h3> 
+           <h3 class=" text-white opacity-[60%] font-normal text-base lg:text-lg leading-6 lg:leading-7">{contnet.desc}</h3> 
         </div>
         <div class="border-b border-[#D9D9D9] pt-5 lg:pt-5"></div>
     ))}

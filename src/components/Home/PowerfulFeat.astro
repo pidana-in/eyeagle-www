@@ -3,11 +3,11 @@ import { Image } from "astro:assets";
 import { PowerfulBentoData } from "../constants/home";
 ---
 
-<section class="xl:container lg:px-[40px] px-4  md:pt-0 pb-[100px] lg:pb-[200px] ">
-    <div class="pb-[80px] lg:pb-[80px]">
+<section class="xl:container lg:px-[2.5rem] px-4  md:pt-0 pb-[6.25rem] lg:pb-[12.5rem] ">
+    <div class="pb-[5rem] lg:pb-[5rem]">
 
-        <h2 class="font-normal text-[32px] lg:text-[48px] mb-3 leading-[40px] lg:leading-[67px]">{PowerfulBentoData.title}</h2>
-        <h2 class="font-normal text-[32px] text-[#666666] lg:text-[48px] leading-[40px] lg:leading-[67px]">{PowerfulBentoData.subTitle}</h2>
+        <h2 class="font-normal text-[2rem] lg:text-5xl mb-3 leading-10 lg:leading-[4.188rem]">{PowerfulBentoData.title}</h2>
+        <h2 class="font-normal text-[2rem] text-[#666666] lg:text-5xl leading-10 lg:leading-[4.188rem]">{PowerfulBentoData.subTitle}</h2>
     </div>
     
     <div class="flex flex-col justify-center items-center gap-8">
@@ -16,11 +16,11 @@ import { PowerfulBentoData } from "../constants/home";
     <img src={PowerfulBentoData.featsrc3.src} alt={'bentoMobile'} class="md:hidden bg-cover w-full h-full"/>
 </div>
 <div class="flex w-full flex-col gap-10 lg:flex-row justify-center items-center">
-    <div class="max-lg:w-full lg:h-[500px] xl:h-[550px] 2xl:h-[639px]">
+    <div class="max-lg:w-full lg:h-[31.25rem] xl:h-[34.375rem] 2xl:h-[39.938rem]">
         <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"} class={"max-lg:hidden w-full h-full bg-cover object-cover"}/>
         <Image src={PowerfulBentoData.featsrc4} alt={'powerfulFeat1Mobile'} class={"lg:hidden"}/>
     </div>
-    <div class="max-lg:w-full lg:h-[500px] xl:h-[550px] 2xl:h-[639px]">
+    <div class="max-lg:w-full lg:h-[31.25rem] xl:h-[34.375rem] 2xl:h-[39.938rem]">
         <Image src={PowerfulBentoData.featsrc2} alt={"featSrc2"} class={"max-lg:hidden w-full h-full bg-cover object-cover"}/>
         <Image src={PowerfulBentoData.featsrc5} alt={'powerfulFeat2Mobile'} class={"lg:hidden"}/>
     </div>
