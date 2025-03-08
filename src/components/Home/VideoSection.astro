@@ -1,12 +1,29 @@
 ---
 type Props = {
-    className?:string;
-}
+  className?: string;
+};
 const className = Astro.props.className;
 ---
 
-<section class=`bg-secondary ${className ? className : "lg:py-[12.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5 `>
-    <div class="w-full flex justify-center items-center">
-        <iframe class="md:w-[65rem] md:h-[36.25rem] w-[22.063rem] h-[12rem] rounded-xl" src="https://www.youtube.com/embed/jjfkhl-BSR8?si=AXt8vWMuSu9_OXbH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<section
+  class={`bg-secondary ${className ? className : "lg:py-[12.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5`}
+>
+  <div class="w-full flex justify-center items-center relative">
+    <!-- Video Wrapper -->
+    <div
+      class="relative md:w-[65rem] md:h-[36.25rem] w-[22.063rem] h-[12rem] rounded-xl overflow-hidden"
+    >
+      <!-- YouTube Iframe -->
+      <iframe
+        class="w-full h-full rounded-xl"
+        src="https://www.youtube.com/embed/jjfkhl-BSR8?controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1"
+        title="EyEagle Song"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media;"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      >
+      </iframe>
     </div>
+  </div>
 </section>
