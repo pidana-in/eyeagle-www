@@ -1,4 +1,11 @@
-<section class="bg-secondary lg:px-[12.5rem] lg:py-[12.5rem] px-5 py-[3.75rem]">
+---
+type Props = {
+    className?:string;
+}
+const className = Astro.props.className;
+---
+
+<section class=`bg-secondary ${className ? className : "lg:py-[12.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5 `>
     <div class="w-full flex justify-center items-center">
         <iframe class="md:w-[65rem] md:h-[36.25rem] w-[22.063rem] h-[12rem] rounded-xl" src="https://www.youtube.com/embed/jjfkhl-BSR8?si=AXt8vWMuSu9_OXbH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
