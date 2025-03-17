@@ -1,0 +1,74 @@
+---
+// Your Astro component script
+import { Image } from "astro:assets";
+import guardianKit from "../../assets/Navbar/guardianKit.png";
+---
+
+<style>
+    /* Include the CSS here */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  
+    .text {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      color: black;
+      font-size: 1.5rem;
+    }
+  
+    .text-1 {
+      top: 20%;
+      left: 10%;
+    }
+  
+    .text-2 {
+      top: 50%;
+      right: 10%;
+    }
+  
+    .text-3 {
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .text.visible {
+      opacity: 1;
+    }
+  </style>
+  
+  <div class="image-container">
+    <Image src={guardianKit} alt="Your Image" />
+    <div class="text text-1" data-scroll>Text 1</div>
+    <div class="text text-2" data-scroll>Text 2</div>
+    <div class="text text-3" data-scroll>Text 3</div>
+  </div>
+  
+  <script>
+    // Include the JavaScript here
+    document.addEventListener("DOMContentLoaded", () => {
+      const textElements = document.querySelectorAll("[data-scroll]");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            } else {
+              entry.target.classList.remove("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.8,
+        }
+      );
+  
+      textElements.forEach((text) => observer.observe(text));
+    });
+  </script>
+  

@@ -3,11 +3,11 @@ import { Image } from "astro:assets";
 import { HandleSectionData } from "../constants/home";
 ---
 
-<section id="installation" class="bg-white pt-[3.75rem] pb-[100px] lg:py-[200px] px-5 lg:px-[3.75rem] font-sans-instrument">
+<section id="installation" class="bg-white pt-[3.75rem] pb-[100px] lg:py-[7.5rem] px-5 lg:px-20 font-sans-instrument">
 <div class="mb-[6.25rem]">
 <p class="text-primary text-base lg:text-lg font-medium text-center">{HandleSectionData.title}</p>
-<h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.938rem] lg:text-[4.563rem] m-auto mt-2 text-center ">{HandleSectionData.subTitle1}</h2>
-<h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.938rem] lg:text-[4.563rem] m-auto mt-2 text-center ">{HandleSectionData.subTitle2}</h2>
+<h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.5rem] lg:text-[3.75rem] m-auto text-center ">{HandleSectionData.subTitle1}</h2>
+<h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.5rem] lg:text-[3.75rem] m-auto text-center ">{HandleSectionData.subTitle2}</h2>
 </div>
 
 
@@ -15,8 +15,8 @@ import { HandleSectionData } from "../constants/home";
         <div class="flex flex-col gap-[1.438rem]">
             {HandleSectionData.instructions.map((inst,index)=>(
                 <div class="flex flex-col gap-[1.438rem]">
-                <h3 class="font-medium text-[1.25rem] leading-8 lg:text-[1.75rem]">{inst.title}</h3>
-                <p class="text-lg font-normal leading-[1.375rem] lg:leading-[1.563rem]">{inst.desc}</p>
+                <h3 class="font-medium text-[1.25rem] leading-[2.375rem] lg:text-3xl">{inst.title}</h3>
+                <p class="text-lg font-normal leading-[1.375rem] lg:leading-7">{inst.desc}</p>
                 <div class={`h-[1px] bg-[#D9D9D9] ${index===HandleSectionData.instructions.length-1 ? "hidden" : "block"}`}></div>
             </div>
         ))}

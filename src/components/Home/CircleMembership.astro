@@ -1,19 +1,24 @@
 ---
 import { Image } from "astro:assets";
 import { CircleMembershipData } from "../constants/home";
-
+import appStore from "../../assets/Home/appStore.png";
+import googleStore from "../../assets/Home/googleStore.png";
 ---
 
-<section class="xl:container px-5 lg:px-10 pt-10 md:pt-[12.5rem] pb-[6.25rem] lg:pb-[12.5rem] ">
-<div class="pb-[6.25rem] lg:pb-[9.375rem]">
+<section class="xl:container px-5 lg:px-20 pt-10 md:pt-[7.5rem] pb-[6.25rem] lg:pb-[5rem] ">
+<div class="pb-[6.25rem] lg:pb-[5rem]">
     <h3 class="text-primary text-base lg:text-lg font-medium text-center">{CircleMembershipData.title}</h3>
-    <h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.938rem] lg:text-[4.563rem] m-auto mt-2 text-center ">{CircleMembershipData.subTItle1}</h2>
-    <h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.938rem] lg:text-[4.563rem] m-auto mt-2 text-center ">{CircleMembershipData.subTItle2}</h2>
+    <h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.5rem] lg:text-[3.75rem] m-auto mt-2 text-center ">{CircleMembershipData.subTItle1}</h2>
+    <h2 class="lg:max-w-[85rem] font-medium text-[2.5rem] leading-[2.75rem] lg:leading-[4.5rem] lg:text-[3.75rem] m-auto mt-2 text-center ">{CircleMembershipData.subTItle2}</h2>
 </div>
 
 <div class="pb-[5rem]">
-    <h2 set:html={CircleMembershipData.midTitle} class="lg:max-w-[70rem] font-normal text-[2rem] lg:text-[2.938rem] m-auto text-center leading-10 lg:leading-[4.188rem]"></h2>
-    <p class="lg:max-w-[70rem] m-auto mt-8 font-medium text-lg text-center leading-7">{CircleMembershipData.desc}</p>
+    <h2 set:html={CircleMembershipData.midTitle} class="lg:max-w-[70rem] font-medium text-[2rem] lg:text-4xl m-auto text-center leading-10 lg:leading-[2.75rem]"></h2>
+    <p class="lg:max-w-[70rem] m-auto mt-8 mb-8 font-normal text-lg text-center leading-7">{CircleMembershipData.desc}</p>
+    <div class="md:flex grid grid-cols-1 w-full justify-center items-center h-12 gap-3">
+        <Image src={googleStore} alt={'googleStore'} class="w-full md:w-[162px] max-md:h-12 object-contain hover:cursor-pointer"/>
+        <Image src={appStore} alt={'appStore'} class="w-full md:w-[144px] max-md:h-12 object-contain hover:cursor-pointer"/>
+    </div>
 </div>
 
 <div>

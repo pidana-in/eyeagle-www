@@ -11,25 +11,28 @@ const ourTeamButton = Astro.props.ourTeamButton;
 const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 const ourTeamHeading2 = Astro.props.ourTeamHeading2;
 ---
-<section id="prevention" class="xl:container font-sans-instrument lg:px-10 px-4">
-  <div class=" lg:py-[12.5rem] max-lg:pt-20 max-lg:pb-10">
+<section id="prevention" class="xl:container font-sans-instrument lg:px-20 px-4">
+  <div class=" lg:pt-[7.5rem] max-lg:pt-20 max-lg:pb-10">
     <h2 class="text-primary text-center font-medium text-base lg:text-lg leading-[1.375rem] mb-2">PREVENTION</h2>
-        <h2 set:html={ourTeamHeading1} class="lg:text-[4.5rem] xl:container font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:font-normal lg:leading-[4.938rem] text-center">
-         
+        <h2 set:html={ourTeamHeading1} class="lg:text-6xl xl:container font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:font-normal lg:leading-[4.5rem] text-center">
         </h2>
   </div>
-  <div class="max-lg:pt-[6.25rem]">
-    <h3 class="font-normal text-[2rem] lg:text-5xl leading-10 lg:leading-[4.2rem] text-left mb-3">Top-Tier Quality,</h3>
-    <h3 class="font-normal text-[2rem] lg:text-5xl leading-10 lg:leading-[4.2rem] opacity-60 text-left">Zero Compromise</h3>
-    <div class="mt-4 flex max-lg:flex-col items-center lg:gap-[7.5rem] gap-10 w-full">
-      <h3 class="font-medium text-base lg:text-lg text-left leading-6 lg:leading-7 lg:w-[75%]">Providing essential support in high-risk areas, focus on preventing accidents in the first place by improving stability and reducing slip risks</h3>
-      <div class="flex gap-20 items-center justify-start lg:justify-center">
+  <div class="max-lg:pt-[6.25rem] pt-20">
+    <div class="lg:flex">
+      <div>
+        <h3 class="font-medium text-[2rem] lg:text-4xl leading-10 lg:leading-6 text-left mb-4">Top-Tier Quality,</h3>
+        <h3 class="font-medium text-[2rem] lg:text-4xl leading-10 lg:leading-6 opacity-60 text-left">Zero Compromise</h3>
+        <div class="mt-8 flex max-lg:flex-col items-center lg:gap-[7.5rem] gap-10 w-full">
+          <h3 class="font-medium text-base lg:text-lg text-left leading-6 lg:leading-7 lg:w-[75%]">Providing essential support in high-risk areas, focus on preventing accidents in the first place by improving stability and reducing slip risks</h3>
+        </div>
+      </div>
+      <div class="lg:grid flex items-center justify-start lg:justify-center max-lg:pt-6">
         <div class="font-medium text-lg leading-7">
-          <Image src={tick} alt={"tick"}/>
+          <Image src={tick} alt={"tick"} class={'w-10 h-10'}/>
           <p>Total Prevention Kit</p>          
         </div>
         <div class="font-medium text-lg leading-7">
-          <Image src={tick} alt={"tick"}/>
+          <Image src={tick} alt={"tick"} class={'w-10 h-10'}/>
           <p>Assess Risk</p>          
       </div>
       </div>

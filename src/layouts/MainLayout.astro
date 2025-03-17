@@ -41,15 +41,20 @@ const footerClass = Astro.props.footerClass ?? "";
   </head>
   
   <body class="text-gray-900">
+    <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
+      <h2 class="tracking-[0.25rem] h-[3.25rem] text-base font-bold leading-6 grid justify-center items-center w-full">
+        PREVENTING FALLS, SAVING LIVES
+      </h2>
+    </div>
     <header
       id="myNav"
-      class=`fixed max-lg:hidden h-[5.25rem] w-full top-0 z-50 right-0 px-10 py-5 bg-secondary`
+      class=`fixed max-lg:hidden w-full top-12 z-40 right-0 px-10 py-4 bg-white`
     >
       <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleLogo}
+              src={EyeagleLogoBlack}
               alt={"Eyeagle Logo"}
               id="imageBg"
               class="w-[10.188rem]"
@@ -58,17 +63,16 @@ const footerClass = Astro.props.footerClass ?? "";
           </a>
       </div>
       <ul
-            class=`flex space-x-12 font-sans-instrument font-medium px-4 text-white`
+            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4`
             id="content"
           >
           {navbarContent?.map((item)=>
             <li>
-              <a href={`${item.url}`} class="hover:underline">{item.title.toUpperCase()}</a>
+              <a href={`${item.url}`} class="hover:underline">{item.title}</a>
             </li>
           )}
-          </ul>
-        
-      {pathname === "/plan/" ? "" : <div class="flex gap-5">
+      </ul>  
+      {pathname === "/plan/" ? "" : <div class="flex gap-5 justify-end">
         {/* <button class="relative">
           <Image id="account" src={Account} alt={'Account'}/>
         </button> */}
@@ -90,17 +94,12 @@ const footerClass = Astro.props.footerClass ?? "";
             </ul>
             {/* order button */}
         <a href="/join/">
-          <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+          <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-lg font-semibold">{buttonContent}</button>
         </a>
       </div>}
       </nav>
     </header>
-    <div class="fixed z-50 w-full top-20 font-sans-instrument text-white text-center font-bold text-lg leading-6 bg-primary">
-      <h2 class="lg:tracking-[0.2rem] tracking-widest h-[3.25rem] grid justify-center items-center w-full">
-        PREVENTING FALLS, SAVING LIVES
-      </h2>
-    </div>
-    {(pathname === "/" || pathname==="/solution/" || pathname==="/about-us/" || pathname==="/contact/") && (
+    <!-- {(pathname === "/" || pathname==="/solution/" || pathname==="/about-us/" || pathname==="/contact/") && (
     <div id="waitBtn" class="fixed bottom-10 w-full flex justify-center z-50">
       <a href="/join">
         <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-primary w-[11.688rem] h-[3.25rem]">
@@ -108,10 +107,10 @@ const footerClass = Astro.props.footerClass ?? "";
         </button>
       </a>
     </div>
-  )}
+  )} -->
     <header
       id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-50 bg-black w-full"
+      class="lg:hidden sticky top-12 shadow z-40 bg-black w-full"
     >
       <nav class="flex justify-between items-center px-5 py-4">
         <div>
@@ -160,7 +159,7 @@ const footerClass = Astro.props.footerClass ?? "";
     <section
       id="mobileNavContent"
       style={{ display: "none" }}
-      class="lg:hidden fixed z-[60] bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
+      class="lg:hidden fixed z-[60] top-32 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         {navbarContent?.map((item)=>
