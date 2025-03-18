@@ -72,7 +72,7 @@ import { PowerfulBentoData } from "../constants/home";
     </div>
   </div>
 </div>
-<div class="lg:flex grid gap-16 px-20 h-[639px] my-10">
+<div class="lg:flex grid gap-16 px-20 h-[39.938rem] my-10">
   <div class="">
       <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"} class={"w-full h-full"}/>
   </div>
@@ -148,86 +148,3 @@ import { PowerfulBentoData } from "../constants/home";
     }
   });
 </script>
-<!-- ---
-import { Image } from "astro:assets";
-import powerfulBento from "../../assets/Home/powerfulBento.png";
-import powerfulFeat1 from "../../assets/Home/powerfulFeat1.png";
----
-
-<style>
-  .scrollbar-hidden::-webkit-scrollbar {
-    display: none;
-  }
-
-  .scrollbar-hidden {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-
-  .your-section {
-    transition: top 0.3s ease-in-out, transform 0.3s ease-in-out;
-  }
-
-  .fixed-section {
-    position: sticky;
-    top: 7.8rem;
-    left: 0;
-    width: 100%;
-    z-index: 20;
-    background: white; /* Optional: Set background to prevent transparency issues */
-  }
-</style>
-
-<div class="lg:h-[1500px]">
-  <div class="your-section">
-    <Image src={powerfulBento} alt={"powerfulBento"} class={"px-20 py-10"}/>
-    <div class="absolute top-28 left-28">
-      <p class="text-red-500">Text1</p>
-    </div>
-    <div class="absolute top-56 left-56">
-      <p class="text-red-500">Text1</p>
-    </div>
-  </div>
-</div>
-
-
-<script is:inline>
-  const section = document.querySelector(".your-section");
-  let trackingScroll = false;
-  let scrollStart = 0;
-  let scrollDistance = 0;
-
-  function isSectionFullScreen() {
-    const rect = section.getBoundingClientRect();
-    return rect.top <= 125; // Adjust if needed
-  }
-
-  window.addEventListener("scroll", () => {
-    if (scrollDistance >= 800) {
-      section.classList.remove("fixed-section");
-    }
-    
-    if (isSectionFullScreen()) {
-      if (!trackingScroll) {
-        trackingScroll = true;
-        scrollStart = window.scrollY;
-      }
-
-      scrollDistance = window.scrollY - scrollStart;
-      console.log("scrollDistance",scrollDistance)
-
-      if (scrollDistance <= 800 && scrollDistance >= 0) {
-        section.classList.add("fixed-section");
-        section.classList.remove("relative");
-      } else {
-        section.classList.remove("fixed-section");
-        section.classList.add("relative");
-      }
-    } else {
-      section.classList.remove("fixed-section");
-      section.classList.add("relative");
-      trackingScroll = false;
-    }
-  });
-
-</script> -->
