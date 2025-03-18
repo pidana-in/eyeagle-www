@@ -1,74 +1,233 @@
 ---
-// Your Astro component script
 import { Image } from "astro:assets";
-import guardianKit from "../../assets/Navbar/guardianKit.png";
+import powerfulFeatDemo from "../../assets/Home/powerfulFeatDemo.png";
+import notifications from "../../assets/Home/notifications.png";
+import { PowerfulBentoData } from "../constants/home";
 ---
 
 <style>
-    /* Include the CSS here */
-    .image-container {
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
-  
-    .text {
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      color: black;
-      font-size: 1.5rem;
-    }
-  
-    .text-1 {
-      top: 20%;
-      left: 10%;
-    }
-  
-    .text-2 {
-      top: 50%;
-      right: 10%;
-    }
-  
-    .text-3 {
-      bottom: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .text.visible {
-      opacity: 1;
-    }
-  </style>
-  
-  <div class="image-container">
-    <Image src={guardianKit} alt="Your Image" />
-    <div class="text text-1" data-scroll>Text 1</div>
-    <div class="text text-2" data-scroll>Text 2</div>
-    <div class="text text-3" data-scroll>Text 3</div>
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .your-section {
+    transition: top 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .fixed-section {
+    position: sticky;
+    top: 7.8rem; /* Initial sticky position */
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background: white; /* Optional: Set background to prevent transparency issues */
+  }
+  .visibleOne{
+    opacity: 1;
+    transition: 1s ease-in-out;
+    transform: translateY(0);
+  }
+  .visibleSecond{
+    opacity: 1;
+    transition: 1s ease-in-out;
+    transform: translateY(0);
+    transition-delay: 500ms;
+  }
+  .visibleThird{
+    opacity: 1;
+    transition: 1s ease-in-out;
+    transform: translateY(0);
+    transition-delay: 500ms;
+  }
+  .visibleForth{
+    opacity: 1;
+    transition: 1s ease-in-out;
+    top: 0;
+    transition-delay: 600ms;
+  }
+  .noVisible{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s, transform 1s;
+  }
+</style>
+
+<div class="h-[1500px] font-sans-instrument">
+  <div class="your-section fixed-section">
+    <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"px-20 mt-10"} />
+    <Image id={"secondImage"} src={notifications} alt={"powerfulBento"} class={" px-20 py-10 absolute w-full top-0 noVisible"} />
+    <div class="text-one noVisible absolute top-36 left-28">
+      <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
+    </div>
+    <div class="text-second noVisible absolute top-96 left-28">
+      <p class="font-normal text-xl leading-8">Easily get updates from all<br/> the devices in one circle</p>
+    </div>
+    <div class="text-third noVisible absolute top-[31.5rem] left-28">
+      <p class="font-normal text-xl leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
+    </div>
   </div>
-  
-  <script>
-    // Include the JavaScript here
-    document.addEventListener("DOMContentLoaded", () => {
-      const textElements = document.querySelectorAll("[data-scroll]");
-  
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            } else {
-              entry.target.classList.remove("visible");
-            }
-          });
-        },
-        {
-          threshold: 0.8,
+</div>
+<div class="lg:flex grid gap-16 px-20 h-[639px] my-10">
+  <div class="">
+      <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"} class={"w-full h-full"}/>
+  </div>
+  <div class="">
+      <Image src={PowerfulBentoData.featsrc2} alt={"featSrc2"} class={"w-full h-full"}/>
+  </div>
+</div>
+
+<script is:inline>
+  const section = document.querySelector(".your-section");
+  const textOne = document.querySelector(".text-one");
+  const textSecond = document.querySelector(".text-second");
+  const textThird = document.querySelector(".text-third");
+  const textForth = document.querySelector("#secondImage");
+  let trackingScroll = false;
+  let scrollStart = 0;
+  let scrollDistance = 0;
+
+  function isSectionFullScreen() {
+    const rect = section.getBoundingClientRect();
+    return rect.top <= 125; // Adjust if needed
+  }
+
+  window.addEventListener("scroll", () => {
+    if (isSectionFullScreen()) {
+      if (!trackingScroll) {
+        trackingScroll = true;
+        scrollStart = window.scrollY;
+      }
+
+      scrollDistance = window.scrollY - scrollStart;
+      console.log("scrollDistance", scrollDistance);
+
+      if (scrollDistance <= 800 && scrollDistance >= 0) {
+        if(section.style.top === "0"){
+          section.style.top = "7.8rem"
         }
-      );
-  
-      textElements.forEach((text) => observer.observe(text));
-    });
-  </script>
-  
+        // Adjust the top property dynamically
+        textOne.classList.remove("noVisible");
+        textOne.classList.add("visibleOne");
+        textSecond.classList.remove("noVisible");
+        textSecond.classList.add("visibleSecond");
+        textThird.classList.remove("noVisible");
+        textThird.classList.add("visibleThird");
+        textForth.classList.remove("noVisible");
+        textForth.classList.add("visibleForth");
+      }
+      else {
+        // Reset the top property when scroll distance exceeds 800
+        // section.style.top = "0rem";
+        textOne.classList.remove("visibleOne");
+        textOne.classList.add("noVisible");
+        textSecond.classList.remove("visibleSecond");
+        textSecond.classList.add("noVisible");
+        textThird.classList.remove("visibleThird");
+        textThird.classList.add("noVisible");
+        section.style.removeProperty("top");
+        textForth.classList.remove("visibleForth");
+        textForth.classList.add("noVisible");
+      }
+    } else {
+      textOne.classList.remove("visibleOne");
+        textOne.classList.add("noVisible");
+        textSecond.classList.remove("visibleSecond");
+        textSecond.classList.add("noVisible");
+        textThird.classList.remove("visibleThird");
+        textThird.classList.add("noVisible");
+        textForth.classList.remove("visibleForth");
+        textForth.classList.add("noVisible");
+      // Reset the top property when the section is not in view
+      section.style.top = "7.8rem";
+      trackingScroll = false;
+    }
+  });
+</script>
+<!-- ---
+import { Image } from "astro:assets";
+import powerfulBento from "../../assets/Home/powerfulBento.png";
+import powerfulFeat1 from "../../assets/Home/powerfulFeat1.png";
+---
+
+<style>
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .your-section {
+    transition: top 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .fixed-section {
+    position: sticky;
+    top: 7.8rem;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background: white; /* Optional: Set background to prevent transparency issues */
+  }
+</style>
+
+<div class="lg:h-[1500px]">
+  <div class="your-section">
+    <Image src={powerfulBento} alt={"powerfulBento"} class={"px-20 py-10"}/>
+    <div class="absolute top-28 left-28">
+      <p class="text-red-500">Text1</p>
+    </div>
+    <div class="absolute top-56 left-56">
+      <p class="text-red-500">Text1</p>
+    </div>
+  </div>
+</div>
+
+
+<script is:inline>
+  const section = document.querySelector(".your-section");
+  let trackingScroll = false;
+  let scrollStart = 0;
+  let scrollDistance = 0;
+
+  function isSectionFullScreen() {
+    const rect = section.getBoundingClientRect();
+    return rect.top <= 125; // Adjust if needed
+  }
+
+  window.addEventListener("scroll", () => {
+    if (scrollDistance >= 800) {
+      section.classList.remove("fixed-section");
+    }
+    
+    if (isSectionFullScreen()) {
+      if (!trackingScroll) {
+        trackingScroll = true;
+        scrollStart = window.scrollY;
+      }
+
+      scrollDistance = window.scrollY - scrollStart;
+      console.log("scrollDistance",scrollDistance)
+
+      if (scrollDistance <= 800 && scrollDistance >= 0) {
+        section.classList.add("fixed-section");
+        section.classList.remove("relative");
+      } else {
+        section.classList.remove("fixed-section");
+        section.classList.add("relative");
+      }
+    } else {
+      section.classList.remove("fixed-section");
+      section.classList.add("relative");
+      trackingScroll = false;
+    }
+  });
+
+</script> -->
