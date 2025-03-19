@@ -29,57 +29,59 @@ import { PowerfulBentoData } from "../constants/home";
   }
   .visibleOne{
     opacity: 1;
-    transition: 1s ease-in-out;
+    transition: 500ms ease-in-out;
     transform: translateY(0);
   }
   .visibleSecond{
     opacity: 1;
     transition: 1s ease-in-out;
     transform: translateY(0);
-    transition-delay: 500ms;
+    transition-delay: 400ms;
   }
   .visibleThird{
     opacity: 1;
     transition: 1s ease-in-out;
     transform: translateY(0);
-    transition-delay: 500ms;
+    transition-delay: 400ms;
   }
   .visibleForth{
     opacity: 1;
     transition: 1s ease-in-out;
     top: 0;
-    transition-delay: 600ms;
+    transition-delay: 100ms;
   }
   .noVisible{
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(35px);
     transition: opacity 1s, transform 1s;
   }
 </style>
+<section class="xl:container">
 
-<div class="h-[1500px] font-sans-instrument">
-  <div class="your-section fixed-section">
-    <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"px-20 mt-10"} />
-    <Image id={"secondImage"} src={notifications} alt={"powerfulBento"} class={" px-20 py-10 absolute w-full top-0 noVisible"} />
-    <div class="text-one noVisible absolute top-36 left-28">
-      <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
-    </div>
-    <div class="text-second noVisible absolute top-96 left-28">
-      <p class="font-normal text-xl leading-8">Easily get updates from all<br/> the devices in one circle</p>
-    </div>
-    <div class="text-third noVisible absolute top-[31.5rem] left-28">
-      <p class="font-normal text-xl leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
+  <div class="h-[1700px] font-sans-instrument">
+    <div class="your-section fixed-section">
+      <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"px-20 mt-10"} />
+      <Image id={"secondImage"} src={notifications} alt={"powerfulBento"} class={" px-20 py-10 absolute w-full top-0 noVisible"} />
+      <div class="text-one noVisible absolute top-36 left-28">
+        <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
+      </div>
+      <div class="text-second noVisible absolute top-96 left-28">
+        <p class="font-normal text-xl leading-8">Easily get updates from all<br/> the devices in one circle</p>
+      </div>
+      <div class="text-third noVisible absolute top-[31.5rem] left-28">
+        <p class="font-normal text-xl leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
+      </div>
     </div>
   </div>
-</div>
-<div class="lg:flex grid gap-16 px-20 h-[39.938rem] my-10">
-  <div class="">
+  <div class="lg:flex grid gap-16 px-20 lg:h-[39.938rem] my-10">
+    <div class="">
       <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"} class={"w-full h-full"}/>
-  </div>
-  <div class="">
+    </div>
+    <div class="">
       <Image src={PowerfulBentoData.featsrc2} alt={"featSrc2"} class={"w-full h-full"}/>
+    </div>
   </div>
-</div>
+</section>
 
 <script is:inline>
   const section = document.querySelector(".your-section");
@@ -106,19 +108,24 @@ import { PowerfulBentoData } from "../constants/home";
       scrollDistance = window.scrollY - scrollStart;
       console.log("scrollDistance", scrollDistance);
 
-      if (scrollDistance <= 800 && scrollDistance >= 0) {
+      if (scrollDistance <= 900 && scrollDistance >= 0) {
         if(section.style.top === "0"){
           section.style.top = "7.8rem"
         }
+        if(scrollDistance >= 100){
+          textOne.classList.remove("noVisible");
+          textOne.classList.add("visibleOne");
+        }if(scrollDistance >= 250){
+          textSecond.classList.remove("noVisible");
+          textSecond.classList.add("visibleSecond");
+        }if(scrollDistance >= 450){
+          textThird.classList.remove("noVisible");
+          textThird.classList.add("visibleThird");
+        }if(scrollDistance >= 650){
+          textForth.classList.remove("noVisible");
+          textForth.classList.add("visibleForth");
+        }
         // Adjust the top property dynamically
-        textOne.classList.remove("noVisible");
-        textOne.classList.add("visibleOne");
-        textSecond.classList.remove("noVisible");
-        textSecond.classList.add("visibleSecond");
-        textThird.classList.remove("noVisible");
-        textThird.classList.add("visibleThird");
-        textForth.classList.remove("noVisible");
-        textForth.classList.add("visibleForth");
       }
       else {
         // Reset the top property when scroll distance exceeds 800

@@ -119,7 +119,7 @@ export const EmergencyResponseData={
     subTitle:"Emergency Response, <br>Anytime, Anywhere",
     midTitle:`Trained <span class="text-white">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
 desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
-bannerDesc1:`“A flight home takes <span class="text-white">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-white">30 minutes</span>”`,
+bannerDesc1:`“A flight home takes 30 hours. EyEagle team takes 30 minutes”`,
 bannerDesc2:`“because some things can wait. <span class="text-white">Emergencies</span> can’t. Eyeagle knows the difference.”`,
 remarks:[
     {iconType:"help_clinic",context:"24/7 guidance & support"},

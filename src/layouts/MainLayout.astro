@@ -48,13 +48,13 @@ const footerClass = Astro.props.footerClass ?? "";
     </div>
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-12 z-40 right-0 px-10 py-4 bg-white`
+      class=`fixed max-lg:hidden w-full top-12 z-40 right-0 px-10 py-4 bg-black`
     >
       <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleLogoBlack}
+              src={EyeagleLogo}
               alt={"Eyeagle Logo"}
               id="imageBg"
               class="w-[10.188rem]"
@@ -68,7 +68,7 @@ const footerClass = Astro.props.footerClass ?? "";
           >
           {navbarContent?.map((item)=>
             <li>
-              <a href={`${item.url}`} class="hover:underline">{item.title}</a>
+              <a href={`${item.url}`} class="hover:underline text-white">{item.title}</a>
             </li>
           )}
       </ul>  
