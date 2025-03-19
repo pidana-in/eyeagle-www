@@ -30,7 +30,6 @@ const {
 
 let formPosted = false;
 
-// Handle server-side form submission
 if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
@@ -93,7 +92,7 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     }
   } catch (error) {
     console.error("Error while submitting form:", error);
-  }
+  } 
 }
 ---
 
@@ -112,7 +111,6 @@ Newsletter: ${acceptance ? "Yes" : "No"}
         </p>
       </section>
 
-      {/* Banner shown only if the form has not been posted */}
       <div id="pointers" class={formPosted ? "hidden" : "block"}>
         <WaitListBanner />
       </div>
@@ -120,10 +118,9 @@ Newsletter: ${acceptance ? "Yes" : "No"}
       <section
         class="flex flex-col md:flex-row justify-center gap-12 lg:gap-28"
       >
-        {/* Waitlist Form */}
         <div id="joinForm" class={formPosted ? "hidden" : "block"}>
           <div class="flex flex-col items-center gap-3">
-            <form method="POST" class="flex flex-col gap-3">
+            <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
               <label>Name*</label>
               <input
                 type="text"
@@ -135,7 +132,6 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 
               <label>Phone number*</label>
               <div class="relative md:w-[628px]">
-                {/* Country Code Button */}
                 <div
                   id="dropdownButton"
                   class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border-2 border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
@@ -146,10 +142,8 @@ Newsletter: ${acceptance ? "Yes" : "No"}
                   <div class="flex items-center gap-2"></div>
                 </div>
 
-                {/* Hidden input for country code */}
                 <input id="phCode" name="phCode" value="" class="hidden" />
 
-                {/* Dropdown Menu */}
                 <div
                   id="dropdownMenu"
                   class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
@@ -173,7 +167,6 @@ Newsletter: ${acceptance ? "Yes" : "No"}
                   }
                 </div>
 
-                {/* Phone Number Input */}
                 <input
                   id="phoneNumField"
                   type="number"
@@ -215,21 +208,23 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 
               <button
                 type="submit"
-                class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2"
+                id="submitButton"
+                class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative"
               >
-                {WaitlistFormData.buttonTitile}
+                <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
+                <div id="loader" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div class="spinner"></div>
+                </div>
               </button>
             </form>
           </div>
         </div>
 
-        {/* Success Message or Next Step after form submission */}
         <div id="postFormField" class={formPosted ? "block" : "hidden"}>
           <PostFormField />
         </div>
       </section>
 
-      {/* Additional Section */}
       <div class="pt-60 grid lg:grid-cols-4 gap-12">
         {
           bathroomData?.map((item) => (
@@ -241,33 +236,55 @@ Newsletter: ${acceptance ? "Yes" : "No"}
   </section>
 </MainLayout>
 
-<script is:inline define:vars={{ countries,formPosted }}>
-  // DOM references
+<style>
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  .spinner-large {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(204, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #CC0000;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+
+<script is:inline define:vars={{ countries, formPosted }}>
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownMenu = document.getElementById("dropdownMenu");
   const phCode = document.getElementById("phCode");
   const phoneNumField = document.getElementById("phoneNumField");
+  const submitButton = document.getElementById("submitButton");
+  const buttonText = document.getElementById("buttonText");
+  const loader = document.getElementById("loader");
+  const pageLoader = document.getElementById("pageLoader");
 
-  // Arrow-down icon
   const iconSpan = document.createElement("span");
   iconSpan.className = "material-symbols-outlined text-base md:text-lg ml-2";
   iconSpan.textContent = "keyboard_arrow_down";
 
-  // Toggle dropdown menu
   dropdownButton.addEventListener("click", () => {
     dropdownMenu.classList.toggle("hidden");
   });
 
-  // Handle dropdown selection
   dropdownMenu.addEventListener("click", (event) => {
     const option = event.target.closest("[data-value]");
     if (!option) return;
 
-    // Selected dial code
     const selectedDialCode = option.dataset.value;
     const country = countries.find((c) => c.dial_code === selectedDialCode);
 
-    // Update button content with selected flag and dial code
     dropdownButton.innerHTML = "";
     const flagImage = document.createElement("img");
     flagImage.src = `https://flagcdn.com/w40/${country.code.toLowerCase()}.png`;
@@ -279,20 +296,16 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     dropdownButton.appendChild(document.createTextNode(selectedDialCode));
     dropdownButton.appendChild(iconSpan);
 
-    // Set hidden input value
     phCode.value = selectedDialCode;
 
-    // Close menu
     dropdownMenu.classList.add("hidden");
 
-    // Highlight selected in the dropdown
     document
       .querySelectorAll("#dropdownMenu > div[data-value]")
       .forEach((el) => el.classList.remove("bg-gray-300"));
     option.classList.add("bg-gray-300");
   });
 
-  // Close the dropdown if clicked elsewhere
   document.addEventListener("click", (event) => {
     if (
       !dropdownButton.contains(event.target) &&
@@ -302,7 +315,6 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     }
   });
 
-  // Set a default code on page load (e.g., "+91")
   function initializeDefaultPhoneCode() {
     phoneNumField.classList.add("pl-[125px]");
     dropdownButton.classList.add("max-w-[105px]");
@@ -313,14 +325,12 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     );
 
     if (defaultCountry) {
-      // Create the flag image
       const flagImage = document.createElement("img");
       flagImage.src = `https://flagcdn.com/w40/${defaultCountry.code.toLowerCase()}.png`;
       flagImage.alt = `${defaultCountry.code} flag`;
       flagImage.width = 20;
       flagImage.className = "mr-2";
 
-      // Reset dropdown button
       dropdownButton.innerHTML = "";
       dropdownButton.appendChild(flagImage);
       dropdownButton.appendChild(document.createTextNode(defaultDialCode));
@@ -328,7 +338,6 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 
       phCode.value = defaultDialCode;
 
-      // Highlight default in the dropdown
       const defaultOption = Array.from(
         dropdownMenu.querySelectorAll("[data-value]")
       ).find((el) => el.dataset.value === defaultDialCode);
@@ -338,12 +347,20 @@ Newsletter: ${acceptance ? "Yes" : "No"}
       }
     }
   }
-function scrollToFunction(){
-  const joinForm = document.getElementById("joinForm");
-  const postFormfill = document.getElementById("postFormField");
 
-  formPosted ? postFormfill.scrollIntoView({behavior:"smooth",block:"start"}) : joinForm.scrollIntoView({behavior:"smooth",block:"center"});
-}
+  function scrollToFunction(){
+    const joinForm = document.getElementById("joinForm");
+    const postFormfill = document.getElementById("postFormField");
+
+    formPosted ? postFormfill.scrollIntoView({behavior:"smooth",block:"start"}) : joinForm.scrollIntoView({behavior:"smooth",block:"center"});
+  }
+  
   scrollToFunction();
   initializeDefaultPhoneCode();
+
+  document.getElementById("waitlistForm").addEventListener("submit", function(e) {
+    buttonText.classList.add("opacity-0");
+    loader.classList.remove("hidden");
+    submitButton.disabled = true;
+  });
 </script>
