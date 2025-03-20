@@ -8,9 +8,9 @@ const struggleData = Astro.props.struggleData;
       {struggleData?.map((item:any)=>{
         return(
           <div class="grid justify-center items-center gap-3">
-            <div class="w-full h-full">
+            <div class="lg:w-[438px] lg:h-[398px] w-full h-full">
               
-            <Image src={item.img} alt={"doctorImage1"} class="w-full h-full object-cover" quality={'max'}/>
+            <Image src={item.img} alt={"doctorImage1"} class="w-full h-full" quality={'max'}/>
             </div>
             <div>
 
