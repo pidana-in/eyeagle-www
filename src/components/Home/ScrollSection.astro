@@ -5,13 +5,13 @@ const struggleData = Astro.props.struggleData;
 
 <section class="xl:container lg:mt-20 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
     <div class="grid lg:flex justify-center gap-7">
-      {struggleData?.map((item:any)=>{
+      {struggleData?.map((item:any,i:number)=>{
         return(
-            <div class="w-full grid grid-rows-1 gap-5 justify-center text-center">
+            <div class={`w-full flex flex-col gap-5 justify-start text-center`}>
             <div class="w-full">
             <Image src={item.img} alt={"doctorImage1"} class="" quality={'max'}/>
             </div>
-            <p set:html={item.content} class="lg:font-normal lg:w-4/5 m-auto font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
+            <p set:html={item.content} class="lg:font-normal font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
           </div>
         )
       })}
