@@ -3,19 +3,15 @@ import { Image } from "astro:assets";
 const struggleData = Astro.props.struggleData;
 ---
 
-<section class="xl:container lg:my-24 my-16 lg:px-10 px-4 font-sans-instrument">
-    <div class="w-full grid grid-cols-3 max-lg:grid-cols-1 justify-center items-center gap-10 lg:gap-20 containers">
-      {struggleData?.map((item:any)=>{
+<section class="xl:container lg:mt-20 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
+    <div class="grid lg:flex justify-center gap-7">
+      {struggleData?.map((item:any,i:number)=>{
         return(
-          <div class="grid justify-center items-center gap-3">
-            <div class="w-full h-full">
-              
-            <Image src={item.img} alt={"doctorImage1"} class="w-full h-full object-cover" quality={'max'}/>
+            <div class={`w-full flex flex-col gap-5 justify-start text-center`}>
+            <div class="w-full">
+            <Image src={item.img} alt={"doctorImage1"} class="" quality={'max'}/>
             </div>
-            <div>
-
-            <p set:html={item.content} class="text-center font-medium leading-6 lg:leading-7 text-base lg:text-xl max-w-[25.625rem]"></p>
-            </div>
+            <p set:html={item.content} class="lg:font-normal font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
           </div>
         )
       })}

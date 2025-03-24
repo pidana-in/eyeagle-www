@@ -90,7 +90,7 @@ export const takeCareData = [
 export const heroDescription = `<span class="text-primary">PREVENT</span>, DON'T <span class="text-primary">REGRET</span>`;
 export const heroDescription2 = `A SINGLE FALL CAN <span class="text-primary">CHANGE</span> IT ALL`
 
-export const healthOrganization1 = `The Silent Crisis <br>Affecting <br><span class="text-primary">Millions Like You</span>`;
+export const healthOrganization1 = `The Silent Crisis Affecting <br><span class="text-primary">Millions Like You</span>`;
 export const healthOrganization2 = `Falls aren't just accidents;
 they're <span class="text-primary font-bold">life-altering</span> events for seniors.`;
 
@@ -119,7 +119,7 @@ export const EmergencyResponseData={
     subTitle:"Emergency Response, <br>Anytime, Anywhere",
     midTitle:`Trained <span class="text-white">responders, medical professionals</span>, and specialists — ready to act when every second counts.`,
 desc:"If caregivers don’t respond, Eyeagle’s emergency team steps in. Our experts arrive on-site, assess the situation, and take immediate action—whether it’s providing urgent care or coordinating with doctors and hospitals. With access to critical documents, they ensure fast, informed decisions for the best care.",
-bannerDesc1:`“A flight home takes <span class="text-white">30 hours.<span/> <span class="text-white">EyEagle team takes</span> <span class="text-white">30 minutes</span>”`,
+bannerDesc1:`“A flight home takes 30 hours. EyEagle team takes 30 minutes”`,
 bannerDesc2:`“because some things can wait. <span class="text-white">Emergencies</span> can’t. Eyeagle knows the difference.”`,
 remarks:[
     {iconType:"help_clinic",context:"24/7 guidance & support"},
@@ -147,7 +147,7 @@ export const CircleMembershipData={
     title:"APP",
     subTItle1:"EyEagle Circles",
     subTItle2:"Device-App Membership",
-    midTitle:`Introducing EyEagle Circles – <br/> Connected Care Network for Your Loved Ones`,
+    midTitle:`Introducing <span class="text-primary">EyEagle Circles</span> – <br/> Connected Care Network for Your Loved Ones`,
     desc:"EyEagle Circles is a smart, connected network linking caregivers and family members to provide continuous safety and support.",
     imgSrc:circleApp,
     imgSrcMobile:circleAppMobile
