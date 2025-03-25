@@ -99,15 +99,6 @@ const footerClass = Astro.props.footerClass ?? "";
       </div>}
       </nav>
     </header>
-    <!-- {(pathname === "/" || pathname==="/solution/" || pathname==="/about-us/" || pathname==="/contact/") && (
-    <div id="waitBtn" class="fixed bottom-10 w-full flex justify-center z-50">
-      <a href="/join">
-        <button class="font-sans-instrument rounded-lg font-medium text-base leading-7 text-white bg-primary w-[11.688rem] h-[3.25rem]">
-          JOIN WAITING LIST
-        </button>
-      </a>
-    </div>
-  )} -->
     <header
       id="mobileNav"
       class="lg:hidden sticky top-12 shadow z-40 bg-black w-full"
@@ -165,20 +156,6 @@ const footerClass = Astro.props.footerClass ?? "";
         {navbarContent?.map((item)=>
          <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
         )}
-        <!-- {popUpMenu?.map((item)=>
-        <>
-        {!loginCredential && item.title === "Login" &&
-          <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
-        }
-        {
-          item.title !== "Login" && <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
-        }
-        </>
-        )} -->
-        <!-- order button -->
-        <!-- {pathname === "/plan/"  ? "" :<a href="/plan/">
-          <button class="bg-[#CC0000] text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
-        </a>} -->
         <a href="/join/">
           <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
         </a>
@@ -251,11 +228,8 @@ const footerClass = Astro.props.footerClass ?? "";
 <script is:inline define:vars={{ EyeagleLogoBlack, EyeagleLogo }}>
   let waitButton = document.getElementById('waitBtn');
   let footer = document.getElementById('footer');
-  let nav = document.getElementById("myNav");
   let hamburger = document.getElementById("hamburger");
   let mobileNavContent = document.getElementById("mobileNavContent");
-  let imageBg = document.getElementById("imageBg");
-  let content = document.getElementById("content");
   let account = document.getElementById('account');
   let accountDetails = document.getElementById('accountDetails');
   let crossButton = document.getElementById('crossButton');

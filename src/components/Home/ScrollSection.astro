@@ -9,7 +9,7 @@ const struggleData = Astro.props.struggleData;
         return(
             <div class={`w-full flex flex-col gap-5 justify-start text-center`}>
             <div class="w-full">
-            <Image src={item.img} alt={"doctorImage1"} class="" quality={'max'}/>
+            <Image src={item.img} alt={"doctorImage1"} quality={'max'}/>
             </div>
             <p set:html={item.content} class="lg:font-normal font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
           </div>
