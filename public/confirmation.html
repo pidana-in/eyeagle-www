@@ -80,14 +80,14 @@
         font-size: 36px;
         text-align: center;
         margin: 24px 0 10px;
-        font-family: 'Georgia', serif;
+        font-family: "Georgia", serif;
       }
 
       .subtitle {
         font-size: 20px;
         text-align: center;
         margin-bottom: 60px;
-        font-family: 'Georgia', serif;
+        font-family: "Georgia", serif;
       }
 
       .section__title {
@@ -242,6 +242,12 @@
           gap: 20px;
         }
       }
+
+      @media (max-width: 460px) {
+        .footer__copyright {
+          line-height: 20px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -264,7 +270,7 @@
       <div class="message">
         <div class="message__input-container">
           <p>Hi</p>
-          <input class="message__input" type="text" disabled/>
+          <input class="message__input" type="text" disabled />
         </div>
         <h1 class="title--large">Thank you for choosing EyEagle!</h1>
         <p class="subtitle">
@@ -296,10 +302,7 @@
 
       <h2 class="section__title">Billing Address</h2>
       <div class="billing__textarea-container">
-        <textarea
-          class="billing__textarea"
-          disabled
-        ></textarea>
+        <textarea class="billing__textarea" disabled></textarea>
       </div>
 
       <div class="contact">
@@ -319,7 +322,10 @@
 
       <footer>
         <div class="footer__logo">
-          <img src="../src/assets/Navbar/EyeagleLogoBlack.png" alt="EyEagle logo" />
+          <img
+            src="../src/assets/Navbar/EyeagleLogoBlack.png"
+            alt="EyEagle logo"
+          />
         </div>
 
         <div class="icons">
