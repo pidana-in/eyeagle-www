@@ -1,0 +1,374 @@
+---
+import logo from "../assets/OrderConfimation/logo.png";
+import handshakeLogo from "../assets/OrderConfimation/handshake-image.jpg";
+import emailLogo from "../assets/OrderConfimation/email.png";
+import footerLogo from "../assets/OrderConfimation/footerLogo.png";
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>Order Confirmation</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Helvetica", Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Helvetica", Arial, sans-serif;
+        width: 210mm;
+        height: 297mm;
+        margin: auto;
+      }
+
+      .container {
+        background-color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo,
+      .footer__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .footer__logo img {
+        width: 120px;
+      }
+      .logo {
+        padding: 15px;
+      }
+      .handshake {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .handshake img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .message {
+        background: radial-gradient(circle, #f25e4c 0%, #d72418 100%);
+        color: white;
+        padding: 20px 10px;
+        text-align: center;
+      }
+
+      .message__input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .message__input {
+        border: none;
+        border-bottom: 2px solid white;
+        background: transparent;
+        color: white;
+        padding: 4px 6px;
+        outline: none;
+        font-size: 18px;
+        width: 120px;
+      }
+
+      .title--large {
+        font-size: 24px;
+        text-align: center;
+        margin: 15px 0 8px;
+        font-family: "Georgia", serif;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: "Georgia", serif;
+      }
+
+      .section__title {
+        font-size: 18px;
+        color: #cc0000;
+        margin: 15px auto 8px;
+        width: 100%;
+        max-width: 90%;
+      }
+
+      .order__table {
+        width: 100%;
+        max-width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+        font-size: 12px;
+      }
+
+      .order__table th,
+      .order__table td {
+        border: 2px solid #ccc;
+        padding: 6px;
+        text-align: center;
+      }
+
+      .order__table tr td {
+        height: 80px;
+      }
+
+      .order__table th {
+        font-size: 14px;
+      }
+
+      .billing__textarea-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      .billing__textarea {
+        width: 100%;
+        max-width: 90%;
+        height: 80px;
+        border: 2px solid #ccc;
+        padding: 6px;
+        font-size: 12px;
+        outline: none;
+      }
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ececec;
+        padding: 10px;
+        margin: 15px auto;
+        width: 90%;
+        border-radius: 10px;
+        font-size: 12px;
+      }
+
+      .contact p {
+        margin: 3px 0;
+        text-align: center;
+      }
+
+      .contact__email {
+        color: #cc0000;
+      }
+
+      .icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+        gap: 10px;
+      }
+
+      .icons__section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .icons__title {
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+
+      .icons__group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .divider {
+        height: 20px;
+        border-left: 1px solid black;
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .footer__copyright {
+        text-align: center;
+        font-size: 10px;
+        margin-top: 15px;
+        line-height: 1.3;
+      }
+
+      .footer__ribbon {
+        background-color: #cc0000;
+        height: 5px;
+        margin-top: 15px;
+      }
+
+      @media (min-width: 768px) {
+        .message__input {
+          width: 150px;
+        }
+
+        .title--large {
+          font-size: 28px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+        }
+
+        .icons {
+          flex-direction: row;
+          justify-content: center;
+          gap: 30px;
+        }
+
+        .contact {
+          flex-direction: row;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+
+      @media print {
+        body {
+          width: 210mm;
+          height: 297mm;
+        }
+        .container {
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="logo">
+        <img
+          src={logo.src}
+          alt="EyEagle logo"
+          width="80"
+        />
+      </div>
+
+      <div class="handshake">
+        <img
+          src={handshakeLogo.src}
+          alt="Handshake"
+        />
+      </div>
+
+      <div class="message">
+        <div class="message__input-container">
+          <p>Hi</p>
+          <input class="message__input" type="text" disabled />
+        </div>
+        <h1 class="title--large">Thank you for choosing EyEagle!</h1>
+        <p class="subtitle">
+          You've just taken a powerful step toward protecting your loved ones
+          from fall-related risks—gently, smartly, and proactively.
+        </p>
+      </div>
+
+      <h1 class="title--large">Your order is confirmed.</h1>
+      <p class="subtitle">We'll reach out soon with what happens next.</p>
+
+      <h2 class="section__title">Order #07 (April 11, 2025)</h2>
+      <table class="order__table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section__title">Billing Address</h2>
+      <div class="billing__textarea-container">
+        <textarea class="billing__textarea" disabled></textarea>
+      </div>
+
+      <div class="contact">
+        <img
+          src={emailLogo.src}
+          alt="Email icon"
+          width="50"
+        />
+        <div>
+          <p>If you have any questions, reply to this email or</p>
+          <p>
+            contact us at
+            <span class="contact__email">contact.eyeagle@gmail.com</span>
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer__logo">
+          <img
+            src={footerLogo.src}
+            alt="EyEagle logo"
+          />
+        </div>
+
+        <div class="icons">
+          <div class="icons__section">
+            <p class="icons__title">Download</p>
+            <div class="icons__group">
+              <i class="fa fa-apple icon"></i>
+              <div class="divider"></div>
+              <i class="fa fa-play icon"></i>
+            </div>
+          </div>
+
+          <div class="icons__section">
+            <p class="icons__title">Follow us on</p>
+            <div class="icons__group">
+              <i class="fa fa-facebook icon"></i>
+              <i class="fa fa-twitter icon"></i>
+              <i class="fa fa-instagram icon"></i>
+              <i class="fa fa-youtube-play icon"></i>
+              <i class="fa fa-linkedin icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__copyright">
+          <p>Copyright © EyEagle. All Rights Reserved</p>
+          <p>Protecting those who cared for you—with the care they deserve</p>
+        </div>
+
+        <div class="footer__ribbon"></div>
+      </footer>
+    </section>
+  </body>
+</html>
+
+
