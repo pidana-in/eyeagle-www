@@ -2,28 +2,32 @@
 import { Image } from "astro:assets";
 const heroImage = Astro.props.heroImage;
 const HeroImageMob = Astro.props.heroImageMob;
-const HeroImageTitle=Astro.props.HeroImageTitle;
+const HeroImageTitle = Astro.props.HeroImageTitle;
 const heroDescription = Astro.props.heroDescription;
 const heroDescription2 = Astro.props.heroDescription2;
 ---
-<section class="lg:h-auto lg:mt-[5.25rem] bg-black relative">
-  <Image
-    src={heroImage}
-    alt="Emergency prevention"
-    class="w-full h-full object-cover hidden md:block pt-[2.5rem]"
-    quality={'max'}
-  />
-  <Image
-    src={HeroImageMob}
-    alt="Emergency prevention"
-    class="w-full h-full object-cover block md:hidden pt-[2.5rem]"
-    quality={'max'}
-  />
-  <h2 class="absolute top-0 lg:top-12 left-1/2 -translate-x-1/2 text-base md:text-[2rem] lg:text-[4.5rem] leading-[5.438rem] text-center font-medium text-white  w-full drop-shadow-xl hidden md:block" style={{textShadow:"3px 3px 6px rgba(0, 0, 0, 1)"}}>
-    {HeroImageTitle.title1}
-  </h2>
 
-  <h2 class="absolute bottom-0 lg:bottom-5 left-1/2 -translate-x-1/2 text-[16px] md:text-[2rem] lg:text-[4.5rem] leading-[5.438rem] text-center font-medium text-white  w-full hidden md:block" style={{textShadow:"3px 3px 6px rgba(0, 0, 0, 1)"}}>
-    {HeroImageTitle.title2}
-  </h2>
+<section class="xl:container lg:h-auto lg:mt-[8.1rem] bg-[#EDE5D2]">
+  <div class="max-md:grid flex justify-center items-end">
+    <div class="font-sans-instrument text-black h-full md:my-[142px] mb-8 mt-20 max-md:px-4 md:pl-20">
+      <h1 class="font-medium md:text-7xl text-[32px] md:leading-[80px] leading-10 mb-8 md:mb-14">
+        <span class="text-primary">Promise of protection </span> for those who care for you
+      </h1>
+      <p class="font-medium md:text-[32px] text-base leading-6 md:leading-[48px] mb-8 md:mb-14">
+        Advanced monitoring, real-time alerts and professional intervention to
+        protect your loved ones around the clock.
+      </p>
+      <button class="bg-primary font-bold text-lg leading-7 text-nowrap text-white px-4 py-3 rounded-[99px]"
+        >Get Started Now</button
+      >
+    </div>
+    <div class="w-full h-full">
+      <Image
+        src={heroImage}
+        alt="Emergency prevention"
+        class="w-full h-full"
+        quality={"max"}
+      />
+    </div>
+  </div>
 </section>
