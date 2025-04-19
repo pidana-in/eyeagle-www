@@ -7,13 +7,13 @@ const heroDescription = Astro.props.heroDescription;
 const heroDescription2 = Astro.props.heroDescription2;
 ---
 
-<section class="xl:container font-sans-instrument lg:h-auto lg:mt-[8.1rem] bg-[#EDE5D2]">
-  <div class="max-md:flex-col flex justify-center items-end">
-    <div class="font-sans-instrument text-black h-full md:my-[142px] mb-8 mt-20 max-md:px-4 md:pl-20">
-      <h1 class="font-medium md:text-7xl text-[32px] md:leading-[80px] leading-10 mb-8 md:mb-14">
+<section class="font-sans-instrument lg:h-auto lg:mt-[8rem] bg-[#EDE5D2]">
+  <div class="xl:container max-lg:flex-col flex items-end">
+    <div class="font-sans-instrument text-black h-full md:my-[142px] mb-8 mt-20 max-lg:px-4 lg:pl-20">
+      <h1 class="font-medium md:text-[68px] text-[32px] md:leading-[80px] leading-10 mb-8 md:mb-16">
         <span class="text-primary">Promise of protection </span><br/> for those who care for you
       </h1>
-      <p class="font-medium md:text-[32px] text-base leading-6 md:leading-[48px] mb-8 md:mb-14">
+      <p class="font-medium md:text-[32px] text-base leading-6 md:leading-[48px] mb-8 md:mb-16">
         Advanced monitoring, real-time alerts and professional intervention to
         protect your loved ones around the clock.
       </p>
@@ -23,11 +23,11 @@ const heroDescription2 = Astro.props.heroDescription2;
         >
       </a>
     </div>
-    <div class="w-full h-full">
+    <div class="lg:max-w-[640px] w-full h-full lg:flex lg:justify-end">
       <Image
         src={heroImage}
         alt="Emergency prevention"
-        class="w-full h-full"
+        class="lg:max-w-[640px] w-full h-full"
         quality={"max"}
       />
     </div>
