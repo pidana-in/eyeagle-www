@@ -29,6 +29,7 @@ const footerClass = Astro.props.footerClass ?? "";
       href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
     <script type="text/partytown" is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7HPVGH0CKQ"></script>
     <script type="text/partytown" is:inline>
@@ -62,10 +63,10 @@ const footerClass = Astro.props.footerClass ?? "";
             />
           </a>
           <div class="h-8 w-px bg-gray-300"></div>
-          <p class="text-white text-xs leading-4">Preventing Falls,<br />Saving Lives</p>
+          <p class="text-white text-xs font-sans-instrument">Preventing Falls,<br />Saving Lives</p>
       </div>
       <ul
-            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4`
+            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4 mr-[10%]`
             id="content"
           >
           {navbarContent?.map((item)=>
@@ -96,7 +97,7 @@ const footerClass = Astro.props.footerClass ?? "";
             </ul>
             {/* order button */}
         <a href="/join/">
-          <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-lg font-semibold">{buttonContent}</button>
+          <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">{buttonContent}</button>
         </a>
       </div>}
       </nav>
@@ -111,7 +112,7 @@ const footerClass = Astro.props.footerClass ?? "";
       <Image src={EyeagleLogo} alt="EyEagle Logo" quality={'max'} class="w-[9.188rem]" />
     </a>
     <div class="h-8 w-px bg-gray-300"></div>
-    <p class="text-white text-xs leading-tight">
+    <p class="text-white text-xs font-sans-instrument">
       Preventing Falls,<br />Saving Lives
     </p>
   </div>
@@ -156,7 +157,7 @@ const footerClass = Astro.props.footerClass ?? "";
     <section
       id="mobileNavContent"
       style={{ display: "none" }}
-      class="lg:hidden fixed z-[60] top-32 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
+      class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         {navbarContent?.map((item)=>

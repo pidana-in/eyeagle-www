@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 const struggleData = Astro.props.struggleData;
 ---
 
-<section class="xl:container lg:mt-20 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
+<section class="xl:container lg:mt-8 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
     <div class="grid lg:flex justify-center gap-7">
       {struggleData?.map((item:any,i:number)=>{
         return(
@@ -11,7 +11,7 @@ const struggleData = Astro.props.struggleData;
             <div class="w-full">
             <Image src={item.img} alt={"doctorImage1"} quality={'max'}/>
             </div>
-            <p set:html={item.content} class="lg:font-normal font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
+            <p set:html={item.content} class="font-barlow lg:font-normal text-left font-medium text-base lg:text-base lg:leading-[1.875rem] leading-6"></p>
           </div>
         )
       })}
