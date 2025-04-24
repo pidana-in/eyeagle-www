@@ -41,17 +41,17 @@ const footerClass = Astro.props.footerClass ?? "";
   </head>
   
   <body class="text-gray-900">
-    <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
+    <!-- <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
       <h2 class="tracking-[0.25rem] h-[3.25rem] text-base font-bold leading-6 grid justify-center items-center w-full">
         PREVENTING FALLS, SAVING LIVES
       </h2>
-    </div>
+    </div> -->
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-12 z-40 right-0 px-10 py-4 bg-black`
+      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-black`
     >
       <nav class="flex justify-between items-center xl:container">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center gap-4">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
               src={EyeagleLogo}
@@ -61,6 +61,8 @@ const footerClass = Astro.props.footerClass ?? "";
               quality={'max'}
             />
           </a>
+          <div class="h-8 w-px bg-gray-300"></div>
+          <p class="text-white text-xs leading-4">Preventing Falls,<br />Saving Lives</p>
       </div>
       <ul
             class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4`
@@ -101,23 +103,27 @@ const footerClass = Astro.props.footerClass ?? "";
     </header>
     <header
       id="mobileNav"
-      class="lg:hidden sticky top-12 shadow z-40 bg-black w-full"
+      class="lg:hidden sticky top-0 shadow z-40 bg-black w-full"
     >
       <nav class="flex justify-between items-center px-5 py-4">
-        <div>
-          <a href="/" aria-label="EyEagle Home Page">
-            <Image src={EyeagleLogo} alt="" quality={'max'} class={'w-[9.188rem]'}/>
-          </a>
-        </div>
-        <div id="hamburger">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
+    <div class="flex items-center gap-4">
+    <a href="/" aria-label="EyEagle Home Page">
+      <Image src={EyeagleLogo} alt="EyEagle Logo" quality={'max'} class="w-[9.188rem]" />
+    </a>
+    <div class="h-8 w-px bg-gray-300"></div>
+    <p class="text-white text-xs leading-tight">
+      Preventing Falls,<br />Saving Lives
+    </p>
+  </div>
+    <div id="hamburger">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="48" height="48" rx="24" fill="#000000"></rect>
+        <rect width="48" height="48" rx="24" fill="#000000"></rect>
             <path
               d="M12.3335 18.167H30.6668"
               stroke="#F6F4F2"
@@ -136,16 +142,16 @@ const footerClass = Astro.props.footerClass ?? "";
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
-          </svg>
-          
+      </svg>
+
         </div>
         <div id="crossButton" style={{display:"none"}}>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="24" fill="black"/>
-            <path d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>            
-        </div>
-      </nav>
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="24" fill="black"/>
+        <path d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+  </div>
+</nav>
     </header>
     <section
       id="mobileNavContent"

@@ -7,11 +7,16 @@ const heroDescription = Astro.props.heroDescription;
 const heroDescription2 = Astro.props.heroDescription2;
 ---
 
-<section class="font-sans-instrument lg:h-auto lg:mt-[8rem] bg-[#EDE5D2]">
+<section class="font-sans-instrument lg:h-auto bg-[#EDE5D2]">
   <div class="xl:container max-lg:flex-col flex items-end">
-    <div class="font-sans-instrument text-black h-full md:my-[142px] mb-8 mt-20 max-lg:px-4 lg:pl-20">
-      <h1 class="font-medium md:text-[68px] text-[32px] md:leading-[80px] leading-10 mb-8 md:mb-16">
-        <span class="text-primary">Promise of protection </span><br/> for those who care for you
+    <div class="font-sans-instrument text-black h-full md:my-[142px] mb-8 mt-8 max-lg:px-4 lg:pl-20">
+      <h1 class="font-medium md:text-[68px] text-[32px] md:leading-[80px] leading-10 mb-8 md:mb-16">        
+        <span class="text-primary block lg:whitespace-nowrap lg:text-[60px] xl:text-[64px]">
+          Promise of protection
+        </span>
+        <span class="block lg:whitespace-nowrap lg:text-[60px] xl:text-[64px]">
+          for those who care for you
+        </span>
       </h1>
       <p class="font-medium md:text-[32px] text-base leading-6 md:leading-[48px] mb-8 md:mb-16">
         Advanced monitoring, real-time alerts and professional intervention to
