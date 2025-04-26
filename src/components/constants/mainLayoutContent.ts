@@ -2,7 +2,7 @@ export const navbarContent = [{title:"How it works",url:"/solution"},{title:"Abo
 
 export const popUpMenu = [{title:"Login",url:"/login"},{title:"Profile",url:"/profile"},{title:"My Orders",url:"/orders"},{title:"Logout",url:""}];
 
-export const buttonContent = "Sign Up for Protection";
+export const buttonContent = "Get Started";
 
 export const footerHeading = "Expert advice, updates, and surprises for your inbox";
 

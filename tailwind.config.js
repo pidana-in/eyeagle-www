@@ -3,9 +3,10 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
-      fontFamily:{
+      fontFamily: {
         'sans-instrument':['Instrument Sans'],
-        'inter':['Inter']
+        'inter':['Inter'],
+        barlow: ["Barlow", "sans-serif"], 
       },
       colors:{
         primary:"#CC0000",
