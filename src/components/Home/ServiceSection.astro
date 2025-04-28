@@ -2,10 +2,12 @@
 import { Image } from "astro:assets";
 import BathroomSection from "./BathroomSection.astro";
 import guardianKit from "../../assets/Navbar/guardianKit.png";
-import guardiankit1new from "../../assets/Navbar/guardiankit1new.png";
+import guardiankit01 from "../../assets/Navbar/guardiankit01.png";
 import guardiankit2new from "../../assets/Navbar/guardiankit2new.png";
 import guardiankit3 from "../../assets/Navbar/guardiankit3.png";
-import guardiankit3new from "../../assets/Navbar/guardiankit3new.png";
+import guardiankit03 from "../../assets/Navbar/guardiankit03.png";
+import guardiankit1desktop from "../../assets/Navbar/guardiankit1desktop.webp";
+import guardiankit2desktop from "../../assets/Navbar/guardiankit2desktop.webp";
 interface Props {
     takeCareData : {
     id: number;
@@ -58,9 +60,11 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
       </div>
     </div>
     
-    <div class="lg:flex grid lg:px-20 px-4 gap-10 py-5">
+    <div class="lg:flex grid lg:px-20 px-4 gap-6 py-5">
       <div class="relative">
-        <Image src={guardiankit1new} alt="guardiankit1new"  class={"rounded-xl"}/>
+
+        <Image src={guardiankit1desktop} alt="guardiankit1desktop"  class={"max-md:hidden rounded-xl"}/>
+        <Image src={guardiankit01} alt="guardiankit1new"  class={"md:hidden rounded-xl"}/>
         <div class="absolute bottom-6 left-6 w-2/5 ">
           <h4 class="font-semibold text-2xl">SmartLock</h4>
           <p class="font-normal text-base leading-6 mt-3">
@@ -69,7 +73,9 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
         </div>
       </div>
       <div class="relative">
-        <Image src={guardiankit2new} alt="guardiankit2new" class={"rounded-xl"} />
+        <Image src={guardiankit2desktop} alt="guardiankit2desktop"  class={"max-md:hidden rounded-xl"}/>
+        <Image src={guardiankit2new} alt="guardiankit2new" class={"md:hidden rounded-xl"} />
+        
         <div class="absolute bottom-6 left-6 w-2/5">
           <h4 class="font-semibold text-2xl">SOS Button</h4>
           <p class="font-normal text-base leading-6 mt-3">
@@ -81,7 +87,7 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
     <div class="w-full h-full lg:px-20 px-4">
       <div class="relative">
         <Image src={guardiankit3} alt={'guardiankit3'} class="max-lg:hidden w-full h-full rounded-xl"/>
-        <Image src={guardiankit3new} alt={"guardiankit3new"} class={"lg:hidden rounded-xl"}/>
+        <Image src={guardiankit03} alt={"guardiankit3new"} class={"lg:hidden rounded-xl"}/>
         <div class="absolute bottom-6 left-6 lg:w-1/5 w-2/5">
           <h4 class="font-semibold text-2xl">Caregiver Alarm</h4>
           <p class="font-normal text-base leading-6 mt-3">
