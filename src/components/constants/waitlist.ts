@@ -24,8 +24,8 @@ export const postFormFillData={
     boxContent:"For the next 100 people",
     title:`<span class="text-[#CC0000]">Less</span> than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
     mobileTtle:`For Less than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
-    cutPrice:` + <span class="line-through">9999</span>  <span  class="text-[#CC0000] text-[24px] font-medium leading-7 mb-[-20px]">FREE</span> `,
-originalPrice:"₹9,999",
+    cutPrice:` + <span class="line-through">9999</span>  <span  class="text-[#CC0000] text-[24px] font-medium leading-7 mb-[-20px]">₹1</span> `,
+originalPrice:"₹9,998",
 duration:"/ 1 year",
     contacts:[
         {iconType:"check",title:"Full bathroom upgrade and support"},
