@@ -1,7 +1,7 @@
-import BathroomImage1 from "../../assets/Navbar/bathroomImage1.png";
-import BathroomImage2 from "../../assets/Navbar/bathroomImage2.png";
-import BathroomImage3 from "../../assets/Navbar/bathroomImage3.png";
-import BathroomImage4 from "../../assets/Navbar/bathroomImage4.png";
+import BathroomImage1new from "../../assets/Navbar/bathroomImage1new.png";
+import BathroomImage2new from "../../assets/Navbar/bathroomimage2new.png";
+import BathroomImage3new from "../../assets/Navbar/bathroomImage3new.png";
+import BathroomImage4new from "../../assets/Navbar/bathroomImage4new.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
 import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png";
 import HomePageHandleBanner from "../../assets/Home/HandleImage.png";
@@ -16,6 +16,45 @@ import powerfulFeat2 from "../../assets/Home/powerfulFeat2.png";
 import bentoMobile from "../../assets/Home/bentoMobile.png";
 import powerfulFeat1Mobile from "../../assets/Home/powerfulFeat1Mobile.png";
 import powerfulFeat2Mobile from "../../assets/Home/powerfulFeat2Mobile.png";
+import kitImage1new from "../../assets/Navbar/kitImage1new.png";
+import kitImage2new from "../../assets/Navbar/kitImage2new.png";
+import kitImage3new from "../../assets/Navbar/kitImage3new.png";
+import kitImage4new from "../../assets/Navbar/kitImage4new.png";
+import kitImage3 from "../../assets/Navbar/kitItem3.png";
+
+export const kitImageColumns = [
+  [
+    {
+      src: kitImage1new,
+      alt: "kitImage1",
+      caption: "Safety audit of each bathroom on-site",
+    },
+    {
+      src: kitImage2new,
+      alt: "kitImage2",
+      caption: "Grip tapes to protect against floor slips",
+    },
+  ],
+  [
+    {
+      src: kitImage3new,
+      alt: "kitImage3",
+      caption: "Grab bars where they matter most",
+    },
+  ],
+  [
+    {
+      src: kitImage4new,
+      alt: "kitImage4",
+      caption: "Anti-skid mats at high slip risk spots",
+    },
+    {
+      src: kitImage3,
+      alt: "kitImage5",
+      caption: "Highest quality, sturdy and high-visibility fittings",
+    },
+  ],
+];
 
 export const bathroomData = [
   {
@@ -24,15 +63,15 @@ export const bathroomData = [
     title: "Complete safety overhaul of bathroom",
     description:
       "Our customized solutions cover all aspects of bathroom safety, from non-slip mats to handrails and grab bars. EyEagle provides everything needed for a safer environment, reducing the chances of accidents.",
-    image: BathroomImage1,
+    image: BathroomImage1new,
   },
   {
     id: 2,
-    heading: "Advanced Fall Alert",
+    heading: "Advanced Fall Detection",
     title: "Our PIDANA Alarm device that lets you help in an emergency",
     description:
       "In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
-    image: BathroomImage2,
+    image: BathroomImage2new,
   },
   {
     id: 3,
@@ -40,7 +79,7 @@ export const bathroomData = [
     title: "Comprehensive App that provides quick alerts & help",
     description:
       "Once the alarm is raised, caregivers are instantly alerted on their smartphones. Whether you’re at home or miles away, EyEagle ensures that help is just a notification away.",
-    image: BathroomImage3,
+    image: BathroomImage3new,
   },
   {
     id: 4,
@@ -48,7 +87,7 @@ export const bathroomData = [
     title: "Established and trained team to help battle emergency",
     description:
       "If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
-    image: BathroomImage4,
+    image: BathroomImage4new,
   },
 ];
 
@@ -100,10 +139,9 @@ export const heroDescription2 = `A SINGLE FALL CAN <span class="text-primary">CH
 export const healthOrganization1 = `The silent crisis affecting millions like you`;
 export const healthOrganization2 = `Falls aren't just accidents;<span class="block md:inline"> they're <span class="font-bold">life-altering</span> events for seniors.</span>`;
 
+export const productFeatureTitle = `<span class="text-[#FFFFFF]">Introducing</span> <span class="text-primary">EyEagle</span>`;
 
-export const productFeatureTitle = `With advanced monitoring, real-time alerts, and professional intervention, EyEagle is a 24/7 guardian for your loved ones, providing peace of mind no matter where you are.`;
-
-export const ourTeamHeading1 = "World Class <br> Prevention System";
+export const ourTeamHeading1 = "Preventing falls is the priority";
 
 export const ourTeamHeading2 =
   " Our trained professionals are available 24/7 to ensure the safety of your loved ones.";

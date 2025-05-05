@@ -14,12 +14,18 @@ const bathroomData = Astro.props.bathroomData;
 const productFeatureTitle = Astro.props.productFeatureTitle;
 ---
 
-<section class="lg:py-[7.5rem] py-12 max-lg:px-4 px-20 xl:container">
-    <div class="flex justify-center lg:px-10">
-      <h2 set:html={productFeatureTitle} class="lg:text-5xl font-sans-instrument mb-8 leading-[2.75rem] lg:mx-10 text-[2rem] lg:leading-[3.75rem] font-medium text-center opacity-60">
+<section class="lg:py-[7.5rem] py-12 lg:px-20 px-4 xl:container bg-black">
+    <div class="flex justify-start">
+      <h2 set:html={productFeatureTitle} class="lg:text-[64px] font-sans-instrument my-20 leading-[2.75rem] text-[2rem] font-medium">
       </h2>
     </div>
-    <h1 class="font-medium text-[2rem] lg:text-5xl leading-[2.75rem] lg:leading-[3.75rem] text-center"><span class="text-primary">EyEagle</span> is built to protect your loved ones</h1>
+    <div>
+    <h3 class="text-[#A6A6A6] font-barlow font-medium text-[2rem] lg:text-[40px]">Not just a gadget — a complete care package.</h3>
+    <h3 class="font-medium font-barlow text-white text-[2rem] lg:text-[40px]"><span class="text-primary">EyEagle</span> is built to keep your loved ones safe, <span class="inline-block border-b-[8px] border-[#CC0000]/40">
+      around the clock.
+    </span>
+    </h3>
+  </div>
     <div class="pt-20 grid lg:grid-cols-4 gap-12">
       {bathroomData?.map((item)=>
         <BathroomSection item={item} mobile={false}/>

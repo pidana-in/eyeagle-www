@@ -11,7 +11,7 @@ const struggleData = Astro.props.struggleData;
             <div class="w-full">
             <Image src={item.img} alt={"doctorImage1"} quality={'max'}/>
             </div>
-            <p set:html={item.content} class="font-barlow lg:font-normal text-left font-medium text-base lg:text-base lg:leading-[1.875rem] leading-6"></p>
+            <p set:html={item.content} class="font-barlow lg:font-medium text-left font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
           </div>
         )
       })}

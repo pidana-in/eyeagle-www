@@ -1,67 +1,41 @@
 ---
-import tick from "../../assets/Navbar/tick.png"
 import { Image } from "astro:assets";
-import kitImage1 from "../../assets/Navbar/kitItem1.png"
-import kitImage2 from "../../assets/Navbar/kitItem2.png"
-import kitImage3 from "../../assets/Navbar/kitItem3.png"
-import kitImage4 from "../../assets/Navbar/kitItem4.png"
-import kitImage5 from "../../assets/Navbar/kitItem5.png"
-const ourTeam = Astro.props.item;
-const ourTeamButton = Astro.props.ourTeamButton;
+import { kitImageColumns } from "../constants/home";
 const ourTeamHeading1 = Astro.props.ourTeamHeading1;
-const ourTeamHeading2 = Astro.props.ourTeamHeading2;
 ---
+
 <section id="prevention" class="xl:container font-sans-instrument lg:px-20 px-4">
-  <div class=" lg:pt-[7.5rem] max-lg:pt-20 max-lg:pb-10">
-    <h2 class="text-primary text-center font-medium text-base lg:text-lg leading-[1.375rem] mb-2">PREVENTION</h2>
-        <h2 set:html={ourTeamHeading1} class="lg:text-6xl xl:container font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:leading-[4.5rem] text-center">
-        </h2>
+  <div class="lg:pt-[7.5rem] max-lg:pt-20 max-lg:pb-10">
+    <h2 set:html={ourTeamHeading1} class="lg:text-6xl font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:leading-[4.5rem]"></h2>
   </div>
+
   <div class="max-lg:pt-[6.25rem] pt-20">
     <div class="lg:flex">
       <div>
-        <h3 class="font-medium text-[2rem] lg:text-4xl leading-10 lg:leading-6 text-left mb-4">Top-Tier Quality,</h3>
-        <h3 class="font-medium text-[2rem] lg:text-4xl leading-10 lg:leading-6 opacity-60 text-left">Zero Compromise</h3>
-        <div class="mt-8 flex max-lg:flex-col items-center lg:gap-[7.5rem] gap-10 w-full">
-          <h3 class="font-medium text-base lg:text-lg text-left leading-6 lg:leading-7 lg:w-[75%]">Providing essential support in high-risk areas, focus on preventing accidents in the first place by improving stability and reducing slip risks</h3>
-        </div>
-      </div>
-      <div class="lg:grid flex items-center max-lg:gap-10 justify-start lg:justify-center max-lg:pt-6">
-        <div class="font-medium text-lg leading-7">
-          <Image src={tick} alt={"tick"} class={'w-10 h-10'}/>
-          <p>Total Prevention Kit</p>          
-        </div>
-        <div class="font-medium text-lg leading-7">
-          <Image src={tick} alt={"tick"} class={'w-10 h-10'}/>
-          <p>Assess Risk</p>          
-      </div>
+        <h3 class="font-barlow font-normal text-[2rem] lg:text-4xl leading-10 lg:leading-6 mb-4">
+          Comprehensive safety fittings, carefully chosen for each bathroom
+        </h3>
       </div>
     </div>
-    <div class="flex max-lg:flex-col lg:justify-evenly gap-5 items-center mt-20 lg:pb-[12.5rem] pb-20 font-sans-instrument">
-      <div class="relative max-md:w-full">
-        <Image src={kitImage1} alt={"kitImage1"} class="w-full bg-cover rounded-xl"/>
-        <p class="absolute top-4 left-4 text-white font-normal text-2xl leading-8">Secure support where it matters most.</p>
-      </div>
-      <div class="grid gap-5">
-        <div class="relative">
-          <Image src={kitImage2} alt={"kitImage1"} class='rounded-xl'/>
-          <p class="absolute top-4 left-4 text-white font-normal text-2xl leading-8">Reduce slip risks instantly.</p>
+
+    <div class="flex max-lg:flex-col gap-5 mt-14 lg:pb-[12.5rem] pb-20 font-sans-instrument">
+      {kitImageColumns.map((column, colIndex) => (
+        <div class={column.length > 1 ? "grid gap-5 max-md:w-full" : "relative max-md:w-full"}>
+          {column.map((item) => (
+            <div class="relative">
+              <Image src={item.src} alt={item.alt} class="w-full bg-cover rounded-xl" />
+              <div class="absolute top-4 left-4 bg-white h-10 w-10 rounded-full grid place-items-center shadow-md">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
+                </svg>
+              </div>
+              <p class="font-barlow absolute top-16 left-4 pr-8 text-white font-normal text-[27px] leading-8 max-w-[90%]">
+                {item.caption}
+              </p>
+            </div>
+          ))}
         </div>
-        <div class="relative">
-          <Image src={kitImage3} alt={"kitImage1"} class='rounded-xl'/>
-          <p class="absolute top-4 left-4 text-white font-normal text-2xl leading-8">Slim, sturdy, and slip-resistant.</p>
-        </div>
-      </div>
-      <div class="grid gap-5 max-md:w-full">
-        <div class="relative">
-          <Image src={kitImage4} alt={"kitImage1"} class="w-full bg-cover rounded-xl"/>
-          <p class="absolute top-4 left-4 text-white font-normal text-2xl leading-8">Invisible protection, powerful grip.</p>
-        </div>
-        <div class="relative">
-          <Image src={kitImage5} alt={"kitImage1"} class="w-full bg-cover rounded-xl"/>
-          <p class="absolute top-4 left-4 text-white font-normal text-2xl leading-8">Assess today, prevent tomorrow’s falls.</p>
-        </div>
-      </div>
+      ))}
     </div>
-  </div>        
+  </div>
 </section>
