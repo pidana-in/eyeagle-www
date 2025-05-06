@@ -6,8 +6,11 @@ import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
 import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png";
 import HomePageHandleBanner from "../../assets/Home/HandleImage.png";
 import struggle1new from "../../assets/Navbar/struggle1new.png";
+import struggle1mobile from "../../assets/Navbar/struggle1mobile.png";
 import struggle2new from "../../assets/Navbar/struggle2new.png";
+import struggle2mobile from "../../assets/Navbar/struggle2mobile.png";
 import struggle3new from "../../assets/Navbar/struggle3new.png";
+import struggle3mobile from "../../assets/Navbar/struggle3mobile.png";
 import circleApp from "../../assets/Home/circleApp.png";
 import circleAppMobile from "../../assets/Home/circleAppMobile.png";
 import powerfulBento from "../../assets/Home/powerfulBento.png";
@@ -65,6 +68,20 @@ export const struggleData = [
     img: struggle3new,
     content: `10-15% of falls in the bathroom lead to hospitalisation`,
   },
+];
+export const struggleData1 = [
+{
+  img: struggle1mobile,
+  content: `1 in 4 seniors fall in the bathroom every year`,
+},
+{
+  img: struggle2mobile,
+  content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
+},
+{
+  img: struggle3mobile,
+  content: `10-15% of falls in the bathroom lead to hospitalisation`,
+},
 ];
 
 export const takeCareData = [
