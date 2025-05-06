@@ -5,12 +5,9 @@ import BathroomImage4 from "../../assets/Navbar/bathroomImage4.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
 import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png";
 import HomePageHandleBanner from "../../assets/Home/HandleImage.png";
-import struggle1new from "../../assets/Navbar/struggle1new.png";
-import struggle1mobile from "../../assets/Navbar/struggle1mobile.png";
-import struggle2new from "../../assets/Navbar/struggle2new.png";
-import struggle2mobile from "../../assets/Navbar/struggle2mobile.png";
-import struggle3new from "../../assets/Navbar/struggle3new.png";
-import struggle3mobile from "../../assets/Navbar/struggle3mobile.png";
+import struggle1 from "../../assets/Navbar/struggle1.png";
+import struggle2 from "../../assets/Navbar/struggle2.png";
+import struggle3 from "../../assets/Navbar/struggle3.png";
 import circleApp from "../../assets/Home/circleApp.png";
 import circleAppMobile from "../../assets/Home/circleAppMobile.png";
 import powerfulBento from "../../assets/Home/powerfulBento.png";
@@ -57,32 +54,32 @@ export const bathroomData = [
 
 export const struggleData = [
   {
-    img: struggle1new,
+    img: struggle1,
     content: `1 in 4 seniors fall in the bathroom every year`,
   },
   {
-    img: struggle2new,
+    img: struggle2,
     content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
   },
   {
-    img: struggle3new,
+    img: struggle3,
     content: `10-15% of falls in the bathroom lead to hospitalisation`,
   },
 ];
-export const struggleData1 = [
-{
-  img: struggle1mobile,
-  content: `1 in 4 seniors fall in the bathroom every year`,
-},
-{
-  img: struggle2mobile,
-  content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
-},
-{
-  img: struggle3mobile,
-  content: `10-15% of falls in the bathroom lead to hospitalisation`,
-},
-];
+// export const struggleData1 = [
+// {
+//   img: struggle1mobile,
+//   content: `1 in 4 seniors fall in the bathroom every year`,
+// },
+// {
+//   img: struggle2mobile,
+//   content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
+// },
+// {
+//   img: struggle3mobile,
+//   content: `10-15% of falls in the bathroom lead to hospitalisation`,
+// },
+// ];
 
 export const takeCareData = [
   {
@@ -116,7 +113,6 @@ export const heroDescription2 = `A SINGLE FALL CAN <span class="text-primary">CH
 
 export const healthOrganization1 = `The silent crisis affecting millions like you`;
 export const healthOrganization2 = `Falls aren't just accidents;<span class="block md:inline"> they're <span class="font-bold">life-altering</span> events for seniors.</span>`;
-
 
 export const productFeatureTitle = `With advanced monitoring, real-time alerts, and professional intervention, EyEagle is a 24/7 guardian for your loved ones, providing peace of mind no matter where you are.`;
 
