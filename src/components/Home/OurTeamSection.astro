@@ -4,32 +4,32 @@ import { kitImageColumns } from "../constants/home";
 const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 ---
 
-<section id="prevention" class="xl:container font-sans-instrument lg:px-20 px-4">
+<section id="prevention" class="max-xl:container font-sans-instrument lg:px-20 px-4">
   <div class="lg:pt-[7.5rem] max-lg:pt-20 max-lg:pb-10">
-    <h2 set:html={ourTeamHeading1} class="lg:text-6xl font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:leading-[4.5rem]"></h2>
+    <h2 set:html={ourTeamHeading1} class="lg:text-[64px] font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:leading-[3.75rem]"></h2>
   </div>
 
-  <div class="max-lg:pt-[6.25rem] pt-20">
+  <div class="max-lg:pt-[3.75rem] pt-20">
     <div class="lg:flex">
       <div>
-        <h3 class="font-barlow font-normal text-[2rem] lg:text-4xl leading-10 lg:leading-6 mb-4">
+        <h3 class="font-barlow font-normal text-[2rem] lg:text-[40px] lg:leading-[3rem] leading-10">
           Comprehensive safety fittings, carefully chosen for each bathroom
         </h3>
       </div>
     </div>
 
-    <div class="flex max-lg:flex-col gap-5 mt-14 lg:pb-[12.5rem] pb-20 font-sans-instrument">
+    <div class="flex max-lg:flex-col gap-5 mt-[60px] lg:pb-[7.5rem] pb-20">
       {kitImageColumns.map((column, colIndex) => (
         <div class={column.length > 1 ? "grid gap-5 max-md:w-full" : "relative max-md:w-full"}>
           {column.map((item) => (
             <div class="relative">
               <Image src={item.src} alt={item.alt} class="w-full bg-cover rounded-xl" />
-              <div class="absolute top-4 left-4 bg-white h-10 w-10 rounded-full grid place-items-center shadow-md">
+              <div class="absolute top-6 left-6 bg-white h-14 w-14 rounded-full grid place-items-center shadow-md">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
                 </svg>
               </div>
-              <p class="font-barlow absolute top-16 left-4 pr-8 text-white font-normal text-[27px] leading-8 max-w-[90%]">
+              <p class="font-barlow absolute top-[92px] left-4 pr-8 text-white lg:font-medium lg:text-[1.784rem] lg:leading-8 max-w-[90%]">
                 {item.caption}
               </p>
             </div>

@@ -5,9 +5,9 @@ import BathroomImage4new from "../../assets/Navbar/bathroomImage4new.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
 import takeCareImage2 from "../../assets/Navbar/takeCareImage2.png";
 import HomePageHandleBanner from "../../assets/Home/HandleImage.png";
-import struggle1new from "../../assets/Navbar/struggle1new.png";
-import struggle2new from "../../assets/Navbar/struggle2new.png";
-import struggle3new from "../../assets/Navbar/struggle3new.png";
+import struggle1 from "../../assets/Navbar/struggle1.png";
+import struggle2 from "../../assets/Navbar/struggle2.png";
+import struggle3 from "../../assets/Navbar/struggle3.png";
 import circleApp from "../../assets/Home/circleApp.png";
 import circleAppMobile from "../../assets/Home/circleAppMobile.png";
 import powerfulBento from "../../assets/Home/powerfulBento.png";
@@ -21,40 +21,6 @@ import kitImage2new from "../../assets/Navbar/kitImage2new.png";
 import kitImage3new from "../../assets/Navbar/kitImage3new.png";
 import kitImage4new from "../../assets/Navbar/kitImage4new.png";
 import kitImage3 from "../../assets/Navbar/kitItem3.png";
-
-export const kitImageColumns = [
-  [
-    {
-      src: kitImage1new,
-      alt: "kitImage1",
-      caption: "Safety audit of each bathroom on-site",
-    },
-    {
-      src: kitImage2new,
-      alt: "kitImage2",
-      caption: "Grip tapes to protect against floor slips",
-    },
-  ],
-  [
-    {
-      src: kitImage3new,
-      alt: "kitImage3",
-      caption: "Grab bars where they matter most",
-    },
-  ],
-  [
-    {
-      src: kitImage4new,
-      alt: "kitImage4",
-      caption: "Anti-skid mats at high slip risk spots",
-    },
-    {
-      src: kitImage3,
-      alt: "kitImage5",
-      caption: "Highest quality, sturdy and high-visibility fittings",
-    },
-  ],
-];
 
 export const bathroomData = [
   {
@@ -93,17 +59,65 @@ export const bathroomData = [
 
 export const struggleData = [
   {
-    img: struggle1new,
+    img: struggle1,
     content: `1 in 4 seniors fall in the bathroom every year`,
   },
   {
-    img: struggle2new,
+    img: struggle2,
     content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
   },
   {
-    img: struggle3new,
+    img: struggle3,
     content: `10-15% of falls in the bathroom lead to hospitalisation`,
   },
+];
+// export const struggleData1 = [
+// {
+//   img: struggle1mobile,
+//   content: `1 in 4 seniors fall in the bathroom every year`,
+// },
+// {
+//   img: struggle2mobile,
+//   content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
+// },
+// {
+//   img: struggle3mobile,
+//   content: `10-15% of falls in the bathroom lead to hospitalisation`,
+// },
+// ];
+
+export const kitImageColumns = [
+  [
+    {
+      src: kitImage1new,
+      alt: "kitImage1",
+      caption: "Safety audit of each bathroom on-site",
+    },
+    {
+      src: kitImage2new,
+      alt: "kitImage2",
+      caption: "Grip tapes to protect against floor slips",
+    },
+  ],
+  [
+    {
+      src: kitImage3new,
+      alt: "kitImage3",
+      caption: "Grab bars where they matter most",
+    },
+  ],
+  [
+    {
+      src: kitImage4new,
+      alt: "kitImage4",
+      caption: "Anti-skid mats at high slip risk spots",
+    },
+    {
+      src: kitImage3,
+      alt: "kitImage5",
+      caption: "Highest quality, sturdy and high-visibility fittings",
+    },
+  ],
 ];
 
 export const takeCareData = [

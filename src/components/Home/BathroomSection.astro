@@ -7,7 +7,7 @@ const mobile = Astro.props.mobile;
 const { pathname } = Astro. url;
 ---
 <div class="relative bg-[#D9D9D9] rounded-[20px] flex flex-col">
-  <h2 class="text-[20px] lg:text-[32px] font-sans-instrument font-medium leading-[40px] py-6 px-10 text-start text-[#212121]">
+  <h2 class="text-[19.2px] lg:text-[32px] leading-6 font-sans-instrument font-medium lg:leading-[40px] px-5 py-[14.4px] lg:py-6 lg:px-10 text-[#212121]">
     {item.heading.split(" ")[0]}<br />
     {item.heading.split(" ").slice(1).join(" ")}
   </h2>
@@ -17,13 +17,25 @@ const { pathname } = Astro. url;
       class="w-full h-full object-cover rounded-[20px] rounded-t-none"
       quality="max"
     />
-    <button id={item.id} class=`absolute bottom-5 right-5 z-30 bg-white h-10 w-10 rounded-[100px] grid justify-center items-center`>
-    <svg class="hover:cursor-pointer" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.804688 8.8994H11.7775L6.74081 13.9361L7.99999 15.1953L15.1953 7.99999L7.99999 0.804688L6.74081 2.06386L11.7775 7.10058H0.804688L0.804688 8.8994Z" fill="#CC0000"/>
-      </svg>              
+    <button
+    id={item.id}
+    class="absolute lg:bottom-[13.5px] lg:right-[16.5px] bottom-[8.5px] right-[10px] z-30 bg-white lg:size-10 size-7 rounded-[100px] grid justify-center items-center"
+  >
+    <svg
+      class="hover:cursor-pointer w-[9px] h-[9px] lg:w-4 lg:h-4"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M0.804688 8.8994H11.7775L6.74081 13.9361L7.99999 15.1953L15.1953 7.99999L7.99999 0.804688L6.74081 2.06386L11.7775 7.10058H0.804688L0.804688 8.8994Z"
+        fill="#CC0000"
+      />
+    </svg>
   </button>
-</div>
-
+  </div>
 
       <script is:inline define:vars={{item,scrollDataSection,pathname}}>
         

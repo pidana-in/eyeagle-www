@@ -3,17 +3,56 @@ import { Image } from "astro:assets";
 const struggleData = Astro.props.struggleData;
 ---
 
-<section class="xl:container lg:mt-8 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
-    <div class="grid lg:flex justify-center gap-7">
-      {struggleData?.map((item:any,i:number)=>{
-        return(
-            <div class={`w-full flex flex-col gap-5 justify-start text-center`}>
+<section class="max-xl:container lg:mt-8 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
+  <!-- Desktop version -->
+  <div class="lg:flex justify-center gap-7 hidden">
+    {struggleData?.map((item:any, i:number) => (
+      <div class="w-full flex flex-col gap-5 justify-start text-center">
+        <div class="w-full">
+          <Image src={item.img} alt={"doctorImage1"} quality={'max'}/>
+        </div>
+        <p set:html={item.content} class="font-barlow lg:font-medium text-left font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
+      </div>
+    ))}
+  </div>
+  
+  <!-- Mobile version (horizontal scrolling) -->
+  <div class="block lg:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
+    <div class="flex space-x-6">
+      {struggleData?.map((item:any,i:number) => (
+        <div class="swiper-slide flex-none w-[85%] sm:w-[70%] lg:w-[30%] snap-start">
+          <div class="flex flex-col gap-5 justify-start text-center">
             <div class="w-full">
-            <Image src={item.img} alt={"doctorImage1"} quality={'max'}/>
+              <img src={item.img.src} alt={`doctorImageMobile`} class="w-full rounded-xl" />
             </div>
-            <p set:html={item.content} class="font-barlow lg:font-medium text-left font-medium text-base lg:text-xl lg:leading-[1.875rem] leading-6"></p>
+            <p set:html={item.content} class="font-barlow text-left text-base leading-6 font-medium"></p>
           </div>
-        )
-      })}
+        </div>
+      ))}
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  const scrollContainer = document.querySelector('.overflow-x-auto') as HTMLElement | null;
+  if (scrollContainer) {
+    let scrollInterval = setInterval(() => {
+      scrollContainer.scrollBy({
+        left: scrollContainer.offsetWidth, 
+        behavior: 'smooth',
+      });
+    }, 4000);
+    scrollContainer.addEventListener('mouseover', () => {
+      clearInterval(scrollInterval);
+    });
+    scrollContainer.addEventListener('mouseout', () => {
+      scrollInterval = setInterval(() => {
+        scrollContainer.scrollBy({
+          left: scrollContainer.offsetWidth,
+          behavior: 'smooth',
+        });
+      }, 4000);
+    });
+  }
+</script>
+
