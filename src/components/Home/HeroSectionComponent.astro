@@ -1,39 +1,92 @@
 ---
+// Astro setup
 import { Image } from "astro:assets";
 const heroImage = Astro.props.heroImage;
 const HeroImageMob = Astro.props.heroImageMob;
-const HeroImageTitle = Astro.props.HeroImageTitle;
-const heroDescription = Astro.props.heroDescription;
-const heroDescription2 = Astro.props.heroDescription2;
 ---
 
-<section class="font-sans-instrument lg:h-auto bg-[#EDE5D2]">
-  <div class="xl:container max-lg:flex-col flex items-end">
-    <div class="font-sans-instrument text-black h-full md:my-[142px] mb-8 mt-8 max-lg:px-4 lg:pl-20">
-      <h1 class="font-medium md:text-[68px] text-[32px] md:leading-[80px] leading-10 mb-8 md:mb-16">        
-        <span class="text-primary block lg:whitespace-nowrap lg:text-[60px] xl:text-[64px]">
-          Promise of protection
-        </span>
-        <span class="block lg:whitespace-nowrap lg:text-[60px] xl:text-[64px]">
-          for those who care for you
-        </span>
-      </h1>
-      <p class="font-medium font-barlow md:text-[32px] text-base leading-6 md:leading-[48px] mb-8 md:mb-16">
-        Round-the-clock fall protection with smart monitoring, instant alerts and a trained response team.
-      </p>
-      <a href="/join">  
-        <button class="bg-primary font-bold text-lg leading-7 text-nowrap text-white px-4 py-3 rounded-[99px]"
-        >Get Started Now</button
-        >
-      </a>
-    </div>
-    <div class="lg:max-w-[640px] w-full h-full lg:flex lg:justify-end">
+<section class="relative w-full overflow-hidden font-sans-instrument">
+  <div
+    class="flex flex-col lg:flex-row items-stretch w-full max-xl:container mx-auto"
+  >
+    <!-- Left: Hero image -->
+    <div class="relative w-full lg:w-[75%] overflow-hidden lg:-ml-32 -mt-16">
+      <!-- Red gradient (only for md and up) -->
+      <div
+        class="hidden md:block absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-90 z-10 pointer-events-none w-full lg:w-[70%]"
+      >
+      </div>
+
+      <!-- Elderly woman image -->
       <Image
         src={heroImage}
-        alt="Emergency prevention"
-        class="lg:max-w-[640px] w-full h-full"
-        quality={"max"}
+        alt="Fallen elderly woman"
+        class="w-full h-full object-cover max-h-[110vh] scale-x-[-1]"
       />
+
+      <!-- Phone mockup for desktop only -->
+      <div class="hidden lg:block absolute top-[25%] left-[20%] w-[250px] z-10">
+        <Image
+          src={HeroImageMob}
+          alt="Phone mockup"
+          class="w-full h-full rounded-[36px] border-white border-2"
+        />
+      </div>
+    </div>
+
+    <!-- Right: Text content -->
+    <div
+      class="relative lg:w-[30%] flex items-center justify-center px-6 py-2 lg:py-0 z-10"
+    >
+      <!-- Curve background: shown for all views now -->
+      <div
+        class="absolute lg:left-[-30%] lg:top-10 -top-[20%] w-[125%] lg:w-full h-full bg-white md:rounded-l-[90%] rounded-t-[90%] z-0 block"
+      >
+      </div>
+
+      <div
+        class="z-10 w-full min-w-[300px] lg:min-w-[500px] text-right lg:text-left lg:ml-0"
+      >
+        <!-- Phone on mobile only -->
+        <div
+          class="absolute block lg:hidden mx-0 mb-6 w-[132px] sm:w-[140px] md:w-[160px] -top-24 ml-0"
+        >
+          <Image
+            src={HeroImageMob}
+            alt="Phone mockup"
+            class="w-full h-full rounded-[24px] border-white border-2 z-50"
+          />
+        </div>
+
+        <h1
+          class="text-[20px] sm:text-[24px] lg:text-5xl text-center lg:text-start pl-[140px] lg:pl-0 font-michroma font-semibold text-red-700 mt-4 lg:mt-16 mb-4 lg:mb-8 leading-tight"
+        >
+          One Fall... <br /> Can Destroy All
+        </h1>
+
+        <div class="w-14 lg:w-40 h-[3px] bg-red-700 mx-52 lg:mx-0 mb-4 lg:mb-6">
+        </div>
+
+        <p
+          class="text-lg sm:text-xl lg:text-4xl font-helvetica text-black font-medium text-center lg:text-start pl-[140px] lg:pl-0"
+        >
+          Prevent today, <br /> Don’t regret tomorrow
+        </p>
+
+        <!-- Decorative Circles (desktop only) -->
+        <div
+          class="hidden md:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[100px] right-[30px]"
+        >
+        </div>
+        <div
+          class="hidden md:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[140px] -right-[40px]"
+        >
+        </div>
+        <div
+          class="hidden md:block absolute w-44 h-44 rounded-full z-0 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] bottom-[-40px] -right-[132px]"
+        >
+        </div>
+      </div>
     </div>
   </div>
 </section>
