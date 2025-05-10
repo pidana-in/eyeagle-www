@@ -1,22 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       fontFamily: {
-        'sans-instrument':['Instrument Sans'],
-        'inter':['Inter'],
-        barlow: ["Barlow", "sans-serif"], 
+        "sans-instrument": ["Instrument Sans"],
+        inter: ["Inter"],
+        barlow: ["Barlow", "sans-serif"],
+        helvetica: ["Helvetica", "sans-serif"],
+        michroma: ['"Michroma"', "sans-serif"],
       },
-      colors:{
-        primary:"#CC0000",
-        secondary:"#222222"
-      }
+      colors: {
+        primary: "#CC0000",
+        secondary: "#222222",
+      },
     },
-    container:{
-      center:true
-    }
+    container: {
+      center: true,
+    },
   },
   plugins: [],
-}
-
+};
