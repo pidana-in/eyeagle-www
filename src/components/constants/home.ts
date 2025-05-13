@@ -1,5 +1,5 @@
 import BathroomImage1new from "../../assets/Navbar/bathroomImage1new.png";
-import BathroomImage2new from "../../assets/Navbar/bathroomimage2new.png";
+import Frame1 from "../../assets/Navbar/Frame1.png";
 import BathroomImage3new from "../../assets/Navbar/bathroomImage3new.png";
 import BathroomImage4new from "../../assets/Navbar/bathroomImage4new.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
@@ -17,7 +17,6 @@ import bentoMobile from "../../assets/Home/bentoMobile.png";
 import powerfulFeat1Mobile from "../../assets/Home/powerfulFeat1Mobile.png";
 import powerfulFeat2Mobile from "../../assets/Home/powerfulFeat2Mobile.png";
 
-
 export const bathroomData = [
   {
     id: 1,
@@ -29,11 +28,11 @@ export const bathroomData = [
   },
   {
     id: 2,
-    heading: "Advanced Fall Detection",
+    heading: "Emergency Button Kit",
     title: "Our PIDANA Alarm device that lets you help in an emergency",
     description:
       "In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
-    image: BathroomImage2new,
+    image: Frame1,
   },
   {
     id: 3,
