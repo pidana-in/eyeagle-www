@@ -1,5 +1,5 @@
 import BathroomImage1new from "../../assets/Navbar/bathroomImage1new.png";
-import Frame1 from "../../assets/Navbar/Frame1.png";
+import Frame4 from "../../assets/Navbar/Frame4.png";
 import BathroomImage3new from "../../assets/Navbar/bathroomImage3new.png";
 import BathroomImage4new from "../../assets/Navbar/bathroomImage4new.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
@@ -32,7 +32,7 @@ export const bathroomData = [
     title: "Our PIDANA Alarm device that lets you help in an emergency",
     description:
       "In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
-    image: Frame1,
+    image: Frame4,
   },
   {
     id: 3,
@@ -55,15 +55,15 @@ export const bathroomData = [
 export const struggleData = [
   {
     img: struggle1,
-    content: `1 in 4 seniors fall in the bathroom every year`,
+    content: `<span class="font-bold">1 in 4 </span> seniors fall in the bathroom every year`,
   },
   {
     img: struggle2,
-    content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
+    content: `<span class="font-bold">95% </span> of hip fractures in seniors are caused by falls in the bathroom`,
   },
   {
     img: struggle3,
-    content: `10-15% of falls in the bathroom lead to hospitalisation`,
+    content: `<span class="font-bold">10-15% </span> of falls in the bathroom lead to hospitalisation`,
   },
 ];
 // export const struggleData1 = [

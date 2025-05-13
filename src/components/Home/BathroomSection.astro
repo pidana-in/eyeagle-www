@@ -6,23 +6,26 @@ const item = Astro.props.item;
 const mobile = Astro.props.mobile;
 const { pathname } = Astro. url;
 ---
-<div class="relative bg-[#D9D9D9] rounded-[20px] flex flex-col">
+
+<div
+  class="relative bg-[#D9D9D9] rounded-[20px] flex flex-col cursor-pointer group"
+  id={`card-${item.id}`}
+>
   <h2 class="text-[19.2px] lg:text-[32px] leading-6 font-sans-instrument font-medium lg:leading-[40px] px-5 py-[14.4px] lg:py-6 lg:px-10 text-[#212121]">
     {item.heading.split(" ")[0]}<br />
     {item.heading.split(" ").slice(1).join(" ")}
   </h2>
-    <Image
-      src={item.image ?? ""}
-      alt={item.heading}
-      class="w-full h-full object-cover rounded-[20px] rounded-t-none"
-      quality="max"
-    />
-    <button
-    id={item.id}
-    class="absolute lg:bottom-[13.5px] lg:right-[16.5px] bottom-[8.5px] right-[10px] z-30 bg-white lg:size-10 size-7 rounded-[100px] grid justify-center items-center"
-  >
+  <Image
+    src={item.image ?? ""}
+    alt={item.heading}
+    class="w-full h-full object-cover rounded-[20px] rounded-t-none"
+    quality="max"
+  />
+
+  <!-- Optional: Keep the icon for visual cue -->
+  <div class="absolute lg:bottom-[13.5px] lg:right-[16.5px] bottom-[8.5px] right-[10px] z-30 bg-white lg:size-10 size-7 rounded-full grid place-items-center pointer-events-none">
     <svg
-      class="hover:cursor-pointer w-[9px] h-[9px] lg:w-4 lg:h-4"
+      class="w-[9px] h-[9px] lg:w-4 lg:h-4"
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -34,21 +37,27 @@ const { pathname } = Astro. url;
         fill="#CC0000"
       />
     </svg>
-  </button>
   </div>
+</div>
 
-      <script is:inline define:vars={{item,scrollDataSection,pathname}}>
-        
-        const buttonScroll = document.getElementById(`${item.id}`); 
-        function scrollFunction() {
-          const element = document.getElementById(`${scrollDataSection[item.id]}`);
-          element.scrollIntoView({behavior:"smooth"});
-        }
-        if(pathname === "/join"){
-          buttonScroll.addEventListener('click',()=>{
-            window.location.href = "/"
-          })
-        }else{
-          buttonScroll.addEventListener('click',()=>scrollFunction());
-        }
-      </script>
+<script is:inline define:vars={{ item, scrollDataSection, pathname }}>
+  const card = document.getElementById(`card-${item.id}`);
+
+  function scrollFunction() {
+    const targetId = scrollDataSection[item.id];
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  if (card) {
+    if (pathname === "/join") {
+      card.addEventListener("click", () => {
+        window.location.href = "/";
+      });
+    } else {
+      card.addEventListener("click", () => scrollFunction());
+    }
+  }
+</script>
