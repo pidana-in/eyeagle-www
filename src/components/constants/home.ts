@@ -1,5 +1,5 @@
 import BathroomImage1new from "../../assets/Navbar/bathroomImage1new.png";
-import Frame4 from "../../assets/Navbar/Frame4.png";
+import FrameNew from "../../assets/Navbar/FrameNew.jpg";
 import BathroomImage3new from "../../assets/Navbar/bathroomImage3new.png";
 import BathroomImage4new from "../../assets/Navbar/bathroomImage4new.png";
 import takeCareImage1 from "../../assets/Navbar/takeCareImage1.png";
@@ -32,7 +32,7 @@ export const bathroomData = [
     title: "Our PIDANA Alarm device that lets you help in an emergency",
     description:
       "In case of an emergency, our patented alarm system ensures rapid alerts. When the alarm is triggered, notifications are immediately sent to the EyEagle app, informing caregivers or family members about the situation.",
-    image: Frame4,
+    image: FrameNew,
   },
   {
     id: 3,
