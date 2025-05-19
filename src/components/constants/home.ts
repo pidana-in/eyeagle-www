@@ -17,10 +17,15 @@ import bentoMobile from "../../assets/Home/bentoMobile.png";
 import powerfulFeat1Mobile from "../../assets/Home/powerfulFeat1Mobile.png";
 import powerfulFeat2Mobile from "../../assets/Home/powerfulFeat2Mobile.png";
 import kitImage1new from "../../assets/Navbar/kitImage1new.png";
+import kitMobile1 from "../../assets/Navbar/kitMobile1.png";
 import kitImage2new from "../../assets/Navbar/kitImage2new.png";
+import kitMobile2 from "../../assets/Navbar/kitMobile2.png";
 import kitImage3new from "../../assets/Navbar/kitImage3new.png";
+import kitMobile3 from "../../assets/Navbar/kitMobile3.png";
 import kitImage4new from "../../assets/Navbar/kitImage4new.png";
+import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
+import kitMobile5 from "../../assets/Navbar/kitMobile5.png";
 
 export const bathroomData = [
   {
@@ -86,7 +91,7 @@ export const struggleData = [
 // },
 // ];
 
-export const kitImageColumns = [
+export const kitImageDesktop = [
   [
     {
       src: kitImage1new,
@@ -115,6 +120,40 @@ export const kitImageColumns = [
     {
       src: kitImage5new,
       alt: "kitImage5",
+      caption: "Highest quality, sturdy and high-visibility fittings",
+    },
+  ],
+];
+
+export const kitImageMobile = [
+  [
+    {
+      src: kitMobile1,
+      alt: "kitMobile1",
+      caption: "Safety audit of each bathroom on-site",
+    },
+    {
+      src: kitMobile2,
+      alt: "kitMobile2",
+      caption: "Grip tapes to protect against floor slips",
+    },
+  ],
+  [
+    {
+      src: kitMobile3,
+      alt: "kitMobile3",
+      caption: "Grab bars where they matter most",
+    },
+  ],
+  [
+    {
+      src: kitMobile4,
+      alt: "kitMobile4",
+      caption: "Anti-skid mats at high slip risk spots",
+    },
+    {
+      src: kitMobile5,
+      alt: "kitMobile5",
       caption: "Highest quality, sturdy and high-visibility fittings",
     },
   ],

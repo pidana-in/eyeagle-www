@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { kitImageColumns } from "../constants/home";
+import { kitImageColumns, kitImageDesktop, kitImageMobile } from "../constants/home";
 const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 ---
 
@@ -20,7 +20,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 
    <!-- Desktop Layout -->
    <div class="flex max-lg:hidden gap-5 lg:mt-[3.75rem] mt-8 lg:pb-[7.5rem] pb-20">
-    {kitImageColumns.map((column, colIndex) => (
+    {kitImageDesktop.map((column, colIndex) => (
       <div class={column.length > 1 ? "grid gap-5" : "relative"}>
         {column.map((item) => (
           <div class="relative">
@@ -41,7 +41,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 
   <!-- Mobile Grid Layout -->
   <div class="grid grid-cols-2 gap-4 lg:hidden my-8">
-    {kitImageColumns.flat().map((item) => (
+    {kitImageMobile.flat().map((item) => (
       <div class="relative max-w-[182px] h-[280px] rounded-[13.17px] bg-[#595957]">
         <Image src={item.src} alt={item.alt} class="h-full w-full object-cover bg-[#595957] rounded-[13.17px]" />
         <div class="absolute top-6 left-5 bg-white h-10 w-10 rounded-full grid place-items-center shadow-md">
