@@ -175,8 +175,8 @@ export const descriptionButton = "Join waitlist";
 export const scrollDataSection = {
   1: "prevention",
   2: "services",
-  3: "emergency",
-  4: "installation",
+  3: "alerts",
+  4: "emergency",
 };
 
 export const EmergencyResponseData = {
