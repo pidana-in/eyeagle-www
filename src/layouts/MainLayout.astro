@@ -2,11 +2,20 @@
 import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
-import {footerPolicy,buttonContent,popUpMenu,navbarContent, footerReserve} from "../components/constants/mainLayoutContent";
+import {
+  footerPolicy,
+  buttonContent,
+  popUpMenu,
+  navbarContent,
+  footerReserve,
+} from "../components/constants/mainLayoutContent";
 import "../styles/global.css";
 import { Image } from "astro:assets";
-const { title = "EyEagle – Preventing Falls, Saving Lives",desc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!" } = Astro.props;
-const { pathname } = Astro. url;
+const {
+  title = "EyEagle – Preventing Falls, Saving Lives",
+  desc = "Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!",
+} = Astro.props;
+const { pathname } = Astro.url;
 const loginCredential = false;
 const footerClass = Astro.props.footerClass ?? "";
 ---
@@ -29,20 +38,32 @@ const footerClass = Astro.props.footerClass ?? "";
       href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
-    <script type="text/partytown" is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7HPVGH0CKQ"></script>
+    <script
+      type="text/partytown"
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7HPVGH0CKQ"></script>
     <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-7HPVGH0CKQ');
+      gtag("config", "G-7HPVGH0CKQ");
     </script>
   </head>
-  
+
   <body class="text-gray-900">
     <!-- <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
       <h2 class="tracking-[0.25rem] h-[3.25rem] text-base font-bold leading-6 grid justify-center items-center w-full">
@@ -61,47 +82,65 @@ const footerClass = Astro.props.footerClass ?? "";
               alt={"EyEagle – Preventing Falls, Saving Lives"}
               id="imageBg"
               class="w-[10.188rem]"
-              quality={'max'}
+              quality={"max"}
             />
           </a>
           <div class="h-8 w-px bg-gray-300"></div>
-          <p class="text-white text-xs font-sans-instrument">Preventing Falls,<br />Saving Lives</p>
-      </div>
-      <ul
-            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4 mr-[10%]`
-            id="content"
-          >
-          {navbarContent?.map((item)=>
-            <li>
-              <a href={`${item.url}`} class="hover:underline text-white">{item.title}</a>
-            </li>
-          )}
-      </ul>  
-      {pathname === "/plan/" ? "" : <div class="flex gap-5 justify-end">
-        {/* <button class="relative">
+          <p class="text-white text-xs font-sans-instrument">
+            Preventing Falls,<br />Saving Lives
+          </p>
+        </div>
+        <ul
+          class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4 mr-[10%]`
+          id="content"
+        >
+          {
+            navbarContent?.map((item) => (
+              <li>
+                <a href={`${item.url}`} class="hover:underline text-white">
+                  {item.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        {
+          pathname === "/plan/" ? (
+            ""
+          ) : (
+            <div class="flex gap-5 justify-end">
+              {/* <button class="relative">
           <Image id="account" src={Account} alt={'Account'}/>
         </button> */}
-            <ul id="accountDetails" style={{display:"none"}} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[8.5rem] rounded-xl font-sans-instrument font-normal text-lg">
-              {popUpMenu?.map((item)=>
-                <>
-                {!loginCredential && item.title === "Login" &&
-                  <a href={`${item.url}`}>
-              <li class="p-3 hover:text-primary">{item.title}</li>
+              <ul
+                id="accountDetails"
+                style={{ display: "none" }}
+                class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[8.5rem] rounded-xl font-sans-instrument font-normal text-lg"
+              >
+                {popUpMenu?.map((item) => (
+                  <>
+                    {!loginCredential && item.title === "Login" && (
+                      <a href={`${item.url}`}>
+                        <li class="p-3 hover:text-primary">{item.title}</li>
+                      </a>
+                    )}
+                    {item.title !== "Login" && (
+                      <a href={`${item.url}`}>
+                        <li class="p-3 hover:text-primary">{item.title}</li>
+                      </a>
+                    )}
+                  </>
+                ))}
+              </ul>
+              {/* order button */}
+              <a href="/join/">
+                <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">
+                  {buttonContent}
+                </button>
               </a>
-                }
-                { item.title !== "Login" &&
-                  <a href={`${item.url}`}>
-              <li class="p-3 hover:text-primary">{item.title}</li>
-              </a>
-                }
-                </>
-              )}
-            </ul>
-            {/* order button */}
-        <a href="/join/">
-          <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">{buttonContent}</button>
-        </a>
-      </div>}
+            </div>
+          )
+        }
       </nav>
     </header>
     <header
@@ -109,24 +148,29 @@ const footerClass = Astro.props.footerClass ?? "";
       class="lg:hidden sticky top-0 shadow z-40 bg-black w-full"
     >
       <nav class="flex justify-between items-center px-5 py-4">
-    <div class="flex items-center gap-4">
-    <a href="/" aria-label="EyEagle Home Page">
-      <Image src={EyeagleLogo} alt="EyEagle Logo" quality={'max'} class="w-[9.188rem]" />
-    </a>
-    <div class="h-8 w-px bg-gray-300"></div>
-    <p class="text-white text-xs font-sans-instrument">
-      Preventing Falls,<br />Saving Lives
-    </p>
-  </div>
-    <div id="hamburger">
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
+        <div class="flex items-center gap-4">
+          <a href="/" aria-label="EyEagle Home Page">
+            <Image
+              src={EyeagleLogo}
+              alt="EyEagle Logo"
+              quality={"max"}
+              class="w-[9.188rem]"
+            />
+          </a>
+          <div class="h-8 w-px bg-gray-300"></div>
+          <p class="text-white text-xs font-sans-instrument">
+            Preventing Falls,<br />Saving Lives
+          </p>
+        </div>
+        <div id="hamburger">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-        <rect width="48" height="48" rx="24" fill="#000000"></rect>
+            <rect width="48" height="48" rx="24" fill="#000000"></rect>
             <path
               d="M12.3335 18.167H30.6668"
               stroke="#F6F4F2"
@@ -145,16 +189,26 @@ const footerClass = Astro.props.footerClass ?? "";
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
-      </svg>
-
+          </svg>
         </div>
-        <div id="crossButton" style={{display:"none"}}>
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="48" height="48" rx="24" fill="black"/>
-        <path d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-  </div>
-</nav>
+        <div id="crossButton" style={{ display: "none" }}>
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="48" height="48" rx="24" fill="black"></rect>
+            <path
+              d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337"
+              stroke="white"
+              stroke-width="1.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+      </nav>
     </header>
     <section
       id="mobileNavContent"
@@ -162,15 +216,22 @@ const footerClass = Astro.props.footerClass ?? "";
       class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
-        {navbarContent?.map((item)=>
-         <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
-        )}
+        {
+          navbarContent?.map((item) => (
+            <li class="hover:cursor-pointer hover:text-primary">
+              <a href={`${item.url}`}>{item.title}</a>
+            </li>
+          ))
+        }
         <a href="/join/">
-          <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{buttonContent}</button>
+          <button
+            class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold"
+            >{buttonContent}</button
+          >
         </a>
       </ul>
     </section>
-    
+
     <main class="font-sans-instrument">
       <slot />
     </main>
@@ -185,13 +246,27 @@ const footerClass = Astro.props.footerClass ?? "";
       >
         <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
         <div class="lg:flex grid gap-8 justify-center items-center">
-          {footerPolicy?.map((item)=>
-            <a href={`${item.url}`} class="block">{item.title}</a>
-          )}
+          {
+            footerPolicy?.map((item) => (
+              <a href={`${item.url}`} class="block">
+                {item.title}
+              </a>
+            ))
+          }
         </div>
       </div>
-      <p class="text-center font-sans-instrument font-normal text-sm leading-[1.4rem] opacity-70">{footerReserve}</p>
+      <p
+        class="text-center font-sans-instrument font-normal text-sm leading-[1.4rem] opacity-70"
+      >
+        {footerReserve}
+      </p>
     </footer>
+    <script type="module">
+      import { initFirebase, fetchRemoteConfig } from "../lib/firebase";
+
+      initFirebase();
+      fetchRemoteConfig();
+    </script>
   </body>
 </html>
 
@@ -235,44 +310,45 @@ const footerClass = Astro.props.footerClass ?? "";
 </style>
 
 <script is:inline define:vars={{ EyeagleLogoBlack, EyeagleLogo }}>
-  let waitButton = document.getElementById('waitBtn');
-  let footer = document.getElementById('footer');
+  let waitButton = document.getElementById("waitBtn");
+  let footer = document.getElementById("footer");
   let hamburger = document.getElementById("hamburger");
   let mobileNavContent = document.getElementById("mobileNavContent");
-  let account = document.getElementById('account');
-  let accountDetails = document.getElementById('accountDetails');
-  let crossButton = document.getElementById('crossButton');
+  let account = document.getElementById("account");
+  let accountDetails = document.getElementById("accountDetails");
+  let crossButton = document.getElementById("crossButton");
 
   function toggleButtonVisibility() {
-      const footerRect = footer.getBoundingClientRect();
-      const buttonRect = waitButton.getBoundingClientRect();
+    const footerRect = footer.getBoundingClientRect();
+    const buttonRect = waitButton.getBoundingClientRect();
 
-      if (footerRect.top <= window.innerHeight && footerRect.bottom >= buttonRect.bottom) {
-        waitButton.style.display = 'none'; // Hide button if it overlaps with the footer
-      } else {
-        waitButton.style.display = ''; // Show button otherwise
-      }
+    if (
+      footerRect.top <= window.innerHeight &&
+      footerRect.bottom >= buttonRect.bottom
+    ) {
+      waitButton.style.display = "none"; // Hide button if it overlaps with the footer
+    } else {
+      waitButton.style.display = ""; // Show button otherwise
     }
+  }
 
-    window.addEventListener('scroll', toggleButtonVisibility);
-    window.addEventListener('resize', toggleButtonVisibility);
+  window.addEventListener("scroll", toggleButtonVisibility);
+  window.addEventListener("resize", toggleButtonVisibility);
 
-  hamburger.addEventListener("click",function(){
+  hamburger.addEventListener("click", function () {
     hamburger.style.display = "none";
     crossButton.style.display = "block";
     mobileNavContent.style.display = "";
   });
 
-  crossButton.addEventListener("click",()=>{
+  crossButton.addEventListener("click", () => {
     hamburger.style.display = "block";
     crossButton.style.display = "none";
     mobileNavContent.style.display = `none`;
-  })
+  });
 
-  account.addEventListener('click',()=>{
-    let display = accountDetails.style.display
+  account.addEventListener("click", () => {
+    let display = accountDetails.style.display;
     accountDetails.style.display = `${display ? "" : "none"}`;
-  })
-  
+  });
 </script>
-
