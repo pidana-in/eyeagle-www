@@ -16,6 +16,11 @@ import powerfulFeat2 from "../../assets/Home/powerfulFeat2.png";
 import bentoMobile from "../../assets/Home/bentoMobile.png";
 import powerfulFeat1Mobile from "../../assets/Home/powerfulFeat1Mobile.png";
 import powerfulFeat2Mobile from "../../assets/Home/powerfulFeat2Mobile.png";
+import kitImage1new from "../../assets/Navbar/kitImage1new.png";
+import kitImage2new from "../../assets/Navbar/kitImage2new.png";
+import kitImage3new from "../../assets/Navbar/kitImage3new.png";
+import kitImage4new from "../../assets/Navbar/kitImage4new.png";
+import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 
 export const bathroomData = [
   {
@@ -81,6 +86,40 @@ export const struggleData = [
 // },
 // ];
 
+export const kitImageColumns = [
+  [
+    {
+      src: kitImage1new,
+      alt: "kitImage1",
+      caption: "Safety audit of each bathroom on-site",
+    },
+    {
+      src: kitImage2new,
+      alt: "kitImage2",
+      caption: "Grip tapes to protect against floor slips",
+    },
+  ],
+  [
+    {
+      src: kitImage3new,
+      alt: "kitImage3",
+      caption: "Grab bars where they matter most",
+    },
+  ],
+  [
+    {
+      src: kitImage4new,
+      alt: "kitImage4",
+      caption: "Anti-skid mats at high slip risk spots",
+    },
+    {
+      src: kitImage5new,
+      alt: "kitImage5",
+      caption: "Highest quality, sturdy and high-visibility fittings",
+    },
+  ],
+];
+
 export const takeCareData = [
   {
     id: 2,
@@ -136,8 +175,8 @@ export const descriptionButton = "Join waitlist";
 export const scrollDataSection = {
   1: "prevention",
   2: "services",
-  3: "alerts",
-  4: "emergency",
+  3: "emergency",
+  4: "installation",
 };
 
 export const EmergencyResponseData = {
