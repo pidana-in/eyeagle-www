@@ -25,7 +25,7 @@ import kitMobile3 from "../../assets/Navbar/kitMobile3.png";
 import kitImage4new from "../../assets/Navbar/kitImage4new.png";
 import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
-import kitMobile5 from "../../assets/Navbar/kitMobile5.png";
+import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
 
 export const bathroomData = [
   {
