@@ -1,0 +1,104 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import struggle1 from "../../assets/Navbar/struggle1.png";
+import struggle2 from "../../assets/Navbar/struggle2.png";
+import struggle3 from "../../assets/Navbar/struggle3.png";
+
+export async function getStaticPaths() {
+  const stories = await getCollection("stories");
+  return stories.map((story: any) => ({
+    params: { slug: story.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const story = await getEntryBySlug("stories", slug);
+
+if (!story) {
+  throw new Error("Story not found");
+}
+
+const { Content } = await story.render();
+
+const struggleimages = {
+  fall: struggle1,
+  prevention: struggle2,
+  hospitalisation: struggle3,
+};
+
+const heroImage = struggleimages[slug] ?? struggle1;
+---
+
+<MainLayout>
+  <section class="bg-[#002E3D] text-white py-36 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+          {story.data.title}
+        </h1>
+        <a
+          href="/client-story"
+          class="inline-block border border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-[#002E3D] transition"
+        >
+          Client Story
+        </a>
+      </div>
+      <div class="flex justify-center">
+        <Image
+          src={heroImage}
+          alt={story.data.title}
+          class="rounded-lg max-h-80 w-auto object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <article class="flex flex-row px-20 py-32 font-instrument-sans gap-32">
+    <div class="flex flex-col">
+      <p class="uppercase text-xl font-bold tracking-widest">Written by</p>
+
+      <div class="flex gap-4 mb-8 py-2">
+        <img
+          src={story.data.authorImage}
+          alt={story.data.author}
+          class="w-12 h-12 rounded-full object-cover border border-gray-300"
+        />
+        <div class="text-sm leading-6">
+          <p class="text-gray-900 font-semibold">{story.data.author}</p>
+          <p class="text-gray-700 font-semibold">{story.data.authorRole}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose text-lg max-w-5xl">
+      <Content />
+
+      <!-- Testimonial Card -->
+      <div class="mt-16 border float-end rounded-xl p-6 shadow-sm bg-white w-[60%]">
+        <div class="flex items-start gap-4">
+          <div class="border-l-4 border-sky-500 pl-4">
+            <p class="text-xl text-[#004b6d] font-semibold">
+              <span class="text-4xl leading-none text-sky-500 mr-2">❝</span>
+              This was a difficult task as the app design had to be such that it
+              was easily accessible to users with limited digital literacy, and in
+              remote locations without strong network.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 mt-4">
+          <img
+            src="/path/to/akanksha.jpg"
+            alt="Ak image"
+            class="w-12 h-12 rounded-full object-cover border border-gray-300"
+          />
+          <div class="not-prose font-semibold">
+            <p class="text-gray-900">Akanksha Kapoor</p>
+            <p class="text-gray-600 text-sm">Partnerships Leader, GE Healthcare</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</MainLayout>

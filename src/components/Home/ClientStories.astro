@@ -1,0 +1,70 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const { showSeeMoreButton = false } = Astro.props;
+let clientStoryData: CollectionEntry<"stories">[] = await getCollection("stories");
+clientStoryData = clientStoryData.sort((a, b) => a.data.id - b.data.id);
+if (showSeeMoreButton) {
+  clientStoryData = clientStoryData.slice(0, 3);
+}
+---
+
+<section class="max-xl:container lg:mt-8 lg:mb-[7.5rem] my-16 lg:px-20 px-4">
+  <p class="text-3xl lg:text-[64px] leading-[2.5rem] lg:leading-[88px] font-medium font-sans-instrument">
+    Client Stories
+  </p>
+  <p class="lg:mb-[60px] lg:mt-[32px] text-[20px] leading-7 lg:text-4xl lg:leading-10 font-barlow">
+    What we've done so far
+  </p>
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {
+      clientStoryData.map(({ data, slug }) => (
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
+          <img
+            src={data.img}
+            alt={data.title}
+            class="w-full h-[300px] object-cover"
+          />
+          <div class="p-6 flex flex-col justify-between flex-grow font-barlow">
+            <h3 class="text-xl font-semibold text-left mb-2">{data.title}</h3>
+            <p class="text-lg text-gray-600 mb-4">{data.category}</p>
+            <a
+              href={`/client-story/${slug}`}
+              class="mt-auto text-gray-700 font-semibold text-sm inline-flex items-center gap-1 group"
+            >
+              Learn More
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M10.59 16.59L15.17 12 10.59 7.41 9.17 8.83 12.34 12 9.17 15.17z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  {showSeeMoreButton && (
+    <div class="flex justify-center mt-10">
+      <a
+        href="/client-story"
+        class="inline-flex items-center gap-2 px-6 py-2 border border-gray-300 text-[#002E3D] font-semibold rounded-lg transition hover:bg-gray-100"
+      >
+        See More
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  )}
+</section>
