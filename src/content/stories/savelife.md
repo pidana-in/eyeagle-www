@@ -2,11 +2,11 @@
 id: "4"
 title: "95% of hip fractures in seniors are caused by falls in the bathroom"
 category: "Client story"
-img: "src/assets/Navbar/struggle2.png"
+img: "../../src/assets/Navbar/struggle2.png"
 slug: "savelife"
 author: "Abhinav Kuswaha"
 authorRole: "Co-Founder"
-authorImage: "/src/assets/Aboutus/Abhinav.png"
+authorImage: "../../src/assets/Aboutus/Abhinav.png"
 ---
 
 # Introduction
