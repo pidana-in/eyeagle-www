@@ -92,29 +92,29 @@ export const struggleData = [
 // },
 // ];
 
-// export const clientStoryData = [
-//   {
-//     img: struggle1,
-//     title: `1 in 4 seniors fall in the bathroom every year as per reports`,
-//     category: `Client story`,
-//     link: "/stories/fall",
-//     slug: "fall-prevention"
-//   },
-//   {
-//     img: struggle2,
-//     title: `95% of hip fractures in seniors are caused by falls in the bathroom`,
-//     category: `Client story`,
-//     link: "/stories/hip-fractures",
-//     slug: "fall-prevention",
-//   },
-//   {
-//     img: struggle3,
-//     title: `10-15% of falls in the bathroom lead to hospitalisation`,
-//     category: `Client story`,
-//     link: "/stories/hospitalisation",
-//     slug: "fall-prevention",
-//   },
-// ];
+export const clientStoryData = [
+  {
+    img: struggle1,
+    title: `1 in 4 seniors fall in the bathroom every year as per reports`,
+    category: `Client story`,
+    link: "/stories/fall",
+    slug: "fall-prevention"
+  },
+  {
+    img: struggle2,
+    title: `95% of hip fractures in seniors are caused by falls in the bathroom`,
+    category: `Client story`,
+    link: "/stories/hip-fractures",
+    slug: "fall-prevention",
+  },
+  {
+    img: struggle3,
+    title: `10-15% of falls in the bathroom lead to hospitalisation`,
+    category: `Client story`,
+    link: "/stories/hospitalisation",
+    slug: "fall-prevention",
+  },
+];
 
 
 export const kitImageDesktop = [
