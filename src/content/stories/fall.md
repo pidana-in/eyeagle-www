@@ -2,11 +2,11 @@
 id: "1"
 title: "1 in 4 seniors fall in the bathroom every year as per reports"
 category: "Client story"
-img: "../../src/assets/Navbar/struggle1.png"
+img: "../../images/struggle1.png"
 slug: "fall"
 author: "Abhinav Kuswaha"
 authorRole: "Co-Founder"
-authorImage: "../../src/assets/Aboutus/Abhinav.png"
+authorImage: "../../images/Abhinav.png"
 ---
 
 # Introduction
