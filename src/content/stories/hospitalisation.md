@@ -6,7 +6,7 @@ img: "src/assets/Navbar/struggle3.png"
 slug: "hospitalisation"
 author: "Abhinav Kuswaha"
 authorRole: "Co-Founder"
-authorImage: "/images/authors/abhinav.jpg"
+authorImage: "/src/assets/Aboutus/Abhinav.png"
 ---
 
 
