@@ -1,7 +1,7 @@
 ---
 id: "3"
 title: "10-15% of falls in the bathroom lead to hospitalisation"
-category: "Client story"
+category: "Blog"
 img: "../../images/struggle3.png"
 slug: "hospitalisation"
 author: "Abhinav Kuswaha"

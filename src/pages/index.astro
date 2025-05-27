@@ -6,7 +6,7 @@ import ourTeam from "../assets/Navbar/ourTeam.png";
 import desireImage from "../assets/Navbar/desireImage.png";
 import HeroSectionComponent from "../components/Home/HeroSectionComponent.astro";
 import HealthOrganization from "../components/Home/HealthOrganization.astro";
-import {bathroomData,takeCareData,heroDescription,heroDescription2,healthOrganization1,healthOrganization2,productFeatureTitle,ourTeamButton,ourTeamHeading1,ourTeamHeading2,serviceSectionTitle,desireSection1,desireSection2,descriptionButton,struggleData,clientStoryData} from "../components/constants/home";
+import {bathroomData,takeCareData,heroDescription,heroDescription2,healthOrganization1,healthOrganization2,productFeatureTitle,ourTeamButton,ourTeamHeading1,ourTeamHeading2,serviceSectionTitle,desireSection1,desireSection2,descriptionButton,struggleData,blogsData} from "../components/constants/home";
 import OurTeamSection from "../components/Home/OurTeamSection.astro";
 import DesireSection from "../components/Home/DesireSection.astro";
 import ScrollSection from "../components/Home/ScrollSection.astro";
@@ -20,7 +20,7 @@ import PowerfulFeat from "../components/Home/PowerfulFeat.astro";
 import {HeroImageTitle} from "../components/constants/home";
 import Faqs from "../components/Home/Faqs.astro";
 import VideoSection from "../components/Home/VideoSection.astro";
-import ClientStories from "../components/Home/ClientStories.astro";
+import Blogs from "../components/Home/Blogs.astro";
 const metaTitle = "EyEagle – Preventing Falls, Saving Lives";
 const metaDesc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!";
 ---
@@ -45,7 +45,7 @@ const metaDesc="Discover EyEagle's advanced emergency alarm systems for the elde
      <!-- Handle Evereything Section -->
     <HandleSection />
      <!--CirleSection -->
-   <ClientStories clientStoryData={clientStoryData} showSeeMoreButton={true} />
+   <Blogs blogsData={blogsData} showSeeMoreButton={true} />
    <!-- Desire Section -->
    <!--FaqsSection -->
    <VideoSection/>
