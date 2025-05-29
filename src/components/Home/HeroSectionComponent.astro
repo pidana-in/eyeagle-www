@@ -20,8 +20,9 @@ const HeroImageMob = Astro.props.heroImageMob;
       <Image
         src={heroImage}
         alt="Fallen elderly woman"
-        class="w-full max-h-[82vh] object-cover 2xl:min-h-[110vh] scale-x-[-1]"
+        class="w-full max-h-[82vh] object-cover sm:min-h-[110vh] xl:min-h-[110vh] scale-x-[-1]"
       />
+      <!-- Phone on large screens -->
       <div class="hidden lg:block absolute top-[25%] left-[20%] w-[250px] z-10">
         <Image
           src={HeroImageMob}
@@ -30,25 +31,17 @@ const HeroImageMob = Astro.props.heroImageMob;
         />
       </div>
     </div>
+
     <!-- Right: Text content -->
     <div
       class="relative lg:w-[30%] flex items-center justify-center px-6 py-2 lg:py-0 z-10"
     >
-      <!-- Curve background: shown for all views now -->
+      <!-- Curve background -->
       <div
-        class="absolute lg:left-[-30%] lg:top-10 -top-[20%] w-[125%] lg:w-full h-full bg-white md:rounded-l-[90%] rounded-t-[90%] z-0 block"
+        class="absolute lg:left-[-30%] lg:top-10 -top-[20%] w-[125%] lg:w-[95%] h-full bg-[#ffff] md:rounded-l-[90%] rounded-t-[90%] z-0"
       >
       </div>
-      <div class="absolute lg:-left-4 lg:bottom-36 -bottom-8 right-14 z-20">
-        <a href="/join">
-          <button
-            class="bg-primary font-bold lg:text-base text-sm text-white lg:px-4 lg:py-3 px-3 py-2 rounded-[99px]"
-          >
-            Get Started Now
-          </button>
-        </a>
-      </div>
-
+      <!-- Actual content -->
       <div
         class="z-10 w-full min-w-[300px] lg:min-w-[500px] text-right lg:text-left lg:ml-0"
       >
@@ -62,21 +55,33 @@ const HeroImageMob = Astro.props.heroImageMob;
             class="w-full h-full rounded-[24px] border-white border-2 z-50"
           />
         </div>
-
         <h1
-          class="text-[20px] sm:text-[24px] lg:text-5xl text-center lg:text-start pl-[140px] lg:pl-0 font-michroma font-semibold text-red-700 -mt-3 lg:mt-16 mb-3 lg:mb-8 leading-tight"
+          class="text-[18px] md:text-3xl xl:text-[44px] xl:leading-none text-center lg:text-start pl-[140px] lg:pl-0 font-michroma font-semibold text-red-700 -mt-3 lg:mt-16 mb-3 lg:mb-8 leading-tight"
         >
           One Fall... <br /> Can Destroy All
         </h1>
-
-        <div class="w-14 lg:w-40 h-[3px] bg-red-700 mx-52 lg:mx-0 mb-2 lg:mb-6">
+        <div
+          class="w-14 lg:w-40 h-[3px] bg-red-700 mx-[61%] lg:mx-0 mb-2 lg:mb-6"
+        >
         </div>
-
         <p
-          class="text-lg lg:text-4xl font-helvetica text-black font-medium text-center lg:text-start pl-[140px] lg:pl-0 leading-6 mb-2"
+          class="text-[16px] md:text-2xl xl:text-4xl font-helvetica text-black font-medium text-center lg:text-start pl-[140px] leading-normal lg:pl-0 mb-2"
         >
           Prevent today, <br /> Don’t regret tomorrow
         </p>
+
+        <!-- CTA Button -->
+        <div
+          class="flex lg:place-content-start lg:mx-0 text-center place-content-center z-50 ml-[40%] lg:mt-5 mt-2"
+        >
+          <a href="/join">
+            <button
+              class="bg-primary font-bold lg:text-base text-sm text-white lg:px-4 lg:py-3 px-3 py-2 rounded-[99px]"
+            >
+              Get Started Now
+            </button>
+          </a>
+        </div>
 
         <!-- Decorative Circles (desktop only) -->
         <div
