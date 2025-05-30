@@ -1,6 +1,6 @@
 ---
 id: "1"
-title: "1 in 4 seniors fall in the bathroom every year as per reports"
+title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
 category: "Blog"
 img: "../../images/struggle1.png"
 slug: "fall"
@@ -9,29 +9,88 @@ authorRole: "Co-Founder"
 authorImage: "../../images/Abhinav.png"
 ---
 
-# Introduction
+# Discover how EyEagle - an emergency alert device for elderly can protect your loved ones with quiet, reliable care.
 
-**Indian Railway Catering and Tourism Corporation** is an Indian public sector undertaking that provides ticketing, catering, and tourism services for the state-owned Indian Railways.
+In households across India, there's an invisible threat quietly putting millions of elderly lives at risk, and most families don’t even realise it. It’s not heart attacks, or chronic disease, or strokes. It is falls, especially bathroom falls. Falls are one of the leading causes of injury-related deaths in seniors globally. In fact, 31% of older adults in India experience one or more falls annually. Among these incidents, 68% occur at home, with 75% happening during activities like toileting and bathing. That’s more than many other events or many life-threatening diseases.
 
-# Challenge
+And yet, no one’s really talking about it.
 
-Creating a system that can handle volume for the **4th largest railway network in the world**, overcoming network connectivity bottlenecks and more.
+We talk about eating well, about medications, about exercise. But fall prevention? Especially at home? It rarely gets the attention it deserves until it’s too late. What’s missing in many homes is a simple, life-saving solution: an emergency alert device for elderly users — especially those most at risk during nighttime or in the bathroom.
 
-Ensuring fulfilment of order and a great delivery and consumer experience.
+## The Statistics We Can’t Ignore
 
-Evolving train catering to support revenue growth of the platform.
+Let’s break it down:
 
-Adding data analytics to ensure greater insight generation for vendors, delivery teams, and end consumers.
+- Over 80% of falls in seniors happen in the bathroom. Slippery floors, poor lighting, and lack of support structures like grab bars turn everyday routines into hazards.
+- More than 3 million seniors visit the emergency room globally each year due to falls.
+- 1 in 3 seniors over 65 falls at least once a year.
+- The first fall doubles the risk of a second. And the second one? It often changes everything, starting from independence to confidence, even life expectancy.
+- These aren’t just numbers. They’re stories & families. And they’re preventable tragedies.
 
-# Solutions
+## Why Don’t We Talk About Falls?
 
-- **Improvement of Current System:** Developed Food on Track app and a better web app to ensure accessibility for consumers. Included features like PNR auto-pasting, minimal data usage, and fast load times to enhance user experience.
-- **Empowered Vendors:** Provided insights and dashboards to help vendors improve services. Integrated a sophisticated real-time order tracking system using NTES data for accurate delivery timings.
-- **Efficient Payment System:** Implemented a reliable payment process for smooth transactions.
+There’s a strange silence around this issue — and it stems from two places:
 
-# Impact and Achievements
+1. Stigma: Many seniors feel that falling is a sign of “getting old” or “becoming weak.” They don’t want to admit they’re at risk. They fear losing independence more than injury.
 
-- **Revenue Growth:** Achieved 80x revenue growth in 6 years (including the COVID year).
-- **Improved Services:** Data analytics helped optimize cutoff times, ensuring operational excellence even during peak hours.
-- **Top-Rated App:** Food on Track became the highest-rated food delivery app in India.
-- **Media Coverage:** Received broad media coverage and attention from influencers and publications.
+2. Lack of Awareness: Families simply don’t know how common and dangerous falls are — especially in spaces like bathrooms. Most homes aren’t designed with elder safety in mind, and basic modifications like non-slip mats, grab bars, or emergency alert systems are often overlooked.
+
+## It Starts with a Towel on the Floor
+
+Imagine this: a wet bathroom floor, a missing grab bar, and a moment of imbalance. One second. That’s all it takes. A fractured hip leads to a trip to the ICU. And months of recovery — if recovery comes at all.
+For many elderly people, the first fall becomes the beginning of a long decline. It affects not just their body but their confidence. Many stop moving freely, fearful of falling again. Muscles weaken. Independence fades. Emotionally, a quiet fear begins to take root in both them and their families.
+
+## The Bathroom Is the Danger Zone
+
+The bathroom is the most dangerous room in the house for seniors.
+Why? Because
+
+- Water makes floors slippery.
+- There are no natural handholds.
+- Doors are often locked — delaying assistance.
+- Falls are often unwitnessed.
+- Lack of immediate assistance.
+
+Yet, most bathrooms in Indian homes, especially older ones have not been upgraded with safety in mind. Without an emergency alert device for elderly family members installed near the most dangerous zones, we leave too much to chance. It was just not part of the conversation. Until now.
+
+## The Importance of Fall Awareness
+
+Fall awareness isn’t just for hospitals or caregivers. It starts at home, with everyday conversations. When families talk openly about fall risks, they reduce shame, reduce fear, and make room for solutions, by making fall prevention part of regular elder care planning like we do with diet or medication. We need to shift the mindset from reaction to prevention. Most importantly, we give seniors the dignity of being seen, heard, and proactively protected.
+
+## Fall Prevention Is Not a Luxury. It’s a Necessity
+
+Here’s the good news: falls are often entirely preventable. According to the World Health Organization, nearly 30% of senior falls can be prevented with simple, low-cost interventions.
+Install grab bars near the toilet and shower.
+Place anti-slip mats and neon tape for better night visibility.
+Keep bathrooms clutter-free.
+Train seniors and caregivers on balance and emergency routines.
+Use smart tools like emergency buttons that notify family members in case of distress.
+It doesn’t take a renovation. It takes awareness — and action.
+
+## Enter EyEagle: Preventing Falls, Saving Lives
+
+EyEagle was created with one mission in mind: Preventing falls. Saving lives. We focus where the risk is real - the bathrooms.
+EyEagle combines:
+
+- Professionally installed grab bars, anti-slip mats, and grip tapes.
+- A smart alarm unit, control hub, responsive switch
+- A Circle mobile app that notifies caregivers instantly.
+- An emergency team that responds if caregivers are unreachable.
+
+It is a smart, respectful, silent safety system, standing guard when no one else can.
+
+## Why EyEagle Isn’t Just a Product — It’s a Promise
+
+EyEagle is more than hardware and alerts. It’s a system built around respect, empathy, and trust. From the moment a technician steps into the home for a bathroom safety audit to the instant a caregiver receives an alert, EyEagle is with families at every step. It protects not just the elderly person but the peace of mind of everyone who loves them. We don’t offer empty guarantees. We offer realistic, reliable safety that is installed by people who care. When you choose EyEagle, you’re not just installing safety. You’re creating space for independence, backed by support that never sleeps.
+
+In the event of a fall, especially in isolated spaces like bathrooms, every second counts. That’s where an emergency alert device for elderly individuals becomes a literal lifesaver. Modern fall alert devices like EyEagle’s bathroom-installed system are designed for real-world use — simple to trigger, visible even at night, and seamlessly connected to caregivers. When paired with a complete bathroom safety setup — including grab bars, non-slip mats, and smart alerts — these not only reduce response time but also provide families with peace of mind.
+
+## Why Families Trust EyEagle
+
+Families trust EyEagle because it fits seamlessly into their homes and it works. And because we’ve seen what happens when families wait too long to act. That’s what EyEagle is about. It is not about fear, but empowerment. Not control, but care.
+
+## Let’s Change the Conversation
+
+Falls aren’t just an elderly issue. They’re a family’s quiet responsibility. And yet, too often, we only talk about them after they’ve already happened. But what if we started sooner? If you have aging parents at home, have that gentle conversation about bathroom safety. If you’re building or renovating, think of a bathroom safety kit not as an extra but as essential. And if you’re a caregiver, let a safe routine be your everyday ritual.
+
+This is for families who want to care without control and to protect without overstepping. A system like EyEagle offers quiet, powerful support. And it all starts with one choice: to install an emergency alert device for elderly loved ones before an emergency ever happens.

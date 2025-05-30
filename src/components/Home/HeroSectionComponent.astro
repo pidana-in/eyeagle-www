@@ -4,16 +4,23 @@ const heroImage = Astro.props.heroImage;
 const HeroImageMob = Astro.props.heroImageMob;
 ---
 
-<section class="relative w-full overflow-hidden font-sans-instrument pb-12 lg:pb-0">
-  <div class="flex flex-col lg:flex-row items-stretch w-full max-xl:container mx-auto">
-   <!-- Left: Hero image -->
+<section
+  class="relative w-full overflow-hidden font-sans-instrument pb-12 lg:pb-0"
+>
+  <div
+    class="flex flex-col lg:flex-row items-stretch w-full max-xl:container mx-auto"
+  >
+    <!-- Left: Hero image -->
     <div class="relative w-full lg:w-[75%] overflow-hidden lg:-ml-32 -mt-16">
       <!-- Red gradient (only for md and up) -->
-      <div class="hidden md:block absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-90 z-10 pointer-events-none w-full lg:w-[70%]"></div>
+      <div
+        class="hidden md:block absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-90 z-10 pointer-events-none w-full lg:w-[70%]"
+      >
+      </div>
       <Image
         src={heroImage}
         alt="Fallen elderly woman"
-        class="w-full max-h-[82vh] object-cover 2xl:min-h-[110vh] scale-x-[-1]"
+        class="w-full max-h-[82vh] object-cover sm:min-h-[110vh] xl:min-h-[110vh] scale-x-[-1]"
       />
       <!-- Phone on large screens -->
       <div class="hidden lg:block absolute top-[25%] left-[20%] w-[250px] z-10">
@@ -26,40 +33,69 @@ const HeroImageMob = Astro.props.heroImageMob;
     </div>
 
     <!-- Right: Text content -->
-    <div class="relative lg:w-[30%] flex items-center justify-center px-6 py-2 lg:py-0 z-10">
+    <div
+      class="relative lg:w-[30%] flex items-center justify-center px-6 py-2 lg:py-0 z-10"
+    >
       <!-- Curve background -->
-      <div class="absolute lg:left-[-30%] lg:top-10 -top-[20%] w-[125%] lg:w-full h-full bg-[#ffff] md:rounded-l-[90%] rounded-t-[90%] z-0"></div>
+      <div
+        class="absolute lg:left-[-30%] lg:top-10 -top-[20%] w-[125%] lg:w-[95%] h-full bg-[#ffff] md:rounded-l-[90%] rounded-t-[90%] z-0"
+      >
+      </div>
       <!-- Actual content -->
-      <div class="z-10 w-full min-w-[300px] lg:min-w-[500px] text-right lg:text-left lg:ml-0">
-       <!-- Phone on mobile only -->
-        <div class="absolute block lg:hidden mx-0 mb-6 w-[132px] sm:w-[140px] md:w-[160px] -top-24 ml-0">
+      <div
+        class="z-10 w-full min-w-[300px] lg:min-w-[500px] text-right lg:text-left lg:ml-0"
+      >
+        <!-- Phone on mobile only -->
+        <div
+          class="absolute block lg:hidden mx-0 mb-6 w-[132px] sm:w-[140px] md:w-[160px] -top-24 ml-0"
+        >
           <Image
             src={HeroImageMob}
             alt="Phone mockup"
             class="w-full h-full rounded-[24px] border-white border-2 z-50"
           />
         </div>
-        <h1 class="text-[18px] sm:text-[24px] lg:text-5xl text-center lg:text-start pl-[140px] lg:pl-0 font-michroma font-semibold text-red-700 -mt-3 lg:mt-16 mb-3 lg:mb-8 leading-tight">
+        <h1
+          class="text-[18px] md:text-3xl xl:text-[44px] xl:leading-none text-center lg:text-start pl-[140px] lg:pl-0 font-michroma font-semibold text-red-700 -mt-3 lg:mt-16 mb-3 lg:mb-8 leading-tight"
+        >
           One Fall... <br /> Can Destroy All
         </h1>
-        <div class="w-14 lg:w-40 h-[3px] bg-red-700 mx-[61%] lg:mx-0 mb-2 lg:mb-6"></div>
-        <p class="text-[16px] lg:text-4xl font-helvetica text-black font-medium text-center lg:text-start pl-[140px] leading-normal lg:pl-0 mb-2">
+        <div
+          class="w-14 lg:w-40 h-[3px] bg-red-700 mx-[61%] lg:mx-0 mb-2 lg:mb-6"
+        >
+        </div>
+        <p
+          class="text-[16px] md:text-2xl xl:text-4xl font-helvetica text-black font-medium text-center lg:text-start pl-[140px] leading-normal lg:pl-0 mb-2"
+        >
           Prevent today, <br /> Don’t regret tomorrow
         </p>
 
         <!-- CTA Button -->
-        <div class="flex lg:place-content-start lg:mx-0 text-center place-content-center z-50 ml-[40%] lg:mt-5 mt-2">
+        <div
+          class="flex lg:place-content-start lg:mx-0 text-center place-content-center z-50 ml-[40%] lg:mt-5 mt-2"
+        >
           <a href="/join">
-            <button class="bg-primary font-bold lg:text-base text-sm text-white lg:px-4 lg:py-3 px-3 py-2 rounded-[99px]">
+            <button
+              class="bg-primary font-bold lg:text-base text-sm text-white lg:px-4 lg:py-3 px-3 py-2 rounded-[99px]"
+            >
               Get Started Now
             </button>
           </a>
         </div>
 
         <!-- Decorative Circles (desktop only) -->
-        <div class="hidden md:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[100px] right-[30px]"></div>
-        <div class="hidden md:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[140px] -right-[40px]"></div>
-        <div class="hidden md:block absolute w-44 h-44 rounded-full z-0 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] bottom-[-40px] -right-[132px]"></div>
+        <div
+          class="hidden md:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[100px] right-[30px]"
+        >
+        </div>
+        <div
+          class="hidden md:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[140px] -right-[40px]"
+        >
+        </div>
+        <div
+          class="hidden md:block absolute w-44 h-44 rounded-full z-0 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] bottom-[-40px] -right-[132px]"
+        >
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,6 @@
 ---
 import { getCollection, getEntryBySlug } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const blog = await getCollection("blogs");
@@ -31,16 +30,16 @@ const { Content } = await blog.render();
 
 <MainLayout>
   <section class="bg-[#F6F4F2] text-black lg:pt-40 lg:pb-20 py-12 px-6 w-full">
-    <div class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+    <div class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 font-sans-instrument">
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
           {blog.data.title}
         </h1>
         <a
           href="/blog-post"
           class="inline-block border border-black rounded-full px-6 py-2 hover:bg-white transition"
         >
-          Blogs
+          Blog
         </a>
       </div>
       <div class="flex justify-center">
@@ -70,11 +69,11 @@ const { Content } = await blog.render();
       </div>
     </div>
 
-    <div class="prose text-base md:text-lg max-w-full lg:max-w-5xl">
+    <div class="prose prose-lg prose-headings:font-sans-instrument tracking-wide text-black marker:text-black md:text-lg max-w-full lg:max-w-5xl font-barlow prose-headings:text-xl lg:prose-headings:text-4xl">
       <Content />
 
       <!-- Testimonial Card -->
-      <div class="mt-12 md:mt-16 border rounded-xl p-4 md:p-6 shadow-sm bg-white w-full md:w-[80%] lg:w-[60%] float-none lg:float-end font-barlow">
+      <!-- <div class="mt-12 md:mt-16 border rounded-xl p-4 md:p-6 shadow-sm bg-white w-full md:w-[80%] lg:w-[60%] float-none lg:float-end font-barlow">
         <div class="flex flex-col sm:flex-row items-start gap-4">
           <div class="border-l-4 border-gray-500 pl-4">
             <p class="text-lg md:text-xl font-semibold">
@@ -96,7 +95,7 @@ const { Content } = await blog.render();
             <p class="text-gray-600 text-sm">Partnerships Leader, GE Healthcare</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </article>
 </MainLayout>
