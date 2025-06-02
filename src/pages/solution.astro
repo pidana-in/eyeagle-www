@@ -10,6 +10,8 @@ import desireImage from "../assets/Navbar/desireImage.png";
 import {descriptionButton,desireSection1} from "../components/constants/home";
 import WorldSafety from "../components/Manifesto/WorldSafety.astro";
 import Benifits from "../components/Manifesto/Benifits.astro";
+import Blogs from "../components/Home/Blogs.astro";
+import { blogsData } from "../components/constants/home";
 
 const metaTitle="Advanced Elderly Fall Alert Devices - EyEagle Solutions";
 const metaDesc="Explore EyEagle’s innovative solutions for elderly safety. From fall alert devices to emergency alarm systems, protect your loved ones today.";
@@ -23,6 +25,7 @@ const metaDesc="Explore EyEagle’s innovative solutions for elderly safety. Fro
   <!-- <BannerSection2 /> -->
    <WorldSafety/>
    <Benifits/>
+   <Blogs blogsData={blogsData} showSeeMoreButton={true} />
   <section class="w-full">
     <DesireSection item={desireImage} desireSection1={desireSection1} descriptionButton={descriptionButton} className="mt-0 bg-white"/>
   </section>
