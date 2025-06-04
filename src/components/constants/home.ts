@@ -272,7 +272,7 @@ export const CircleMembershipData = {
 };
 
 export const HeroImageTitle = {
-  title1: "ONE FALL CAN DESTROY ALL",
+  title1: "PARENT'S FALL DESTROYS ALL",
   title2: "PREVENT TODAY, DON’T REGRET TOMORROW",
 };
 
