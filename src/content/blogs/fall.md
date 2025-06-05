@@ -21,7 +21,7 @@ But fall prevention?
 
 Especially at home?
 
-It rarely gets the attention it deserves until it’s too late. What’s missing in many homes is a simple, life-saving solution: <ins style="color:blue;">an emergency alert device</ins>
+It rarely gets the attention it deserves until it’s too late. What’s missing in many homes is a simple, life-saving solution: <a href="https://eyeagle.ai/" style="color:blue; text-decoration:underline;">an emergency alert device</a>
 for elderly users — especially those most at risk during nighttime or in the bathroom.
 
 ## The Statistics We Can’t Ignore
@@ -42,7 +42,10 @@ There’s a strange silence around this issue — and it stems from two places:
 
 1. **Stigma:** Many seniors feel that falling is a sign of “getting old” or “becoming weak.” They don’t want to admit they’re at risk. They fear losing independence more than injury.
 
-2. **Lack of Awareness:** Families simply don’t know how common and dangerous falls are — especially in spaces like bathrooms. Most homes aren’t designed with elder safety in mind, and basic modifications like <ins style="color:blue;">non-slip mats, grab bars, or emergency alert systems</ins> are often overlooked.
+2. **Lack of Awareness:** Families simply don’t know how common and dangerous falls are — especially in spaces like bathrooms. Most homes aren’t designed with elder safety in mind, and basic modifications like <a href="https://eyeagle.ai/solution/" style="color:blue; text-decoration:underline;">
+   non-slip mats, grab bars, or emergency alert systems
+   </a>
+   are often overlooked.
 
 ## It Starts with a Towel on the Floor
 
@@ -104,7 +107,10 @@ EyEagle is more than hardware and alerts. It’s a system built around respect, 
 
 When you choose EyEagle, you’re not just installing safety. You’re creating space for independence, backed by support that never sleeps.
 
-In the event of a fall, especially in isolated spaces like bathrooms, every second counts. That’s where an emergency alert device for elderly individuals becomes a literal lifesaver. Modern fall alert devices like <ins style="color:blue;">EyEagle’s bathroom-installed system</ins> are designed for real-world use — simple to trigger, visible even at night, and seamlessly connected to caregivers. When paired with a complete bathroom safety setup — including **grab bars, non-slip mats,** and **smart alerts** — these not only reduce response time but also provide families with peace of mind.
+In the event of a fall, especially in isolated spaces like bathrooms, every second counts. That’s where an emergency alert device for elderly individuals becomes a literal lifesaver. Modern fall alert devices like <a href="https://eyeagle.ai/solution/" style="color:blue; text-decoration:underline;">
+EyEagle’s bathroom-installed system
+</a>
+are designed for real-world use — simple to trigger, visible even at night, and seamlessly connected to caregivers. When paired with a complete bathroom safety setup — including **grab bars, non-slip mats,** and **smart alerts** — these not only reduce response time but also provide families with peace of mind.
 
 ## Why Families Trust EyEagle
 
