@@ -29,7 +29,7 @@ const { Content } = await blog.render();
 ---
 
 <MainLayout>
-  <section class="bg-[#F6F4F2] text-black lg:pt-40 lg:pb-20 py-12 px-6 w-full">
+  <!-- <section class="bg-[#F6F4F2] text-black lg:pt-40 lg:pb-20 py-12 px-6 w-full">
     <div class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 font-sans-instrument">
       <div>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
@@ -50,7 +50,15 @@ const { Content } = await blog.render();
         />
       </div>
     </div>
-  </section>
+  </section> -->
+  <section class="relative w-full overflow-hidden font-sans-instrument lg:py-12">
+  <img
+    src={blog.data.img}
+    alt={blog.data.title}
+    class="object-cover h-full w-full"
+  />
+</section>
+
 
   <article class="flex flex-col lg:flex-row px-6 md:px-10 lg:px-20 py-16 md:py-24 lg:py-32 font-instrument-sans gap-10 md:gap-16 lg:gap-32">
     <div class="flex flex-col">

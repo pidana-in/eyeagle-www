@@ -2,7 +2,7 @@
 id: "1"
 title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
 category: "Blog"
-img: "../../images/struggle1.png"
+img: "../../images/BlogImage.jpg"
 slug: "fall"
 author: "Abhinav Kuswaha"
 authorRole: "Co-Founder"
