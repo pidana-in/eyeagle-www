@@ -8,7 +8,6 @@ export async function getStaticPaths() {
     params: { slug: blog.slug },
   }));
 }
-
 const { slug } = Astro.params;
 const blog = await getEntryBySlug("blogs", slug);
 
@@ -17,18 +16,12 @@ if (!blog) {
 }
 
 const { Content } = await blog.render();
-
-// const struggleimages = {
-//   fall: struggle1,
-//   prevention: struggle2,
-//   hospitalisation: struggle3,
-//   savelife: struggle1
-// };
-
-// const heroImage = struggleimages[slug] ;
+const metaTitle = "Falls Kill More Seniors Than You Think | EyEagle";
+const metaDesc =
+  "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.";
 ---
 
-<MainLayout>
+<MainLayout title="blogs" title={metaTitle} desc={metaDesc}>
   <!-- <section class="bg-[#F6F4F2] text-black lg:pt-40 lg:pb-20 py-12 px-6 w-full">
     <div class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 font-sans-instrument">
       <div>
@@ -51,18 +44,23 @@ const { Content } = await blog.render();
       </div>
     </div>
   </section> -->
-  <section class="relative w-full overflow-hidden font-sans-instrument lg:py-12">
-  <img
-    src={blog.data.img}
-    alt={blog.data.title}
-    class="object-cover h-full w-full"
-  />
-</section>
+  <section
+    class="relative w-full overflow-hidden font-sans-instrument lg:py-12"
+  >
+    <img
+      src={blog.data.img}
+      alt={blog.data.title}
+      class="object-cover w-full h-full"
+    />
+  </section>
 
-
-  <article class="flex flex-col lg:flex-row px-6 md:px-10 lg:px-20 py-16 md:py-24 lg:py-32 font-instrument-sans gap-10 md:gap-16 lg:gap-32">
+  <article
+    class="flex flex-col lg:flex-row px-6 md:px-10 lg:px-20 py-16 md:py-24 lg:py-32 font-instrument-sans gap-10 md:gap-16 lg:gap-32"
+  >
     <div class="flex flex-col">
-      <p class="uppercase text-lg md:text-xl font-bold tracking-widest">Written by</p>
+      <p class="uppercase text-lg md:text-xl font-bold tracking-widest">
+        Written by
+      </p>
 
       <div class="flex gap-4 mb-8 py-2">
         <img
@@ -76,34 +74,13 @@ const { Content } = await blog.render();
         </div>
       </div>
     </div>
-
-    <div class="prose prose-lg prose-headings:font-sans-instrument tracking-wide text-black marker:text-black md:text-lg max-w-full lg:max-w-5xl font-barlow prose-headings:text-xl lg:prose-headings:text-4xl">
+   <div
+  class="prose prose-lg prose-headings:font-sans-instrument tracking-wide text-black marker:text-black md:text-lg max-w-full lg:max-w-5xl font-barlow
+         prose-h1:text-2xl lg:prose-h1:text-5xl prose-h1:leading-tight lg:prose-h1:leading-[1.2]
+         prose-h2:leading-snug lg:prose-h2:leading-normal
+         prose-headings:text-xl lg:prose-headings:text-4xl"
+>
       <Content />
-
-      <!-- Testimonial Card -->
-      <!-- <div class="mt-12 md:mt-16 border rounded-xl p-4 md:p-6 shadow-sm bg-white w-full md:w-[80%] lg:w-[60%] float-none lg:float-end font-barlow">
-        <div class="flex flex-col sm:flex-row items-start gap-4">
-          <div class="border-l-4 border-gray-500 pl-4">
-            <p class="text-lg md:text-xl font-semibold">
-              <span class="text-3xl md:text-4xl leading-none mr-2">❝</span>
-              This was a difficult task as the app design had to be such that it
-              was easily accessible to users with limited digital literacy, and in
-              remote locations without strong network.
-            </p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3 mt-4">
-          <img
-            src="/path/to/akanksha.jpg"
-            alt="Ak image"
-            class="w-12 h-12 rounded-full object-cover border border-gray-300"
-          />
-          <div class="not-prose font-semibold">
-            <p class="text-gray-900">Akanksha Kapoor</p>
-            <p class="text-gray-600 text-sm">Partnerships Leader, GE Healthcare</p>
-          </div>
-        </div>
-      </div> -->
     </div>
   </article>
 </MainLayout>
