@@ -14,7 +14,8 @@ const bathroomData = Astro.props.bathroomData;
 const productFeatureTitle = Astro.props.productFeatureTitle;
 ---
 
-<section class="lg:py-[7.5rem] py-16 lg:px-20 px-4 max-xl:container bg-black">
+<section class=" bg-black">
+  <div class="lg:py-[7.5rem] py-16 lg:px-20 px-4 xl:container">
     <div class="flex justify-start">
       <h2 set:html={productFeatureTitle} class="lg:text-[64px] font-sans-instrument mb-8 lg:my-20 leading-[2.75rem] text-[2rem] font-medium">
       </h2>
@@ -32,5 +33,6 @@ const productFeatureTitle = Astro.props.productFeatureTitle;
       {bathroomData?.map((item)=>
         <BathroomSection item={item} mobile={false}/>
       )}
+    </div>
     </div>
 </section>
