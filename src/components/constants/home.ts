@@ -26,6 +26,7 @@ import kitImage4new from "../../assets/Navbar/kitImage4new.png";
 import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
+import hero_17 from "../../assets/Home/Hero_17.png"
 
 export const bathroomData = [
   {
@@ -59,6 +60,13 @@ export const bathroomData = [
     description:
       "If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
     image: BathroomImage4new,
+  },
+];
+
+export const fathersday = [
+  {
+    img: hero_17,
+    // content: `<span class="font-bold">1 in 4 </span> seniors fall in the bathroom every year`,
   },
 ];
 
