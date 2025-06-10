@@ -6,64 +6,74 @@ import { bathroomData } from "../../components/constants/home";
 import { Image } from "astro:assets";
 import img from "../../assets/Home/Hero_17.png";
 import Frame from "../../assets/Home/FathersdayImage.png";
+import FatherImage from "../../assets/Home/FatherImage.png";
+import FatherSection from "../../components/Home/FatherSection.astro";
+import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../components/constants/home";
 ---
 
 <MainLayout>
-  <section class="max-lg:container">
+  <section class="max-xl:container">
     <div class="relative flex place-content-center text-center">
-      <Image src={img} alt="hero image"/>
-      <div class="absolute top-40 font-sans-instrument">
-        <p class="text-[#CC0000] text-6xl font-semibold leading-tight">
+      <Image src={img} alt="hero image" class=""/>
+      <div class="absolute lg:top-40 top-4 font-sans-instrument">
+        <p class="text-[#CC0000] lg:text-6xl text-lg font-semibold lg:leading-tight leading-6">
           This Father’s Day, don’t just thank him.<br> Protect him</br>
         </p>
-        <p class="text-3xl font-medium my-[18px]">15% OFF EyEagle Safety Kit + Free Safety Audit</p>
-        <p class="text-2xl font-medium my-[18px]">Valid between June 14–16 only</p>
-        <div class="bg-[#CC0000] py-3 px-5 inline-block rounded-xl my-14">
+        <p class="lg:text-3xl text-sm font-medium lg:my-[18px] mx-10">15% OFF EyEagle Safety Kit + Free Safety Audit</p>
+        <p class="lg:text-2xl text-sm font-medium lg:my-[18px]">Valid between June 14–16 only</p>
+        <div class="bg-[#CC0000] lg:text-2xl text-[10px] lg:font-semibold font-medium text-white text-center lg:py-3 lg:px-5 px-2 py-1 inline-block lg:rounded-xl rounded-full lg:my-14 mt-1 mb-2">
             <a href="/join">
-              <button class="text-2xl font-semibold text-white">
+              <button>
                 Schedule Now
               </button>
             </a>
           </div>
-        <Image src={Frame} alt="FathersdayImage" class="absolute"/>
-      </div>
+        <Image src={Frame} alt="FathersdayImage" class="absolute w-[50%] lg:w-full left-1/2 transform -translate-x-1/2"/>
+       </div>
     </div>
   </section>
 
-  <section class="container py-24 my-[200px]">
+  <section class="container lg:py-24 lg:my-[200px] py-6">
+    
     <div class="font-barlow text-center px-14">
         
-      <p class="font-medium text-[52px] text-[#000000] opacity-60 mx-14">
+      <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">
         Every year, thousands of elderly parents suffer bathroom falls that
         could have been prevented.
         </p>
-        <p class=" font-medium text-[52px] text-[#000000] opacity-60 mx-14">This Father’s Day, protect the one who
+        <p class=" font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">This Father’s Day, protect the one who
         protected you all your life.
       </p>
-      <p class="text-[40px] font-semibold mt-10"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
+      <p class="lg:text-[40px] lg:leading-tight text-base font-semibold lg:mt-10 mt-2"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
     </div>
-    <div class="py-[200px] grid lg:grid-cols-4 gap-12 px-20 ">
+
+<div class="lg:py-[7.5rem] py-6 lg:px-20 px-4 xl:container">
+    <div class="lg:pt-20 pt-8 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-8 justify-self-start">
       {
         bathroomData?.map((item) => (
           <BathroomSection item={item} mobile={false} />
         ))
       }
     </div>
-    <div class="text-[#CC0000] text-center font-sans-instrument">
-   <p class="text-6xl font-medium">Book Your Free Audit + Get 15% OFF</p>
-   <p class="text-2xl font-medium mt-4">Offer valid June 14–16. Limited slots available.</p>
-     <div class="bg-[#CC0000] py-3 px-5 rounded-full mt-5 inline-block">
+    </div>
+    <div class="text-[#CC0000] text-center font-sans-instrument mt-10">
+   <p class="lg:text-6xl text-xl font-medium">Book Your Free Audit + Get 15% OFF</p>
+   <p class="lg:text-2xl text-sm font-medium mt-4">Offer valid June 14–16. Limited slots available.</p>
+     <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-full mt-5 inline-block lg:text-lg text-sm font-normal text-white">
             <a href="/join">
-              <button class="text-lg font-normal text-white">
+              <button class="">
                 Schedule Now
               </button>
-              <span class="material-symbols-outlined text-white text-lg ml-4">arrow_forward</span>
+              <span class="material-symbols-outlined text-white text-sm ml-2">arrow_forward</span>
             </a>
           </div>
           </div>
+          
   </section>
 
   <section class="bg-secondary">
     <Faqs />
+    <FatherSection item={FatherImage} FatherSection1={FatherSection1} FatherSection2={FatherSection2} descriptionButtonFathersday={descriptionButtonFathersday}/>
+   
   </section>
 </MainLayout>
