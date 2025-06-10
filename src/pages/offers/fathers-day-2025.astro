@@ -9,17 +9,18 @@ import Frame from "../../assets/Home/FathersdayImage.png";
 import FatherImage from "../../assets/Home/FatherImage.png";
 import FatherSection from "../../components/Home/FatherSection.astro";
 import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../components/constants/home";
+import { scrollDataSection } from "../../components/constants/home";
 ---
 
 <MainLayout>
   <section class="max-xl:container">
     <div class="relative flex place-content-center text-center">
-      <Image src={img} alt="hero image" class=""/>
+      <Image src={img} alt="hero image" class="h-[40vh] lg:h-full w-[100%] object-cover" />
       <div class="absolute lg:top-40 top-4 font-sans-instrument">
-        <p class="text-[#CC0000] lg:text-6xl text-lg font-semibold lg:leading-tight leading-6">
+        <p class="text-[#CC0000] lg:text-6xl text-xl font-semibold lg:leading-tight leading-6">
           This Father’s Day, don’t just thank him.<br> Protect him</br>
         </p>
-        <p class="lg:text-3xl text-sm font-medium lg:my-[18px] mx-10">15% OFF EyEagle Safety Kit + Free Safety Audit</p>
+        <p class="lg:text-3xl text-sm font-medium lg:my-[18px] my-3 mx-10">15% OFF EyEagle Safety Kit + Free Safety Audit</p>
         <p class="lg:text-2xl text-xs font-medium lg:my-[18px] mt-1">Valid between June 14–16 only</p>
         <div class="bg-[#CC0000] lg:text-2xl text-[10px] lg:font-semibold font-medium text-white text-center lg:py-3 lg:px-5 px-2 py-1 inline-block lg:rounded-xl rounded-full lg:my-14 mt-1 mb-2">
             <a href="/join">
@@ -28,7 +29,7 @@ import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../c
               </button>
             </a>
           </div>
-        <Image src={Frame} alt="FathersdayImage" class="absolute w-[50%] lg:w-full left-1/2 transform -translate-x-1/2"/>
+        <Image src={Frame} alt="FathersdayImage" class="absolute w-[65%] sm:w-[80%] lg:w-full left-1/2 transform -translate-x-1/2"/>
        </div>
     </div>
   </section>
@@ -37,26 +38,28 @@ import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../c
     
     <div class="font-barlow text-center lg:px-14 px-4">
         
-      <p class="font-medium lg:text-[52px] lg:leading-tight text-sm text-[#000000] opacity-60 lg:mx-14">
+      <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">
         Every year, thousands of elderly parents suffer bathroom falls that
         could have been prevented.
         </p>
-        <p class=" font-medium lg:text-[52px] lg:leading-tight text-sm text-[#000000] opacity-60 lg:mx-14">This Father’s Day, protect the one who
+        <p class=" font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">This Father’s Day, protect the one who
         protected you all your life.
       </p>
-      <p class="lg:text-[40px] lg:leading-tight text-[12px] font-semibold lg:mt-10 mt-2"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
+      <p class="lg:text-[40px] lg:leading-tight text-lg font-semibold lg:mt-10 mt-2"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
     </div>
 
-<div class="lg:py-[7.5rem] py-6 lg:px-20 px-4 lg:container" >
-     <a href="/">
-    <div class="lg:pt-20 pt-8 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-8 justify-self-start">
-      {
-        bathroomData?.map((item) => (
-          <BathroomSection item={item} mobile={false} />
-        ))
-      }
-    </div>
-    </a>
+ <div class="lg:py-[7.5rem] py-6 lg:px-20 px-4 lg:container">
+      <div
+        class="lg:pt-20 pt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-8 justify-self-start"
+      >
+        {
+          bathroomData?.map((item:{id:number}) => (
+            <a href={`/#${scrollDataSection[item.id]}`}>
+              <BathroomSection item={item} mobile={false} />
+            </a>
+          ))
+        }
+      </div>
     </div>
     <div class="text-[#CC0000] text-center font-sans-instrument mt-10">
    <p class="lg:text-6xl text-xl font-medium">Book Your Free Audit + Get 15% OFF</p>
@@ -78,3 +81,4 @@ import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../c
     <FatherSection item={FatherImage} FatherSection1={FatherSection1} FatherSection2={FatherSection2} descriptionButtonFathersday={descriptionButtonFathersday}/>
   </section>
 </MainLayout>
+

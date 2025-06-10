@@ -227,7 +227,7 @@ export const descriptionButton = "Join waitlist";
 
 export const descriptionButtonFathersday = "Schedule Now";
 
-export const scrollDataSection = {
+export const scrollDataSection:{[key:number]:string} = {
   1: "prevention",
   2: "services",
   3: "alerts",
