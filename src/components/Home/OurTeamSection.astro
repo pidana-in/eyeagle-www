@@ -19,18 +19,18 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
     </div>
 
    <!-- Desktop Layout -->
-   <div class="flex max-lg:hidden gap-5 lg:mt-[3.75rem] mt-8 lg:pb-[7.5rem] pb-20">
+   <div class="flex max-md:hidden gap-5 lg:mt-[3.75rem] mt-8 lg:pb-[7.5rem] pb-20">
     {kitImageDesktop.map((column, colIndex) => (
       <div class={column.length > 1 ? "grid gap-5" : "relative"}>
         {column.map((item) => (
           <div class="relative">
             <Image src={item.src} alt={item.alt} class="w-full bg-[#595957] rounded-xl" />
-            <div class="absolute top-6 left-4 bg-white lg:h-14 lg:w-14 h-10 w-10 rounded-full grid place-items-center shadow-md">
+            <div class="absolute top-6 left-4 bg-white lg:h-14 lg:w-14 h-8 w-8 rounded-full grid place-items-center shadow-md">
               <svg class="w-4 h-4 lg:w-6 lg:h-6" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
               </svg>
             </div>
-            <p class="font-barlow absolute lg:top-[92px] top-[72px] left-4 pr-6 text-white lg:font-medium text-xl lg:text-[1.784rem] lg:leading-8 max-w-[90%]">
+            <p class="font-barlow absolute lg:top-[92px] top-[72px] left-4 pr-6 text-white lg:font-medium text-xl lg:text-[1.784rem] md:leading-8 max-w-[90%]">
               {item.caption}
             </p>
           </div>
@@ -40,7 +40,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
   </div>
 
   <!-- Mobile Grid Layout -->
-  <div class="grid grid-cols-2 gap-4 lg:hidden my-8">
+  <div class="grid grid-cols-2 gap-4 md:hidden my-8">
     {kitImageMobile.flat().map((item) => (
       <div class="relative max-w-[182px] h-[280px] rounded-[13.17px]">
         <Image src={item.src} alt={item.alt} class="h-full w-full object-cover rounded-[13.17px]" />
