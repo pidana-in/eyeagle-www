@@ -14,10 +14,9 @@ import { scrollDataSection } from "../../components/constants/home";
 ---
 
 <MainLayout>
-  <section class="max-sm:container">
-    <div class="relative flex place-content-center text-center">
-      <Image src={img} alt="hero image" class="h-[52vh] sm:h-[56vh] md:h-[60vh] lg:h-[70vh] xl:h-[140vh] 2xl:h-[160vh] w-full object-cover landscape:max-h-[160vh]" />
-
+  <section class="relative w-full min-h-[440px] sm:min-h-[600px] lg:min-h-[1200px]">
+    <Image src={img} alt="hero image"  class="absolute inset-0 w-full h-full object-cover" />
+    <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-10 lg:pt-20">
       <div class="absolute lg:top-40 top-10 font-sans-instrument">
         <p class="text-[#CC0000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
           This Father’s Day, don’t just thank him.<br> Protect him</br>
@@ -48,7 +47,7 @@ import { scrollDataSection } from "../../components/constants/home";
       <p class="lg:text-[40px] lg:leading-tight text-lg font-semibold lg:mt-10 mt-2"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
     </div>
 
- <div class="lg:p-[7.5rem] py-6 px-4 lg:container">
+ <div class="lg:p-[7.5rem] py-6 px-4 lg:container mt-8">
       <div
         class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-8 justify-self-start"
       >
