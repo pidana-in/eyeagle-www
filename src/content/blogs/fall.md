@@ -9,7 +9,8 @@ authorRole: "Co-Founder"
 authorImage: "../../images/Abhinav.png"
 ---
 
-# Falls Kill More Seniors Than You Think – But No One Talks About It
+<!-- # Falls Kill More Seniors Than You Think – But No One Talks About It -->
+## Introduction
 
 In households across India, there's an invisible threat quietly putting millions of elderly lives at risk, and most families don’t even realise it. It’s not heart attacks, or chronic disease, or strokes. **It is falls, especially bathroom falls.** Falls are one of the leading causes of injury-related deaths in seniors globally. In fact,**31% of older adults in India** experience one or more falls annually. Among these incidents, **68% occur at home,** with **75% happening** during activities like toileting and bathing. That’s more than many other events or many life-threatening diseases.
 
