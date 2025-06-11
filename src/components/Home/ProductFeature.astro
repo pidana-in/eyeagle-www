@@ -29,7 +29,7 @@ const productFeatureTitle = Astro.props.productFeatureTitle;
     </span>
     </h3>
   </div>
-    <div class="lg:pt-20 pt-8 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-8 justify-self-start">
+    <div class="lg:pt-20 pt-8 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-8 justify-self-start">
       {bathroomData?.map((item)=>
         <BathroomSection item={item} mobile={false}/>
       )}
