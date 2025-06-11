@@ -5,7 +5,8 @@ import BathroomSection from "../../components/Home/BathroomSection.astro";
 import { bathroomData } from "../../components/constants/home";
 import { Image } from "astro:assets";
 import img from "../../assets/Home/Hero_17.png";
-import Frame from "../../assets/Home/FathersdayImage.png";
+import Frame from "../../assets/Home/FatherBannerNew.png";
+import Discount from "../../assets/Home/Discount.png"
 import FatherImage from "../../assets/Home/FatherImage.png";
 import FatherSection from "../../components/Home/FatherSection.astro";
 import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../components/constants/home";
@@ -15,26 +16,25 @@ import { scrollDataSection } from "../../components/constants/home";
 <MainLayout>
   <section class="max-sm:container">
     <div class="relative flex place-content-center text-center">
-      <Image src={img} alt="hero image" class="h-[48vh] lg:h-full w-full object-cover landscape:min-h-[110vh]" />
+      <Image src={img} alt="hero image" class="h-[52vh] sm:h-[56vh] md:h-[60vh] lg:h-[70vh] xl:h-[140vh] 2xl:h-[160vh] w-full object-cover landscape:max-h-[160vh]" />
+
       <div class="absolute lg:top-40 top-10 font-sans-instrument">
         <p class="text-[#CC0000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
           This Father’s Day, don’t just thank him.<br> Protect him</br>
         </p>
-        <p class="lg:text-3xl sm:text-xl text-sm font-medium lg:my-[18px] my-3 mx-10">15% OFF EyEagle Safety Kit + Free Safety Audit</p>
-        <p class="lg:text-2xl sm:text-xl text-xs font-medium lg:my-[18px] mt-1">Valid between June 14–16 only</p>
-        <div class="bg-[#CC0000] lg:text-2xl text-[10px] lg:font-semibold font-medium text-white text-center lg:py-3 lg:px-5 px-2 py-1 inline-block lg:rounded-xl rounded-full lg:mb-14 lg:mt-8 mt-4 mb-6">
-            <a href="/join">
-              <button>
-                Book Now
-              </button>
-            </a>
-          </div>
+       <div class="lg:my-[18px] my-2 justify-center flex">
+        <a href="https://payments.cashfree.com/forms/eyeagle-reserve">
+       <Image src={Discount} alt="Discount offer" class="w-[50%] mx-auto sm:w-[300px] lg:w-[404px] lg:h-[212px]" />
+       </a>
+       </div>
+       
+        <p class="lg:text-2xl sm:text-xl text-xs font-medium lg:my-[50px] mt-3 mb-4">Offer valid between June 12–15 only</p>
         <Image src={Frame} alt="FathersdayImage" class="absolute w-[70%] sm:w-[80%] lg:w-full left-1/2 transform -translate-x-1/2"/>
        </div>
     </div>
   </section>
 
-  <section class="lg:py-24 lg:my-[200px] pt-2 pb-6 sm:mt-12 sm:pt-10">
+  <section class="lg:py-[120px] pt-2 pb-6">
     
     <div class="font-barlow text-center lg:px-14 px-4">
         
@@ -42,15 +42,15 @@ import { scrollDataSection } from "../../components/constants/home";
         Every year, thousands of elderly parents suffer bathroom falls that
         could have been prevented.
         </p>
-        <p class=" font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">This Father’s Day, protect the one who
+        <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">This Father’s Day, protect the one who
         protected you all your life.
       </p>
       <p class="lg:text-[40px] lg:leading-tight text-lg font-semibold lg:mt-10 mt-2"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
     </div>
 
- <div class="lg:py-[7.5rem] py-6 lg:px-20 px-4 lg:container">
+ <div class="lg:p-[7.5rem] py-6 px-4 lg:container">
       <div
-        class="lg:pt-20 pt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-8 justify-self-start"
+        class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-8 justify-self-start"
       >
         {
           bathroomData?.map((item:{id:number}) => (
@@ -62,10 +62,10 @@ import { scrollDataSection } from "../../components/constants/home";
       </div>
     </div>
     <div class="text-[#CC0000] text-center font-sans-instrument mt-10">
-   <p class="lg:text-6xl text-xl font-medium">Book Your Free Audit + Get 15% OFF</p>
-   <p class="lg:text-2xl text-sm font-medium mt-4 lg:mt-8 lg:mb-4">Offer valid June 14–16. Limited slots available.</p>
+   <p class="lg:text-5xl text-xl font-medium">Get 15% OFF on EyEagle Safety Kit + Free Safety Audit</p>
+   <p class="lg:text-2xl text-sm font-medium mt-4 lg:mt-8 lg:mb-4">Offer valid June 12–15. Limited slots available.</p>
      <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-full mt-5 inline-block lg:text-lg text-sm font-normal text-white">
-            <a href="/join">
+            <a href="https://payments.cashfree.com/forms/eyeagle-reserve">
               <button class="">
                 Book Now
               </button>

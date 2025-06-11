@@ -218,10 +218,10 @@ export const desireSection2 =
   "Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.";
 
 export const FatherSection1 =
-  "Book Your Free Audit + Get 15% OFF";
+  "Get 15% OFF on EyEagle Safety Kit + Free Safety Audit";
 
 export const FatherSection2 =
-  "Offer valid June 14–16. Limited slots available.";
+  "Offer valid June 12–15. Limited slots available.";
 
 export const descriptionButton = "Join waitlist";
 
