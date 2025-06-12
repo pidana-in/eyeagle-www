@@ -1,0 +1,90 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Faqs from "../../components/Home/Faqs.astro";
+import BathroomSection from "../../components/Home/BathroomSection.astro";
+import { bathroomData } from "../../components/constants/home";
+import { Image } from "astro:assets";
+import img from "../../assets/Home/Hero_17.png";
+import Frame from "../../assets/Home/FatherBannerNew.png";
+import Discount from "../../assets/Home/Discount.png"
+import FatherImage from "../../assets/Home/FatherImage.png";
+import FatherSection from "../../components/Home/FatherSection.astro";
+import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../components/constants/home";
+import { scrollDataSection } from "../../components/constants/home";
+---
+
+<MainLayout>
+  <section class="relative w-full min-h-[440px] sm:min-h-[600px] lg:min-h-[1200px]">
+    <Image src={img} alt="hero image"  class="absolute inset-0 w-full h-full object-cover" />
+    <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-10 lg:pt-20">
+      <div class="absolute lg:top-40 top-10 font-sans-instrument">
+        <p class="text-[#CC0000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
+          This Father’s Day, don’t just thank him.<br> Protect him</br>
+        </p>
+       <div class="lg:my-[18px] my-2 justify-center flex">
+        <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">
+       <Image src={Discount} alt="Discount offer" class="w-[50%] mx-auto sm:w-[300px] lg:w-[404px] lg:h-[212px]" />
+       </a>
+       </div>
+       
+        <p class="lg:text-2xl sm:text-xl text-xs font-medium lg:my-[50px] mt-3 mb-4">Offer valid between June 12–15 only</p>
+        <Image src={Frame} alt="FathersdayImage" class="absolute w-[70%] sm:w-[80%] lg:w-full left-1/2 transform -translate-x-1/2"/>
+       </div>
+    </div>
+  </section>
+
+  <section class="lg:py-[120px] pt-2 pb-6">
+    
+    <div class="font-barlow text-center lg:px-14 px-4">
+        
+      <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">
+        Every year, thousands of elderly parents suffer bathroom falls that
+        could have been prevented.
+        </p>
+        <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-[#000000] opacity-60 lg:mx-14">This Father’s Day, protect the one who
+        protected you all your life.
+      </p>
+        <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-lg lg:my-[68px] my-6 inline-block lg:text-2xl text-sm font-semibold text-white">
+            <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">  
+              <button class="">
+                Book Now
+              </button>
+            </a>
+          </div>
+      <p class="lg:text-[40px] lg:leading-tight text-lg font-semibold"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
+    </div>
+
+ <div class="lg:p-[7.5rem] py-6 px-4 lg:container mt-8">
+      <div
+        class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-8 justify-self-start"
+      >
+        {
+          bathroomData?.map((item:{id:number}) => (
+            <a href={`/#${scrollDataSection[item.id]}`}>
+              <BathroomSection item={item} mobile={false} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="text-[#CC0000] text-center font-sans-instrument mt-10">
+   <p class="lg:text-5xl text-xl font-medium">Get 15% OFF on EyEagle Safety Kit + Free Safety Audit</p>
+   <p class="lg:text-2xl text-sm font-medium mt-4 lg:mt-8 lg:mb-4">Offer valid June 12–15. Limited slots available.</p>
+     <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-full mt-5 inline-block lg:text-lg text-sm font-normal text-white">
+            <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">
+              <button class="">
+                Book Now
+              </button>
+              <span class="material-symbols-outlined text-white text-sm ml-2">arrow_forward</span>
+            </a>
+          </div>
+          </div>
+          
+  </section>
+
+  <section class="bg-secondary">
+    <Faqs />
+    <FatherSection item={FatherImage} FatherSection1={FatherSection1} FatherSection2={FatherSection2} descriptionButtonFathersday={descriptionButtonFathersday}/>
+  </section>
+</MainLayout>
+
