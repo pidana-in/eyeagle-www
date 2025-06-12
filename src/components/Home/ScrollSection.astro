@@ -5,7 +5,7 @@ const struggleData = Astro.props.struggleData;
 
 <section class="xl:container lg:mt-8 lg:mb-[7.5rem] my-16 lg:px-20 px-4 font-sans-instrument">
   <!-- Desktop version -->
-  <div class="lg:flex justify-center gap-7 hidden">
+  <div class="md:flex justify-center gap-7 hidden">
     {struggleData?.map((item:any, i:number) => (
       <div class="w-full flex flex-col gap-5 justify-start text-center">
         <div class="w-full">
@@ -17,7 +17,7 @@ const struggleData = Astro.props.struggleData;
   </div>
   
   <!-- Mobile version (horizontal scrolling) -->
-  <div class="block lg:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
+  <div class="block md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
    <div class="flex space-x-6">
     {struggleData?.map((item:any,i:number) => (
       <div class="flex-none flex-shrink-0 w-[85vw] snap-start">
