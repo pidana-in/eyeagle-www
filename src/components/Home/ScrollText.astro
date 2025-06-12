@@ -2,7 +2,13 @@
 import { Image } from "astro:assets";
 import powerfulFeatDemo from "../../assets/Home/powerfulFeatDemo.png";
 import notifications from "../../assets/Home/notifications.png";
+import Notification1 from "../../assets/Home/Notification1.png";
+import Notification2 from "../../assets/Home/Notification2.png";
+import Notification3 from "../../assets/Home/Notification3.png";
 import { PowerfulBentoData } from "../constants/home";
+import VectorArrow1 from "../../assets/Home/VectorArrow1.png"
+import VectorArrow2 from "../../assets/Home/VectorArrow2.png"
+import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
 ---
 
 <style>
@@ -61,15 +67,21 @@ import { PowerfulBentoData } from "../constants/home";
   <div class="h-[1700px] font-sans-instrument">
     <div class="your-section fixed-section">
       <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"px-20 mt-10"} />
-      <Image id={"secondImage"} src={notifications} alt={"powerfulBento"} class={" px-20 py-10 absolute w-full top-0 noVisible"} />
-      <div class="text-one noVisible absolute top-36 left-28">
+      <Image id={"Notification1"} src={Notification1} alt={"powerfulBento"} class={"px-20 py-10 absolute w-full top-0 noVisible"} />
+      <Image id={"Notification2"} src={Notification2} alt={"powerfulBento"} class={"px-20 py-14 absolute w-full top-0 noVisible"} />
+      <Image id={"Notification3"} src={Notification3} alt={"powerfulBento"} class={"px-20 py-10 absolute w-full top-0 noVisible"} />
+      
+      <div class="text-one noVisible absolute top-24 left-28">
         <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
+        <Image src={VectorArrow1} alt={"VectorArrow1"} class="absolute left-44 top-10 w-[90%]" />
       </div>
-      <div class="text-second noVisible absolute top-96 left-28">
+      <div class="text-second noVisible absolute top-[300px] left-28">
         <p class="font-normal text-xl leading-8">Easily get updates from all<br/> the devices in one circle</p>
+        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute left-60 top-10 w-[80%]" />
       </div>
-      <div class="text-third noVisible absolute top-[31.5rem] left-28">
+      <div class="text-third noVisible absolute top-[480px] left-28">
         <p class="font-normal text-xl leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
+        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute left-52 top-10 w-[120%]" />
       </div>
     </div>
   </div>
