@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import powerfulFeatDemo from "../../assets/Home/powerfulFeatDemo.png";
-import notifications from "../../assets/Home/notifications.png";
 import Notification1 from "../../assets/Home/Notification1.png";
 import Notification2 from "../../assets/Home/Notification2.png";
 import Notification3 from "../../assets/Home/Notification3.png";
@@ -12,6 +11,9 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
 ---
 
 <style>
+  /* html {
+  scroll-behavior: smooth;
+} */
   .scrollbar-hidden::-webkit-scrollbar {
     display: none;
   }
@@ -56,20 +58,36 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
     top: 0;
     transition-delay: 100ms;
   }
+  .visibleFifth {
+  opacity: 1;
+  transition: 1s ease-in-out;
+  transform: translateY(0);
+  transition-delay: 200ms;
+}
+
+.visibleSixth {
+  opacity: 1;
+  transition: 1s ease-in-out;
+  transform: translateY(0);
+  transition-delay: 100ms;
+}
+
   .noVisible{
     opacity: 0;
     transform: translateY(35px);
     transition: opacity 1s, transform 1s;
   }
+
+  
 </style>
 <section class="xl:container">
 
   <div class="h-[1700px] font-sans-instrument">
     <div class="your-section fixed-section">
       <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"px-20 mt-10"} />
-      <Image id={"Notification1"} src={Notification1} alt={"powerfulBento"} class={"px-20 py-10 absolute w-full top-0 noVisible"} />
-      <Image id={"Notification2"} src={Notification2} alt={"powerfulBento"} class={"px-20 py-14 absolute w-full top-0 noVisible"} />
-      <Image id={"Notification3"} src={Notification3} alt={"powerfulBento"} class={"px-20 py-10 absolute w-full top-0 noVisible"} />
+      <Image id={"notification1"} src={Notification1} alt={"notification1"} class={"px-20 py-16 absolute w-[40%] right-24 top-4 noVisible"} />
+      <Image id={"notification2"} src={Notification2} alt={"notification2"} class={"px-20 py-14 absolute w-[40%] right-20 top-44 noVisible"} />
+      <Image id={"notification3"} src={Notification3} alt={"notification3"} class={"px-20 py-10 absolute w-[40%] right-14 bottom-10 noVisible"} />
       
       <div class="text-one noVisible absolute top-24 left-28">
         <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
@@ -97,17 +115,31 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
 
 <script is:inline>
   const section = document.querySelector(".your-section");
-  const textOne = document.querySelector(".text-one");
-  const textSecond = document.querySelector(".text-second");
-  const textThird = document.querySelector(".text-third");
-  const textForth = document.querySelector("#secondImage");
-  let trackingScroll = false;
+
+  const elements = [
+    { el: document.querySelector(".text-one"), class: "visibleOne", threshold: 100 },
+    { el: document.querySelector(".text-second"), class: "visibleSecond", threshold: 250 },
+    { el: document.querySelector(".text-third"), class: "visibleThird", threshold: 450 },
+    { el: document.querySelector("#notification1"), class: "visibleForth", threshold: 600 },
+    { el: document.querySelector("#notification2"), class: "visibleFifth", threshold: 750 },
+    { el: document.querySelector("#notification3"), class: "visibleSixth", threshold: 900 }
+  ];
+
+  let revealed = new Set();
   let scrollStart = 0;
-  let scrollDistance = 0;
+  let trackingScroll = false;
 
   function isSectionFullScreen() {
     const rect = section.getBoundingClientRect();
-    return rect.top <= 125; // Adjust if needed
+    return rect.top <= 125;
+  }
+
+  function resetElements() {
+    revealed.clear();
+    elements.forEach(({ el, class: visibleClass }) => {
+      el.classList.remove(visibleClass);
+      el.classList.add("noVisible");
+    });
   }
 
   window.addEventListener("scroll", () => {
@@ -117,53 +149,28 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
         scrollStart = window.scrollY;
       }
 
-      scrollDistance = window.scrollY - scrollStart;
-      console.log("scrollDistance", scrollDistance);
+      const scrollDistance = window.scrollY - scrollStart;
 
-      if (scrollDistance <= 900 && scrollDistance >= 0) {
-        if(section.style.top === "0"){
-          section.style.top = "7.8rem"
-        }
-        if(scrollDistance >= 100){
-          textOne.classList.remove("noVisible");
-          textOne.classList.add("visibleOne");
-        }if(scrollDistance >= 250){
-          textSecond.classList.remove("noVisible");
-          textSecond.classList.add("visibleSecond");
-        }if(scrollDistance >= 450){
-          textThird.classList.remove("noVisible");
-          textThird.classList.add("visibleThird");
-        }if(scrollDistance >= 650){
-          textForth.classList.remove("noVisible");
-          textForth.classList.add("visibleForth");
-        }
-        // Adjust the top property dynamically
+      // Reset if scrolled too far down or up
+      if (scrollDistance > 1200 || scrollDistance < -300) {
+        resetElements();
+        scrollStart = window.scrollY; // restart tracking from current position
+        return;
       }
-      else {
-        // Reset the top property when scroll distance exceeds 800
-        // section.style.top = "0rem";
-        textOne.classList.remove("visibleOne");
-        textOne.classList.add("noVisible");
-        textSecond.classList.remove("visibleSecond");
-        textSecond.classList.add("noVisible");
-        textThird.classList.remove("visibleThird");
-        textThird.classList.add("noVisible");
-        section.style.removeProperty("top");
-        textForth.classList.remove("visibleForth");
-        textForth.classList.add("noVisible");
-      }
+
+      elements.forEach(({ el, class: visibleClass, threshold }) => {
+        if (!revealed.has(visibleClass) && scrollDistance >= threshold) {
+          el.classList.remove("noVisible");
+          el.classList.add(visibleClass);
+          revealed.add(visibleClass);
+        }
+      });
+
     } else {
-      textOne.classList.remove("visibleOne");
-        textOne.classList.add("noVisible");
-        textSecond.classList.remove("visibleSecond");
-        textSecond.classList.add("noVisible");
-        textThird.classList.remove("visibleThird");
-        textThird.classList.add("noVisible");
-        textForth.classList.remove("visibleForth");
-        textForth.classList.add("noVisible");
-      // Reset the top property when the section is not in view
-      section.style.top = "7.8rem";
+      // If section out of view, reset scroll tracking only
       trackingScroll = false;
     }
   });
 </script>
+
+
