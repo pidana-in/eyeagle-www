@@ -13,7 +13,7 @@ import { countries } from "../components/constants/common";
 import Icon from "../components/common/Icon.astro";
 import BathroomSection from "../components/Home/BathroomSection.astro";
 import { bathroomData } from "../components/constants/home";
-
+import { scrollDataSection } from "../components/constants/home";
 import nodemailer from "nodemailer";
 
 const metaTitle="Join Our Community for Elderly Safety Solutions – EyEagle";
@@ -228,7 +228,9 @@ Newsletter: ${acceptance ? "Yes" : "No"}
       <div class="pt-60 grid lg:grid-cols-4 gap-12">
         {
           bathroomData?.map((item) => (
+            <a href={`/#${scrollDataSection[item.id]}`}>
             <BathroomSection item={item} mobile={false} />
+            </a>
           ))
         }
       </div>
