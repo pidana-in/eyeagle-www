@@ -44,19 +44,19 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
     opacity: 1;
     transition: 1s ease-in-out;
     transform: translateY(0);
-    transition-delay: 400ms;
+    transition-delay: 200ms;
   }
   .visibleThird{
     opacity: 1;
     transition: 1s ease-in-out;
     transform: translateY(0);
-    transition-delay: 400ms;
+    transition-delay: 200ms;
   }
   .visibleForth{
     opacity: 1;
     transition: 1s ease-in-out;
     top: 0;
-    transition-delay: 100ms;
+    transition-delay: 200ms;
   }
   .visibleFifth {
   opacity: 1;
@@ -69,7 +69,7 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
   opacity: 1;
   transition: 1s ease-in-out;
   transform: translateY(0);
-  transition-delay: 100ms;
+  transition-delay: 200ms;
 }
 
   .noVisible{
@@ -81,27 +81,32 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
   
 </style>
 <section class="xl:container">
-
-  <div class="h-[1700px] font-sans-instrument">
+     <div class="pb-5 lg:pb-[5rem] lg:px-[5rem] px-4 font-sans-instrument ">
+        <h2 class="font-medium text-2xl lg:text-5xl mb-3 leading-10 lg:leading-[2.75rem]">{PowerfulBentoData.title}</h2>
+        <h2 class="font-medium text-2xl text-[#666666] lg:text-5xl leading-10 lg:leading-[2.75rem]">{PowerfulBentoData.subTitle}</h2>
+    </div>
+  <div class="h-[1800px] font-sans-instrument">
+    <div class="relative scroll-wrapper h-[1800px]">
     <div class="your-section fixed-section">
-      <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"px-20 mt-10"} />
-      <Image id={"notification1"} src={Notification1} alt={"notification1"} class={"px-20 py-16 absolute w-[40%] right-24 top-4 noVisible"} />
-      <Image id={"notification2"} src={Notification2} alt={"notification2"} class={"px-20 py-14 absolute w-[40%] right-20 top-44 noVisible"} />
-      <Image id={"notification3"} src={Notification3} alt={"notification3"} class={"px-20 py-10 absolute w-[40%] right-14 bottom-10 noVisible"} />
+      <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"lg:px-20 px-4 mt-10"} />
+      <Image id={"notification1"} src={Notification1} alt={"notification1"} class={"px-20 py-16 absolute w-[40%] lg:right-24 lg:top-4 noVisible"} />
+      <Image id={"notification2"} src={Notification2} alt={"notification2"} class={"px-20 py-14 absolute w-[40%] lg:right-20 lg:top-44 noVisible"} />
+      <Image id={"notification3"} src={Notification3} alt={"notification3"} class={"px-20 py-10 absolute w-[40%] lg:right-14 lg:bottom-10 noVisible"} />
       
       <div class="text-one noVisible absolute top-24 left-28">
         <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
-        <Image src={VectorArrow1} alt={"VectorArrow1"} class="absolute left-44 top-10 w-[90%]" />
+        <Image src={VectorArrow1} alt={"VectorArrow1"} class="absolute lg:left-44 lg:top-10 w-[90%]" />
       </div>
       <div class="text-second noVisible absolute top-[300px] left-28">
         <p class="font-normal text-xl leading-8">Easily get updates from all<br/> the devices in one circle</p>
-        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute left-60 top-10 w-[80%]" />
+        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute lg:left-60 lg:top-10 w-[80%]" />
       </div>
       <div class="text-third noVisible absolute top-[480px] left-28">
         <p class="font-normal text-xl leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
-        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute left-52 top-10 w-[120%]" />
+        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute lg:left-52 lg:top-10 w-[120%]" />
       </div>
     </div>
+  </div>
   </div>
   <div class="lg:flex grid gap-16 px-20 lg:h-[39.938rem] my-10">
     <div>
@@ -117,12 +122,12 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
   const section = document.querySelector(".your-section");
 
   const elements = [
-    { el: document.querySelector(".text-one"), class: "visibleOne", threshold: 100 },
-    { el: document.querySelector(".text-second"), class: "visibleSecond", threshold: 250 },
-    { el: document.querySelector(".text-third"), class: "visibleThird", threshold: 450 },
-    { el: document.querySelector("#notification1"), class: "visibleForth", threshold: 600 },
-    { el: document.querySelector("#notification2"), class: "visibleFifth", threshold: 750 },
-    { el: document.querySelector("#notification3"), class: "visibleSixth", threshold: 900 }
+    { el: document.querySelector(".text-one"), class: "visibleOne", threshold: 50 },
+    { el: document.querySelector(".text-second"), class: "visibleSecond", threshold: 100 },
+    { el: document.querySelector(".text-third"), class: "visibleThird", threshold: 200 },
+    { el: document.querySelector("#notification1"), class: "visibleForth", threshold: 300 },
+    { el: document.querySelector("#notification2"), class: "visibleFifth", threshold: 400 },
+    { el: document.querySelector("#notification3"), class: "visibleSixth", threshold: 500 }
   ];
 
   let revealed = new Set();
