@@ -54,7 +54,7 @@ const footerClass = Astro.props.footerClass ?? "";
       class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-black`
     >
       <nav class="flex justify-between items-center xl:container">
-        <div class="flex justify-between items-center gap-4">
+        <div class="flex justify-between items-center gap-4 lg:py-2">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
               src={EyeagleLogo}
@@ -216,12 +216,16 @@ const footerClass = Astro.props.footerClass ?? "";
     background: #012e40;
     border-radius: 10px;
   }
-  @media screen and (max-width: 768px) {
-    body::-webkit-scrollbar {
-      display: none;
-    }
+ @media screen and (max-width: 768px) {
+  html, body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
-
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+}
   @media screen and (min-width: 1024px) {
     .gridTemplateColumns {
       grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
