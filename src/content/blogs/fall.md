@@ -4,15 +4,15 @@ title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
 category: "Blog"
 img: "../../images/BlogImageNew.jpg"
 slug: "falls-kill-more-seniors-than-you-think"
-author: "Abhinav Kushwaha"
-authorRole: "Co-Founder"
-authorImage: "../../images/Abhinav.png"
+author: "Dr. Ambika Chaurasia"
+authorRole: "Consultant"
+# authorImage: "../../images/Abhinav.png"
 ---
 
 <!-- # Falls Kill More Seniors Than You Think – But No One Talks About It -->
 ## Introduction
 
-In households across India, there's an invisible threat quietly putting millions of elderly lives at risk, and most families don’t even realise it. It’s not heart attacks, or chronic disease, or strokes. **It is falls, especially bathroom falls.** Falls are one of the leading causes of injury-related deaths in seniors globally. In fact,**31% of older adults in India** experience one or more falls annually. Among these incidents, **68% occur at home,** with **75% happening** during activities like toileting and bathing. That’s more than many other events or many life-threatening diseases.
+In households across India, there's an invisible threat quietly putting millions of elderly lives at risk, and most families don’t even realise it. It’s not heart attacks, or chronic disease, or strokes. **It is falls, especially bathroom falls.** Falls are one of the leading causes of injury-related deaths in seniors globally. In fact, **31% of older adults in India** experience one or more falls annually. Among these incidents, **68% occur at home,** with **75% happening** during activities like toileting and bathing. That’s more than many other events or many life-threatening diseases.
 
 And yet, no one’s really talking about it.
 
@@ -26,6 +26,13 @@ It rarely gets the attention it deserves until it’s too late. What’s missing
 for elderly users — especially those most at risk during nighttime or in the bathroom.
 
 ## The Statistics We Can’t Ignore
+
+<img 
+  src="/images/BlogImage(Infographics)1.jpg" 
+  alt="Infographic" 
+  style="width:100%; border-radius:1rem;" 
+/>
+
 
 Let’s break it down:
 
@@ -103,6 +110,12 @@ Know more
 </a>
 
 ## Why EyEagle Isn’t Just a Product — It’s a Promise
+
+<img 
+  src="/images/BlogImage(SecondaryBannerImage)1.jpg" 
+  alt="Secondary banner" 
+  style="width:100%; border-radius:1rem;" 
+/>
 
 EyEagle is more than hardware and alerts. It’s a system built around respect, empathy, and trust. From the moment a technician steps into the home for a bathroom safety audit to the instant a caregiver receives an alert, EyEagle is with families at every step. It protects not just the elderly person but the peace of mind of everyone who loves them. We don’t offer empty guarantees. We offer realistic, reliable safety that is installed by people who care.
 
