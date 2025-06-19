@@ -247,7 +247,10 @@ export const FatherSection1 =
   "Get 15% OFF on EyEagle Safety Kit + Free Safety Audit";
 
 export const FatherSection2 =
-  "Offer valid June 12–15. Limited slots available.";
+    "Offer valid June 12–15. Limited slots available.";
+
+  export const YogaSection2 =
+  "Offer valid till June 21. Limited slots available.";
 
 export const descriptionButton = "Join waitlist";
 
