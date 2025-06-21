@@ -10,6 +10,23 @@ const { pathname } = Astro. url;
 const loginCredential = false;
 const footerClass = Astro.props.footerClass ?? "";
 const { noindex } = Astro.props;
+// layouts/MainLayout.astro
+import Banner from "../components/Home/Banner.astro";
+const { url } = Astro;
+let showBanner = true;
+let bannerProps = {};
+
+// Define conditions for showing banner
+if (
+  url.pathname === "/offers/yoga-day-2025" ||
+  url.pathname === "/offers/fathers-day-2025"
+) {
+  showBanner = true;
+  bannerProps = {
+    show: true,
+    message: "This offer has expired. Stay tuned for upcoming deals !",
+  };
+}
 ---
 
 <!doctype html>
@@ -45,17 +62,16 @@ const { noindex } = Astro.props;
     </script>
   </head>
   
-  <body class="text-gray-900">
-    <!-- <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
-      <h2 class="tracking-[0.25rem] h-[3.25rem] text-base font-bold leading-6 grid justify-center items-center w-full">
-        PREVENTING FALLS, SAVING LIVES
-      </h2>
-    </div> -->
-    <header
-      id="myNav"
-      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-black`
-    >
-      <nav class="flex justify-between items-center xl:container">
+<body class="text-gray-900">
+ <!-- Banner -->
+<Banner {...bannerProps} />
+
+<!-- Sticky Navbar -->
+<header
+  id="myNav"
+  class="sticky max-lg:hidden w-full top-0 z-50 right-0 px-10 py-4 bg-black transition-all duration-500"
+>
+  <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center gap-4 lg:py-2">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
@@ -110,10 +126,11 @@ const { noindex } = Astro.props;
       </div>}
       </nav>
     </header>
-    <header
-      id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-40 bg-black w-full"
-    >
+    
+  <header
+  id="mobileNav"
+  class="lg:hidden sticky top-0 z-50 bg-black w-full px-4 py-3 shadow transition-all duration-500"
+>
       <nav class="flex justify-between items-center px-5 py-4">
     <div class="flex items-center gap-4">
     <a href="/" aria-label="EyEagle Home Page">

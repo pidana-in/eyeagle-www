@@ -1,0 +1,51 @@
+---
+const { show = false, message = "", link = "", linkText = "" } = Astro.props;
+if (!show) return null;
+---
+
+<style>
+  .banner-transition {
+    transition: height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+  }
+
+  .banner-hide {
+    height: 0 !important;
+    opacity: 0;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+</style>
+
+<!-- Sticky Banner -->
+<div
+  id="banner"
+  class="w-full h-[3rem] bg-[#cc0000] flex items-center justify-center text-white text-sm md:text-base font-medium z-50 sticky top-0 banner-transition"
+>
+  <p class="text-center m-auto px-4">
+    <a
+      href={link}
+      class="underline font-bold mr-2"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {linkText}
+    </a>
+    <span>{message}</span>
+  </p>
+
+  <span
+    id="closeBanner"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-xl font-bold cursor-pointer"
+  >
+    ×
+  </span>
+
+  <script is:inline>
+    const closeBtn = document.getElementById('closeBanner');
+    const banner = document.getElementById('banner');
+
+    closeBtn?.addEventListener('click', () => {
+      banner?.classList.add('banner-hide');
+    });
+  </script>
+</div>

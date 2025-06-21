@@ -88,3 +88,33 @@ import YogaSection from "../../components/Home/YogaSection.astro";
   </section>
 </MainLayout>
 
+<script type="module">
+  const expiryDate = new Date("2025-06-21T23:59:59");
+  const now = new Date();
+
+  const isExpired = now > expiryDate;
+
+  if (isExpired) {
+    const links = document.querySelectorAll("a[href*='eyeagle-reserve-offer']");
+
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault(); // prevent redirect
+        showToast("This offer has expired. Stay tuned for upcoming deals.");
+      });
+    });
+  }
+
+  function showToast(message) {
+    const toast = document.createElement("div");
+    toast.textContent = message;
+    toast.className =
+      "fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-white font-medium py-2 px-4 rounded-lg shadow-lg z-50 text-center";
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+</script>
+
