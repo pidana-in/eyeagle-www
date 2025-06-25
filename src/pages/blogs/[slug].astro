@@ -16,9 +16,19 @@ if (!blog) {
 }
 
 const { Content } = await blog.render();
-const metaTitle = "Falls Kill More Seniors Than You Think | EyEagle";
-const metaDesc =
-  "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.";
+
+let metaTitle = "Blog | EyEagle";
+let metaDesc = "Read the latest article on EyEagle's blog.";
+
+if (slug === "falls-kill-more-seniors-than-you-think") {
+  metaTitle = "Falls Kill More Seniors Than You Think | EyEagle";
+  metaDesc =
+    "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.";
+} else if (slug === "why-falls-are-the-biggest-threat-to-seniors") {
+  metaTitle = "Why Falls Are the Biggest Threat to Seniors | EyEagle";
+  metaDesc =
+    "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.";
+}
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc}>
