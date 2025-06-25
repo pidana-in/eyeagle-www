@@ -1,11 +1,12 @@
 ---
-id: "1"
+id: "2"
 title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
 category: "Blog"
 img: "../../images/BlogImageNew.jpg"
 slug: "falls-kill-more-seniors-than-you-think"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
+date: 2025-05-26
 # authorImage: "../../images/Abhinav.png"
 ---
 
