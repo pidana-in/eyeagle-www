@@ -16,18 +16,12 @@ if (!show) return null;
   }
 </style>
 
-<!-- Sticky Banner -->
 <div
   id="banner"
-  class="w-full h-[3rem] bg-[#cc0000] flex items-center justify-center text-white text-sm md:text-base font-medium z-50 sticky top-0 banner-transition"
+  class="fixed top-0 w-full h-[3rem] bg-[#cc0000] z-[60] flex items-center justify-center text-white text-sm md:text-base font-medium banner-transition"
 >
   <p class="text-center m-auto px-4">
-    <a
-      href={link}
-      class="underline font-bold mr-2"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={link} class="underline font-bold mr-2" target="_blank" rel="noopener noreferrer">
       {linkText}
     </a>
     <span>{message}</span>
@@ -41,11 +35,19 @@ if (!show) return null;
   </span>
 
   <script is:inline>
-    const closeBtn = document.getElementById('closeBanner');
-    const banner = document.getElementById('banner');
+    document.addEventListener('DOMContentLoaded', () => {
+      const closeBtn = document.getElementById('closeBanner');
+      const banner = document.getElementById('banner');
+      const navDesktop = document.getElementById('myNav');
+      const navMobile = document.getElementById('mobileNav');
+      const content = document.getElementById('pageContent');
 
-    closeBtn?.addEventListener('click', () => {
-      banner?.classList.add('banner-hide');
+      closeBtn?.addEventListener('click', () => {
+        banner?.classList.add('banner-hide');
+        if (navDesktop) navDesktop.style.top = '0';
+        if (navMobile) navMobile.style.top = '0';
+        if (content) content.style.paddingTop = '4rem'; // just navbar height
+      });
     });
   </script>
 </div>

@@ -12,11 +12,13 @@ const footerClass = Astro.props.footerClass ?? "";
 const { noindex } = Astro.props;
 // layouts/MainLayout.astro
 import Banner from "../components/Home/Banner.astro";
+
 const { url } = Astro;
-let showBanner = true;
+
+// Determine if banner should show
+let showBanner = false;
 let bannerProps = {};
 
-// Define conditions for showing banner
 if (
   url.pathname === "/offers/yoga-day-2025" ||
   url.pathname === "/offers/fathers-day-2025"
@@ -24,7 +26,7 @@ if (
   showBanner = true;
   bannerProps = {
     show: true,
-    message: "This offer has expired. Stay tuned for upcoming deals !",
+    message: "This offer has expired. Stay tuned for upcoming deals!",
   };
 }
 ---
@@ -64,12 +66,12 @@ if (
   
 <body class="text-gray-900">
  <!-- Banner -->
-<Banner {...bannerProps} />
+  <Banner {...bannerProps} />
+  
 
-<!-- Sticky Navbar -->
-<header
+ <header
   id="myNav"
-  class="sticky max-lg:hidden w-full top-0 z-50 right-0 px-10 py-4 bg-black transition-all duration-500"
+  class={`max-lg:hidden block fixed top-[${showBanner ? "3rem" : "0"}] z-40 w-full bg-black px-10 py-4 transition-all duration-300`}
 >
   <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center gap-4 lg:py-2">
@@ -90,7 +92,7 @@ if (
 
       </div>
       <ul
-            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4 mr-[10%]`
+            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4 mr-[13%]`
             id="content"
           >
           {navbarContent?.map((item)=>
@@ -129,7 +131,7 @@ if (
     
   <header
   id="mobileNav"
-  class="lg:hidden sticky top-0 z-50 bg-black w-full px-4 py-3 shadow transition-all duration-500"
+  class="lg:hidden block fixed  z-40 w-full bg-black transition-all duration-300"
 >
       <nav class="flex justify-between items-center px-5 py-4">
     <div class="flex items-center gap-4">
@@ -196,8 +198,9 @@ if (
         </a>
       </ul>
     </section>
-    
-    <main class="font-sans-instrument">
+    <main class="font-sans-instrument transition-all duration-300"
+          style={`padding-top: ${showBanner ? "3rem" : "0"}`}
+>
       <slot />
     </main>
 

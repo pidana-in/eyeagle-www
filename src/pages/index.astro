@@ -21,12 +21,10 @@ import {HeroImageTitle} from "../components/constants/home";
 import Faqs from "../components/Home/Faqs.astro";
 import VideoSection from "../components/Home/VideoSection.astro";
 import Blogs from "../components/Home/Blogs.astro";
-import Banner from "../components/Home/Banner.astro";
-const { banner = {} } = Astro.props;
 const metaTitle = "EyEagle – Preventing Falls, Saving Lives";
 const metaDesc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!";
 ---
-<MainLayout title={metaTitle} desc={metaDesc} banner={banner}>
+<MainLayout title={metaTitle} desc={metaDesc}>
   <!-- Hero Section -->
    <HeroSectionComponent heroImage={HeroSection} heroImageMob={HeroImageMobile} heroDescription={heroDescription} heroDescription2={heroDescription2} HeroImageTitle={HeroImageTitle}/>
   <!-- Statistics Section -->

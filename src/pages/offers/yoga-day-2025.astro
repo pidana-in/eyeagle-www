@@ -13,7 +13,7 @@ import { scrollDataSection } from "../../components/constants/home";
 import YogaSection from "../../components/Home/YogaSection.astro";
 ---
 
-<MainLayout>
+<MainLayout noindex={true}>
   <section class="relative w-full min-h-[440px] sm:min-h-[600px] lg:min-h-[1200px]">
     <Image src={img} alt="hero image"  class="absolute inset-0 w-full h-full object-cover" />
     <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-10 lg:pt-20">
