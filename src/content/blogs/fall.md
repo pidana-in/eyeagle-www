@@ -1,11 +1,12 @@
 ---
-id: "1"
+id: "2"
 title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
 category: "Blog"
 img: "../../images/BlogImageNew.jpg"
 slug: "falls-kill-more-seniors-than-you-think"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
+date: 2025-05-26
 # authorImage: "../../images/Abhinav.png"
 ---
 
@@ -30,7 +31,7 @@ for elderly users — especially those most at risk during nighttime or in the b
 <img 
   src="/images/BlogImage(Infographics)1.jpg" 
   alt="Infographic" 
-  style="width:100%; border-radius:1rem;" 
+   class="w-full lg:w-[80%] rounded-xl"
 />
 
 
@@ -114,7 +115,7 @@ Know more
 <img 
   src="/images/BlogImage(SecondaryBannerImage)1.jpg" 
   alt="Secondary banner" 
-  style="width:100%; border-radius:1rem;" 
+  class="w-full lg:w-[80%] rounded-xl"
 />
 
 EyEagle is more than hardware and alerts. It’s a system built around respect, empathy, and trust. From the moment a technician steps into the home for a bathroom safety audit to the instant a caregiver receives an alert, EyEagle is with families at every step. It protects not just the elderly person but the peace of mind of everyone who loves them. We don’t offer empty guarantees. We offer realistic, reliable safety that is installed by people who care.
