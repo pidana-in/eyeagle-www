@@ -1,5 +1,5 @@
 ---
-id: "1"
+id: "2"
 title: "The Silent Epidemic: Why Falls Are the Biggest Threat to Seniors"
 category: "Blog"
 img: "../../images/BlogImage2.jpg"
@@ -14,13 +14,13 @@ date: 2025-06-25
 
 Have you ever wondered what really happens when an older adult falls? Is it just a small issue, or could it be something much more serious? Many people think falling is just a part of aging. But the truth is, for senior citizens, a fall can change everything. It can lead to broken bones, long hospital stays, loss of independence, and in some cases, it can even be life-threatening. What makes this even more worrying is that most of these falls in the elderly don’t get much attention. Families may not notice, or elders might not tell anyone, because they feel embarrassed or afraid.
 
-This is why health experts now call it a **“silent epidemic.”** It’s happening all around us, quietly, and affecting thousands of families. Thankfully, there are thoughtful <a href="https://eyeagle.ai/" style="color:blue; text-decoration:underline;"> fall-prevention safety systems like EyEagle </a> that minimize fall risks and ensure that, when emergencies do happen, help isn't far behind.
+This is why health experts now call it a **“silent epidemic.”** It’s happening all around us, quietly, and affecting thousands of families. Thankfully, there are thoughtful <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;"> fall-prevention safety systems like EyEagle </a> that minimize fall risks and ensure that, when emergencies do happen, help isn't far behind.
 
 ## Why falls in the elderly are a silent epidemic?
 
 When we hear the word “epidemic,” we usually think of diseases that spread quickly and affect large numbers of people. But what about something that spreads quietly, without anyone noticing, until it causes serious harm? That’s exactly what’s happening with falls among older adults.
 
-They may not get as much attention as diseases like diabetes or heart conditions. Still, falls are just as dangerous- and in many cases, more immediate in their impact. <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:blue; text-decoration:underline;"> Falls in the elderly are more common than we think.</a> Did you know that **1 in 3 people over 60** will experience a fall each year? In India alone, lakhs of elderly people are affected annually. Sadly, many of these cases go unreported because families either don’t see the fall or don’t realize how serious it is.
+They may not get as much attention as diseases like diabetes or heart conditions. Still, falls are just as dangerous- and in many cases, more immediate in their impact. <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;"> Falls in the elderly are more common than we think.</a> Did you know that **1 in 3 people over 60** will experience a fall each year? In India alone, lakhs of elderly people are affected annually. Sadly, many of these cases go unreported because families either don’t see the fall or don’t realize how serious it is.
 
 Older adults often avoid telling others when they fall. They might worry about being seen as weak or fear losing their independence. This silence means that risks remain unaddressed- until the next fall happens, often with worse risk.
 
@@ -131,9 +131,7 @@ From setting up grab bars to configuring the app, EyEagle handles everything- so
 
 EyEagle blends technology, compassion, and reliability, making it your valuable partner in every fall prevention plan.
 
-<a href="https://eyeagle.ai/solution/"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #D1D5DB; color: #002E3D; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;"
-  onmouseover="this.style.backgroundColor='#f3f4f6'"
-  onmouseout="this.style.backgroundColor='transparent'">
+<a href="https://eyeagle.ai/solution/" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 
@@ -141,7 +139,7 @@ Know more
 
 Falls among seniors are not just random events. They’re a growing health crisis that affects families quietly, often without warning and with serious consequences. That’s why it’s called a silent epidemic. But it doesn’t have to stay silent.
 
-By understanding the risks, spreading awareness about fall prevention tips for seniors, and using <a href="https://eyeagle.ai/contact" style="color:blue; text-decoration:underline;"> supportive solutions like EyEagle</a> - we can reduce the danger and bring peace of mind to everyone involved. Caring for our elders means more than just being present, it means being prepared. And when we combine love with smart planning, we help them stay not only safe, but also confident, independent, and respected.
+By understanding the risks, spreading awareness about fall prevention tips for seniors, and using <a href="https://eyeagle.ai/contact" style="color:#CC0000; text-decoration:none;"> supportive solutions like EyEagle</a> - we can reduce the danger and bring peace of mind to everyone involved. Caring for our elders means more than just being present, it means being prepared. And when we combine love with smart planning, we help them stay not only safe, but also confident, independent, and respected.
 
 Our elders spent their lives caring for us. Now, it’s our turn to care for them. Falls may be
 silent, but our response shouldn’t be. Because every senior deserves to age with dignity, not fear.

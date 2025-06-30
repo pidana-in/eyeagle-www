@@ -28,10 +28,22 @@ if (slug === "falls-kill-more-seniors-than-you-think") {
   metaTitle = "Why Falls Are the Biggest Threat to Seniors | EyEagle";
   metaDesc =
     "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.";
+} else if (slug === "how-to-ensure-safety-for-parents-living-alone") {
+  metaTitle = "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle";
+  metaDesc =
+    "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.";
 }
+
+
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc}>
+  <style is:global>
+    .prose ul ul {
+    list-style-type: circle;
+  }
+</style>
+
   <section class="bg-[#F6F4F2] text-black lg:pt-40 pt-12 px-6 w-full">
     <div
       class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 font-sans-instrument"
