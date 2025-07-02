@@ -228,7 +228,7 @@ Newsletter: ${acceptance ? "Yes" : "No"}
       <div class="pt-60 grid lg:grid-cols-4 gap-12">
         {
           bathroomData?.map((item) => (
-            <a href={`/#${scrollDataSection[item.id]}`}>
+            <a href={`/#${scrollDataSection[item.id]}`} target="_blank" rel="noopener noreferrer">
             <BathroomSection item={item} mobile={false} />
             </a>
           ))

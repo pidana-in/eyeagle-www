@@ -68,10 +68,9 @@ if (
  <!-- Banner -->
   <Banner {...bannerProps} />
   
-
  <header
   id="myNav"
-  class={`max-lg:hidden block fixed top-[${showBanner ? "3rem" : "0"}] z-40 w-full bg-black px-10 py-4 transition-all duration-300`}
+  class={`max-lg:hidden block fixed ${showBanner ? "top-[3rem]" : "top-0"} z-40 w-full bg-black px-10 py-4 transition-all duration-300`}
 >
   <nav class="flex justify-between items-center xl:container">
         <div class="flex justify-between items-center gap-4 lg:py-2">
@@ -131,7 +130,7 @@ if (
     
   <header
   id="mobileNav"
-  class="lg:hidden block fixed  z-40 w-full bg-black transition-all duration-300"
+  class={`lg:hidden block fixed ${showBanner ? "top-[3rem]" : "top-0"} z-40 w-full bg-black transition-all duration-300`}
 >
       <nav class="flex justify-between items-center px-5 py-4">
     <div class="flex items-center gap-4">
@@ -184,10 +183,10 @@ if (
   </div>
 </nav>
     </header>
-    <section
-      id="mobileNavContent"
-      style={{ display: "none" }}
-      class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
+  <section
+    id="mobileNavContent"
+    style={{ display: "none" }}
+    class="lg:hidden fixed z-[60] bg-white h-auto w-full text-center text-lg font-normal py-5 shadow transition-all duration-300"
     >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         {navbarContent?.map((item)=>
@@ -198,13 +197,15 @@ if (
         </a>
       </ul>
     </section>
-    <main class="font-sans-instrument transition-all duration-300"
-          style={`padding-top: ${showBanner ? "3rem" : "0"}`}
->
-      <slot />
-    </main>
 
-    <footer id="footer" class={`py-8 lg:py-20 ${footerClass} xl:container`}>
+    <main
+    id="pageContent"
+    class={`font-sans-instrument ${showBanner ? "mt-[7rem]" : "mt-[5rem] lg:mt-0"}  transition-all duration-300`}
+    >
+  <slot />
+</main>
+
+<footer id="footer" class={`py-8 lg:py-20 ${footerClass} xl:container`}>
       <!-- <div
         class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32"
       >
@@ -327,6 +328,31 @@ if (
     let display = accountDetails.style.display
     accountDetails.style.display = `${display ? "" : "none"}`;
   })
-  
 </script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.getElementById('closeBanner');
+    const banner = document.getElementById('banner');
+    const content = document.getElementById('pageContent');
+    const mobileNavContent = document.getElementById('mobileNavContent');
+
+    closeBtn?.addEventListener('click', () => {
+      // Hide the banner
+      banner?.classList.add('banner-hide');
+
+      // Update main content margin
+      if (content) {
+        content.classList.remove('mt-[0rem]');
+        content.classList.add('mt-[0rem]');
+      }
+     if (mobileNavContent) {
+      mobileNavContent.classList.remove('top-16');
+      mobileNavContent.classList.add('top-20');
+     }
+    });
+  });
+</script>
+
+
 
