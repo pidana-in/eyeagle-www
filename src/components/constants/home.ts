@@ -26,6 +26,7 @@ import kitImage4new from "../../assets/Navbar/kitImage4new.png";
 import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
+import hero_17 from "../../assets/Home/Hero_17.png"
 import type { title } from "process";
 
 export const bathroomData = [
@@ -60,6 +61,13 @@ export const bathroomData = [
     description:
       "If needed, EyEagle’s integrated response system can even dispatch emergency services, ensuring your loved ones receive help as soon as possible.",
     image: BathroomImage4new,
+  },
+];
+
+export const fathersday = [
+  {
+    img: hero_17,
+    // content: `<span class="font-bold">1 in 4 </span> seniors fall in the bathroom every year`,
   },
 ];
 
@@ -235,9 +243,20 @@ export const desireSection1 =
 export const desireSection2 =
   "Don’t wait for the worst to happen—be proactive and protect your loved ones with EyEagle’s complete safety kit.";
 
+export const FatherSection1 =
+  "Get 15% OFF on EyEagle Safety Kit + Free Safety Audit";
+
+export const FatherSection2 =
+    "Offer valid June 12–15. Limited slots available.";
+
+  export const YogaSection2 =
+  "Offer valid till June 21. Limited slots available.";
+
 export const descriptionButton = "Join waitlist";
 
-export const scrollDataSection = {
+export const descriptionButtonFathersday = "Book Now";
+
+export const scrollDataSection:{[key:number]:string} = {
   1: "prevention",
   2: "services",
   3: "alerts",

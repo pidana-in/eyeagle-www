@@ -34,5 +34,5 @@ duration:"/ 1 year",
         {iconType:"check",title:"Ambulance & Emergency Services"},
     ],
     btnText:"Reserve my kit",
-    shippingText:"Shipping Starts This June! Secure your order today"
+    shippingText:"Shipping Starts This September! Secure your order today"
 }

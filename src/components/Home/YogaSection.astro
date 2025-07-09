@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+const FatherImage = Astro.props.item;
+const className = Astro.props.className ?? '';
+const FatherSection1 = Astro.props.FatherSection1;
+const YogaSection2 = Astro.props.YogaSection2;
+const descriptionButtonFathersday = Astro.props.descriptionButtonFathersday;
+---
+
+<section>
+    <div class=`lg:py-[7.5rem] lg:px-[5rem] sm:py-[4.5rem]  bg-secondary ${className}`>
+      <div class={"relative h-[20.438rem] lg:h-[56.25rem] "}>
+        <Image
+          src={FatherImage}
+          alt="Our healthcare team"
+          class="object-cover brightness-95 rounded-sm"
+        />
+        <div class="w-full font-sans-instrument">
+          <p class="xl:container xl:w-[43.75rem] xl:right-[36.25rem] xl:left-10 absolute lg:top-20 top-10 lg:left-20 left-5 lg:text-5xl font-normal lg:leading-[4rem] max-w-[46.5rem] mx-auto text-white text-lg">
+            {FatherSection1}
+          </p>
+          <p class="xl:container xl:w-[43.75rem] xl:right-[36.25rem] xl:left-10 absolute top-[100px] lg:top-[13.875rem] lg:text-lg lg:max-w-3xl text-white lg:left-20 left-5 text-sm">
+            {YogaSection2}
+          </p>
+          <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">  
+            <button class="xl:container lg:text-lg text-sm xl:w-[11.625rem] xl:right-[69.75rem] xl:left-16 lg:py-4 flex gap-4 items-center text-white absolute top-[132px] lg:top-[18.75rem] lg:left-20 left-5 lg:px-8 py-2 px-4 lg:rounded-[99px] bg-primary rounded-full">
+              <span>
+                {descriptionButtonFathersday}
+              </span>
+              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
