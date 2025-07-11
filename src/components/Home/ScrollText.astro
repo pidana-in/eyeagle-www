@@ -5,6 +5,7 @@ import Notification1 from "../../assets/Home/Notification1.png";
 import Notification2 from "../../assets/Home/Notification2.png";
 import Notification3 from "../../assets/Home/Notification3.png";
 import { PowerfulBentoData } from "../constants/home";
+import BentoMobile1 from "../../assets/Home/BentoMobile1.png"
 import VectorArrow1 from "../../assets/Home/VectorArrow1.png"
 import VectorArrow2 from "../../assets/Home/VectorArrow2.png"
 import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
@@ -88,22 +89,26 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
   <div class="h-[1800px] font-sans-instrument">
     <div class="relative scroll-wrapper h-[1800px]">
     <div class="your-section fixed-section">
-      <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"lg:px-20 px-4 mt-10"} />
-      <Image id={"notification1"} src={Notification1} alt={"notification1"} class={"px-20 py-16 absolute w-[40%] lg:right-24 lg:top-4 noVisible"} />
-      <Image id={"notification2"} src={Notification2} alt={"notification2"} class={"px-20 py-14 absolute w-[40%] lg:right-20 lg:top-44 noVisible"} />
-      <Image id={"notification3"} src={Notification3} alt={"notification3"} class={"px-20 py-10 absolute w-[40%] lg:right-14 lg:bottom-10 noVisible"} />
+      <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"lg:px-20 px-4 mt-10 hidden md:block"} />
       
-      <div class="text-one noVisible absolute top-24 left-28">
-        <p class="font-normal text-xl leading-8">24/7 <span class="text-primary">EyEagle</span> team reach</p>
-        <Image src={VectorArrow1} alt={"VectorArrow1"} class="absolute lg:left-44 lg:top-10 w-[90%]" />
+      <Image src={BentoMobile1} alt={"powerfulBento"} class={"w-[70%] float-right px-4 mt-10 md:hidden block"} />
+      
+      <Image id={"notification1"} src={Notification1} alt={"notification1"} class={"lg:px-20 lg:py-16 absolute w-[40%] lg:right-24 lg:top-4 top-0 right-5 noVisible"} />
+      <Image id={"notification2"} src={Notification2} alt={"notification2"} class={"lg:px-20 lg:py-14 absolute w-[40%] right-20 lg:top-44 noVisible hidden md:block"} />
+      <Image id={"notification3"} src={Notification3} alt={"notification3"} class={"lg:px-20 lg:py-10 absolute w-[40%] lg:right-14 lg:bottom-10 top-96 right-24 noVisible"} />
+      
+      <div class="text-one noVisible absolute lg:top-24 lg:left-28 top-20 left-4">
+        <p class="font-normal lg:text-xl text-xs lg:leading-8 mb-3">24/7 <span class="text-primary">EyEagle</span> team reach</p>
+        <Image src={VectorArrow1} alt={"VectorArrow1"} class="absolute lg:left-44 lg:top-10 left-20 lg:w-[90%] w-[60%]" />
       </div>
-      <div class="text-second noVisible absolute top-[300px] left-28">
-        <p class="font-normal text-xl leading-8">Easily get updates from all<br/> the devices in one circle</p>
-        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute lg:left-60 lg:top-10 w-[80%]" />
+      <div class="text-second noVisible absolute lg:top-[300px] lg:left-28 top-[150px] left-4">
+        <p class="font-normal lg:text-xl text-xs lg:leading-8 hidden md:block">Easily get updates from all<br/> the devices in one circle</p>
+        <p class="font-normal lg:text-xl text-xs lg:leading-8 block md:hidden">Easily get<br/> updates from all<br/> the devices in<br /> one circle</p>
+        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute lg:left-60 left-20 w-[90%]" />
       </div>
-      <div class="text-third noVisible absolute top-[480px] left-28">
-        <p class="font-normal text-xl leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
-        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute lg:left-52 lg:top-10 w-[120%]" />
+      <div class="text-third noVisible absolute lg:top-[480px] lg:left-28 top-[260px] left-4">
+        <p class="font-normal lg:text-xl text-xs lg:leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
+        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute lg:left-52 left-24 lg:w-[90%] w-[60%]" />
       </div>
     </div>
   </div>
