@@ -34,7 +34,6 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
     left: 0;
     width: 100%;
     z-index: 20;
-    background: white; /* Optional: Set background to prevent transparency issues */
   }
   .visibleOne{
     opacity: 1;
@@ -90,30 +89,30 @@ import VectorArrow3 from "../../assets/Home/VectorArrow3.png"
     <div class="relative scroll-wrapper h-[1800px]">
     <div class="your-section fixed-section">
       <Image src={powerfulFeatDemo} alt={"powerfulBento"} class={"lg:px-20 px-4 mt-10 hidden md:block"} />
-      <div class="bg-slate-400 size-full">
-      <Image src={BentoMobile1} alt={"powerfulBento"} class={"w-[70%] float-right px-4 mt-10 md:hidden block"} />
+      <div class="bg-[#F6F4F2] h-[455px] mx-4 rounded-2xl md:hidden block">
+      <Image src={BentoMobile1} alt={"powerfulBento"} class={"w-[68%] float-right rounded-2xl mt-10 md:hidden block"} />
       </div> 
       <Image id={"notification1"} src={Notification1} alt={"notification1"} class={"lg:px-20 lg:py-16 absolute w-[40%] lg:right-24 lg:top-4 top-0 right-5 noVisible"} />
       <Image id={"notification2"} src={Notification2} alt={"notification2"} class={"lg:px-20 lg:py-14 absolute w-[40%] right-20 lg:top-44 noVisible hidden md:block"} />
       <Image id={"notification3"} src={Notification3} alt={"notification3"} class={"lg:px-20 lg:py-10 absolute w-[40%] lg:right-14 lg:bottom-10 top-96 right-24 noVisible"} />
       
-      <div class="text-one noVisible absolute lg:top-24 lg:left-28 top-20 left-4">
+      <div class="text-one noVisible absolute lg:top-24 lg:left-28 top-20 left-6">
         <p class="font-normal lg:text-xl text-xs lg:leading-8 mb-3">24/7 <span class="text-primary">EyEagle</span> team reach</p>
         <Image src={VectorArrow1} alt={"VectorArrow1"} class="absolute lg:left-44 lg:top-10 left-20 lg:w-[90%] w-[60%]" />
       </div>
-      <div class="text-second noVisible absolute lg:top-[300px] lg:left-28 top-[150px] left-4">
+      <div class="text-second noVisible absolute lg:top-[300px] lg:left-28 top-[150px] left-6">
         <p class="font-normal lg:text-xl text-xs lg:leading-8 hidden md:block">Easily get updates from all<br/> the devices in one circle</p>
         <p class="font-normal lg:text-xl text-xs lg:leading-8 block md:hidden">Easily get<br/> updates from all<br/> the devices in<br /> one circle</p>
-        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute lg:left-60 left-20 w-[90%]" />
+        <Image src={VectorArrow2} alt={"VectorArrow2"} class="absolute lg:left-60 left-16 w-[90%]" />
       </div>
-      <div class="text-third noVisible absolute lg:top-[480px] lg:left-28 top-[260px] left-4">
-        <p class="font-normal lg:text-xl text-xs lg:leading-8">Details & Documents<br/> readily available for<br/> emergencies</p>
-        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute lg:left-52 left-24 lg:w-[90%] w-[60%]" />
+      <div class="text-third noVisible absolute lg:top-[460px] lg:left-28 top-[260px] left-6">
+        <p class="font-normal lg:text-xl text-xs lg:leading-8 hidden md:block">Details & Documents<br/> readily available for<br/> emergencies</p>
+        <p class="font-normal lg:text-xl text-xs lg:leading-8 block md:hidden">Details &<br/> Documents<br/>readily<br/> available for<br/> emergencies</p>
+        <Image src={VectorArrow3} alt={"VectorArrow3"} class="absolute lg:bottom-0 bottom-[20px] lg:left-52 left-20 w-full" />
       </div>
     </div>
   </div>
   </div>
-   <div class="h-[440px] block md:hidden"></div>
   <div class="lg:flex grid lg:gap-16 gap-10 lg:px-20 px-4 lg:h-[39.938rem] my-10">
     <div>
       <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"} class={"w-full h-full"}/>
