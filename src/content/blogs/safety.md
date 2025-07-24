@@ -1,5 +1,5 @@
 ---
-id: "1"
+id: "3"
 title: "Do Your Parents Live Alone? Here’s How to Ensure Their Safety 24/7"
 category: "Blog"
 img: "../../images/BlogImage3.jpg"
@@ -7,7 +7,6 @@ slug: "how-to-ensure-safety-for-parents-living-alone"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
 date: 2025-06-30
-# authorImage: "../../images/Abhinav.png"
 ---
 
 ## Introduction
