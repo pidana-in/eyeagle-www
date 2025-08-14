@@ -36,19 +36,24 @@ if (slug === "falls-kill-more-seniors-than-you-think") {
   metaTitle = "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle";
   metaDesc =
     "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.";
-}  else if (slug === "why-fall-alarms-for-seniors-matter") {
-  metaTitle = "One Fall Changed Everything – Why Fall Alarms for Seniors Matter";
+} else if (slug === "why-fall-alarms-for-seniors-matter") {
+  metaTitle =
+    "One Fall Changed Everything – Why Fall Alarms for Seniors Matter";
   metaDesc =
     "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.";
+} else if (slug === "caring-elderly-parents-from-afar") {
+  metaTitle = "Caring Elderly Parents from Afar: Tips for Urban Migrants";
+  metaDesc =
+    " Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.";
 }
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc}>
   <style is:global>
     .prose ul ul {
-    list-style-type: circle;
-  }
-</style>
+      list-style-type: circle;
+    }
+  </style>
 
   <section class="bg-[#F6F4F2] text-black lg:pt-40 pt-12 px-6 w-full">
     <div
@@ -87,7 +92,7 @@ if (slug === "falls-kill-more-seniors-than-you-think") {
             <p class="text-gray-900 font-semibold">{blog.data.author}</p>
             <p class="text-gray-700 font-semibold">{blog.data.authorRole}</p>
             <p class="text-sm text-gray-600 mt-1">
-               {
+              {
                 new Date(blog.data.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
