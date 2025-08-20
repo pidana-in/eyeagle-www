@@ -27,7 +27,6 @@ import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
 import hero_17 from "../../assets/Home/Hero_17.png"
-import type { title } from "process";
 
 export const bathroomData = [
   {
@@ -67,7 +66,6 @@ export const bathroomData = [
 export const fathersday = [
   {
     img: hero_17,
-    // content: `<span class="font-bold">1 in 4 </span> seniors fall in the bathroom every year`,
   },
 ];
 
@@ -85,45 +83,39 @@ export const struggleData = [
     content: `<span class="font-bold">10-15% </span> of falls in the bathroom lead to hospitalisation`,
   },
 ];
-// export const struggleData1 = [
-// {
-//   img: struggle1mobile,
-//   content: `1 in 4 seniors fall in the bathroom every year`,
-// },
-// {
-//   img: struggle2mobile,
-//   content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
-// },
-// {
-//   img: struggle3mobile,
-//   content: `10-15% of falls in the bathroom lead to hospitalisation`,
-// },
-// ];
 
 export const blogsData = [
   {
-    img: struggle1,
-    title: `1 in 4 seniors fall in the bathroom every year as per reports`,
-    category: `Blog`,
-    link: "/blogs/fall",
-    slug: "fall-prevention"
+    slug: "falls-kill-more-seniors-than-you-think",
+    title: "Falls Kill More Seniors Than You Think | EyEagle",
+    desc: "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.",
   },
   {
-    img: struggle2,
-    title: `95% of hip fractures in seniors are caused by falls in the bathroom`,
-    category: `Blog`,
-    link: "/blogs/hip-fractures",
-    slug: "fall-prevention",
+    slug: "why-falls-are-the-biggest-threat-to-seniors",
+    title: "Why Falls Are the Biggest Threat to Seniors | EyEagle",
+    desc: "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.",
   },
   {
-    img: struggle3,
-    title: `10-15% of falls in the bathroom lead to hospitalisation`,
-    category: `Blog`,
-    link: "/blogs/hospitalisation",
-    slug: "fall-prevention",
+    slug: "how-to-ensure-safety-for-parents-living-alone",
+    title: "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle",
+    desc: "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.",
+  },
+  {
+    slug: "step-by-step-bathroom-safety-tips-for-seniors",
+    title: "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle",
+    desc: "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.",
+  },
+  {
+    slug: "why-fall-alarms-for-seniors-matter",
+    title: "One Fall Changed Everything – Why Fall Alarms for Seniors Matter",
+    desc: "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.",
+  },
+  {
+    slug: "caring-elderly-parents-from-afar",
+    title: "Caring Elderly Parents from Afar: Tips for Urban Migrants",
+    desc: " Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
   },
 ];
-
 
 export const kitImageDesktop = [
   [
