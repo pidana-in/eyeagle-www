@@ -113,7 +113,12 @@ export const blogsData = [
   {
     slug: "caring-elderly-parents-from-afar",
     title: "Caring Elderly Parents from Afar: Tips for Urban Migrants",
-    desc: " Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
+    desc: "Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
+  },
+    {
+    slug: "arthritis-and-joint-pain-in-seniors",
+    title: "Arthritis & Joint Pain in Seniors | Fall Prevention Tips",
+    desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies.",
   },
 ];
 
