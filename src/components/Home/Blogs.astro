@@ -3,7 +3,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 const { showSeeMoreButton = false } = Astro.props;
 let blogsData: CollectionEntry<"blogs">[] = await getCollection("blogs");
-blogsData = blogsData.sort((a, b) => a.data.id - b.data.id);
+
+blogsData = blogsData.sort((a, b) => b.data.id - a.data.id);
 if (showSeeMoreButton) {
   blogsData = blogsData.slice(0, 3);
 }
