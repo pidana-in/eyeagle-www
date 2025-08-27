@@ -19,7 +19,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
     </div>
 
    <!-- Desktop Layout -->
-   <div class="flex max-md:hidden gap-5 lg:mt-[3.75rem] mt-8 lg:pb-[7.5rem] pb-20">
+   <div class="flex max-md:hidden gap-5 lg:mt-[3.75rem] mt-8 lg:pb-[2.5rem] pb-20">
     {kitImageDesktop.map((column, colIndex) => (
       <div class={column.length > 1 ? "grid gap-5" : "relative"}>
         {column.map((item) => (
@@ -37,9 +37,12 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
         ))}
       </div>
     ))}
-  </div>
+    </div>
+   <a href="https://shop.eyeagle.ai/" class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base my-10 text-center hover:bg-gray-100 transition lg:mb-[120px]">
+    Get Free Safety Audit
+   </a>
 
-  <!-- Mobile Grid Layout -->
+   <!-- Mobile Grid Layout -->
   <div class="grid grid-cols-2 gap-4 md:hidden my-8">
     {kitImageMobile.flat().map((item) => (
       <div class="relative max-w-[182px] h-[280px] rounded-[13.17px]">
