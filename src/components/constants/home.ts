@@ -108,7 +108,8 @@ export const shopData = [
     img: shop3,
     content: `Bathroom Audit - Remote`,
     badge: `Coming Soon`, 
-    linkTab: `Stay on the loop`
+    linkTab: `Stay on the loop`,
+    link: `https://eyeagle.ai/join/`
   },
 ];
 export const blogsData = [
