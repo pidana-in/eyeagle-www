@@ -17,13 +17,15 @@ const shopData = Astro.props.shopData;
           <Image src={item.img} alt={"doctorImage1"} quality={'max'} />
         </div>
   <p set:html={item.content} class="w-[90%] font-sans-instrument lg:font-bold text-left font-medium text-base lg:text-xl leading-none"></p>
-  <div class="flex items-center gap-2">
-  <p set:html={item.subcontent} class="font-sans-instrument lg:font-medium text-left font-medium text-base lg:text-[18px] leading-none"></p>
-  {item.badge && (
+  <div class={`flex items-center ${item.subcontent && item.badge ? "gap-2" : ""}`}>
+    {item.subcontent && (
+    <p set:html={item.subcontent} class="font-sans-instrument lg:font-medium text-left font-medium text-base lg:text-[18px] leading-none"></p>
+    )}
+    {item.badge && (
     <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm lg:text-base">
       {item.badge}
     </span>
-  )}
+    )}
   </div>
   <a href={item.link} class="w-[90%] font-sans-instrument font-normal text-left text-base lg:text-[16px] underline underline-offset-4">
   {item.linkTab}

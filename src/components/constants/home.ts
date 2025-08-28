@@ -27,9 +27,9 @@ import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
 import hero_17 from "../../assets/Home/Hero_17.png"
-import shop1 from "../../assets/Home/shop1.png"
-import shop2 from "../../assets/Home/shop2.png"
-import shop3 from "../../assets/Home/shop3.png"
+import shop1 from "../../assets/Home/shop1new.png"
+import shop2 from "../../assets/Home/shop2new.png"
+import shop3 from "../../assets/Home/shop3new.png"
 
 
 export const bathroomData = [
