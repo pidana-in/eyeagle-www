@@ -106,7 +106,7 @@ export const shopData = [
   },
   {
     img: shop3,
-    content: `Bathroom Audit - Remote`,
+    content: `EyEagle Prevention Package + App Subscription + Guardian X Kit`,
     badge: `Coming Soon`, 
     linkTab: `Stay on the loop`,
     link: `https://eyeagle.ai/join/`
