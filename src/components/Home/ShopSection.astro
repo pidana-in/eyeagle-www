@@ -3,17 +3,17 @@ import { Image } from "astro:assets";
 const shopData = Astro.props.shopData;
 ---
 
-<section class="xl:container bg-[#222222] text-[#FFFFFF] text-center  lg:px-20 px-5 py-[120px]">
+<section class="xl:container bg-[#222222] text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-[120px] py-12">
   <p
-    class="text-4xl lg:text-[60px] leading-[2.5rem] lg:leading-[72px] mb-20 font-medium font-sans-instrument"
+    class="text-4xl lg:text-[60px] leading-[2.5rem] lg:leading-[72px] lg:mb-20 mb-12 font-medium font-sans-instrument"
   >
     Get Started With Safety Today
   </p>
   <!-- Desktop version -->
   <div class="md:flex justify-center gap-6 hidden">
     {shopData?.map((item:any, i:number) => (
-      <div class="flex flex-col gap-5 justify-start text-center">
-        <div class="w-[90%]">
+      <div class="flex flex-col gap-3 justify-start text-center">
+        <div class="w-[90%] mb-3">
           <Image src={item.img} alt={"doctorImage1"} quality={'max'} />
         </div>
   <p set:html={item.content} class="w-[90%] font-sans-instrument lg:font-bold text-left font-medium text-base lg:text-xl leading-none"></p>
@@ -34,19 +34,32 @@ const shopData = Astro.props.shopData;
     ))}
   </div>
   
-  <!-- Mobile version (horizontal scrolling) -->
-  <div class="block md:hidden overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
-   <div class="flex space-x-6">
-    {shopData?.map((item:any,i:number) => (
-      <div class="flex-none flex-shrink-0 w-full snap-start">
-        <div class="flex flex-col gap-5 justify-start text-center">
-          <div class="w-full">
+<!-- Mobile version (vertical stacking) -->
+<div class="block md:hidden">
+  <div class="flex flex-col gap-10">
+    {shopData?.map((item:any, i:number) => (
+      <div class="w-full">
+        <div class="flex flex-col gap-3 justify-start text-center">
+          <div class="w-full mb-4">
             <Image src={item.img} alt={`doctorImageMobile`} class="w-full rounded-xl" />
           </div>
           <p set:html={item.content} class="font-barlow text-left text-base leading-6 font-medium"></p>
+          <div class={`flex items-center ${item.subcontent && item.badge ? "gap-2" : ""}`}>
+            {item.subcontent && (
+              <p set:html={item.subcontent} class="font-sans-instrument font-medium text-left text-sm leading-none"></p>
+            )}
+            {item.badge && (
+              <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm">
+                {item.badge}
+              </span>
+            )}
+          </div>
+          <a href={item.link} class="w-full font-sans-instrument font-normal text-left text-sm underline underline-offset-4">
+            {item.linkTab}
+          </a>
         </div>
       </div>
     ))}
-    </div>
   </div>
+</div>
 </section>
