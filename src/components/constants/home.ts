@@ -120,6 +120,11 @@ export const blogsData = [
     title: "Arthritis & Joint Pain in Seniors | Fall Prevention Tips",
     desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies.",
   },
+   {
+    slug: "balance-problems-in-elderly",
+    title: "Balance Problems in Elderly: Causes, Warning Signs & Prevention",
+    desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
+  },
 ];
 
 export const kitImageDesktop = [
