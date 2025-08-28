@@ -31,6 +31,7 @@ import shop1 from "../../assets/Home/shop1.png"
 import shop2 from "../../assets/Home/shop2.png"
 import shop3 from "../../assets/Home/shop3.png"
 
+
 export const bathroomData = [
   {
     id: 1,
