@@ -22,8 +22,8 @@ const takeCareData = Astro.props.takeCareData;
 const serviceSectionTitle = Astro.props.serviceSectionTitle;
 ---
 
-<section id="services" class="bg-black">
-  <div class="xl:container py-[3.75rem] lg:py-[7.5rem] font-sans-instrument">
+<section id="services" class="bg-[#222222]">
+  <div class="xl:container py-[3.75rem] lg:py-[5rem] font-sans-instrument">
   <div class="lg:pb-20 pb-[6.25rem]">
     <h2 class="text-white opacity-[60%] text-center font-medium text-[16px] lg:text-lg leading-[1.375rem] mb-2">INTERACTION</h2>
         <h2 class="lg:text-6xl text-white xl:container font-sans-instrument leading-10 text-[2.5rem] font-medium lg:font-medium lg:leading-[4.5rem] text-center">
@@ -59,10 +59,8 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
         </div>
       </div>
     </div>
-    
     <div class="lg:flex grid max-sm:justify-center lg:px-20 px-4 gap-6 py-5">
       <div class="relative">
-
         <Image src={guardiankit1desktop} alt="guardiankit1desktop"  class={"max-sm:hidden rounded-xl"}/>
         <Image src={guardiankit01} alt="guardiankit1new"  class={"sm:hidden rounded-xl"}/>
         <div class="absolute bottom-6 left-6 w-2/5 ">
@@ -75,8 +73,7 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
       <div class="relative">
         <Image src={guardiankit2desktop} alt="guardiankit2desktop"  class={"max-sm:hidden rounded-xl"}/>
         <Image quality={"max"} src={guardiankit02} alt="guardiankit2new" class={"sm:hidden rounded-xl"} />
-        
-        <div class="absolute bottom-6 left-6 w-2/5">
+          <div class="absolute bottom-6 left-6 w-2/5">
           <h4 class="font-semibold text-2xl">SOS Button</h4>
           <p class="font-normal text-base leading-6 mt-3">
             Strategically placed for quick access, enabling immediate SOS activation during emergencies.
@@ -97,4 +94,10 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
       </div>
     </div>
   </div>
+  <div class="lg:pb-[120px] pb-10">
+   <a href="https://eyeagle.ai/join/" 
+   class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base text-center hover:bg-gray-100 transition">
+    Stay on the loop
+   </a>
+   </div>
   </section>

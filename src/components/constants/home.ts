@@ -27,6 +27,10 @@ import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
 import hero_17 from "../../assets/Home/Hero_17.png"
+import shop1 from "../../assets/Home/shop1new.png"
+import shop2 from "../../assets/Home/shop2new.png"
+import shop3 from "../../assets/Home/shop3new.png"
+
 
 export const bathroomData = [
   {
@@ -84,6 +88,31 @@ export const struggleData = [
   },
 ];
 
+export const shopData = [
+  {
+    img: shop1,
+    content: `EyEagle Package - Prevention + App Subscription`,
+    subcontent: `<span class="line-through">Rs 29,999</span>  Rs 19,999`,
+    badge: `Sale`, 
+    linkTab: `Know more`,
+    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`
+  },
+  {
+    img: shop2,
+    content: `Bathroom Audit - Remote`,
+    subcontent: `<span class="line-through">Rs 999</span>  Rs 0`,
+    badge: `Sale`, 
+    linkTab: `Know more`,
+    link: `https://shop.eyeagle.ai/products/bathroom-audit`
+  },
+  {
+    img: shop3,
+    content: `EyEagle Prevention Package + App Subscription + Guardian X Kit`,
+    badge: `Coming Soon`, 
+    linkTab: `Stay on the loop`,
+    link: `https://eyeagle.ai/join/`
+  },
+];
 export const blogsData = [
   {
     slug: "falls-kill-more-seniors-than-you-think",
