@@ -154,6 +154,11 @@ export const blogsData = [
     title: "Balance Problems in Elderly: Causes, Warning Signs & Prevention",
     desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
   },
+   {
+    slug: "how-fear-of-falling-affects-mental-health",
+    title: "How Fear of Falling Affects Mental Health",
+    desc: "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy.",
+  },
 ];
 
 export const kitImageDesktop = [
