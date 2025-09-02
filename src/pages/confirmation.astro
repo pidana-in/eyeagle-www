@@ -1,0 +1,469 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmation</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Helvetica", Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Helvetica", Arial, sans-serif;
+        width: 210mm;
+        height: 297mm;
+        margin: auto;
+      }
+
+      .container {
+        background-color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo,
+      .footer__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .footer__logo img {
+        width: 120px;
+      }
+      .logo {
+        padding: 15px;
+      }
+      .handshake {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .handshake img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .message {
+        background: radial-gradient(circle, #f25e4c 0%, #d72418 100%);
+        color: white;
+        padding: 20px 10px;
+        text-align: center;
+      }
+
+      .message__input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .message__input {
+        border: none;
+        border-bottom: 2px solid white;
+        background: transparent;
+        color: white;
+        padding: 4px 6px;
+        outline: none;
+        font-size: 18px;
+        width: 120px;
+      }
+
+      .title--large {
+        font-size: 24px;
+        text-align: center;
+        margin: 15px 0 8px;
+        font-family: "Georgia", serif;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: "Georgia", serif;
+      }
+
+      .section__title {
+        font-size: 18px;
+        color: #cc0000;
+        margin: 15px auto 8px;
+        width: 100%;
+        max-width: 90%;
+      }
+
+      .order__table {
+        width: 100%;
+        max-width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+        font-size: 12px;
+      }
+
+      .order__table th,
+      .order__table td {
+        border: 2px solid #ccc;
+        padding: 6px;
+        text-align: center;
+      }
+
+      .order__table tr td {
+        height: 80px;
+      }
+
+      .order__table th {
+        font-size: 14px;
+      }
+
+      .billing__textarea-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      .billing__textarea {
+        width: 100%;
+        max-width: 90%;
+        height: 80px;
+        border: 2px solid #ccc;
+        padding: 6px;
+        font-size: 12px;
+        outline: none;
+      }
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ececec;
+        padding: 10px;
+        margin: 15px auto;
+        width: 90%;
+        border-radius: 10px;
+        font-size: 12px;
+      }
+
+      .contact p {
+        margin: 3px 0;
+        text-align: center;
+      }
+
+      .contact__email {
+        color: #cc0000;
+      }
+
+      .icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+        gap: 10px;
+      }
+
+      .icons__section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .icons__title {
+        font-size: 12px;
+        margin-bottom: 3px;
+      }
+
+      .icons__group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .divider {
+        height: 20px;
+        border-left: 1px solid black;
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .footer__copyright {
+        text-align: center;
+        font-size: 10px;
+        margin-top: 15px;
+        line-height: 1.3;
+      }
+
+      .footer__ribbon {
+        background-color: #cc0000;
+        height: 5px;
+        margin-top: 15px;
+      }
+
+      @media (min-width: 768px) {
+        .message__input {
+          width: 150px;
+        }
+
+        .title--large {
+          font-size: 28px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+        }
+
+        .icons {
+          flex-direction: row;
+          justify-content: center;
+          gap: 30px;
+        }
+
+        .contact {
+          flex-direction: row;
+          justify-content: center;
+          gap: 10px;
+        }
+      }
+
+      @media print {
+        body {
+          width: 210mm;
+          height: 297mm;
+        }
+        .container {
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="logo">
+        <img
+          src="https://neon.ipsator.com/c/image/upload/q_70/v1747054377/eyeagle/logo-transparent.webp"
+          alt="EyEagle logo"
+          width="80"
+        />
+      </div>
+
+      <div class="handshake">
+        <img
+          src="https://neon.ipsator.com/c/image/upload/w_800,q_70/v1747053895/eyeagle/email/handshake-image.webp"
+          alt="Handshake"
+        />
+      </div>
+
+      <div class="message">
+        <div class="message__input-container">
+          <p>Hi</p>
+          <input class="message__input" type="text" disabled />
+        </div>
+        <h1 class="title--large">Thank you for choosing EyEagle!</h1>
+        <p class="subtitle">
+          You've just taken a powerful step toward protecting your loved ones
+          from fall-related risks—gently, smartly, and proactively.
+        </p>
+      </div>
+
+      <h1 class="title--large">Your order is confirmed.</h1>
+      <p class="subtitle">We'll reach out soon with what happens next.</p>
+
+      <h2 class="section__title">Order #07 (April 11, 2025)</h2>
+      <table class="order__table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section__title">Billing Address</h2>
+      <div class="billing__textarea-container">
+        <textarea class="billing__textarea" disabled></textarea>
+      </div>
+
+      <div class="contact">
+        <img
+          src="https://neon.ipsator.com/c/image/upload/q_70/v1747053752/eyeagle/email/email.webp"
+          alt="Email icon"
+          width="50"
+        />
+        <div>
+          <p>If you have any questions, reply to this email or</p>
+          <p>
+            contact us at
+            <span class="contact__email">support@eyeagle.ai</span>
+          </p>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer__logo">
+          <img
+            src="https://neon.ipsator.com/c/image/upload/q_70/v1741453793/eyeagle/EyeagleLogoBlack.webp"
+            alt="EyEagle logo"
+          />
+        </div>
+
+        <div class="icons">
+          <div class="icons__section">
+            <p class="icons__title">Download</p>
+            <div class="icons__group">
+              <a
+                href="https://apps.apple.com/in/app/eyeagle/id6740724011"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 50 50"
+                >
+                  <path
+                    d="M 44.527344 34.75 C 43.449219 37.144531 42.929688 38.214844 41.542969 40.328125 C 39.601563 43.28125 36.863281 46.96875 33.480469 46.992188 C 30.46875 47.019531 29.691406 45.027344 25.601563 45.0625 C 21.515625 45.082031 20.664063 47.03125 17.648438 47 C 14.261719 46.96875 11.671875 43.648438 9.730469 40.699219 C 4.300781 32.429688 3.726563 22.734375 7.082031 17.578125 C 9.457031 13.921875 13.210938 11.773438 16.738281 11.773438 C 20.332031 11.773438 22.589844 13.746094 25.558594 13.746094 C 28.441406 13.746094 30.195313 11.769531 34.351563 11.769531 C 37.492188 11.769531 40.8125 13.480469 43.1875 16.433594 C 35.421875 20.691406 36.683594 31.78125 44.527344 34.75 Z M 31.195313 8.46875 C 32.707031 6.527344 33.855469 3.789063 33.4375 1 C 30.972656 1.167969 28.089844 2.742188 26.40625 4.78125 C 24.878906 6.640625 23.613281 9.398438 24.105469 12.066406 C 26.796875 12.152344 29.582031 10.546875 31.195313 8.46875 Z"
+                  ></path>
+                </svg>
+              </a>
+              <div class="divider"></div>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.app.eyeagle&hl=en_IN"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                >
+                  <image
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAPhJREFUSEvN1T1KxEAAhuFnLeysFf8Kb6DlwiKChY1XECvPIFZaiJ1uv50XELbaA+hF/LmEjWbUQAzEmfwMOF0yyft+X2bCjGQeo8x8KYIjzLBZC/OCMyz+CpkieMZWAyRItvsKPn4A9TBN93/5UhoMJnjCeKBFf8QksKoNyqQDOb7Z/0YwxwFWWtRr1WAJq7jGKcJ1bLQSVD/lLu6wHzF0FpTcY0yx0yDqLQjcDbzmEmRrsIfbHGuwlnMXPeCw73/whvXY5k6cD6yv86O6v29wngiIPRZYF3XBciG8wkmPJiH5fQG+LATvdUEsVaf5lAOnE7h8KbvgEw2AJxnsDCLZAAAAAElFTkSuQmCC"
+                    x="0"
+                    y="0"
+                    width="24"
+                    height="24"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="icons__section">
+            <p class="icons__title">Follow us on</p>
+            <div class="icons__group">
+              <a
+                href="https://www.facebook.com/people/EyEagle/61575954058253/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                >
+                  <path
+                    d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://x.com/Eyeagle_ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                >
+                  <path
+                    d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 24 26 C 25.105 26 26 25.105 26 24 L 26 6 C 26 4.895 25.105 4 24 4 L 6 4 z M 8.6484375 9 L 13.259766 9 L 15.951172 12.847656 L 19.28125 9 L 20.732422 9 L 16.603516 13.78125 L 21.654297 21 L 17.042969 21 L 14.056641 16.730469 L 10.369141 21 L 8.8945312 21 L 13.400391 15.794922 L 8.6484375 9 z M 10.878906 10.183594 L 17.632812 19.810547 L 19.421875 19.810547 L 12.666016 10.183594 L 10.878906 10.183594 z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/eyeagle_ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/@EyEagle-in"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 50 50"
+                >
+                  <path
+                    d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__copyright">
+          <p>Copyright © EyEagle. All Rights Reserved</p>
+          <p>Protecting those who cared for you—with the care they deserve</p>
+        </div>
+
+        <div class="footer__ribbon"></div>
+      </footer>
+    </section>
+  </body>
+</html>
