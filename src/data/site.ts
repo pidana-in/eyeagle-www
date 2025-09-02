@@ -21,6 +21,7 @@ export const userMenu = [
 ];
 
 export const ctaButtonText = "Get Started";
+export const ctaHref = "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
 
 export const footerPolicyLinks = [
   { title: "Shipping Policy", url: "/shipping" },

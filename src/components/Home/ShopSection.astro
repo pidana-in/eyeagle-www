@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+const shopData = Astro.props.shopData;
+---
+
+<section class="xl:container bg-[#222222] text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-[120px] py-12">
+  <p class="text-4xl lg:text-[60px] leading-[2.5rem] lg:leading-[72px] lg:mb-20 mb-12 font-medium font-sans-instrument">
+    Get Started With Safety Today
+  </p>
+  <!-- Desktop version -->
+  <div class="md:flex justify-center gap-6 hidden">
+    {
+      shopData?.map((item: any, i: number) => (
+        <a href={item.link} class="flex flex-col gap-3 justify-start text-center p-4 rounded-lg hover:shadow-lg transition cursor-pointer w-[90%]">
+          <div class="mb-3">
+            <Image src={item.img} alt={"doctorImage1"} quality={"max"} />
+          </div>
+          <p set:html={item.content} class="font-sans-instrument lg:font-bold text-left font-medium text-base lg:text-xl leading-5"/>
+          <div class={`flex mt-auto items-center ${item.subcontent && item.badge ? "gap-2" : ""}`}>
+            {item.subcontent && (
+              <p set:html={item.subcontent} class="font-sans-instrument lg:font-medium text-left font-medium text-base lg:text-[18px] leading-none"/>
+            )}
+            {item.badge && (
+              <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm lg:text-base">
+                {item.badge}
+              </span>
+            )}
+          </div>
+            {item.linkTab && (
+            <span class="mt-auto font-sans-instrument font-normal text-left text-base lg:text-[16px] underline underline-offset-4">
+              {item.linkTab}
+            </span>
+          )}
+        </a>
+      ))
+    }
+  </div>
+
+  <!-- Mobile version (vertical stacking) -->
+  <div class="block md:hidden">
+    <div class="flex flex-col gap-10">
+      {
+        shopData?.map((item: any, i: number) => (
+          <a href={item.link} class="flex flex-col gap-3 justify-start text-center p-4 rounded-xl hover:shadow-md transition cursor-pointer w-full">
+            <div class="w-full mb-4">
+              <Image src={item.img} alt={`doctorImageMobile`} class="w-full rounded-xl"/>
+            </div>
+            <p set:html={item.content} class="font-barlow text-left text-base leading-6 font-medium"/>
+            <div class={`flex items-center ${item.subcontent && item.badge ? "gap-2" : ""}`}>
+              {item.subcontent && (
+                <p set:html={item.subcontent} class="font-sans-instrument font-medium text-left text-sm leading-none"/>
+              )}
+              {item.badge && (
+                <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+            {item.linkTab && (
+              <span class="mt-auto font-sans-instrument font-normal text-left text-sm underline underline-offset-4">
+                {item.linkTab}
+              </span>
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

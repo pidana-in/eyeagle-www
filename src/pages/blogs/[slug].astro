@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntryBySlug } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
+import { blogsData } from "../../components/constants/home";
 
 export async function getStaticPaths() {
   const blog = await getCollection("blogs");
@@ -8,6 +9,7 @@ export async function getStaticPaths() {
     params: { slug: blog.slug },
   }));
 }
+
 const { slug } = Astro.params;
 const blog = await getEntryBySlug("blogs", slug);
 
@@ -16,36 +18,9 @@ if (!blog) {
 }
 
 const { Content } = await blog.render();
-
-let metaTitle = "Blog | EyEagle";
-let metaDesc = "Read the latest article on EyEagle's blog.";
-
-if (slug === "falls-kill-more-seniors-than-you-think") {
-  metaTitle = "Falls Kill More Seniors Than You Think | EyEagle";
-  metaDesc =
-    "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.";
-} else if (slug === "why-falls-are-the-biggest-threat-to-seniors") {
-  metaTitle = "Why Falls Are the Biggest Threat to Seniors | EyEagle";
-  metaDesc =
-    "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.";
-} else if (slug === "how-to-ensure-safety-for-parents-living-alone") {
-  metaTitle = "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle";
-  metaDesc =
-    "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.";
-} else if (slug === "step-by-step-bathroom-safety-tips-for-seniors") {
-  metaTitle = "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle";
-  metaDesc =
-    "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.";
-} else if (slug === "why-fall-alarms-for-seniors-matter") {
-  metaTitle =
-    "One Fall Changed Everything – Why Fall Alarms for Seniors Matter";
-  metaDesc =
-    "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.";
-} else if (slug === "caring-elderly-parents-from-afar") {
-  metaTitle = "Caring Elderly Parents from Afar: Tips for Urban Migrants";
-  metaDesc =
-    " Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.";
-}
+const blogMeta = blogsData.find((b) => b.slug === slug);
+const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
+const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc}>

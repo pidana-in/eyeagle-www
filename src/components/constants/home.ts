@@ -27,7 +27,10 @@ import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
 import hero_17 from "../../assets/Home/Hero_17.png"
-import type { title } from "process";
+import shop1 from "../../assets/Home/shop1new.png"
+import shop2 from "../../assets/Home/shop2new.png"
+import shop3 from "../../assets/Home/shop3new.png"
+
 
 export const bathroomData = [
   {
@@ -67,7 +70,6 @@ export const bathroomData = [
 export const fathersday = [
   {
     img: hero_17,
-    // content: `<span class="font-bold">1 in 4 </span> seniors fall in the bathroom every year`,
   },
 ];
 
@@ -85,45 +87,74 @@ export const struggleData = [
     content: `<span class="font-bold">10-15% </span> of falls in the bathroom lead to hospitalisation`,
   },
 ];
-// export const struggleData1 = [
-// {
-//   img: struggle1mobile,
-//   content: `1 in 4 seniors fall in the bathroom every year`,
-// },
-// {
-//   img: struggle2mobile,
-//   content: `95% of hip fractures in seniors are caused by falls in the bathroom`,
-// },
-// {
-//   img: struggle3mobile,
-//   content: `10-15% of falls in the bathroom lead to hospitalisation`,
-// },
-// ];
 
-export const blogsData = [
+export const shopData = [
   {
-    img: struggle1,
-    title: `1 in 4 seniors fall in the bathroom every year as per reports`,
-    category: `Blog`,
-    link: "/blogs/fall",
-    slug: "fall-prevention"
+    img: shop1,
+    content: `EyEagle Package - Prevention + App Subscription`,
+    subcontent: `<span class="line-through">Rs 29,999</span>  Rs 19,999`,
+    badge: `Sale`, 
+    linkTab: `Know more`,
+    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`
   },
   {
-    img: struggle2,
-    title: `95% of hip fractures in seniors are caused by falls in the bathroom`,
-    category: `Blog`,
-    link: "/blogs/hip-fractures",
-    slug: "fall-prevention",
+    img: shop2,
+    content: `Bathroom Audit - Remote`,
+    subcontent: `<span class="line-through">Rs 999</span>  Rs 0`,
+    badge: `Sale`, 
+    linkTab: `Know more`,
+    link: `https://shop.eyeagle.ai/products/bathroom-audit`
   },
   {
-    img: struggle3,
-    title: `10-15% of falls in the bathroom lead to hospitalisation`,
-    category: `Blog`,
-    link: "/blogs/hospitalisation",
-    slug: "fall-prevention",
+    img: shop3,
+    content: `EyEagle Prevention Package + App Subscription + Guardian X Kit`,
+    badge: `Coming Soon`, 
+    linkTab: `Notify Me`,
+    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`
   },
 ];
-
+export const blogsData = [
+  {
+    slug: "falls-kill-more-seniors-than-you-think",
+    title: "Falls Kill More Seniors Than You Think | EyEagle",
+    desc: "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.",
+  },
+  {
+    slug: "why-falls-are-the-biggest-threat-to-seniors",
+    title: "Why Falls Are the Biggest Threat to Seniors | EyEagle",
+    desc: "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.",
+  },
+  {
+    slug: "how-to-ensure-safety-for-parents-living-alone",
+    title: "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle",
+    desc: "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.",
+  },
+  {
+    slug: "step-by-step-bathroom-safety-tips-for-seniors",
+    title: "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle",
+    desc: "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.",
+  },
+  {
+    slug: "why-fall-alarms-for-seniors-matter",
+    title: "One Fall Changed Everything – Why Fall Alarms for Seniors Matter",
+    desc: "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.",
+  },
+  {
+    slug: "caring-elderly-parents-from-afar",
+    title: "Caring Elderly Parents from Afar: Tips for Urban Migrants",
+    desc: "Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
+  },
+    {
+    slug: "arthritis-and-joint-pain-in-seniors",
+    title: "Arthritis & Joint Pain in Seniors | Fall Prevention Tips",
+    desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies.",
+  },
+   {
+    slug: "balance-problems-in-elderly",
+    title: "Balance Problems in Elderly: Causes, Warning Signs & Prevention",
+    desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
+  },
+];
 
 export const kitImageDesktop = [
   [

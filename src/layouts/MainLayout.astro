@@ -2,9 +2,10 @@
 import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
-import { navLinks, userMenu, ctaButtonText, footerPolicyLinks, footerCopyright, socialLinks, siteMeta } from "../data/site";
+import { navLinks, userMenu, ctaButtonText, ctaHref, footerPolicyLinks, footerCopyright, socialLinks, siteMeta } from "../data/site";
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import ClientRouter from "astro/components/ClientRouter.astro";
 const { title = "EyEagle – Preventing Falls, Saving Lives",desc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!" } = Astro.props;
 const { pathname } = Astro. url;
 const loginCredential = false;
@@ -42,6 +43,7 @@ const { noindex } = Astro.props;
       gtag('js', new Date());
       gtag('config', gtmId);
     </script>
+    <ClientRouter />
   </head>
   
   <body class="text-gray-900">
@@ -52,16 +54,16 @@ const { noindex } = Astro.props;
     </div> -->
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-black`
+      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-5 bg-black`
     >
-      <nav class="flex justify-between items-center xl:container">
-        <div class="flex justify-between items-center gap-4 lg:py-2">
+      <nav class="flex items-center xl:container">
+        <div class="flex ml-32 items-center gap-4 lg:py-2">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
               src={EyeagleLogo}
               alt={"EyEagle – Preventing Falls, Saving Lives"}
               id="imageBg"
-              class="w-[10.188rem]"
+              class="w-[8.188rem]"
               quality={'max'}
               loading="eager"
               fetchpriority="high"
@@ -75,12 +77,12 @@ const { noindex } = Astro.props;
 
       </div>
       <ul
-            class=`flex space-x-10 font-sans-instrument pl-10 text-base leading-6 font-medium px-4 mr-[13%]`
+            class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-normal px-4 mr-[14%]`
             id="content"
           >
           {navLinks?.map((item)=>
             <li>
-              <a href={`${item.url}`} class="hover:underline text-white">{item.title}</a>
+              <a href={`${item.url}`} class="hover:underline hover:text-white text-gray-300">{item.title}</a>
             </li>
           )}
       </ul>  
@@ -105,7 +107,7 @@ const { noindex } = Astro.props;
               )}
             </ul>
             {/* order button */}
-        <a href="/join/">
+        <a href={ctaHref}>
           <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">{ctaButtonText}</button>
         </a>
       </div>}
@@ -175,7 +177,7 @@ const { noindex } = Astro.props;
         {navLinks?.map((item)=>
          <li class="hover:cursor-pointer hover:text-primary"><a href={`${item.url}`}>{item.title}</a></li>
         )}
-        <a href="/join/">
+        <a href={ctaHref}>
           <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{ctaButtonText}</button>
         </a>
       </ul>
