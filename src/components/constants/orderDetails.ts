@@ -4,12 +4,12 @@ import TruckIcon from "../../assets/svgs/truck.svg";
 import PackageIcon from "../../assets/svgs/package.svg";
 
 export const orderDetailsFlow = {
- Icons:[PackageIcon,TruckIcon,ContactIcon,ContactIcon,SmileIcon],
- Context:[
-    {title:"Ready to ship",desc:"The big size to stand on it’s own"},
-    {title:"Order shipped to address",desc:"The big size to stand on it’s own"},
-    {title:"Order ready for demo",desc:"The big size to stand on it’s own"},
-    {title:"Demo and product walkthrough completed",desc:"The big size to stand on it’s own"},
-    {title:"Product Successfully Installed",desc:"The big size to stand on it’s own"},
+ Icons: [PackageIcon, TruckIcon, ContactIcon, ContactIcon, SmileIcon],
+ Context: [
+   { title: "Ready to ship", desc: "Packed and scheduled for pickup" },
+   { title: "Shipped to your address", desc: "In transit to your location" },
+   { title: "Ready for demo", desc: "Technician assigned for walkthrough" },
+   { title: "Demo & walkthrough completed", desc: "Setup, testing and training finished" },
+   { title: "Product successfully installed", desc: "Safety kit installed and verified" },
  ]
 };

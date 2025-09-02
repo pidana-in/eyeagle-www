@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { siteMeta } from "../data/site";
 import HeroSection from "../assets/Navbar/ChatGPTImage.png";
 import HeroImageMobile from "../assets/Navbar/newimage.png";
 import ourTeam from "../assets/Navbar/ourTeam.png";
@@ -21,8 +22,8 @@ import {HeroImageTitle} from "../components/constants/home";
 import Faqs from "../components/Home/Faqs.astro";
 import VideoSection from "../components/Home/VideoSection.astro";
 import Blogs from "../components/Home/Blogs.astro";
-const metaTitle = "EyEagle – Preventing Falls, Saving Lives";
-const metaDesc="Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!";
+const metaTitle = siteMeta.title;
+const metaDesc = siteMeta.description;
 ---
 <MainLayout title={metaTitle} desc={metaDesc}>
   <!-- Hero Section -->
@@ -52,4 +53,3 @@ const metaDesc="Discover EyEagle's advanced emergency alarm systems for the elde
    <Faqs/>
   <DesireSection item={desireImage} desireSection1={desireSection1} descriptionButton={descriptionButton}/>
 </MainLayout>
-
