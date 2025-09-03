@@ -26,7 +26,6 @@ const API_VERSION = SHOPIFY_API_VERSION || "2024-07";
 
 function sanitizeStoreDomain(input: string | undefined): string {
   if (!input) return "";
-  // Ensure protocol and strip trailing slashes
   const trimmed = input.trim().replace(/\/+$/, "");
   if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
     return trimmed;
