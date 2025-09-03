@@ -139,13 +139,16 @@ async function createCustomer(options: { base: Record<string, unknown>; emailCon
       res = await doCreate(true);
       if (!res.ok) {
         const retryText = await res.text();
+        console.error("Create retry failed:", res.status, retryText);
         return { ok: false, created: false, error: `Create failed (retry): ${res.status} ${retryText}` };
       }
     } else {
+      console.error("Create failed:", res.status, text);
       return { ok: false, created: false, error: `Create failed: ${res.status} ${text}` };
     }
   }
   const data = await res.json();
+  console.log("Created customer:", data.customer?.id);
   return { ok: true, created: true, customerId: data.customer?.id };
 }
 
