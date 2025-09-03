@@ -33,8 +33,6 @@ function sanitizeStoreDomain(input: string | undefined): string {
   return `https://${trimmed}`;
 }
 
-// Name is provided as separate fields from the form; no split required.
-
 function toTagString(tags: string[] | undefined, existing?: string | null): string | undefined {
   const set = new Set<string>();
   (existing || "")
