@@ -156,6 +156,8 @@ export async function upsertShopifySubscriber(params: UpsertParams): Promise<Ups
   const { email, firstName, lastName, phone, tags = [] } = params;
   if (!email) return { ok: false, error: "Email is required" };
 
+  console.log("Shopify config: ", { SHOPIFY_STORE_DOMAIN, SHOPIFY_API_VERSION, SHOPIFY_ADMIN_ACCESS_TOKEN: Boolean(SHOPIFY_ADMIN_ACCESS_TOKEN) });
+
   const consent = {
     state: "subscribed",
     opt_in_level: "confirmed_opt_in",
