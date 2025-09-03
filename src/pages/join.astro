@@ -2,10 +2,7 @@
 export const prerender = false;
 
 import MainLayout from "../layouts/MainLayout.astro";
-import {
-  WaitlistFormData,
-  WaitlistHeaderData,
-} from "../components/constants/waitlist";
+import { WaitlistFormData, WaitlistHeaderData } from "../components/constants/waitlist";
 import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
 import PostFormField from "../components/Waitlist/PostFormField.astro";
 import { URLS } from "../utils/urls";
@@ -14,10 +11,11 @@ import Icon from "../components/common/Icon.astro";
 import BathroomSection from "../components/Home/BathroomSection.astro";
 import { bathroomData } from "../components/constants/home";
 import { scrollDataSection } from "../components/constants/home";
+import { upsertShopifySubscriber } from "../server/shopify";
 import nodemailer from "nodemailer";
 
-const metaTitle="Join Our Community for Elderly Safety Solutions – EyEagle";
-const metaDesc="Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
+const metaTitle = "Join Our Community for Elderly Safety Solutions – EyEagle";
+const metaDesc = "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
 
 const {
   PUBLIC_SMTP_HOST: smtpHost,
@@ -26,33 +24,25 @@ const {
   PUBLIC_SMTP_FROM: smtpFrom,
   PUBLIC_SMTP_TO: smtpTo,
   PUBLIC_SMTP_PORT: smtpPort,
+  USE_SHOPIFY_JOIN,
 } = import.meta.env;
 
-let formPosted = false;
+let formPosted = true;
 
 if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
 
-    const name = formData.get("userName");
+    const firstName = String(formData.get("firstName") || "");
+    const lastName = String(formData.get("lastName") || "");
     const email = formData.get("userEmail");
     const countryCode = formData.get("phCode");
     const phoneNumber = formData.get("phoneNumber");
     const city = formData.get("userCity");
     const acceptance = formData.get("userAcceptCheck") === "on";
 
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: Number(smtpPort),
-      secure: false,
-      auth: {
-        user: smtpUser,
-        pass: smtpPassword,
-      },
-    });
-
     const apiPayload = {
-      name,
+      name: `${firstName} ${lastName}`.trim(),
       countryCode,
       mobileNumber: phoneNumber,
       email,
@@ -68,31 +58,59 @@ if (Astro.request.method === "POST") {
 
     const apiResult = await fetchResponse.json();
 
-    const emailContent = `
-New Waitlist Registration:
+    const useShopify = String(USE_SHOPIFY_JOIN || "").toLowerCase() === "true" || String(USE_SHOPIFY_JOIN || "") === "1";
 
-Name: ${name}
-Email: ${email}
-Phone: ${countryCode}${phoneNumber}
-City: ${city}
-Newsletter: ${acceptance ? "Yes" : "No"}
-    `;
+    if (useShopify) {
+      // Subscribe/create customer in Shopify with double opt-in when accepted
+      try {
+        if (acceptance) {
+          const fullPhone = `${countryCode || ""}${phoneNumber || ""}`.trim();
+          const tags = ["waitlist", "source:join-page"]; // Adjust if you prefer different tags
+          const subResult = await upsertShopifySubscriber({
+            email: String(email),
+            firstName: firstName || undefined,
+            lastName: lastName || undefined,
+            phone: fullPhone || undefined,
+            tags,
+          });
+          if (!subResult.ok) {
+            console.error("Shopify subscription error:", subResult.error);
+          }
+        }
+      } catch (shopifyErr) {
+        console.error("Error while calling Shopify:", shopifyErr);
+      }
+    } else {
+      // Fallback to email notification via Nodemailer (original behavior)
+      try {
+        const transporter = nodemailer.createTransport({
+          host: smtpHost,
+          port: Number(smtpPort),
+          secure: false,
+          auth: { user: smtpUser, pass: smtpPassword },
+        });
 
-    const currentDate = new Date().toISOString().slice(0, 10);
+        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${firstName} ${lastName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance ? "Yes" : "No"}\n        `;
 
-    await transporter.sendMail({
-      from: smtpFrom,
-      to: smtpTo,
-      subject: `New Waitlist Registration - ${currentDate}`,
-      text: emailContent,
-    });
+        const currentDate = new Date().toISOString().slice(0, 10);
+
+        await transporter.sendMail({
+          from: smtpFrom,
+          to: smtpTo,
+          subject: `New Waitlist Registration - ${currentDate}`,
+          text: emailContent,
+        });
+      } catch (emailErr) {
+        console.error("Error while sending email:", emailErr);
+      }
+    }
 
     if (apiResult?.status === "success") {
       formPosted = true;
     }
   } catch (error) {
     console.error("Error while submitting form:", error);
-  } 
+  }
 }
 ---
 
@@ -100,13 +118,8 @@ Newsletter: ${acceptance ? "Yes" : "No"}
   <section class="bg-[#F6F4F2] font-sans-instrument">
     <section class="xl:container px-5 py-5 md:px-20 md:py-24">
       <section class="py-10">
-        <div
-          class="text-center m-auto lg:max-w-[1200px]"
-          set:html={WaitlistHeaderData.title}
-        />
-        <p
-          class="text-lg font-medium text-center lg:max-w-[863px] mx-auto my-10"
-        >
+        <div class="text-center m-auto lg:max-w-[1200px]" set:html={WaitlistHeaderData.title} />
+        <p class="text-lg font-medium text-center lg:max-w-[863px] mx-auto my-10">
           {WaitlistHeaderData.description}
         </p>
       </section>
@@ -115,20 +128,21 @@ Newsletter: ${acceptance ? "Yes" : "No"}
         <WaitListBanner />
       </div>
 
-      <section
-        class="flex flex-col md:flex-row justify-center gap-12 lg:gap-28"
-      >
+      <section class="flex flex-col md:flex-row justify-center gap-12 lg:gap-28">
         <div id="joinForm" class={formPosted ? "hidden" : "block"}>
           <div class="flex flex-col items-center gap-3">
             <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
-              <label>Name*</label>
+              <label>First name*</label>
               <input
                 type="text"
-                name="userName"
-                placeholder="Enter name"
+                name="firstName"
+                placeholder="Enter first name"
                 required
                 class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
               />
+
+              <label>Last name</label>
+              <input type="text" name="lastName" placeholder="Enter last name" class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
 
               <label>Phone number*</label>
               <div class="relative md:w-[628px]">
@@ -144,23 +158,13 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 
                 <input id="phCode" name="phCode" value="" class="hidden" />
 
-                <div
-                  id="dropdownMenu"
-                  class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
-                >
+                <div id="dropdownMenu" class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20">
                   {
                     countries
                       .sort((a, b) => a.code.localeCompare(b.code))
                       .map((country) => (
-                        <div
-                          class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
-                          data-value={country.dial_code}
-                        >
-                          <img
-                            src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
-                            alt={`${country.code} flag`}
-                            width="20"
-                          />
+                        <div class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2" data-value={country.dial_code}>
+                          <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt={`${country.code} flag`} width="20" />
                           {country.dial_code}
                         </div>
                       ))
@@ -178,39 +182,17 @@ Newsletter: ${acceptance ? "Yes" : "No"}
               </div>
 
               <label>Email*</label>
-              <input
-                type="email"
-                name="userEmail"
-                placeholder="Enter Email"
-                required
-                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
-              />
+              <input type="email" name="userEmail" placeholder="Enter Email" required class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
 
               <label>City of Installation*</label>
-              <input
-                type="text"
-                name="userCity"
-                placeholder="City Name"
-                required
-                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
-              />
+              <input type="text" name="userCity" placeholder="City Name" required class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
 
               <div class="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="userAcceptCheck"
-                  class="h-4 w-4 border border-gray-400"
-                />
-                <span class="text-[#666666]"
-                  >{WaitlistFormData.acceptation}</span
-                >
+                <input type="checkbox" name="userAcceptCheck" class="h-4 w-4 border border-gray-400" />
+                <span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
               </div>
 
-              <button
-                type="submit"
-                id="submitButton"
-                class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative"
-              >
+              <button type="submit" id="submitButton" class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative">
                 <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
                 <div id="loader" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <div class="spinner"></div>
@@ -229,7 +211,7 @@ Newsletter: ${acceptance ? "Yes" : "No"}
         {
           bathroomData?.map((item) => (
             <a href={`/#${scrollDataSection[item.id]}`} target="_blank" rel="noopener noreferrer">
-            <BathroomSection item={item} mobile={false} />
+              <BathroomSection item={item} mobile={false} />
             </a>
           ))
         }
@@ -253,12 +235,14 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     height: 48px;
     border: 4px solid rgba(204, 0, 0, 0.3);
     border-radius: 50%;
-    border-top-color: #CC0000;
+    border-top-color: #cc0000;
     animation: spin 1s ease-in-out infinite;
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 </style>
 
@@ -302,17 +286,12 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 
     dropdownMenu.classList.add("hidden");
 
-    document
-      .querySelectorAll("#dropdownMenu > div[data-value]")
-      .forEach((el) => el.classList.remove("bg-gray-300"));
+    document.querySelectorAll("#dropdownMenu > div[data-value]").forEach((el) => el.classList.remove("bg-gray-300"));
     option.classList.add("bg-gray-300");
   });
 
   document.addEventListener("click", (event) => {
-    if (
-      !dropdownButton.contains(event.target) &&
-      !dropdownMenu.contains(event.target)
-    ) {
+    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
       dropdownMenu.classList.add("hidden");
     }
   });
@@ -322,9 +301,7 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     dropdownButton.classList.add("max-w-[105px]");
 
     const defaultDialCode = "+91";
-    const defaultCountry = countries.find(
-      (c) => c.dial_code === defaultDialCode
-    );
+    const defaultCountry = countries.find((c) => c.dial_code === defaultDialCode);
 
     if (defaultCountry) {
       const flagImage = document.createElement("img");
@@ -340,9 +317,7 @@ Newsletter: ${acceptance ? "Yes" : "No"}
 
       phCode.value = defaultDialCode;
 
-      const defaultOption = Array.from(
-        dropdownMenu.querySelectorAll("[data-value]")
-      ).find((el) => el.dataset.value === defaultDialCode);
+      const defaultOption = Array.from(dropdownMenu.querySelectorAll("[data-value]")).find((el) => el.dataset.value === defaultDialCode);
 
       if (defaultOption) {
         defaultOption.classList.add("bg-gray-300");
@@ -350,17 +325,17 @@ Newsletter: ${acceptance ? "Yes" : "No"}
     }
   }
 
-  function scrollToFunction(){
+  function scrollToFunction() {
     const joinForm = document.getElementById("joinForm");
     const postFormfill = document.getElementById("postFormField");
 
-    formPosted ? postFormfill.scrollIntoView({behavior:"smooth",block:"start"}) : joinForm.scrollIntoView({behavior:"smooth",block:"center"});
+    formPosted ? postFormfill.scrollIntoView({ behavior: "smooth", block: "start" }) : joinForm.scrollIntoView({ behavior: "smooth", block: "center" });
   }
-  
+
   scrollToFunction();
   initializeDefaultPhoneCode();
 
-  document.getElementById("waitlistForm").addEventListener("submit", function(e) {
+  document.getElementById("waitlistForm").addEventListener("submit", function (e) {
     buttonText.classList.add("opacity-0");
     loader.classList.remove("hidden");
     submitButton.disabled = true;
