@@ -110,7 +110,7 @@ export const shopData = [
     content: `EyEagle Prevention Package + App Subscription + Guardian X Kit`,
     badge: `Coming Soon`, 
     linkTab: `Notify Me`,
-    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`
+    link: `https://eyeagle.ai/join`
   },
 ];
 export const blogsData = [
