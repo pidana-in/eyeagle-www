@@ -6,63 +6,57 @@ import { Image } from "astro:assets";
 ---
 
 <section>
-    <div class=" bg-white px-5 md:px-8 p-8 rounded-[32px] relative">
-    <div class="flex  flex-col-reverse md:flex-row items-center justify-center gap-10">
-        <div class="absolute top-0 left-0 px-6 py-3 rounded-tl-[32px] rounded-br-[32px] bg-[#CC0000]"><p class="text-[#ffffff] font-medium text-[16px] leading-[19px]">{postFormFillData.floatingText}</p></div>
-        <div>
-<Image src={JoinPhoto} alt={"join_photo"}/>
+  <div class="bg-white px-5 md:px-8 p-8 rounded-[32px] relative">
+    <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-10">
+      <div class="absolute top-0 left-0 px-6 py-3 rounded-tl-[32px] rounded-br-[32px] bg-[#CC0000]">
+        <p class="text-[#ffffff] font-medium text-[16px] leading-[19px]">{postFormFillData.floatingText}</p>
+      </div>
+      <div>
+        <Image src={JoinPhoto} alt={"join_photo"} />
+      </div>
+      <div>
+        <div class="bg-[#F5F5F5] py-1 px-8 lg:px-4 rounded-xl flex items-center justify-start md:justify-center w-[70%] lg:w-6/12 mt-8 mb-4 md:mb-0 md:mt-0">
+          <p class="text-[#CC0000] font-medium lg:font-normal text-[14px] leading-[16px]">
+            {postFormFillData.boxContent}
+          </p>
         </div>
-        <div>
-            <div class="bg-[#F5F5F5] py-1 px-8 lg:px-4 rounded-xl flex items-center justify-start md:justify-center w-[70%] lg:w-6/12 mt-8 mb-4 md:mb-0 md:mt-0">
-                <p class="text-[#CC0000] font-medium lg:font-normal text-[14px] leading-[16px]">
-                  {postFormFillData.boxContent}
-                </p>
+
+        <p set:html={postFormFillData.title} class="font-medium text-[20px] leading-[24px] pt-4 pb-4 hidden md:block" />
+        <div class="h-[1px] bg-[#D9D9D9] w-full mb-4 hidden md:block"></div>
+        <div class="flex items-center gap-2 pb-4">
+          <p class="text-[24px] font-medium leading-7">{postFormFillData.originalPrice}</p>
+          <p set:html={postFormFillData.cutPrice} class="text-[24px] font-medium leading-7" />
+          <p class="text-[16px] leading-[19px]">{postFormFillData.duration}</p>
+        </div>
+        <p class="text-[16px] leading-[19px] mb-4 font-medium">including GST</p>
+        <div class="h-[1px] bg-[#D9D9D9] w-full mb-4"></div>
+        <p set:html={postFormFillData.mobileTtle} class="font-medium text-[20px] leading-[24px] pt-4 pb-4 block md:hidden" />
+        <div class="h-[1px] bg-[#D9D9D9] w-full mb-4 block md:hidden"></div>
+
+        <div class="flex flex-col gap-6">
+          {
+            postFormFillData.contacts.map((contact) => (
+              <div class="flex gap-4 items-center justify-start">
+                <div class="bg-[#CC0000] h-[24px] w-[24px] lg:h-[40px] lg:w-[40px] rounded-full flex justify-center items-center">
+                  <Icon iconName={contact.iconType} classNames="text-white text-[16px]" />
+                </div>
+                <div>
+                  <p class="max-w-[220px] md:max-w-full">{contact.title}</p>
+                </div>
               </div>
-              
-        <p set:html={postFormFillData.title} class="font-medium text-[20px] leading-[24px] pt-4 pb-4 hidden md:block ">
-    
-        </p>
-  <div class="h-[1px] bg-[#D9D9D9] w-full mb-4 hidden md:block"></div>
-  <div class="flex  items-center gap-2 pb-4 ">
-      <p class="text-[24px] font-medium leading-7">{postFormFillData.originalPrice}</p>
-      <p set:html={postFormFillData.cutPrice} class="text-[24px] font-medium leading-7"></p>
-      <p class="text-[16px] leading-[19px]">{postFormFillData.duration}</p>
-    </div>
-    <p class="text-[16px] leading-[19px] mb-4 font-medium">excluding GST</p>
-    <div class="h-[1px] bg-[#D9D9D9] w-full mb-4"></div>
-    <p set:html={postFormFillData.mobileTtle} class="font-medium text-[20px] leading-[24px] pt-4 pb-4 block md:hidden ">
-    
-    </p>
-    <div class="h-[1px] bg-[#D9D9D9] w-full mb-4 block md:hidden"></div>
-
-    <div class="flex flex-col gap-6">
-           {postFormFillData.contacts.map((contact)=>(
-            <div class="flex gap-4 items-center justify-start">
-            <div class="bg-[#CC0000] h-[24px] w-[24px] lg:h-[40px] lg:w-[40px] rounded-full flex justify-center items-center">
-
-            <Icon iconName={contact.iconType} classNames="text-white text-[16px]"/>
-</div>
-<div>
-    <p class="max-w-[220px] md:max-w-full">{contact.title}</p>
-</div>
+            ))
+          }
         </div>
-    ))}
-    
-</div>
-<!-- <p set:html={postFormFillData.title} class="font-medium text-[22px] lg:text-[20px] leading-[26px] lg:leading-[24px] py-[33px] block md:hidden">
+        <!-- <p set:html={postFormFillData.title} class="font-medium text-[22px] lg:text-[20px] leading-[26px] lg:leading-[24px] py-[33px] block md:hidden">
     </p> -->
 
-    <a href="https://payments.cashfree.com/forms/eyeagle-reserve" target="_blank">
-
-<button class="flex items-center justify-center py-2 px-4 bg-[#CC0000] rounded-3xl mt-4 text-[#F6F4F2] font-medium text-[16px] leading-6 w-full">
-    {postFormFillData.btnText}
-</button>
-</a>
-<p class="text-center text-[12px] leading-[20px] mt-10 lg:mt-5">{postFormFillData.shippingText}</p>
-
-</div>
-</div>
-</div>
+        <a href="https://shop.eyeagle.ai/products/eyeagle-package-prevention-app" target="_blank">
+          <button class="flex items-center justify-center py-2 px-4 bg-[#CC0000] rounded-3xl mt-4 text-[#F6F4F2] font-medium text-[16px] leading-6 w-full">
+            {postFormFillData.btnText}
+          </button>
+        </a>
+        <p class="text-center text-[12px] leading-[20px] mt-10 lg:mt-5">{postFormFillData.shippingText}</p>
+      </div>
+    </div>
+  </div>
 </section>
-
-

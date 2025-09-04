@@ -1,4 +1,5 @@
 ---
+import { ctaHref } from "../../data/site";
 import { Image } from "astro:assets";
 import BathroomSection from "./BathroomSection.astro";
 import guardianKit from "../../assets/Navbar/guardianKit.png";
@@ -95,9 +96,9 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
     </div>
   </div>
   <div class="lg:pb-[120px] pb-10">
-   <a href="https://eyeagle.ai/join/" 
-   class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base text-center hover:bg-gray-100 transition">
-    Subscribe to Updates
-   </a>
-   </div>
+    <a href={ctaHref}
+      class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base text-center hover:bg-gray-100 transition">
+      Subscribe to Updates
+    </a>
+  </div>
   </section>
