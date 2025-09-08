@@ -116,48 +116,39 @@ if (Astro.request.method === "POST") {
 
 <MainLayout title={metaTitle} desc={metaDesc}>
   <section class="bg-[#F6F4F2] font-sans-instrument">
-    <section class="xl:container px-5 py-5 md:px-20 md:py-24">
-      <section class="py-10">
-        <div class="text-center m-auto lg:max-w-[1200px]" set:html={WaitlistHeaderData.title} />
-        <p class="text-lg font-medium text-center lg:max-w-[863px] mx-auto my-10">
-          {WaitlistHeaderData.description}
-        </p>
-      </section>
-
-      <div id="pointers" class={formPosted ? "hidden" : "block"}>
-        <WaitListBanner />
-      </div>
-
-      <section class="flex flex-col md:flex-row justify-center gap-12 lg:gap-28">
-        <div id="joinForm" class={formPosted ? "hidden" : "block"}>
-          <div class="flex flex-col items-center gap-3">
-            <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
-              <label>First name*</label>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Enter first name"
-                required
-                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
-              />
-
-              <label>Last name</label>
-              <input type="text" name="lastName" placeholder="Enter last name" class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
-
-              <label>Phone number*</label>
-              <div class="relative md:w-[628px]">
+    <section class="xl:container px-5 py-10 md:px-20 md:py-32">
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-28">
+        <!-- Left content -->
+        <div class="lg:w-1/2 text-center md:text-start">
+          <h2 class="text-3xl md:text-5xl font-semibold md:leading-[60px] mb-5 md:mb-8">{WaitlistHeaderData.title}</h2>
+          <p class="text-lg font-medium">{WaitlistHeaderData.description}</p>
+        </div>
+        <!-- Right form -->
+        <div class="lg:w-1/2 md:p-10 rounded-xl shadow-sm">
+          <div id="joinForm" class={formPosted ? "hidden" : "block"}>
+          <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
+            <!-- Full Name -->
+            <label>Full Name*</label>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Enter Name"
+              required
+              class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+            />
+            <!-- Phone Number -->
+            <label>Phone number*</label>
+              <div class="relative">
                 <div
                   id="dropdownButton"
-                  class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border-2 border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
+                  class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
                 >
                   <span class="flex items-center">
                     <Icon iconName="keyboard_arrow_down" classNames="hidden" />
                   </span>
                   <div class="flex items-center gap-2"></div>
                 </div>
-
                 <input id="phCode" name="phCode" value="" class="hidden" />
-
                 <div id="dropdownMenu" class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20">
                   {
                     countries
@@ -177,28 +168,62 @@ if (Astro.request.method === "POST") {
                   name="phoneNumber"
                   placeholder="Phone Number"
                   required
-                  class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                 />
               </div>
+              
 
-              <label>Email*</label>
-              <input type="email" name="userEmail" placeholder="Enter Email" required class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
+            <!-- Email -->
+            <label>Email*</label>
+            <input
+              type="email"
+              name="userEmail"
+              placeholder="Enter Email"
+              required
+              class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+            />
 
-              <label>City of Installation*</label>
-              <input type="text" name="userCity" placeholder="City Name" required class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
+            <!-- City -->
+            <label>City*</label>
+            <input
+              type="text"
+              name="userCity"
+              placeholder="City Name"
+              required
+              class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+            />
 
-              <div class="flex items-center gap-2">
-                <input type="checkbox" name="userAcceptCheck" class="h-4 w-4 border border-gray-400" />
-                <span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
-              </div>
+            <!-- Interests -->
+            <div class="mt-2">
+              <p class="font-medium mb-4">Interest (Optional)</p>
+              <div class="flex flex-col gap-2">
+              <label class="flex items-center gap-2 text-[#2E2323]">
+              <input type="checkbox" name="userAcceptCheck" class="h-4 w-4 border-gray-400" />
+              Notify me when Guardian-X Kit launches
+            </label>
+            <label class="flex items-center gap-2 text-[#2E2323]">
+              <input type="checkbox" name="userAcceptCheck" class="h-4 w-4 border-gray-400" />
+              I want early access / beta testing
+            </label>
+            <label class="flex items-center gap-2 text-[#2E2323]">
+              <input type="checkbox" name="userAcceptCheck" class="h-4 w-4 border-gray-400" />
+              I want to talk to a safety expert
+            </label>
+            </div>
+            </div>
 
-              <button type="submit" id="submitButton" class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative">
-                <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
-                <div id="loader" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div class="spinner"></div>
-                </div>
-              </button>
-            </form>
+            <!-- Submit button -->
+            <button
+              type="submit"
+              class="w-full py-3 rounded-full text-white bg-[#CC0000] font-medium mt-4"
+            >
+              Reserve Early Access
+            </button>
+
+            <p class="text-base text-center text-gray-600 mt-2">
+              No payment now. We’ll only notify you when it’s available
+            </p>
+          </form>
           </div>
         </div>
 
@@ -207,7 +232,7 @@ if (Astro.request.method === "POST") {
         </div>
       </section>
 
-      <div class="pt-60 grid lg:grid-cols-4 gap-12">
+      <div class="md:pb-40 px-20 py-20 grid lg:grid-cols-4 gap-12">
         {
           bathroomData?.map((item) => (
             <a href={`/#${scrollDataSection[item.id]}`} target="_blank" rel="noopener noreferrer">
