@@ -2,7 +2,7 @@
 id: "2"
 title: "The Silent Epidemic: Why Falls Are the Biggest Threat to Seniors"
 category: "Blog"
-img: "../../images/BlogImage2.jpg"
+img: "/src/assets/Blog/BlogImage2.jpg"
 slug: "why-falls-are-the-biggest-threat-to-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
@@ -78,7 +78,7 @@ Think about it: slippery marble floors, dimly lit corridors, bathrooms without g
 ## Can falls in the elderly be prevented? In many cases-yes.
 
 <img 
-  src="/images/BlogImage(Infographics)2.jpg" 
+  src="/src/assets/Blog/BlogImage(Infographics)2.jpg" 
   alt="Infographic" 
   class="w-full lg:w-[80%] rounded-xl"
 />
@@ -100,7 +100,7 @@ But sometimes, even with the best efforts, accidents can still happen. That’s 
 ## EyEagle: Complete Safety, Thoughtfully Designed
 
 <img 
-  src="/images/BlogImage2(SecondaryBannerImage)2.jpg" 
+  src="/src/assets/Blog/BlogImage2(SecondaryBannerImage)2.jpg" 
   alt="Secondary banner" 
   class="w-full lg:w-[80%] rounded-xl"
 />

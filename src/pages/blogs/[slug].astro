@@ -2,6 +2,7 @@
 import { getCollection, getEntryBySlug } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { blogsData } from "../../components/constants/home";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const blog = await getCollection("blogs");
@@ -46,10 +47,12 @@ const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
         </a>
       </div>
       <div class="flex justify-center">
-        <img
+        <Image
           src={blog.data.img}
           alt={blog.data.title}
-          class="max-h-80 w-auto object-cover rounded-2xl"
+          width={100}
+          height={100}
+          class="max-h-80 w-auto rounded-2xl"
         />
       </div>
 

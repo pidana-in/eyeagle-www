@@ -2,7 +2,7 @@
 id: "5"
 title: “One Fall Changed Everything” - Real Stories of Families Who Wish they Had a Fall Alarm
 category: "Blog"
-img: "../../images/BlogImage5.jpg"
+img: "/src/assets/Blog/BlogImage5.jpg"
 slug: "why-fall-alarms-for-seniors-matter"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"

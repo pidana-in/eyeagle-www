@@ -2,7 +2,7 @@
 id: "7"
 title: "Arthritis & Joint Pain in Seniors: How Safety Upgrades Help Reduce Fall Risk"
 category: "Blog"
-img: "../../images/BlogImage7.jpg"
+img: "/src/assets/Blog/BlogImage7.jpg"
 slug: "arthritis-and-joint-pain-in-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
@@ -28,7 +28,7 @@ Studies show that seniors with arthritis face a significantly higher risk of fal
 ### Common Fall Risk Factors in Seniors with Arthritis
 
 <img 
-  src="/images/BlogImage(Infographics)7.jpg" 
+  src="/src/assets/Blog/BlogImage(Infographics)7.jpg" 
   alt="Infographic" 
    class="w-full lg:w-[80%] rounded-xl"
 />

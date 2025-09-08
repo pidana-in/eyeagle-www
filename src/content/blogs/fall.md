@@ -2,7 +2,7 @@
 id: "1"
 title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
 category: "Blog"
-img: "../../images/BlogImageNew.jpg"
+img: "/src/assets/Blog/BlogImageNew.jpg"
 slug: "falls-kill-more-seniors-than-you-think"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
@@ -30,7 +30,7 @@ for elderly users — especially those most at risk during nighttime or in the b
 ## The Statistics We Can’t Ignore
 
 <img 
-  src="/images/BlogImage(Infographics)1.jpg" 
+  src="/src/assets/Blog/BlogImage(Infographics)1.jpg" 
   alt="Infographic" 
    class="w-full lg:w-[80%] rounded-xl"
 />
@@ -111,7 +111,7 @@ Know more
 ## Why EyEagle Isn’t Just a Product — It’s a Promise
 
 <img 
-  src="/images/BlogImage(SecondaryBannerImage)1.jpg" 
+  src="/src/assets/Blog/BlogImage(SecondaryBannerImage)1.jpg" 
   alt="Secondary banner" 
   class="w-full lg:w-[80%] rounded-xl"
 />
