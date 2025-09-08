@@ -5,7 +5,7 @@ const blogs = defineCollection({
     id: z.coerce.number(),
     title: z.string(),
     category: z.string(),
-    img: z.string(),
+    img: z.image(),
     // Astro provides entry.slug from the filename; frontmatter slug is optional
     slug: z.string().optional(),
     author: z.string(),
