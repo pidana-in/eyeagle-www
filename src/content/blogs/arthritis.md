@@ -2,7 +2,7 @@
 id: "7"
 title: "Arthritis & Joint Pain in Seniors: How Safety Upgrades Help Reduce Fall Risk"
 category: "Blog"
-img: "/src/assets/Blog/BlogImage7.jpg"
+img: ../../assets/Blog/BlogImage7.jpg
 slug: "arthritis-and-joint-pain-in-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"

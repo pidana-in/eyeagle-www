@@ -2,7 +2,7 @@
 id: "2"
 title: "The Silent Epidemic: Why Falls Are the Biggest Threat to Seniors"
 category: "Blog"
-img: "/src/assets/Blog/BlogImage2.jpg"
+img: ../../assets/Blog/BlogImage2.jpg
 slug: "why-falls-are-the-biggest-threat-to-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"

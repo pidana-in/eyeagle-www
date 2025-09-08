@@ -2,7 +2,7 @@
 id: "4"
 title: "How to Make Any Bathroom Senior-Safe in Just a Few Simple Steps"
 category: "Blog"
-img: "/src/assets/Blog/BlogImage4.jpg"
+img: ../../assets/Blog/BlogImage4.jpg
 slug: "step-by-step-bathroom-safety-tips-for-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
