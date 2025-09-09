@@ -159,6 +159,11 @@ export const blogsData = [
     title: "How Fear of Falling Affects Mental Health",
     desc: "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy.",
   },
+     {
+    slug: "importance-of-regular-vision-checks",
+    title: "Why vision matters for seniors' fall prevention",
+    desc: "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent.",
+  },
 ];
 
 export const kitImageDesktop = [

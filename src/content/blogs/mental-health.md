@@ -2,11 +2,11 @@
 id: "9"
 title: "How Fear of Falling Affects Mental Health"
 category: "Blog"
-img: "../../images/BlogImage4.jpg"
+img: ../../assets/Blog/BlogImage9.jpg
 slug: "how-fear-of-falling-affects-mental-health"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2025-08-29
+date: 2025-09-09
 ---
 
 # How Fear of Falling Affects Mental Health
