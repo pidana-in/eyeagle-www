@@ -2,7 +2,7 @@
 id: "8"
 title: "Balance Trouble? It’s More Than Just Old Age"
 category: "Blog"
-img: "../../images/BlogImage8.jpg"
+img: ../../assets/Blog/BlogImage8.jpg
 slug: "balance-problems-in-elderly"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
