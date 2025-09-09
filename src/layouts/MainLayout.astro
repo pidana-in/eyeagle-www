@@ -286,19 +286,19 @@ const { noindex } = Astro.props;
   window.addEventListener("scroll", toggleButtonVisibility);
   window.addEventListener("resize", toggleButtonVisibility);
 
-  hamburger.addEventListener("click", function () {
+  hamburger?.addEventListener("click", function () {
     hamburger.style.display = "none";
     crossButton.style.display = "block";
     mobileNavContent.style.display = "";
   });
 
-  crossButton.addEventListener("click", () => {
+  crossButton?.addEventListener("click", () => {
     hamburger.style.display = "block";
     crossButton.style.display = "none";
     mobileNavContent.style.display = `none`;
   });
 
-  account.addEventListener("click", () => {
+  account?.addEventListener("click", () => {
     let display = accountDetails.style.display;
     accountDetails.style.display = `${display ? "" : "none"}`;
   });
