@@ -77,11 +77,9 @@ Think about it: slippery marble floors, dimly lit corridors, bathrooms without g
 
 ## Can falls in the elderly be prevented? In many cases-yes.
 
-<img 
-  src="/src/assets/Blog/BlogImage(Infographics)2.jpg" 
-  alt="Infographic" 
-  class="w-full lg:w-[80%] rounded-xl"
-/>
+
+![Infographic](../../assets/Blog/BlogImage(Infographics)2.jpg)
+
 
 Preventing falls isn’t just about reacting after one happens. It’s about creating a safer environment and a healthier routine that reduces the risk in the first place.
 
@@ -99,11 +97,9 @@ But sometimes, even with the best efforts, accidents can still happen. That’s 
 
 ## EyEagle: Complete Safety, Thoughtfully Designed
 
-<img 
-  src="/src/assets/Blog/BlogImage2(SecondaryBannerImage)2.jpg" 
-  alt="Secondary banner" 
-  class="w-full lg:w-[80%] rounded-xl"
-/>
+
+![Secondarybanner](../../assets/Blog/BlogImage2(SecondaryBannerImage)2.jpg)
+
 
 EyEagle: more than just an alarm- it’s like having a guardian angel at home. When it comes to protecting your loved ones, EyEagle offers more than a quick fix. It’s a thoughtfully designed bathroom fall prevention system, alarming caregivers and enabling rapid response.
 
