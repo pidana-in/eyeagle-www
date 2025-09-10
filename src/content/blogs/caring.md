@@ -2,7 +2,7 @@
 id: "6"
 title: "Caring from a Distance: How Urban Migrants Can Keep Elderly Parents Safe Back Home"
 category: "Blog"
-img: "../../images/BlogImage6.jpg"
+img: ../../assets/Blog/BlogImage6.jpg
 slug: "caring-elderly-parents-from-afar"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"

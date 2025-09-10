@@ -3,30 +3,34 @@ type Props = {
   className?: string;
 };
 const className = Astro.props.className;
-
-// Hindi Song: w_Bj4nEuAp8
-// English Song: 6hyfU1h-yNM
 ---
 
-<section
-  class={`bg-secondary ${className ? className : "lg:py-[7.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5`}
->
+<section class={`bg-secondary ${className ? className : "lg:py-[7.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5`}>
   <div class="w-full flex justify-center items-center relative">
     <!-- Video Wrapper -->
-    <div
-      class="relative md:w-[65rem] md:h-[36.25rem] w-[22.063rem] h-[12rem] rounded-xl overflow-hidden"
-    >
-      <!-- YouTube Iframe -->
+    <div class="relative md:w-[65rem] md:h-[36.25rem] w-[22.063rem] h-[12rem] rounded-xl overflow-hidden">
+      <!-- YouTube Iframe (lazy-loaded) -->
       <iframe
         class="w-full h-full rounded-xl"
-        src="https://www.youtube.com/embed/6hyfU1h-yNM?controls=0&modestbranding=0&rel=0&iv_load_policy=3&playsinline=1"
+        data-src="https://www.youtube.com/embed/6hyfU1h-yNM?controls=0&modestbranding=0&rel=0&iv_load_policy=3&playsinline=1"
         title="EyEagle Song"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media;"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
+        loading="lazy"
       >
       </iframe>
     </div>
   </div>
+
+  <!-- Lazy load script -->
+  <script>
+    window.addEventListener("load", () => {
+      const iframe = document.querySelector("iframe[data-src]") as HTMLIFrameElement | null;
+      if (iframe && !iframe.src) {
+        iframe.src = iframe.dataset.src || "";
+      }
+    });
+  </script>
 </section>

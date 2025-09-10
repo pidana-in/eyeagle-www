@@ -1,0 +1,140 @@
+---
+type Props = {
+  className?: string;
+  videoId?: string;
+  title?: string;
+  start?: number;
+  noCookie?: boolean;
+};
+
+const className = Astro.props.className;
+const videoId = Astro.props.videoId ?? "6hyfU1h-yNM";
+const title = Astro.props.title ?? "EyEagle Song";
+const start = Astro.props.start ?? 0;
+const noCookie = Astro.props.noCookie ?? true;
+
+const ytDomain = noCookie ? "https://www.youtube-nocookie.com" : "https://www.youtube.com";
+
+const embedUrl = `${ytDomain}/embed/${videoId}?autoplay=1&controls=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1` + (start ? `&start=${start}` : "");
+
+const thumbHQ = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+const thumbMax = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+---
+
+<section class={`bg-secondary ${className ? className : "lg:py-[7.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5`}>
+  <div class="w-full flex justify-center items-center relative">
+    <div
+      class="relative md:w-[65rem] w-[22.063rem] rounded-xl overflow-hidden"
+      style="aspect-ratio:16/9"
+      data-yt-embed
+      data-embed-url={embedUrl}
+      data-thumb-max={thumbMax}
+      data-thumb-hq={thumbHQ}
+      data-title={title}
+    >
+      <button class="group relative w-full h-full text-left focus:outline-none" type="button" aria-label={`Play video: ${title}`}>
+        <img src={thumbMax} alt={title} class="w-full h-full object-cover" loading="lazy" onerror={`this.onerror=null;this.src='${thumbHQ}';`} referrerpolicy="strict-origin-when-cross-origin" />
+
+        <span class="pointer-events-none absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></span>
+        <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span class="grid place-items-center rounded-full p-4 md:p-6 bg-white/90 shadow-lg transition-transform group-hover:scale-105">
+            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+          </span>
+        </span>
+        <span class="sr-only">{title}</span>
+      </button>
+    </div>
+  </div>
+
+  <noscript>
+    <iframe
+      class="w-full h-full rounded-xl"
+      src={`${ytDomain}/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1`}
+      title={title}
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media;"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      loading="lazy"></iframe>
+  </noscript>
+
+  <script is:inline>
+    (function () {
+      const wrapper = document.querySelector("[data-yt-embed]");
+      if (!wrapper) return;
+
+      const embedUrl = wrapper.getAttribute("data-embed-url");
+      const thumbMax = wrapper.getAttribute("data-thumb-max");
+      const thumbHQ = wrapper.getAttribute("data-thumb-hq");
+      const title = wrapper.getAttribute("data-title") || "YouTube video";
+
+      // --- utilities ---
+      const addOnce = (key, create) => {
+        if (document.head.querySelector(`[data-once="${key}"]`)) return;
+        const el = create();
+        if (!el) return;
+        el.setAttribute("data-once", key);
+        document.head.appendChild(el);
+      };
+
+      const preloadImage = (href) => {
+        if (!href) return;
+        addOnce(`preload:${href}`, () => {
+          const l = document.createElement("link");
+          l.rel = "preload";
+          l.as = "image";
+          l.href = href;
+          return l;
+        });
+      };
+
+      const preconnect = (href) => {
+        addOnce(`preconnect:${href}`, () => {
+          const l = document.createElement("link");
+          l.rel = "preconnect";
+          l.href = href;
+          return l;
+        });
+      };
+
+      // --- 1) Preload thumbnails on window load ---
+      window.addEventListener(
+        "load",
+        () => {
+          preloadImage(thumbMax);
+          // preloadImage(thumbHQ);
+        },
+        { once: true }
+      );
+
+      // --- 2) Preconnect on user intent (hover/focus) ---
+      const button = wrapper.querySelector("button");
+      if (!button) return;
+
+      const warmUp = () => {
+        // Enough for both nocookie and normal embeds + static assets
+        preconnect("https://www.youtube-nocookie.com");
+        preconnect("https://www.youtube.com");
+        preconnect("https://i.ytimg.com");
+        preconnect("https://www.google.com");
+        preconnect("https://www.gstatic.com");
+        // optionally: googlevideo edges vary; preconnecting wildcard not possible
+      };
+
+      ["pointerenter", "focus"].forEach((evt) => button.addEventListener(evt, warmUp, { once: true }));
+
+      // --- 3) Click-to-play ---
+      button.addEventListener("click", () => {
+        if (!embedUrl) return;
+        const iframe = document.createElement("iframe");
+        iframe.src = embedUrl;
+        iframe.title = title;
+        iframe.setAttribute("allow", "accelerometer; autoplay; encrypted-media; picture-in-picture;");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        iframe.className = "w-full h-full rounded-xl";
+        wrapper.replaceWith(iframe);
+      });
+    })();
+  </script>
+</section>
