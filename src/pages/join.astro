@@ -234,8 +234,8 @@ if (Astro.request.method === "POST") {
 
       <div class="md:pb-40 px-20 py-20 grid lg:grid-cols-4 gap-12">
         {
-          bathroomData?.map((item) => (
-            <a href={`/#${scrollDataSection[item.id]}`} target="_blank" rel="noopener noreferrer">
+          bathroomData?.map((item: { id: number }) => (
+            <a href={`/#${scrollDataSection[item.id]}` }>
               <BathroomSection item={item} mobile={false} />
             </a>
           ))
@@ -311,12 +311,17 @@ if (Astro.request.method === "POST") {
 
     dropdownMenu.classList.add("hidden");
 
-    document.querySelectorAll("#dropdownMenu > div[data-value]").forEach((el) => el.classList.remove("bg-gray-300"));
+    document
+      .querySelectorAll("#dropdownMenu > div[data-value]")
+      .forEach((el) => el.classList.remove("bg-gray-300"));
     option.classList.add("bg-gray-300");
   });
 
   document.addEventListener("click", (event) => {
-    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    if (
+      !dropdownButton.contains(event.target) &&
+      !dropdownMenu.contains(event.target)
+    ) {
       dropdownMenu.classList.add("hidden");
     }
   });
@@ -326,7 +331,9 @@ if (Astro.request.method === "POST") {
     dropdownButton.classList.add("max-w-[105px]");
 
     const defaultDialCode = "+91";
-    const defaultCountry = countries.find((c) => c.dial_code === defaultDialCode);
+    const defaultCountry = countries.find(
+      (c) => c.dial_code === defaultDialCode
+    );
 
     if (defaultCountry) {
       const flagImage = document.createElement("img");
@@ -342,7 +349,9 @@ if (Astro.request.method === "POST") {
 
       phCode.value = defaultDialCode;
 
-      const defaultOption = Array.from(dropdownMenu.querySelectorAll("[data-value]")).find((el) => el.dataset.value === defaultDialCode);
+      const defaultOption = Array.from(
+        dropdownMenu.querySelectorAll("[data-value]")
+      ).find((el) => el.dataset.value === defaultDialCode);
 
       if (defaultOption) {
         defaultOption.classList.add("bg-gray-300");
@@ -354,15 +363,19 @@ if (Astro.request.method === "POST") {
     const joinForm = document.getElementById("joinForm");
     const postFormfill = document.getElementById("postFormField");
 
-    formPosted ? postFormfill.scrollIntoView({ behavior: "smooth", block: "start" }) : joinForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    formPosted
+      ? postFormfill.scrollIntoView({ behavior: "smooth", block: "start" })
+      : joinForm.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   scrollToFunction();
   initializeDefaultPhoneCode();
 
-  document.getElementById("waitlistForm").addEventListener("submit", function (e) {
-    buttonText.classList.add("opacity-0");
-    loader.classList.remove("hidden");
-    submitButton.disabled = true;
-  });
+  document
+    .getElementById("waitlistForm")
+    .addEventListener("submit", function (e) {
+      buttonText.classList.add("opacity-0");
+      loader.classList.remove("hidden");
+      submitButton.disabled = true;
+    });
 </script>
