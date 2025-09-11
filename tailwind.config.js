@@ -7,8 +7,6 @@ export default {
         "sans-instrument": ["Instrument Sans"],
         inter: ["Inter"],
         barlow: ["Barlow", "sans-serif"],
-        helvetica: ["Helvetica", "sans-serif"],
-        michroma: ['"Michroma"', "sans-serif"],
       },
       colors: {
         primary: "#CC0000",
@@ -19,7 +17,5 @@ export default {
       center: true,
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
