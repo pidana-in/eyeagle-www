@@ -235,7 +235,7 @@ if (Astro.request.method === "POST") {
       <div class="md:pb-40 px-20 py-20 grid lg:grid-cols-4 gap-12">
         {
           bathroomData?.map((item: { id: number }) => (
-            <a href={`/#${scrollDataSection[item.id]}` }>
+            <a href={`/#${scrollDataSection[item.id]}`}>
               <BathroomSection item={item} mobile={false} />
             </a>
           ))

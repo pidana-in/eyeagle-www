@@ -15,6 +15,8 @@ export const WaitlistFormData = {
   buttonTitile: "Reserve My Safety Now!",
 };
 
+
+;
 export const postFormFillData = {
   floatingText: "SPECIAL LAUNCH OFFER",
   boxContent: "For the next 100 people",
