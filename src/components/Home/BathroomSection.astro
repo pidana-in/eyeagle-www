@@ -56,11 +56,17 @@ const { pathname } = Astro.url;
 
   if (card) {
     if (pathname === "/join") {
-      card.addEventListener("click", () => {
-        window.location.href = "/";
+      card.addEventListener("click", (e) => {
+        e.preventDefault(); // stop any default navigation
+        const targetId = scrollDataSection[item.id];
+        window.open(`/#${targetId}`, "_blank"); // open in new tab only
       });
     } else {
-      card.addEventListener("click", () => scrollFunction());
+      card.addEventListener("click", (e) => {
+        e.preventDefault(); // optional if wrapped in <a>
+        scrollFunction();
+      });
     }
   }
 </script>
+
