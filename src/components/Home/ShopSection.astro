@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 const shopData = Astro.props.shopData;
 ---
 
-<section class="xl:container bg-[#222222] text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-[120px] py-12">
+<section class="bg-[#222222] text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-[120px] py-12">
+ <div class="xl:container">
   <p class="text-4xl lg:text-[60px] leading-[2.5rem] lg:leading-[72px] lg:mb-20 mb-12 font-medium font-sans-instrument">
     Get Started With Safety Today
   </p>
@@ -66,4 +67,5 @@ const shopData = Astro.props.shopData;
       }
     </div>
   </div>
+ </div>   
 </section>
