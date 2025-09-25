@@ -13,6 +13,9 @@ export const WaitlistBannerData = {
 export const WaitlistFormData = {
   acceptation: "I want to subscribe to the newsletter",
   buttonTitile: "Reserve My Safety Now!",
+  notifyLaunch: "Notify me when Guardian-X Kit launches",
+  earlyAccess: "I want early access / beta testing",
+  talkExpert: "I want to talk to a safety expert",
 };
 
 
