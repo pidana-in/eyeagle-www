@@ -2,7 +2,7 @@
 import { getCollection, getEntryBySlug } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { blogsData } from "../../components/constants/home";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets"; // <-- add getImage
 
 export async function getStaticPaths() {
   const blog = await getCollection("blogs");
@@ -22,7 +22,11 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-const metaImage = blog.data.img; 
+
+// ✅ Use getImage to get a full URL for OG
+const blogImg = await getImage(blog.data.img);
+const metaImage = blogImg?.src;
+
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc} image={metaImage}>
