@@ -31,7 +31,6 @@ import shop1 from "../../assets/Home/shop1new.png"
 import shop2 from "../../assets/Home/shop2new.png"
 import shop3 from "../../assets/Home/shop3new.png"
 
-
 export const bathroomData = [
   {
     id: 1,
@@ -118,57 +117,57 @@ export const blogsData = [
     slug: "falls-kill-more-seniors-than-you-think",
     title: "Falls Kill More Seniors Than You Think | EyEagle",
     desc: "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.",
-  },
+    },
   {
     slug: "why-falls-are-the-biggest-threat-to-seniors",
     title: "Why Falls Are the Biggest Threat to Seniors | EyEagle",
     desc: "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.",
-  },
+    },
   {
     slug: "how-to-ensure-safety-for-parents-living-alone",
     title: "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle",
     desc: "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.",
-  },
+    },
   {
     slug: "step-by-step-bathroom-safety-tips-for-seniors",
     title: "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle",
     desc: "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.",
-  },
+    },
   {
     slug: "why-fall-alarms-for-seniors-matter",
     title: "One Fall Changed Everything – Why Fall Alarms for Seniors Matter",
     desc: "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.",
-  },
+    },
   {
     slug: "caring-elderly-parents-from-afar",
     title: "Caring Elderly Parents from Afar: Tips for Urban Migrants",
     desc: "Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
-  },
+    },
     {
     slug: "arthritis-and-joint-pain-in-seniors",
     title: "Arthritis & Joint Pain in Seniors | Fall Prevention Tips",
     desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies.",
-  },
+    },
    {
     slug: "balance-problems-in-elderly",
     title: "Balance Problems in Elderly: Causes, Warning Signs & Prevention",
     desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
-  },
+     },
    {
     slug: "how-fear-of-falling-affects-mental-health",
     title: "How Fear of Falling Affects Mental Health",
     desc: "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy.",
-  },
+    },
      {
     slug: "importance-of-regular-vision-checks",
     title: "Why vision matters for seniors' fall prevention",
     desc: "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent.",
-  },
+    },
      {
     slug: "the-critical-60-minutes-after-a-fall",
     title: "Why the First Hour After a Fall Matters?",
     desc: "The first 60 minutes after a fall are critical. Learn how quick response & early treatment of fall injuries can save lives.",
-  },
+    },
 ];
 
 export const kitImageDesktop = [
