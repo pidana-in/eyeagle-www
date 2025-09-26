@@ -164,6 +164,11 @@ export const blogsData = [
     title: "Why vision matters for seniors' fall prevention",
     desc: "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent.",
   },
+     {
+    slug: "the-critical-60-minutes-after-a-fall",
+    title: "Why the First Hour After a Fall Matters?",
+    desc: "The first 60 minutes after a fall are critical. Learn how quick response & early treatment of fall injuries can save lives.",
+  },
 ];
 
 export const kitImageDesktop = [

@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 const {
   title = "EyEagle – Preventing Falls, Saving Lives",
   desc = "Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!",
+  img = "img" 
 } = Astro.props;
 const { pathname } = Astro.url;
 const loginCredential = false;
@@ -22,6 +23,7 @@ const { noindex } = Astro.props;
     <title>{title}</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={desc} />
+    <meta property="og:image" content={img} />
     {noindex && <meta name="robots" content="noindex" />}
     <!-- <meta name="keywords" content="" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
