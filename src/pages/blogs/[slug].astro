@@ -3,6 +3,7 @@ import { getCollection, getEntryBySlug } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { blogsData } from "../../components/constants/home";
 import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 
 export async function getStaticPaths() {
   const blog = await getCollection("blogs");
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const blog = await getEntryBySlug("blogs", slug) as any;
+const blog = (await getEntryBySlug("blogs", slug)) as any;
 
 if (!blog) {
   throw new Error("blog not found");
@@ -22,7 +23,8 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-const metaImage = blog.data.img; 
+const blogImg = await getImage({ src: blog.data.img });
+const metaImage = `${Astro.site}${blogImg.src}`;
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc} image={metaImage}>
