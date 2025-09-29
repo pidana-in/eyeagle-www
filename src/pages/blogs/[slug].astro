@@ -22,10 +22,11 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-const metaImage = new URL(blog.data.img, import.meta.url).href;
+const site = Astro.site?.toString() ?? "https://eyeagle.ai";
+const metaImage = blog.data.img ? site + blog.data.img.src : site + "/assets/blog/BlogImage2.jpg";
 ---
 
-<MainLayout title="blogs" title={metaTitle} desc={metaDesc} img={metaImage}>
+<MainLayout title="blogs" title={metaTitle} desc={metaDesc} ogImage={metaImage}>
   <style is:global>
     .prose ul ul {
       list-style-type: circle;
