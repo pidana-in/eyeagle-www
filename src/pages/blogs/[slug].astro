@@ -22,7 +22,8 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-const metaImage = blog.data.img;
+const metaImage = blog.data.img.src;
+console.log("OG Image URL:", metaImage);
 ---
 
 <MainLayout title="blogs" title={metaTitle} desc={metaDesc} ogImage={metaImage}>
@@ -98,3 +99,4 @@ const metaImage = blog.data.img;
     </div>
   </article>
 </MainLayout>
+
