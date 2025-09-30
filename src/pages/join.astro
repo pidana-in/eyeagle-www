@@ -31,8 +31,7 @@ if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
 
-    const firstName = String(formData.get("firstName") || "");
-    const lastName = String(formData.get("lastName") || "");
+    const fullName = String(formData.get("fullName") || "");
     const email = formData.get("userEmail");
     const countryCode = formData.get("phCode");
     const phoneNumber = formData.get("phoneNumber");
@@ -40,7 +39,7 @@ if (Astro.request.method === "POST") {
     const acceptance = formData.getAll("userAcceptCheck"); 
 
     const apiPayload = {
-      name: `${firstName} ${lastName}`.trim(),
+      name: `${fullName}`,
       countryCode,
       mobileNumber: phoneNumber,
       email,
@@ -67,8 +66,7 @@ if (Astro.request.method === "POST") {
           const tags = ["waitlist", "source:join-page"]; // Adjust if you prefer different tags
           const subResult = await upsertShopifySubscriber({
             email: String(email),
-            firstName: firstName || undefined,
-            lastName: lastName || undefined,
+            fullName: fullName || undefined,
             phone: fullPhone || undefined,
             tags,
           });
@@ -89,7 +87,7 @@ if (Astro.request.method === "POST") {
           auth: { user: smtpUser, pass: smtpPassword },
         });
 
-        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${firstName} ${lastName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance ? "Yes" : "No"}\n        `;
+        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${fullName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance ? "Yes" : "No"}\n        `;
 
         const currentDate = new Date().toISOString().slice(0, 10);
 

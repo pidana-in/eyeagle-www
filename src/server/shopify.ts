@@ -4,8 +4,7 @@
 
 type UpsertParams = {
   email: string;
-  firstName?: string | null;
-  lastName?: string | null;
+  fullName?: string | null;
   phone?: string | null;
   tags?: string[];
 };
@@ -151,7 +150,7 @@ async function createCustomer(options: { base: Record<string, unknown>; emailCon
 }
 
 export async function upsertShopifySubscriber(params: UpsertParams): Promise<UpsertResult> {
-  const { email, firstName, lastName, phone, tags = [] } = params;
+  const { email, fullName, phone, tags = [] } = params;
   if (!email) return { ok: false, error: "Email is required" };
 
   console.log("Shopify config: ", { SHOPIFY_STORE_DOMAIN, SHOPIFY_API_VERSION, SHOPIFY_ADMIN_ACCESS_TOKEN: Boolean(SHOPIFY_ADMIN_ACCESS_TOKEN) });
@@ -178,8 +177,7 @@ export async function upsertShopifySubscriber(params: UpsertParams): Promise<Ups
     const base = {
       email,
       phone: phone || undefined,
-      first_name: firstName || undefined,
-      last_name: lastName || undefined,
+      full_name: fullName || undefined,
     } as Record<string, unknown>;
 
     if (existing?.id) {

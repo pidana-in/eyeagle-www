@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const blog = await getEntryBySlug("blogs", slug);
+const blog = await getEntryBySlug("blogs", slug) as any;
 
 if (!blog) {
   throw new Error("blog not found");
@@ -22,9 +22,10 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
+const metaImage = blog.data.img; 
 ---
 
-<MainLayout title="blogs" title={metaTitle} desc={metaDesc}>
+<MainLayout title="blogs" title={metaTitle} desc={metaDesc} image={metaImage}>
   <style is:global>
     .prose ul ul {
       list-style-type: circle;
