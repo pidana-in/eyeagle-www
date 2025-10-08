@@ -2,7 +2,10 @@
 export const prerender = false;
 
 import MainLayout from "../layouts/MainLayout.astro";
-import { WaitlistFormData, WaitlistHeaderData } from "../components/constants/waitlist";
+import {
+  WaitlistFormData,
+  WaitlistHeaderData,
+} from "../components/constants/waitlist";
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
 import Icon from "../components/common/Icon.astro";
@@ -13,7 +16,8 @@ import { upsertShopifySubscriber } from "../server/shopify";
 import nodemailer from "nodemailer";
 
 const metaTitle = "Join Our Community for Elderly Safety Solutions – EyEagle";
-const metaDesc = "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
+const metaDesc =
+  "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
 
 const {
   PUBLIC_SMTP_HOST: smtpHost,
@@ -36,7 +40,7 @@ if (Astro.request.method === "POST") {
     const countryCode = formData.get("phCode");
     const phoneNumber = formData.get("phoneNumber");
     const city = formData.get("userCity");
-    const acceptance = formData.getAll("userAcceptCheck"); 
+    const acceptance = formData.getAll("userAcceptCheck");
 
     const apiPayload = {
       name: `${fullName}`,
@@ -56,7 +60,9 @@ if (Astro.request.method === "POST") {
 
     const apiResult = await fetchResponse.json();
 
-    const useShopify = String(USE_SHOPIFY_JOIN || "").toLowerCase() === "true" || String(USE_SHOPIFY_JOIN || "") === "1";
+    const useShopify =
+      String(USE_SHOPIFY_JOIN || "").toLowerCase() === "true" ||
+      String(USE_SHOPIFY_JOIN || "") === "1";
 
     if (useShopify) {
       // Subscribe/create customer in Shopify with double opt-in when accepted
@@ -103,8 +109,8 @@ if (Astro.request.method === "POST") {
     }
 
     if (apiResult?.status === "success") {
-          return Astro.redirect('/success'); 
-      }
+      return Astro.redirect("/success");
+    }
   } catch (error) {
     console.error("Error while submitting form:", error);
   }
@@ -114,27 +120,29 @@ if (Astro.request.method === "POST") {
 <MainLayout title={metaTitle} desc={metaDesc}>
   <section class="bg-[#F6F4F2] font-sans-instrument">
     <section class="xl:container px-5 py-10 md:px-20 md:pt-32 md:pb-12">
-      <div class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-28">
-        <!-- Left content -->
+      <div
+        class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-28"
+      >
         <div class="lg:w-1/2 text-center md:text-start">
-          <h2 class="text-3xl md:text-5xl font-semibold md:leading-[60px] mb-5 md:mb-8">{WaitlistHeaderData.title}</h2>
+          <h2
+            class="text-3xl md:text-5xl font-semibold md:leading-[60px] mb-5 md:mb-8"
+          >
+            {WaitlistHeaderData.title}
+          </h2>
           <p class="text-lg font-medium">{WaitlistHeaderData.description}</p>
         </div>
-        <!-- Right form -->
         <div class="lg:w-1/2 md:p-10 rounded-xl">
           <div id="joinForm" class={formPosted ? "hidden" : "block"}>
-          <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
-            <!-- Full Name -->
-            <label>Full Name*</label>
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Enter Name"
-              required
-              class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
-            />
-            <!-- Phone Number -->
-            <label>Phone number*</label>
+            <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
+              <label>Full Name*</label>
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter Name"
+                required
+                class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+              />
+              <label>Phone number*</label>
               <div class="relative">
                 <div
                   id="dropdownButton"
@@ -146,92 +154,132 @@ if (Astro.request.method === "POST") {
                   <div class="flex items-center gap-2"></div>
                 </div>
                 <input id="phCode" name="phCode" value="" class="hidden" />
-                <div id="dropdownMenu" class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20">
+                <div
+                  id="dropdownMenu"
+                  class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
+                >
                   {
                     countries
                       .sort((a, b) => a.code.localeCompare(b.code))
                       .map((country) => (
-                        <div class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2" data-value={country.dial_code}>
-                          <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt={`${country.code} flag`} width="20" />
+                        <div
+                          class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                          data-value={country.dial_code}
+                        >
+                          <img
+                            src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                            alt={`${country.code} flag`}
+                            width="20"
+                          />
                           {country.dial_code}
                         </div>
                       ))
                   }
                 </div>
-
                 <input
                   id="phoneNumField"
                   type="number"
                   name="phoneNumber"
                   placeholder="Phone Number"
                   required
+                  maxlength="10"
+                  pattern="\d{10}"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
                   class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                 />
               </div>
-              
-
-            <!-- Email -->
-            <label>Email*</label>
-            <input
-              type="email"
-              name="userEmail"
-              placeholder="Enter Email"
-              required
-              class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
-            />
-
-            <!-- City -->
-            <label>City*</label>
-            <input
-              type="text"
-              name="userCity"
-              placeholder="City Name"
-              required
-              class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
-            />
-
-            <!-- Interests -->
-            <div class="mt-2">
-              <p class="font-medium mb-3">Interest (Optional)</p>
-              <div class="flex flex-col gap-2">
-              <div class="flex items-center gap-2">
-              <input type="checkbox" name="userAcceptCheck" value="notify_launch" class="h-4 w-4 border-gray-400" />
-              <span class="text-[#2E2323]">{WaitlistFormData.notifyLaunch}</span>
+              <label>Email*</label>
+              <input
+                type="email"
+                name="userEmail"
+                placeholder="Enter Email"
+                required
+                class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+              />
+              <label>City*</label>
+              <input
+                type="text"
+                name="userCity"
+                placeholder="City Name"
+                required
+                class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+              />
+              <div class="mt-2">
+                <p class="font-medium mb-3">Interest (Optional)</p>
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="userAcceptCheck"
+                      value="notify_launch"
+                      class="h-4 w-4 border-gray-400"
+                    />
+                    <span class="text-[#2E2323]"
+                      >{WaitlistFormData.notifyLaunch}</span
+                    >
+                  </div>
+                  <label class="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="userAcceptCheck"
+                      value="early_access"
+                      class="h-4 w-4 border-gray-400"
+                    />
+                    <span class="text-[#2E2323]"
+                      >{WaitlistFormData.earlyAccess}</span
+                    >
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="userAcceptCheck"
+                      value="talk_expert"
+                      class="h-4 w-4 border-gray-400"
+                    />
+                    <span class="text-[#2E2323]"
+                      >{WaitlistFormData.talkExpert}</span
+                    >
+                  </label>
+                </div>
               </div>
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="userAcceptCheck" value="early_access" class="h-4 w-4 border-gray-400" />
-              <span class="text-[#2E2323]">{WaitlistFormData.earlyAccess}</span>
-            </label>
-            <label class="flex items-center gap-2">
-              <input type="checkbox" name="userAcceptCheck" value="talk_expert" class="h-4 w-4 border-gray-400" />
-              <span class="text-[#2E2323]">{WaitlistFormData.talkExpert}</span>
-            </label>
-            </div>
-           </div>
-
-            <!-- Submit button -->
-          <button type="submit" id="submitButton" class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative">
-           <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
-            <div id="loader" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div class="spinner"></div>
-           </div>
-          </button>
-            <p class="text-base text-center text-gray-600 mt-2">
-              No payment now. We’ll only notify you when it’s available
-            </p>
-          </form>
+              <button
+                type="submit"
+                id="submitButton"
+                class="md:w-full p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative"
+              >
+                <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
+                <div
+                  id="loader"
+                  class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                >
+                  <div class="spinner"></div>
+                </div>
+              </button>
+              <p class="text-base text-center text-gray-600 mt-2">
+                No payment now. We’ll only notify you when it’s available
+              </p>
+            </form>
           </div>
         </div>
-      </section>
-      <div>
-      <h3 class="font-semibold px-4 md:px-20 font-barlow text-[#212121] text-xl lg:text-[40px] lg:leading-[100%]"><span class="text-primary">EyEagle</span> is built to keep your loved ones safe, 
-      <span class="relative z-0">around the clock.
-      <span class="absolute w-full h-2 bg-[#CC0000]/40 lg:top-9 lg:right-0 top-4 left-0 -z-50">
-      </span>
-    </span>
-    </h3>
       </div>
-      <div class="lg:py-20 pt-8 pb-10 px-4 md:px-20 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-8 justify-self-start">
+      <div class="pt-10">
+        <h3
+          class="font-semibold font-barlow text-[#212121] text-xl lg:text-[40px] lg:leading-[100%]"
+        >
+          <span class="text-primary">EyEagle</span> is built to keep your loved ones
+          safe,
+          <span class="relative z-0"
+            >around the clock.
+            <span
+              class="absolute w-full h-2 bg-[#CC0000]/40 lg:top-9 lg:right-0 top-4 left-0 -z-50"
+            >
+            </span>
+          </span>
+        </h3>
+      </div>
+      <div
+        class="lg:py-20 pt-8 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-8 justify-self-start"
+      >
         {
           bathroomData?.map((item: { id: number }) => (
             <a href={`/#${scrollDataSection[item.id]}`}>
@@ -326,7 +374,7 @@ if (Astro.request.method === "POST") {
   });
 
   function initializeDefaultPhoneCode() {
-    phoneNumField.classList.add("pl-[125px]");
+    phoneNumField.classList.add("pl-[112px]");
     dropdownButton.classList.add("max-w-[105px]");
 
     const defaultDialCode = "+91";
@@ -361,12 +409,7 @@ if (Astro.request.method === "POST") {
   function scrollToFunction() {
     const joinForm = document.getElementById("joinForm");
     const postFormfill = document.getElementById("postFormField");
-
-    // formPosted
-    //   ? postFormfill.scrollIntoView({ behavior: "smooth", block: "start" })
-    //   : joinForm.scrollIntoView({ behavior: "smooth", block: "center" });
   }
-
   scrollToFunction();
   initializeDefaultPhoneCode();
 
