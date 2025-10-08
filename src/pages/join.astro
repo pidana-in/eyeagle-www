@@ -178,16 +178,18 @@ if (Astro.request.method === "POST") {
                 </div>
                 <input
                   id="phoneNumField"
-                  type="number"
+                  type="tel"
                   name="phoneNumber"
                   placeholder="Phone Number"
                   required
                   maxlength="10"
-                  pattern="\d{10}"
                   oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
                   class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                 />
               </div>
+              <p id="phoneError" class="text-red-500 text-sm hidden">
+                Please enter a valid 10-digit mobile number
+              </p>
               <label>Email*</label>
               <input
                 type="email"
@@ -413,11 +415,34 @@ if (Astro.request.method === "POST") {
   scrollToFunction();
   initializeDefaultPhoneCode();
 
+  const phoneError = document.getElementById("phoneError");
+
   document
     .getElementById("waitlistForm")
     .addEventListener("submit", function (e) {
+      const phoneValue = phoneNumField.value.trim();
+      const phoneRegex = /^[6-9]\d{9}$/;
+
+      phoneError.classList.add("hidden");
+      phoneNumField.classList.remove("border-red-500");
+
+      if (!phoneRegex.test(phoneValue)) {
+        e.preventDefault();
+
+        phoneError.classList.remove("hidden");
+        phoneNumField.classList.add("border-red-500");
+
+        phoneNumField.focus();
+        return;
+      }
+
       buttonText.classList.add("opacity-0");
       loader.classList.remove("hidden");
       submitButton.disabled = true;
     });
+
+  phoneNumField.addEventListener("input", () => {
+    phoneError.classList.add("hidden");
+    phoneNumField.classList.remove("border-red-500");
+  });
 </script>
