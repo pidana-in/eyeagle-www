@@ -133,79 +133,90 @@ if (Astro.request.method === "POST") {
         </div>
         <div class="lg:w-1/2 md:p-10 rounded-xl">
           <div id="joinForm" class={formPosted ? "hidden" : "block"}>
-            <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
-              <label>Full Name*</label>
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Enter Name"
-                required
-                class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
-              />
-              <label>Phone number*</label>
-              <div class="relative">
-                <div
-                  id="dropdownButton"
-                  class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
-                >
-                  <span class="flex items-center">
-                    <Icon iconName="keyboard_arrow_down" classNames="hidden" />
-                  </span>
-                  <div class="flex items-center gap-2"></div>
-                </div>
-                <input id="phCode" name="phCode" value="" class="hidden" />
-                <div
-                  id="dropdownMenu"
-                  class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
-                >
-                  {
-                    countries
-                      .sort((a, b) => a.code.localeCompare(b.code))
-                      .map((country) => (
-                        <div
-                          class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
-                          data-value={country.dial_code}
-                        >
-                          <img
-                            src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
-                            alt={`${country.code} flag`}
-                            width="20"
-                          />
-                          {country.dial_code}
-                        </div>
-                      ))
-                  }
-                </div>
+            <form method="POST" class="flex flex-col gap-5" id="waitlistForm">
+              <div class="flex flex-col gap-3">
+                <label>Full Name*</label>
                 <input
-                  id="phoneNumField"
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Phone Number"
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Name"
                   required
-                  maxlength="10"
-                  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
                   class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                 />
               </div>
-              <p id="phoneError" class="text-red-500 text-sm hidden">
-                Please enter a valid 10-digit mobile number
-              </p>
-              <label>Email*</label>
-              <input
-                type="email"
-                name="userEmail"
-                placeholder="Enter Email"
-                required
-                class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
-              />
-              <label>City*</label>
-              <input
-                type="text"
-                name="userCity"
-                placeholder="City Name"
-                required
-                class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
-              />
+              <div class="flex flex-col gap-3">
+                <label>Phone number*</label>
+                <div class="relative">
+                  <div
+                    id="dropdownButton"
+                    class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
+                  >
+                    <span class="flex items-center">
+                      <Icon
+                        iconName="keyboard_arrow_down"
+                        classNames="hidden"
+                      />
+                    </span>
+                    <div class="flex items-center gap-2"></div>
+                  </div>
+                  <input id="phCode" name="phCode" value="" class="hidden" />
+                  <div
+                    id="dropdownMenu"
+                    class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
+                  >
+                    {
+                      countries
+                        .sort((a, b) => a.code.localeCompare(b.code))
+                        .map((country) => (
+                          <div
+                            class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                            data-value={country.dial_code}
+                          >
+                            <img
+                              src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                              alt={`${country.code} flag`}
+                              width="20"
+                            />
+                            {country.dial_code}
+                          </div>
+                        ))
+                    }
+                  </div>
+                  <input
+                    id="phoneNumField"
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    required
+                    maxlength="10"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                    class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                  />
+                </div>
+                <p id="phoneError" class="text-red-500 text-sm hidden">
+                  Please enter a valid 10-digit mobile number
+                </p>
+              </div>
+              <div class="flex flex-col gap-3">
+                <label>Email*</label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  placeholder="Enter Email"
+                  required
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+                />
+              </div>
+              <div class="flex flex-col gap-3">
+                <label>City*</label>
+                <input
+                  type="text"
+                  name="userCity"
+                  placeholder="City Name"
+                  required
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+                />
+              </div>
               <div class="mt-2">
                 <p class="font-medium mb-3">Interest (Optional)</p>
                 <div class="flex flex-col gap-2">
