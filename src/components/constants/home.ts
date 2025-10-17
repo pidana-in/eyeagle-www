@@ -167,7 +167,17 @@ export const blogsData = [
     slug: "the-critical-60-minutes-after-a-fall",
     title: "Why the First Hour After a Fall Matters?",
     desc: "The first 60 minutes after a fall are critical. Learn how quick response & early treatment of fall injuries can save lives.",
-    },
+  },
+    {
+    slug: "senior-safety-during-diwali",
+    title: "Senior Safety During Diwali | Keep Your Loved Ones Safe",
+    desc: "Learn why senior safety during Diwali is important and how you can implement them in your homes this festive season.",
+  },
+   {
+    slug: "diwali-travel-safety-tips-for-seniors",
+    title: "Diwali Travel Safety & Home Safety Tips | EyEagle",
+    desc: "Plan a safe, stress-free Diwali with smart travel tips and home safety ideas. Celebrate with awareness & joy wherever you light your diyas.",
+  },
 ];
 
 export const kitImageDesktop = [
