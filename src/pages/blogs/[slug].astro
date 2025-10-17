@@ -26,26 +26,33 @@ const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
 // Get the absolute URL for the OG image
 // When using image() schema, Astro processes the image and provides src, width, height
 const siteUrl = Astro.site?.origin || Astro.url.origin;
-const ogImageUrl = `${siteUrl}${blog.data.img.src}`;
 
-console.log("OG Image URL:", ogImageUrl);
+// In development, image paths start with /@fs/, in production they're processed
+// We need to handle both cases
+let ogImageUrl: string;
+if (import.meta.env.DEV) {
+  // In dev mode, just use the site URL with a placeholder or the actual src
+  ogImageUrl = `${siteUrl}${blog.data.img.src}`;
+  console.log("DEV MODE - OG Image URL:", ogImageUrl);
+  console.log("Note: In production, this will be a proper optimized image path");
+} else {
+  // In production, use the optimized image path
+  ogImageUrl = `${siteUrl}${blog.data.img.src}`;
+}
+
 console.log("Image data:", blog.data.img);
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc}>
-  <Fragment slot="head">
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content={metaTitle} />
-    <meta property="og:description" content={metaDesc} />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:width" content={blog.data.img.width.toString()} />
-    <meta
-      property="og:image:height"
-      content={blog.data.img.height.toString()}
-    />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content={Astro.url.href} />
-  </Fragment>
+<MainLayout 
+  title={metaTitle} 
+  desc={metaDesc}
+  ogImage={ogImageUrl}
+  ogImageWidth={blog.data.img.width}
+  ogImageHeight={blog.data.img.height}
+  ogType="article"
+  ogUrl={Astro.url.href}
+>
+
 
   <style is:global>
     .prose ul ul {
