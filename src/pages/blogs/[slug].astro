@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const blog = (await getEntryBySlug("blogs", slug)) as any;
+const blog = await getEntryBySlug("blogs", slug) as any;
 
 if (!blog) {
   throw new Error("blog not found");
@@ -22,38 +22,11 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-
-// Get the absolute URL for the OG image
-// When using image() schema, Astro processes the image and provides src, width, height
-const siteUrl = Astro.site?.origin || Astro.url.origin;
-
-// In development, image paths start with /@fs/, in production they're processed
-// We need to handle both cases
-let ogImageUrl: string;
-if (import.meta.env.DEV) {
-  // In dev mode, just use the site URL with a placeholder or the actual src
-  ogImageUrl = `${siteUrl}${blog.data.img.src}`;
-  console.log("DEV MODE - OG Image URL:", ogImageUrl);
-  console.log("Note: In production, this will be a proper optimized image path");
-} else {
-  // In production, use the optimized image path
-  ogImageUrl = `${siteUrl}${blog.data.img.src}`;
-}
-
-console.log("Image data:", blog.data.img);
+const metaImage = blog.data.img.src; 
+console.log("MetaImage", metaImage)
 ---
 
-<MainLayout 
-  title={metaTitle} 
-  desc={metaDesc}
-  ogImage={ogImageUrl}
-  ogImageWidth={blog.data.img.width}
-  ogImageHeight={blog.data.img.height}
-  ogType="article"
-  ogUrl={Astro.url.href}
->
-
-
+<MainLayout title="blogs" title={metaTitle} desc={metaDesc} metaImage={metaImage}>
   <style is:global>
     .prose ul ul {
       list-style-type: circle;
@@ -88,6 +61,11 @@ console.log("Image data:", blog.data.img);
           Written by
         </p>
         <div class="flex gap-4 mb-8 py-2">
+          <!-- <img
+          src={blog.data.authorImage}
+          alt={blog.data.author}
+          class="w-12 h-12 rounded-full object-cover border border-gray-300"
+        /> -->
           <div class="text-sm leading-6">
             <p class="text-gray-900 font-semibold">{blog.data.author}</p>
             <p class="text-gray-700 font-semibold">{blog.data.authorRole}</p>
