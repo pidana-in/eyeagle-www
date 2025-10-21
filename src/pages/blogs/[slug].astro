@@ -22,11 +22,7 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-let metaImage = "";
-if (blogMeta?.img && Astro.site) {
-  metaImage = `${Astro.site.toString().replace(/\/$/, "")}${blogMeta.img.src}`;
-}
-
+const metaImage = blogMeta?.img ? `${Astro.site}${blogMeta.img.src}` : "";
 console.log("MetaImage", metaImage);
 ---
 
