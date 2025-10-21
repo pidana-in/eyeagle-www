@@ -17,7 +17,7 @@ export default defineConfig({
     }),
   ],
   site: "https://eyeagle.ai/",
-  // Produce a purely static build; no server entrypoints.
+  // Produce a purely static build; no server entrypoints. 
   output: 'static',
   adapter,
   // Minify generated HTML for faster delivery.
