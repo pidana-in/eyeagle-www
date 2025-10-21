@@ -32,7 +32,7 @@ const { noindex } = Astro.props;
     <title>{title}</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={desc} />
-    <meta property="og:image" content={metaImage} />
+    {metaImage && <meta property="og:image" content={metaImage} />}
     {noindex && <meta name="robots" content="noindex" />}
     <!-- <meta name="keywords" content="" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

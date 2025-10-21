@@ -10,12 +10,12 @@ const adapter = isNetlify
   ? netlify({ imageCDN: false })
   : node({ mode: "standalone" });
 // 👇 Use Netlify's preview URL dynamically if available
-const site = process.env.DEPLOY_PRIME_URL // set automatically by Netlify for previews
+const site = process.env.DEPLOY_PRIME_URL
   ? `https://${process.env.DEPLOY_PRIME_URL}`
   : "https://eyeagle.ai"; // fallback to production domain
 
 export default defineConfig({
-  site,
+  site: site || "https://eyeagle.ai", // ensure Astro.site is always defined
   integrations: [
     tailwind({ applyBaseStyles: false }),
     partytown({

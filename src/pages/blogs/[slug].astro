@@ -22,18 +22,15 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-const metaImage =
-  "https://cdn.pixabay.com/photo/2025/08/09/18/23/knight-9765068_1280.jpg";
+let metaImage = "";
+if (blogMeta?.img && Astro.site) {
+  metaImage = `${Astro.site.toString().replace(/\/$/, "")}${blogMeta.img.src}`;
+}
 
 console.log("MetaImage", metaImage);
 ---
 
-<MainLayout
-  title="blogs"
-  title={metaTitle}
-  desc={metaDesc}
-  metaImage={metaImage}
->
+<MainLayout title={metaTitle} desc={metaDesc} metaImage={metaImage}>
   <style is:global>
     .prose ul ul {
       list-style-type: circle;
