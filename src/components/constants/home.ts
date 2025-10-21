@@ -130,7 +130,7 @@ export const blogsData = [
     slug: "falls-kill-more-seniors-than-you-think",
     title: "Falls Kill More Seniors Than You Think | EyEagle",
     desc: "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.",
-    img: "BlogImage2.jpg",
+    img: "/BlogImage2.jpg",
   },
   {
     slug: "why-falls-are-the-biggest-threat-to-seniors",
