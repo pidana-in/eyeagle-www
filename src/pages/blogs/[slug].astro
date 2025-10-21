@@ -22,7 +22,7 @@ const { Content } = await blog.render();
 const blogMeta = blogsData.find((b) => b.slug === slug);
 const metaTitle = blogMeta?.title ?? "Blog | EyEagle";
 const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
-const metaImage = blog.data.img.src; 
+const metaImage = blogMeta?.img
 console.log("MetaImage", metaImage)
 ---
 
