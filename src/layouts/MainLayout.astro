@@ -2,13 +2,22 @@
 import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
 import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
 import EyeAgleFavIcon from "../assets/favicon.ico";
-import { navLinks, userMenu, ctaButtonText, ctaHref, footerPolicyLinks, footerCopyright, socialLinks, siteMeta } from "../data/site";
+import {
+  navLinks,
+  userMenu,
+  ctaButtonText,
+  ctaHref,
+  footerPolicyLinks,
+  footerCopyright,
+  socialLinks,
+  siteMeta,
+} from "../data/site";
 import "../styles/global.css";
 import { Image } from "astro:assets";
 const {
   title = "EyEagle – Preventing Falls, Saving Lives",
   desc = "Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!",
-  img = "img" 
+  metaImage,
 } = Astro.props;
 const { pathname } = Astro.url;
 const loginCredential = false;
@@ -23,7 +32,7 @@ const { noindex } = Astro.props;
     <title>{title}</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={desc} />
-    <meta property="og:image" content={img} />
+    {metaImage && <meta property="og:image" content={metaImage} />}
     {noindex && <meta name="robots" content="noindex" />}
     <!-- <meta name="keywords" content="" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,8 +42,17 @@ const { noindex } = Astro.props;
       rel="stylesheet"
     />
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
-    <script type="text/partytown" is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteMeta.gtmId}`}></script>
-    <script type="text/partytown" is:inline define:vars={{ gtmId: siteMeta.gtmId }}>
+    <script
+      type="text/partytown"
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${siteMeta.gtmId}`}
+    ></script>
+    <script
+      type="text/partytown"
+      is:inline
+      define:vars={{ gtmId: siteMeta.gtmId }}
+    >
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -50,20 +68,45 @@ const { noindex } = Astro.props;
         PREVENTING FALLS, SAVING LIVES
       </h2>
     </div> -->
-    <header id="myNav" class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-5 bg-black`>
+    <header
+      id="myNav"
+      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-5 bg-black`
+    >
       <nav class="flex items-center justify-around xl:container">
         <div class="flex gap-4 lg:py-2">
           <a href="/" aria-label="EyEagle Home Page">
-            <Image src={EyeagleLogo} alt={"EyEagle – Preventing Falls, Saving Lives"} id="imageBg" class="w-[8.188rem]" quality={"max"} loading="eager" fetchpriority="high" />
+            <Image
+              src={EyeagleLogo}
+              alt={"EyEagle – Preventing Falls, Saving Lives"}
+              id="imageBg"
+              class="w-[8.188rem]"
+              quality={"max"}
+              loading="eager"
+              fetchpriority="high"
+            />
           </a>
           <div class="h-8 w-px bg-gray-300"></div>
-          <img src="/svg/tagline-desktop.svg" alt="Preventing Falls, Saving Lives" width="110" height="31" class="w-[110px] h-[31px]" loading="lazy" decoding="async" />
+          <img
+            src="/svg/tagline-desktop.svg"
+            alt="Preventing Falls, Saving Lives"
+            width="110"
+            height="31"
+            class="w-[110px] h-[31px]"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
-        <ul class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-normal px-4 mr-[14%]` id="content">
+        <ul
+          class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-normal px-4 mr-[14%]`
+          id="content"
+        >
           {
             navLinks?.map((item) => (
               <li>
-                <a href={`${item.url}`} class="hover:underline hover:text-white text-gray-300">
+                <a
+                  href={`${item.url}`}
+                  class="hover:underline hover:text-white text-gray-300"
+                >
                   {item.title}
                 </a>
               </li>
@@ -78,7 +121,11 @@ const { noindex } = Astro.props;
               {/* <button class="relative">
           <Image id="account" src={Account} alt={'Account'}/>
         </button> */}
-              <ul id="accountDetails" style={{ display: "none" }} class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[8.5rem] rounded-xl font-sans-instrument font-normal text-lg">
+              <ul
+                id="accountDetails"
+                style={{ display: "none" }}
+                class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[8.5rem] rounded-xl font-sans-instrument font-normal text-lg"
+              >
                 {userMenu?.map((item) => (
                   <>
                     {!loginCredential && item.title === "Login" && (
@@ -96,39 +143,93 @@ const { noindex } = Astro.props;
               </ul>
               {/* order button */}
               <a href={ctaHref}>
-                <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">{ctaButtonText}</button>
+                <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">
+                  {ctaButtonText}
+                </button>
               </a>
             </div>
           )
         }
       </nav>
     </header>
-    <header id="mobileNav" class="lg:hidden sticky top-0 shadow z-40 bg-black w-full">
+    <header
+      id="mobileNav"
+      class="lg:hidden sticky top-0 shadow z-40 bg-black w-full"
+    >
       <nav class="flex justify-between items-center px-5 py-4">
         <div class="flex items-center gap-4">
           <a href="/" aria-label="EyEagle Home Page">
-            <Image src={EyeagleLogo} alt="EyEagle Logo" quality={"max"} class="w-[9.188rem]" />
+            <Image
+              src={EyeagleLogo}
+              alt="EyEagle Logo"
+              quality={"max"}
+              class="w-[9.188rem]"
+            />
           </a>
           <div class="h-8 w-px bg-gray-300"></div>
-          <img src="/svg/tagline-mobile.svg" alt="Preventing Falls, Saving Lives" width="87" height="25" class="w-[87px] h-[25px]" loading="lazy" decoding="async" />
+          <img
+            src="/svg/tagline-mobile.svg"
+            alt="Preventing Falls, Saving Lives"
+            width="87"
+            height="25"
+            class="w-[87px] h-[25px]"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div id="hamburger">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <rect width="48" height="48" rx="24" fill="#000000"></rect>
-            <path d="M12.3335 18.167H30.6668" stroke="#F6F4F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M12.3335 24H30.6668" stroke="#F6F4F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M12.3335 29.833H30.6668" stroke="#F6F4F2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path
+              d="M12.3335 18.167H30.6668"
+              stroke="#F6F4F2"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M12.3335 24H30.6668"
+              stroke="#F6F4F2"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M12.3335 29.833H30.6668"
+              stroke="#F6F4F2"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
           </svg>
         </div>
         <div id="crossButton" style={{ display: "none" }}>
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <rect width="48" height="48" rx="24" fill="black"></rect>
-            <path d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337" stroke="white" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path
+              d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337"
+              stroke="white"
+              stroke-width="1.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
           </svg>
         </div>
       </nav>
     </header>
-    <section id="mobileNavContent" style={{ display: "none" }} class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow">
+    <section
+      id="mobileNavContent"
+      style={{ display: "none" }}
+      class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
+    >
       <ul class="grid justify-center items-center gap-8 font-sans-instrument">
         {
           navLinks?.map((item) => (
@@ -138,7 +239,10 @@ const { noindex } = Astro.props;
           ))
         }
         <a href={ctaHref}>
-          <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold">{ctaButtonText}</button>
+          <button
+            class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold"
+            >{ctaButtonText}</button
+          >
         </a>
       </ul>
     </section>
@@ -153,11 +257,24 @@ const { noindex } = Astro.props;
       >
       </div> -->
       <div class="flex lg:grid lg:grid-cols-2 flex-col">
-             <div class="font-sans-instrument lg:mx-[7.5rem] mx-4 lg:mb-10 mb-4 grid gap-8 max-lg:text-start justify-center place-items-center md:place-items-start text-center lg:flex flex-col">
-          <Image src={EyeagleLogoBlack} alt={"Eyeagle Logo"} class="w-[163px]" />
+        <div
+          class="font-sans-instrument lg:mx-[7.5rem] mx-4 lg:mb-10 mb-4 grid gap-8 max-lg:text-start justify-center place-items-center md:place-items-start text-center lg:flex flex-col"
+        >
+          <Image
+            src={EyeagleLogoBlack}
+            alt={"Eyeagle Logo"}
+            class="w-[163px]"
+          />
           <div class="flex justify-center lg:justify-start gap-4 mb-4">
             <a href={socialLinks.linkedin} target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="32"
+                height="32"
+                viewBox="0 0 50 50"
+              >
                 <path
                   d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
                 ></path>
@@ -165,7 +282,14 @@ const { noindex } = Astro.props;
             </a>
 
             <a href={socialLinks.x} target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="32"
+                height="32"
+                viewBox="0 0 50 50"
+              >
                 <path
                   d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
                 ></path>
@@ -173,7 +297,14 @@ const { noindex } = Astro.props;
             </a>
 
             <a href={socialLinks.instagram} target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="32"
+                height="32"
+                viewBox="0 0 50 50"
+              >
                 <path
                   d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"
                 ></path>
@@ -181,7 +312,14 @@ const { noindex } = Astro.props;
             </a>
 
             <a href={socialLinks.facebook} target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="32"
+                height="32"
+                viewBox="0 0 50 50"
+              >
                 <path
                   d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,0.5-3,2 v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
                 ></path>
@@ -189,7 +327,12 @@ const { noindex } = Astro.props;
             </a>
 
             <a href={socialLinks.youtube} target="_blank">
-              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" fill="none" viewBox="0 0 28 20"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="38"
+                height="34"
+                fill="none"
+                viewBox="0 0 28 20"
                 ><path
                   fill="black"
                   d="M11.83.005c-2.96.056-4.594.12-6.14.237C3.805.385 3.093.511 2.475.81c-.357.173-.62.357-.92.648C.825 2.173.53 2.913.321 4.569l-.085.67a45 45 0 0 0-.162 2.222c-.099 2.083-.099 2.994 0 5.083.03.662.121 1.906.162 2.221l.085.67c.21 1.657.503 2.397 1.234 3.112.714.696 1.393.95 3.008 1.118C6.72 19.89 9.763 20 14 20c3.646 0 6.203-.073 8.31-.235 1.899-.148 2.597-.27 3.215-.57.357-.173.62-.357.92-.648.73-.715 1.025-1.455 1.234-3.111l.085-.67c.04-.316.132-1.56.162-2.222.099-2.089.099-3 0-5.083a45 45 0 0 0-.162-2.221l-.085-.67c-.21-1.657-.503-2.397-1.234-3.112C25.956.98 25.43.695 24.736.536c-.983-.23-3.269-.397-6.684-.492A295 295 0 0 0 11.83.005m.192 6.266c1.055.611 2.063 1.195 5.324 3.08.594.341 1.083.635 1.083.651 0 .014-.789.484-1.753 1.04a2861 2861 0 0 0-5.511 3.187c-.014.006-.022-1.897-.022-4.226 0-2.33.008-4.232.022-4.227.01.003.395.226.857.495"
@@ -198,7 +341,9 @@ const { noindex } = Astro.props;
             </a>
           </div>
         </div>
-        <div class="lg:flex grid gap-8 justify-center text-center items-center mb-6">
+        <div
+          class="lg:flex grid gap-8 justify-center text-center items-center mb-6"
+        >
           {
             footerPolicyLinks?.map((item) => (
               <a href={`${item.url}`} class="block">
@@ -208,7 +353,11 @@ const { noindex } = Astro.props;
           }
         </div>
       </div>
-      <p class="text-center font-sans-instrument font-normal text-sm leading-[1.4rem] opacity-70">{footerCopyright}</p>
+      <p
+        class="text-center font-sans-instrument font-normal text-sm leading-[1.4rem] opacity-70"
+      >
+        {footerCopyright}
+      </p>
     </footer>
   </body>
 </html>
@@ -271,7 +420,10 @@ const { noindex } = Astro.props;
     const footerRect = footer.getBoundingClientRect();
     const buttonRect = waitButton.getBoundingClientRect();
 
-    if (footerRect.top <= window.innerHeight && footerRect.bottom >= buttonRect.bottom) {
+    if (
+      footerRect.top <= window.innerHeight &&
+      footerRect.bottom >= buttonRect.bottom
+    ) {
       waitButton.style.display = "none"; // Hide button if it overlaps with the footer
     } else {
       waitButton.style.display = ""; // Show button otherwise
