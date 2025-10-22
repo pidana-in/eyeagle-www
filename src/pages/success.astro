@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ShopSection from "../components/Home/ShopSection.astro";
+import { shopData } from "../components/constants/home";
+import logo from "../assets/Common/Group.png"
+import { Image } from "astro:assets";
+---
+
+<MainLayout title="Success">
+ <section class="lg:pt-60 pt-12 pb-6 lg:pb-24 lg:px-20 font-sans-instrument bg-[#F6F4F2]">
+  <div class="xl:container">
+  <div class="flex place-content-center">
+  <Image src={logo} alt={"EyEagle – Preventing Falls, Saving Lives"} id="imageBg" class="md:w-[12rem] w-[7rem]" quality={"max"} loading="eager" fetchpriority="high" />  
+  </div>
+  <div class="text-center justify-center px-10">
+    <h1 class="text-2xl md:text-5xl font-semibold my-8">Thank you for joining the EyEagle family</h1>
+    <p class="font-barlow text-lg font-medium">As a patented solution, EyEagle is in the final stages of testing. We’re validating every feature to guarantee dependable protection for elders and reassurance for families, so when it reaches your home, it’s ready to serve with care and precision</p>
+  </div>
+  </div>
+  <div class="my-8">
+  <a href="https://eyeagle.ai/solution"
+     class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base text-center hover:bg-gray-100 transition">
+     Learn How Eyeagle Works
+  </a>
+  </div>
+  </section>
+  <ShopSection shopData={shopData} />
+</MainLayout>

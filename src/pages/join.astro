@@ -2,9 +2,10 @@
 export const prerender = false;
 
 import MainLayout from "../layouts/MainLayout.astro";
-import { WaitlistFormData, WaitlistHeaderData } from "../components/constants/waitlist";
-import WaitListBanner from "../components/Waitlist/WaitListBanner.astro";
-import PostFormField from "../components/Waitlist/PostFormField.astro";
+import {
+  WaitlistFormData,
+  WaitlistHeaderData,
+} from "../components/constants/waitlist";
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
 import Icon from "../components/common/Icon.astro";
@@ -15,7 +16,8 @@ import { upsertShopifySubscriber } from "../server/shopify";
 import nodemailer from "nodemailer";
 
 const metaTitle = "Join Our Community for Elderly Safety Solutions – EyEagle";
-const metaDesc = "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
+const metaDesc =
+  "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
 
 const {
   PUBLIC_SMTP_HOST: smtpHost,
@@ -33,21 +35,21 @@ if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
 
-    const firstName = String(formData.get("firstName") || "");
-    const lastName = String(formData.get("lastName") || "");
+    const fullName = String(formData.get("fullName") || "");
     const email = formData.get("userEmail");
     const countryCode = formData.get("phCode");
     const phoneNumber = formData.get("phoneNumber");
     const city = formData.get("userCity");
-    const acceptance = formData.get("userAcceptCheck") === "on";
+    const acceptance = formData.getAll("userAcceptCheck");
 
     const apiPayload = {
-      name: `${firstName} ${lastName}`.trim(),
+      name: `${fullName}`,
       countryCode,
       mobileNumber: phoneNumber,
       email,
       city,
-      isNewsletterSubscribed: acceptance,
+      interests: acceptance,
+      isNewsletterSubscribed: acceptance.length > 0,
     };
 
     const fetchResponse = await fetch(URLS.USER_WAITLIST_API, {
@@ -58,7 +60,9 @@ if (Astro.request.method === "POST") {
 
     const apiResult = await fetchResponse.json();
 
-    const useShopify = String(USE_SHOPIFY_JOIN || "").toLowerCase() === "true" || String(USE_SHOPIFY_JOIN || "") === "1";
+    const useShopify =
+      String(USE_SHOPIFY_JOIN || "").toLowerCase() === "true" ||
+      String(USE_SHOPIFY_JOIN || "") === "1";
 
     if (useShopify) {
       // Subscribe/create customer in Shopify with double opt-in when accepted
@@ -68,8 +72,7 @@ if (Astro.request.method === "POST") {
           const tags = ["waitlist", "source:join-page"]; // Adjust if you prefer different tags
           const subResult = await upsertShopifySubscriber({
             email: String(email),
-            firstName: firstName || undefined,
-            lastName: lastName || undefined,
+            fullName: fullName || undefined,
             phone: fullPhone || undefined,
             tags,
           });
@@ -90,7 +93,7 @@ if (Astro.request.method === "POST") {
           auth: { user: smtpUser, pass: smtpPassword },
         });
 
-        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${firstName} ${lastName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance ? "Yes" : "No"}\n        `;
+        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${fullName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance ? "Yes" : "No"}\n        `;
 
         const currentDate = new Date().toISOString().slice(0, 10);
 
@@ -106,7 +109,7 @@ if (Astro.request.method === "POST") {
     }
 
     if (apiResult?.status === "success") {
-      formPosted = true;
+      return Astro.redirect("/success");
     }
   } catch (error) {
     console.error("Error while submitting form:", error);
@@ -116,101 +119,183 @@ if (Astro.request.method === "POST") {
 
 <MainLayout title={metaTitle} desc={metaDesc}>
   <section class="bg-[#F6F4F2] font-sans-instrument">
-    <section class="xl:container px-5 py-5 md:px-20 md:py-24">
-      <section class="py-10">
-        <div class="text-center m-auto lg:max-w-[1200px]" set:html={WaitlistHeaderData.title} />
-        <p class="text-lg font-medium text-center lg:max-w-[863px] mx-auto my-10">
-          {WaitlistHeaderData.description}
-        </p>
-      </section>
-
-      <div id="pointers" class={formPosted ? "hidden" : "block"}>
-        <WaitListBanner />
-      </div>
-
-      <section class="flex flex-col md:flex-row justify-center gap-12 lg:gap-28">
-        <div id="joinForm" class={formPosted ? "hidden" : "block"}>
-          <div class="flex flex-col items-center gap-3">
-            <form method="POST" class="flex flex-col gap-3" id="waitlistForm">
-              <label>First name*</label>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Enter first name"
-                required
-                class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
-              />
-
-              <label>Last name</label>
-              <input type="text" name="lastName" placeholder="Enter last name" class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
-
-              <label>Phone number*</label>
-              <div class="relative md:w-[628px]">
-                <div
-                  id="dropdownButton"
-                  class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border-2 border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
-                >
-                  <span class="flex items-center">
-                    <Icon iconName="keyboard_arrow_down" classNames="hidden" />
-                  </span>
-                  <div class="flex items-center gap-2"></div>
-                </div>
-
-                <input id="phCode" name="phCode" value="" class="hidden" />
-
-                <div id="dropdownMenu" class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20">
-                  {
-                    countries
-                      .sort((a, b) => a.code.localeCompare(b.code))
-                      .map((country) => (
-                        <div class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2" data-value={country.dial_code}>
-                          <img src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`} alt={`${country.code} flag`} width="20" />
-                          {country.dial_code}
-                        </div>
-                      ))
-                  }
-                </div>
-
+    <section class="xl:container px-5 py-10 md:px-20 md:pt-32 md:pb-12">
+      <div
+        class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-28"
+      >
+        <div class="lg:w-1/2 text-center md:text-start">
+          <h2
+            class="text-3xl md:text-5xl font-semibold md:leading-[60px] mb-5 md:mb-8"
+          >
+            {WaitlistHeaderData.title}
+          </h2>
+          <p class="text-lg font-medium">{WaitlistHeaderData.description}</p>
+        </div>
+        <div class="lg:w-1/2 md:p-10 rounded-xl">
+          <div id="joinForm" class={formPosted ? "hidden" : "block"}>
+            <form method="POST" class="flex flex-col gap-5" id="waitlistForm">
+              <div class="flex flex-col gap-3">
+                <label>Full Name*</label>
                 <input
-                  id="phoneNumField"
-                  type="number"
-                  name="phoneNumber"
-                  placeholder="Phone Number"
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Name"
                   required
-                  class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                 />
               </div>
-
-              <label>Email*</label>
-              <input type="email" name="userEmail" placeholder="Enter Email" required class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
-
-              <label>City of Installation*</label>
-              <input type="text" name="userCity" placeholder="City Name" required class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base" />
-
-              <div class="flex items-center gap-2">
-                <input type="checkbox" name="userAcceptCheck" class="h-4 w-4 border border-gray-400" />
-                <span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
+              <div class="flex flex-col gap-3">
+                <label>Phone number*</label>
+                <div class="relative">
+                  <div
+                    id="dropdownButton"
+                    class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
+                  >
+                    <span class="flex items-center">
+                      <Icon
+                        iconName="keyboard_arrow_down"
+                        classNames="hidden"
+                      />
+                    </span>
+                    <div class="flex items-center gap-2"></div>
+                  </div>
+                  <input id="phCode" name="phCode" value="" class="hidden" />
+                  <div
+                    id="dropdownMenu"
+                    class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
+                  >
+                    {
+                      countries
+                        .sort((a, b) => a.code.localeCompare(b.code))
+                        .map((country) => (
+                          <div
+                            class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                            data-value={country.dial_code}
+                          >
+                            <img
+                              src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                              alt={`${country.code} flag`}
+                              width="20"
+                            />
+                            {country.dial_code}
+                          </div>
+                        ))
+                    }
+                  </div>
+                  <input
+                    id="phoneNumField"
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    required
+                    maxlength="10"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                    class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                  />
+                </div>
+                <p id="phoneError" class="text-red-500 text-sm hidden">
+                  Please enter a valid 10-digit mobile number
+                </p>
               </div>
-
-              <button type="submit" id="submitButton" class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative">
+              <div class="flex flex-col gap-3">
+                <label>Email*</label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  placeholder="Enter Email"
+                  required
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+                />
+              </div>
+              <div class="flex flex-col gap-3">
+                <label>City*</label>
+                <input
+                  type="text"
+                  name="userCity"
+                  placeholder="City Name"
+                  required
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
+                />
+              </div>
+              <div class="mt-2">
+                <p class="font-medium mb-3">Interest (Optional)</p>
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="userAcceptCheck"
+                      value="notify_launch"
+                      class="h-4 w-4 border-gray-400"
+                    />
+                    <span class="text-[#2E2323]"
+                      >{WaitlistFormData.notifyLaunch}</span
+                    >
+                  </div>
+                  <label class="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="userAcceptCheck"
+                      value="early_access"
+                      class="h-4 w-4 border-gray-400"
+                    />
+                    <span class="text-[#2E2323]"
+                      >{WaitlistFormData.earlyAccess}</span
+                    >
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      name="userAcceptCheck"
+                      value="talk_expert"
+                      class="h-4 w-4 border-gray-400"
+                    />
+                    <span class="text-[#2E2323]"
+                      >{WaitlistFormData.talkExpert}</span
+                    >
+                  </label>
+                </div>
+              </div>
+              <button
+                type="submit"
+                id="submitButton"
+                class="md:w-full p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative"
+              >
                 <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
-                <div id="loader" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div
+                  id="loader"
+                  class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                >
                   <div class="spinner"></div>
                 </div>
               </button>
+              <p class="text-base text-center text-gray-600 mt-2">
+                No payment now. We’ll only notify you when it’s available
+              </p>
             </form>
           </div>
         </div>
-
-        <div id="postFormField" class={formPosted ? "block" : "hidden"}>
-          <PostFormField />
-        </div>
-      </section>
-
-      <div class="pt-60 grid lg:grid-cols-4 gap-12">
+      </div>
+      <div class="pt-10">
+        <h3
+          class="font-semibold font-barlow text-[#212121] text-xl lg:text-[40px] lg:leading-[100%]"
+        >
+          <span class="text-primary">EyEagle</span> is built to keep your loved ones
+          safe,
+          <span class="relative z-0"
+            >around the clock.
+            <span
+              class="absolute w-full h-2 bg-[#CC0000]/40 lg:top-9 lg:right-0 top-4 left-0 -z-50"
+            >
+            </span>
+          </span>
+        </h3>
+      </div>
+      <div
+        class="lg:py-20 pt-8 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-8 justify-self-start"
+      >
         {
-          bathroomData?.map((item) => (
-            <a href={`/#${scrollDataSection[item.id]}`} target="_blank" rel="noopener noreferrer">
+          bathroomData?.map((item: { id: number }) => (
+            <a href={`/#${scrollDataSection[item.id]}`}>
               <BathroomSection item={item} mobile={false} />
             </a>
           ))
@@ -286,22 +371,29 @@ if (Astro.request.method === "POST") {
 
     dropdownMenu.classList.add("hidden");
 
-    document.querySelectorAll("#dropdownMenu > div[data-value]").forEach((el) => el.classList.remove("bg-gray-300"));
+    document
+      .querySelectorAll("#dropdownMenu > div[data-value]")
+      .forEach((el) => el.classList.remove("bg-gray-300"));
     option.classList.add("bg-gray-300");
   });
 
   document.addEventListener("click", (event) => {
-    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    if (
+      !dropdownButton.contains(event.target) &&
+      !dropdownMenu.contains(event.target)
+    ) {
       dropdownMenu.classList.add("hidden");
     }
   });
 
   function initializeDefaultPhoneCode() {
-    phoneNumField.classList.add("pl-[125px]");
+    phoneNumField.classList.add("pl-[112px]");
     dropdownButton.classList.add("max-w-[105px]");
 
     const defaultDialCode = "+91";
-    const defaultCountry = countries.find((c) => c.dial_code === defaultDialCode);
+    const defaultCountry = countries.find(
+      (c) => c.dial_code === defaultDialCode
+    );
 
     if (defaultCountry) {
       const flagImage = document.createElement("img");
@@ -317,7 +409,9 @@ if (Astro.request.method === "POST") {
 
       phCode.value = defaultDialCode;
 
-      const defaultOption = Array.from(dropdownMenu.querySelectorAll("[data-value]")).find((el) => el.dataset.value === defaultDialCode);
+      const defaultOption = Array.from(
+        dropdownMenu.querySelectorAll("[data-value]")
+      ).find((el) => el.dataset.value === defaultDialCode);
 
       if (defaultOption) {
         defaultOption.classList.add("bg-gray-300");
@@ -328,16 +422,38 @@ if (Astro.request.method === "POST") {
   function scrollToFunction() {
     const joinForm = document.getElementById("joinForm");
     const postFormfill = document.getElementById("postFormField");
-
-    formPosted ? postFormfill.scrollIntoView({ behavior: "smooth", block: "start" }) : joinForm.scrollIntoView({ behavior: "smooth", block: "center" });
   }
-
   scrollToFunction();
   initializeDefaultPhoneCode();
 
-  document.getElementById("waitlistForm").addEventListener("submit", function (e) {
-    buttonText.classList.add("opacity-0");
-    loader.classList.remove("hidden");
-    submitButton.disabled = true;
+  const phoneError = document.getElementById("phoneError");
+
+  document
+    .getElementById("waitlistForm")
+    .addEventListener("submit", function (e) {
+      const phoneValue = phoneNumField.value.trim();
+      const phoneRegex = /^[6-9]\d{9}$/;
+
+      phoneError.classList.add("hidden");
+      phoneNumField.classList.remove("border-red-500");
+
+      if (!phoneRegex.test(phoneValue)) {
+        e.preventDefault();
+
+        phoneError.classList.remove("hidden");
+        phoneNumField.classList.add("border-red-500");
+
+        phoneNumField.focus();
+        return;
+      }
+
+      buttonText.classList.add("opacity-0");
+      loader.classList.remove("hidden");
+      submitButton.disabled = true;
+    });
+
+  phoneNumField.addEventListener("input", () => {
+    phoneError.classList.add("hidden");
+    phoneNumField.classList.remove("border-red-500");
   });
 </script>
