@@ -30,7 +30,19 @@ import hero_17 from "../../assets/Home/Hero_17.png"
 import shop1 from "../../assets/Home/shop1new.png"
 import shop2 from "../../assets/Home/shop2new.png"
 import shop3 from "../../assets/Home/shop3new.png"
-
+import blogImage1 from "../../assets/Blog/BlogImage.jpg"
+import blogImage2 from "../../assets/Blog/BlogImage2.jpg"
+import blogImage3 from "../../assets/Blog/BlogImage3.jpg"
+import blogImage4 from "../../assets/Blog/BlogImage4.jpg"
+import blogImage5 from "../../assets/Blog/BlogImage5.jpg"
+import blogImage6 from "../../assets/Blog/BlogImage6.jpg"
+import blogImage7 from "../../assets/Blog/BlogImage7.jpg"
+import blogImage8 from "../../assets/Blog/BlogImage8.jpg"
+import blogImage9 from "../../assets/Blog/BlogImage9.jpg"
+import blogImage10 from "../../assets/Blog/BlogImage10.jpg"
+import blogImage11 from "../../assets/Blog/BlogImage11.jpg"
+import blogDiwali1 from "../../assets/Blog/BlogDiwali1.jpg"
+import blogDiwali2 from "../../assets/Blog/BlogDiwali2.jpg"
 
 export const bathroomData = [
   {
@@ -118,56 +130,79 @@ export const blogsData = [
     slug: "falls-kill-more-seniors-than-you-think",
     title: "Falls Kill More Seniors Than You Think | EyEagle",
     desc: "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.",
+    img: blogImage1,
   },
   {
     slug: "why-falls-are-the-biggest-threat-to-seniors",
     title: "Why Falls Are the Biggest Threat to Seniors | EyEagle",
     desc: "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle.",
+    img: blogImage2,
   },
   {
     slug: "how-to-ensure-safety-for-parents-living-alone",
     title: "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle",
     desc: "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.",
-  },
+    img: blogImage3,
+    },
   {
     slug: "step-by-step-bathroom-safety-tips-for-seniors",
     title: "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle",
     desc: "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.",
+    img: blogImage4,
   },
   {
     slug: "why-fall-alarms-for-seniors-matter",
     title: "One Fall Changed Everything – Why Fall Alarms for Seniors Matter",
     desc: "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.",
+    img: blogImage5,
   },
   {
     slug: "caring-elderly-parents-from-afar",
     title: "Caring Elderly Parents from Afar: Tips for Urban Migrants",
     desc: "Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
+    img: blogImage6,
   },
     {
     slug: "arthritis-and-joint-pain-in-seniors",
     title: "Arthritis & Joint Pain in Seniors | Fall Prevention Tips",
     desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies.",
+    img: blogImage7,
   },
    {
     slug: "balance-problems-in-elderly",
     title: "Balance Problems in Elderly: Causes, Warning Signs & Prevention",
     desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
+    img: blogImage8,
   },
    {
     slug: "how-fear-of-falling-affects-mental-health",
     title: "How Fear of Falling Affects Mental Health",
     desc: "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy.",
+    img: blogImage9,
   },
      {
     slug: "importance-of-regular-vision-checks",
     title: "Why vision matters for seniors' fall prevention",
     desc: "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent.",
+    img: blogImage10,
   },
      {
     slug: "the-critical-60-minutes-after-a-fall",
     title: "Why the First Hour After a Fall Matters?",
     desc: "The first 60 minutes after a fall are critical. Learn how quick response & early treatment of fall injuries can save lives.",
+    img: blogImage11,  
+  },
+    {
+    slug: "senior-safety-during-diwali",
+    title: "Senior Safety During Diwali | Keep Your Loved Ones Safe",
+    desc: "Learn why senior safety during Diwali is important and how you can implement them in your homes this festive season.",
+    img: blogDiwali1,  
+  },
+   {
+    slug: "diwali-travel-safety-tips-for-seniors",
+    title: "Diwali Travel Safety & Home Safety Tips | EyEagle",
+    desc: "Plan a safe, stress-free Diwali with smart travel tips and home safety ideas. Celebrate with awareness & joy wherever you light your diyas.",
+    img: blogDiwali2,
   },
 ];
 

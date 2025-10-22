@@ -16,7 +16,8 @@ export default defineConfig({
       config: { forward: ['dataLayer.push'] },
     }),
   ],
-  // Produce a purely static build; no server entrypoints.
+  site: "https://eyeagle.ai/",
+  // Produce a purely static build; no server entrypoints. 
   output: 'static',
   adapter,
   // Minify generated HTML for faster delivery.
