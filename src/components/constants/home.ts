@@ -43,6 +43,8 @@ import blogImage10 from "../../assets/Blog/BlogImage10.jpg"
 import blogImage11 from "../../assets/Blog/BlogImage11.jpg"
 import blogDiwali1 from "../../assets/Blog/BlogDiwali1.jpg"
 import blogDiwali2 from "../../assets/Blog/BlogDiwali2.jpg"
+import blogImage12 from "../../assets/Blog/BlogImage12.jpg"
+import blogImage13 from "../../assets/Blog/BlogImage13.jpg"
 
 export const bathroomData = [
   {
@@ -203,6 +205,18 @@ export const blogsData = [
     title: "Diwali Travel Safety & Home Safety Tips | EyEagle",
     desc: "Plan a safe, stress-free Diwali with smart travel tips and home safety ideas. Celebrate with awareness & joy wherever you light your diyas.",
     img: blogDiwali2,
+  },
+    {
+    slug: "diet-and-nutrition-in-healthy-aging",
+    title: "Nutrition and Healthy Aging: Diet Tips for Older Adults",
+    desc: "Know how good nutrition supports healthy aging by boosting strength, balance, and energy. Learn key diet tips for keeping older adults healthy and independent.",
+    img: blogImage12,
+  },
+  {
+    slug: "regular-health-checkups-for-seniors",
+    title: "Health checkups after 60: medical tests & tips for seniors",
+    desc: "Discover the must-do health checkups after 60, from heart and diabetes to bone density. A complete guide for seniors and caregivers.",
+    img: blogImage13,
   },
 ];
 
