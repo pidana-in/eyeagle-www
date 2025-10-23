@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { blogsData } from "../../components/constants/home";
 import { Image } from "astro:assets";
@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const blog = (await getEntryBySlug("blogs", slug)) as any;
+const blog = (await getEntry("blogs", slug)) as any;
 
 if (!blog) {
   throw new Error("blog not found");
@@ -37,12 +37,12 @@ console.log("MetaImage", metaImage);
     }
   </style>
 
-  <section class="bg-[#F6F4F2] text-black lg:pt-48 pt-12 px-6 w-full">
+  <section class="bg-[#F6F4F2] text-black lg:pt-44 pt-12 px-6 w-full">
     <div
       class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 font-sans-instrument"
     >
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 md:leading-[54px]">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4 lg:leading-[54px]">
           {blog.data.title}
         </h1>
         <a
