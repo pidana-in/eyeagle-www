@@ -218,6 +218,12 @@ export const blogsData = [
     desc: "Discover the must-do health checkups after 60, from heart and diabetes to bone density. A complete guide for seniors and caregivers.",
     img: blogImage13,
   },
+   {
+    slug: "mobility-tips-for-seniors",
+    title: "Stretch Daily, Fall Less: Mobility Tips for Seniors",
+    desc: "Know gentle mobility tips for seniors, including safe stretching routines and fall prevention exercises. Improve flexibility & strength after 60.",
+    img: blogImage13,
+  },
 ];
 
 export const kitImageDesktop = [
