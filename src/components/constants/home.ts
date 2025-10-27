@@ -30,7 +30,7 @@ import hero_17 from "../../assets/Home/Hero_17.png"
 import shop1 from "../../assets/Home/shop1new.png"
 import shop2 from "../../assets/Home/shop2new.png"
 import shop3 from "../../assets/Home/shop3new.png"
-import blogImage1 from "../../assets/Blog/BlogImage.jpg"
+import blogImage1 from "../../assets/Blog/BlogImage1.jpg"
 import blogImage2 from "../../assets/Blog/BlogImage2.jpg"
 import blogImage3 from "../../assets/Blog/BlogImage3.jpg"
 import blogImage4 from "../../assets/Blog/BlogImage4.jpg"
@@ -45,6 +45,7 @@ import blogDiwali1 from "../../assets/Blog/BlogDiwali1.jpg"
 import blogDiwali2 from "../../assets/Blog/BlogDiwali2.jpg"
 import blogImage12 from "../../assets/Blog/BlogImage12.jpg"
 import blogImage13 from "../../assets/Blog/BlogImage13.jpg"
+import blogImage14 from "../../assets/Blog/BlogImage14.jpg"
 
 export const bathroomData = [
   {
@@ -217,6 +218,12 @@ export const blogsData = [
     title: "Health checkups after 60: medical tests & tips for seniors",
     desc: "Discover the must-do health checkups after 60, from heart and diabetes to bone density. A complete guide for seniors and caregivers.",
     img: blogImage13,
+  },
+   {
+    slug: "mobility-tips-for-seniors",
+    title: "Stretch Daily, Fall Less: Mobility Tips for Seniors",
+    desc: "Know gentle mobility tips for seniors, including safe stretching routines and fall prevention exercises. Improve flexibility & strength after 60.",
+    img: blogImage14,
   },
 ];
 
