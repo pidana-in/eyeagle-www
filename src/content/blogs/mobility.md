@@ -2,11 +2,11 @@
 id: "16"
 title: "Stretch Daily, Fall Less: Gentle Mobility Tips for Seniors"
 category: "Blog"
-img: ../../assets/Blog/BlogImage3.jpg
+img: ../../assets/Blog/BlogImage14.jpg
 slug: "mobility-tips-for-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2025-10-24
+date: 2025-10-27
 ---
 
 # Gentle Mobility Tips for Seniors
