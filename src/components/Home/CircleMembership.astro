@@ -16,8 +16,12 @@ import googleStore from "../../assets/Home/googleStore.png";
     <h2 set:html={CircleMembershipData.midTitle} class="lg:max-w-[70rem] font-medium text-[2rem] lg:text-4xl m-auto text-center leading-10 lg:leading-[2.75rem]"></h2>
     <p class="lg:max-w-[70rem] m-auto mt-8 mb-8 font-normal text-lg text-center leading-7">{CircleMembershipData.desc}</p>
     <div class="md:flex grid grid-cols-1 w-full justify-center items-center h-12 gap-3">
-        <Image src={googleStore} alt={'googleStore'} class="w-full md:w-[162px] max-md:h-12 object-contain hover:cursor-pointer"/>
-        <Image src={appStore} alt={'appStore'} class="w-full md:w-[144px] max-md:h-12 object-contain hover:cursor-pointer"/>
+    <a href="https://play.google.com/store/apps/details?id=com.app.eyeagle" target="_blank" rel="noopener noreferrer">
+    <Image src={googleStore} alt={'googleStore'} class="w-full md:w-[162px] max-md:h-12 object-contain hover:cursor-pointer"/>
+    </a>
+    <a href="https://apps.apple.com/in/app/eyeagle/id6740724011" target="_blank" rel="noopener noreferrer">
+    <Image src={appStore} alt={'appStore'} class="w-full md:w-[144px] max-md:h-12 object-contain hover:cursor-pointer"/>
+    </a>
     </div>
 </div>
 
