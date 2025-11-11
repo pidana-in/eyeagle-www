@@ -46,6 +46,7 @@ import blogDiwali2 from "../../assets/Blog/BlogDiwali2.jpg"
 import blogImage12 from "../../assets/Blog/BlogImage12.jpg"
 import blogImage13 from "../../assets/Blog/BlogImage13.jpg"
 import blogImage14 from "../../assets/Blog/BlogImage14.jpg"
+import blogImage15 from "../../assets/Blog/BlogImage15.jpg"
 
 export const bathroomData = [
   {
@@ -224,6 +225,12 @@ export const blogsData = [
     title: "Stretch Daily, Fall Less: Mobility Tips for Seniors",
     desc: "Know gentle mobility tips for seniors, including safe stretching routines and fall prevention exercises. Improve flexibility & strength after 60.",
     img: blogImage14,
+  },
+   {
+    slug: "sleep-hygiene-for-seniors",
+    title: "Sleep Hygiene for Seniors: Why Rest Matters More Than Ever",
+    desc: "Why sleep hygiene for seniors is essential for healthy aging. Know how better sleep habits can boost energy, memory in older adults.",
+    img: blogImage15,
   },
 ];
 

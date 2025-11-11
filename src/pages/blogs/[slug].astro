@@ -25,9 +25,6 @@ const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
 const site = (Astro.site?.toString() || "https://eyeagle.ai").replace(/\/+$/, "");
 const imgSrc = blogMeta?.img?.src?.replace(/^\/+/, "");
 const metaImage = imgSrc ? `${site}/${imgSrc}` : "";
-
-
-console.log("MetaImage", metaImage);
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc} metaImage={metaImage}>
