@@ -2,11 +2,11 @@
 id: "19"
 title: "Silver Tsunami in India: Building a Safer Future for Seniors"
 category: "Blog"
-img: ../../assets/Blog/BlogDiwali1.jpg
+img: ../../assets/Blog/BlogImage17.jpg
 slug: "silver-tsunami-india-safer-future-for-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2025-11-17
+date: 2025-11-21
 ---
 
 # Silver Tsunami in India: Building a Safer Future for Seniors

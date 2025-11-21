@@ -47,6 +47,8 @@ import blogImage12 from "../../assets/Blog/BlogImage12.jpg"
 import blogImage13 from "../../assets/Blog/BlogImage13.jpg"
 import blogImage14 from "../../assets/Blog/BlogImage14.jpg"
 import blogImage15 from "../../assets/Blog/BlogImage15.jpg"
+import blogImage16 from "../../assets/Blog/BlogImage16.jpg"
+import blogImage17 from "../../assets/Blog/BlogImage17.jpg"
 
 export const bathroomData = [
   {
@@ -236,13 +238,13 @@ export const blogsData = [
     slug: "importance-of-open-conversations-about-aging",
     title: "Open Conversations About Aging: Why Families Should Talk Openly ",
     desc: "Encourage open conversations about aging to build trust, support seniors’ well-being, and strengthen family bonds with empathy and care.",
-    img: blogImage15,
+    img: blogImage16,
   },
     {
     slug: "silver-tsunami-india-safer-future-for-seniors",
     title: "Silver Tsunami in India: Ensuring Safety & Care for Seniors",
     desc: "Explore how India’s Silver Tsunami demands better senior safety, healthcare, and community care for a dignified and inclusive future.",
-    img: blogImage15,
+    img: blogImage17,
   },
 ];
 

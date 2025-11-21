@@ -2,11 +2,11 @@
 id: "18"
 title: "The Importance of Open Conversations About Aging"
 category: "Blog"
-img: ../../assets/Blog/BlogImage6.jpg
+img: ../../assets/Blog/BlogImage16.jpg
 slug: "importance-of-open-conversations-about-aging"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2025-11-17
+date: 2025-11-21
 ---
 
 # The Importance of Open Conversations About Aging
