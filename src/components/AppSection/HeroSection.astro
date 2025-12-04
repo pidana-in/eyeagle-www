@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+const HeroSectionData = Astro.props.HeroSectionData;
+const heroTitle = Astro.props.heroTitle;
+const heroDescription = Astro.props.heroDescription;
+---
+
+<section class="my-[60px]">
+  <div class="relative w-full">
+    <!-- Background Hero -->
+    <Image src={HeroSectionData[0].src} alt="Hero app" class="w-full h-auto" />
+
+    <!-- Foreground Content -->
+    <div
+      class="absolute inset-0 flex flex-col items-center text-center px-4 py-5"
+    >
+      <!-- Text Section -->
+      <div class="w-full max-w-3xl text-[#000000] mt-20">
+        <h1
+          set:html={heroTitle}
+          class="text-3xl md:text-6xl font-bold leading-none"
+        />
+
+        <p class="text-base md:text-lg font-normal mt-4 md:mt-6">
+          {heroDescription}
+        </p>
+
+        <button
+          class="mt-6 md:mt-8 bg-[#CC0000] text-white px-6 py-3 rounded-full text-lg font-medium"
+        >
+          Get the app
+        </button>
+      </div>
+
+      <!-- Infograph Image -->
+      <Image
+        src={HeroSectionData[1].src}
+        alt="App infographic"
+        class="mt-14 w-[95%] md:w-[66%]"
+      />
+    </div>
+  </div>
+</section>
