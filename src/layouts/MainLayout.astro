@@ -77,32 +77,27 @@ const { noindex } = Astro.props;
   </head>
 
   <body class="text-gray-900">
-    <!-- <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
-      <h2 class="tracking-[0.25rem] h-[3.25rem] text-base font-bold leading-6 grid justify-center items-center w-full">
-        PREVENTING FALLS, SAVING LIVES
-      </h2>
-    </div> -->
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-5 bg-black`
+      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-[#FFFFFF]`
     >
       <nav class="flex items-center justify-around xl:container">
-        <div class="flex gap-4 lg:py-2">
+        <div class="flex gap-4">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleLogo}
+              src={EyeagleLogoBlack}
               alt={"EyEagle – Preventing Falls, Saving Lives"}
               id="imageBg"
-              class="w-[8.188rem]"
+              class="w-[10rem]"
               quality={"max"}
               loading="eager"
               fetchpriority="high"
             />
           </a>
-          <div class="h-8 w-px bg-gray-300"></div>
+          <div class="h-8 w-px bg-[#000000]"></div>
           <img
-            src="/svg/tagline-desktop.svg"
-            alt="Preventing Falls, Saving Lives"
+            src="/svg/tag-desktop.svg"
+            alt="Your Guardian, Wherever You Are."
             width="110"
             height="31"
             class="w-[110px] h-[31px]"
@@ -111,7 +106,7 @@ const { noindex } = Astro.props;
           />
         </div>
         <ul
-          class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-normal px-4 mr-[14%]`
+          class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[14%]`
           id="content"
         >
           {
@@ -119,7 +114,7 @@ const { noindex } = Astro.props;
               <li>
                 <a
                   href={`${item.url}`}
-                  class="hover:underline hover:text-white text-gray-300"
+                  class="hover:underline hover:text-[#CC0000] text-[#000000]"
                 >
                   {item.title}
                 </a>
@@ -168,21 +163,21 @@ const { noindex } = Astro.props;
     </header>
     <header
       id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-40 bg-black w-full"
+      class="lg:hidden sticky top-0 shadow z-40 bg-[#FFFFFF] w-full"
     >
       <nav class="flex justify-between items-center px-5 py-4">
         <div class="flex items-center gap-4">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleLogo}
+              src={EyeagleLogoBlack}
               alt="EyEagle Logo"
               quality={"max"}
               class="w-[9.188rem]"
             />
           </a>
-          <div class="h-8 w-px bg-gray-300"></div>
+          <div class="h-8 w-px bg-[#000000]"></div>
           <img
-            src="/svg/tagline-mobile.svg"
+            src="/svg/tag-desktop.svg"
             alt="Preventing Falls, Saving Lives"
             width="87"
             height="25"
@@ -199,22 +194,22 @@ const { noindex } = Astro.props;
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="48" height="48" rx="24" fill="#000000"></rect>
+            <rect width="48" height="48" rx="24" fill="none"></rect>
             <path
               d="M12.3335 18.167H30.6668"
-              stroke="#F6F4F2"
+              stroke="#000000"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
             <path
               d="M12.3335 24H30.6668"
-              stroke="#F6F4F2"
+              stroke="#000000"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
             <path
               d="M12.3335 29.833H30.6668"
-              stroke="#F6F4F2"
+              stroke="#000000"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
@@ -228,10 +223,10 @@ const { noindex } = Astro.props;
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="48" height="48" rx="24" fill="black"></rect>
+            <rect width="48" height="48" rx="24" fill="none"></rect>
             <path
               d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337"
-              stroke="white"
+              stroke="#000000"
               stroke-width="1.25"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
@@ -266,10 +261,6 @@ const { noindex } = Astro.props;
     </main>
 
     <footer id="footer" class={`py-16 lg:py-20 ${footerClass} xl:container`}>
-      <!-- <div
-        class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32"
-      >
-      </div> -->
       <div class="flex lg:grid lg:grid-cols-2 flex-col">
         <div
           class="font-sans-instrument lg:mx-[7.5rem] mx-4 lg:mb-10 mb-4 grid gap-8 max-lg:text-start justify-center place-items-center md:place-items-start text-center lg:flex flex-col"
