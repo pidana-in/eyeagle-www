@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import FeatureImage1 from "../../assets/NewApp/FeatureImage1.png";
+import FeatureImage2 from "../../assets/NewApp/FeatureImage2.png";
+import FeatureImage3 from "../../assets/NewApp/FeatureImage3.png";
+import check from "../../assets/NewApp/check.png";
+import Line from "../../assets/NewApp/Line.png";
+---
+
+<section class="xl:container mx-auto w-full flex flex-col items-center px-4">
+  <h2 class="text-4xl md:text-6xl font-bold mt-20 mb-[60px]">Features</h2>
+
+  <!-- Feature Block 1 -->
+  <div
+    class="flex flex-col md:flex-row w-full max-w-[1200px] items-center gap-10 md:gap-20"
+  >
+    <div class="max-w-full md:max-w-[560px] text-start">
+      <p class="text-[#CC0000] text-sm font-semibold">Seamless</p>
+      <h2 class="text-3xl md:text-[40px] font-bold text-[#CC0000] mt-4">
+        Private <span class="text-black">Nests & roles</span>
+      </h2>
+      <p class="text-base md:text-lg mt-5">
+        View NFTs in their ideal intended format. Full rich media support no
+        matter the type, from video and audio, to images and interactive.
+      </p>
+    </div>
+
+    <Image
+      src={FeatureImage1}
+      alt="FeatureImage1"
+      class="w-full md:w-[560px] h-auto rounded-[24px]"
+    />
+  </div>
+  <Image src={Line} alt="Line" class="my-[60px]" />
+
+  <!-- Feature Block 2 -->
+  <div
+    class="flex flex-col md:flex-row w-full max-w-[1200px] items-center gap-10 md:gap-20"
+  >
+    <Image
+      src={FeatureImage2}
+      alt="FeatureImage2"
+      class="w-full md:w-[560px] h-auto rounded-[24px]"
+    />
+
+    <div class="max-w-full md:max-w-[560px] text-start">
+      <p class="text-[#CC0000] text-sm font-semibold">Seamless</p>
+      <h2 class="text-3xl md:text-[40px] font-bold mt-4">
+        Raise SOS <span class="text-[#CC0000]">in one tap</span>
+      </h2>
+      <p class="text-base md:text-lg mt-5">
+        Your loved one taps the big red button to raise an SOS. EyEagle
+        instantly alerts all guardians and the support team, so help starts
+        moving right away.
+      </p>
+    </div>
+  </div>
+  <Image src={Line} alt="Line" class="my-[60px]" />
+  <!-- Feature Block 3 -->
+  <div
+    class="flex flex-col md:flex-row w-full max-w-[1200px] md:items-center gap-10 md:gap-20"
+  >
+    <div class="max-w-full md:max-w-[560px] text-start">
+      <p class="text-[#CC0000] text-sm font-semibold">Seamless</p>
+      <h2 class="text-3xl md:text-[40px] font-bold leading-none mt-4">
+        SOS that keeps everyone <span class="text-primary">in sync</span>
+      </h2>
+
+      <p class="text-base md:text-lg my-5">
+        When an SOS is raised, everyone in the circle sees who needs help, where
+        they are, and when the alert came in.
+      </p>
+
+      <ul class="space-y-4 text-[#15803D]">
+        <li class="flex items-start gap-3">
+          <Image src={check} alt="check" class="w-5 h-5 mt-1" />
+          <span>Send and receive SOS alerts within your Nest</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <Image src={check} alt="check" class="w-5 h-5 mt-1" />
+          <span
+            >Members can mark their status as “On the way” or “Cannot attend”</span
+          >
+        </li>
+        <li class="flex items-start gap-3">
+          <Image src={check} alt="check" class="w-5 h-5 mt-1" />
+          <span>Get directions to the location in a single tap</span>
+        </li>
+      </ul>
+    </div>
+
+    <Image
+      src={FeatureImage3}
+      alt="FeatureImage3"
+      class="w-full md:w-[560px] h-auto rounded-[24px]"
+    />
+  </div>
+  <Image src={Line} alt="Line" class="my-[60px]" />
+</section>

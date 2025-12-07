@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import FamilyImage1 from "../../assets/NewApp/FamilyImage1.png";
+import FamilyImage2 from "../../assets/NewApp/FamilyImage2.png";
+import FamilyImage3 from "../../assets/NewApp/FamilyImage3.png";
+import Line from "../../assets/NewApp/Line.png";
+---
+
+<section class="xl:container py-[120px] px-4">
+  <div class="flex flex-col lg:flex-row gap-[60px] justify-center">
+
+    <!-- Sticky Left Content -->
+    <div class="lg:sticky lg:top-28 lg:self-start max-w-[560px]">
+      <h2 class="text-4xl md:text-5xl font-bold">
+        Made for
+        <span class="text-[#CC0000]">families</span>
+        who watch out for each other
+      </h2>
+
+      <p class="mt-8 text-lg leading-relaxed">
+        Made for families who watch out for each other. EyEagle is for any home
+        where safety is shared. Everyone in a Nest can raise an SOS and
+        coordinate help quickly — whether for a parent, partner, flatmate, or friend.
+      </p>
+    </div>
+
+    <!-- Scrollable Cards -->
+    <div class="flex flex-col gap-20 lg:max-w-[560px]">
+
+      <div>
+        <Image src={FamilyImage1} alt="family image 1" class="rounded-xl w-full" />
+        <div class="mt-6">
+          <h3 class="text-2xl font-bold">Families living apart</h3>
+          <p class="text-lg mt-3">
+            When family is in different cities, one Nest sends an SOS to everyone and
+            shows who is responding.
+          </p>
+        </div>
+        <Image src={Line} alt="divider" class="my-12" />
+      </div>
+
+      <div>
+        <Image src={FamilyImage2} alt="family image 2" class="rounded-xl w-full" />
+        <div class="mt-6">
+          <h3 class="text-2xl font-bold">Partners, flatmates and close friends</h3>
+          <p class="text-lg mt-3">
+            Add the people you trust to a Nest and give each other a quick way
+            to ask for help.
+          </p>
+        </div>
+        <Image src={Line} alt="divider" class="my-12" />
+      </div>
+
+      <div>
+        <Image src={FamilyImage3} alt="family image 3" class="rounded-xl w-full" />
+        <div class="mt-6">
+          <h3 class="text-2xl font-bold">Homes with elders, kids or dependents</h3>
+          <p class="text-lg mt-3">
+            A simple SOS button for them, and clear alerts for everyone in the Nest.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

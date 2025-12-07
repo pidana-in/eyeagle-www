@@ -5,39 +5,49 @@ const heroTitle = Astro.props.heroTitle;
 const heroDescription = Astro.props.heroDescription;
 ---
 
-<section class="my-[60px]">
+<section class="xl:container w-full md:mt-[120px]">
   <div class="relative w-full">
+
     <!-- Background Hero -->
-    <Image src={HeroSectionData[0].src} alt="Hero app" class="w-full h-auto" />
+    <Image
+      src={HeroSectionData[0].src}
+      alt="Hero app"
+      class="w-full h-[488px] sm:h-[560px] lg:min-h-[1000px] object-cover"
+    />
 
     <!-- Foreground Content -->
-    <div
-      class="absolute inset-0 flex flex-col items-center text-center px-4 py-5"
-    >
-      <!-- Text Section -->
-      <div class="w-full max-w-3xl text-[#000000] mt-20">
-        <h1
-          set:html={heroTitle}
-          class="text-3xl md:text-6xl font-bold leading-none"
-        />
+    <div class="absolute inset-0 flex flex-col items-center text-center px-2 sm:px-4 pt-10 sm:pt-4">
 
-        <p class="text-base md:text-lg font-normal mt-4 md:mt-6">
+      <!-- Text Block -->
+      <div class="w-full max-w-lg sm:max-w-xl md:max-w-[800px] text-black">
+        <h1
+          class="text-2xl sm:text-3xl md:text-5xl lg:text-[68px] tracking-wide font-bold leading-tight md:leading-none"
+          set:html={heroTitle}
+        ></h1>
+
+        <p class="text-sm sm:text-base md:text-lg font-normal mt-3 sm:mt-4 md:mt-6">
           {heroDescription}
         </p>
 
         <button
-          class="mt-6 md:mt-8 bg-[#CC0000] text-white px-6 py-3 rounded-full text-lg font-medium"
+          class="mt-5 sm:mt-6 md:mt-8 bg-[#CC0000] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-medium"
         >
           Get the app
         </button>
       </div>
 
-      <!-- Infograph Image -->
+      <!-- Infographic Image -->
       <Image
         src={HeroSectionData[1].src}
         alt="App infographic"
-        class="mt-14 w-[95%] md:w-[66%]"
+        class="mt-8 sm:mt-12 md:mt-[54px] w-[85%] sm:w-[70%] md:w-[60%]"
       />
     </div>
   </div>
 </section>
+
+
+
+
+
+
