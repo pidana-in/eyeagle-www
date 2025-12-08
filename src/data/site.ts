@@ -7,6 +7,7 @@ export const siteMeta = {
 
 export const navLinks = [
   { title: "App", url: "/app" },
+  { title: "Products", url: "/products" },
   { title: "Shop", url: "https://shop.eyeagle.ai/" },
   { title: "How it Works", url: "/solution" },
   { title: "About Us", url: "/about-us" },
