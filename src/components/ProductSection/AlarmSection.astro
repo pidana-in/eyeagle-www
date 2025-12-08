@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import AlarmInside from "../../assets/Product/AlarmInside.png";
+import AlarmOutside from "../../assets/Product/AlarmOutside.png";
+---
+
+<section class="flex flex-col items-center py-40 bg-white">
+  <!-- Heading -->
+  <div class="text-center mb-8 max-w-2xl">
+    <h2 class="text-4xl font-semibold">Meet the EyEagle bathroom alarm</h2>
+    <p class="text-gray-600 mt-2">
+      A simple three-part system: when you press, what makes the sound, and what
+      watches the door.
+    </p>
+  </div>
+
+  <!-- Toggle Bar -->
+  <div class="flex w-[1360px] max-w-full text-sm font-medium mb-4 px-2">
+    <button id="insideTab" class="relative w-1/2 text-center pb-1 text-red-600">
+      INSIDE
+      <span
+        id="insideLine"
+        class="absolute left-0 bottom-0 h-[2px] w-full bg-red-600"></span>
+    </button>
+
+    <button
+      id="outsideTab"
+      class="relative w-1/2 text-center pb-1 text-gray-400"
+    >
+      OUTSIDE
+      <span
+        id="outsideLine"
+        class="absolute left-0 bottom-0 h-[2px] w-full bg-transparent"></span>
+    </button>
+  </div>
+
+  <!-- Images -->
+  <div class="relative w-[1360px] max-w-full h-auto flex justify-center">
+    <Image
+      id="insideImg"
+      src={AlarmInside}
+      alt="Inside view"
+      class="block w-full"
+    />
+    <Image
+      id="outsideImg"
+      src={AlarmOutside}
+      alt="Outside view"
+      class="hidden w-full"
+    />
+  </div>
+
+  <script is:inline>
+    const insideTab = document.getElementById("insideTab");
+    const outsideTab = document.getElementById("outsideTab");
+    const insideImg = document.getElementById("insideImg");
+    const outsideImg = document.getElementById("outsideImg");
+    const insideLine = document.getElementById("insideLine");
+    const outsideLine = document.getElementById("outsideLine");
+
+    insideTab.onclick = () => {
+      insideImg.classList.remove("hidden");
+      outsideImg.classList.add("hidden");
+
+      insideTab.classList.add("text-red-600");
+      insideTab.classList.remove("text-gray-400");
+
+      insideLine.style.backgroundColor = "rgb(220 38 38)";
+
+      outsideTab.classList.add("text-gray-400");
+      outsideTab.classList.remove("text-red-600");
+
+      outsideLine.style.backgroundColor = "transparent";
+    };
+
+    outsideTab.onclick = () => {
+      insideImg.classList.add("hidden");
+      outsideImg.classList.remove("hidden");
+
+      outsideTab.classList.add("text-red-600");
+      outsideTab.classList.remove("text-gray-400");
+
+      outsideLine.style.backgroundColor = "rgb(220 38 38)";
+
+      insideTab.classList.remove("text-red-600");
+      insideTab.classList.add("text-gray-400");
+
+      insideLine.style.backgroundColor = "transparent";
+    };
+  </script>
+</section>
