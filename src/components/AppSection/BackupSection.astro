@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import BackupImage from "../../assets/NewApp/BackupImage.png"; 
+---
+
+<section class="py-20 px-6 flex justify-center xl:container">
+  <div
+    class="w-full max-w-[1280px] bg-white rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-sm"
+  >
+    <!-- Left Content -->
+    <div class="bg-[#FEF7EB] p-10 md:p-14 flex flex-col justify-center md:w-1/2">
+      <p class="text-[#CC0000] text-sm font-semibold tracking-[3px] uppercase mb-4">
+        Backup Emergency
+      </p>
+
+      <h2 class="text-[40px] font-bold leading-tight mb-4">
+        When your Nest can’t<br />respond, we do
+      </h2>
+
+      <p class="text-[#000000] opacity-80 leading-relaxed mb-6">
+        If your trusted circle misses the alert, Eyegle escalates with trained
+        support and emergency coordination when needed.
+      </p>
+
+      <p class="text-[#CC0000] text-sm italic">
+        Only available for Indian Users currently
+      </p>
+    </div>
+
+    <!-- Right Image -->
+    <div class="md:w-1/2">
+      <Image
+        src={BackupImage}
+        alt="Backup Image"
+        class="w-full h-full object-cover md:rounded-r-2xl"
+      />
+    </div>
+  </div>
+</section>

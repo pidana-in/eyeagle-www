@@ -6,6 +6,7 @@ import Feature from "../components/AppSection/Feature.astro";
 import Family from "../components/AppSection/Family.astro"
 import Membership from "../components/AppSection/Membership.astro"
 import AppDownload from "../components/AppSection/AppDownload.astro"
+import BackupSection from "../components/AppSection/BackupSection.astro"
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
 const metaDesc = "Explore EyEagle’s innovative solutions for elderly safety. From fall alert devices to emergency alarm systems, protect your loved ones today.";
 ---
@@ -13,6 +14,7 @@ const metaDesc = "Explore EyEagle’s innovative solutions for elderly safety. F
 <MainLayout title={metaTitle} desc={metaDesc}>
   <HeroSection HeroSectionData={HeroSectionData} heroTitle={heroTitle} heroDescription={heroDescription} />
   <Feature />
+  <BackupSection />
   <Family />
   <Membership />
   <AppDownload />

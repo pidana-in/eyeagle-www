@@ -2,7 +2,10 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import HeroSection from "../components/ProductSection/HeroSection.astro"
 import AlarmSection from "../components/ProductSection/AlarmSection.astro"
-
+import DeviceSection from "../components/ProductSection/DeviceSection.astro"
+import AppDownload from "../components/AppSection/AppDownload.astro"
+import HowItWorks from "../components/ProductSection/HowItWorks.astro"
+import FAQs from "../components/ProductSection/FAQs.astro"
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
 const metaDesc = "Explore EyEagle’s innovative solutions for elderly safety. From fall alert devices to emergency alarm systems, protect your loved ones today.";
 ---
@@ -10,4 +13,8 @@ const metaDesc = "Explore EyEagle’s innovative solutions for elderly safety. F
 <MainLayout title={metaTitle} desc={metaDesc}>
 <HeroSection />
 <AlarmSection />
+<DeviceSection />
+<HowItWorks />
+<FAQs />
+<AppDownload />
 </MainLayout>

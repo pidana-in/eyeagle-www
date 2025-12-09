@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import BlackCheck from "../../assets/Product/BlackCheck.png";
+import Lock from "../../assets/Product/Lock.png";
+import Alarm from "../../assets/Product/Alarm.png";
+import PanicButton from "../../assets/Product/PanicButton.png";
+import Line from "../../assets/NewApp/Line.png";
+---
+
+<section class="bg-[#FEF7EB]">
+  <div class="xl:container">
+    <div
+      class="flex flex-row justify-center items-center gap-[42px] py-[120px]"
+    >
+      <div class="flex flex-col max-w-[500px]">
+        <p
+          class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4"
+        >
+          SmartLock
+        </p>
+        <h2 class="text-[32px] leading-10 font-bold mb-10">
+          A small sensor that sits on the bathroom latch and alerts when the
+          door is locked for a long time
+        </h2>
+        <ul class="space-y-4 text-black text-sm md:text-base">
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Detects when the bathroom door stays locked unusually long.
+          </li>
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Fits over common bathroom latches
+          </li>
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Helps family know to check the bathroom first
+          </li>
+        </ul>
+      </div>
+      <Image src={Lock} alt="lock" />
+    </div>
+
+    <div class="flex justify-center">
+      <Image src={Line} alt="Line" />
+    </div>
+
+    <div class="flex flex-row justify-center items-center gap-[42px] py-[70px]">
+      <Image src={PanicButton} alt="lock" />
+      <div class="flex flex-col max-w-[500px]">
+        <p
+          class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4"
+        >
+          SOS button
+        </p>
+        <h2 class="text-[32px] leading-10 font-bold mb-10">
+          A small sensor that sits on the bathroom latch and alerts when the
+          door is locked for a long time
+        </h2>
+        <ul class="space-y-4 text-black text-sm md:text-base">
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Detects when the bathroom door stays locked unusually long.
+          </li>
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Fits over common bathroom latches
+          </li>
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Helps family know to check the bathroom first
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <Image src={Line} alt="Line" />
+    </div>
+
+    <div class="flex flex-row justify-center items-center gap-[42px] py-10">
+      <div class="flex flex-col max-w-[500px]">
+        <p
+          class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4"
+        >
+          alarm unit
+        </p>
+        <h2 class="text-[32px] leading-10 font-bold mb-10">
+          A small sensor that sits on the bathroom latch and alerts when the
+          door is locked for a long time
+        </h2>
+        <ul class="space-y-4 text-black text-sm md:text-base">
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Detects when the bathroom door stays locked unusually long.
+          </li>
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Fits over common bathroom latches
+          </li>
+          <li class="flex gap-2">
+            <Image src={BlackCheck} alt="check" class="w-5 h-5" />
+            Helps family know to check the bathroom first
+          </li>
+        </ul>
+      </div>
+      <Image src={Alarm} alt="lock" />
+    </div>
+  </div>
+</section>
