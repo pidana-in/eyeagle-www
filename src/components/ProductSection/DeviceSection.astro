@@ -10,19 +10,19 @@ import Line from "../../assets/NewApp/Line.png";
 <section class="bg-[#FEF7EB]">
   <div class="xl:container">
     <div
-      class="flex flex-row justify-center items-center gap-[42px] py-[120px]"
+      class="flex md:flex-row flex-col justify-center items-center gap-[42px] py-[120px] px-4"
     >
-      <div class="flex flex-col max-w-[500px]">
+      <div class="flex flex-col md:max-w-[500px] w-full">
         <p
           class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4"
         >
           SmartLock
         </p>
-        <h2 class="text-[32px] leading-10 font-bold mb-10">
+        <h2 class="md:text-[32px] md:leading-10 font-bold md:mb-10 mb-4">
           A small sensor that sits on the bathroom latch and alerts when the
           door is locked for a long time
         </h2>
-        <ul class="space-y-4 text-black text-sm md:text-base">
+        <ul class="md:space-y-4 space-y-3 text-black text-sm md:text-base">
           <li class="flex gap-2">
             <Image src={BlackCheck} alt="check" class="w-5 h-5" />
             Detects when the bathroom door stays locked unusually long.
@@ -37,26 +37,35 @@ import Line from "../../assets/NewApp/Line.png";
           </li>
         </ul>
       </div>
-      <Image src={Lock} alt="lock" />
+      <div>
+        <Image src={Lock} alt="lock" />
+      </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center mx-28 md:mx-0">
       <Image src={Line} alt="Line" />
     </div>
 
-    <div class="flex flex-row justify-center items-center gap-[42px] py-[70px]">
-      <Image src={PanicButton} alt="lock" />
-      <div class="flex flex-col max-w-[500px]">
+    <div
+      class="flex flex-col-reverse md:flex-row justify-center items-center gap-[42px] py-[70px] px-4"
+    >
+      {/* IMAGE */}
+      <div>
+        <Image src={PanicButton} alt="lock" />
+      </div>
+
+      {/* TEXT */}
+      <div class="flex flex-col md:max-w-[500px] w-full">
         <p
           class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4"
         >
           SOS button
         </p>
-        <h2 class="text-[32px] leading-10 font-bold mb-10">
+        <h2 class="md:text-[32px] md:leading-10 font-bold md:mb-10 mb-4">
           A small sensor that sits on the bathroom latch and alerts when the
           door is locked for a long time
         </h2>
-        <ul class="space-y-4 text-black text-sm md:text-base">
+        <ul class="md:space-y-4 space-y-3 text-black text-sm md:text-base">
           <li class="flex gap-2">
             <Image src={BlackCheck} alt="check" class="w-5 h-5" />
             Detects when the bathroom door stays locked unusually long.
@@ -73,18 +82,20 @@ import Line from "../../assets/NewApp/Line.png";
       </div>
     </div>
 
-    <div class="flex justify-center">
+    <div class="flex justify-center mx-28 md:mx-0">
       <Image src={Line} alt="Line" />
     </div>
 
-    <div class="flex flex-row justify-center items-center gap-[42px] py-10">
+    <div
+      class="flex md:flex-row flex-col justify-center items-center gap-[42px] py-10 px-4"
+    >
       <div class="flex flex-col max-w-[500px]">
         <p
           class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4"
         >
           alarm unit
         </p>
-        <h2 class="text-[32px] leading-10 font-bold mb-10">
+        <h2 class="md:text-[32px] md:leading-10 font-bold md:mb-10 mb-4">
           A small sensor that sits on the bathroom latch and alerts when the
           door is locked for a long time
         </h2>
@@ -103,7 +114,9 @@ import Line from "../../assets/NewApp/Line.png";
           </li>
         </ul>
       </div>
-      <Image src={Alarm} alt="lock" />
+      <div>
+        <Image src={Alarm} alt="lock" />
+      </div>
     </div>
   </div>
 </section>

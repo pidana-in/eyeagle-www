@@ -6,7 +6,7 @@ import NoWifi from "../../assets/Product/NoWifi.png";
 import Power from "../../assets/Product/Power.png";
 import Camera from "../../assets/Product/Camera.png";
 ---
-
+<div class="hidden md:block">
 <section
   class="relative w-full overflow-hidden xl:container my-20 font-sans-instrument"
 >
@@ -105,3 +105,96 @@ import Camera from "../../assets/Product/Camera.png";
     </p>
   </div>
 </section>
+</div>
+<section class="block md:hidden font-sans-instrument pt-12">
+
+  <!-- 1) Badge -->
+  <div class="flex justify-center">
+    <span class="px-3 py-1.5 rounded-full text-sm font-semibold border border-[#000000] text-[#000000]">
+      Bathroom Safety Alarm Kit
+    </span>
+  </div>
+
+  <!-- 2) Heading -->
+  <h2 class="text-5xl font-bold leading-[56px] text-center my-4 tracking-normal">
+    One press.<br />The right people know
+  </h2>
+
+  <!-- 3) Subtext -->
+  <p class="text-base font-normal text-[#000000] leading-7 text-center">
+    A simple, privacy-first bathroom alarm kit built for real Indian bathrooms
+    that makes it easy to ask for help and alert your family, without cameras
+    or complexity.
+  </p>
+
+  <!-- 4) CTA -->
+  <button class="bg-[#CC0000] text-white mt-6 py-3 px-5 rounded-full font-semibold text-sm w-full">
+    Join the waitlist
+  </button>
+
+  <!-- 5) Small helper text -->
+  <p class="text-[#666] text-xs text-center mt-3">
+    No payment now. We'll contact you when installs open in your city.
+  </p>
+
+  <!-- 6) Blue product image -->
+  <div class="mt-10">
+    <Image 
+      src={HeroImage} 
+      alt="Bathroom Product Image" 
+      class="w-full object-cover"
+    />
+  </div>
+
+  <!-- 7) Feature List -->
+  <div class="mt-10 space-y-10">
+
+    <!-- Loud Alarm -->
+    <div class="flex items-start gap-3">
+      <Image src={LoudAlarm} alt="Loud alarm" class="w-6 h-6" />
+      <div>
+        <h4 class="text-base font-semibold">Loud Alarm</h4>
+        <p class="text-sm text-black/70 leading-[140%] mt-1">
+          Clearly audible, even from the next room.
+        </p>
+      </div>
+    </div>
+
+    <!-- No Wi-Fi -->
+    <div class="flex items-start gap-3">
+      <Image src={NoWifi} alt="No Wi-Fi" class="w-6 h-6" />
+      <div>
+        <h4 class="text-base font-semibold">No Wi-Fi required</h4>
+        <p class="text-sm text-black/70 leading-[140%] mt-1">
+          Works reliably, even when the Wi-Fi doesn’t.
+        </p>
+      </div>
+    </div>
+
+    <!-- No Charging -->
+    <div class="flex items-start gap-3">
+      <Image src={Power} alt="No charging" class="w-6 h-6" />
+      <div>
+        <h4 class="text-base font-semibold">No charging required</h4>
+        <p class="text-sm text-black/70 leading-[140%] mt-1">
+          Always on. No charging or backup batteries to manage.
+        </p>
+      </div>
+    </div>
+
+    <!-- No Camera -->
+    <div class="flex items-start gap-3">
+      <Image src={Camera} alt="No camera" class="w-6 h-6" />
+      <div>
+        <h4 class="text-base font-semibold">No camera</h4>
+        <p class="text-sm text-black/70 leading-[140%] mt-1">
+          Protects privacy and dignity in the bathroom.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
