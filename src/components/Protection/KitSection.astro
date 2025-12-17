@@ -1,0 +1,383 @@
+---
+import { Image } from "astro:assets";
+
+import WallGrabBar from "../../assets/Protection/SupportiveHandle.png";
+import ToiletSideRail from "../../assets/Protection/SupportiveStand.png";
+import AntiSkidMat from "../../assets/Protection/Matte.png";
+import AntiSkidTape from "../../assets/Protection/Tape.png";
+import SupportStand from "../../assets/Protection/SupportStand.png";
+import SupportHandle from "../../assets/Protection/SupportHandle.png";
+import MatteImage from "../../assets/Protection/MattImage.png";
+import VectorLeft from "../../assets/Protection/VectorLeft.png";
+import VectorRight from "../../assets/Protection/VectorRight.png";
+import VectorBottom from "../../assets/Protection/VectorBottom.png";
+---
+
+<section class="py-10">
+  <div class="xl:container md:px-[120px] px-4">
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
+        More than a single bar.<br />
+        A complete bathroom protection kit.
+      </h2>
+
+      <p class="mt-6 text-gray-600 text-base md:text-lg md:px-[120px]">
+        Instead of selling a single grab bar and leaving the rest to guesswork,
+        we combine grab bars, floor grip and a planned layout into one system
+        tailored to your bathroom and the people who use it.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div
+      class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[960px] mx-auto"
+    >
+      <!-- CARD BASE (repeat pattern) -->
+      <!-- Card 1 -->
+      <div
+        class="relative h-[480px] w-full max-w-[445px]
+               bg-[#F5F5E9] rounded-[28px]
+               border border-[#00000014]
+               px-6 pt-6 pb-8 overflow-hidden"
+      >
+        <!-- Text -->
+        <div class="relative z-10 max-w-[280px]">
+          <h4 class="font-semibold text-lg">Wall grab bars</h4>
+          <p class="mt-2 text-sm text-gray-600">
+            Light support points around the bathroom—near showers, doors and
+            bucket areas.
+          </p>
+        </div>
+
+        <!-- Image -->
+        <Image
+          src={WallGrabBar}
+          alt="Wall grab bar"
+          class="absolute bottom-8 left-6 max-w-[85%] object-contain"
+        />
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="relative h-[480px] w-full max-w-[445px]
+               bg-[#F5F5E9] rounded-[28px]
+               border border-[#00000014]
+               px-6 pt-6 pb-8 overflow-hidden"
+      >
+        <div class="relative z-10 max-w-[280px]">
+          <h4 class="font-semibold text-lg">Toilet side rail</h4>
+          <p class="mt-2 text-sm text-gray-600">
+            Heavy-duty sit–stand support beside the toilet seat for confident
+            movement.
+          </p>
+        </div>
+
+        <Image
+          src={ToiletSideRail}
+          alt="Toilet side rail"
+          class="absolute bottom-8 right-6 max-w-[65%] object-contain"
+        />
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="relative h-[480px] w-full max-w-[445px]
+               bg-[#FDF9ED] rounded-[28px]
+               border border-[#00000014]
+               px-6 pt-6 pb-8 overflow-hidden"
+      >
+        <div class="relative z-10 max-w-[280px]">
+          <h4 class="font-semibold text-lg">Anti-skid mat</h4>
+          <p class="mt-2 text-sm text-gray-600">
+            Grippy, draining surface where you stand in the wettest parts of the
+            bathroom.
+          </p>
+        </div>
+
+        <Image
+          src={AntiSkidMat}
+          alt="Anti skid mat"
+          class="absolute bottom-8 left-6 max-w-[85%] object-contain"
+        />
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="relative h-[480px] w-full max-w-[445px]
+               bg-[#F5F5E9] rounded-[28px]
+               border border-[#00000014]
+               px-6 pt-6 pb-8 overflow-hidden"
+      >
+        <div class="relative z-10 max-w-[280px]">
+          <h4 class="font-semibold text-lg">Anti-skid tape</h4>
+          <p class="mt-2 text-sm text-gray-600">
+            Thin, transparent strips that add traction on narrow, slippery
+            paths.
+          </p>
+        </div>
+
+        <Image
+          src={AntiSkidTape}
+          alt="Anti skid tape"
+          class="absolute bottom-8 right-6 max-w-[65%] object-contain"
+        />
+      </div>
+    </div>
+
+    <!-- Footer note -->
+    <p class="mt-12 text-center text-sm text-gray-500 italic">
+      We plan the quantity and placement with you, based on your bathroom and
+      who uses it.
+    </p>
+  </div>
+</section>
+
+<section>
+  <!-- ================= TOP INFO STRIP ================= -->
+  <div class="xl:container py-16 px-60">
+    <div class="px-4">
+      <!-- Heading + description -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[120px]">
+        <h2 class="text-3xl md:text-[32px] font-bold leading-tight">
+          One simple bar system that<br />
+          quietly prevents big falls.
+        </h2>
+
+        <p class="text-base leading-7">
+          Most bathroom falls happen in the same few movements: sitting and
+          standing at the toilet, stepping into wet areas, turning on slippery
+          tiles. Our grab bars and steady handholds at those exact points, so
+          everyday movements feel controlled instead of risky.
+        </p>
+      </div>
+
+      <!-- Feature row -->
+      <div class="mt-[72px] flex flex-row text-center justify-between">
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">Grip safety</p>
+          <p class="mt-1 text-sm text-gray-600">Textured Nylon Surface</p>
+        </div>
+
+        <div class="hidden md:flex text-xl justify-center">
+          <div class="w-px bg-[#CC0000]"></div>
+        </div>
+
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Structural strength
+          </p>
+          <p class="mt-1 text-sm text-gray-600">304 Stainless-steel Tube</p>
+        </div>
+
+        <div class="hidden md:flex text-xl justify-center">
+          <div class="w-px bg-[#CC0000]"></div>
+        </div>
+
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Corrosion resistance
+          </p>
+          <p class="mt-1 text-sm text-gray-600">Bathroom-ready Materials</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BOTTOM SHOWCASE ================= -->
+  <div class="bg-[#EFE7DC] pt-20">
+    <div class="xl:container mx-auto px-4">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start
+             px-6 lg:px-[108px]"
+      >
+        <!-- ================= LEFT COLUMN ================= -->
+        <div class="relative min-h-[520px] bg-[#EFE7DC]">
+          <!-- Image: anchored top-right -->
+          <Image
+            src={SupportStand}
+            alt="Toilet side rail support"
+            class="absolute -top-10 right-10 h-auto object-contain pointer-events-none"
+          />
+
+          <!-- Text: sits below the horizontal bar -->
+          <div class="relative z-10 max-w-[420px] pt-[160px]">
+            <h4 class="font-bold text-xl">
+              Heavy-duty help for sitting and standing.
+            </h4>
+
+            <ul class="mt-4 space-y-3 text-base opacity-70">
+              <li class="flex gap-3">
+                <span class="text-[#CC0000]">●</span>
+                Twin rails act like solid armrests next to the seat
+              </li>
+              <li class="flex gap-3">
+                <span class="text-[#CC0000]">●</span>
+                Floor leg sends body weight safely into the ground as well as the
+                wall
+              </li>
+              <li class="flex gap-3">
+                <span class="text-[#CC0000]">●</span>
+                Ideal for elderly, post-surgery users and anyone who leans hard on
+                support while standing up
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ================= RIGHT COLUMN ================= -->
+        <div class="grid gap-8">
+          <!-- Text -->
+          <div class="px-[72px]">
+            <h4 class="font-bold text-xl">
+              Light support wherever you might reach out.
+            </h4>
+
+            <ul class="mt-4 space-y-3 text-base opacity-70">
+              <li class="flex gap-3">
+                <span class="text-[#CC0000]">●</span>
+                Mounts vertical, horizontal or diagonal
+              </li>
+              <li class="flex gap-3">
+                <span class="text-[#CC0000]">●</span>
+                Helps with turning, stepping over shower lips, or reaching near the
+                health faucet / bucket area
+              </li>
+              <li class="flex gap-3">
+                <span class="text-[#CC0000]">●</span>
+                Great for shower corners, entries and beside Indian-style toilets
+              </li>
+            </ul>
+          </div>
+
+          <!-- Image -->
+          <div class="flex justify-center">
+            <Image
+              src={SupportHandle}
+              alt="Wall grab bar"
+              class="h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <!-- ================= TOP INFO STRIP ================= -->
+  <div class="bg-white py-16">
+    <div class="xl:container px-60">
+      <!-- Heading + description -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[120px]">
+        <h2 class="text-[32px] font-bold leading-tight">
+          Your hands hold on. Your feet <br />deserve grip too.
+        </h2>
+
+        <p class="text-base leading-7 text-gray-700 max-w-xl">
+          A slatted mat with a rubber base lets water drain through while your
+          feet rest on a textured top. It adds friction underfoot when you're
+          stepping out of the shower, filling a bucket or just standing to wash.
+        </p>
+      </div>
+
+      <!-- Feature row (CORRECT) -->
+      <div
+        class="mt-[72px] grid grid-cols-1 md:grid-cols-5 items-center text-center"
+      >
+        <!-- Feature 1 -->
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">Steadier footing</p>
+          <p class="mt-1 text-sm text-gray-600">
+            Gives your feet a firm, confident surface even when tiles are wet.
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="hidden md:flex justify-center">
+          <div class="w-px h-10 bg-[#CC0000]"></div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Drier bathroom floor
+          </p>
+          <p class="mt-1 text-sm text-gray-600">
+            Lets water drain through instead of pooling where you stand.
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="hidden md:flex justify-center">
+          <div class="w-px h-10 bg-[#CC0000]"></div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Made for real homes
+          </p>
+          <p class="mt-1 text-sm text-gray-600">
+            Sized for typical shower corners and bucket areas, easy to lift and
+            clean.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BOTTOM SHOWCASE ================= -->
+  <div class="bg-[#FBF6EB] py-20">
+    <div class="xl:container px-4 lg:px-60">
+      <div class="relative min-h-[520px] flex items-center justify-center">
+        <!-- Center product image -->
+        <Image
+          src={MatteImage}
+          alt="Anti skid mat"
+          class="max-w-[520px] h-auto object-contain z-10"
+        />
+
+        <!-- ================= LEFT TOP CALLOUT ================= -->
+        <div class="absolute left-[40px] top-[180px] max-w-[220px]">
+          <p class="font-semibold text-sm">Ribbed top texture</p>
+          <p class="mt-1 text-xs text-gray-600">Non-slip for bare feet</p>
+
+          <Image
+            src={VectorLeft}
+            alt="connector line"
+            class="mt-2 w-[120px] h-auto"
+          />
+        </div>
+
+        <!-- ================= RIGHT TOP CALLOUT ================= -->
+        <div class="absolute right-[40px] top-[180px] max-w-[220px] text-right">
+          <p class="font-semibold text-sm">Gaps between slats</p>
+          <p class="mt-1 text-xs text-gray-600">
+            Drainage so water doesn’t pool
+          </p>
+
+          <Image
+            src={VectorRight}
+            alt="connector line"
+            class="mt-2 ml-auto w-[120px] h-auto"
+          />
+        </div>
+
+        <!-- ================= BOTTOM RIGHT CALLOUT ================= -->
+        <div
+          class="absolute right-[120px] bottom-[80px] max-w-[220px] text-right"
+        >
+          <p class="font-semibold text-sm">Raised black feet</p>
+          <p class="mt-1 text-xs text-gray-600">Grip + airflow underneath</p>
+
+          <Image
+            src={VectorBottom}
+            alt="connector line"
+            class="mt-2 ml-auto w-[100px] h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

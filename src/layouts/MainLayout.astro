@@ -47,7 +47,7 @@ const { noindex } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Material+Symbols+Outlined&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css">
+    <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css" />
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
     <script
       type="text/partytown"
@@ -77,12 +77,12 @@ const { noindex } = Astro.props;
           (e.init = function (i, s, a) {
             function g(t, e) {
               var o = e.split(".");
-              2 == o.length && ((t = t[o[0]]), (e = o[1])),
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
                 (t[e] = function () {
                   t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-                });
+                }));
             }
-            ((p = t.createElement("script")).type = "text/javascript"),
+            (((p = t.createElement("script")).type = "text/javascript"),
               (p.crossOrigin = "anonymous"),
               (p.async = !0),
               (p.src =
@@ -91,7 +91,7 @@ const { noindex } = Astro.props;
               (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
                 p,
                 r
-              );
+              ));
             var u = e;
             for (
               void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
@@ -99,7 +99,9 @@ const { noindex } = Astro.props;
                 u.toString = function (t) {
                   var e = "posthog";
                   return (
-                    "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
                   );
                 },
                 u.people.toString = function () {
@@ -156,22 +158,84 @@ const { noindex } = Astro.props;
           />
         </div>
         <ul
-          class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[14%]`
-          id="content"
+          class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[14%]"
         >
           {
-            navLinks?.map((item) => (
-              <li>
-                <a
-                  href={`${item.url}`}
-                  class="hover:underline hover:text-[#CC0000] text-[#000000]"
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))
+            navLinks.map((item) => {
+              const isActive = item.children
+                ? item.children.some((c) => pathname.startsWith(c.url))
+                : pathname === item.url;
+
+              return (
+                <li class="relative">
+                  {/* Normal links */}
+                  {!item.children && (
+                    <a
+                      href={item.url}
+                      class={`hover:underline ${
+                        isActive
+                          ? "text-[#CC0000]"
+                          : "text-black hover:text-[#CC0000]"
+                      }`}
+                    >
+                      {item.title}
+                    </a>
+                  )}
+
+                  {/* Products dropdown */}
+                  {item.children && (
+                    <div class="group relative">
+                      {/* Trigger */}
+                      <span
+                        class={`flex items-center gap-1 cursor-pointer ${
+                          isActive
+                            ? "text-[#CC0000]"
+                            : "text-black group-hover:text-[#CC0000]"
+                        }`}
+                      >
+                        {item.title}
+                        <svg
+                          class="w-3 h-3 transition-transform duration-200"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+
+                      {/* Dropdown — NO GAP */}
+                      <ul
+                        class="absolute left-0 py-2 top-full hidden min-w-[200px]
+                       rounded-lg bg-white shadow-lg border z-[9999]
+                       group-hover:block"
+                      >
+                        {item.children.map((child) => (
+                          <li>
+                            <a
+                              href={child.url}
+                              class={`block px-4 py-2 text-sm ${
+                                pathname === child.url
+                                  ? "text-[#CC0000] font-medium"
+                                  : "text-black hover:text-[#CC0000]"
+                              } hover:bg-gray-100`}
+                            >
+                              {child.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              );
+            })
           }
         </ul>
+
         {
           pathname === "/plan/" ? (
             ""
@@ -289,20 +353,62 @@ const { noindex } = Astro.props;
       style={{ display: "none" }}
       class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
-      <ul class="grid justify-center items-center gap-8 font-sans-instrument">
+      <ul class="grid gap-6 font-sans-instrument text-base">
         {
-          navLinks?.map((item) => (
-            <li class="hover:cursor-pointer hover:text-primary">
-              <a href={`${item.url}`}>{item.title}</a>
+          navLinks.map((item) => (
+            <li class="text-center">
+              {/* Normal link */}
+              {!item.children && (
+                <a href={item.url} class="block py-2 hover:text-primary">
+                  {item.title}
+                </a>
+              )}
+
+              {/* Products dropdown */}
+              {item.children && (
+                <div class="flex flex-col items-center">
+                  {/* Trigger */}
+                  <button
+                    type="button"
+                    class="flex items-center gap-2 py-2 font-medium hover:text-primary"
+                    data-mobile-dropdown
+                  >
+                    {item.title}
+                    <svg
+                      class="w-4 h-4 transition-transform"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown */}
+                  <ul
+                    class="mt-4 hidden w-full max-w-xs rounded-xl bg-gray-50 py-3 px-4 shadow-sm
+                     space-y-3 text-sm"
+                    data-mobile-dropdown-menu
+                  >
+                    {item.children.map((child) => (
+                      <li>
+                        <a
+                          href={child.url}
+                          class="block rounded-md py-2 px-3 hover:bg-white hover:text-primary"
+                        >
+                          {child.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </li>
           ))
         }
-        <a href={ctaHref}>
-          <button
-            class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold"
-            >{ctaButtonText}</button
-          >
-        </a>
       </ul>
     </section>
 
@@ -503,5 +609,16 @@ const { noindex } = Astro.props;
   account?.addEventListener("click", () => {
     let display = accountDetails.style.display;
     accountDetails.style.display = `${display ? "" : "none"}`;
+  });
+</script>
+<script is:inline>
+  document.querySelectorAll("[data-mobile-dropdown]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const menu = btn.nextElementSibling;
+      const arrow = btn.querySelector("svg");
+
+      menu.classList.toggle("hidden");
+      arrow?.classList.toggle("rotate-180");
+    });
   });
 </script>
