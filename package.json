@@ -9,13 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^6.3.6",
-    "@astrojs/netlify": "^6.5.7",
-    "@astrojs/node": "^9.4.2",
+    "@astrojs/markdown-remark": "^6.3.10",
+    "@astrojs/netlify": "^6.6.3",
+    "@astrojs/node": "^9.5.1",
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.16",
-    "astro": "^5.13.2",
+    "astro": "^5.16.6",
     "nodemailer": "^6.10.1",
     "tailwindcss": "^3.4.17"
   },
