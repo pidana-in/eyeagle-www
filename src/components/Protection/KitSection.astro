@@ -11,9 +11,10 @@ import MatteImage from "../../assets/Protection/MattImage.png";
 import VectorLeft from "../../assets/Protection/VectorLeft.png";
 import VectorRight from "../../assets/Protection/VectorRight.png";
 import VectorBottom from "../../assets/Protection/VectorBottom.png";
+import BathroomFloor from "../../assets/Protection/BathroomFloor.png";
 ---
 
-<section class="py-10">
+<section id="Overview" class="py-10">
   <div class="xl:container md:px-[120px] px-4">
     <!-- Heading -->
     <div class="text-center">
@@ -133,7 +134,7 @@ import VectorBottom from "../../assets/Protection/VectorBottom.png";
   </div>
 </section>
 
-<section>
+<section id="About Bars">
   <!-- ================= TOP INFO STRIP ================= -->
   <div class="xl:container py-16 px-60">
     <div class="px-4">
@@ -264,7 +265,7 @@ import VectorBottom from "../../assets/Protection/VectorBottom.png";
   </div>
 </section>
 
-<section>
+<section id="About Matte">
   <!-- ================= TOP INFO STRIP ================= -->
   <div class="bg-white py-16">
     <div class="xl:container px-60">
@@ -295,7 +296,7 @@ import VectorBottom from "../../assets/Protection/VectorBottom.png";
 
         <!-- Divider -->
         <div class="hidden md:flex justify-center">
-          <div class="w-px h-10 bg-[#CC0000]"></div>
+          <div class="w-px h-20 bg-[#CC0000]"></div>
         </div>
 
         <!-- Feature 2 -->
@@ -310,7 +311,7 @@ import VectorBottom from "../../assets/Protection/VectorBottom.png";
 
         <!-- Divider -->
         <div class="hidden md:flex justify-center">
-          <div class="w-px h-10 bg-[#CC0000]"></div>
+          <div class="w-px h-20 bg-[#CC0000]"></div>
         </div>
 
         <!-- Feature 3 -->
@@ -335,47 +336,178 @@ import VectorBottom from "../../assets/Protection/VectorBottom.png";
         <Image
           src={MatteImage}
           alt="Anti skid mat"
-          class="max-w-[520px] h-auto object-contain z-10"
+          class="max-w-full h-auto object-contain z-10"
         />
-
         <!-- ================= LEFT TOP CALLOUT ================= -->
-        <div class="absolute left-[40px] top-[180px] max-w-[220px]">
-          <p class="font-semibold text-sm">Ribbed top texture</p>
-          <p class="mt-1 text-xs text-gray-600">Non-slip for bare feet</p>
+        <div class="absolute left-[120px] top-[40px] z-30">
+          <div class="flex items-start gap-2">
+            <!-- Text -->
+            <div class="max-w-[200px]">
+              <p class="font-semibold">Ribbed top texture</p>
+              <p class="mt-1 text-sm text-gray-600">Non-slip for bare feet</p>
+            </div>
 
-          <Image
-            src={VectorLeft}
-            alt="connector line"
-            class="mt-2 w-[120px] h-auto"
-          />
+            <!-- Connector line -->
+            <Image
+              src={VectorLeft}
+              alt="connector line"
+              class="w-[120px] h-auto mt-1"
+            />
+          </div>
         </div>
 
         <!-- ================= RIGHT TOP CALLOUT ================= -->
-        <div class="absolute right-[40px] top-[180px] max-w-[220px] text-right">
-          <p class="font-semibold text-sm">Gaps between slats</p>
-          <p class="mt-1 text-xs text-gray-600">
-            Drainage so water doesn’t pool
-          </p>
+        <div class="absolute left-[560px] top-[60px] z-30">
+          <div class="flex items-start gap-2">
+            <!-- Connector line -->
+            <Image
+              src={VectorRight}
+              alt="connector line"
+              class="mt-1 w-[100px] h-auto"
+            />
 
-          <Image
-            src={VectorRight}
-            alt="connector line"
-            class="mt-2 ml-auto w-[120px] h-auto"
-          />
+            <!-- Text -->
+            <div class="max-w-[200px] text-left">
+              <p class="font-semibold">Gaps between slats</p>
+              <p class="mt-1 text-sm text-gray-600">
+                Drainage so water doesn’t pool
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- ================= BOTTOM RIGHT CALLOUT ================= -->
-        <div
-          class="absolute right-[120px] bottom-[80px] max-w-[220px] text-right"
-        >
-          <p class="font-semibold text-sm">Raised black feet</p>
-          <p class="mt-1 text-xs text-gray-600">Grip + airflow underneath</p>
+        <div class="absolute right-[110px] bottom-[125px] z-30">
+          <div class="flex items-center gap-2">
+            <!-- Connector line -->
+            <Image
+              src={VectorBottom}
+              alt="connector line"
+              class="mt-1 w-[120px] h-auto"
+            />
+            <!-- Text -->
+            <div class="max-w-[200px] text-start">
+              <p class="font-semibold">Raised black feet</p>
+              <p class="mt-1 text-sm text-gray-600">
+                Grip + airflow underneath
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <Image
-            src={VectorBottom}
-            alt="connector line"
-            class="mt-2 ml-auto w-[100px] h-auto"
-          />
+<section id="About Tape">
+  <!-- ================= TOP INFO STRIP ================= -->
+  <div class="xl:container py-16 px-60">
+    <div class="px-4">
+      <!-- Heading + description -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[120px]">
+        <h2 class="text-3xl md:text-[32px] font-bold leading-tight">
+          Transparent anti-skid tape, almost invisible grip on critical paths.
+        </h2>
+
+        <p class="text-base leading-7">
+          For narrow, high-risk lines—like the strip you step on while entering
+          the shower or the slope to the floor drain—we use transparent
+          anti-skid tape. It adds a fine, sand-like texture that your feet can
+          feel, without changing how your tiles look.
+        </p>
+      </div>
+
+      <!-- Feature row -->
+      <div class="mt-[72px] flex flex-row text-center justify-between gap-10">
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Safer edges and steps
+          </p>
+          <p class="mt-1 text-sm text-gray-600">
+            Gives extra traction exactly where slips usually happen—at edges,
+            slopes and thresholds.
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="h-full border-l border-[#CC0000]"></div>
+        </div>
+
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Almost invisible on tiles
+          </p>
+          <p class="mt-1 text-sm text-gray-600">
+            Clear film lets your tile colour show through, so the bathroom still
+            looks like your bathroom.
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="h-full border-l border-[#CC0000]"></div>
+        </div>
+
+        <div>
+          <p class="text-[#CC0000] text-xl font-semibold">
+            Built for wet soap and water
+          </p>
+          <p class="mt-1 text-sm text-gray-600">
+            Surface texture and strong adhesive are made to hold up to daily
+            showers, not just dry floors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="xl:container py-20">
+    <!-- image wrapper must be relative -->
+    <div class="relative">
+      <!-- Background image -->
+      <Image
+        src={BathroomFloor}
+        alt="Bathroom floor"
+        class="w-full object-contain"
+      />
+      <div class="max-w-[790px]">
+        <!-- ================= LEFT TOP CALLOUT ================= -->
+        <div class="absolute left-[260px] top-[140px] z-30">
+          <div class="flex items-start gap-2">
+            <!-- Text -->
+            <div class="max-w-[180px] text-white">
+              <p class="font-semibold">Fine textured surface</p>
+              <p class="mt-1 text-sm opacity-90">
+                Adds sand-like grip where your foot actually lands.
+              </p>
+            </div>
+
+            <!-- Connector -->
+            <Image
+              src={VectorLeft}
+              alt="connector line"
+              class="mt-1 w-[140px] h-auto"
+            />
+          </div>
+        </div>
+
+        <!-- ================= RIGHT CALLOUT ================= -->
+        <div class="absolute right-[80px] top-[340px] z-30">
+          <div class="flex items-start gap-3">
+            <!-- Connector -->
+            <Image
+              src={VectorRight}
+              alt="connector line"
+              class="mt-1 w-[120px] h-auto"
+            />
+
+            <!-- Text -->
+            <div class="max-w-[200px] text-white">
+              <p class="font-semibold">Multiple parallel strips</p>
+              <p class="mt-1 text-sm opacity-90">
+                Create a safe lane across steps, slopes and thresholds.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
