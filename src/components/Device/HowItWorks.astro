@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import WorksImage from "../../assets/Product/worksImage.png";
+---
+
+<section class="py-20 bg-black font-sans-instrument">
+  <div class="flex flex-col justify-center px-[120px] xl:container">
+    <!-- Heading -->
+    <div class="pt-5 pb-[60px] text-white text-center">
+      <h2 class="text-5xl font-bold leading-none">How it works</h2>
+    </div>
+
+    <!-- Main Image -->
+    <div>
+      <Image src={WorksImage} alt="works" class="mb-10 w-full" />
+    </div>
+    <!-- 4 Step Section (matches screenshot) -->
+    <div class="w-full grid grid-cols-1 md:grid-cols-4 gap-8 text-white mt-10">
+      <!-- Step 1 -->
+      <div class="flex flex-col gap-5 max-w-[276px]">
+        <p class="text-xl font-semibold">
+          Press the SOS button inside the bathroom.
+        </p>
+        <div class="flex center gap-2">
+          <div class="h-[1px] flex-1 bg-gray-500"></div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col gap-5 max-w-[276px]">
+        <p class="text-xl font-semibold">
+          The alarm unit outside sounds immediately.
+        </p>
+        <div class="h-[1px] bg-gray-500 w-full"></div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col gap-5 max-w-[276px]">
+        <p class="text-xl font-semibold">
+          Family members receive the emergency alert on their phones
+        </p>
+        <div class="h-[1px] bg-gray-500 w-full"></div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex flex-col gap-5 max-w-[276px]">
+        <p class="text-xl font-semibold">
+          If no one responds, our team can dispatch an ambulance.
+        </p>
+        <div class="h-[1px] bg-gray-500 w-full"></div>
+      </div>
+    </div>
+  </div>
+</section>

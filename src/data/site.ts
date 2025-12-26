@@ -6,6 +6,14 @@ export const siteMeta = {
 };
 
 export const navLinks = [
+  { title: "App", url: "/app" },
+  {
+    title: "Products",
+    children: [
+      { title: "Device", url: "/device" },
+      { title: "Protection", url: "/protection" },
+    ],
+  },
   { title: "Shop", url: "https://shop.eyeagle.ai/" },
   { title: "How it Works", url: "/solution" },
   { title: "About Us", url: "/about-us" },
@@ -21,7 +29,8 @@ export const userMenu = [
 ];
 
 export const ctaButtonText = "Get Started";
-export const ctaHref = "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
+export const ctaHref =
+  "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
 
 export const footerPolicyLinks = [
   { title: "Shipping Policy", url: "/shipping" },
