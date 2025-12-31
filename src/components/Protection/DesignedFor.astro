@@ -4,13 +4,47 @@ import SeniorParent from "../../assets/Protection/SeniorParent.png";
 import PostSurgery from "../../assets/Protection/PostSurgery.png";
 import Caregivers from "../../assets/Protection/Caregivers.png";
 import ContentImage from "../../assets/Protection/ContentImage.png";
----
 
+const userCards = [
+  {
+    image: SeniorParent,
+    title: "Seniors/Elderly parents",
+    desc: "Makes everyday bathroom visits less stressful, with support where they need it most.",
+  },
+  {
+    image: PostSurgery,
+    title: "Post-surgery & chronic pain",
+    desc: "Helps people with knee, hip or back issues lower and lift themselves without fear of sudden slips.",
+  },
+  {
+    image: Caregivers,
+    title: "Caregivers & family",
+    desc: "Lets you guide and support someone without carrying all their weight or worrying about the floor.",
+  },
+];
+
+const stats = [
+  {
+    value: "100 kg",
+    label: "Load capacity when installed correctly",
+  },
+  {
+    value: "304",
+    label: "Stainless-steel grade inside every bar",
+  },
+  {
+    value: "35 mm",
+    label: "Approximate grip thickness for most hands",
+  },
+  {
+    value: "3 key zones",
+    label: "Toilet, shower and entry all covered",
+  },
+];
+---
 <section class="xl:container py-20">
   <div>
-    <div
-      class="flex flex-col justify-center items-center text-center px-[125px]"
-    >
+    <div class="flex flex-col justify-center items-center text-center px-[125px]">
       <div class="mx-[120px]">
         <h2 class="text-5xl font-bold">
           Designed around the people who use it.
@@ -23,99 +57,49 @@ import ContentImage from "../../assets/Protection/ContentImage.png";
       </div>
     </div>
 
-    <div
-      class="flex flex-row justify-center mt-20 mx-[120px] text-center gap-8"
-    >
-      <div
-        class="flex flex-col rounded-3xl border gap-8 bg-[#F9F7F7] max-w-[378px]"
-      >
-        <Image
-          src={SeniorParent}
-          alt="Toilet Image"
-          class="rounded-t-3xl border"
-        />
-        <div class="max-w-[525px]">
-          <h3 class="text-xl font-bold">Seniors/Elderly parents</h3>
-          <div class="mb-4 mx-4">
-            <p class="text-base font-normal opacity-60">
-              Makes everyday bathroom visits less stressful, with support where
-              they need it most.
-            </p>
+    <!-- User cards -->
+    <div class="flex flex-row justify-center mt-20 mx-[120px] text-center gap-8">
+      {userCards.map((card) => (
+        <div
+          class="flex flex-col rounded-3xl border gap-8 bg-[#F9F7F7] max-w-[378px]"
+        >
+          <Image
+            src={card.image}
+            alt={card.title}
+            class="rounded-t-3xl border"
+          />
+          <div class="max-w-[525px]">
+            <h3 class="text-xl font-bold">{card.title}</h3>
+            <div class="mb-4 mx-4">
+              <p class="text-base font-normal opacity-60">
+                {card.desc}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div
-        class="flex flex-col rounded-3xl border gap-8 bg-[#F9F7F7] max-w-[378px]"
-      >
-        <Image
-          src={PostSurgery}
-          alt="Toilet Image"
-          class="rounded-t-3xl border"
-        />
-        <div class="max-w-[525px]">
-          <h3 class="text-xl font-bold">Post-surgery & chronic pain</h3>
-          <div class="mb-4 mx-4">
-            <p class="text-base font-normal opacity-60">
-              Helps people with knee, hip or back issues lower and lift
-              themselves without fear of sudden slips.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="flex flex-col rounded-3xl border gap-8 bg-[#F9F7F7] max-w-[378px]"
-      >
-        <Image
-          src={Caregivers}
-          alt="Toilet Image"
-          class="rounded-t-3xl border"
-        />
-        <div class="max-w-[525px]">
-          <h3 class="text-xl font-bold">Caregivers & family</h3>
-          <div class="mb-4 mx-4">
-            <p class="text-base font-normal opacity-60">
-              Lets you guide and support someone without carrying all their
-              weight or worrying about the floor.
-            </p>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 
+  <!-- Stats section -->
   <div class="flex flex-col justify-center text-center mt-[120px]">
     <p class="text-[40px] font-bold">
       Safety you can feel, numbers you can trust.
     </p>
 
     <div class="flex flex-row justify-center items-center gap-10 mt-[60px]">
-      <div class="flex flex-col max-w-[208px]">
-        <h3 class="text-[#CC0000] text-2xl font-bold">100 kg</h3>
-        <p class="text-base font-normal opacity-60 mt-2">
-          Load capacity when installed correctly
-        </p>
-      </div>
-      <div class="flex flex-col max-w-[208px]">
-        <h3 class="text-[#CC0000] text-2xl font-bold">304</h3>
-        <p class="text-base font-normal opacity-60 mt-2">
-          Stainless-steel grade inside every bar
-        </p>
-      </div>
-      <div class="flex flex-col max-w-[208px]">
-        <h3 class="text-[#CC0000] text-2xl font-bold">35 mm</h3>
-        <p class="text-base font-normal opacity-60 mt-2">
-          Approximate grip thickness for most hands
-        </p>
-      </div>
-      <div class="flex flex-col max-w-[208px]">
-        <h3 class="text-[#CC0000] text-2xl font-bold">3 key zones</h3>
-        <p class="text-base font-normal opacity-60 mt-2">
-          Toilet, shower and entry all covered
-        </p>
-      </div>
+      {stats.map((stat) => (
+        <div class="flex flex-col max-w-[208px]">
+          <h3 class="text-[#CC0000] text-2xl font-bold">
+            {stat.value}
+          </h3>
+          <p class="text-base font-normal opacity-60 mt-2">
+            {stat.label}
+          </p>
+        </div>
+      ))}
     </div>
+
     <div class="flex justify-center mt-20">
       <Image src={ContentImage} alt="Content Image" />
     </div>

@@ -1,74 +1,86 @@
 ---
 import { Image } from "astro:assets";
 import VideoCall from "../../assets/Protection/VideoCall.png";
+
+const steps = [
+  {
+    title: "Quick call & photos",
+    desc: "You tell us the bathroom, we ask a few photos or a video.",
+  },
+  {
+    title: "On-site safety walk-through",
+    desc: "We visit the site, understand risky zones and mark them.",
+  },
+  {
+    title: "Layout sketch & installation",
+    desc: "Custom layout, careful installation without damaging tiles.",
+  },
+  {
+    title: "Test run & care tips",
+    desc: "We test everything and show how to clean and maintain it.",
+  },
+];
+
+const features = [
+  {
+    title: "Clean drilling",
+    desc: "We protect tiles and use proper anchors.",
+  },
+  {
+    title: "No-rush visit",
+    desc: "We take time to listen and adjust.",
+  },
+  {
+    title: "Aftercare support",
+    desc: "You can call us if something feels loose or needs rechecking.",
+  },
+  {
+    title: "3 key zones",
+    desc: "Toilet, shower and entry all covered.",
+  },
+];
 ---
-
-<section class="xl:container">
-  <!-- ================= HEADING (unchanged) ================= -->
-  <div class="flex flex-col justify-center text-center mx-[120px]">
-    <h2 class="text-5xl font-bold">
-      How we actually make this happen in your bathroom
-    </h2>
-    <p class="mt-5">
-      We don’t just drop off products. We visit, plan, install and test
-      everything with you.
-    </p>
+<section class="xl:container py-20">
+<div class="flex flex-row gap-[60px] justify-center mx-[120px]">
+  <!-- LEFT: scrolling steps -->
+  <div class="space-y-[283px]">
+    {steps.map((step) => (
+      <div class="flex gap-3 max-w-[405px] p-6">
+        <div class="w-[2px] bg-[#CC0000]"></div>
+        <div>
+          <h4 class="text-2xl font-bold">{step.title}</h4>
+          <p class="mt-3 text-sm text-gray-600">
+            {step.desc}
+          </p>
+        </div>
+      </div>
+    ))}
   </div>
 
-  <!-- ================= STEPS + STICKY IMAGE ================= -->
-  <div class="mt-[100px] flex flex-row gap-[60px] justify-center mx-[120px]">
-    <!-- LEFT: scrolling steps -->
-    <div class="space-y-[259px]">
-      <div class="flex gap-3 max-w-[405px] px-6">
-        <div class="w-[2px] bg-[#CC0000]"></div>
-        <div>
-          <h4 class="text-2xl font-bold">Quick call & photos</h4>
-          <p class="mt-3 text-sm text-gray-600">
-            You tell us the bathroom, we ask a few photos or a video.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 max-w-[405px] px-6">
-        <div class="w-[2px] bg-[#CC0000]"></div>
-        <div>
-          <h4 class="text-2xl font-bold">On-site safety walk-through</h4>
-          <p class="mt-3 text-sm text-gray-600">
-            We visit the site, understand risky zones and mark them.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 max-w-[405px] px-6">
-        <div class="w-[2px] bg-[#CC0000]"></div>
-        <div>
-          <h4 class="text-2xl font-bold">Layout sketch & installation</h4>
-          <p class="mt-3 text-sm text-gray-600">
-            Custom layout, careful installation without damaging tiles.
-          </p>
-        </div>
-      </div>
-
-      <div class="flex gap-3 max-w-[405px] px-6">
-        <div class="w-[2px] bg-[#CC0000]"></div>
-        <div>
-          <h4 class="text-2xl font-bold">Test run & care tips</h4>
-          <p class="mt-3 text-sm text-gray-600">
-            We test everything and show how to clean and maintain it.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- RIGHT: sticky image -->
-    <div class="hidden lg:block">
-      <div class="sticky top-[120px]">
-        <Image
-          src={VideoCall}
-          alt="Installation consultation"
-          class="max-w-[687px] rounded-lg"
-        />
-      </div>
+  <!-- RIGHT: sticky image -->
+  <div class="hidden lg:block">
+    <div class="sticky top-[120px]">
+      <Image
+        src={VideoCall}
+        alt="Installation consultation"
+        class="max-w-[687px] rounded-2xl"
+      />
     </div>
   </div>
+</div>
+<div class="xl:container mt-[100px] flex justify-center px-[120px]">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+           gap-x-20 gap-y-12 text-center max-w-full px-6"
+  >
+    {features.map((item) => (
+      <div class="max-w-[270px] px-2">
+        <p class="text-[#CC0000] text-2xl font-semibold">{item.title}</p>
+        <p class="mt-2 text-sm text-black opacity-60">
+          {item.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
 </section>

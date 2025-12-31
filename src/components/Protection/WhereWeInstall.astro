@@ -3,6 +3,27 @@ import { Image } from "astro:assets";
 import ToiletImage from "../../assets/Protection/Toilet.png";
 import ShowerImage from "../../assets/Protection/Shower.png";
 import EntryImage from "../../assets/Protection/Entry.png";
+
+const zones = [
+  {
+    image: ToiletImage,
+    title: "Toilet",
+    subtitle: "Sit, stand and turn without a wobble",
+    desc: "We see where you place your hands when sitting and standing, then add a fold-down rail beside the seat and floor grip where your feet land.",
+  },
+  {
+    image: ShowerImage,
+    title: "Shower / bucket area",
+    subtitle: "Wet tiles, anchored movements",
+    desc: "We watch how you step over the lip, turn and use the bucket, then place vertical and horizontal bars plus a draining mat in those exact spots.",
+  },
+  {
+    image: EntryImage,
+    title: "Entry & turning",
+    subtitle: "The first step in and last step out",
+    desc: "We trace your path between door, toilet and shower, then add a grab bar at the main turn and transparent tape along the narrow strip you step on most.",
+  },
+];
 ---
 
 <section class="xl:container py-20">
@@ -22,58 +43,29 @@ import EntryImage from "../../assets/Protection/Entry.png";
   </div>
 
   <div class="mt-20 mx-[240px] px-0">
-    <div class="flex flex-row rounded-3xl border gap-8 bg-[#F9F7F7]">
-      <Image
-        src={ToiletImage}
-        alt="Toilet Image"
-        class="rounded-s-3xl border"
-      />
-      <div class="max-w-[525px] mt-10">
-        <h3 class="text-[#CC0000] text-xl font-bold">Toilet</h3>
-        <p class="text-base font-normal">
-          Sit, stand and turn without a wobble
-        </p>
-        <div class="mt-3">
-          <p class="text-base font-normal opacity-60">
-            We see where you place your hands when sitting and standing, then
-            add a fold-down rail beside the seat and floor grip where your feet
-            land.
-          </p>
+    {
+      zones.map((zone, index) => (
+        <div
+          class={`flex flex-row rounded-3xl border gap-8 bg-[#F9F7F7] ${
+            index !== 0 ? "mt-8" : ""
+          }`}
+        >
+          <Image
+            src={zone.image}
+            alt={zone.title}
+            class="rounded-s-3xl border"
+          />
+          <div class="max-w-[525px] mt-10">
+            <h3 class="text-[#CC0000] text-xl font-bold">{zone.title}</h3>
+            <p class="text-base font-normal">{zone.subtitle}</p>
+            <div class="mt-3">
+              <p class="text-base font-normal opacity-60">{zone.desc}</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="flex flex-row rounded-3xl border gap-8 bg-[#F9F7F7] mt-8">
-      <Image
-        src={ShowerImage}
-        alt="Toilet Image"
-        class="rounded-s-3xl border"
-      />
-      <div class="max-w-[525px] mt-10">
-        <h3 class="text-[#CC0000] text-xl font-bold">Shower / bucket area</h3>
-        <p class="text-base font-normal">Wet tiles, anchored movements</p>
-        <div class="mt-3">
-          <p class="text-base font-normal opacity-60">
-            We watch how you step over the lip, turn and use the bucket, then
-            place vertical and horizontal bars plus a draining mat in those
-            exact spots.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-row rounded-3xl border gap-8 bg-[#F9F7F7] mt-8">
-      <Image src={EntryImage} alt="Toilet Image" class="rounded-s-3xl border" />
-      <div class="max-w-[525px] mt-10">
-        <h3 class="text-[#CC0000] text-xl font-bold">Entry & turning</h3>
-        <p class="text-base font-normal">The first step in and last step out</p>
-        <div class="mt-3">
-          <p class="text-base font-normal opacity-60">
-            We trace your path between door, toilet and shower, then add a grab
-            bar at the main turn and transparent tape along the narrow strip you
-            step on most.
-          </p>
-        </div>
-      </div>
-    </div>
+      ))
+    }
+
     <!-- Footer note -->
     <p class="mt-12 text-center text-lg italic">
       Every home is different. We sketch the layout with you before drilling a
