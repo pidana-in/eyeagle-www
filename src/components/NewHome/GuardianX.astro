@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import AlarmInside from "../../assets/Product/AlarmInside.png";
+
+const kitFeatures = [
+  {
+    title: "Loud Alarm",
+    description: "High-decibel alarm alerts instantly.",
+  },
+  {
+    title: "Offline",
+    description: "No WiFi needed for operation.",
+  },
+  {
+    title: "Backup",
+    description: "Runs during power outages.",
+  },
+];
+---
+
+<section class="bg-[#222222] text-white font-sans-instrument py-20">
+  <!-- TOP CONTENT -->
+  <div class="xl:container">
+    <div class="flex flex-col items-center text-center max-w-[720px] mx-auto">
+      <!-- Step -->
+      <div
+        class="size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-base font-bold flex items-center justify-center mb-4"
+      >
+        02
+      </div>
+
+      <!-- Title -->
+      <h2 class="text-2xl md:text-[40px] font-bold leading-tight mb-6">
+        EyEagle<br />Guardian-X Kit
+      </h2>
+    </div>
+
+    <!-- Two-column text -->
+    <div
+      class="flex flex-row gap-[120px] mt-20 justify-evenly px-[120px]"
+    >
+      <!-- Description -->
+      <div class="max-w-[722px]">
+        <p class="text-[28px] font-bold text-[#FFFFFF] leading-8 mb-8">
+          Patent-pending technology, seamlessly integrated safety system that
+          alerts and responds instantly.
+        </p>
+        <!-- Left -->
+        <p class="text-base text-[#FFFFFF] opacity-70 leading-relaxed">
+          Equipped with a smart alarm, control unit, response switch, and
+          automated door mechanism, it ensures unmatched security and peace of
+          mind — whether you’re near or far. Stay connected, stay protected.🚀
+        </p>
+      </div>
+      <!-- Right -->
+      <div class="space-y-6">
+        {
+          kitFeatures.map((item) => (
+            <div>
+              <p class="font-semibold text-xl leading-7">{item.title}</p>
+              <p class="text-base font-normal text-[#FFFFFF] opacity-70 mt-2">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE SECTION -->
+  <div class="pt-20 xl:container">
+    <div class="flex justify-center">
+      <Image
+        src={AlarmInside}
+        alt="EyEagle Guardian-X Kit components"
+        class="w-full"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="pt-20 pb-10 flex justify-center bg-[#1F1F1F]">
+    <a
+      href="/device"
+      class="rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+    >
+      Learn more
+    </a>
+  </div>
+</section>

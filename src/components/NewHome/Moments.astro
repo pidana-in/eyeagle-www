@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+
+import Moment1 from "../../assets/NewHome/Moment1.png";
+import Moment2 from "../../assets/NewHome/Moment2.png";
+import Moment3 from "../../assets/NewHome/Moment3.png";
+
+const moments = [
+  {
+    image: Moment1,
+    title: "Critical moments",
+    description:
+      "Short windows when small mistakes become big — a wet floor, a sudden dizzy spell, a late-night bathroom trip.",
+  },
+  {
+    image: Moment2,
+    title: "Critical places",
+    description:
+      "Spaces where a slip is serious — bathrooms, bedroom paths, stairs, hotel rooms, airplane aisles.",
+  },
+  {
+    image: Moment3,
+    title: "Critical relationships",
+    description:
+      "The person at risk, the one nearby, and the people who worry from far away.",
+  },
+];
+---
+<section class="py-20 font-sans-instrument">
+  <div class="xl:container">
+
+<!-- Heading wrapper -->
+<div class="flex justify-center">
+  <div class="flex flex-col max-w-[1200px] text-center mb-20 items-center px-20">
+    <h2 class="text-3xl md:text-[40px] font-bold mb-4">
+      We don’t start with products. We start with moments.
+    </h2>
+
+    <p class="text-sm md:text-base text-gray-600 leading-relaxed tracking-wide">
+      Before we designed anything, we mapped the moments that actually worry
+      families — when someone is vulnerable, alone, or out of reach. EyEagle
+      is our way of designing for those moments first, then choosing the
+      right mix of hardware and software.
+    </p>
+  </div>
+</div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-[60px] max-w-[1200px] mx-auto">
+      {moments.map((item) => (
+        <div class="flex flex-col">
+          <!-- Image -->
+          <Image
+            src={item.image}
+            alt={item.title}
+            class="rounded-2xl w-full h-auto"
+            loading="lazy"
+          />
+
+          <!--Text -->
+          <h3 class="mt-10 font-bold text-2xl">
+            {item.title}
+          </h3>
+
+          <p class="mt-3 text-base max-w-[360px]">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

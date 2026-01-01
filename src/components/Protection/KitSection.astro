@@ -124,11 +124,11 @@ const tapeFeatures = [
             class={`relative h-[480px] w-full max-w-[445px]
                   ${card.bg} rounded-[28px]
                   border border-[#00000014]
-                  px-6 pt-6 pb-8 overflow-hidden`}
+                  px-6 pt-10 pb-8 overflow-hidden`}
           >
-            <div class="relative z-10 max-w-[280px]">
-              <h4 class="font-semibold text-lg">{card.title}</h4>
-              <p class="mt-2 text-sm text-gray-600">{card.desc}</p>
+            <div class="relative z-10 max-w-[365px]">
+              <h4 class="font-bold text-xl">{card.title}</h4>
+              <p class="mt-2 text-base text-gray-600">{card.desc}</p>
             </div>
 
             <Image src={card.image} alt={card.title} class={card.imageClass} />
@@ -282,8 +282,8 @@ const tapeFeatures = [
         <div class="absolute left-[120px] top-[40px] z-30">
           <div class="flex items-start gap-2">
             <div>
-              <p class="font-semibold text-sm">Ribbed top texture</p>
-              <p class="mt-1 text-xs text-gray-600">Non-slip for bare feet</p>
+              <p class="font-semibold">Ribbed top texture</p>
+              <p class="mt-1 text-sm text-gray-600">Non-slip for bare feet</p>
             </div>
 
             <Image
@@ -295,7 +295,7 @@ const tapeFeatures = [
         </div>
 
         <!-- ================= RIGHT TOP CALLOUT ================= -->
-        <div class="absolute left-[560px] top-[60px] z-30">
+        <div class="absolute left-[572px] top-[60px] z-30">
           <div class="flex items-start gap-2">
             <!-- Connector line -->
             <Image
@@ -315,7 +315,7 @@ const tapeFeatures = [
         </div>
 
         <!-- ================= BOTTOM RIGHT CALLOUT ================= -->
-        <div class="absolute right-[110px] bottom-[125px] z-30">
+        <div class="absolute right-[110px] bottom-[120px] z-30">
           <div class="flex items-center gap-2">
             <!-- Connector line -->
             <Image
@@ -380,11 +380,11 @@ const tapeFeatures = [
     />
 
     <!-- ================= LEFT CALLOUT ================= -->
-    <div class="absolute left-[260px] top-[140px] z-30">
-      <div class="flex items-start gap-3">
-        <div class="max-w-[220px] text-white">
-          <p class="font-semibold text-sm">Fine textured surface</p>
-          <p class="mt-1 text-xs opacity-90">
+    <div class="absolute left-[340px] top-[186px] z-30">
+      <div class="flex items-start">
+        <div class="max-w-[180px] text-white">
+          <p class="font-semibold text-base">Fine textured surface</p>
+          <p class="mt-1 text-sm opacity-90">
             Adds sand-like grip where your foot actually lands.
           </p>
         </div>
@@ -398,7 +398,7 @@ const tapeFeatures = [
     </div>
 
     <!-- ================= RIGHT CALLOUT ================= -->
-    <div class="absolute right-[80px] top-[340px] z-30">
+    <div class="absolute right-[200px] top-[380px] z-30">
       <div class="flex items-start gap-3">
         <Image
           src={VectorRight}
@@ -406,9 +406,9 @@ const tapeFeatures = [
           class="mt-1 w-[120px] h-auto"
         />
 
-        <div class="max-w-[220px] text-white">
-          <p class="font-semibold text-sm">Multiple parallel strips</p>
-          <p class="mt-1 text-xs opacity-90">
+        <div class="max-w-[180px] text-white">
+          <p class="font-semibold text-base">Multiple parallel strips</p>
+          <p class="mt-1 text-sm opacity-90">
             Create a safe lane across steps, slopes and thresholds.
           </p>
         </div>
