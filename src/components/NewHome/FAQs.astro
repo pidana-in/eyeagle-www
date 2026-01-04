@@ -1,0 +1,98 @@
+---
+const faqs = [
+  {
+    question: "What is EyEagle and how does it work?",
+    answer:
+      "EyEagle is a comprehensive bathroom safety system designed to prevent accidents and provide quick emergency response. It includes a patented alarm system, non-slip surfaces, grab bars, and an app that sends instant notifications to caregivers or emergency contacts when an incident is detected.",
+  },
+  {
+    question: "Do I need Wi-Fi for the system to work?",
+    answer:
+      "No, EyEagle does not rely on Wi-Fi. It operates independently to ensure that safety is never compromised due to internet connectivity issues.",
+  },
+  {
+    question: "How does EyEagle ensure notifications are reliable?",
+    answer:
+      "Our patent-pending device is designed to function in any corner of the house, even on low-bandwidth 2G networks. This ensures that critical alerts are always delivered, even in areas with poor connectivity.",
+  },
+  {
+    question: "What happens if there’s a power outage?",
+    answer:
+      "EyEagle comes equipped with a battery that lasts up to 6 hours, ensuring continuous protection even during power outages.",
+  },
+  {
+    question: "Who receives the alerts when the alarm is triggered?",
+    answer:
+      "Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customize who gets notified through the EyEagle app.",
+  },
+  {
+    question: "How is the system installed?",
+    answer:
+      "Our team of experts will install the system based on your bathroom’s specific floor plan. We ensure everything is placed optimally for maximum safety and effectiveness.",
+  },
+  {
+    question: "What if my device goes offline?",
+    answer:
+      "If a device disconnects, you’ll receive a “Device Offline” alert, prompting you to check power and connectivity.",
+  },
+];
+---
+<section class="xl:container py-[120px] flex flex-col items-center px-6 font-sans-instrument">
+  <!-- Heading -->
+  <h2 class="text-4xl font-bold mb-12">FAQs</h2>
+
+  <!-- FAQ Container -->
+  <div class="w-full max-w-5xl space-y-6">
+    {faqs.map((faq, i) => (
+      <div class="border-b border-gray-300 pb-4">
+        <!-- Question -->
+        <button
+          class="faq-toggle w-full flex justify-between items-center text-left"
+          data-index={i}
+          type="button"
+        >
+          <span class="text-[18px] text-[#2C2C2C] font-semibold">
+            {faq.question}
+          </span>
+
+          <!-- Chevron -->
+          <svg
+            class="chevron w-5 h-5 transition-transform duration-200"
+            data-index={i}
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        <!-- Answer -->
+        <p
+          class="faq-answer hidden text-[#2C2C2C] opacity-[0.6] text-[15px] mt-3 leading-relaxed"
+          data-index={i}
+        >
+          {faq.answer}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <!-- Client Script -->
+  <script is:inline>
+    const toggles = document.querySelectorAll(".faq-toggle");
+    const answers = document.querySelectorAll(".faq-answer");
+    const chevrons = document.querySelectorAll(".chevron");
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const index = toggle.dataset.index;
+
+        answers[index].classList.toggle("hidden");
+        chevrons[index].classList.toggle("rotate-180");
+      });
+    });
+  </script>
+</section>
+

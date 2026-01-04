@@ -1,38 +1,41 @@
 ---
 import { Image } from "astro:assets";
-import AppStore from "../../assets/NewApp/AppStore.png";
-import PlayStore from "../../assets/NewApp/PlayStore.png";
-import Ellipse from "../../assets/NewApp/Ellipse.png";
+
+const content = Astro.props.content;
+const stores = Astro.props.stores;
 ---
 
 <section class="xl:container relative py-40 overflow-hidden">
   <!-- Background Ellipse -->
   <Image
-    src={Ellipse}
+    src={content.image}
     alt="Ellipse"
     aria-hidden="true"
     class="absolute opacity-[0.32] w-[848px] h-[848px] top-[-56px] left-[6px] md:w-[1400px] md:h-[1400px] md:top-[-400px] md:left-[200px] lg:w-[1800px] lg:h-[1800px] lg:top-[-523px] lg:left-[540px]"
   />
-
   <!-- Foreground Content -->
   <div
     class="flex flex-col px-5 items-center justify-center text-center relative z-10"
   >
     <div class="md:px-[120px]">
-      <h2 class="text-5xl md:text-6xl font-bold leading-none tracking-wide">
-        Ready When You Are
+      <h2 class="text-[28px] md:text-5xl font-bold leading-none tracking-wide">
+        {content.title}
       </h2>
-
-      <p class="text-xl font-medium max-w-[960px] py-6 md:py-8">
-        Start with one step. One log at a time. Bevel meets you where you are
-        and helps you move forward with clarity and confidence.
+      <p
+        class="md:text-xl text-base text-[#090D15] font-medium max-w-[960px] py-8"
+      >
+        {content.description}
       </p>
     </div>
-
     <!-- Store Buttons -->
     <div class="flex md:gap-5 px-5 items-center justify-center">
-      <Image src={AppStore} alt="App store" />
-      <Image src={PlayStore} alt="Play store" />
+      {
+        stores.map((store: any) => (
+          <a href={store.href} target="_blank" rel="noopener noreferrer">
+            <Image src={store.image} alt={store.alt} />
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

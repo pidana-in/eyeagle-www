@@ -1,33 +1,30 @@
 ---
 import { Image } from "astro:assets";
-import Check from "../../assets/NewApp/check.png";
+
+const membershipContent = Astro.props.membershipContent;
+const plans = Astro.props.plans;
 ---
 
-<section class="xl:container px-4 py-[120px]">
+<section class="xl:container px-4 py-20 md:px-[120px]">
   <div
-    class="flex flex-col lg:flex-row justify-center items-center gap-14 lg:gap-24"
+    class="flex flex-col lg:flex-row justify-around items-center gap-14 lg:gap-[120px]"
   >
     <!-- Left Content -->
-    <div class="max-w-md">
+    <div class="max-w-[474px]">
       <p class="text-[#CC0000] text-xl font-medium mb-6">
-        Less than an emergency flight ticket
+        {membershipContent.eyebrow}
       </p>
-
-      <h2 class="text-4xl md:text-6xl font-bold leading-none tracking-[0.01em]">
-        EyEagle Membership
+      <h2 class="text-[32px] md:text-[44px] font-bold leading-none">
+        {membershipContent.title}
       </h2>
-
       <button
         class="mt-[60px] bg-[#CC0000] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-red-700 transition"
       >
-        Explore Plans
+        {membershipContent.cta}
       </button>
     </div>
-
     <!-- Right Card -->
-    <div
-      class="bg-[#F4F2EE] shadow-md border border-[#EDEDED] rounded-2xl p-8 max-w-[606px] w-full"
-    >
+    <div class="bg-[#FEF7EB] shadow-md rounded-2xl p-8 md:max-w-[606px] w-full">
       <!-- Badge Row -->
       <div
         class="flex bg-white/90 tracking-widest backdrop-blur-sm shadow-md border border-gray-200 rounded-full py-2 px-3 w-fit"
@@ -35,42 +32,33 @@ import Check from "../../assets/NewApp/check.png";
         <span
           class="flex items-center justify-center w-[115px] h-[38px] py-3 px-4 text-sm font-semibold text-gray-700 rounded-full"
         >
-          FREE TIER
+          {plans.badges[0]}
         </span>
-
         <span
           class="flex items-center justify-center w-[139px] h-[38px] py-3 px-4 text-sm font-semibold text-white bg-[#CC0000] rounded-full shadow-sm"
         >
-          FAMILY PLUS
+          {plans.badges[1]}
         </span>
       </div>
-
       <h3 class="text-2xl font-bold leading-[1.4] tracking-normal mt-10 mb-3">
-        For families who never want an SOS to go unseen.
+        {membershipContent.cardTitle}
       </h3>
-
       <p class="text-[#000000] text-lg mb-10 mt-4">
-        Unlock the full EyEagle experience for your Nest. More members, stronger
-        alerts, and better visibility when something happens.
+        {membershipContent.cardDescription}
       </p>
-
       <ul class="space-y-4 text-green-700 text-sm md:text-base">
-        <li class="flex gap-2">
-          <Image src={Check} alt="check" class="w-5 h-5 mt-1" />
-          Up to 3 Nests (e.g. parents, your own home, siblings)
-        </li>
-        <li class="flex gap-2">
-          <Image src={Check} alt="check" class="w-5 h-5 mt-1" />
-          Unlimited members in each Nest
-        </li>
-        <li class="flex gap-2">
-          <Image src={Check} alt="check" class="w-5 h-5 mt-1" />
-          Priority SOS alerts so someone always sees it
-        </li>
-        <li class="flex gap-2">
-          <Image src={Check} alt="check" class="w-5 h-5 mt-1" />
-          Early access to new safety features & app improvements
-        </li>
+        {
+          plans.features.map((feature: any) => (
+            <li class="flex gap-2">
+              <Image
+                src={membershipContent.image}
+                alt="check"
+                class="w-5 h-5 mt-1"
+              />
+              {feature}
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>

@@ -1,53 +1,54 @@
 ---
 import { Image } from "astro:assets";
+
 const HeroSectionData = Astro.props.HeroSectionData;
 const heroTitle = Astro.props.heroTitle;
 const heroDescription = Astro.props.heroDescription;
 ---
 
-<section class="xl:container w-full md:mt-[120px]">
+<section class="xl:container w-full md:mt-[120px] mt-6">
   <div class="relative w-full">
-
     <!-- Background Hero -->
+    <!-- Desktop -->
     <Image
-      src={HeroSectionData[0].src}
-      alt="Hero app"
-      class="w-full h-[488px] sm:h-[560px] lg:min-h-[1000px] object-cover"
+      src={HeroSectionData.images.desktop}
+      alt="Hero app desktop"
+      class="hidden sm:block w-full h-[488px] sm:h-[560px] lg:min-h-[1000px] object-cover"
     />
-
+    <!-- Mobile -->
+    <Image
+      src={HeroSectionData.images.mobile}
+      alt="Hero app mobile"
+      class="block sm:hidden w-full h-[536px] object-cover"
+    />
     <!-- Foreground Content -->
-    <div class="absolute inset-0 flex flex-col items-center text-center px-2 sm:px-4 pt-10 sm:pt-4">
-
+    <div
+      class="absolute inset-0 flex flex-col items-center text-center px-4 pt-10 sm:pt-4"
+    >
       <!-- Text Block -->
       <div class="w-full max-w-lg sm:max-w-xl md:max-w-[800px] text-black">
         <h1
-          class="text-2xl sm:text-3xl md:text-5xl lg:text-[68px] tracking-wide font-bold leading-tight md:leading-none"
+          class="text-4xl md:text-5xl lg:text-[68px] tracking-wide font-bold leading-tight md:leading-none"
           set:html={heroTitle}
-        ></h1>
-
-        <p class="text-sm sm:text-base md:text-lg font-normal mt-3 sm:mt-4 md:mt-6">
+        />
+        <p class="text-base md:text-lg leading-7 font-normal mt-4 md:mt-6">
           {heroDescription}
         </p>
-
-        <button
-          class="mt-5 sm:mt-6 md:mt-8 bg-[#CC0000] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-medium"
+        <a
+          href={HeroSectionData.ctaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 sm:mt-6 md:mt-8 inline-block bg-[#CC0000] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-red-600 transition"
         >
           Get the app
-        </button>
+        </a>
       </div>
-
       <!-- Infographic Image -->
       <Image
-        src={HeroSectionData[1].src}
+        src={HeroSectionData.images.infograph}
         alt="App infographic"
         class="mt-8 sm:mt-12 md:mt-[54px] w-[85%] sm:w-[70%] md:w-[60%]"
       />
     </div>
   </div>
 </section>
-
-
-
-
-
-
