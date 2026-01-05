@@ -141,7 +141,7 @@ export const plans = {
   ],
 };
 
-export const content = {
+export const contentData = {
   title: "Ready When You Are",
   description:
     "Start with one step. One log at a time. Bevel meets you where you are and helps you move forward with clarity and confidence.",

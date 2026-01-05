@@ -13,7 +13,7 @@ import {
   FamilySection,
   membershipContent,
   plans,
-  content,
+  contentData,
   stores,
 } from "../components/constants/app";
 import Feature from "../components/AppSection/Feature.astro";
@@ -32,5 +32,5 @@ const metaDesc =
   <BackupSection backupSection={backupSection} />
   <Family sectionContent={sectionContent} FamilySection={FamilySection} familyCard={familyCard} />
   <Membership membershipContent={membershipContent} plans={plans} />
-  <AppDownload content={content} stores={stores} />
+  <AppDownload contentData={contentData} stores={stores} />
 </MainLayout>

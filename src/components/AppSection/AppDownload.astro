@@ -1,14 +1,14 @@
 ---
 import { Image } from "astro:assets";
 
-const content = Astro.props.content;
+const contentData = Astro.props.contentData;
 const stores = Astro.props.stores;
 ---
 
 <section class="xl:container relative py-40 overflow-hidden">
   <!-- Background Ellipse -->
   <Image
-    src={content.image}
+    src={contentData.image}
     alt="Ellipse"
     aria-hidden="true"
     class="absolute opacity-[0.32] w-[848px] h-[848px] top-[-56px] left-[6px] md:w-[1400px] md:h-[1400px] md:top-[-400px] md:left-[200px] lg:w-[1800px] lg:h-[1800px] lg:top-[-523px] lg:left-[540px]"
@@ -19,12 +19,12 @@ const stores = Astro.props.stores;
   >
     <div class="md:px-[120px]">
       <h2 class="text-[28px] md:text-5xl font-bold leading-none tracking-wide">
-        {content.title}
+        {contentData.title}
       </h2>
       <p
         class="md:text-xl text-base text-[#090D15] font-medium max-w-[960px] py-8"
       >
-        {content.description}
+        {contentData.description}
       </p>
     </div>
     <!-- Store Buttons -->
