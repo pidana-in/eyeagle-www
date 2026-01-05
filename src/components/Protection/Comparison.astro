@@ -1,0 +1,89 @@
+---
+const columns = [
+  "Aspect",
+  "No safety kit",
+  "One random grab bar",
+  "Our planned safety kit",
+];
+
+const rows = [
+  {
+    label: "Coverage",
+    noKit: "No areas protected",
+    oneBar: "One wall or spot",
+    planned: "Toilet, shower, bucket and entry all covered.",
+  },
+  {
+    label: "Where you can hold",
+    noKit: "Walls, taps, buckets — not meant for weight.",
+    oneBar: "Bar may be away from where hands reach.",
+    planned:
+      "Bars placed exactly where you sit, stand, turn and reach.",
+  },
+  {
+    label: "Floor grip",
+    noKit: "Bare wet tiles.",
+    oneBar: "Floor still slippery.",
+    planned: "Mat in wet zone + clear tape on danger strips.",
+  },
+  {
+    label: "Strength & fixing",
+    noKit: "Nothing designed for load.",
+    oneBar: "Depends on how it was drilled.",
+    planned:
+      "Rails anchored into wall and floor, sized for body weight.",
+  },
+  {
+    label: "Fit to user",
+    noKit: "No adjustment.",
+    oneBar: "Height and position guessed.",
+    planned:
+      "Layout and heights customised to the person and bathroom.",
+  },
+  {
+    label: "Look & feel",
+    noKit: "Feels risky.",
+    oneBar: "Can look like a hospital add-on.",
+    planned:
+      "Clean, matching hardware that looks designed, not improvised.",
+  },
+];
+---
+
+<!-- ================= COMPARISON TABLE ================= -->
+<section class="py-20 px-[160px] xl:container">
+  <div class="min-w-[1100px] text-sm">
+
+    <!-- Header row -->
+    <div class="grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] border-b">
+      <div class="font-semibold py-4 pr-8">{columns[0]}</div>
+      <div class="font-semibold py-4 pr-8">{columns[1]}</div>
+      <div class="font-semibold py-4 pr-8">{columns[2]}</div>
+      <div class="font-semibold py-4 bg-[#0E1B2A] text-white px-4 rounded-t-2xl">
+        {columns[3]}
+      </div>
+    </div>
+
+    <!-- Data rows -->
+    {rows.map((row, index) => (
+      <div
+        class={`grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] ${
+          index !== rows.length - 1 ? "border-b" : ""
+        }`}
+      >
+        <div class="py-4 pr-8 font-semibold">{row.label}</div>
+        <div class="py-4 pr-8">{row.noKit}</div>
+        <div class="py-4 pr-8">{row.oneBar}</div>
+        <div
+          class={`py-4 bg-[#0E1B2A] text-white px-4 ${
+            index === rows.length - 1 ? "rounded-b-2xl" : ""
+          }`}
+        >
+          {row.planned}
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
+

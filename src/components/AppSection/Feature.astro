@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+
+const features = Astro.props.features;
+const featureData = Astro.props.featureData;
+---
+
+<section class="xl:container w-full flex flex-col items-center py-20 px-4">
+  <h2 class="text-4xl md:text-6xl font-bold md:mt-20 mb-[60px]">
+    Features
+  </h2>
+  {features.map((feature: any, index: number) => (
+    <>
+      <div
+        class={`flex flex-col md:flex-row w-full max-w-[1200px] items-center gap-10 md:gap-20
+          ${feature.reverse ? "md:flex-row-reverse" : ""}`}
+      >
+        <!-- TEXT -->
+        <div class="max-w-full md:max-w-[560px] text-start">
+          <p class="text-[#CC0000] text-sm font-semibold uppercase tracking-[4px]">
+            {feature.eyebrow}
+          </p>
+          <h2 class="text-[32px] md:text-[40px] font-bold mt-4 leading-10">
+            {feature.title.redFirst && (
+              <span class="text-[#CC0000]">
+                {feature.title.redFirst}{" "}
+              </span>
+            )}
+            {feature.title.black && (
+              <span class="text-black">
+                {feature.title.black}{" "}
+              </span>
+            )}
+            {feature.title.redLast && (
+              <span class="text-[#CC0000]">
+                {feature.title.redLast}
+              </span>
+            )}
+          </h2>
+          <p class="text-base text-[#676B75] leading-7 mt-5">
+            {feature.description}
+          </p>
+          {feature.bullets && (
+            <ul class="space-y-4 text-[#15803D] mt-5">
+              {feature.bullets.map((item: string) => (
+                <li class="flex items-start gap-3">
+                  <Image src={featureData.img1} alt="check" class="w-5 h-5 mt-1" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <!-- IMAGE -->
+        <Image
+          src={feature.image}
+          alt="Feature image"
+          class="w-full md:w-[560px] h-auto rounded-[24px]"
+        />
+      </div>
+      {index !== features.length - 1 && (
+        <Image src={featureData.img2} alt="Line" class="my-[60px]" />
+      )}
+    </>
+  ))}
+</section>

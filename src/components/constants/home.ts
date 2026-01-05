@@ -49,6 +49,8 @@ import blogImage14 from "../../assets/Blog/BlogImage14.jpg"
 import blogImage15 from "../../assets/Blog/BlogImage15.jpg"
 import blogImage16 from "../../assets/Blog/BlogImage16.jpg"
 import blogImage17 from "../../assets/Blog/BlogImage17.jpg"
+import blogImage18 from "../../assets/Blog/BlogImage18.jpg"
+import blogImage19 from "../../assets/Blog/BlogImage19.jpg"
 
 export const bathroomData = [
   {
@@ -245,6 +247,18 @@ export const blogsData = [
     title: "Silver Tsunami in India: Ensuring Safety & Care for Seniors",
     desc: "Explore how India’s Silver Tsunami demands better senior safety, healthcare, and community care for a dignified and inclusive future.",
     img: blogImage17,
+  },
+    {
+    slug: "new-year-safer-home-safety-tips",
+    title: "New Year, Safer Home: Small Changes That Save Lives",
+    desc: "Start the New Year with simple home safety tips that prevent accidents and protect families and seniors. Small safety changes can save lives.",
+    img: blogImage18,
+  },
+     {
+    slug: "thoughtful-new-year-gift-safety-over-showpieces",
+    title: "A Thoughtful New Year Gift: Choosing Safety Over Showpieces",
+    desc: "Looking for a meaningful New Year gift? Discover why practical safety gifts offer lasting care and everyday protection for loved ones.",
+    img: blogImage19,
   },
 ];
 

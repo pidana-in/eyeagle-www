@@ -1,0 +1,418 @@
+---
+import { Image } from "astro:assets";
+
+import WallGrabBar from "../../assets/Protection/SupportiveHandle.png";
+import ToiletSideRail from "../../assets/Protection/SupportiveStand.png";
+import AntiSkidMat from "../../assets/Protection/Matte.png";
+import AntiSkidTape from "../../assets/Protection/Tape.png";
+import SupportStand from "../../assets/Protection/SupportStand.png";
+import SupportHandle from "../../assets/Protection/SupportHandle.png";
+import MatteImage from "../../assets/Protection/MattImage.png";
+import VectorLeft from "../../assets/Protection/VectorLeft.png";
+import VectorRight from "../../assets/Protection/VectorRight.png";
+import VectorBottom from "../../assets/Protection/VectorBottom.png";
+import BathroomFloor from "../../assets/Protection/BathroomFloor.png";
+
+/* ================= OVERVIEW CARDS ================= */
+const overviewCards = [
+  {
+    title: "Wall grab bars",
+    desc: "Light support points around the bathroom—near showers, doors and bucket areas.",
+    image: WallGrabBar,
+    imageClass: "absolute bottom-8 left-6 max-w-[85%] object-contain",
+    bg: "bg-[#F5F5E9]",
+  },
+  {
+    title: "Toilet side rail",
+    desc: "Heavy-duty sit–stand support beside the toilet seat for confident movement.",
+    image: ToiletSideRail,
+    imageClass: "absolute bottom-8 right-6 max-w-[65%] object-contain",
+    bg: "bg-[#F5F5E9]",
+  },
+  {
+    title: "Anti-skid mat",
+    desc: "Grippy, draining surface where you stand in the wettest parts of the bathroom.",
+    image: AntiSkidMat,
+    imageClass: "absolute bottom-8 left-6 max-w-[85%] object-contain",
+    bg: "bg-[#FDF9ED]",
+  },
+  {
+    title: "Anti-skid tape",
+    desc: "Thin, transparent strips that add traction on narrow, slippery paths.",
+    image: AntiSkidTape,
+    imageClass: "absolute bottom-8 right-6 max-w-[65%] object-contain",
+    bg: "bg-[#F5F5E9]",
+  },
+];
+
+/* ================= BAR FEATURES ================= */
+const barFeatures = [
+  { title: "Grip safety", desc: "Textured Nylon Surface" },
+  { title: "Structural strength", desc: "304 Stainless-steel Tube" },
+  { title: "Corrosion resistance", desc: "Bathroom-ready Materials" },
+];
+
+/* ================= BULLETS ================= */
+const standBullets = [
+  "Twin rails act like solid armrests next to the seat",
+  "Floor leg sends body weight safely into the ground as well as the wall",
+  "Ideal for elderly, post-surgery users and anyone who leans hard on support while standing up",
+];
+
+const handleBullets = [
+  "Mounts vertical, horizontal or diagonal",
+  "Helps with turning, stepping over shower lips, or reaching near the health faucet / bucket area",
+  "Great for shower corners, entries and beside Indian-style toilets",
+];
+
+/* ================= MAT FEATURES ================= */
+const matFeatures = [
+  {
+    title: "Steadier footing",
+    desc: "Gives your feet a firm, confident surface even when tiles are wet.",
+  },
+  {
+    title: "Drier bathroom floor",
+    desc: "Lets water drain through instead of pooling where you stand.",
+  },
+  {
+    title: "Made for real homes",
+    desc: "Sized for typical shower corners and bucket areas, easy to lift and clean.",
+  },
+];
+
+/* ================= TAPE FEATURES ================= */
+const tapeFeatures = [
+  {
+    title: "Safer edges and steps",
+    desc: "Gives extra traction exactly where slips usually happen—at edges, slopes and thresholds.",
+  },
+  {
+    title: "Almost invisible on tiles",
+    desc: "Clear film lets your tile colour show through, so the bathroom still looks like your bathroom.",
+  },
+  {
+    title: "Built for wet soap and water",
+    desc: "Surface texture and strong adhesive are made to hold up to daily showers, not just dry floors.",
+  },
+];
+---
+
+<section id="Overview" class="py-10">
+  <div class="xl:container md:px-[120px] px-4">
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
+        More than a single bar.<br />
+        A complete bathroom protection kit.
+      </h2>
+
+      <p class="mt-6 text-gray-600 text-base md:text-lg md:px-[120px]">
+        Instead of selling a single grab bar and leaving the rest to guesswork,
+        we combine grab bars, floor grip and a planned layout into one system
+        tailored to your bathroom and the people who use it.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div
+      class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[960px] mx-auto"
+    >
+      {
+        overviewCards.map((card) => (
+          <div
+            class={`relative h-[480px] w-full max-w-[445px]
+                  ${card.bg} rounded-[28px]
+                  border border-[#00000014]
+                  px-6 pt-10 pb-8 overflow-hidden`}
+          >
+            <div class="relative z-10 max-w-[365px]">
+              <h4 class="font-bold text-xl">{card.title}</h4>
+              <p class="mt-2 text-base text-gray-600">{card.desc}</p>
+            </div>
+
+            <Image src={card.image} alt={card.title} class={card.imageClass} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-12 text-center text-sm text-gray-500 italic">
+      We plan the quantity and placement with you, based on your bathroom and
+      who uses it.
+    </p>
+  </div>
+</section>
+
+<section id="About Bars">
+  <div class="xl:container py-16 px-60">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-[120px]">
+      <h2 class="text-3xl md:text-[32px] font-bold leading-tight">
+        One simple bar system that<br />
+        quietly prevents big falls.
+      </h2>
+
+      <p class="text-base leading-7">
+        Most bathroom falls happen in the same few movements: sitting and
+        standing at the toilet, stepping into wet areas, turning on slippery
+        tiles. Our grab bars add steady handholds at those exact points, so
+        everyday movements feel controlled instead of risky.
+      </p>
+    </div>
+
+    <div class="mt-[72px] flex flex-row text-center justify-between">
+      {
+        barFeatures.map((f, i) => (
+          <>
+            <div>
+              <p class="text-[#CC0000] text-xl font-semibold">{f.title}</p>
+              <p class="mt-1 text-sm text-gray-600">{f.desc}</p>
+            </div>
+
+            {i !== barFeatures.length - 1 && (
+              <div class="hidden md:flex text-xl justify-center">
+                <div class="w-px bg-[#CC0000]" />
+              </div>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="bg-[#EFE7DC] pt-20">
+    <div class="xl:container px-6 lg:px-[108px] grid lg:grid-cols-2 gap-20">
+      <div class="relative min-h-[520px]">
+        <Image
+          src={SupportStand}
+          alt=""
+          class="absolute -top-10 right-10 pointer-events-none"
+        />
+        <div class="pt-[160px] max-w-[420px]">
+          <h4 class="font-bold text-xl">
+            Heavy-duty help for sitting and standing.
+          </h4>
+          <ul class="mt-4 space-y-3 text-base opacity-70">
+            {
+              standBullets.map((b) => (
+                <li class="flex gap-3">
+                  <span class="text-[#CC0000]">●</span>
+                  {b}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid gap-8">
+        <div class="px-[72px]">
+          <h4 class="font-bold text-xl">
+            Light support wherever you might reach out.
+          </h4>
+          <ul class="mt-4 space-y-3 text-base opacity-70">
+            {
+              handleBullets.map((b) => (
+                <li class="flex gap-3">
+                  <span class="text-[#CC0000]">●</span>
+                  {b}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="flex justify-center">
+          <Image src={SupportHandle} alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="About Matte">
+  <div class="bg-white py-16">
+    <div class="xl:container px-60">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[120px]">
+        <h2 class="text-[32px] font-bold leading-tight">
+          Your hands hold on. Your feet <br />deserve grip too.
+        </h2>
+        <p class="text-base leading-7 text-gray-700 max-w-xl">
+          A slatted mat with a rubber base lets water drain through while your
+          feet rest on a textured top. It adds friction underfoot when you’re
+          stepping out of the shower, filling a bucket or just standing to wash.
+        </p>
+      </div>
+
+      <div
+        class="mt-[72px] grid grid-cols-1 md:grid-cols-5 items-center text-center"
+      >
+        {
+          matFeatures.map((f, i) => (
+            <>
+              <div>
+                <p class="text-[#CC0000] text-xl font-semibold">{f.title}</p>
+                <p class="mt-1 text-sm text-gray-600">{f.desc}</p>
+              </div>
+
+              {i !== matFeatures.length - 1 && (
+                <div class="hidden md:flex justify-center">
+                  <div class="w-px h-20 bg-[#CC0000]" />
+                </div>
+              )}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- MAT SHOWCASE -->
+  <div class="bg-[#FBF6EB] py-20">
+    <div class="xl:container px-4 lg:px-60">
+      <div class="relative min-h-[520px] flex items-center justify-center">
+        <!-- Center mat image -->
+        <Image
+          src={MatteImage}
+          alt="Anti skid mat"
+          class="max-w-full h-auto object-contain z-10"
+        />
+
+        <!-- ================= LEFT TOP CALLOUT ================= -->
+        <div class="absolute left-[120px] top-[40px] z-30">
+          <div class="flex items-start gap-2">
+            <div>
+              <p class="font-semibold">Ribbed top texture</p>
+              <p class="mt-1 text-sm text-gray-600">Non-slip for bare feet</p>
+            </div>
+
+            <Image
+              src={VectorLeft}
+              alt="connector line"
+              class="w-[120px] h-auto mt-1"
+            />
+          </div>
+        </div>
+
+        <!-- ================= RIGHT TOP CALLOUT ================= -->
+        <div class="absolute left-[572px] top-[60px] z-30">
+          <div class="flex items-start gap-2">
+            <!-- Connector line -->
+            <Image
+              src={VectorRight}
+              alt="connector line"
+              class="mt-1 w-[100px] h-auto"
+            />
+
+            <!-- Text -->
+            <div class="max-w-[200px] text-left">
+              <p class="font-semibold">Gaps between slats</p>
+              <p class="mt-1 text-sm text-gray-600">
+                Drainage so water doesn’t pool
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= BOTTOM RIGHT CALLOUT ================= -->
+        <div class="absolute right-[110px] bottom-[120px] z-30">
+          <div class="flex items-center gap-2">
+            <!-- Connector line -->
+            <Image
+              src={VectorBottom}
+              alt="connector line"
+              class="mt-1 w-[120px] h-auto"
+            />
+            <!-- Text -->
+            <div class="max-w-[200px] text-start">
+              <p class="font-semibold">Raised black feet</p>
+              <p class="mt-1 text-sm text-gray-600">
+                Grip + airflow underneath
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="About Tape">
+  <div class="xl:container py-16 px-60">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-[120px]">
+      <h2 class="text-3xl md:text-[32px] font-bold leading-tight">
+        Transparent anti-skid tape, almost invisible grip on critical paths.
+      </h2>
+      <p class="text-base leading-7">
+        For narrow, high-risk lines—like the strip you step on while entering
+        the shower or the slope to the floor drain—we use transparent anti-skid
+        tape. It adds a fine, sand-like texture that your feet can feel, without
+        changing how your tiles look.
+      </p>
+    </div>
+
+    <div class="mt-[72px] flex flex-row text-center justify-between gap-10">
+      {
+        tapeFeatures.map((f, i) => (
+          <>
+            <div>
+              <p class="text-[#CC0000] text-xl font-semibold">{f.title}</p>
+              <p class="mt-1 text-sm text-gray-600">{f.desc}</p>
+            </div>
+
+            {i !== tapeFeatures.length - 1 && (
+              <div class="flex justify-center">
+                <div class="h-full border-l border-[#CC0000]" />
+              </div>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="xl:container py-20 relative">
+    <!-- Background image -->
+    <Image
+      src={BathroomFloor}
+      alt="Bathroom floor"
+      class="w-full object-contain"
+    />
+
+    <!-- ================= LEFT CALLOUT ================= -->
+    <div class="absolute left-[340px] top-[186px] z-30">
+      <div class="flex items-start">
+        <div class="max-w-[180px] text-white">
+          <p class="font-semibold text-base">Fine textured surface</p>
+          <p class="mt-1 text-sm opacity-90">
+            Adds sand-like grip where your foot actually lands.
+          </p>
+        </div>
+
+        <Image
+          src={VectorLeft}
+          alt="connector line"
+          class="mt-1 w-[140px] h-auto"
+        />
+      </div>
+    </div>
+
+    <!-- ================= RIGHT CALLOUT ================= -->
+    <div class="absolute right-[200px] top-[380px] z-30">
+      <div class="flex items-start gap-3">
+        <Image
+          src={VectorRight}
+          alt="connector line"
+          class="mt-1 w-[120px] h-auto"
+        />
+
+        <div class="max-w-[180px] text-white">
+          <p class="font-semibold text-base">Multiple parallel strips</p>
+          <p class="mt-1 text-sm opacity-90">
+            Create a safe lane across steps, slopes and thresholds.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

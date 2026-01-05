@@ -47,6 +47,7 @@ const { noindex } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Material+Symbols+Outlined&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css" />
     <link rel="icon" href={EyeAgleFavIcon} type="image/x-icon" />
     <script
       type="text/partytown"
@@ -67,42 +68,88 @@ const { noindex } = Astro.props;
       gtag("config", gtmId);
     </script>
     <script is:inline>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init yi Ar jr mi Or Mr capture Li calculateEventProperties Nr register register_once register_for_session unregister unregister_for_session Br getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty zr Lr createPersonProfile Hr Rr qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug L Ur getPageViewId captureTraceFeedback captureTraceMetric Pr".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_DRoq88uBlB5Pgwkek6x8hvyZ3YgTiUlkwbbEt4eDCxh', {
-        api_host: 'https://eu.i.posthog.com',
-        defaults: '2025-05-24',
-        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-    })
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          (window.posthog && window.posthog.__loaded) ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                }));
+            }
+            (((p = t.createElement("script")).type = "text/javascript"),
+              (p.crossOrigin = "anonymous"),
+              (p.async = !0),
+              (p.src =
+                s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
+                "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r
+              ));
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a),
+                    t || (e += " (stub)"),
+                    e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + ".people (stub)";
+                },
+                o =
+                  "init yi Ar jr mi Or Mr capture Li calculateEventProperties Nr register register_once register_for_session unregister unregister_for_session Br getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty zr Lr createPersonProfile Hr Rr qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug L Ur getPageViewId captureTraceFeedback captureTraceMetric Pr".split(
+                    " "
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("phc_DRoq88uBlB5Pgwkek6x8hvyZ3YgTiUlkwbbEt4eDCxh", {
+        api_host: "https://eu.i.posthog.com",
+        defaults: "2025-05-24",
+        person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+      });
     </script>
   </head>
 
   <body class="text-gray-900">
-    <!-- <div class="fixed top-0 z-50 px-10 w-full font-sans-instrument text-white text-center bg-primary">
-      <h2 class="tracking-[0.25rem] h-[3.25rem] text-base font-bold leading-6 grid justify-center items-center w-full">
-        PREVENTING FALLS, SAVING LIVES
-      </h2>
-    </div> -->
     <header
       id="myNav"
-      class=`fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-5 bg-black`
+      class="fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-[#FFFFFF] shadow-[0px_6px_20px_0px_#0000000F]"
     >
       <nav class="flex items-center justify-around xl:container">
-        <div class="flex gap-4 lg:py-2">
+        <div class="flex gap-4">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleLogo}
+              src={EyeagleLogoBlack}
               alt={"EyEagle – Preventing Falls, Saving Lives"}
               id="imageBg"
-              class="w-[8.188rem]"
+              class="w-[10rem]"
               quality={"max"}
               loading="eager"
               fetchpriority="high"
             />
           </a>
-          <div class="h-8 w-px bg-gray-300"></div>
+          <div class="h-8 w-px bg-[#000000]"></div>
           <img
-            src="/svg/tagline-desktop.svg"
-            alt="Preventing Falls, Saving Lives"
+            src="/svg/tag-desktop.svg"
+            alt="Your Guardian, Wherever You Are."
             width="110"
             height="31"
             class="w-[110px] h-[31px]"
@@ -111,22 +158,84 @@ const { noindex } = Astro.props;
           />
         </div>
         <ul
-          class=`flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-normal px-4 mr-[14%]`
-          id="content"
+          class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[14%]"
         >
           {
-            navLinks?.map((item) => (
-              <li>
-                <a
-                  href={`${item.url}`}
-                  class="hover:underline hover:text-white text-gray-300"
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))
+            navLinks.map((item) => {
+              const isActive = item.children
+                ? item.children.some((c) => pathname.startsWith(c.url))
+                : pathname === item.url;
+
+              return (
+                <li class="relative">
+                  {/* Normal links */}
+                  {!item.children && (
+                    <a
+                      href={item.url}
+                      class={`hover:underline ${
+                        isActive
+                          ? "text-[#CC0000]"
+                          : "text-black hover:text-[#CC0000]"
+                      }`}
+                    >
+                      {item.title}
+                    </a>
+                  )}
+
+                  {/* Products dropdown */}
+                  {item.children && (
+                    <div class="group relative">
+                      {/* Trigger */}
+                      <span
+                        class={`flex items-center gap-1 cursor-pointer ${
+                          isActive
+                            ? "text-[#CC0000]"
+                            : "text-black group-hover:text-[#CC0000]"
+                        }`}
+                      >
+                        {item.title}
+                        <svg
+                          class="w-3 h-3 transition-transform duration-200"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+
+                      {/* Dropdown — NO GAP */}
+                      <ul
+                        class="absolute left-0 py-2 top-full hidden min-w-[200px]
+                       rounded-lg bg-white shadow-lg border z-[9999]
+                       group-hover:block"
+                      >
+                        {item.children.map((child) => (
+                          <li>
+                            <a
+                              href={child.url}
+                              class={`block px-4 py-2 text-sm ${
+                                pathname === child.url
+                                  ? "text-[#CC0000] font-medium"
+                                  : "text-black hover:text-[#CC0000]"
+                              } hover:bg-gray-100`}
+                            >
+                              {child.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              );
+            })
           }
         </ul>
+
         {
           pathname === "/plan/" ? (
             ""
@@ -168,21 +277,21 @@ const { noindex } = Astro.props;
     </header>
     <header
       id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-40 bg-black w-full"
+      class="lg:hidden sticky top-0 shadow z-40 bg-[#FFFFFF] w-full"
     >
       <nav class="flex justify-between items-center px-5 py-4">
         <div class="flex items-center gap-4">
           <a href="/" aria-label="EyEagle Home Page">
             <Image
-              src={EyeagleLogo}
+              src={EyeagleLogoBlack}
               alt="EyEagle Logo"
               quality={"max"}
               class="w-[9.188rem]"
             />
           </a>
-          <div class="h-8 w-px bg-gray-300"></div>
+          <div class="h-8 w-px bg-[#000000]"></div>
           <img
-            src="/svg/tagline-mobile.svg"
+            src="/svg/tag-desktop.svg"
             alt="Preventing Falls, Saving Lives"
             width="87"
             height="25"
@@ -199,22 +308,22 @@ const { noindex } = Astro.props;
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="48" height="48" rx="24" fill="#000000"></rect>
+            <rect width="48" height="48" rx="24" fill="none"></rect>
             <path
               d="M12.3335 18.167H30.6668"
-              stroke="#F6F4F2"
+              stroke="#000000"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
             <path
               d="M12.3335 24H30.6668"
-              stroke="#F6F4F2"
+              stroke="#000000"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
             <path
               d="M12.3335 29.833H30.6668"
-              stroke="#F6F4F2"
+              stroke="#000000"
               stroke-width="1.5"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
@@ -228,10 +337,10 @@ const { noindex } = Astro.props;
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="48" height="48" rx="24" fill="black"></rect>
+            <rect width="48" height="48" rx="24" fill="none"></rect>
             <path
               d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337"
-              stroke="white"
+              stroke="#000000"
               stroke-width="1.25"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
@@ -244,20 +353,62 @@ const { noindex } = Astro.props;
       style={{ display: "none" }}
       class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
     >
-      <ul class="grid justify-center items-center gap-8 font-sans-instrument">
+      <ul class="grid gap-6 font-sans-instrument text-base">
         {
-          navLinks?.map((item) => (
-            <li class="hover:cursor-pointer hover:text-primary">
-              <a href={`${item.url}`}>{item.title}</a>
+          navLinks.map((item) => (
+            <li class="text-center">
+              {/* Normal link */}
+              {!item.children && (
+                <a href={item.url} class="block py-2 hover:text-primary">
+                  {item.title}
+                </a>
+              )}
+
+              {/* Products dropdown */}
+              {item.children && (
+                <div class="flex flex-col items-center">
+                  {/* Trigger */}
+                  <button
+                    type="button"
+                    class="flex items-center gap-2 py-2 font-medium hover:text-primary"
+                    data-mobile-dropdown
+                  >
+                    {item.title}
+                    <svg
+                      class="w-4 h-4 transition-transform"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown */}
+                  <ul
+                    class="mt-4 hidden w-full max-w-xs rounded-xl bg-gray-50 py-3 px-4 shadow-sm
+                     space-y-3 text-sm"
+                    data-mobile-dropdown-menu
+                  >
+                    {item.children.map((child) => (
+                      <li>
+                        <a
+                          href={child.url}
+                          class="block rounded-md py-2 px-3 hover:bg-white hover:text-primary"
+                        >
+                          {child.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </li>
           ))
         }
-        <a href={ctaHref}>
-          <button
-            class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold"
-            >{ctaButtonText}</button
-          >
-        </a>
       </ul>
     </section>
 
@@ -266,10 +417,6 @@ const { noindex } = Astro.props;
     </main>
 
     <footer id="footer" class={`py-16 lg:py-20 ${footerClass} xl:container`}>
-      <!-- <div
-        class="flex max-lg:grid max-lg:gap-8 lg:justify-center justify-center max-lg:w-full items-center lg:mx-auto px-4 lg:px-32"
-      >
-      </div> -->
       <div class="flex lg:grid lg:grid-cols-2 flex-col">
         <div
           class="font-sans-instrument lg:mx-[7.5rem] mx-4 lg:mb-10 mb-4 grid gap-8 max-lg:text-start justify-center place-items-center md:place-items-start text-center lg:flex flex-col"
@@ -295,7 +442,7 @@ const { noindex } = Astro.props;
               </svg>
             </a>
 
-            <a href={socialLinks.x} target="_blank">
+            <!-- <a href={socialLinks.x} target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -308,7 +455,7 @@ const { noindex } = Astro.props;
                   d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
                 ></path>
               </svg>
-            </a>
+            </a> -->
 
             <a href={socialLinks.instagram} target="_blank">
               <svg
@@ -462,5 +609,16 @@ const { noindex } = Astro.props;
   account?.addEventListener("click", () => {
     let display = accountDetails.style.display;
     accountDetails.style.display = `${display ? "" : "none"}`;
+  });
+</script>
+<script is:inline>
+  document.querySelectorAll("[data-mobile-dropdown]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const menu = btn.nextElementSibling;
+      const arrow = btn.querySelector("svg");
+
+      menu.classList.toggle("hidden");
+      arrow?.classList.toggle("rotate-180");
+    });
   });
 </script>
