@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import BathroomKitImage from "../../assets/NewHome/BathroomKitImage.png";
+
+const bathroomKit = {
+  step: "03",
+  title: "Bathroom Protection Kit",
+  subtitle:
+    "Thoughtfully placed support and anti-skid elements that make everyday movement safer.",
+  features: [
+    "Grab bars and rails planned around real routines",
+    "Anti-skid mat and strips in wet, high-risk zones",
+    "Designed to feel at home, not like a hospital",
+  ],
+};
+---
+
+<section class="py-20 font-sans-instrument">
+  <div class="xl:container flex flex-col items-center text-center">
+    <!-- Step -->
+    <div
+      class="size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-base font-bold flex items-center justify-center"
+    >
+      {bathroomKit.step}
+    </div>
+
+    <!-- Title -->
+    <h2 class="text-xl md:text-[32px] font-bold my-4">
+      {bathroomKit.title}
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="text-[28px] font-bold max-w-[960px] mb-12 leading-relaxed">
+      {bathroomKit.subtitle}
+    </p>
+
+    <!-- Feature strip (with red vertical dividers) -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 text-xl font-bold max-w-[1200px] text-[#CC0000] mb-20"
+    >
+      {
+        bathroomKit.features.map((feature, index) => (
+          <p
+            class={`font-semibold px-6 py-4 text-center
+            ${index !== bathroomKit.features.length - 1 ? "md:border-r md:border-[#CC0000]" : ""}
+          `}
+          >
+            {feature}
+          </p>
+        ))
+      }
+    </div>
+
+    <!-- Image -->
+
+    <Image
+      src={BathroomKitImage}
+      alt="Bathroom protection kit in use"
+      class="w-full mb-10"
+      loading="lazy"
+    />
+
+    <!-- CTA -->
+    <a
+      href="/protection"
+      class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+    >
+      Learn more
+    </a>
+  </div>
+</section>

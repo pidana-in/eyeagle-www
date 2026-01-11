@@ -1,0 +1,56 @@
+---
+const ctaSection = {
+  eyebrow: "A safer bathroom without over-installing",
+  title: "You don’t need a perfect plan.\nYou just need a first step.",
+  description:
+    "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
+  primaryCta: {
+    label: "Talk to us",
+    href: "/contact",
+  },
+  secondaryCta: {
+    label: "Explore Products",
+    href: "https://shop.eyeagle.ai/",
+  },
+};
+---
+
+<section class="xl:container py-32 font-sans-instrument">
+  <div
+    class="max-w-[1200px] mx-auto bg-[#F6F6F6] rounded-3xl p-[64px]
+           grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
+  >
+    <!-- LEFT CONTENT -->
+    <div class="max-w-[520px]">
+      <p class="text-base text-black/60 mb-2">
+        {ctaSection.eyebrow}
+      </p>
+
+      <h2 class="text-3xl md:text-[40px] font-bold leading-[48px]">
+        {ctaSection.title}
+      </h2>
+
+      <p class="mt-5 text-base leading-7">
+        {ctaSection.description}
+      </p>
+      <!-- CTA buttons -->
+      <div class="mt-10 flex items-center gap-4">
+        <a
+          href={ctaSection.primaryCta.href}
+          class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+        >
+          {ctaSection.primaryCta.label}
+        </a>
+        <a
+          href={ctaSection.secondaryCta.href}
+          class="inline-block rounded-full border border-gray-400 px-6 py-3 text-sm font-semibold hover:bg-gray-50 transition"
+        >
+          {ctaSection.secondaryCta.label}
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT PLACEHOLDER (image/video later) -->
+    <div class="w-full h-[360px] bg-[#828282]"></div>
+  </div>
+</section>

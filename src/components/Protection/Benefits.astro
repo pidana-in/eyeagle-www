@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import GrabBar from "../../assets/Protection/GrabBar.png";
+import SteelStrength from "../../assets/Protection/SteelStrength.png";
+import HandleBar from "../../assets/Protection/HandleBar.png";
+import Mount from "../../assets/Protection/Mount.png";
+import Cleaning from "../../assets/Protection/Cleaning.png";
+import Calm from "../../assets/Protection/Calm.png";
+
+const cards = [
+  {
+    image: GrabBar,
+    alt: "Toilet Image",
+    title: "Anti-slip nylon sleeve",
+    desc: "Textured ABS sleeve stays grippy even with soap and water, so hands don’t slide when you reach for support",
+  },
+  {
+    image: SteelStrength,
+    alt: "Steel Strength",
+    title: "Steel strength inside",
+    desc: "304 stainless-steel tubes inside every bar keep them rigid and reliable through years of daily use.",
+  },
+  {
+    image: HandleBar,
+    alt: "Toilet Image",
+    title: "Comfortable to hold",
+    desc: "Hand-friendly thickness so most people can wrap their fingers fully and push or pull without strain.",
+  },
+  {
+    image: Mount,
+    alt: "Mount Image",
+    title: "Mounts made for tiles",
+    desc: "Strong wall plates and hardware designed specifically for tiled RCC walls, not flimsy partitions.",
+  },
+  {
+    image: Calm,
+    alt: "Calm Image",
+    title: "Calm, neutral look",
+    desc: "Soft white finish and simple shapes blend with beige, grey and patterned tiles without shouting for attention",
+  },
+  {
+    image: Cleaning,
+    alt: "Cleaning Image",
+    title: "Easy to keep clean",
+    desc: "Smooth, closed surfaces that wipe down quickly with mild bathroom cleaner—no special care needed.",
+  },
+];
+---
+
+<section class="xl:container py-20">
+  <div class="flex justify-center text-center px-[125px]">
+    <p class="text-5xl font-bold px-[120px] leading-[56px] tracking-wide">
+      Thoughtfully designed for real bathrooms, not brochures.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap gap-8 text-center justify-center mt-20 px-[120px]">
+    {
+      cards.map((card) => (
+        <div class="flex flex-col rounded-3xl border gap-8 bg-[#F9F7F7] max-w-[322px]">
+          <Image src={card.image} alt={card.alt} class="rounded-t-3xl border" />
+          <div class="">
+            <h3 class="text-xl font-bold">{card.title}</h3>
+            <div class="mt-2 mb-4 mx-4">
+              <p class="text-base font-normal opacity-60">{card.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Footer note -->
+  <p class="mt-12 text-[#CC0000] underline text-center text-lg italic">
+    Compare with alternatives
+  </p>
+</section>

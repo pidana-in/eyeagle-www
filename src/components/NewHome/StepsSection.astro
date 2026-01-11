@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import ButtonImage from "../../assets/NewHome/ButtonImage.png";
+
+const steps = [
+  { title: "Protection", step: "Step 1", active: true },
+  { title: "Interaction", step: "Step 2" },
+  { title: "Detection", step: "Step 3" },
+  { title: "Alarm", step: "Step 4" },
+  { title: "Notification", step: "Step 5" },
+  { title: "Action", step: "Step 6" },
+];
+---
+<section class="py-20 font-sans-instrument">
+  <div class="xl:container flex flex-col items-center text-center">
+    <!-- Heading -->
+    <div class="max-w-[800px] mb-10">
+      <h2 class="text-3xl md:text-[40px] font-bold mb-4">
+        From worry to a plan, in four steps.
+      </h2>
+      <p class="text-sm md:text-base leading-7">
+        You can start with any one product. But when you connect them, EyEagle
+        becomes a calm, always-there support system for your family.
+      </p>
+    </div>
+   <!-- Illustration -->
+    <div class="w-full flex justify-center mb-16">
+      <Image
+        src={ButtonImage}
+        alt="Emergency interaction illustration"
+        class="max-w-[1200px]"
+        loading="lazy"
+      />
+    </div>
+    <!-- Steps -->
+    <div class="w-full max-w-[1200px] mb-10">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-left">
+        {steps.map((item) => (
+          <div>
+            <p class="text-base font-bold mb-1">{item.title}</p>
+            <p class="text-base">{item.step}</p>
+            <!-- underline -->
+            <div
+              class={`mt-5 h-[2px] ${
+                item.active ? "bg-[#CC0000]" : "bg-gray-200"
+              }`}
+            ></div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <!-- CTA -->
+    <a
+      href="https://shop.eyeagle.ai/"
+      target="_blank"
+      class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+    >
+      Book Safety call
+    </a>
+
+  </div>
+</section>

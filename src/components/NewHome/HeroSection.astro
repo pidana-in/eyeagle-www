@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import HeroImage from "../../assets/NewHome/HomeImage.png";
+import Check from "../../assets/NewApp/check.png";
+
+/* ================= CONTENT CONSTANTS ================= */
+const heroContent = {
+  heading: ["Everyday safety", "for the people", "you love."],
+  description:
+    "EyEagle is a family safety system built for real life — from parents living alone, to families spread across cities, to loved ones travelling. We design calm, privacy-respecting ways to prevent accidents, call for help, and keep everyone in sync.",
+};
+
+const ctaButtons = [
+  {
+    label: "Get the app",
+    href: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+  },
+  {
+    label: "How it works",
+    href: "https://eyeagle.ai/solution",
+    variant: "outline",
+  },
+];
+
+const featureTicks = ["No cameras", "No complex setup"];
+---
+
+<section class="bg-white py-20 px-0 xl:container font-sans-instrument">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+    <!-- LEFT CONTENT -->
+    <div class="flex items-center pl-[120px]">
+      <div class="max-w-[570px]">
+        <h1 class="text-4xl md:text-7xl font-bold leading-[80px]">
+          {heroContent.heading[0]}<br />
+          {heroContent.heading[1]}<br />
+          {heroContent.heading[2]}
+        </h1>
+
+        <p class="mt-10 text-lg font-normal leading-7">
+          {heroContent.description}
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="mt-10 flex items-center gap-4">
+          {
+            ctaButtons.map((btn) => (
+              <a
+                href={btn.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`inline-block rounded-full px-8 py-3 font-semibold transition
+                ${
+                  btn.variant === "outline"
+                    ? "border border-gray-400 hover:bg-gray-50"
+                    : "bg-[#CC0000] text-white hover:bg-red-700"
+                }`}
+              >
+                {btn.label}
+              </a>
+            ))
+          }
+        </div>
+
+        <!-- Feature ticks -->
+        <div class="mt-[60px] space-y-3">
+          {
+            featureTicks.map((text) => (
+              <div class="flex items-center gap-3 text-base font-medium text-[#15803D]">
+                <Image src={Check} alt="Check icon" class="w-4 h-4" />
+                <span>{text}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT IMAGE (FULL BLEED RIGHT) -->
+    <div class="flex justify-end">
+      <Image
+        src={HeroImage}
+        alt="Family standing together at home"
+        class="w-[690px] h-[860px] object-cover"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>

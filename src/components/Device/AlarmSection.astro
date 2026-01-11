@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type Tab = {
+  id: string;
+  label: string;
+  image: ImageMetadata;
+};
+const tabsData = Astro.props.tabsData;
+const alarmHeader = Astro.props.alarmHeader;
+---
+
+<section class="flex flex-col items-center py-20 bg-white font-sans-instrument">
+  <div class="text-center mb-[68px] max-w-[820px] mx-auto">
+    <h2 class="text-[32px] md:text-5xl font-bold leading-10 tracking-tight">
+      {alarmHeader.title}
+    </h2>
+    <p
+      class="mt-4 text-base md:text-lg md:text-black/70 text-black leading-relaxed"
+    >
+      {alarmHeader.description}
+    </p>
+  </div>
+  <!-- Tabs -->
+  <div
+    class="flex w-[1360px] max-w-full text-sm font-semibold tracking-widest mb-2 px-4"
+  >
+    {
+      tabsData.map((tab: Tab, index: number) => (
+        <button
+          id={`${tab.id}Tab`}
+          class={`relative w-1/2 text-center pb-1 ${
+            index === 0 ? "text-red-600" : "text-gray-800"
+          }`}
+        >
+          {tab.label}
+          <span
+            id={`${tab.id}Line`}
+            class={`absolute left-0 bottom-0 h-[2px] w-full ${
+              index === 0 ? "bg-red-600" : "bg-transparent"
+            }`}
+          />
+        </button>
+      ))
+    }
+  </div>
+  <!-- Images -->
+  <div class="relative w-[1360px] max-w-full flex justify-center px-4">
+    {
+      tabsData.map((tab: Tab, index: number) => (
+        <Image
+          id={`${tab.id}Img`}
+          src={tab.image}
+          alt={`${tab.label} view`}
+          class={`${index === 0 ? "block" : "hidden"} w-full`}
+        />
+      ))
+    }
+  </div>
+
+  <script is:inline>
+    const tabs = ["inside", "outside"].map((id) => ({
+      id,
+      tab: document.getElementById(id + "Tab"),
+      img: document.getElementById(id + "Img"),
+      line: document.getElementById(id + "Line"),
+    }));
+
+    const setActive = (activeId) =>
+      tabs.forEach(({ id, tab, img, line }) => {
+        const active = id === activeId;
+        img.classList.toggle("hidden", !active);
+        tab.classList.toggle("text-red-600", active);
+        tab.classList.toggle("text-gray-800", !active);
+        line.classList.toggle("bg-red-600", active);
+        line.classList.toggle("bg-transparent", !active);
+      });
+
+    tabs.forEach(({ id, tab }) => {
+      tab.onclick = () => setActive(id);
+    });
+  </script>
+</section>

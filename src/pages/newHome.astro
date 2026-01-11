@@ -1,0 +1,30 @@
+---
+import HeroSection from "../components/NewHome/HeroSection.astro";
+import Moments from "../components/NewHome/Moments.astro";
+import SafetySteps from "../components/NewHome/SafetySteps.astro";
+import EyeagleApp from "../components/NewHome/EyeagleApp.astro";
+import GuardianX from "../components/NewHome/GuardianX.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import BathroomKit from "../components/NewHome/BathroomKit.astro";
+import ProcessSection from "../components/NewHome/ProcessSection.astro";
+import StepsSection from "../components/NewHome/StepsSection.astro";
+import FAQs from "../components/NewHome/FAQs.astro";
+import CTA from "../components/NewHome/CTA.astro";
+
+const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
+const metaDesc =
+  "Explore EyEagle’s innovative solutions for elderly safety. From fall alert devices to emergency alarm systems, protect your loved ones today.";
+---
+
+<MainLayout title={metaTitle} desc={metaDesc}>
+  <HeroSection />
+  <SafetySteps />
+  <Moments />
+  <EyeagleApp />
+  <GuardianX />
+  <BathroomKit />
+  <ProcessSection />
+  <StepsSection />
+  <FAQs />
+  <CTA/>
+</MainLayout>
