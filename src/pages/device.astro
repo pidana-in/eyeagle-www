@@ -7,6 +7,17 @@ import AppDownload from "../components/AppSection/AppDownload.astro";
 import { contentData, stores } from "../components/constants/app";
 import HowItWorks from "../components/Device/HowItWorks.astro";
 import FAQs from "../components/Device/FAQs.astro";
+import {
+  heroContent,
+  features,
+  alarmHeader,
+  tabsData,
+  sections,
+  featureAssets,
+  steps,
+  header,
+  faqsData,
+} from "../components/constants/device";
 
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
 const metaDesc =
@@ -14,10 +25,10 @@ const metaDesc =
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc}>
-  <HeroSection />
-  <AlarmSection />
-  <ProductSection />
-  <HowItWorks />
-  <FAQs />
+  <HeroSection heroContent={heroContent} features={features} />
+  <AlarmSection tabsData={tabsData} alarmHeader={alarmHeader} />
+  <ProductSection sections={sections} featureAssets={featureAssets} />
+  <HowItWorks steps={steps} header={header} />
+  <FAQs faqsData={faqsData} />
   <AppDownload contentData={contentData} stores={stores} />
 </MainLayout>

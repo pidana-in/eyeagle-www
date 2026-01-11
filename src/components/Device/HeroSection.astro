@@ -1,204 +1,102 @@
 ---
 import { Image } from "astro:assets";
-import HeroImage from "../../assets/Product/BathroomImage.png";
-import LoudAlarm from "../../assets/Product/LoudAlarm.png";
-import NoWifi from "../../assets/Product/NoWifi.png";
-import Power from "../../assets/Product/Power.png";
-import Camera from "../../assets/Product/Camera.png";
+const heroContent = Astro.props.heroContent
+const features = Astro.props.features
 ---
 
-<div class="hidden md:block">
-  <section
-    class="relative w-full overflow-hidden xl:container my-20 font-sans-instrument"
-  >
-    <!-- Background Image -->
+<!-- DESKTOP VIEW -->
+<div class="hidden md:block font-sans-instrument">
+  <div class="relative xl:container my-20 overflow-hidden">
     <Image
-      src={HeroImage}
+      src={heroContent.images.img1}
       alt="Bathroom Safety Hero"
       class="w-full object-cover"
     />
-
-    <!-- Overlay Content -->
     <div
-      class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-10 mt-[344px] mb-[114px] mx-[120px]"
+      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-[344px] mb-[114px] mx-[120px]"
     >
-      <!-- Badge -->
       <span
-        class="px-3 py-1.5 rounded-full text-sm font-medium border border-white/50 bg-white/20 backdrop-blur-[4px] text-white"
+        class="px-3 py-1.5 rounded-full text-sm font-medium border border-white/50 bg-white/20 backdrop-blur text-white"
       >
-        Bathroom Safety Alarm Kit
+        {heroContent.badge}
       </span>
-
-      <!-- Heading -->
       <h2
-        class="text-4xl md:text-[68px] font-bold leading-[100%] text-white my-5 text-center drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
-      >
-        One press.<br />The right people know
-      </h2>
-
-      <!-- Subtext -->
+        class="text-[68px] font-bold leading-[100%] text-white my-5 drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
+        set:html={heroContent.title}
+      />
       <p
-        class="text-white text-base md:text-xl mt-4 leading-[140%] tracking-[1%] drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
+        class="text-white text-xl leading-[140%] drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
       >
-        A simple, privacy-first bathroom alarm kit built for real Indian
-        bathrooms that makes it easy to ask for help and alert your family,
-        without cameras or complexity.
+        {heroContent.description}
       </p>
-
-      <!-- CTA Button -->
-      <a
-        href="https://eyeagle.ai/join"
-        class="inline-block bg-[#CC0000] text-white mt-10 py-4 px-5 tracking-[1%]
-         rounded-full font-semibold text-lg shadow-lg
-         hover:bg-red-700 transition"
-      >
-        Join the waitlist
-      </a>
-
-      <!-- Small text -->
-      <p class="text-[#FFFFFF] text-sm mt-4">
-        No payment now. We'll contact you when installs open in your city.
-      </p>
-    </div>
-  </section>
-
-  <section
-    class="xl:container flex flex-col md:flex-row gap-10 mt-12 px-4 text-center justify-evenly my-20"
-  >
-    <!-- Loud Alarm -->
-    <div class="flex flex-col items-center text-center max-w-[268px]">
-      <div class="flex items-center gap-3">
-        <Image src={LoudAlarm} alt="Loud alarm" class="" />
-        <h4 class="text-2xl font-semibold">Loud Alarm</h4>
+      <div class="flex justify-center">
+        <a
+          href={heroContent.cta.href}
+          class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+        >
+          {heroContent.cta.text}
+        </a>
       </div>
-      <p class="text-lg text-[#000000] mt-2 opacity-70">
-        Clearly audible, even from the next room.
-      </p>
+      <p class="text-white text-sm mt-4">{heroContent.cta.helper}</p>
     </div>
-
-    <!-- No Wi-Fi required -->
-    <div class="flex flex-col items-center text-center max-w-[268px]">
-      <div class="flex items-center gap-3">
-        <Image src={NoWifi} alt="No Wi-Fi icon" class="" />
-        <h4 class="text-2xl font-semibold">No Wi-Fi required</h4>
-      </div>
-      <p class="text-lg text-[#000000] mt-2 opacity-70">
-        Works reliably, even when the Wi-Fi doesn’t.
-      </p>
-    </div>
-
-    <!-- No Charging required -->
-    <div class="flex flex-col items-center text-center max-w-[268px]">
-      <div class="flex items-center gap-3">
-        <Image src={Power} alt="Power icon" class="" />
-        <h4 class="text-2xl font-semibold">No charging required</h4>
-      </div>
-      <p class="text-lg text-[#000000] mt-2 opacity-70">
-        Always on. No charging or backup batteries to manage.
-      </p>
-    </div>
-
-    <!-- No camera -->
-    <div class="flex flex-col items-center text-center max-w-[268px]">
-      <div class="flex items-center gap-3">
-        <Image src={Camera} alt="Camera icon" class="" />
-        <h4 class="text-2xl font-semibold">No camera</h4>
-      </div>
-      <p class="text-lg text-[#000000] mt-2 opacity-70">
-        Protects privacy and dignity in the bathroom.
-      </p>
-    </div>
-  </section>
+  </div>
+  <div class="xl:container flex justify-evenly text-center my-20 px-4">
+    {
+      features.map((item: any) => (
+        <div class="flex flex-col items-center max-w-[268px]">
+          <div class="flex items-center gap-3">
+            <Image src={item.icon} alt={item.title} />
+            <h4 class="text-2xl font-semibold">{item.title}</h4>
+          </div>
+          <p class="text-lg text-black opacity-70 mt-2">{item.description}</p>
+        </div>
+      ))
+    }
+  </div>
 </div>
-<section class="block md:hidden font-sans-instrument pt-12">
-  <!-- 1) Badge -->
+<!-- MOBILE VIEW -->
+<div class="block md:hidden font-sans-instrument py-[60px]">
   <div class="flex justify-center">
     <span
-      class="px-3 py-1.5 rounded-full text-sm font-semibold border border-[#000000] text-[#000000]"
+      class="px-3 py-1.5 rounded-full text-sm font-semibold border border-black text-black"
     >
-      Bathroom Safety Alarm Kit
+      {heroContent.badge}
     </span>
   </div>
-
-  <!-- 2) Heading -->
   <h2
-    class="text-5xl font-bold leading-[56px] text-center my-4 tracking-normal"
-  >
-    One press.<br />The right people know
-  </h2>
-
-  <!-- 3) Subtext -->
-  <p class="text-base font-normal text-[#000000] leading-7 text-center">
-    A simple, privacy-first bathroom alarm kit built for real Indian bathrooms
-    that makes it easy to ask for help and alert your family, without cameras or
-    complexity.
+    class="text-5xl font-bold leading-[56px] text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
+    set:html={heroContent.title}
+  />
+  <p class="text-black text-center leading-7">
+    {heroContent.description}
   </p>
-
-  <!-- 4) CTA -->
-  <button
-    class="bg-[#CC0000] text-white mt-6 py-3 px-5 rounded-full font-semibold text-sm w-full"
-  >
-    Join the waitlist
-  </button>
-
-  <!-- 5) Small helper text -->
-  <p class="text-[#666] text-xs text-center mt-3">
-    No payment now. We'll contact you when installs open in your city.
-  </p>
-
-  <!-- 6) Blue product image -->
-  <div class="mt-10">
-    <Image
-      src={HeroImage}
-      alt="Bathroom Product Image"
-      class="w-full object-cover"
-    />
+  <div class="flex justify-center">
+    <a
+      href={heroContent.cta.href}
+      class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+    >
+      {heroContent.cta.text}
+    </a>
   </div>
-
-  <!-- 7) Feature List -->
-  <div class="mt-10 space-y-10">
-    <!-- Loud Alarm -->
-    <div class="flex items-start gap-3">
-      <Image src={LoudAlarm} alt="Loud alarm" class="w-6 h-6" />
-      <div>
-        <h4 class="text-base font-semibold">Loud Alarm</h4>
-        <p class="text-sm text-black/70 leading-[140%] mt-1">
-          Clearly audible, even from the next room.
-        </p>
-      </div>
-    </div>
-
-    <!-- No Wi-Fi -->
-    <div class="flex items-start gap-3">
-      <Image src={NoWifi} alt="No Wi-Fi" class="w-6 h-6" />
-      <div>
-        <h4 class="text-base font-semibold">No Wi-Fi required</h4>
-        <p class="text-sm text-black/70 leading-[140%] mt-1">
-          Works reliably, even when the Wi-Fi doesn’t.
-        </p>
-      </div>
-    </div>
-
-    <!-- No Charging -->
-    <div class="flex items-start gap-3">
-      <Image src={Power} alt="No charging" class="w-6 h-6" />
-      <div>
-        <h4 class="text-base font-semibold">No charging required</h4>
-        <p class="text-sm text-black/70 leading-[140%] mt-1">
-          Always on. No charging or backup batteries to manage.
-        </p>
-      </div>
-    </div>
-
-    <!-- No Camera -->
-    <div class="flex items-start gap-3">
-      <Image src={Camera} alt="No camera" class="w-6 h-6" />
-      <div>
-        <h4 class="text-base font-semibold">No camera</h4>
-        <p class="text-sm text-black/70 leading-[140%] mt-1">
-          Protects privacy and dignity in the bathroom.
-        </p>
-      </div>
-    </div>
+  <p class="text-[#666] text-xs text-center mt-4">{heroContent.cta.helper}</p>
+  <Image
+    src={heroContent.images.img2}
+    alt="Bathroom Product Image"
+    class="w-full object-cover mt-8"
+  />
+  <div class="mt-20 space-y-10 px-4 flex flex-col items-center text-center">
+    {
+      features.map((item: any) => (
+        <div class="flex flex-col items-center text-center max-w-[280px]">
+          <div class="flex items-center gap-3">
+            <Image src={item.icon} alt={item.title} />
+            <h4 class="text-2xl font-semibold">{item.title}</h4>
+          </div>
+          <p class="text-[#000000]/70 mt-3 leading-[140%]">
+            {item.description}
+          </p>
+        </div>
+      ))
+    }
   </div>
-</section>
+</div>
