@@ -51,6 +51,7 @@ import blogImage16 from "../../assets/Blog/BlogImage16.jpg"
 import blogImage17 from "../../assets/Blog/BlogImage17.jpg"
 import blogImage18 from "../../assets/Blog/BlogImage18.jpg"
 import blogImage19 from "../../assets/Blog/BlogImage19.jpg"
+import blogImage20 from "../../assets/Blog/BlogImage20.jpg"
 
 export const bathroomData = [
   {
@@ -259,6 +260,12 @@ export const blogsData = [
     title: "A Thoughtful New Year Gift: Choosing Safety Over Showpieces",
     desc: "Looking for a meaningful New Year gift? Discover why practical safety gifts offer lasting care and everyday protection for loved ones.",
     img: blogImage19,
+  },
+    {
+    slug: "how-to-make-your-home-safe",
+    title: "Turning Your Home Into a Safe Home in 2026",
+    desc: "Learn how to turn your home into a safe home in 2026 with practical home safety improvements, fall prevention tips, and age-friendly changes.",
+    img: blogImage20,
   },
 ];
 
