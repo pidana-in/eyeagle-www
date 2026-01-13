@@ -21,8 +21,7 @@ One missed call.
 
 Her name flashed on the screen.
 
-I remember glancing at it and thinking, I’ll call back in five minutes.
-Five minutes felt harmless. Five minutes always does.
+I remember glancing at it and thinking, I’ll call back in five minutes.<br>Five minutes felt harmless. Five minutes always does.
 
 I put the phone face down and went back to getting ready. Socks. Jacket. Keys. The day moved forward the way days usually do, without asking if anyone was being left behind.
 
@@ -58,9 +57,7 @@ We don’t think of them as dangerous. They’re part of routine: early mornings
 
 Later, the missed call felt heavier than anything else that day.
 
-Was it for help?
-Was there time?
-Would things have been different if I had answered?
+Was it for help?<br>Was there time?<br>Would things have been different if I had answered?
 
 These questions don’t come with answers. They stay. They echo. And they don’t fade easily.
 
