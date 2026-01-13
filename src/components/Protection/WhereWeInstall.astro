@@ -1,75 +1,53 @@
 ---
 import { Image } from "astro:assets";
-import ToiletImage from "../../assets/Protection/Toilet.png";
-import ShowerImage from "../../assets/Protection/Shower.png";
-import EntryImage from "../../assets/Protection/Entry.png";
+import type { ImageMetadata } from "astro";
 
-const zones = [
-  {
-    image: ToiletImage,
-    title: "Toilet",
-    subtitle: "Sit, stand and turn without a wobble",
-    desc: "We see where you place your hands when sitting and standing, then add a fold-down rail beside the seat and floor grip where your feet land.",
-  },
-  {
-    image: ShowerImage,
-    title: "Shower / bucket area",
-    subtitle: "Wet tiles, anchored movements",
-    desc: "We watch how you step over the lip, turn and use the bucket, then place vertical and horizontal bars plus a draining mat in those exact spots.",
-  },
-  {
-    image: EntryImage,
-    title: "Entry & turning",
-    subtitle: "The first step in and last step out",
-    desc: "We trace your path between door, toilet and shower, then add a grab bar at the main turn and transparent tape along the narrow strip you step on most.",
-  },
-];
+type Zone = {
+  image: ImageMetadata;
+  title: string;
+  subtitle: string;
+  desc: string;
+};
+const zones: Zone[] = Astro.props.zones;
+const installData = Astro.props.installData;
 ---
 
-<section class="xl:container py-20">
-  <div class="flex flex-col justify-center items-center text-center px-[125px]">
-    <div class="px-[120px]">
-      <h2 class="text-5xl leading-[56px] font-bold px-[140px]">
-        We follow your exact path through the bathroom and add support to it.
+<section class="xl:container py-14 md:py-20 md:px-[125px]">
+  <div class="flex flex-col items-center text-center px-4 md:mx-[240px]">
+    <div class="max-w-[1100px]">
+      <h2 class="text-[32px] md:text-5xl font-bold leading-8 md:leading-[56px]">
+        {installData.title}
       </h2>
     </div>
-    <div class="px-[120px] mt-5">
-      <p class="px-[140px] text-base leading-[28px]">
-        During installation, we ask you (or your family member) to walk us
-        through a normal bathroom visit. We watch where you step, turn and
-        reach, then plan support around three critical zones.
+    <div class="mt-5 max-w-[900px]">
+      <p class="text-base leading-[28px]">
+        {installData.desc}
       </p>
     </div>
   </div>
-
-  <div class="mt-20 mx-[240px] px-0">
+  <div class="mt-12 md:mt-20 px-4 md:px-0 md:mx-[240px]">
     {
-      zones.map((zone, index) => (
+      zones.map((zone: Zone, index: number) => (
         <div
-          class={`flex flex-row rounded-3xl border gap-8 bg-[#F9F7F7] ${
-            index !== 0 ? "mt-8" : ""
-          }`}
+          class={`flex flex-col md:flex-row gap-6 md:gap-8
+          rounded-3xl border bg-[#F9F7F7]
+          ${index !== 0 ? "mt-6 md:mt-8" : ""}`}
         >
           <Image
             src={zone.image}
             alt={zone.title}
-            class="rounded-s-3xl border"
+            class="w-full md:w-auto rounded-t-3xl md:rounded-s-3xl border"
           />
-          <div class="max-w-[525px] mt-10">
+          <div class="px-4 md:px-0 md:max-w-[525px] py-6 md:py-10">
             <h3 class="text-[#CC0000] text-xl font-bold">{zone.title}</h3>
-            <p class="text-base font-normal">{zone.subtitle}</p>
-            <div class="mt-3">
-              <p class="text-base font-normal opacity-60">{zone.desc}</p>
-            </div>
+            <p class="text-base mt-1">{zone.subtitle}</p>
+            <p class="mt-3 text-base opacity-60">{zone.desc}</p>
           </div>
         </div>
       ))
     }
-
-    <!-- Footer note -->
-    <p class="mt-12 text-center text-lg italic">
-      Every home is different. We sketch the layout with you before drilling a
-      single hole
+    <p class="mt-20 text-center text-lg italic">
+      {installData.footer}
     </p>
   </div>
 </section>

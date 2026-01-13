@@ -7,7 +7,18 @@ import DesignedFor from "../components/Protection/DesignedFor.astro";
 import Benefits from "../components/Protection/Benefits.astro";
 import Installation from "../components/Protection/Installation.astro";
 import Comparison from "../components/Protection/Comparison.astro";
-import { featurePoints, heroContent } from "../components/constants/protection";
+import {
+  featurePoints,
+  heroContent,
+  overviewCards,
+  barFeatures,
+  matFeatures,
+  tapeFeatures,
+  sectionHeaders,
+  kitData,
+  zones,
+  installData,
+} from "../components/constants/protection";
 import CTA from "../components/Protection/CTA.astro";
 import FAQs from "../components/Protection/FAQs.astro";
 
@@ -18,8 +29,15 @@ const metaDesc =
 
 <MainLayout title={metaTitle} desc={metaDesc}>
   <HeroSection featurePoints={featurePoints} heroContent={heroContent} />
-  <KitSection />
-  <WhereWeInstall />
+  <KitSection
+    overviewCards={overviewCards}
+    barFeatures={barFeatures}
+    matFeatures={matFeatures}
+    tapeFeatures={tapeFeatures}
+    sectionHeaders={sectionHeaders}
+    kitData={kitData}
+  />
+  <WhereWeInstall zones={zones} installData={installData} />
   <DesignedFor />
   <Benefits />
   <Installation />
