@@ -26,32 +26,33 @@ import kitImage4new from "../../assets/Navbar/kitImage4new.png";
 import kitMobile4 from "../../assets/Navbar/kitMobile4.png";
 import kitImage5new from "../../assets/Navbar/kitImage5new.png";
 import kitMobile5 from "../../assets/Navbar/kitmobile5.png";
-import hero_17 from "../../assets/Home/Hero_17.png"
-import shop1 from "../../assets/Home/shop1new.png"
-import shop2 from "../../assets/Home/shop2new.png"
-import shop3 from "../../assets/Home/shop3new.png"
-import blogImage1 from "../../assets/Blog/BlogImage1.jpg"
-import blogImage2 from "../../assets/Blog/BlogImage2.jpg"
-import blogImage3 from "../../assets/Blog/BlogImage3.jpg"
-import blogImage4 from "../../assets/Blog/BlogImage4.jpg"
-import blogImage5 from "../../assets/Blog/BlogImage5.jpg"
-import blogImage6 from "../../assets/Blog/BlogImage6.jpg"
-import blogImage7 from "../../assets/Blog/BlogImage7.jpg"
-import blogImage8 from "../../assets/Blog/BlogImage8.jpg"
-import blogImage9 from "../../assets/Blog/BlogImage9.jpg"
-import blogImage10 from "../../assets/Blog/BlogImage10.jpg"
-import blogImage11 from "../../assets/Blog/BlogImage11.jpg"
-import blogDiwali1 from "../../assets/Blog/BlogDiwali1.jpg"
-import blogDiwali2 from "../../assets/Blog/BlogDiwali2.jpg"
-import blogImage12 from "../../assets/Blog/BlogImage12.jpg"
-import blogImage13 from "../../assets/Blog/BlogImage13.jpg"
-import blogImage14 from "../../assets/Blog/BlogImage14.jpg"
-import blogImage15 from "../../assets/Blog/BlogImage15.jpg"
-import blogImage16 from "../../assets/Blog/BlogImage16.jpg"
-import blogImage17 from "../../assets/Blog/BlogImage17.jpg"
-import blogImage18 from "../../assets/Blog/BlogImage18.jpg"
-import blogImage19 from "../../assets/Blog/BlogImage19.jpg"
-import blogImage20 from "../../assets/Blog/BlogImage20.jpg"
+import hero_17 from "../../assets/Home/Hero_17.png";
+import shop1 from "../../assets/Home/shop1new.png";
+import shop2 from "../../assets/Home/shop2new.png";
+import shop3 from "../../assets/Home/shop3new.png";
+import blogImage1 from "../../assets/Blog/BlogImage1.jpg";
+import blogImage2 from "../../assets/Blog/BlogImage2.jpg";
+import blogImage3 from "../../assets/Blog/BlogImage3.jpg";
+import blogImage4 from "../../assets/Blog/BlogImage4.jpg";
+import blogImage5 from "../../assets/Blog/BlogImage5.jpg";
+import blogImage6 from "../../assets/Blog/BlogImage6.jpg";
+import blogImage7 from "../../assets/Blog/BlogImage7.jpg";
+import blogImage8 from "../../assets/Blog/BlogImage8.jpg";
+import blogImage9 from "../../assets/Blog/BlogImage9.jpg";
+import blogImage10 from "../../assets/Blog/BlogImage10.jpg";
+import blogImage11 from "../../assets/Blog/BlogImage11.jpg";
+import blogDiwali1 from "../../assets/Blog/BlogDiwali1.jpg";
+import blogDiwali2 from "../../assets/Blog/BlogDiwali2.jpg";
+import blogImage12 from "../../assets/Blog/BlogImage12.jpg";
+import blogImage13 from "../../assets/Blog/BlogImage13.jpg";
+import blogImage14 from "../../assets/Blog/BlogImage14.jpg";
+import blogImage15 from "../../assets/Blog/BlogImage15.jpg";
+import blogImage16 from "../../assets/Blog/BlogImage16.jpg";
+import blogImage17 from "../../assets/Blog/BlogImage17.jpg";
+import blogImage18 from "../../assets/Blog/BlogImage18.jpg";
+import blogImage19 from "../../assets/Blog/BlogImage19.jpg";
+import blogImage20 from "../../assets/Blog/BlogImage20.jpg";
+import blogImage21 from "../../assets/Blog/BlogImage21.jpg";
 
 export const bathroomData = [
   {
@@ -114,24 +115,24 @@ export const shopData = [
     img: shop1,
     content: `EyEagle Package - Prevention + App Subscription`,
     subcontent: `<span class="line-through">Rs 29,999</span>  Rs 19,999`,
-    badge: `Sale`, 
+    badge: `Sale`,
     linkTab: `Know more`,
-    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`
+    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`,
   },
   {
     img: shop2,
     content: `Bathroom Audit - Remote`,
     subcontent: `<span class="line-through">Rs 999</span>  Rs 0`,
-    badge: `Sale`, 
+    badge: `Sale`,
     linkTab: `Know more`,
-    link: `https://shop.eyeagle.ai/products/bathroom-audit`
+    link: `https://shop.eyeagle.ai/products/bathroom-audit`,
   },
   {
     img: shop3,
     content: `EyEagle Prevention Package + App Subscription + Guardian X Kit`,
-    badge: `Coming Soon`, 
+    badge: `Coming Soon`,
     linkTab: `Notify Me`,
-    link: `https://eyeagle.ai/join`
+    link: `https://eyeagle.ai/join`,
   },
 ];
 export const blogsData = [
@@ -152,7 +153,7 @@ export const blogsData = [
     title: "How to Ensure 24/7 Safety for Parents Living Alone | EyEagle",
     desc: "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.",
     img: blogImage3,
-    },
+  },
   {
     slug: "step-by-step-bathroom-safety-tips-for-seniors",
     title: "Step by Step Easy Bathroom Safety Tips for Seniors | EyEagle",
@@ -171,49 +172,49 @@ export const blogsData = [
     desc: "Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being.",
     img: blogImage6,
   },
-    {
+  {
     slug: "arthritis-and-joint-pain-in-seniors",
     title: "Arthritis & Joint Pain in Seniors | Fall Prevention Tips",
     desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies.",
     img: blogImage7,
   },
-   {
+  {
     slug: "balance-problems-in-elderly",
     title: "Balance Problems in Elderly: Causes, Warning Signs & Prevention",
     desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
     img: blogImage8,
   },
-   {
+  {
     slug: "how-fear-of-falling-affects-mental-health",
     title: "How Fear of Falling Affects Mental Health",
     desc: "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy.",
     img: blogImage9,
   },
-     {
+  {
     slug: "importance-of-regular-vision-checks",
     title: "Why vision matters for seniors' fall prevention",
     desc: "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent.",
     img: blogImage10,
   },
-     {
+  {
     slug: "the-critical-60-minutes-after-a-fall",
     title: "Why the First Hour After a Fall Matters?",
     desc: "The first 60 minutes after a fall are critical. Learn how quick response & early treatment of fall injuries can save lives.",
-    img: blogImage11,  
+    img: blogImage11,
   },
-    {
+  {
     slug: "senior-safety-during-diwali",
     title: "Senior Safety During Diwali | Keep Your Loved Ones Safe",
     desc: "Learn why senior safety during Diwali is important and how you can implement them in your homes this festive season.",
-    img: blogDiwali1,  
+    img: blogDiwali1,
   },
-   {
+  {
     slug: "diwali-travel-safety-tips-for-seniors",
     title: "Diwali Travel Safety & Home Safety Tips | EyEagle",
     desc: "Plan a safe, stress-free Diwali with smart travel tips and home safety ideas. Celebrate with awareness & joy wherever you light your diyas.",
     img: blogDiwali2,
   },
-    {
+  {
     slug: "diet-and-nutrition-in-healthy-aging",
     title: "Nutrition and Healthy Aging: Diet Tips for Older Adults",
     desc: "Know how good nutrition supports healthy aging by boosting strength, balance, and energy. Learn key diet tips for keeping older adults healthy and independent.",
@@ -225,47 +226,53 @@ export const blogsData = [
     desc: "Discover the must-do health checkups after 60, from heart and diabetes to bone density. A complete guide for seniors and caregivers.",
     img: blogImage13,
   },
-   {
+  {
     slug: "mobility-tips-for-seniors",
     title: "Stretch Daily, Fall Less: Mobility Tips for Seniors",
     desc: "Know gentle mobility tips for seniors, including safe stretching routines and fall prevention exercises. Improve flexibility & strength after 60.",
     img: blogImage14,
   },
-   {
+  {
     slug: "sleep-hygiene-for-seniors",
     title: "Sleep Hygiene for Seniors: Why Rest Matters More Than Ever",
     desc: "Why sleep hygiene for seniors is essential for healthy aging. Know how better sleep habits can boost energy, memory in older adults.",
     img: blogImage15,
   },
-    {
+  {
     slug: "importance-of-open-conversations-about-aging",
     title: "Open Conversations About Aging: Why Families Should Talk Openly ",
     desc: "Encourage open conversations about aging to build trust, support seniors’ well-being, and strengthen family bonds with empathy and care.",
     img: blogImage16,
   },
-    {
+  {
     slug: "silver-tsunami-india-safer-future-for-seniors",
     title: "Silver Tsunami in India: Ensuring Safety & Care for Seniors",
     desc: "Explore how India’s Silver Tsunami demands better senior safety, healthcare, and community care for a dignified and inclusive future.",
     img: blogImage17,
   },
-    {
+  {
     slug: "new-year-safer-home-safety-tips",
     title: "New Year, Safer Home: Small Changes That Save Lives",
     desc: "Start the New Year with simple home safety tips that prevent accidents and protect families and seniors. Small safety changes can save lives.",
     img: blogImage18,
   },
-     {
+  {
     slug: "thoughtful-new-year-gift-safety-over-showpieces",
     title: "A Thoughtful New Year Gift: Choosing Safety Over Showpieces",
     desc: "Looking for a meaningful New Year gift? Discover why practical safety gifts offer lasting care and everyday protection for loved ones.",
     img: blogImage19,
   },
-    {
+  {
     slug: "how-to-make-your-home-safe",
     title: "Turning Your Home Into a Safe Home in 2026",
     desc: "Learn how to turn your home into a safe home in 2026 with practical home safety improvements, fall prevention tips, and age-friendly changes.",
     img: blogImage20,
+  },
+  {
+    slug: "that-missed-call-on-a-winter-morning",
+    title: "That Missed Call on a Winter Morning",
+    desc: "A quiet winter morning, a missed call, and a moment that changed everything. A story that reflects on bathroom falls and home safety.",
+    img: blogImage21,
   },
 ];
 
@@ -391,16 +398,16 @@ export const FatherSection1 =
   "Get 15% OFF on EyEagle Safety Kit + Free Safety Audit";
 
 export const FatherSection2 =
-    "Offer valid June 12–15. Limited slots available.";
+  "Offer valid June 12–15. Limited slots available.";
 
-  export const YogaSection2 =
+export const YogaSection2 =
   "Offer valid till June 21. Limited slots available.";
 
 export const descriptionButton = "Join waitlist";
 
 export const descriptionButtonFathersday = "Book Now";
 
-export const scrollDataSection:{[key:number]:string} = {
+export const scrollDataSection: { [key: number]: string } = {
   1: "prevention",
   2: "services",
   3: "alerts",
