@@ -1,6 +1,6 @@
 ---
 id: "23"
-title: "Turning Your Home Into a Safe Home in 2026"
+title: "That Missed Call on a Winter Morning"
 category: "Blog"
 img: ../../assets/Blog/BlogImage21.jpg
 slug: "that-missed-call-on-a-winter-morning"
