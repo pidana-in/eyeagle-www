@@ -21,6 +21,15 @@ import {
   statsData,
   userCards,
   cardsData,
+  installSteps,
+  installFeatures,
+  installImage,
+  comparisonData,
+  comparisonRows,
+  comparisonColumns,
+  ctaData,
+  ctaContent,
+  faqsData,
 } from "../components/constants/protection";
 import CTA from "../components/Protection/CTA.astro";
 import FAQs from "../components/Protection/FAQs.astro";
@@ -43,8 +52,16 @@ const metaDesc =
   <WhereWeInstall zones={zones} installData={installData} />
   <DesignedFor userCards={userCards} statsData={statsData} />
   <Benefits cardsData={cardsData} />
-  <Installation />
-  <Comparison />
-  <CTA />
-  <FAQs />
+  <Installation
+    installSteps={installSteps}
+    installFeatures={installFeatures}
+    installImage={installImage}
+  />
+  <Comparison
+    comparisonData={comparisonData}
+    comparisonRows={comparisonRows}
+    comparisonColumns={comparisonColumns}
+  />
+  <CTA ctaContent={ctaContent} ctaData={ctaData} />
+  <FAQs faqsData={faqsData} />
 </MainLayout>

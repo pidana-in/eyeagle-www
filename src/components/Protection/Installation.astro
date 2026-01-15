@@ -1,93 +1,59 @@
 ---
 import { Image } from "astro:assets";
-import VideoCall from "../../assets/Protection/VideoCall.png";
 
-const steps = [
-  {
-    title: "Quick call & photos",
-    desc: "You tell us the bathroom, we ask a few photos or a video.",
-  },
-  {
-    title: "On-site safety walk-through",
-    desc: "We visit the site, understand risky zones and mark them.",
-  },
-  {
-    title: "Layout sketch & installation",
-    desc: "Custom layout, careful installation without damaging tiles.",
-  },
-  {
-    title: "Test run & care tips",
-    desc: "We test everything and show how to clean and maintain it.",
-  },
-];
-
-const features = [
-  {
-    title: "Clean drilling",
-    desc: "We protect tiles and use proper anchors.",
-  },
-  {
-    title: "No-rush visit",
-    desc: "We take time to listen and adjust.",
-  },
-  {
-    title: "Aftercare support",
-    desc: "You can call us if something feels loose or needs rechecking.",
-  },
-  {
-    title: "3 key zones",
-    desc: "Toilet, shower and entry all covered.",
-  },
-];
+type FeatureItem = {
+  title: string;
+  desc: string;
+};
+const installFeatures = Astro.props.installFeatures;
+const installSteps = Astro.props.installSteps;
+const installImage = Astro.props.installImage;
 ---
+
 <section class="xl:container py-20">
-  <div class="flex flex-col md:flex-row gap-10 md:gap-[60px] justify-center px-4 md:mx-[120px]">
-    
+  <div
+    class="flex flex-col md:flex-row gap-10 md:gap-[60px] justify-center px-4 md:mx-[120px]"
+  >
     <!-- LEFT: scrolling steps -->
     <div class="md:space-y-[283px]">
       {
-        steps.map((step) => (
+        installSteps.map((step: FeatureItem) => (
           <div class="flex gap-3 max-w-full md:max-w-[405px] px-4 py-2 md:p-6 max-sm:items-center">
-            <div class="md:block hidden w-[2px] bg-[#CC0000]"></div>
-            <div class="block md:hidden w-[2px] h-28 bg-[#CC0000]"></div>
+            <div class="md:block hidden w-[2px] bg-[#CC0000]" />
+            <div class="block md:hidden w-[2px] h-28 bg-[#CC0000]" />
             <div>
               <h4 class="text-xl md:text-2xl font-bold">{step.title}</h4>
-              <p class="mt-3 text-sm text-gray-600">
-                {step.desc}
-              </p>
+              <p class="mt-3 text-sm text-gray-600">{step.desc}</p>
             </div>
           </div>
         ))
       }
     </div>
-
     <!-- RIGHT: image -->
     <div class="block">
       <div class="relative md:sticky md:top-[120px] mt-10 md:mt-0">
         <Image
-          src={VideoCall}
+          src={installImage}
           alt="Installation consultation"
-          class="w-full max-w-full md:max-w-[687px] rounded-2xl"
+          class="w-full md:max-w-[687px] rounded-2xl"
         />
       </div>
     </div>
-
   </div>
-
   <!-- FEATURES -->
-  <div class="xl:container mt-20 flex justify-center px-4 md:px-[120px]">
+  <div
+    class="xl:container mt-10 md:mt-20 flex justify-center px-4 md:px-[120px]"
+  >
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-20 gap-y-12 text-center max-w-full"
+      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 text-center max-w-full"
     >
       {
-        features.map((item) => (
+        installFeatures.map((item: FeatureItem) => (
           <div class="max-w-full md:max-w-[270px] px-2 mx-auto">
             <p class="text-[#CC0000] text-xl md:text-2xl font-semibold">
               {item.title}
             </p>
-            <p class="mt-2 text-sm text-black opacity-60">
-              {item.desc}
-            </p>
+            <p class="mt-2 text-sm text-black opacity-60">{item.desc}</p>
           </div>
         ))
       }

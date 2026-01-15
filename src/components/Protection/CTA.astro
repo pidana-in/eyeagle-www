@@ -1,53 +1,42 @@
 ---
 import { Image } from "astro:assets";
-import redCheck from "../../assets/Protection/redCheck.png";
 
-const bullets = [
-  "Prevents slips at the floor",
-  "Adds stable handholds at high-risk movements",
-  "Makes everyday bathroom use feel calm and independent",
-];
+type CTAItem = {
+  text: string;
+  icon: ImageMetadata;
+};
+
+const ctaContent = Astro.props.ctaContent;
+const ctaData = Astro.props.ctaData;
 ---
 
-<!-- ================= SAFETY PLANNED SECTION ================= -->
-<section class="xl:container py-20">
+<section class="xl:container py-20 md:px-[120px] px-4">
   <div
-    class="mx-auto max-w-[1200px]
-           grid grid-cols-1 lg:grid-cols-2 gap-20 items-center
-           rounded-2xl border bg-[#F6F6F6] p-[60px]"
+    class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center rounded-2xl border bg-[#F6F6F6] md:p-[60px] px-4 py-7"
   >
-    <!-- LEFT CONTENT -->
     <div class="max-w-[500px]">
-      <p class="mb-3 text-black/60">A safer bathroom without over-installing</p>
-
-      <h2 class="text-[44px] font-bold leading-tight">
-        Safety planned around<br />your routine
-      </h2>
-
-      <p class="mt-4 max-w-md text-black">
-        We assess your toilet, wet zone, and entry path, then install only what
-        your space needs.
+      <p class="mb-2 text-black/60">{ctaContent.eyebrow}</p>
+      <h2
+        class="md:text-5xl text-[28px] font-bold leading-tight"
+        set:html={ctaContent.title}
+      />
+      <p class="mt-4 max-w-md">
+        {ctaContent.description}
       </p>
-
-      <!-- Bullet points -->
-      <ul class="mt-8 space-y-3 text-sm">
+      <ul class="mt-8 space-y-3 text-xs uppercase tracking-wider">
         {
-          bullets.map((item) => (
+          ctaData.map((item: CTAItem) => (
             <li class="flex items-start gap-2">
-              <Image src={redCheck} alt="" class="mt-1 size-4" />
-              <span>{item}</span>
+              <Image src={item.icon} alt="" class="mt-1 size-4" />
+              <span>{item.text}</span>
             </li>
           ))
         }
       </ul>
-
-      <!-- Price -->
       <div class="mt-8 flex items-baseline gap-2">
         <span class="text-2xl font-bold">$300</span>
         <span class="text-sm">/ one-time payment</span>
       </div>
-
-      <!-- CTA -->
       <button
         class="mt-6 w-full max-w-[280px] rounded-full
                bg-[#CC0000] py-3 font-semibold text-white
@@ -56,7 +45,6 @@ const bullets = [
         Get Started
       </button>
     </div>
-
     <!-- RIGHT IMAGE / PLACEHOLDER -->
     <div class="h-[426px] max-w-[500px] rounded-lg bg-[#828282]"></div>
   </div>

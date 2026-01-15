@@ -19,6 +19,8 @@ import HandleBar from "../../assets/Protection/HandleBar.png";
 import Mount from "../../assets/Protection/Mount.png";
 import Cleaning from "../../assets/Protection/Cleaning.png";
 import Calm from "../../assets/Protection/Calm.png";
+import VideoCall from "../../assets/Protection/VideoCall.png";
+import redCheck from "../../assets/Protection/redCheck.png";
 
 export const heroContent = {
   heading: {
@@ -230,5 +232,155 @@ export const cardsData = [
     alt: "Cleaning Image",
     title: "Easy to keep clean",
     desc: "Smooth, closed surfaces that wipe down quickly with mild bathroom cleaner—no special care needed.",
+  },
+];
+
+export const installSteps = [
+  {
+    title: "Quick call & photos",
+    desc: "You tell us the bathroom, we ask a few photos or a video.",
+  },
+  {
+    title: "On-site safety walk-through",
+    desc: "We visit the site, understand risky zones and mark them.",
+  },
+  {
+    title: "Layout sketch & installation",
+    desc: "Custom layout, careful installation without damaging tiles.",
+  },
+  {
+    title: "Test run & care tips",
+    desc: "We test everything and show how to clean and maintain it.",
+  },
+];
+
+export const installFeatures = [
+  {
+    title: "Clean drilling",
+    desc: "We protect tiles and use proper anchors.",
+  },
+  {
+    title: "No-rush visit",
+    desc: "We take time to listen and adjust.",
+  },
+  {
+    title: "Aftercare support",
+    desc: "You can call us if something feels loose or needs rechecking.",
+  },
+  {
+    title: "3 key zones",
+    desc: "Toilet, shower and entry all covered.",
+  },
+];
+export const installImage = VideoCall;
+
+export const comparisonColumns = [
+  "Aspect",
+  "No safety kit",
+  "One random grab bar",
+  "Our planned safety kit",
+];
+
+export const comparisonRows = [
+  {
+    label: "Coverage",
+    noKit: "No areas protected",
+    oneBar: "One wall or spot",
+    planned: "Toilet, shower, bucket and entry all covered.",
+  },
+  {
+    label: "Where you can hold",
+    noKit: "Walls, taps, buckets — not meant for weight.",
+    oneBar: "Bar may be away from where hands reach.",
+    planned: "Bars placed exactly where you sit, stand, turn and reach.",
+  },
+  {
+    label: "Floor grip",
+    noKit: "Bare wet tiles.",
+    oneBar: "Floor still slippery.",
+    planned: "Mat in wet zone + clear tape on danger strips.",
+  },
+  {
+    label: "Strength & fixing",
+    noKit: "Nothing designed for load.",
+    oneBar: "Depends on how it was drilled.",
+    planned: "Rails anchored into wall and floor, sized for body weight.",
+  },
+  {
+    label: "Fit to user",
+    noKit: "No adjustment.",
+    oneBar: "Height and position guessed.",
+    planned: "Layout and heights customised to the person and bathroom.",
+  },
+  {
+    label: "Look & feel",
+    noKit: "Feels risky.",
+    oneBar: "Can look like a hospital add-on.",
+    planned: "Clean, matching hardware that looks designed, not improvised.",
+  },
+];
+
+export const comparisonData = {
+  title: "How this compares to ‘do nothing’ or ‘just one bar’.",
+  desc: " Most bathrooms either have no support or a single bar added as an afterthought. Our kit is planned around how you actually move, so the whole room works together instead of relying on one lucky grab point.",
+};
+
+export const ctaContent = {
+  eyebrow: "A safer bathroom without over-installing",
+  title: `Safety planned <br/> around your routine`,
+  description:
+    "We assess your toilet, wet zone, and entry path, then install only what your space needs.",
+};
+
+export const ctaData = [
+  {
+    text: "Prevents slips at the floor",
+    icon: redCheck,
+  },
+  {
+    text: "Adds stable handholds at high-risk movements",
+    icon: redCheck,
+  },
+  {
+    text: "Makes everyday bathroom use feel calm and independent",
+    icon: redCheck,
+  },
+];
+
+export const faqsData = [
+  {
+    question: "What is EyEagle and how does it work?",
+    answer:
+      "EyEagle is a comprehensive bathroom safety system designed to prevent accidents and provide quick emergency response. It includes a patented alarm system, non-slip surfaces, grab bars, and an app that sends instant notifications to caregivers or emergency contacts when an incident is detected.",
+  },
+  {
+    question: "Do I need Wi-Fi for the system to work?",
+    answer:
+      "No, EyEagle does not rely on Wi-Fi. It operates independently to ensure safety is never compromised due to internet connectivity issues.",
+  },
+  {
+    question: "How does EyEagle ensure notifications are reliable?",
+    answer:
+      "Our patent-pending device is designed to function in any corner of the house, even on low-bandwidth 2G networks. This ensures alerts are always delivered.",
+  },
+  {
+    question: "What happens if there’s a power outage?",
+    answer:
+      "EyEagle comes equipped with a battery that lasts up to 6 hours, ensuring continuous protection even during power outages.",
+  },
+  {
+    question: "Who receives the alerts when the alarm is triggered?",
+    answer:
+      "Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customise this in the app.",
+  },
+  {
+    question: "How is the system installed?",
+    answer:
+      "Our expert team installs the system based on your bathroom’s specific floor plan, ensuring optimal placement for maximum safety.",
+  },
+  {
+    question: "What if my device goes offline?",
+    answer:
+      "If a device disconnects, you’ll receive a “Device Offline” alert, prompting you to check power and connectivity.",
   },
 ];
