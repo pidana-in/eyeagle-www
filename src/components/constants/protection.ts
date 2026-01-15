@@ -10,6 +10,15 @@ import BathroomFloor from "../../assets/Protection/BathroomFloorImage.png";
 import ToiletImage from "../../assets/Protection/Toilet.png";
 import ShowerImage from "../../assets/Protection/Shower.png";
 import EntryImage from "../../assets/Protection/Entry.png";
+import SeniorParent from "../../assets/Protection/SeniorParent.png";
+import PostSurgery from "../../assets/Protection/PostSurgery.png";
+import Caregivers from "../../assets/Protection/Caregivers.png";
+import GrabBar from "../../assets/Protection/GrabBar.png";
+import SteelStrength from "../../assets/Protection/SteelStrength.png";
+import HandleBar from "../../assets/Protection/HandleBar.png";
+import Mount from "../../assets/Protection/Mount.png";
+import Cleaning from "../../assets/Protection/Cleaning.png";
+import Calm from "../../assets/Protection/Calm.png";
 
 export const heroContent = {
   heading: {
@@ -140,10 +149,86 @@ export const zones = [
   },
 ];
 
-export const installData = 
-  {
-    title: "We follow your exact path through the bathroom and add support to it.",
-    desc: "During installation, we ask you (or your family member) to walk us through a normal bathroom visit. We watch where you step, turn and reach, then plan support around three critical zones.",
-    footer: "Every home is different. We sketch the layout with you before drilling a single hole",
-  }
+export const installData = {
+  title:
+    "We follow your exact path through the bathroom and add support to it.",
+  desc: "During installation, we ask you (or your family member) to walk us through a normal bathroom visit. We watch where you step, turn and reach, then plan support around three critical zones.",
+  footer:
+    "Every home is different. We sketch the layout with you before drilling a single hole",
+};
 
+export const userCards = [
+  {
+    image: SeniorParent,
+    title: "Seniors/Elderly parents",
+    desc: "Makes everyday bathroom visits less stressful, with support where they need it most.",
+  },
+  {
+    image: PostSurgery,
+    title: "Post-surgery & chronic pain",
+    desc: "Helps people with knee, hip or back issues lower and lift themselves without fear of sudden slips.",
+  },
+  {
+    image: Caregivers,
+    title: "Caregivers & family",
+    desc: "Lets you guide and support someone without carrying all their weight or worrying about the floor.",
+  },
+];
+
+export const statsData = [
+  {
+    value: "100 kg",
+    label: "Load capacity when installed correctly",
+  },
+  {
+    value: "304",
+    label: "Stainless-steel grade inside every bar",
+  },
+  {
+    value: "35 mm",
+    label: "Approximate grip thickness for most hands",
+  },
+  {
+    value: "3 key zones",
+    label: "Toilet, shower and entry all covered",
+  },
+];
+
+export const cardsData = [
+  {
+    image: GrabBar,
+    alt: "Toilet Image",
+    title: "Anti-slip nylon sleeve",
+    desc: "Textured ABS sleeve stays grippy even with soap and water, so hands don’t slide when you reach for support",
+  },
+  {
+    image: SteelStrength,
+    alt: "Steel Strength",
+    title: "Steel strength inside",
+    desc: "304 stainless-steel tubes inside every bar keep them rigid and reliable through years of daily use.",
+  },
+  {
+    image: HandleBar,
+    alt: "Toilet Image",
+    title: "Comfortable to hold",
+    desc: "Hand-friendly thickness so most people can wrap their fingers fully and push or pull without strain.",
+  },
+  {
+    image: Mount,
+    alt: "Mount Image",
+    title: "Mounts made for tiles",
+    desc: "Strong wall plates and hardware designed specifically for tiled RCC walls, not flimsy partitions.",
+  },
+  {
+    image: Calm,
+    alt: "Calm Image",
+    title: "Calm, neutral look",
+    desc: "Soft white finish and simple shapes blend with beige, grey and patterned tiles without shouting for attention",
+  },
+  {
+    image: Cleaning,
+    alt: "Cleaning Image",
+    title: "Easy to keep clean",
+    desc: "Smooth, closed surfaces that wipe down quickly with mild bathroom cleaner—no special care needed.",
+  },
+];

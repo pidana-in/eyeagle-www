@@ -41,46 +41,56 @@ const features = [
 ];
 ---
 <section class="xl:container py-20">
-<div class="flex flex-row gap-[60px] justify-center mx-[120px]">
-  <!-- LEFT: scrolling steps -->
-  <div class="space-y-[283px]">
-    {steps.map((step) => (
-      <div class="flex gap-3 max-w-[405px] p-6">
-        <div class="w-[2px] bg-[#CC0000]"></div>
-        <div>
-          <h4 class="text-2xl font-bold">{step.title}</h4>
-          <p class="mt-3 text-sm text-gray-600">
-            {step.desc}
-          </p>
-        </div>
+  <div class="flex flex-col md:flex-row gap-10 md:gap-[60px] justify-center px-4 md:mx-[120px]">
+    
+    <!-- LEFT: scrolling steps -->
+    <div class="md:space-y-[283px]">
+      {
+        steps.map((step) => (
+          <div class="flex gap-3 max-w-full md:max-w-[405px] px-4 py-2 md:p-6 max-sm:items-center">
+            <div class="md:block hidden w-[2px] bg-[#CC0000]"></div>
+            <div class="block md:hidden w-[2px] h-28 bg-[#CC0000]"></div>
+            <div>
+              <h4 class="text-xl md:text-2xl font-bold">{step.title}</h4>
+              <p class="mt-3 text-sm text-gray-600">
+                {step.desc}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- RIGHT: image -->
+    <div class="block">
+      <div class="relative md:sticky md:top-[120px] mt-10 md:mt-0">
+        <Image
+          src={VideoCall}
+          alt="Installation consultation"
+          class="w-full max-w-full md:max-w-[687px] rounded-2xl"
+        />
       </div>
-    ))}
+    </div>
+
   </div>
 
-  <!-- RIGHT: sticky image -->
-  <div class="hidden lg:block">
-    <div class="sticky top-[120px]">
-      <Image
-        src={VideoCall}
-        alt="Installation consultation"
-        class="max-w-[687px] rounded-2xl"
-      />
+  <!-- FEATURES -->
+  <div class="xl:container mt-20 flex justify-center px-4 md:px-[120px]">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-20 gap-y-12 text-center max-w-full"
+    >
+      {
+        features.map((item) => (
+          <div class="max-w-full md:max-w-[270px] px-2 mx-auto">
+            <p class="text-[#CC0000] text-xl md:text-2xl font-semibold">
+              {item.title}
+            </p>
+            <p class="mt-2 text-sm text-black opacity-60">
+              {item.desc}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </div>
-</div>
-<div class="xl:container mt-[100px] flex justify-center px-[120px]">
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-           gap-x-20 gap-y-12 text-center max-w-full px-6"
-  >
-    {features.map((item) => (
-      <div class="max-w-[270px] px-2">
-        <p class="text-[#CC0000] text-2xl font-semibold">{item.title}</p>
-        <p class="mt-2 text-sm text-black opacity-60">
-          {item.desc}
-        </p>
-      </div>
-    ))}
-  </div>
-</div>
 </section>

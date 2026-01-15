@@ -18,6 +18,9 @@ import {
   kitData,
   zones,
   installData,
+  statsData,
+  userCards,
+  cardsData,
 } from "../components/constants/protection";
 import CTA from "../components/Protection/CTA.astro";
 import FAQs from "../components/Protection/FAQs.astro";
@@ -38,8 +41,8 @@ const metaDesc =
     kitData={kitData}
   />
   <WhereWeInstall zones={zones} installData={installData} />
-  <DesignedFor />
-  <Benefits />
+  <DesignedFor userCards={userCards} statsData={statsData} />
+  <Benefits cardsData={cardsData} />
   <Installation />
   <Comparison />
   <CTA />

@@ -15,7 +15,7 @@ const installData = Astro.props.installData;
 <section class="xl:container py-14 md:py-20 md:px-[125px]">
   <div class="flex flex-col items-center text-center px-4 md:mx-[240px]">
     <div class="max-w-[1100px]">
-      <h2 class="text-[32px] md:text-5xl font-bold leading-8 md:leading-[56px]">
+      <h2 class="text-[32px] md:text-5xl font-bold leading-10 md:leading-[56px]">
         {installData.title}
       </h2>
     </div>
@@ -25,7 +25,7 @@ const installData = Astro.props.installData;
       </p>
     </div>
   </div>
-  <div class="mt-12 md:mt-20 px-4 md:px-0 md:mx-[240px]">
+  <div class="mt-12 md:mt-20 px-4 md:px-0 md:mx-[120px]">
     {
       zones.map((zone: Zone, index: number) => (
         <div
