@@ -1,77 +1,67 @@
 ---
 import { Image } from "astro:assets";
-import AppImage from "../../assets/NewHome/AppImage.png";
 
-const appSection = {
-  step: "01",
-  title: "EyEagle App",
-  subtitle:
-    "Keep families coordinated when something happens — whether you’re in the next room or another country.",
-  features: [
-    "Create private family circles and roles",
-    "Choose who gets alerts and how",
-    "Keeps a calm, shared view of what’s happening",
-  ],
+type AppSection = {
+  step: number | string;
+  title: string;
+  subtitle: string;
+  features: string[];
 };
+
+const appSection = Astro.props.appSection as AppSection;
+const appData = Astro.props.appData;
 ---
 
-<section class="py-20 font-sans-instrument">
+<section class="py-12 md:py-20 font-sans-instrument">
   <div class="xl:container flex flex-col items-center text-center">
     <!-- Heading -->
-    <div class="max-w-[960px] mb-20">
-      <h2 class="text-3xl md:text-[40px] font-bold mb-4">
+    <div class="max-w-[960px] mb-12 md:mb-16 px-4">
+      <h2 class="text-4xl md:text-[40px] font-bold mb-2">
         Three pieces, one shared goal.
       </h2>
-      <p class="text-sm md:text-base leading-7">
-        Instead of dozens of gadgets, we focused on three things every family
-        needs: a safer home, a way to ask for help, and a way to stay in sync
-        across distance.
-      </p>
     </div>
-
-    <!-- Step indicator -->
-    <div class="flex flex-col max-w-[960px] place-items-center">
+    <!-- Step + Title -->
+    <div
+      class="flex flex-col max-w-[960px] place-items-center mb-6 md:mb-10 md:px-10 px-4"
+    >
       <div
-        class="size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-base font-bold flex items-center justify-center mb-4"
+        class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center mb-4"
       >
         {appSection.step}
       </div>
-
-      <!-- App title -->
-      <h3 class="text-[32px] font-bold mb-5">
+      <h3 class="text-2xl md:text-[32px] font-bold mb-4 md:mb-5">
         {appSection.title}
       </h3>
-
-      <!-- App description -->
-      <p class="text-2xl font-bold mb-10">
+      <p class="text-base md:text-xl opacity-60 font-medium mb-8 md:mb-10">
         {appSection.subtitle}
       </p>
     </div>
-    <!-- Feature bullets -->
-    <div class="flex max-w-[1200px] text-xl font-bold text-[#CC0000] mb-20">
+    <!-- Features -->
+    <div
+      class="flex flex-col md:flex-row items-center max-w-[1200px] text-base md:text-xl font-bold text-[#CC0000] mb-12 md:mb-20 px-4"
+    >
       {
-        appSection.features.map((feature, index) => (
+        appSection.features.map((feature, index: number) => (
           <p
-            class={`font-semibold px-6 py-3 text-center
-        ${index !== appSection.features.length - 1 ? "md:border-r md:border-[#CC0000]" : ""}
-      `}
+            class={`font-semibold px-4 md:px-6 py-2 md:py-3 text-center
+              ${
+                index !== appSection.features.length - 1
+                  ? "md:border-r md:border-[#CC0000]"
+                  : ""
+              }
+            `}
           >
             {feature}
           </p>
         ))
       }
     </div>
-    <!-- Image -->
-    <!-- <div class="mb-10"> -->
     <Image
-      src={AppImage}
+      src={appData.img}
       alt="EyEagle app interface"
-      class="w-full mb-12"
+      class="w-full mb-10 md:mb-12"
       loading="lazy"
     />
-    <!-- </div> -->
-
-    <!-- CTA -->
     <a
       href="/app"
       target="_blank"

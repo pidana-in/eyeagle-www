@@ -10,6 +10,21 @@ import ProcessSection from "../components/NewHome/ProcessSection.astro";
 import StepsSection from "../components/NewHome/StepsSection.astro";
 import FAQs from "../components/NewHome/FAQs.astro";
 import CTA from "../components/NewHome/CTA.astro";
+import {
+  heroContent,
+  ctaButtons,
+  featureTicks,
+  heroData,
+  principles,
+  momentFeatures,
+  momentData,
+  appSection,
+  appData,
+  guardianData,
+  kitFeatures,
+  bathroomKit,
+  processData,
+} from "../components/constants/newHome";
 
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
 const metaDesc =
@@ -17,14 +32,19 @@ const metaDesc =
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc}>
-  <HeroSection />
-  <SafetySteps />
-  <Moments />
-  <EyeagleApp />
-  <GuardianX />
-  <BathroomKit />
-  <ProcessSection />
+  <HeroSection
+    heroContent={heroContent}
+    ctaButtons={ctaButtons}
+    featureTicks={featureTicks}
+    heroData={heroData}
+  />
+  <SafetySteps principles={principles} />
+  <Moments momentData={momentData} momentFeatures={momentFeatures} />
+  <EyeagleApp appSection={appSection} appData={appData} />
+  <GuardianX guardianData={guardianData} kitFeatures={kitFeatures} />
+  <BathroomKit bathroomKit={bathroomKit} />
+  <ProcessSection processData={processData} />
   <StepsSection />
   <FAQs />
-  <CTA/>
+  <CTA />
 </MainLayout>

@@ -1,52 +1,49 @@
 ---
-const process = {
-  title: "Everything is designed to work together.",
-  description:
-    "You can start with any one product. But when you connect them, EyEagle becomes a calm, always-there support system for your family.",
-
-  items: [
-    {
-      title: "If something happens in the bathroom…",
-      description:
-        "The Bathroom Alarm is pressed → the alarm sounds outside → the App notifies chosen family members → you decide what to do next together.",
-    },
-    {
-      title: "If an older parent is living alone…",
-      description:
-        "The Protection Kit reduces the chance of a fall. The Alarm is there if something still goes wrong → The App keeps distant family members in the loop.",
-    },
-    {
-      title: "If someone is travelling or away from home…",
-      description:
-        "The App keeps check-ins, alerts, and updates in one place → everyone knows where things stand without constant calls or polling.",
-    },
-  ],
+type ProcessItem = {
+  title: string;
+  description: string;
 };
+
+type Process = {
+  title: string;
+  description: string;
+  items: ProcessItem[];
+};
+
+const processData = Astro.props.processData as Process;
 ---
 
-<section class="xl:container py-20">
-  <div class="flex flex-row gap-[120px] justify-center mx-[120px]">
-    <!-- LEFT -->
-    <div class="max-w-[540px] flex flex-col gap-[260px] pt-10">
+<section class="xl:container py-12 lg:py-20">
+  <div
+    class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-[120px] justify-center mx-4 lg:mx-[120px]"
+  >
+    <div
+      class="max-w-[540px] flex flex-col gap-12 lg:gap-[260px] pt-0 lg:pt-10"
+    >
       <div>
-        <h2 class="text-[40px] leading-[48px] font-bold">
-          {process.title}
+        <h2
+          class="text-2xl lg:text-[40px] leading-snug lg:leading-[48px] font-bold"
+        >
+          {processData.title}
         </h2>
-        <p class="text-base mt-4">{process.description}</p>
+        <p class="text-base mt-4">{processData.description}</p>
       </div>
+
       {
-        process.items.map((item) => (
+        processData.items.map((item) => (
           <div>
-            <h4 class="font-semibold text-[28px] leading-8">{item.title}</h4>
-            <p class="text-base mt-4">{item.description}</p>
+            <h4 class="font-semibold text-xl lg:text-[28px] leading-7 lg:leading-8">
+              {item.title}
+            </h4>
+            <p class="text-base mt-3 lg:mt-4">{item.description}</p>
           </div>
         ))
       }
     </div>
-    <!-- RIGHT -->
-    <div class="hidden lg:block w-[540px]">
-      <div class="sticky top-[120px]">
-        <div class="bg-black rounded-2xl h-[730px] w-full"></div>
+    <!-- RIGHT IMAGE -->
+    <div class="w-full lg:w-[540px]">
+      <div class="lg:sticky lg:top-[120px]">
+        <div class="bg-black rounded-2xl h-[320px] lg:h-[730px] w-full"></div>
       </div>
     </div>
   </div>

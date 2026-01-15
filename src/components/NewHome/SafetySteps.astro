@@ -1,57 +1,38 @@
 ---
-const principles = [
-  {
-    number: "01",
-    title: "Dignity first",
-    description:
-      "We design for independence and confidence, not fear. Safety should feel like freedom, not restriction.",
-  },
-  {
-    number: "02",
-    title: "Privacy by default",
-    description:
-      "No cameras in private spaces. Minimal data. Clear control over who sees what. We protect people without watching them all the time.",
-  },
-  {
-    number: "03",
-    title: "Families over features",
-    description:
-      "Everything we build assumes real families — siblings, neighbours, helpers, friends — not a single “primary user” who has to manage it all.",
-  },
-];
----
-<section class="xl:container p-[120px] font-sans-instrument">
-  <div class="">
+type Principle = {
+  number: number | string;
+  title: string;
+  description: string;
+};
 
-    <!-- Heading -->
-    <h2 class="text-center text-3xl md:text-5xl font-bold mb-[120px]">
+const principles = Astro.props.principles as Principle[];
+---
+
+<section
+  class="xl:container px-4 py-5 sm:py-20 lg:p-[120px] font-sans-instrument"
+>
+  <div>
+    <h2 class="text-center text-3xl md:text-5xl font-bold mb-12 md:mb-[120px]">
       Make safety feel like care, not control.
     </h2>
-
- <!-- Principles -->
-<div
-  class="grid grid-cols-1 md:grid-cols-3 gap-[60px] text-center max-w-[1200px] mx-auto"
->
-  {principles.map((item) => (
-    <div class="flex flex-col items-center max-w-[360px]">
-      <!-- Number -->
-      <div
-        class="w-8 h-8 rounded-full bg-red-100 text-[#CC0000] text-xs font-bold flex items-center justify-center mb-4"
-      >
-        {item.number}
-      </div>
-
-      <!-- Title -->
-      <h3 class="text-xl font-bold text-[#CC0000] mb-3">
-        {item.title}
-      </h3>
-
-      <!-- Description -->
-      <p class="text-base text-black opacity-60 leading-relaxed">
-        {item.description}
-      </p>
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[60px] text-center max-w-[1200px] mx-auto"
+    >
+      {
+        principles.map((item) => (
+          <div class="flex flex-col items-center max-w-[360px] mx-auto">
+            <div class="size-10 rounded-full bg-red-100 text-[#CC0000] text-lg font-bold flex items-center justify-center mb-4">
+              {item.number}
+            </div>
+            <h3 class="text-xl font-bold text-[#CC0000] mb-3">
+              {item.title}
+            </h3>
+            <p class="text-base text-black opacity-60 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        ))
+      }
     </div>
-  ))}
-</div>
   </div>
 </section>
