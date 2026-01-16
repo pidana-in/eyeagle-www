@@ -24,6 +24,10 @@ import {
   kitFeatures,
   bathroomKit,
   processData,
+  stepsContent,
+  stepsData,
+  faqsData,
+  ctaSection,
 } from "../components/constants/newHome";
 
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
@@ -44,7 +48,7 @@ const metaDesc =
   <GuardianX guardianData={guardianData} kitFeatures={kitFeatures} />
   <BathroomKit bathroomKit={bathroomKit} />
   <ProcessSection processData={processData} />
-  <StepsSection />
-  <FAQs />
-  <CTA />
+  <StepsSection stepsContent={stepsContent} stepsData={stepsData} />
+  <FAQs faqsData={faqsData}/>
+  <CTA ctaSection={ctaSection} /> 
 </MainLayout>

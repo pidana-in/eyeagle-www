@@ -152,3 +152,70 @@ export const processData = {
     },
   ],
 };
+
+export const stepsContent = {
+title: "From worry to a plan, in four steps.",
+desc: "You can start with any one product. But when you connect them, EyEagle becomes a calm, always-there support system for your family.",
+};
+
+export const stepsData = [
+  { title: "Protection", step: "Step 1", active: true },
+  { title: "Interaction", step: "Step 2" },
+  { title: "Detection", step: "Step 3" },
+  { title: "Alarm", step: "Step 4" },
+  { title: "Notification", step: "Step 5" },
+  { title: "Action", step: "Step 6" },
+];
+
+export const faqsData = [
+  {
+    question: "What is EyEagle and how does it work?",
+    answer:
+      "EyEagle is a comprehensive bathroom safety system designed to prevent accidents and provide quick emergency response. It includes a patented alarm system, non-slip surfaces, grab bars, and an app that sends instant notifications to caregivers or emergency contacts when an incident is detected.",
+  },
+  {
+    question: "Do I need Wi-Fi for the system to work?",
+    answer:
+      "No, EyEagle does not rely on Wi-Fi. It operates independently to ensure that safety is never compromised due to internet connectivity issues.",
+  },
+  {
+    question: "How does EyEagle ensure notifications are reliable?",
+    answer:
+      "Our patent-pending device is designed to function in any corner of the house, even on low-bandwidth 2G networks. This ensures that critical alerts are always delivered, even in areas with poor connectivity.",
+  },
+  {
+    question: "What happens if there’s a power outage?",
+    answer:
+      "EyEagle comes equipped with a battery that lasts up to 6 hours, ensuring continuous protection even during power outages.",
+  },
+  {
+    question: "Who receives the alerts when the alarm is triggered?",
+    answer:
+      "Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customize who gets notified through the EyEagle app.",
+  },
+  {
+    question: "How is the system installed?",
+    answer:
+      "Our team of experts will install the system based on your bathroom’s specific floor plan. We ensure everything is placed optimally for maximum safety and effectiveness.",
+  },
+  {
+    question: "What if my device goes offline?",
+    answer:
+      "If a device disconnects, you’ll receive a “Device Offline” alert, prompting you to check power and connectivity.",
+  },
+];
+
+export const ctaSection = {
+  eyebrow: "A safer bathroom without over-installing",
+  title: "You don’t need a perfect plan.\nYou just need a first step.",
+  description:
+    "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
+  primaryCta: {
+    label: "Talk to us",
+    href: "/contact",
+  },
+  secondaryCta: {
+    label: "Explore Products",
+    href: "https://shop.eyeagle.ai/",
+  },
+};

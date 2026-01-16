@@ -2,28 +2,33 @@
 import { Image } from "astro:assets";
 import ButtonImage from "../../assets/NewHome/ButtonImage.png";
 
-const steps = [
-  { title: "Protection", step: "Step 1", active: true },
-  { title: "Interaction", step: "Step 2" },
-  { title: "Detection", step: "Step 3" },
-  { title: "Alarm", step: "Step 4" },
-  { title: "Notification", step: "Step 5" },
-  { title: "Action", step: "Step 6" },
-];
+type StepsContent = {
+  title: string;
+  desc: string;
+};
+
+type StepItem = {
+  title: string;
+  step: string;
+  active: boolean;
+};
+
+const stepsContent = Astro.props.stepsContent as StepsContent;
+const stepsData = Astro.props.stepsData as StepItem[];
 ---
+
 <section class="py-20 font-sans-instrument">
-  <div class="xl:container flex flex-col items-center text-center">
+  <div class="xl:container flex flex-col items-center text-center px-4 md:px-[120px]">
     <!-- Heading -->
     <div class="max-w-[800px] mb-10">
       <h2 class="text-3xl md:text-[40px] font-bold mb-4">
-        From worry to a plan, in four steps.
+        {stepsContent.title}
       </h2>
       <p class="text-sm md:text-base leading-7">
-        You can start with any one product. But when you connect them, EyEagle
-        becomes a calm, always-there support system for your family.
+        {stepsContent.desc}
       </p>
     </div>
-   <!-- Illustration -->
+    <!-- Illustration -->
     <div class="w-full flex justify-center mb-16">
       <Image
         src={ButtonImage}
@@ -34,19 +39,22 @@ const steps = [
     </div>
     <!-- Steps -->
     <div class="w-full max-w-[1200px] mb-10">
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-left">
-        {steps.map((item) => (
-          <div>
-            <p class="text-base font-bold mb-1">{item.title}</p>
-            <p class="text-base">{item.step}</p>
-            <!-- underline -->
-            <div
-              class={`mt-5 h-[2px] ${
-                item.active ? "bg-[#CC0000]" : "bg-gray-200"
-              }`}
-            ></div>
-          </div>
-        ))}
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-left"
+      >
+        {
+          stepsData.map((item: StepItem) => (
+            <div>
+              <p class="text-base font-bold mb-1">{item.title}</p>
+              <p class="text-base">{item.step}</p>
+              <div
+                class={`mt-5 h-[2px] ${
+                  item.active ? "bg-[#CC0000]" : "bg-gray-200"
+                }`}
+              />
+            </div>
+          ))
+        }
       </div>
     </div>
     <!-- CTA -->
@@ -57,6 +65,5 @@ const steps = [
     >
       Book Safety call
     </a>
-
   </div>
 </section>

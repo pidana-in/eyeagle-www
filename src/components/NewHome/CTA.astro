@@ -1,56 +1,46 @@
 ---
-const ctaSection = {
-  eyebrow: "A safer bathroom without over-installing",
-  title: "You don’t need a perfect plan.\nYou just need a first step.",
-  description:
-    "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
-  primaryCta: {
-    label: "Talk to us",
-    href: "/contact",
-  },
-  secondaryCta: {
-    label: "Explore Products",
-    href: "https://shop.eyeagle.ai/",
-  },
-};
+const ctaSection = Astro.props.ctaSection;
 ---
 
-<section class="xl:container py-32 font-sans-instrument">
+<section class="xl:container py-20 md:py-32 font-sans-instrument px-4 md:px-[120px]">
   <div
-    class="max-w-[1200px] mx-auto bg-[#F6F6F6] rounded-3xl p-[64px]
-           grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
+    class="max-w-[1200px] mx-auto bg-[#F6F6F6] rounded-3xl p-6 md:p-[64px] grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center"
   >
     <!-- LEFT CONTENT -->
     <div class="max-w-[520px]">
-      <p class="text-base text-black/60 mb-2">
+      <p class="text-sm md:text-base text-black/60 mb-2">
         {ctaSection.eyebrow}
       </p>
 
-      <h2 class="text-3xl md:text-[40px] font-bold leading-[48px]">
+      <h2
+        class="text-2xl md:text-[40px] font-bold leading-tight md:leading-[48px]"
+      >
         {ctaSection.title}
       </h2>
 
-      <p class="mt-5 text-base leading-7">
+      <p class="mt-4 md:mt-5 text-sm md:text-base leading-6 md:leading-7">
         {ctaSection.description}
       </p>
       <!-- CTA buttons -->
-      <div class="mt-10 flex items-center gap-4">
+      <div
+        class="mt-8 md:mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4"
+      >
         <a
           href={ctaSection.primaryCta.href}
-          class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+          class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition w-full sm:w-auto text-center"
         >
           {ctaSection.primaryCta.label}
         </a>
+
         <a
           href={ctaSection.secondaryCta.href}
-          class="inline-block rounded-full border border-gray-400 px-6 py-3 text-sm font-semibold hover:bg-gray-50 transition"
+          class="inline-block rounded-full border border-gray-400 px-6 py-3 text-sm font-semibold hover:bg-gray-50 transition w-full sm:w-auto text-center"
         >
           {ctaSection.secondaryCta.label}
         </a>
       </div>
     </div>
-
     <!-- RIGHT PLACEHOLDER (image/video later) -->
-    <div class="w-full h-[360px] bg-[#828282]"></div>
+    <div class="w-full h-[220px] md:h-[360px] bg-[#828282] rounded-xl"></div>
   </div>
 </section>
