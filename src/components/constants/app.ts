@@ -13,7 +13,7 @@ import Line from "../../assets/NewApp/Line.png";
 import Check from "../../assets/NewApp/check.png";
 import AppStore from "../../assets/NewApp/AppStore.png";
 import PlayStore from "../../assets/NewApp/PlayStore.png";
-import Ellipse from "../../assets/NewApp/Ellipse.png";
+import CTAImage from "../../assets/NewApp/CTAImage.png";
 
 export const HeroSectionData = {
   images: {
@@ -145,7 +145,7 @@ export const contentData = {
   title: "Ready When You Are",
   description:
     "Start with one step. One log at a time. Bevel meets you where you are and helps you move forward with clarity and confidence.",
-  image: Ellipse,
+  image: CTAImage,
 };
 
 export const stores = [
