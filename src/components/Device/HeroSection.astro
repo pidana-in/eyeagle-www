@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-const heroContent = Astro.props.heroContent
-const features = Astro.props.features
+const heroContent = Astro.props.heroContent;
+const features = Astro.props.features;
 ---
 
 <!-- DESKTOP VIEW -->
@@ -45,7 +45,7 @@ const features = Astro.props.features
       features.map((item: any) => (
         <div class="flex flex-col items-center max-w-[268px]">
           <div class="flex items-center gap-3">
-            <Image src={item.icon} alt={item.title} />
+            <Image src={item.icon} alt={item.title} class="text-[#CC0000]" />
             <h4 class="text-2xl font-semibold">{item.title}</h4>
           </div>
           <p class="text-lg text-black opacity-70 mt-2">{item.description}</p>
@@ -55,7 +55,7 @@ const features = Astro.props.features
   </div>
 </div>
 <!-- MOBILE VIEW -->
-<div class="block md:hidden font-sans-instrument py-[60px]">
+<div class="block md:hidden font-sans-instrument py-[60px] px-4">
   <div class="flex justify-center">
     <span
       class="px-3 py-1.5 rounded-full text-sm font-semibold border border-black text-black"
@@ -78,16 +78,18 @@ const features = Astro.props.features
       {heroContent.cta.text}
     </a>
   </div>
-  <p class="text-[#666] text-xs text-center mt-4">{heroContent.cta.helper}</p>
+  <p class="text-[#666] text-[11px] text-center mt-4">
+    {heroContent.cta.helper}
+  </p>
   <Image
     src={heroContent.images.img2}
     alt="Bathroom Product Image"
     class="w-full object-cover mt-8"
   />
-  <div class="mt-20 space-y-10 px-4 flex flex-col items-center text-center">
+  <div class="mt-20 space-y-10 flex flex-col items-center text-center">
     {
       features.map((item: any) => (
-        <div class="flex flex-col items-center text-center max-w-[280px]">
+        <div class="flex flex-col items-center text-center">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} />
             <h4 class="text-2xl font-semibold">{item.title}</h4>

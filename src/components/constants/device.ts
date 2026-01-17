@@ -11,7 +11,10 @@ import Lock from "../../assets/Device/Lock.png";
 import Alarm from "../../assets/Device/Alarm.png";
 import PanicButton from "../../assets/Device/PanicButton.png";
 import Line from "../../assets/NewApp/Line.png";
-import WorksImage from "../../assets/Device/worksImage.png";
+import StepImage1 from "../../assets/Device/StepImage1.png";
+import StepImage2 from "../../assets/Device/StepImage2.png";
+import StepImage3 from "../../assets/Device/StepImage3.png";
+import StepImage4 from "../../assets/Device/StepImage4.png";
 
 export const heroContent = {
   badge: "Bathroom Safety Alarm Kit",
@@ -108,15 +111,27 @@ export const featureAssets = {
 
 export const header = {
   title: "How it works",
-  image: WorksImage,
 };
 
 export const steps = [
-  { text: "Press the SOS button inside the bathroom." },
-  { text: "The alarm unit outside sounds immediately." },
-  { text: "Family members receive the emergency alert on their phones." },
-  { text: "If no one responds, our team can dispatch an ambulance." },
+  {
+    text: "Press the SOS button inside the bathroom.",
+    image: StepImage1,
+  },
+  {
+    text: "The alarm unit outside sounds immediately.",
+    image: StepImage2,
+  },
+  {
+    text: "Family members receive the emergency alert on their phones.",
+    image: StepImage3,
+  },
+  {
+    text: "If no one responds, our team can dispatch an ambulance.",
+    image: StepImage4,
+  },
 ];
+
 
 export const faqsData = [
   {
