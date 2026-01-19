@@ -2,11 +2,11 @@
 id: "24"
 title: "Winter Footwear Safety: Why the Right Choice Matters at Home"
 category: "Blog"
-img: ../../assets/Blog/BlogImage15.jpg
+img: ../../assets/Blog/BlogImage22.jpg
 slug: "winter-footwear-safety-at-home"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-01-15
+date: 2026-01-19
 ---
 
 # Why Footwear Choice Matters More in Winter?

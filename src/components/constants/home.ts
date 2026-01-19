@@ -53,6 +53,7 @@ import blogImage18 from "../../assets/Blog/BlogImage18.jpg";
 import blogImage19 from "../../assets/Blog/BlogImage19.jpg";
 import blogImage20 from "../../assets/Blog/BlogImage20.jpg";
 import blogImage21 from "../../assets/Blog/BlogImage21.jpg";
+import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
 
 export const bathroomData = [
   {
@@ -278,7 +279,7 @@ export const blogsData = [
     slug: "winter-footwear-safety-at-home",
     title: "Winter Footwear Safety: Why the Right Choice Matters at Home",
     desc: "Winter increases fall risks inside homes. Learn how winter footwear safety is important and can prevent winter-related accidents at home.",
-    img: blogImage21,
+    img: blogImage22,
   },
 ];
 
