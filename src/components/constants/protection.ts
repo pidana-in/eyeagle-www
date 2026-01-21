@@ -19,7 +19,8 @@ import HandleBar from "../../assets/Protection/HandleBar.png";
 import Mount from "../../assets/Protection/Mount.png";
 import Cleaning from "../../assets/Protection/Cleaning.png";
 import Calm from "../../assets/Protection/Calm.png";
-import VideoCall from "../../assets/Protection/VideoCall.png";
+import RaiseAlarm from "../../assets/Protection/RaiseAlarm.png";
+import CtaImage from "../../assets/Protection/CtaImage.png";
 import redCheck from "../../assets/Protection/redCheck.png";
 
 export const heroContent = {
@@ -235,44 +236,42 @@ export const cardsData = [
   },
 ];
 
-export const installSteps = [
+export const installSteps = {
+  title: "How we actually make this happen in your bathroom",
+  description:
+    "We keep the process simple, respectful, and adapted to real homes — not showrooms.",
+};
+
+export const installCards = [
   {
     title: "Quick call & photos",
-    desc: "You tell us the bathroom, we ask a few photos or a video.",
+    description: "You tell us the bathroom, we ask a few photos or a video.",
   },
   {
     title: "On-site safety walk-through",
-    desc: "We visit the site, understand risky zones and mark them.",
+    description: "We visit the site, understand risky zones and mark them.",
   },
   {
     title: "Layout sketch & installation",
-    desc: "Custom layout, careful installation without damaging tiles.",
+    description: "Custom layout, careful installation without damaging tiles.",
   },
   {
     title: "Test run & care tips",
-    desc: "We test everything and show how to clean and maintain it.",
+    description: "We test everything and show how to clean and maintain it.",
   },
 ];
 
 export const installFeatures = [
-  {
-    title: "Clean drilling",
-    desc: "We protect tiles and use proper anchors.",
-  },
-  {
-    title: "No-rush visit",
-    desc: "We take time to listen and adjust.",
-  },
+  { title: "Clean drilling", desc: "We protect tiles and use proper anchors." },
+  { title: "No-rush visit", desc: "We take time to listen and adjust." },
   {
     title: "Aftercare support",
-    desc: "You can call us if something feels loose or needs rechecking.",
+    desc: "You can call us if something feels loose.",
   },
-  {
-    title: "3 key zones",
-    desc: "Toilet, shower and entry all covered.",
-  },
+  { title: "3 key zones", desc: "Toilet, shower and entry all covered." },
 ];
-export const installImage = VideoCall;
+
+export const installImage = RaiseAlarm;
 
 export const comparisonColumns = [
   "Aspect",
@@ -346,6 +345,8 @@ export const ctaData = [
     icon: redCheck,
   },
 ];
+
+export const ctaImage = CtaImage;
 
 export const faqsData = [
   {

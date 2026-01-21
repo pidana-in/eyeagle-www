@@ -1,62 +1,71 @@
 ---
 import { Image } from "astro:assets";
 
+type InstallStep = {
+  title: string;
+  description: string;
+};
+
 type FeatureItem = {
   title: string;
   desc: string;
 };
-const installFeatures = Astro.props.installFeatures;
+
 const installSteps = Astro.props.installSteps;
+const installCards = Astro.props.installCards as InstallStep[];
+const installFeatures = Astro.props.installFeatures as FeatureItem[];
 const installImage = Astro.props.installImage;
 ---
 
-<section class="xl:container py-20">
-  <div
-    class="flex flex-col md:flex-row gap-10 md:gap-[60px] justify-center px-4 md:mx-[120px]"
-  >
-    <!-- LEFT: scrolling steps -->
-    <div class="md:space-y-[283px]">
+<section class="xl:container py-12 lg:py-20">
+  <div class="flex flex-col lg:flex-row gap-20 justify-center px-4">
+    <!-- LEFT (Sticky heading) -->
+    <div class="lg:sticky lg:top-32 lg:self-start max-w-[460px] py-6">
+      <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
+        {installSteps.title}
+      </h2>
+      <!-- <p class="mt-6 text-base text-black opacity-70">
+        {installSteps.description}
+      </p> -->
+    </div>
+
+    <!-- RIGHT (Steps) -->
+    <div class="flex flex-col gap-16 lg:max-w-[540px]">
       {
-        installSteps.map((step: FeatureItem) => (
-          <div class="flex gap-3 max-w-full md:max-w-[405px] px-4 py-2 md:p-6 max-sm:items-center">
-            <div class="md:block hidden w-[2px] bg-[#CC0000]" />
-            <div class="block md:hidden w-[2px] h-28 bg-[#CC0000]" />
-            <div>
-              <h4 class="text-xl md:text-2xl font-bold">{step.title}</h4>
-              <p class="mt-3 text-sm text-gray-600">{step.desc}</p>
+        installCards.map((card) => (
+          <div>
+            <Image
+              src={installImage}
+              alt={card.title}
+              class="rounded-xl w-full"
+            />
+
+            <div class="mt-10">
+              <h3 class="text-xl font-bold">{card.title}</h3>
+              <p class="text-base mt-2 opacity-70">{card.description}</p>
             </div>
-          </div>
-        ))
-      }
-    </div>
-    <!-- RIGHT: image -->
-    <div class="block">
-      <div class="relative md:sticky md:top-[120px] mt-10 md:mt-0">
-        <Image
-          src={installImage}
-          alt="Installation consultation"
-          class="w-full md:max-w-[687px] rounded-2xl"
-        />
-      </div>
-    </div>
-  </div>
-  <!-- FEATURES -->
-  <div
-    class="xl:container mt-10 md:mt-20 flex justify-center px-4 md:px-[120px]"
-  >
-    <div
-      class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 text-center max-w-full"
-    >
-      {
-        installFeatures.map((item: FeatureItem) => (
-          <div class="max-w-full md:max-w-[270px] px-2 mx-auto">
-            <p class="text-[#CC0000] text-xl md:text-2xl font-semibold">
-              {item.title}
-            </p>
-            <p class="mt-2 text-sm text-black opacity-60">{item.desc}</p>
           </div>
         ))
       }
     </div>
   </div>
 </section>
+<!-- FEATURES -->
+<div
+  class="xl:container mt-10 md:my-[100px] flex justify-center px-4 md:px-[120px]"
+>
+  <div
+    class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 text-center max-w-full"
+  >
+    {
+      installFeatures.map((item: FeatureItem) => (
+        <div class="max-w-full md:max-w-[270px] px-2 mx-auto">
+          <p class="text-[#CC0000] text-xl md:text-2xl font-semibold">
+            {item.title}
+          </p>
+          <p class="mt-2 text-sm text-black opacity-60">{item.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>

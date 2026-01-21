@@ -23,10 +23,12 @@ import {
   cardsData,
   installSteps,
   installFeatures,
+  installCards,
   installImage,
   comparisonData,
   comparisonRows,
   comparisonColumns,
+  ctaImage,
   ctaData,
   ctaContent,
   faqsData,
@@ -54,6 +56,7 @@ const metaDesc =
   <Benefits cardsData={cardsData} />
   <Installation
     installSteps={installSteps}
+    installCards={installCards}
     installFeatures={installFeatures}
     installImage={installImage}
   />
@@ -62,6 +65,6 @@ const metaDesc =
     comparisonRows={comparisonRows}
     comparisonColumns={comparisonColumns}
   />
-  <CTA ctaContent={ctaContent} ctaData={ctaData} />
+  <CTA ctaImage={ctaImage} ctaContent={ctaContent} ctaData={ctaData} />
   <FAQs faqsData={faqsData} />
 </MainLayout>
