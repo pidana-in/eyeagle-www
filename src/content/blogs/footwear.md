@@ -6,7 +6,7 @@ img: ../../assets/Blog/BlogImage22.jpg
 slug: "winter-footwear-safety-at-home"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-01-19
+date: 2026-01-23
 ---
 
 # Why Footwear Choice Matters More in Winter?
@@ -34,6 +34,8 @@ Here are the **most common footwear mistakes people make in winter**, especially
 - Walking barefoot or in **socks only** on cold, slippery tiles
 - Wearing **oversized or stretched footwear** that causes shuffling
 - Not switching to **indoor-specific footwear** near bathrooms and bedrooms
+
+![Infographic](../../assets/Blog/Blog22Infographic.jpg)
 
 These choices might seem harmless, but during winter, they significantly reduce stability. Choosing safe footwear for winter indoors is just as important as choosing the right shoes outside.
 
