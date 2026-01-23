@@ -53,6 +53,7 @@ import blogImage18 from "../../assets/Blog/BlogImage18.jpg";
 import blogImage19 from "../../assets/Blog/BlogImage19.jpg";
 import blogImage20 from "../../assets/Blog/BlogImage20.jpg";
 import blogImage21 from "../../assets/Blog/BlogImage21.jpg";
+import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
 
 export const bathroomData = [
   {
@@ -273,6 +274,12 @@ export const blogsData = [
     title: "That Missed Call on a Winter Morning",
     desc: "A quiet winter morning, a missed call, and a moment that changed everything. A story that reflects on bathroom falls and home safety.",
     img: blogImage21,
+  },
+    {
+    slug: "winter-footwear-safety-at-home",
+    title: "Winter Footwear Safety: Why the Right Choice Matters at Home",
+    desc: "Winter increases fall risks inside homes. Learn how winter footwear safety is important and can prevent winter-related accidents at home.",
+    img: blogImage22,
   },
 ];
 
