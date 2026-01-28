@@ -31,7 +31,7 @@ export const footerPolicyLinks = [
 ];
 
 export const footerCopyright =
-  "@2025 EyEagle. All Rights Reserved. Designed & Developed by PIDANA Technologies Pvt. Ltd.";
+  "@2026 EyEagle. All Rights Reserved. Designed & Developed by PIDANA Technologies Pvt. Ltd.";
 
 export const socialLinks = {
   linkedin: "https://in.linkedin.com/in/eyeagle-ai-036996362?trk=org-employees",
