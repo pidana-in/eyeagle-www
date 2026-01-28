@@ -2,6 +2,8 @@ import { getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
+export const prerender = false;
+
 const imageModules = import.meta.glob<{ default: ImageMetadata }>("/src/assets/Blog/*.{jpg,jpeg,png,webp,avif}", { eager: true });
 
 const normalizeImagePath = (input: string) => {
@@ -10,35 +12,45 @@ const normalizeImagePath = (input: string) => {
   return cleaned.startsWith("src/") ? `/${cleaned}` : `/src/${cleaned}`;
 };
 
-let blogsData: CollectionEntry<"blogs">[] = await getCollection("blogs");
-blogsData = blogsData.sort((a, b) => b.data.id - a.data.id).slice(0, 10);
+const MAX_PAGE_SIZE = 50;
+const DEFAULT_PAGE_SIZE = 10;
 
-const responseData = await Promise.all(
-  blogsData.map(async (blog) => {
-    const imageSource = typeof blog.data.img === "string" ? imageModules[normalizeImagePath(blog.data.img)]?.default : (blog.data.img ?? null);
-    const image = imageSource
-      ? await getImage({
-          src: imageSource,
-          width: 400,
-          format: "webp",
-          quality: 80,
-        })
-      : null;
+const toPositiveInt = (value: string | null) => {
+  const parsed = value ? Number.parseInt(value, 10) : Number.NaN;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+};
 
-    console.log("Blog Image Source:", image);
+export async function GET({ request }: { request: Request }) {
+  const url = new URL(request.url);
+  const requestedSize = toPositiveInt(url.searchParams.get("size"));
+  const size = Math.min(requestedSize ?? DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
 
-    return {
-      title: blog.data.title,
-      id: blog.data.id,
-      author: blog.data.author,
-      image: "https://eyeagle.ai" + (image?.src ?? "/favicon.svg"),
-      date: blog.data.date,
-      slug: "https://eyeagle.ai/blogs/" + blog.slug,
-      // raw: blog,
-    };
-  }),
-);
+  let blogsData: CollectionEntry<"blogs">[] = await getCollection("blogs");
+  blogsData = blogsData.sort((a, b) => b.data.id - a.data.id).slice(0, size);
 
-export function GET({}) {
+  const responseData = await Promise.all(
+    blogsData.map(async (blog) => {
+      const imageSource = typeof blog.data.img === "string" ? imageModules[normalizeImagePath(blog.data.img)]?.default : (blog.data.img ?? null);
+      const image = imageSource
+        ? await getImage({
+            src: imageSource,
+            width: 400,
+            format: "webp",
+            quality: 80,
+          })
+        : null;
+
+      return {
+        title: blog.data.title,
+        id: blog.data.id,
+        author: blog.data.author,
+        image: "https://eyeagle.ai" + (image?.src ?? "/favicon.svg"),
+        date: blog.data.date,
+        slug: "https://eyeagle.ai/blogs/" + blog.slug,
+        // raw: blog,
+      };
+    }),
+  );
+
   return new Response(JSON.stringify(responseData));
 }
