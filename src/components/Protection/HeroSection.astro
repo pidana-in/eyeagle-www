@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+
+const heroContent = Astro.props.heroContent;
+const featurePoints: string[] = Astro.props.featurePoints;
+---
+
+<section class="bg-white py-20 md:py-36">
+  <div class="xl:container">
+    <div class="text-center px-3 md:px-0">
+      <div class="mx-auto max-w-[1100px] mb-10 md:mb-20">
+        <h2
+          class="text-5xl md:text-7xl font-bold leading-tight md:leading-[80px]"
+        >
+          {heroContent.heading.line1}
+          <br class="hidden md:block" />
+          {heroContent.heading.line2}
+        </h2>
+        <p class="text-xl md:text-xl opacity-[0.7] mt-6 md:mt-12">
+          {heroContent.description}
+        </p>
+      </div>
+      <div
+        class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-base md:text-xl font-medium"
+      >
+        {
+          featurePoints.map((point, i) => (
+            <>
+              <span class="text-center">{point}</span>
+              {i !== featurePoints.length - 1 && (
+                <span class="hidden md:inline text-[#CC0000]">|</span>
+              )}
+            </>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mt-12 md:mt-16 flex justify-center">
+      <Image
+        src={heroContent.image}
+        alt={heroContent.imageAlt}
+        class="w-[578px] h-[245px] object-cover md:size-full"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

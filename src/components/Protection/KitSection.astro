@@ -1,0 +1,221 @@
+---
+import { Image } from "astro:assets";
+
+type OverviewCard = {
+  title: string;
+  desc: string;
+  image: ImageMetadata;
+  textPosition: "top" | "bottom";
+};
+
+type FeatureItem = {
+  title: string;
+  desc: string;
+};
+
+const overviewCards = Astro.props.overviewCards;
+const barFeatures = Astro.props.barFeatures;
+const matFeatures = Astro.props.matFeatures;
+const tapeFeatures = Astro.props.tapeFeatures;
+const sectionHeaders = Astro.props.sectionHeaders;
+const kitData = Astro.props.kitData;
+---
+
+<section id="Overview" class="py-10">
+  <div class="xl:container md:px-[120px] px-3">
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
+        More than a single bar.<br />
+        A complete bathroom protection kit.
+      </h2>
+
+      <p class="mt-6 text-base md:text-lg md:px-[120px]">
+        Instead of selling a single grab bar and leaving the rest to guesswork,
+        we combine grab bars, floor grip and a planned layout into one system
+        tailored to your bathroom and the people who use it.
+      </p>
+    </div>
+    <!-- Cards -->
+    <div
+      class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[960px] mx-auto"
+    >
+      {
+        overviewCards.map((card: OverviewCard) => (
+          <div class="relative w-full">
+            <Image
+              src={card.image}
+              alt={card.title}
+              class="w-full object-cover rounded-[28px]"
+            />
+            <div
+              class={`absolute left-6 right-6 ${
+                card.textPosition === "bottom" ? "bottom-6" : "top-6"
+              }`}
+            >
+              <h4 class="text-xl font-bold text-black">{card.title}</h4>
+              <p class="mt-2 text-base text-black/70">{card.desc}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-12 text-center text-sm text-gray-500 italic">
+      We plan the quantity and placement with you, based on your bathroom and
+      who uses it.
+    </p>
+  </div>
+</section>
+<section id="About Bars">
+  <div class="xl:container pt-[120px] pb-20 px-4 md:px-10 lg:px-60">
+    <!-- Heading -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[120px] text-start"
+    >
+      <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
+        {sectionHeaders.bars.title}
+      </h2>
+
+      <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
+        {sectionHeaders.bars.description}
+      </p>
+    </div>
+    <!-- Bar features -->
+    <div
+      class="mt-10 md:mt-[72px] flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 text-center"
+    >
+      {
+        barFeatures.map((f: FeatureItem, i: number) => (
+          <>
+            <div class="md:flex-1">
+              <p class="text-[#CC0000] text-xl font-bold">{f.title}</p>
+              <p class="my-2 text-base leading-7 text-black opacity-60 max-w-[240px] mx-auto">
+                {f.desc}
+              </p>
+            </div>
+            {i !== barFeatures.length - 1 && (
+              <>
+                <div class="hidden md:flex items-center">
+                  <div class="w-px h-10 bg-[#CC0000]" />
+                </div>
+                <div class="md:hidden flex justify-center">
+                  <div class="w-72 h-[0.8px] bg-[#CC0000]" />
+                </div>
+              </>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
+  <div class="bg-[#EFE7DC] py-16 md:py-20">
+    <div
+      class="xl:container px-6 flex flex-col gap-12
+           lg:flex-row lg:items-center lg:justify-center lg:gap-20"
+    >
+      <!-- Image 1 -->
+      <Image src={kitData.img1} alt="" class="w-full max-w-[500px] mx-auto" />
+
+      <!-- Image 2 -->
+      <Image src={kitData.img2} alt="" class="w-full max-w-[500px] mx-auto" />
+    </div>
+  </div>
+  <section id="About Matte">
+    <div class="bg-white">
+      <div class="xl:container pt-[120px] pb-20 px-4 md:px-10 lg:px-60">
+        <!-- Heading -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[120px] text-start"
+        >
+          <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
+            {sectionHeaders.mat.title}
+          </h2>
+
+          <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
+            {sectionHeaders.mat.description}
+          </p>
+        </div>
+        <!-- Feature points -->
+        <div
+          class="mt-10 md:mt-[72px] flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 text-center"
+        >
+          {
+            matFeatures.map((f: FeatureItem, i: number) => (
+              <>
+                <div class="md:px-4">
+                  <p class="text-[#CC0000] text-xl font-bold">{f.title}</p>
+                  <p class="my-2 text-base leading-7 text-black opacity-60">
+                    {f.desc}
+                  </p>
+                </div>
+                {i !== matFeatures.length - 1 && (
+                  <>
+                    <div class="hidden md:flex items-center">
+                      <div class="w-px h-10 bg-[#CC0000]" />
+                    </div>
+                    <div class="md:hidden flex justify-center">
+                      <div class="w-72 h-[0.8px] bg-[#CC0000]" />
+                    </div>
+                  </>
+                )}
+              </>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <!-- MAT SHOWCASE -->
+    <div class="bg-[#FBF6EB] flex justify-center py-12 md:py-20 px-4">
+      <Image src={kitData.img3} alt="Anti skid mat" class="object-contain" />
+    </div>
+  </section>
+  <section id="About Tape">
+    <div class="xl:container pt-[120px] pb-20 px-4 md:px-10 lg:px-60">
+      <!-- Heading -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[120px] text-start"
+      >
+        <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
+          {sectionHeaders.tape.title}
+        </h2>
+        <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
+          {sectionHeaders.tape.description}
+        </p>
+      </div>
+      <!-- Features -->
+      <div
+        class="mt-10 md:mt-[72px] flex flex-col md:flex-row items-center md:items-stretch text-center gap-8 md:gap-10"
+      >
+        {
+          tapeFeatures.map((f: FeatureItem, i: number) => (
+            <>
+              <div class="flex-1">
+                <p class="text-[#CC0000] text-xl font-bold">{f.title}</p>
+                <p class="my-2 text-base leading-7 text-black opacity-60">
+                  {f.desc}
+                </p>
+              </div>
+              {i !== tapeFeatures.length - 1 && (
+                <>
+                  <div class="hidden md:flex items-center">
+                    <div class="w-px h-10 bg-[#CC0000]" />
+                  </div>
+                  <div class="md:hidden flex justify-center">
+                    <div class="w-72 h-[0.8px] bg-[#CC0000]" />
+                  </div>
+                </>
+              )}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <div class="md:py-20 py-10 xl:container">
+    <Image
+      src={kitData.img4}
+      alt="Bathroom floor"
+      class="w-full object-contain"
+    />
+  </div>
+</section>

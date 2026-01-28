@@ -1,0 +1,61 @@
+---
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+const faqsData: FAQ[] = Astro.props.faqsData;
+---
+
+<section
+  class="xl:container py-[120px] flex flex-col items-center px-6 font-sans-instrument"
+>
+  <h2 class="text-4xl font-bold mb-12">FAQs</h2>
+  <div class="w-full max-w-5xl space-y-6">
+    {
+      faqsData.map((faq, i) => (
+        <div class="border-b border-gray-300 pb-4">
+          <button
+            class="faq-toggle w-full flex justify-between items-center text-left"
+            data-index={i}
+          >
+            <span class="text-[18px] text-[#2C2C2C] font-semibold">
+              {faq.question}
+            </span>
+            <svg
+              class="chevron w-5 h-5 transition-transform"
+              data-index={i}
+              fill="none"
+              stroke="black"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <p
+            class="faq-answer hidden mt-3 text-[15px] leading-relaxed text-[#2C2C2C] opacity-[0.6]"
+            data-index={i}
+          >
+            {faq.answer}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Client Script -->
+  <script is:inline>
+    const toggles = document.querySelectorAll(".faq-toggle");
+    const answers = document.querySelectorAll(".faq-answer");
+    const chevrons = document.querySelectorAll(".chevron");
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const index = toggle.dataset.index;
+        answers[index].classList.toggle("hidden");
+        chevrons[index].classList.toggle("rotate-180");
+      });
+    });
+  </script>
+</section>

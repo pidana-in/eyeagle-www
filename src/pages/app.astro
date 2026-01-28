@@ -1,0 +1,36 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroSection from "../components/AppSection/HeroSection.astro";
+import {
+  HeroSectionData,
+  heroTitle,
+  heroDescription,
+  features,
+  featureData,
+  backupSection,
+  sectionContent,
+  familyCard,
+  FamilySection,
+  membershipContent,
+  plans,
+  contentData,
+  stores,
+} from "../components/constants/app";
+import Feature from "../components/AppSection/Feature.astro";
+import Family from "../components/AppSection/Family.astro";
+import Membership from "../components/AppSection/Membership.astro";
+import AppDownload from "../components/AppSection/AppDownload.astro";
+import BackupSection from "../components/AppSection/BackupSection.astro";
+const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
+const metaDesc =
+  "Explore EyEagle’s innovative solutions for elderly safety. From fall alert devices to emergency alarm systems, protect your loved ones today.";
+---
+
+<MainLayout title={metaTitle} desc={metaDesc}>
+  <HeroSection HeroSectionData={HeroSectionData} heroTitle={heroTitle} heroDescription={heroDescription} />
+  <Feature features={features} featureData={featureData} />
+  <BackupSection backupSection={backupSection} />
+  <Family sectionContent={sectionContent} FamilySection={FamilySection} familyCard={familyCard} />
+  <Membership membershipContent={membershipContent} plans={plans} />
+  <AppDownload contentData={contentData} stores={stores} />
+</MainLayout>

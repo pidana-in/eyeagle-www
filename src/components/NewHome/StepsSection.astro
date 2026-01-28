@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import ButtonImage from "../../assets/NewHome/ButtonImage.png";
+
+type StepsContent = {
+  title: string;
+  desc: string;
+};
+
+type StepItem = {
+  title: string;
+  step: string;
+  active: boolean;
+};
+
+const stepsContent = Astro.props.stepsContent as StepsContent;
+const stepsData = Astro.props.stepsData as StepItem[];
+---
+
+<section class="py-20 font-sans-instrument">
+  <div class="xl:container flex flex-col items-center text-center px-4 md:px-[120px]">
+    <!-- Heading -->
+    <div class="max-w-[800px] mb-10">
+      <h2 class="text-3xl md:text-[40px] font-bold mb-4">
+        {stepsContent.title}
+      </h2>
+      <p class="text-sm md:text-base leading-7">
+        {stepsContent.desc}
+      </p>
+    </div>
+    <!-- Illustration -->
+    <div class="w-full flex justify-center mb-16">
+      <Image
+        src={ButtonImage}
+        alt="Emergency interaction illustration"
+        class="w-full"
+        loading="lazy"
+      />
+    </div>
+    <!-- Steps -->
+    <div class="w-full max-w-[1200px] mb-10">
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-left"
+      >
+        {
+          stepsData.map((item: StepItem) => (
+            <div>
+              <p class="text-base font-bold mb-1">{item.title}</p>
+              <p class="text-base">{item.step}</p>
+              <div
+                class={`mt-5 h-[2px] ${
+                  item.active ? "bg-[#CC0000]" : "bg-gray-200"
+                }`}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <!-- CTA -->
+    <a
+      href="https://shop.eyeagle.ai/"
+      target="_blank"
+      class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+    >
+      Book Safety call
+    </a>
+  </div>
+</section>

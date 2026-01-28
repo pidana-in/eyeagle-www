@@ -1,0 +1,165 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type Step = {
+  text: string;
+  image: ImageMetadata;
+};
+
+type Header = {
+  title: string;
+};
+
+interface Props {
+  header: Header;
+  steps: Step[];
+}
+
+const { header, steps } = Astro.props as Props;
+---
+
+<section class="how-it-works py-20 bg-black font-sans-instrument">
+  <div class="xl:container px-6 md:px-[120px]">
+    <div class="pb-14 text-white text-center">
+      <h2 class="text-3xl md:text-5xl font-bold">
+        {header.title}
+      </h2>
+    </div>
+    <!-- IMAGE CAROUSEL -->
+    <div class="relative w-full mb-12 overflow-hidden">
+      {
+        steps.map((step, i) => (
+          <Image
+            src={step.image}
+            alt="How it works step"
+            class={`how-image w-full transition-opacity duration-500 ${
+              i === 0 ? "opacity-100 relative" : "opacity-0 absolute inset-0"
+            }`}
+            data-index={i}
+          />
+        ))
+      }
+    </div>
+    <!-- STEPS -->
+    <div class="grid grid-cols-1 md:grid-cols-4 md:gap-10 gap-8">
+      {
+        steps.map((step, i) => (
+          <div
+            class={`how-step transition-all duration-300 ${
+              i === 0 ? "text-[#FFFFFF]" : "text-white/50"
+            }`}
+            data-index={i}
+          >
+            <p class="text-lg md:text-xl font-semibold leading-relaxed md:min-h-[5.725rem]">
+              {step.text}
+            </p>
+            <div
+              class={`how-underline mt-5 h-[2px] w-full overflow-hidden transition-colors duration-300 ${
+                i === 0 ? "bg-[#FFFFFF]" : "bg-white/50"
+              }`}
+            >
+              <div class="how-progress h-full bg-red-600 w-0" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- AUTO CAROUSEL SCRIPT -->
+  <script is:inline>
+    const section = document.querySelector(".how-it-works");
+    const images = section.querySelectorAll(".how-image");
+    const steps = section.querySelectorAll(".how-step");
+    const bars = section.querySelectorAll(".how-progress");
+
+    const DURATION = 4500;
+    let current = 0;
+    let timer = null;
+
+    function reset() {
+      images.forEach((img) => {
+        img.classList.remove("opacity-100");
+        img.classList.add("opacity-0");
+      });
+
+      steps.forEach((step) => {
+        step.classList.remove("text-white");
+        step.classList.add("text-white/50");
+
+        const underline = step.querySelector(".how-underline");
+        underline.classList.remove("bg-white");
+        underline.classList.add("bg-white/50");
+      });
+
+      bars.forEach((bar) => {
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+      });
+    }
+
+    function activate(index) {
+      images[index].classList.remove("opacity-0");
+      images[index].classList.add("opacity-100");
+
+      steps[index].classList.remove("text-white/50");
+      steps[index].classList.add("text-[#FFFFFF]");
+
+      const underline = steps[index].querySelector(".how-underline");
+      underline.classList.remove("bg-white/50");
+      underline.classList.add("bg-[#FFFFFF]");
+
+      const bar = bars[index];
+      bar.style.transition = "none"; // reset first
+      bar.style.width = "0%";
+
+      // force reflow so browser applies width=0 instantly
+      bar.offsetHeight;
+
+      bar.style.transition = `width ${DURATION}ms linear`;
+      bar.style.width = "100%";
+    }
+
+    function start() {
+      stop();
+      reset();
+      current = 0;
+      activate(current);
+
+      timer = setInterval(() => {
+        // reset progress bar
+        bars[current].style.transition = "none";
+        bars[current].style.width = "0%";
+        // hide image
+        images[current].classList.remove("opacity-100");
+        images[current].classList.add("opacity-0");
+        // downgrade text
+        steps[current].classList.remove("text-[#FFFFFF]");
+        steps[current].classList.add("text-white/50");
+        // downgrade underline
+        const prevUnderline = steps[current].querySelector(".how-underline");
+        prevUnderline.classList.remove("bg-[#FFFFFF]");
+        prevUnderline.classList.add("bg-white/50");
+
+        current = (current + 1) % images.length;
+        activate(current);
+      }, DURATION);
+    }
+
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) start();
+        else stop();
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(section);
+  </script>
+</section>

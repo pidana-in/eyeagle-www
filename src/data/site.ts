@@ -6,6 +6,15 @@ export const siteMeta = {
 };
 
 export const navLinks = [
+  { title: "App", url: "/app" },
+  {
+    title: "Products",
+    children: [
+      { title: "Device", url: "/device" },
+      { title: "Protection", url: "/protection" },
+      { title: "Home", url: "/newHome" },
+    ],
+  },
   { title: "Shop", url: "https://shop.eyeagle.ai/" },
   { title: "How it Works", url: "/solution" },
   { title: "About Us", url: "/about-us" },
@@ -21,7 +30,8 @@ export const userMenu = [
 ];
 
 export const ctaButtonText = "Get Started";
-export const ctaHref = "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
+export const ctaHref =
+  "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
 
 export const footerPolicyLinks = [
   { title: "Shipping Policy", url: "/shipping" },
@@ -31,7 +41,7 @@ export const footerPolicyLinks = [
 ];
 
 export const footerCopyright =
-  "@2025 EyEagle. All Rights Reserved. Designed & Developed by PIDANA Technologies Pvt. Ltd.";
+  "@2026 EyEagle. All Rights Reserved. Designed & Developed by PIDANA Technologies Pvt. Ltd.";
 
 export const socialLinks = {
   linkedin: "https://in.linkedin.com/in/eyeagle-ai-036996362?trk=org-employees",
