@@ -14,6 +14,7 @@ const normalizeImagePath = (input: string) => {
 
 const MAX_PAGE_SIZE = 50;
 const DEFAULT_PAGE_SIZE = 10;
+const DEFAULT_PAGE = 0;
 
 const toPositiveInt = (value: string | null) => {
   const parsed = value ? Number.parseInt(value, 10) : Number.NaN;
@@ -24,9 +25,13 @@ export async function GET({ request }: { request: Request }) {
   const url = new URL(request.url);
   const requestedSize = toPositiveInt(url.searchParams.get("size"));
   const size = Math.min(requestedSize ?? DEFAULT_PAGE_SIZE, MAX_PAGE_SIZE);
+  const requestedPage = toPositiveInt(url.searchParams.get("page"));
+  const page = requestedPage ?? DEFAULT_PAGE;
 
   let blogsData: CollectionEntry<"blogs">[] = await getCollection("blogs");
-  blogsData = blogsData.sort((a, b) => b.data.id - a.data.id).slice(0, size);
+  const start = page * size;
+  const end = start + size;
+  blogsData = blogsData.sort((a, b) => b.data.id - a.data.id).slice(start, end);
 
   const responseData = await Promise.all(
     blogsData.map(async (blog) => {
