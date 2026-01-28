@@ -11,7 +11,7 @@ const normalizeImagePath = (input: string) => {
 };
 
 let blogsData: CollectionEntry<"blogs">[] = await getCollection("blogs");
-blogsData = blogsData.sort((a, b) => b.data.id - a.data.id);
+blogsData = blogsData.sort((a, b) => b.data.id - a.data.id).slice(0, 10);
 
 const responseData = await Promise.all(
   blogsData.map(async (blog) => {
@@ -19,18 +19,19 @@ const responseData = await Promise.all(
     const image = imageSource
       ? await getImage({
           src: imageSource,
-          widths: [400],
-          formats: ["avif", "webp", "jpeg"],
-          sizes: "(max-width: 400px) 100vw, 400px",
+          width: 400,
+          format: "webp",
           quality: 80,
         })
       : null;
+
+    console.log("Blog Image Source:", image);
 
     return {
       title: blog.data.title,
       id: blog.data.id,
       author: blog.data.author,
-      image: image?.src ?? "",
+      image: "https://eyeagle.ai" + (image?.src ?? "/favicon.svg"),
       date: blog.data.date,
       slug: "https://eyeagle.ai/blogs/" + blog.slug,
       // raw: blog,
