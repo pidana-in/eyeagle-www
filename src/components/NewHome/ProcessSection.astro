@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 type ProcessItem = {
   title: string;
   description: string;
@@ -10,41 +12,40 @@ type Process = {
   items: ProcessItem[];
 };
 
-const processData = Astro.props.processData as Process;
+interface Props {
+  processData: Process;
+  processImage: ImageMetadata;
+}
+
+const { processData, processImage } = Astro.props as Props;
 ---
 
-<section class="xl:container py-12 lg:py-20">
-  <div
-    class="flex flex-col-reverse lg:flex-row gap-12 lg:gap-[120px] justify-center mx-4 lg:mx-[120px]"
-  >
-    <div
-      class="max-w-[540px] flex flex-col gap-12 lg:gap-[260px] pt-0 lg:pt-10"
-    >
-      <div>
-        <h2
-          class="text-2xl lg:text-[40px] leading-snug lg:leading-[48px] font-bold"
-        >
-          {processData.title}
-        </h2>
-        <p class="text-base mt-4">{processData.description}</p>
-      </div>
-
+<section class="py-12 lg:py-20 bg-[#111827] font-jakarta">
+  <div class="flex xl:container flex-col lg:flex-row gap-20 justify-center px-4 text-white md:py-20">
+    <!-- LEFT (Sticky heading) -->
+    <div class="lg:sticky lg:top-32 lg:self-start max-w-[380px] py-6">
+      <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
+        {processData.title}
+      </h2>
+    </div>
+    <!-- RIGHT (Steps) -->
+    <div class="flex flex-col gap-16 lg:max-w-[540px]">
       {
-        processData.items.map((item) => (
+        processData.items.map((card) => (
           <div>
-            <h4 class="font-semibold text-xl lg:text-[28px] leading-7 lg:leading-8">
-              {item.title}
-            </h4>
-            <p class="text-base mt-3 lg:mt-4">{item.description}</p>
+            <Image
+              src={processImage}
+              alt={card.title}
+              class="rounded-xl w-full"
+            />
+            <div class="mt-10">
+              <h3 class="text-xl font-bold">{card.title}</h3>
+              <p class="text-base mt-2 opacity-70">{card.description}</p>
+            </div>
           </div>
         ))
       }
     </div>
-    <!-- RIGHT IMAGE -->
-    <div class="w-full lg:w-[540px]">
-      <div class="lg:sticky lg:top-[120px]">
-        <div class="bg-black rounded-2xl h-[320px] lg:h-[730px] w-full"></div>
-      </div>
-    </div>
   </div>
 </section>
+

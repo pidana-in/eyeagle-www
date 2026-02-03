@@ -7,7 +7,7 @@ export default {
         "sans-instrument": ["Instrument Sans"],
         inter: ["Inter"],
         barlow: ["Barlow", "sans-serif"],
-        // proxima: ["Proxima Nova", "sans-serif"],   
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       colors: {
         primary: "#CC0000",

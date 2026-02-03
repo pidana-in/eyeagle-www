@@ -6,6 +6,11 @@ import Moment3 from "../../assets/NewHome/Moment3.png";
 import AppImage from "../../assets/NewHome/AppImage.png";
 import AlarmInside from "../../assets/Device/AlarmInside.png";
 import BathroomKitImage from "../../assets/NewHome/BathroomKitImage.png";
+import RaiseAlarm from "../../assets/Protection/RaiseAlarm.png";
+import StepImg1 from "../../assets/NewHome/step1.png";
+import StepImg2 from "../../assets/NewHome/step2.png";
+import StepImg5 from "../../assets/NewHome/step5.png";
+
 
 export const heroContent = {
   heading: ["Everyday safety", "for the people", "you love."],
@@ -153,19 +158,22 @@ export const processData = {
   ],
 };
 
+export const ProcessImage = RaiseAlarm;
+
 export const stepsContent = {
-title: "From worry to a plan, in four steps.",
+title: "From worry to a plan, in simple steps.",
 desc: "You can start with any one product. But when you connect them, EyEagle becomes a calm, always-there support system for your family.",
 };
 
 export const stepsData = [
-  { title: "Protection", step: "Step 1", active: true },
-  { title: "Interaction", step: "Step 2" },
-  { title: "Detection", step: "Step 3" },
-  { title: "Alarm", step: "Step 4" },
-  { title: "Notification", step: "Step 5" },
-  { title: "Action", step: "Step 6" },
+  { title: "Protection", step: "Stop falls early", image: StepImg1 },
+  { title: "Interaction", step: "Seamless daily use", image: StepImg2 },
+  { title: "Detection", step: "Smart risk sensing", image: StepImg2 },
+  { title: "Alarm", step: "Immediate alert system", image: StepImg1 },
+  { title: "Notification", step: "Caregiver instant updates", image: StepImg5 },
+  { title: "Action", step: "Fast emergency response", image: StepImg5 },
 ];
+
 
 export const faqsData = [
   {

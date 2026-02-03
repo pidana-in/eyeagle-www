@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ButtonImage from "../../assets/NewHome/ButtonImage.png";
+import type { ImageMetadata } from "astro";
 
 type StepsContent = {
   title: string;
@@ -10,15 +10,17 @@ type StepsContent = {
 type StepItem = {
   title: string;
   step: string;
-  active: boolean;
+  image: ImageMetadata;
 };
 
 const stepsContent = Astro.props.stepsContent as StepsContent;
 const stepsData = Astro.props.stepsData as StepItem[];
 ---
 
-<section class="py-20 font-sans-instrument">
-  <div class="xl:container flex flex-col items-center text-center px-4 md:px-[120px]">
+<section class="steps-section py-20 font-jakarta bg-white">
+  <div
+    class="xl:container flex flex-col items-center text-center px-4 md:px-[120px]"
+  >
     <!-- Heading -->
     <div class="max-w-[800px] mb-10">
       <h2 class="text-3xl md:text-[40px] font-bold mb-4">
@@ -28,35 +30,40 @@ const stepsData = Astro.props.stepsData as StepItem[];
         {stepsContent.desc}
       </p>
     </div>
-    <!-- Illustration -->
-    <div class="w-full flex justify-center mb-16">
-      <Image
-        src={ButtonImage}
-        alt="Emergency interaction illustration"
-        class="w-full"
-        loading="lazy"
-      />
+    <!-- IMAGE AREA -->
+    <div class="relative w-full max-w-[1200px] mb-16">
+      {
+        stepsData.map((item, i) => (
+          <Image
+            src={item.image}
+            alt={item.title}
+            class={`step-image w-full transition-opacity duration-500 ${
+              i === 0 ? "opacity-100 relative" : "opacity-0 absolute inset-0"
+            }`}
+            data-index={i}
+          />
+        ))
+      }
     </div>
-    <!-- Steps -->
+    <!-- STEPS -->
     <div class="w-full max-w-[1200px] mb-10">
       <div
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-left"
       >
         {
-          stepsData.map((item: StepItem) => (
-            <div>
+          stepsData.map((item, i) => (
+            <div class="step-item" data-index={i}>
               <p class="text-base font-bold mb-1">{item.title}</p>
               <p class="text-base">{item.step}</p>
-              <div
-                class={`mt-5 h-[2px] ${
-                  item.active ? "bg-[#CC0000]" : "bg-gray-200"
-                }`}
-              />
+              <div class="step-underline mt-5 h-[2px] bg-gray-200">
+                <div class="step-progress h-full bg-[#CC0000] w-0" />
+              </div>
             </div>
           ))
         }
       </div>
     </div>
+
     <!-- CTA -->
     <a
       href="https://shop.eyeagle.ai/"
@@ -66,4 +73,87 @@ const stepsData = Astro.props.stepsData as StepItem[];
       Book Safety call
     </a>
   </div>
+
+  <!-- SCRIPT -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const section = document.querySelector(".steps-section");
+      if (!section) return;
+
+      const images = section.querySelectorAll(".step-image");
+      const stepEls = section.querySelectorAll(".step-item");
+      const bars = section.querySelectorAll(".step-progress");
+
+      if (!images.length || !stepEls.length) return;
+
+      const DURATION = 4000;
+      let current = 0;
+      let timer = null;
+
+      function reset() {
+        images.forEach((img) => {
+          img.classList.remove("opacity-100");
+          img.classList.add("opacity-0");
+        });
+
+        stepEls.forEach((step) => {
+          step.classList.remove("text-black");
+          step.classList.add("text-gray-500");
+        });
+
+        bars.forEach((bar) => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+        });
+      }
+
+      function activate(index) {
+        images[index].classList.remove("opacity-0");
+        images[index].classList.add("opacity-100");
+
+        stepEls[index].classList.remove("text-gray-500");
+        stepEls[index].classList.add("text-black");
+
+        const bar = bars[index];
+        bar.style.transition = "none";
+        bar.style.width = "0%";
+        bar.offsetHeight; // force reflow
+        bar.style.transition = `width ${DURATION}ms linear`;
+        bar.style.width = "100%";
+      }
+
+      function start() {
+        stop();
+        reset();
+        current = 0;
+        activate(current);
+
+        timer = setInterval(() => {
+          bars[current].style.transition = "none";
+          bars[current].style.width = "0%";
+
+          images[current].classList.remove("opacity-100");
+          images[current].classList.add("opacity-0");
+
+          current = (current + 1) % images.length;
+          activate(current);
+        }, DURATION);
+      }
+
+      function stop() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) start();
+          else stop();
+        },
+        { threshold: 0.5 },
+      );
+
+      observer.observe(section);
+    });
+  </script>
 </section>

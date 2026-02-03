@@ -24,11 +24,13 @@ import {
   kitFeatures,
   bathroomKit,
   processData,
+  ProcessImage,
   stepsContent,
   stepsData,
   faqsData,
   ctaSection,
 } from "../components/constants/newHome";
+import EyeagleTab from "../components/NewHome/EyeagleTab.astro";
 
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
 const metaDesc =
@@ -44,11 +46,15 @@ const metaDesc =
   />
   <SafetySteps principles={principles} />
   <Moments momentData={momentData} momentFeatures={momentFeatures} />
-  <EyeagleApp appSection={appSection} appData={appData} />
-  <GuardianX guardianData={guardianData} kitFeatures={kitFeatures} />
-  <BathroomKit bathroomKit={bathroomKit} />
-  <ProcessSection processData={processData} />
+  <EyeagleTab
+    appSection={appSection}
+    appData={appData}
+    guardianData={guardianData}
+    kitFeatures={kitFeatures}
+    bathroomKit={bathroomKit}
+  />
+  <ProcessSection processData={processData} processImage={ProcessImage} />
   <StepsSection stepsContent={stepsContent} stepsData={stepsData} />
-  <FAQs faqsData={faqsData}/>
-  <CTA ctaSection={ctaSection} /> 
+  <FAQs faqsData={faqsData} />
+  <CTA ctaSection={ctaSection} />
 </MainLayout>

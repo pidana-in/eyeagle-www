@@ -11,18 +11,18 @@ const momentData = Astro.props.momentData;
 const momentFeatures = Astro.props.momentFeatures as MomentFeature[];
 ---
 
-<section class="py-16 md:py-20 font-sans-instrument">
-  <div class="xl:container px-4 md:px-[120px]">
+<section class="py-16 md:py-20 font-jakarta">
+  <div class="xl:container px-4 md:px-0">
     <div class="flex justify-center">
       <div
-        class="flex flex-col text-center max-w-[960px] mb-12 md:mb-20 items-center px-0 md:px-14"
+        class="flex flex-col text-center max-w-[960px] mb-12 md:mb-[120px] items-center"
       >
         <h2
           class="text-3xl md:text-[40px] font-bold mb-4 leading-snug md:leading-[48px]"
         >
           {momentData.title}
         </h2>
-        <p class="text-base leading-7">{momentData.desc}</p>
+        <p class="md:text-lg font-medium leading-7 opacity-60">{momentData.desc}</p>
       </div>
     </div>
     <div
@@ -38,7 +38,7 @@ const momentFeatures = Astro.props.momentFeatures as MomentFeature[];
               loading="lazy"
             />
             <h3 class="mt-10 font-bold text-2xl">{item.title}</h3>
-            <p class="mt-3 text-base max-w-[360px]">{item.description}</p>
+            <p class="mt-3 opacity-60 max-w-[360px]">{item.description}</p>
           </div>
         ))
       }

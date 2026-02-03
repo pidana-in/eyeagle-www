@@ -8,25 +8,23 @@ type Principle = {
 const principles = Astro.props.principles as Principle[];
 ---
 
-<section
-  class="xl:container px-4 py-5 sm:py-20 lg:p-[120px] font-sans-instrument"
->
+<section class="xl:container px-4 lg:px-0 py-5 sm:py-20 lg:py-[120px] font-jakarta">
   <div>
-    <h2 class="text-center text-3xl md:text-5xl font-bold mb-12 md:mb-[120px]">
+    <h2
+      class="text-center text-3xl md:text-[40px] font-bold mb-12 md:mb-[120px] text-[#1F2937]"
+    >
       Make safety feel like care, not control.
     </h2>
     <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[60px] text-center max-w-[1200px] mx-auto"
+      class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-[60px] text-center max-w-[1200px] place-self-center"
     >
       {
         principles.map((item) => (
-          <div class="flex flex-col items-center max-w-[360px] mx-auto">
+          <div class="flex flex-col items-center max-w-[356px]">
             <div class="size-10 rounded-full bg-red-100 text-[#CC0000] text-lg font-bold flex items-center justify-center mb-4">
               {item.number}
             </div>
-            <h3 class="text-xl font-bold text-[#CC0000] mb-3">
-              {item.title}
-            </h3>
+            <h3 class="text-xl font-bold text-[#111827] mb-3">{item.title}</h3>
             <p class="text-base text-black opacity-60 leading-relaxed">
               {item.description}
             </p>
