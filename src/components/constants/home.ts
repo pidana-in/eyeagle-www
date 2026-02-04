@@ -54,6 +54,7 @@ import blogImage19 from "../../assets/Blog/BlogImage19.jpg";
 import blogImage20 from "../../assets/Blog/BlogImage20.jpg";
 import blogImage21 from "../../assets/Blog/BlogImage21.jpg";
 import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
+import blogImage23 from "../../assets/Blog/BlogImage23.jpg";
 
 export const bathroomData = [
   {
@@ -285,7 +286,7 @@ export const blogsData = [
     slug: "winter-bathroom-safety-for-seniors",
     title: "Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls",
     desc: "Cold weather increases fall risks for seniors. Learn practical winter bathroom safety tips to keep your elderly loved ones safe.",
-    img: blogImage22,
+    img: blogImage23,
   },
 ];
 
