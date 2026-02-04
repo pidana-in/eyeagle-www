@@ -2,11 +2,11 @@
 id: "25"
 title: "Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls"
 category: "Blog"
-img: ../../assets/Blog/BlogImage4.jpg
+img: ../../assets/Blog/BlogImage23.jpg
 slug: "winter-bathroom-safety-for-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-01-28
+date: 2026-02-04
 ---
 
 # Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls
@@ -79,6 +79,8 @@ Use small exhaust fans or heaters to reduce condensation. After every shower, en
 ### 5. Keep Essentials Within Easy Reach
 
 Store towels, soap, and clothes at waist level to avoid bending or stretching. This simple change prevents imbalance and unnecessary strain.
+
+![Infographic](../../assets/Blog/Blog23Infographic.jpg)
 
 ## Health and Routine: Building Safer Habits
 
