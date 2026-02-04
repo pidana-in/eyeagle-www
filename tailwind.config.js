@@ -4,9 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "sans-instrument": ["Instrument Sans"],
-        inter: ["Inter"],
-        barlow: ["Barlow", "sans-serif"],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'], 
       },
       colors: {
         primary: "#CC0000",
