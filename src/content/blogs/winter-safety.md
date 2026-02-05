@@ -6,7 +6,7 @@ img: ../../assets/Blog/BlogImage23.jpg
 slug: "winter-bathroom-safety-for-seniors"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-02-04
+date: 2026-02-05
 ---
 
 # Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls
