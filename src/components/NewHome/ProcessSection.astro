@@ -20,41 +20,65 @@ interface Props {
 const { processData } = Astro.props as Props;
 ---
 
-<section class="bg-[#111827] text-white py-20 md:py-40">
-  <div class="xl:container px-4">
-    <div class="text-center max-w-[1240px]">
-      <h2 class="text-3xl md:text-[44px] font-bold leading-tight">
+<section class="bg-[#111827] text-white py-14 md:py-40 px-5 md:px-[120px]">
+  <div class="xl:container px-0 md:px-4">
+    {/* ================= HEADING ================= */}
+    <div class="text-center max-w-[1240px] mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-[44px] font-bold leading-tight">
         {processData.title}
       </h2>
     </div>
-    <div class="mt-16 md:mt-[120px] flex flex-col md:flex-row gap-[72px] items-start">
+
+    {/* ================= CARDS ================= */}
+    <div
+      class="mt-10 md:mt-[120px] flex flex-col md:flex-row gap-12 md:gap-[72px] items-start"
+    >
       {
         processData.items.map((card, index) => (
-          <div class="relative">
+          <div class="relative w-full md:max-w-[380px]">
+            {/* IMAGE */}
             <div class="relative rounded-xl overflow-hidden">
               <Image
                 src={card.image}
                 alt={card.title}
-                class="w-full object-cover"
+                class="w-full h-auto object-cover"
               />
-              <div class="absolute top-4 left-4 w-8 h-8 rounded-full bg-[#CC0000] text-white text-sm font-semibold flex items-center justify-center shadow-md">
+
+              {/* STEP BADGE */}
+              <div class="absolute top-3 left-3 w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#CC0000] text-white text-xs md:text-sm font-semibold flex items-center justify-center shadow-md">
                 {card.step}
               </div>
             </div>
-            <div class="mt-10">
-              <h3 class="text-lg md:text-xl font-bold">
-                {card.title}
-              </h3>
-              <p class="text-sm md:text-base text-neutral-200 mt-4 leading-relaxed">
+
+            {/* TEXT */}
+            <div class="mt-6 md:mt-10">
+              <h3 class="text-base md:text-xl font-bold">{card.title}</h3>
+
+              <p class="text-sm md:text-base text-neutral-200 mt-3 md:mt-4 leading-relaxed">
                 {card.description}
               </p>
             </div>
-            {/* CONNECTOR */}
+
+            {/* ================= CONNECTOR ================= */}
+
+            {/* Desktop horizontal connector */}
             {index < processData.items.length - 1 && (
-              <div class="hidden md:flex absolute top-1/2 right-[-56px] -translate-y-1/2 items-center">
-                {/* LINE */}
+              <div
+                class="hidden md:flex absolute top-1/2 right-[-56px]
+                          -translate-y-1/2 items-center"
+              >
                 <div class="w-8 h-[2px] bg-[#CC0000]" />
-                {/* DOT */}
+                <div class="w-2 h-2 bg-[#CC0000] rounded-full" />
+              </div>
+            )}
+
+            {/* Mobile vertical connector */}
+            {index < processData.items.length - 1 && (
+              <div
+                class="md:hidden absolute left-1/2 bottom-[-32px]
+                          -translate-x-1/2 flex flex-col items-center"
+              >
+                <div class="h-6 w-[2px] bg-[#CC0000]" />
                 <div class="w-2 h-2 bg-[#CC0000] rounded-full" />
               </div>
             )}

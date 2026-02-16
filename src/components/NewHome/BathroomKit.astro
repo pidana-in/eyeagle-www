@@ -14,8 +14,8 @@ type BathroomKit = {
 const bathroomKit = Astro.props.bathroomKit as BathroomKit;
 ---
 
-<section class="py-12 md:py-20 2xl:container">
-  <div class="flex flex-col items-center text-center px-4 md:px-0">
+<section class="py-8 md:py-20 2xl:container">
+  <div class="flex flex-col items-center text-center">
     <div
       class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center"
     >
@@ -35,12 +35,12 @@ const bathroomKit = Astro.props.bathroomKit as BathroomKit;
       {bathroomKit.desc}
     </p>
     <div
-      class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-0 text-base md:text-xl font-bold text-[#CC0000] max-w-[1200px] mt-[60px] mb-12 md:mb-20"
+      class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-0 text-base md:text-xl font-bold text-[#CC0000] max-w-[1200px] md:mt-[60px] mt-8 mb-12 md:mb-20"
     >
       {
         bathroomKit.features.map((feature, index) => (
           <p
-            class={`font-semibold px-4 md:px-6 py-3 md:py-4 text-center
+            class={`font-semibold px-4 md:px-6  md:py-4 text-center
               ${
                 index !== bathroomKit.features.length - 1
                   ? "md:border-r md:border-[#CC0000]"
@@ -62,7 +62,7 @@ const bathroomKit = Astro.props.bathroomKit as BathroomKit;
     />
     <a
       href="/protection"
-      class="inline-block rounded-full bg-[#090D15] text-white px-6 py-3 text-sm font-semibold"
+      class="inline-block rounded-full bg-[#090D15] text-white py-2 px-3  md:px-6 md:py-3 text-sm font-semibold"
     >
       Learn more
     </a>

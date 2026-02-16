@@ -3,9 +3,7 @@ import { Image } from "astro:assets";
 const ctaSection = Astro.props.ctaSection;
 ---
 
-<section class="relative w-full min-h-screen overflow-hidden">
-
-  {/* BACKGROUND IMAGE */}
+<section class="relative w-full min-h-[560px] md:min-h-screen overflow-hidden">
   <div class="absolute inset-0 -z-20">
     <Image
       src={ctaSection.image}
@@ -14,47 +12,42 @@ const ctaSection = Astro.props.ctaSection;
       priority
     />
   </div>
-
-  {/* DARK GRADIENT */}
-  <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
-
-  {/* CONTENT (vertically centered) */}
-  <div class="relative h-full min-h-screen flex items-center">
-    <div class="xl:container px-4 md:px-[120px] text-white">
-
-      <div class="max-w-[520px]">
-
-        <p class="text-sm md:text-base text-[#ECEDEE] mb-2">
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"
+  >
+  </div>
+  <div
+    class="relative flex items-center md:items-center min-h-[560px] md:min-h-screen"
+  >
+    <div class="xl:container w-full px-5 sm:px-6 md:px-[120px] text-white">
+      <div class="max-w-[520px] py-16 md:py-0">
+        <p class="text-sm md:text-base text-[#ECEDEE] mb-3">
           {ctaSection.eyebrow}
         </p>
 
-        <h2 class="text-3xl md:text-[40px] font-bold leading-tight">
+        <h2 class="text-2xl sm:text-3xl md:text-[40px] font-bold leading-tight">
           {ctaSection.title}
         </h2>
-
-        <p class="my-10 text-base md:text-lg text-white/80 leading-relaxed">
+        <p
+          class="my-6 md:my-10 text-sm sm:text-base md:text-lg text-white/80 leading-relaxed"
+        >
           {ctaSection.description}
         </p>
-
         <div class="flex flex-col sm:flex-row gap-4">
           <a
             href={ctaSection.primaryCta.href}
-            class="rounded-full bg-[#CC0000] px-6 py-3 text-sm font-semibold hover:bg-red-700 transition text-center"
+            class="rounded-full bg-[#CC0000] px-6 py-3 text-sm font-semibold hover:bg-red-700 transition text-center w-full sm:w-auto"
           >
             {ctaSection.primaryCta.label}
           </a>
-
           <a
             href={ctaSection.secondaryCta.href}
-            class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition text-center"
+            class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition text-center w-full sm:w-auto"
           >
             {ctaSection.secondaryCta.label}
           </a>
         </div>
-
       </div>
-
     </div>
   </div>
-
 </section>
