@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 type KitFeature = {
   title: string;
   description: string;
+  icon: ImageMetadata;
 };
 
 const kitFeatures = Astro.props.kitFeatures as KitFeature[];
@@ -11,8 +12,8 @@ const guardianData = Astro.props.guardianData;
 ---
 
 <section class="bg-[#111827] text-white py-12 md:py-20">
-  <div class="xl:container px-4 md:px-0">
-    <div class="flex flex-col items-center text-center max-w-[720px] mx-auto">
+  <div class="px-4 md:px-0 xl:container">
+    <div class="flex flex-col items-center text-center mx-auto">
       <div
         class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center mb-4"
       >
@@ -23,7 +24,7 @@ const guardianData = Astro.props.guardianData;
       </h2>
     </div>
     <div
-      class="flex flex-col md:flex-row gap-8 md:gap-[120px] mt-12 md:mt-20 justify-evenly px-0 md:px-[120px]"
+      class="flex flex-col md:flex-row gap-8 md:gap-[120px] mt-12 md:mt-20 justify-evenly px-0"
     >
       <div class="max-w-[722px]">
         <p
@@ -35,16 +36,23 @@ const guardianData = Astro.props.guardianData;
           {guardianData.desc}
         </p>
       </div>
-      <div class="space-y-6">
+      <div class="space-y-6 max-w-[358px]">
         {
           kitFeatures.map((item) => (
-            <div>
-              <p class="font-medium text-lg md:text-xl leading-7">
-                {item.title}
-              </p>
-              <p class="text-base font-normal text-white opacity-70 mt-2">
-                {item.description}
-              </p>
+            <div class="flex items-start gap-4">
+              <Image
+                src={item.icon}
+                alt={item.title}
+                class="w-9 h-9 shrink-0"
+              />
+              <div>
+                <p class="font-medium text-lg md:text-xl leading-7">
+                  {item.title}
+                </p>
+                <p class="text-base font-normal text-white opacity-70 mt-2">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))
         }

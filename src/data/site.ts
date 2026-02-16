@@ -12,7 +12,7 @@ export const navLinks = [
     children: [
       { title: "Device", url: "/device" },
       { title: "Protection", url: "/protection" },
-      { title: "Home", url: "/newHome" },
+      // { title: "Home", url: "/newHome" },
     ],
   },
   { title: "Shop", url: "https://shop.eyeagle.ai/" },
@@ -32,6 +32,18 @@ export const userMenu = [
 export const ctaButtonText = "Get Started";
 export const ctaHref =
   "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
+
+export const footerProductLinks = [
+  { title: "Bathroom Safety kit", url: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app" },
+  { title: "How it works", url: "/solution/" },
+  { title: "Guardian X Kit", url: "/protection" },
+  { title: "EyEagle App", url: "/app" },
+];
+
+export const footerCompanyLinks = [
+  { title: "About Us", url: "/about-us" },
+  { title: "Contact Us", url: "/contact" },
+];
 
 export const footerPolicyLinks = [
   { title: "Shipping Policy", url: "/shipping" },

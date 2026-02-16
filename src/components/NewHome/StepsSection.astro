@@ -17,20 +17,19 @@ const stepsContent = Astro.props.stepsContent as StepsContent;
 const stepsData = Astro.props.stepsData as StepItem[];
 ---
 
-<section class="steps-section py-20 font-jakarta bg-white">
+<section class="steps-section">
   <div
-    class="xl:container flex flex-col items-center text-center px-4 md:px-[120px]"
+    class="xl:container flex flex-col items-center text-center px-4"
   >
-    <!-- Heading -->
-    <div class="max-w-[800px] mb-10">
-      <h2 class="text-3xl md:text-[40px] font-bold mb-4">
-        {stepsContent.title}
+    <div class="max-w-[1200px] mb-10">
+      <h2 class="text-3xl md:text-[40px] font-bold mb-4 leading-8">
+        {stepsContent.title[0]}<br />
+        <span class="leading-[56px]">{stepsContent.title[1]}</span>
       </h2>
-      <p class="text-sm md:text-base leading-7">
+      <!-- <p class="text-sm md:text-base leading-7">
         {stepsContent.desc}
-      </p>
+      </p> -->
     </div>
-    <!-- IMAGE AREA -->
     <div class="relative w-full max-w-[1200px] mb-16">
       {
         stepsData.map((item, i) => (
@@ -45,16 +44,15 @@ const stepsData = Astro.props.stepsData as StepItem[];
         ))
       }
     </div>
-    <!-- STEPS -->
-    <div class="w-full max-w-[1200px] mb-10">
+    <div class="w-full max-w-[1200px]">
       <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-left"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 text-start"
       >
         {
           stepsData.map((item, i) => (
             <div class="step-item" data-index={i}>
               <p class="text-base font-bold mb-1">{item.title}</p>
-              <p class="text-base">{item.step}</p>
+              <p class="text-base md:min-h-[4.5rem]">{item.step}</p>
               <div class="step-underline mt-5 h-[2px] bg-gray-200">
                 <div class="step-progress h-full bg-[#CC0000] w-0" />
               </div>
@@ -63,18 +61,17 @@ const stepsData = Astro.props.stepsData as StepItem[];
         }
       </div>
     </div>
-
-    <!-- CTA -->
-    <a
-      href="https://shop.eyeagle.ai/"
-      target="_blank"
-      class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
-    >
-      Book Safety call
-    </a>
+    <div class="py-20">
+      <a
+        href="https://shop.eyeagle.ai/"
+        target="_blank"
+        class="inline-block rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+      >
+        Book Safety Call Now
+      </a>
+    </div>
   </div>
 
-  <!-- SCRIPT -->
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
       const section = document.querySelector(".steps-section");

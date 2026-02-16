@@ -7,87 +7,36 @@ type HeroContent = {
   description: string;
 };
 
-type CTAButton = {
-  label: string;
-  href: string;
-};
-
 type HeroData = {
-  img1: ImageMetadata;
-  img2: ImageMetadata;
+  img: ImageMetadata;
 };
 
 interface Props {
   heroContent: HeroContent;
-  ctaButtons: CTAButton[];
-  featureTicks: string[];
   heroData: HeroData;
 }
 
-const { heroContent, ctaButtons, featureTicks, heroData } =
-  Astro.props as Props;
+const { heroContent, heroData } = Astro.props as Props;
 ---
 
-<section class="py-16 lg:py-20 px-4 lg:px-0">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[60px]">
-    <div
-      class="flex items-center justify-center lg:justify-start lg:pl-[120px]"
-    >
-      <div class="max-w-[570px] text-center lg:text-left">
-        <h1
-          class="text-5xl lg:text-7xl font-bold leading-tight lg:leading-[80px] text-[#1F2937]"
-        >
-          {heroContent.heading[0]}<br />
-          {heroContent.heading[1]}<br />
-          {heroContent.heading[2]}
-        </h1>
-        <p
-          class="mt-6 lg:mt-10 text-[#4B5563] lg:text-xl sm:text-lg font-normal leading-7"
-        >
-          {heroContent.description}
-        </p>
-        <div
-          class="mt-8 lg:mt-[60px] flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
-        >
-          {
-            ctaButtons.map((btn) => (
-              <a
-                href={btn.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={`inline-flex items-center justify-center rounded-full px-6 py-4 font-semibold transition
-        ${
-          btn.label === "How it works"
-            ? "border border-[#111827] text-[#111827] hover:bg-gray-100"
-            : "bg-[#CC0000] text-white hover:bg-red-700"
-        }`}
-              >
-                {btn.label}
-              </a>
-            ))
-          }
-        </div>
-        <div
-          class="mt-10 lg:mt-[60px] space-y-3 flex flex-col items-center lg:items-start"
-        >
-          {
-            featureTicks.map((text) => (
-              <div class="flex items-center gap-3 text-base font-medium text-[#15803D]">
-                <Image src={heroData.img2} alt="Check icon" class="w-4 h-4" />
-                <span>{text}</span>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-    <div class="flex justify-center lg:justify-end">
-      <Image
-        src={heroData.img1}
-        alt="Family standing together at home"
-        class="w-full object-cover rounded-xl lg:rounded-none"
-        loading="eager"
-      />
-    </div>
+<section class="py-16 lg:pt-[200px]">
+  <div class="max-w-[960px] justify-self-center text-center">
+    <h1 class="text-4xl md:text-7xl font-bold leading-[80px] px-16">
+      {heroContent.heading[0]}
+      <span class="text-[#CC0000]">{heroContent.heading[1]}</span>
+      {heroContent.heading[2]}
+      <span class="text-[#CC0000]">{heroContent.heading[3]}</span>
+    </h1>
+    <p class="mt-[60px] text-gray-600 text-lg">
+      {heroContent.description}
+    </p>
+  </div>
+  <div class="mt-16">
+    <Image
+      src={heroData.img}
+      alt="Elderly person fallen at home"
+      class="w-full h-[594px]"
+      loading="eager"
+    />
   </div>
 </section>

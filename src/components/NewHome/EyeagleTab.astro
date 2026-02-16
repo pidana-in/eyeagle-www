@@ -7,32 +7,37 @@ const { appSection, appData, guardianData, kitFeatures, bathroomKit } =
   Astro.props;
 ---
 
-<section class="relative my-20 font-jakarta">
+<section class="relative my-20">
   <!-- Heading -->
-  <div class="max-w-[960px] mb-12 md:mb-16 px-4 text-center mx-auto">
+  <div class="max-w-[960px] mb-12 md:mb-[120px] px-4 text-center mx-auto">
     <h2 class="text-4xl md:text-[40px] font-bold mb-2">
-      Three pieces, one shared goal.
+      Three pieces, one shared
+      <span class="text-[#CC0000]">goal.</span>
     </h2>
+    <p class="text-lg font-medium text-neutral-600 mt-10">
+      Not just a gadget — a complete care package.<br /> EyEagle is built to keep
+      your loved ones safe, around the clock.
+    </p>
   </div>
   <!-- STICKY TABS -->
   <div class="sticky top-24 z-20 flex justify-center">
     <div
       class="flex items-center gap-2 rounded-full p-3 py-2 bg-[#FBEBEB] shadow-md"
     >
-      <button class="tab active" data-target="app"> EyEagle app </button>
+      <button class="tab active" data-target="kit"> Protection Kit </button>
       <button class="tab" data-target="guardian"> Guardian X Kit </button>
-      <button class="tab" data-target="kit"> Protection Kit </button>
+      <button class="tab" data-target="app"> EyEagle app </button>
     </div>
   </div>
   <!-- SECTIONS -->
-  <div id="app" class="scroll-section pt-20">
-    <EyeagleApp appSection={appSection} appData={appData} />
+  <div id="kit" class="scroll-section pt-20">
+    <BathroomKit bathroomKit={bathroomKit} />
   </div>
   <div id="guardian" class="scroll-section pt-20">
     <GuardianX guardianData={guardianData} kitFeatures={kitFeatures} />
   </div>
-  <div id="kit" class="scroll-section pt-20">
-    <BathroomKit bathroomKit={bathroomKit} />
+  <div id="app" class="scroll-section pt-20">
+    <EyeagleApp appSection={appSection} appData={appData} />
   </div>
 </section>
 

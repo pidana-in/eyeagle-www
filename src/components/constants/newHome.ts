@@ -1,39 +1,46 @@
 import HeroImage from "../../assets/NewHome/HomeImage.png";
-import Check from "../../assets/NewApp/check.png";
 import Moment1 from "../../assets/NewHome/Moment1.png";
 import Moment2 from "../../assets/NewHome/Moment2.png";
 import Moment3 from "../../assets/NewHome/Moment3.png";
 import AppImage from "../../assets/NewHome/AppImage.png";
 import AlarmInside from "../../assets/Device/AlarmInside.png";
 import BathroomKitImage from "../../assets/NewHome/BathroomKitImage.png";
-import RaiseAlarm from "../../assets/Protection/RaiseAlarm.png";
 import StepImg1 from "../../assets/NewHome/step1.png";
 import StepImg2 from "../../assets/NewHome/step2.png";
 import StepImg5 from "../../assets/NewHome/step5.png";
-
+import LoudAlarm from "../../assets/NewHome/LoudAlarm.png";
+import Offline from "../../assets/NewHome/Offline.png";
+import Backup from "../../assets/NewHome/Backup.png";
+import works1 from "../../assets/NewHome/works1.png";
+import works2 from "../../assets/NewHome/works2.png";
+import works3 from "../../assets/NewHome/works3.png";
+import audit from "../../assets/NewHome/audit.png";
+import kit from "../../assets/NewHome/kit.png";
+import device from "../../assets/NewHome/device.png";
+import app from "../../assets/NewHome/app.png";
+import HelpImage from "../../assets/NewHome/HelpImage.png";
 
 export const heroContent = {
-  heading: ["Everyday safety", "for the people", "you love."],
+  heading: ["Seconds", "matter", "when they're", "alone."],
   description:
-    "EyEagle is a family safety system built for real life — from parents living alone, to families spread across cities, to loved ones travelling. We design calm, privacy-respecting ways to prevent accidents, call for help, and keep everyone in sync.",
+    "When an older parent is alone, small moments can turn serious fast. EyEagle reduces risk in the bathroom—and helps families respond quickly if something still goes wrong.",
 };
 
-export const ctaButtons = [
-  {
-    label: "Get the app",
-    href: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-  },
-  {
-    label: "How it works",
-    href: "https://eyeagle.ai/solution",
-  },
-];
+// export const ctaButtons = [
+//   {
+//     label: "Get the app",
+//     href: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+//   },
+//   {
+//     label: "How it works",
+//     href: "https://eyeagle.ai/solution",
+//   },
+// ];
 
-export const featureTicks = ["No cameras", "No complex setup"];
+// export const featureTicks = ["No cameras", "No complex setup"];
 
 export const heroData = {
-  img1: HeroImage,
-  img2: Check,
+  img: HeroImage,
 };
 
 export const principles = [
@@ -58,40 +65,45 @@ export const principles = [
 ];
 
 export const momentData = {
-  title: "We don’t start with products. We start with moments.",
-  desc: "Before we designed anything, we mapped the moments that actually worry families — when someone is vulnerable, alone, or out of reach. EyEagle is our way of designing for those moments first, then choosing the right mix of hardware and software.",
+  title: [
+    "EyEagle",
+    "starts with",
+    "moments",
+    "because that’s how emergencies begin.",
+  ],
+  desc: "Families don’t regret not having a gadget. They regret not knowing what to do when something happened.",
 };
 
 export const momentFeatures = [
   {
     image: Moment1,
-    title: "Critical moments",
+    title: "When something feels off",
     description:
-      "Short windows when small mistakes become big — a wet floor, a sudden dizzy spell, a late-night bathroom trip.",
+      "A missed call. No response. A routine breaks—and you’re left guessing if it’s urgent.",
   },
   {
     image: Moment2,
-    title: "Critical places",
+    title: "Where accidents happen fast",
     description:
-      "Spaces where a slip is serious — bathrooms, bedroom paths, stairs, hotel rooms, airplane aisles.",
+      "Bathrooms and slippery zones are high-risk—especially when no one’s nearby.",
   },
   {
     image: Moment3,
-    title: "Critical relationships",
+    title: "When they’re alone",
     description:
-      "The person at risk, the one nearby, and the people who worry from far away.",
+      "Living alone, limited mobility, or long unsupervised hours can turn small incidents into emergencies.",
   },
 ];
 
 export const appSection = {
-  step: "01",
-  title: "EyEagle App",
+  step: "03",
+  title: "EyEagle App + Response",
   subtitle:
-    "Keep families coordinated when something happens — whether you’re in the next room or another country.",
+    "One place for alerts, check-ins, and updates—shared with the whole family.",
   features: [
-    "Create private family circles and roles",
-    "Choose who gets alerts and how",
-    "Keeps a calm, shared view of what’s happening",
+    "Create private Nests and Roles",
+    "Get Notified about Emergency",
+    " Decide next steps together",
   ],
 };
 
@@ -103,77 +115,145 @@ export const kitFeatures = [
   {
     title: "Loud Alarm",
     description: "High-decibel alarm alerts instantly.",
+    icon: LoudAlarm,
   },
   {
     title: "Offline",
     description: "No WiFi needed for operation.",
+    icon: Offline,
   },
   {
     title: "Backup",
     description: "Runs during power outages.",
+    icon: Backup,
   },
 ];
 
 export const guardianData = {
   title:
-    "Patent-pending technology, seamlessly integrated safety system that alerts and responds instantly.",
-  desc: "Equipped with a smart alarm, control unit, response switch, and automated door mechanism, it ensures unmatched security and peace of mind — whether you’re near or far. Stay connected, stay protected.🚀",
+    "Patent-pending technology, seamlessly integrated safety system that alerts and responds instantly",
+  desc: "Equipped with a smart alarm unit, control hub, responsive switch, and automated door mechanism, it ensures unmatched security and peace of mind—whether you’re near or far. Stay connected, stay protected.",
   img: AlarmInside,
 };
 
 export const bathroomKit = {
-  step: "03",
+  step: "01",
   title: "Bathroom Protection Kit",
-  subtitle:
-    "Thoughtfully placed support and anti-skid elements that make everyday movement safer.",
+  subtitle: "Thoughtfully placed support—built around real need.",
+  desc: "Adapted to your loved one’s needs—not a fixed checklist. We assess the bathroom, identify risk points, and install the right combination to reduce falls and build confidence.",
   features: [
-    "Grab bars and rails planned around real routines",
-    "Anti-skid mat and strips in wet, high-risk zones",
-    "Designed to feel at home, not like a hospital",
+    "Expert safety audit, elder-first",
+    "Premium, proven fall-prevention hardware",
+    "Installed based on actual need (not a fixed kit size)",
   ],
   img: BathroomKitImage,
 };
 
 export const processData = {
-  title: "Everything is designed to work together.",
-  description:
-    "You can start with any one product. But when you connect them, EyEagle becomes a calm, always-there support system for your family.",
+  title: "How it works",
+  description: "",
 
   items: [
     {
-      title: "If something happens in the bathroom…",
+      step: 1,
+      image: works1,
+      title: "Book and get your Bathroom Professionally audited",
       description:
-        "The Bathroom Alarm is pressed → the alarm sounds outside → the App notifies chosen family members → you decide what to do next together.",
+        "A personalized risk check by experts to plan the safest setup.",
     },
     {
-      title: "If an older parent is living alone…",
+      step: 2,
+      image: works2,
+      title: "Expert Installation by EyEagle’s Team",
       description:
-        "The Protection Kit reduces the chance of a fall. The Alarm is there if something still goes wrong → The App keeps distant family members in the loop.",
+        "Grab bars, alarms, and safety gear installed with elder-focused precision.",
     },
     {
-      title: "If someone is travelling or away from home…",
+      step: 3,
+      image: works3,
+      title: "App & Emergency Setup & Walkthrough",
       description:
-        "The App keeps check-ins, alerts, and updates in one place → everyone knows where things stand without constant calls or polling.",
+        "We connect the system to the app, set up caregiver alerts, and activate 24/7 support.",
     },
   ],
 };
 
-export const ProcessImage = RaiseAlarm;
+export const membershipItems = [
+  {
+    title: "Expert Safety Audit + Report",
+    description:
+      "A home and bathroom risk check, followed by a clear plan for what to install—and where.",
+    image: audit,
+  },
+  {
+    title: "Bathroom Protection Kit",
+    description:
+      "Grab bars, anti-slip support, and safety hardware installed based on real risk points.",
+    image: kit,
+  },
+  {
+    title: "Guardian-X Safety Device",
+    description:
+      "One-press SOS with loud alarm and reliable backup—so alerts go out instantly when needed.",
+    image: device,
+  },
+  {
+    title: "App Membership",
+    description:
+      "Alerts, check-ins, and updates in one shared place so family can coordinate calmly and fast.",
+    image: app,
+  },
+];
+
+export const testimonialData = {
+  title: "What families say..",
+
+  subtitle:
+    "Real stories from people using EyEagle to make everyday moments safer— especially when parents are alone, and family is far.",
+
+  quote:
+    "We thought the bathroom was “fine” until the team mapped the space and showed us where slips usually happen. The setup feels safer without making the home feel like a hospital.",
+
+  author: "— Subhash Kumar, Bengaluru",
+};
 
 export const stepsContent = {
-title: "From worry to a plan, in simple steps.",
-desc: "You can start with any one product. But when you connect them, EyEagle becomes a calm, always-there support system for your family.",
+  title: ["From worry to a plan,", "in simple steps."],
+  desc: "You can start with any one product. But when you connect them, EyEagle becomes a calm, always-there support system for your family.",
 };
 
 export const stepsData = [
-  { title: "Protection", step: "Stop falls early", image: StepImg1 },
-  { title: "Interaction", step: "Seamless daily use", image: StepImg2 },
-  { title: "Detection", step: "Smart risk sensing", image: StepImg2 },
-  { title: "Alarm", step: "Immediate alert system", image: StepImg1 },
-  { title: "Notification", step: "Caregiver instant updates", image: StepImg5 },
-  { title: "Action", step: "Fast emergency response", image: StepImg5 },
+  {
+    title: "Protection",
+    step: "Bathroom support reduces fall risk.",
+    image: StepImg1,
+  },
+  {
+    title: "Interaction",
+    step: "Your loved one presses the SOS button when needed",
+    image: StepImg2,
+  },
+  {
+    title: "Detection",
+    step: "The alarm activates instantly and alerts family.",
+    image: StepImg2,
+  },
+  {
+    title: "Alarm",
+    step: "A loud alarm signals urgency inside and outside the home",
+    image: StepImg1,
+  },
+  {
+    title: "Notification",
+    step: "The app notifies caregivers with clear context and location.",
+    image: StepImg5,
+  },
+  {
+    title: "Action",
+    step: "Family and the response team coordinate the next steps—fast.",
+    image: StepImg5,
+  },
 ];
-
 
 export const faqsData = [
   {
@@ -219,11 +299,12 @@ export const ctaSection = {
   description:
     "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
   primaryCta: {
-    label: "Talk to us",
-    href: "/contact",
-  },
-  secondaryCta: {
-    label: "Explore Products",
+    label: "Get your kit today",
     href: "https://shop.eyeagle.ai/",
   },
+  secondaryCta: {
+    label: "Book a safety audit",
+    href: "https://shop.eyeagle.ai/",
+  },
+  image: HelpImage,
 };

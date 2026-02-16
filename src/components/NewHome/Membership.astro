@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type MembershipItem = {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+};
+
+interface Props {
+  items: MembershipItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<section class="bg-[#111827] text-white py-20 md:py-[160px] border-t">
+  <div class="xl:container px-4">
+    <div class="flex flex-row gap-8 md:gap-20 justify-center">
+      {/* LEFT CONTENT */}
+      <div class="max-w-[374px]">
+        <h2 class="text-3xl md:text-5xl font-bold leading-[56px]">
+          What’s included in your membership
+        </h2>
+        <p class="text-base opacity-70 mt-6 leading-relaxed">
+          EyEagle is more than a safety tool. You get a complete
+          system—assessment, installation, protection, and alerts—personalized
+          to your home and your family.
+        </p>
+        <a
+          href="#"
+          class="inline-block mt-10 bg-[#CC0000] hover:bg-red-700 transition rounded-full px-6 py-3 text-sm font-medium"
+        >
+          Book a Safety Audit
+        </a>
+      </div>
+      {/* RIGHT GRID */}
+      <div class="grid sm:grid-cols-2 gap-8">
+        {
+          items.map((item) => (
+            <div>
+              <div class="rounded-xl overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  class="w-full object-cover"
+                />
+              </div>
+              <h3 class="mt-5 text-lg font-semibold leading-6">{item.title}</h3>
+              <p class="mt-4 text-sm opacity-70 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
