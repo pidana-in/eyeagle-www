@@ -54,6 +54,7 @@ import blogImage19 from "../../assets/Blog/BlogImage19.jpg";
 import blogImage20 from "../../assets/Blog/BlogImage20.jpg";
 import blogImage21 from "../../assets/Blog/BlogImage21.jpg";
 import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
+import blogImage23 from "../../assets/Blog/BlogImage23.jpg";
 
 export const bathroomData = [
   {
@@ -275,11 +276,17 @@ export const blogsData = [
     desc: "A quiet winter morning, a missed call, and a moment that changed everything. A story that reflects on bathroom falls and home safety.",
     img: blogImage21,
   },
-    {
+  {
     slug: "winter-footwear-safety-at-home",
     title: "Winter Footwear Safety: Why the Right Choice Matters at Home",
     desc: "Winter increases fall risks inside homes. Learn how winter footwear safety is important and can prevent winter-related accidents at home.",
     img: blogImage22,
+  },
+  {
+    slug: "winter-bathroom-safety-for-seniors",
+    title: "Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls",
+    desc: "Cold weather increases fall risks for seniors. Learn practical winter bathroom safety tips to keep your elderly loved ones safe.",
+    img: blogImage23,
   },
 ];
 

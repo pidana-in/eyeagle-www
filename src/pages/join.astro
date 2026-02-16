@@ -137,12 +137,16 @@ if (Astro.request.method === "POST") {
               <div class="flex flex-col gap-3">
                 <label>Full Name*</label>
                 <input
+                  id="fullNameField"
                   type="text"
                   name="fullName"
                   placeholder="Enter Name"
                   required
                   class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                 />
+                <p id="fullNameError" class="text-red-500 text-sm hidden">
+                  Please enter a valid full name
+                </p>
               </div>
               <div class="flex flex-col gap-3">
                 <label>Phone number*</label>
@@ -334,6 +338,8 @@ if (Astro.request.method === "POST") {
 <script is:inline define:vars={{ countries, formPosted }}>
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownMenu = document.getElementById("dropdownMenu");
+  const fullNameField = document.getElementById("fullNameField");
+  const fullNameError = document.getElementById("fullNameError");
   const phCode = document.getElementById("phCode");
   const phoneNumField = document.getElementById("phoneNumField");
   const submitButton = document.getElementById("submitButton");
@@ -392,7 +398,7 @@ if (Astro.request.method === "POST") {
 
     const defaultDialCode = "+91";
     const defaultCountry = countries.find(
-      (c) => c.dial_code === defaultDialCode
+      (c) => c.dial_code === defaultDialCode,
     );
 
     if (defaultCountry) {
@@ -410,7 +416,7 @@ if (Astro.request.method === "POST") {
       phCode.value = defaultDialCode;
 
       const defaultOption = Array.from(
-        dropdownMenu.querySelectorAll("[data-value]")
+        dropdownMenu.querySelectorAll("[data-value]"),
       ).find((el) => el.dataset.value === defaultDialCode);
 
       if (defaultOption) {
@@ -434,15 +440,29 @@ if (Astro.request.method === "POST") {
       const phoneValue = phoneNumField.value.trim();
       const phoneRegex = /^[6-9]\d{9}$/;
 
-      phoneError.classList.add("hidden");
-      phoneNumField.classList.remove("border-red-500");
+      const fullNameValue = fullNameField.value.trim();
+      const nameRegex = /^[A-Za-z\s]{2,}$/;
 
+      phoneError.classList.add("hidden");
+      fullNameError.classList.add("hidden");
+
+      phoneNumField.classList.remove("border-red-500");
+      fullNameField.classList.remove("border-red-500");
+
+      // FULL NAME VALIDATION
+      if (!nameRegex.test(fullNameValue)) {
+        e.preventDefault();
+        fullNameError.classList.remove("hidden");
+        fullNameField.classList.add("border-red-500");
+        fullNameField.focus();
+        return;
+      }
+
+      // PHONE VALIDATION
       if (!phoneRegex.test(phoneValue)) {
         e.preventDefault();
-
         phoneError.classList.remove("hidden");
         phoneNumField.classList.add("border-red-500");
-
         phoneNumField.focus();
         return;
       }
@@ -451,6 +471,11 @@ if (Astro.request.method === "POST") {
       loader.classList.remove("hidden");
       submitButton.disabled = true;
     });
+
+  fullNameField.addEventListener("input", () => {
+    fullNameError.classList.add("hidden");
+    fullNameField.classList.remove("border-red-500");
+  });
 
   phoneNumField.addEventListener("input", () => {
     phoneError.classList.add("hidden");
