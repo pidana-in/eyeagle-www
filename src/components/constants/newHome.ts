@@ -7,6 +7,8 @@ import AlarmInside from "../../assets/Device/AlarmInside.png";
 import BathroomKitImage from "../../assets/NewHome/BathroomKitImage.png";
 import StepImg1 from "../../assets/NewHome/step1.png";
 import StepImg2 from "../../assets/NewHome/step2.png";
+import StepImg3 from "../../assets/Device/StepImage1.png";
+import StepImg4 from "../../assets/Device/StepImage2.png";
 import StepImg5 from "../../assets/NewHome/step5.png";
 import LoudAlarm from "../../assets/NewHome/LoudAlarm.png";
 import Offline from "../../assets/NewHome/Offline.png";
@@ -236,12 +238,12 @@ export const stepsData = [
   {
     title: "Detection",
     step: "The alarm activates instantly and alerts family.",
-    image: StepImg2,
+    image: StepImg3,
   },
   {
     title: "Alarm",
     step: "A loud alarm signals urgency inside and outside the home",
-    image: StepImg1,
+    image: StepImg4,
   },
   {
     title: "Notification",

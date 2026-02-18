@@ -3,43 +3,52 @@ const testimonialData = Astro.props.testimonialData;
 ---
 
 <section class="py-14 md:py-[120px]">
-  <div class="xl:container px-5 md:px-4 text-center">
-
+  <!-- APPLE PAGE FRAME -->
+  <div class="mx-auto w-full max-w-7xl px-6 lg:px-8 text-center">
     {/* HEADER */}
     <div class="max-w-[800px] mx-auto">
       <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-neutral-800">
         {testimonialData.title}
       </h2>
 
-      <p class="mt-5 md:mt-10 text-sm sm:text-base md:text-xl text-neutral-600 font-medium">
+      <p
+        class="mt-5 md:mt-10 text-sm sm:text-base md:text-xl text-neutral-600 font-medium"
+      >
         {testimonialData.subtitle}
       </p>
     </div>
 
     {/* QUOTE BLOCK */}
-    <div class="relative max-w-[880px] mx-auto mt-10 md:mt-[60px] px-6 sm:px-10">
-
+    <div
+      class="relative max-w-[880px] mx-auto mt-10 md:mt-[60px] px-6 sm:px-10"
+    >
       {/* LEFT QUOTE */}
-      <span class="absolute left-0 top-0 text-[#CC0000] text-4xl sm:text-5xl md:text-7xl leading-none">
+      <span
+        class="absolute left-0 top-0 text-[#CC0000] text-4xl sm:text-5xl md:text-7xl leading-none"
+      >
         “
       </span>
 
       {/* RIGHT QUOTE */}
-      <span class="absolute right-0 bottom-0 text-[#CC0000] text-4xl sm:text-5xl md:text-7xl leading-none">
+      <span
+        class="absolute right-0 bottom-0 text-[#CC0000] text-4xl sm:text-5xl md:text-7xl leading-none"
+      >
         ”
       </span>
 
       {/* TEXT */}
-      <p class="text-lg sm:text-xl md:text-[32px] leading-relaxed md:leading-10 text-neutral-800 font-medium">
+      <p
+        class="text-lg sm:text-xl md:text-[32px] leading-relaxed md:leading-10 text-neutral-800 font-medium"
+      >
         {testimonialData.quote}
       </p>
 
       {/* AUTHOR */}
-      <p class="mt-4 md:mt-5 text-neutral-800 text-base md:text-lg font-medium italic">
+      <p
+        class="mt-4 md:mt-5 text-neutral-800 text-base md:text-lg font-medium italic"
+      >
         {testimonialData.author}
       </p>
-
     </div>
-
   </div>
 </section>
