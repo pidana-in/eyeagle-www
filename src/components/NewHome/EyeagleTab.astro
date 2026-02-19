@@ -68,31 +68,25 @@ const { appSection, appData, guardianData, kitFeatures, bathroomKit } =
   }
 </style>
 
-{/* ================= SCRIPT ================= */}
 <script is:inline>
   const tabs = Array.from(document.querySelectorAll(".tab"));
   const sections = Array.from(document.querySelectorAll(".scroll-section"));
-
+  const TAB_OFFSET = 96;
   let isProgrammaticScroll = false;
 
-  /* responsive sticky offset */
-  const getOffset = () => (window.innerWidth < 768 ? 80 : 96);
-
-  /* ===== TAB CLICK SCROLL ===== */
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       isProgrammaticScroll = true;
 
+      // immediately update UI
       tabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
 
       const id = tab.dataset.target;
       const section = document.getElementById(id);
       if (!section) return;
-
       const y =
-        section.getBoundingClientRect().top + window.pageYOffset - getOffset();
-
+        section.getBoundingClientRect().top + window.pageYOffset - TAB_OFFSET;
       window.scrollTo({
         top: y,
         behavior: "smooth",
