@@ -1,0 +1,70 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import HeroSection from "../components/Protection/HeroSection.astro";
+import KitSection from "../components/Protection/KitSection.astro";
+import WhereWeInstall from "../components/Protection/WhereWeInstall.astro";
+import DesignedFor from "../components/Protection/DesignedFor.astro";
+import Benefits from "../components/Protection/Benefits.astro";
+import Installation from "../components/Protection/Installation.astro";
+import Comparison from "../components/Protection/Comparison.astro";
+import {
+  featurePoints,
+  heroContent,
+  overviewCards,
+  barFeatures,
+  matFeatures,
+  tapeFeatures,
+  sectionHeaders,
+  kitData,
+  zones,
+  installData,
+  statsData,
+  userCards,
+  cardsData,
+  installSteps,
+  installFeatures,
+  installCards,
+  installImage,
+  comparisonData,
+  comparisonRows,
+  comparisonColumns,
+  ctaImage,
+  ctaData,
+  ctaContent,
+  faqsData,
+} from "../components/constants/protection";
+import CTA from "../components/Protection/CTA.astro";
+import FAQs from "../components/Protection/FAQs.astro";
+
+const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
+const metaDesc =
+  "Explore EyEagle’s innovative solutions for elderly safety. From fall alert devices to emergency alarm systems, protect your loved ones today.";
+---
+
+<MainLayout title={metaTitle} desc={metaDesc}>
+  <HeroSection featurePoints={featurePoints} heroContent={heroContent} />
+  <KitSection
+    overviewCards={overviewCards}
+    barFeatures={barFeatures}
+    matFeatures={matFeatures}
+    tapeFeatures={tapeFeatures}
+    sectionHeaders={sectionHeaders}
+    kitData={kitData}
+  />
+  <WhereWeInstall zones={zones} installData={installData} />
+  <DesignedFor userCards={userCards} statsData={statsData} />
+  <Benefits cardsData={cardsData} />
+  <Installation
+    installSteps={installSteps}
+    installCards={installCards}
+    installFeatures={installFeatures}
+    installImage={installImage}
+  />
+  <Comparison
+    comparisonData={comparisonData}
+    comparisonRows={comparisonRows}
+    comparisonColumns={comparisonColumns}
+  />
+  <CTA ctaImage={ctaImage} ctaContent={ctaContent} ctaData={ctaData} />
+  <FAQs faqsData={faqsData} />
+</MainLayout>

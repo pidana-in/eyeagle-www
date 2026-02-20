@@ -1,0 +1,59 @@
+---
+type ComparisonRow = {
+  label: string;
+  noKit: string;
+  oneBar: string;
+  planned: string;
+};
+
+const comparisonRows = Astro.props.comparisonRows as ComparisonRow[];
+const comparisonColumns = Astro.props.comparisonColumns;
+const comparisonData = Astro.props.comparisonData;
+---
+
+<section class="py-20 xl:container">
+  <div class="px-4 md:px-[160px] text-center md:mb-[100px] mb-20">
+    <h2 class="text-[28px] md:text-5xl leading-8 font-bold">
+      {comparisonData.title}
+    </h2>
+    <p class="mt-5 text-base leading-7">
+      {comparisonData.desc}
+    </p>
+  </div>
+  <div
+    class="px-4 md:px-[160px] overflow-x-auto md:overflow-visible scrollbar-hide"
+  >
+    <div class="min-w-[1100px] text-lg">
+      <div class="grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] border-b">
+        <div class="font-semibold py-4 pr-8">{comparisonColumns[0]}</div>
+        <div class="font-semibold py-4 pr-8">{comparisonColumns[1]}</div>
+        <div class="font-semibold py-4 pr-8">{comparisonColumns[2]}</div>
+        <div
+          class="font-semibold py-4 bg-[#0E1B2A] text-white px-4 rounded-t-2xl"
+        >
+          {comparisonColumns[3]}
+        </div>
+      </div>
+      {
+        comparisonRows.map((row: ComparisonRow, index: number) => (
+          <div
+            class={`grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] ${
+              index !== comparisonRows.length - 1 ? "border-b" : ""
+            }`}
+          >
+            <div class="py-4 pr-8 font-semibold">{row.label}</div>
+            <div class="py-4 pr-8">{row.noKit}</div>
+            <div class="py-4 pr-8">{row.oneBar}</div>
+            <div
+              class={`py-4 bg-[#0E1B2A] text-white px-4 ${
+                index === comparisonRows.length - 1 ? "rounded-b-2xl" : ""
+              }`}
+            >
+              {row.planned}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

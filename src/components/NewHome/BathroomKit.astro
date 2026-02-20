@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type BathroomKit = {
+  step: number | string;
+  title: string;
+  desc: string;
+  subtitle: string;
+  features: string[];
+  img: ImageMetadata;
+};
+
+const bathroomKit = Astro.props.bathroomKit as BathroomKit;
+---
+
+<section class="py-8 md:py-20 mx-auto max-w-fit">
+  <div class="flex flex-col items-center text-center">
+    <div
+      class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center"
+    >
+      {bathroomKit.step}
+    </div>
+    <h2 class="text-2xl md:text-[32px] font-bold my-5">
+      {bathroomKit.title}
+    </h2>
+    <p
+      class="text-lg md:text-xl font-medium opacity-60 max-w-[960px] mb-5 leading-relaxed"
+    >
+      {bathroomKit.subtitle}
+    </p>
+    <p
+      class="text-lg md:text-xl font-medium opacity-60 max-w-[960px] leading-relaxed"
+    >
+      {bathroomKit.desc}
+    </p>
+    <div
+      class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-0 text-base md:text-xl font-bold text-[#CC0000] max-w-[1200px] md:mt-[60px] mt-8 mb-12 md:mb-20"
+    >
+      {
+        bathroomKit.features.map((feature, index) => (
+          <p
+            class={`font-semibold px-4 md:px-6  md:py-4 text-center
+              ${
+                index !== bathroomKit.features.length - 1
+                  ? "md:border-r md:border-[#CC0000]"
+                  : ""
+              }
+            `}
+          >
+            <span class="text-black mr-1">✔</span>
+            <span>{feature}</span>
+          </p>
+        ))
+      }
+    </div>
+    <Image
+      src={bathroomKit.img}
+      alt="Bathroom protection kit in use"
+      class="w-full mb-8 md:mb-10"
+      loading="lazy"
+    />
+    <a
+      href="/protection"
+      class="inline-block rounded-full bg-[#090D15] text-white py-2 px-3  md:px-6 md:py-3 text-sm font-semibold"
+    >
+      Learn more
+    </a>
+  </div>
+</section>

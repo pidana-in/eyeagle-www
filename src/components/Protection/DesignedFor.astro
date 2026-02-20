@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import ContentImage from "../../assets/Protection/ContentImage.png";
+
+type UserCard = {
+  image: ImageMetadata;
+  title: string;
+  desc: string;
+};
+
+type StatItem = {
+  value: string;
+  label: string;
+};
+
+interface Props {
+  userCards: UserCard[];
+  statsData: StatItem[];
+}
+const { userCards, statsData } = Astro.props as Props;
+---
+
+<section class="xl:container py-16 md:py-20 px-4 md:px-[120px]">
+  <div class="flex flex-col items-center text-center">
+    <div class="md:mx-[120px]">
+      <h2 class="text-[32px] leading-10 md:text-5xl font-bold">
+        Designed around the people who use it.
+      </h2>
+      <p class="mt-5 tracking-wide text-base">
+        A simple system of grab bars that quietly reduces slips and falls for
+        seniors, recovery patients and anyone who feels unsteady on wet floors.
+      </p>
+    </div>
+  </div>
+  <div
+    class="mt-20 flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-hide"
+  >
+    {
+      userCards.map((card: UserCard) => (
+        <div class="flex-shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col rounded-3xl border bg-[#F9F7F7] overflow-hidden text-center">
+          <Image
+            src={card.image}
+            alt={card.title}
+            class="w-full object-cover"
+          />
+          <div class="p-6">
+            <h3 class="text-lg md:text-xl font-bold">{card.title}</h3>
+            <p class="mt-3 text-base opacity-60">{card.desc}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="flex flex-col items-center text-center mt-[120px]">
+    <p class="text-[28px] leading-8 md:text-[40px] font-bold">
+      Safety you can feel, numbers you can trust.
+    </p>
+    <div
+      class="mt-8 md:mt-[60px] grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10"
+    >
+      {
+        statsData.map((stat: StatItem) => (
+          <div class="flex flex-col max-w-[208px] mx-auto">
+            <h3 class="text-[#CC0000] text-xl md:text-2xl font-bold">
+              {stat.value}
+            </h3>
+            <p class="text-base opacity-60 mt-2">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex justify-center mt-20">
+      <Image
+        src={ContentImage}
+        alt="Content Image"
+        class="w-full object-contain"
+      />
+    </div>
+  </div>
+</section>

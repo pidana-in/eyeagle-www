@@ -1,0 +1,85 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { siteMeta } from "../data/site";
+import HeroSection from "../assets/Navbar/ChatGPTImage.png";
+import HeroImageMobile from "../assets/Navbar/newimage.png";
+import ourTeam from "../assets/Navbar/ourTeam.png";
+import desireImage from "../assets/Navbar/desireImage.png";
+import HeroSectionComponent from "../components/Home/HeroSectionComponent.astro";
+import HealthOrganization from "../components/Home/HealthOrganization.astro";
+import {
+  bathroomData,
+  takeCareData,
+  heroDescription,
+  heroDescription2,
+  healthOrganization1,
+  healthOrganization2,
+  productFeatureTitle,
+  ourTeamButton,
+  ourTeamHeading1,
+  ourTeamHeading2,
+  serviceSectionTitle,
+  desireSection1,
+  desireSection2,
+  descriptionButton,
+  struggleData,
+  blogsData,
+  shopData,
+} from "../components/constants/home";
+import OurTeamSection from "../components/Home/OurTeamSection.astro";
+import DesireSection from "../components/Home/DesireSection.astro";
+import ScrollSection from "../components/Home/ScrollSection.astro";
+import ProductFeature from "../components/Home/ProductFeature.astro";
+import ServiceSection from "../components/Home/ServiceSection.astro";
+import EmergencySection from "../components/Home/EmergencySection.astro";
+import HandleSection from "../components/Home/HandleSection.astro";
+import HomePageEmergencyBanner from "../assets/Home/HomePageEmergencyBanner.png";
+import CircleMembership from "../components/Home/CircleMembership.astro";
+import PowerfulFeat from "../components/Home/PowerfulFeat.astro";
+import { HeroImageTitle } from "../components/constants/home";
+import Faqs from "../components/Home/Faqs.astro";
+// import VideoSection from "../components/Home/VideoSection.astro";
+import VideoSectionNoPreload from "../components/Home/VideoSectionNoPreload.astro";
+import Blogs from "../components/Home/Blogs.astro";
+import ShopSection from "../components/Home/ShopSection.astro";
+const metaTitle = siteMeta.title;
+const metaDesc = siteMeta.description;
+---
+
+<MainLayout title={metaTitle} desc={metaDesc}>
+  <!-- Hero Section -->
+  <HeroSectionComponent heroImage={HeroSection} heroImageMob={HeroImageMobile} heroDescription={heroDescription} heroDescription2={heroDescription2} HeroImageTitle={HeroImageTitle} />
+  <!-- Statistics Section -->
+  <HealthOrganization healthOrganization1={healthOrganization1} healthOrganization2={healthOrganization2} />
+  <!-- Scroll section -->
+  <ScrollSection struggleData={struggleData} />
+  <!-- Product Features Section -->
+  <ProductFeature bathroomData={bathroomData} productFeatureTitle={productFeatureTitle} />
+  <!-- Team Section -->
+  <OurTeamSection item={ourTeam} ourTeamHeading1={ourTeamHeading1} ourTeamHeading2={ourTeamHeading2} ourTeamButton={ourTeamButton} />
+  <!-- Services Section -->
+  <ServiceSection takeCareData={takeCareData} serviceSectionTitle={serviceSectionTitle} />
+  <!--CirleSection -->
+  <CircleMembership />
+  <!--PowerfulFeatSection -->
+  <PowerfulFeat />
+  <!-- Emergency Section -->
+  <EmergencySection HomePageEmergencyBanner={HomePageEmergencyBanner} />
+  <!-- Handle Evereything Section -->
+  <HandleSection />
+  <!-- Shop Section -->
+  <ShopSection shopData={shopData} />
+  <!-- Blog Section -->
+  <Blogs blogsData={blogsData} showSeeMoreButton={true} />
+  <!-- Video Section -->
+  <!-- <VideoSection/> -->
+  <!-- Video Section No Preload - English -->
+  <VideoSectionNoPreload videoId="6hyfU1h-yNM" title="EyEagle Song" />
+  <!-- Video Section No Preload - Hindi -->
+  <!-- <VideoSectionNoPreload videoId="w_Bj4nEuAp8" title="EyEagle Song Hindi" /> -->
+
+  <!-- FaqsSection -->
+  <Faqs />
+  <!-- Desire Section -->
+  <DesireSection item={desireImage} desireSection1={desireSection1} descriptionButton={descriptionButton} />
+</MainLayout>

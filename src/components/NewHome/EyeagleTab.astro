@@ -1,0 +1,118 @@
+---
+import EyeagleApp from "./EyeagleApp.astro";
+import GuardianX from "./GuardianX.astro";
+import BathroomKit from "./BathroomKit.astro";
+
+const { appSection, appData, guardianData, kitFeatures, bathroomKit } =
+  Astro.props;
+---
+
+<section class="relative my-20">
+  <div class="max-w-[960px] mb-12 md:mb-[120px] px-4 text-center mx-auto">
+    <h2 class="text-3xl md:text-[40px] font-bold mb-2">
+      Three pieces, one shared
+      <span class="text-[#CC0000]">goal.</span>
+    </h2>
+    <p class="text-base md:text-lg font-medium text-neutral-600 mt-6 md:mt-10">
+      Not just a gadget — a complete care package.
+      <br />
+      EyEagle is built to keep your loved ones safe, around the clock.
+    </p>
+  </div>
+  <div class="sticky top-24 z-30 w-full flex justify-center px-2">
+    <div
+      class="flex items-center gap-2 rounded-full p-2 md:p-3 bg-[#FBEBEB] shadow-md overflow-x-auto no-scrollbar snap-x snap-mandatory"
+    >
+      <button class="tab active shrink-0 snap-center" data-target="kit">
+        Protection Kit
+      </button>
+      <button class="tab shrink-0 snap-center" data-target="guardian">
+        Guardian X Kit
+      </button>
+      <button class="tab shrink-0 snap-center" data-target="app">
+        EyEagle app
+      </button>
+    </div>
+  </div>
+  <div id="kit" class="scroll-section pt-14 md:pt-20">
+    <BathroomKit bathroomKit={bathroomKit} />
+  </div>
+  <div id="guardian" class="scroll-section pt-14 md:pt-20">
+    <GuardianX guardianData={guardianData} kitFeatures={kitFeatures} />
+  </div>
+  <div id="app" class="scroll-section pt-14 md:pt-20">
+    <EyeagleApp appSection={appSection} appData={appData} />
+  </div>
+</section>
+
+<style is:global>
+  .tab {
+    @apply rounded-full px-3 sm:px-4 py-2 text-sm sm:text-base font-semibold
+         text-slate-600 whitespace-nowrap transition-all duration-200;
+  }
+
+  .tab:hover {
+    @apply text-slate-800;
+  }
+
+  .tab.active {
+    @apply bg-[#CC0000] text-white shadow;
+  }
+
+  /* hide horizontal scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+</style>
+
+<script is:inline>
+  const tabs = Array.from(document.querySelectorAll(".tab"));
+  const sections = Array.from(document.querySelectorAll(".scroll-section"));
+  const TAB_OFFSET = 96;
+  let isProgrammaticScroll = false;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      isProgrammaticScroll = true;
+
+      // immediately update UI
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const id = tab.dataset.target;
+      const section = document.getElementById(id);
+      if (!section) return;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset - TAB_OFFSET;
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+      setTimeout(() => {
+        isProgrammaticScroll = false;
+      }, 500);
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (isProgrammaticScroll) return;
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        tabs.forEach((t) => t.classList.remove("active"));
+        const activeTab = tabs.find(
+          (t) => t.dataset.target === entry.target.id,
+        );
+        activeTab?.classList.add("active");
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: `-${TAB_OFFSET}px 0px -60% 0px`,
+    },
+  );
+  sections.forEach((section) => observer.observe(section));
+</script>

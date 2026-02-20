@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type FeatureSection = {
+  eyebrow: string;
+  title: string;
+  bullets: string[];
+  image: ImageMetadata;
+  reverse?: boolean;
+};
+
+interface Props {
+  sections: FeatureSection[];
+  featureAssets: {
+    checkIcon: ImageMetadata;
+    divider: ImageMetadata;
+  };
+}
+
+const { sections, featureAssets } = Astro.props as Props;
+---
+
+<section class="bg-[#FEF7EB]">
+  <div class="xl:container">
+    {
+      sections.map((section, index) => (
+        <>
+          <div
+            class={`flex flex-col ${
+              section.reverse ? "md:flex-row-reverse" : "md:flex-row"
+            } justify-around items-center gap-[42px] py-16 md:py-[120px] px-4`}
+          >
+            <div class="flex flex-col md:max-w-[500px] w-full">
+              <p class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4">
+                {section.eyebrow}
+              </p>
+              <h2 class="text-2xl md:text-[32px] font-bold leading-10 mb-10">
+                {section.title}
+              </h2>
+              <ul class="space-y-3 md:space-y-4 text-sm md:text-base font-medium">
+                {section.bullets.map((item) => (
+                  <li class="flex gap-2 items-start">
+                    <Image
+                      src={featureAssets.checkIcon}
+                      alt="check"
+                      class="w-5 h-5 mt-0.5"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <Image src={section.image} alt={section.eyebrow} />
+            </div>
+          </div>
+          {index !== sections.length - 1 && (
+            <div class="flex justify-center mx-28 md:mx-0">
+              <Image src={featureAssets.divider} alt="Divider" />
+            </div>
+          )}
+        </>
+      ))
+    }
+  </div>
+</section>

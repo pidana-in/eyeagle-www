@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+
+type Card = {
+  image: ImageMetadata;
+  alt: string;
+  title: string;
+  desc: string;
+};
+
+const cardsData = Astro.props.cardsData;
+---
+
+<section class="xl:container py-16 md:py-20">
+  <div class="flex justify-center text-center px-4 md:px-[125px]">
+    <p
+      class="text-[32px] leading-10 md:text-5xl md:leading-[56px] font-bold tracking-wide px-4 md:px-[120px]"
+    >
+      Thoughtfully designed for real bathrooms, not brochures.
+    </p>
+  </div>
+  <div
+    class="mt-20 flex flex-col md:flex-row md:flex-wrap gap-6 md:gap-8 justify-center px-4 md:px-[120px] text-center"
+  >
+    {
+      cardsData.map((card: Card) => (
+        <div class="flex flex-col rounded-3xl border bg-[#F9F7F7] max-w-full md:max-w-[322px] overflow-hidden">
+          <Image
+            src={card.image}
+            alt={card.alt}
+            class="w-full object-cover rounded-t-3xl border"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-bold">{card.title}</h3>
+            <p class="mt-3 text-base font-normal opacity-60">{card.desc}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <p
+    class="mt-10 md:mt-12 text-[#CC0000] underline text-center text-base md:text-lg italic"
+  >
+    Compare with alternatives
+  </p>
+</section>

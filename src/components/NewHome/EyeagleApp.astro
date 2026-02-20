@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+
+type AppSection = {
+  step: number | string;
+  title: string;
+  subtitle: string;
+  features: string[];
+};
+
+const appSection = Astro.props.appSection as AppSection;
+const appData = Astro.props.appData;
+---
+
+<section class="py-8 md:py-20 mx-auto">
+  <div class="flex flex-col items-center text-center">
+    <div
+      class="flex flex-col max-w-[960px] place-items-center mb-6 md:mb-10 md:px-10 px-4"
+    >
+      <div
+        class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center mb-4"
+      >
+        {appSection.step}
+      </div>
+      <h3 class="text-2xl md:text-[32px] font-bold mb-4 md:mb-5">
+        {appSection.title}
+      </h3>
+      <p class="text-base md:text-xl opacity-60 font-medium md:mb-10">
+        {appSection.subtitle}
+      </p>
+    </div>
+    <!-- Features -->
+    <div
+      class="flex flex-col md:flex-row items-center max-w-[1200px] text-base md:text-xl font-bold text-[#CC0000] mb-6 md:mb-20 px-4"
+    >
+      {
+        appSection.features.map((feature, index: number) => (
+          <p
+            class={`font-semibold px-4 md:px-6 py-2 md:py-3 text-center
+              ${
+                index !== appSection.features.length - 1
+                  ? "md:border-r md:border-[#CC0000]"
+                  : ""
+              }
+            `}
+          >
+            {feature}
+          </p>
+        ))
+      }
+    </div>
+    <Image
+      src={appData.img}
+      alt="EyEagle app interface"
+      class="w-full mb-10 md:mb-12"
+      loading="lazy"
+    />
+    <a
+      href="/app"
+      target="_blank"
+      class="inline-block rounded-full bg-[#090D15] text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"
+    >
+      Learn about App
+    </a>
+  </div>
+</section>

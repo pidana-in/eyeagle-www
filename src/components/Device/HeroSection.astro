@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+const heroContent = Astro.props.heroContent;
+const features = Astro.props.features;
+---
+
+<!-- DESKTOP VIEW -->
+<div class="hidden md:block font-sans-instrument">
+  <div class="relative xl:container my-20 overflow-hidden">
+    <Image
+      src={heroContent.images.img1}
+      alt="Bathroom Safety Hero"
+      class="w-full object-cover"
+    />
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-[344px] mb-[114px] mx-[120px]"
+    >
+      <span
+        class="px-3 py-1.5 rounded-full text-sm font-medium border border-white/50 bg-white/20 backdrop-blur text-white"
+      >
+        {heroContent.badge}
+      </span>
+      <h2
+        class="text-[68px] font-bold leading-[100%] text-white my-5 drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
+        set:html={heroContent.title}
+      />
+      <p
+        class="text-white text-xl leading-[140%] drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
+      >
+        {heroContent.description}
+      </p>
+      <div class="flex justify-center">
+        <a
+          href={heroContent.cta.href}
+          class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+        >
+          {heroContent.cta.text}
+        </a>
+      </div>
+      <p class="text-white text-sm mt-4">{heroContent.cta.helper}</p>
+    </div>
+  </div>
+  <div class="xl:container flex justify-evenly text-center my-20 px-4">
+    {
+      features.map((item: any) => (
+        <div class="flex flex-col items-center max-w-[268px]">
+          <div class="flex items-center gap-3">
+            <Image src={item.icon} alt={item.title} class="text-[#CC0000]" />
+            <h4 class="text-2xl font-semibold">{item.title}</h4>
+          </div>
+          <p class="text-lg text-black opacity-70 mt-2">{item.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+<!-- MOBILE VIEW -->
+<div class="block md:hidden font-sans-instrument py-[60px] px-4">
+  <div class="flex justify-center">
+    <span
+      class="px-3 py-1.5 rounded-full text-sm font-semibold border border-black text-black"
+    >
+      {heroContent.badge}
+    </span>
+  </div>
+  <h2
+    class="text-5xl font-bold leading-[56px] text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
+    set:html={heroContent.title}
+  />
+  <p class="text-black text-center leading-7">
+    {heroContent.description}
+  </p>
+  <div class="flex justify-center">
+    <a
+      href={heroContent.cta.href}
+      class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+    >
+      {heroContent.cta.text}
+    </a>
+  </div>
+  <p class="text-[#666] text-[11px] text-center mt-4">
+    {heroContent.cta.helper}
+  </p>
+  <Image
+    src={heroContent.images.img2}
+    alt="Bathroom Product Image"
+    class="w-full object-cover mt-8"
+  />
+  <div class="mt-20 space-y-10 flex flex-col items-center text-center">
+    {
+      features.map((item: any) => (
+        <div class="flex flex-col items-center text-center">
+          <div class="flex items-center gap-3">
+            <Image src={item.icon} alt={item.title} />
+            <h4 class="text-2xl font-semibold">{item.title}</h4>
+          </div>
+          <p class="text-[#000000]/70 mt-3 leading-[140%]">
+            {item.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</div>

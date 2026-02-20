@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+
+const sectionContent = Astro.props.sectionContent;
+const familyCard = Astro.props.familyCard;
+const FamilySection = Astro.props.FamilySection;
+---
+
+<section class="xl:container py-20">
+  <!-- Top image -->
+  <div class="mb-20">
+    <Image src={FamilySection.flightImage} alt="flightImage" class="w-full" />
+  </div>
+  <div class="flex flex-col lg:flex-row gap-[60px] justify-center px-4 md:pt-20">
+    <!-- Sticky Left Content -->
+    <div class="lg:sticky lg:top-32 lg:self-start max-w-[560px] md:pt-12">
+      <h2 class="text-4xl md:text-5xl font-bold">
+        {sectionContent.title.black}
+        <span class="text-[#CC0000]">
+          {sectionContent.title.red}
+        </span>
+        {" "}
+        {sectionContent.title.rest}
+      </h2>
+      <p class="mt-8 text-base text-black opacity-70 leading-relaxed">
+        {sectionContent.description}
+      </p>
+    </div>
+    <!-- Scrollable Cards -->
+    <div class="flex flex-col gap-14 md:gap-20 lg:max-w-[560px]">
+      {
+        familyCard.map((card: any) => (
+          <div>
+            <Image
+              src={card.image}
+              alt={card.title}
+              class="rounded-xl w-full"
+            />
+            <div class="mt-10 text-[#090D15]">
+              <h3 class="text-2xl font-bold">{card.title}</h3>
+              <p class="text-lg mt-3">{card.description}</p>
+            </div>
+            {card.showDivider && (
+              <Image src={FamilySection.dividerLine} alt="divider" class="mt-14" />
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

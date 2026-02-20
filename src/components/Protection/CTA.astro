@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+
+type CTAItem = {
+  text: string;
+  icon: ImageMetadata;
+};
+
+const ctaContent = Astro.props.ctaContent;
+const ctaData = Astro.props.ctaData;
+const ctaImage = Astro.props.ctaImage;
+---
+
+<section class="xl:container py-16 md:py-20 px-4 md:px-[120px]">
+  <div
+    class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl border bg-[#F6F6F6] overflow-hidden max-w-[1200px] mx-auto"
+  >
+    <div
+      class="px-5 py-8 sm:px-8 md:px-[60px] md:py-[60px] flex flex-col justify-center"
+    >
+      <p class="mb-2 text-[#111827]">{ctaContent.eyebrow}</p>
+      <h2
+        class="text-[28px] md:text-[40px] font-bold leading-[48px]"
+        set:html={ctaContent.title}
+      />
+      <p class="mt-4 max-w-md text-sm md:text-base text-[#525252]">
+        {ctaContent.description}
+      </p>
+      <ul class="mt-6 md:mt-8 space-y-3 text-xs uppercase tracking-wider">
+        {
+          ctaData.map((item: CTAItem) => (
+            <li class="flex items-start gap-2">
+              <Image src={item.icon} alt="icon" class="mt-1 size-4" />
+              <span>{item.text}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-6 md:mt-8 flex items-baseline gap-2">
+        <span class="text-2xl font-bold">$300</span>
+        <span class="text-sm">/ one-time payment</span>
+      </div>
+      <button
+        class="mt-5 md:mt-6 w-full max-w-[280px] rounded-full bg-[#CC0000] py-3 font-semibold text-white transition hover:bg-red-700"
+      >
+        Get Started
+      </button>
+    </div>
+    <div class="relative w-full h-[260px] sm:h-[360px] lg:h-[616px]">
+      <Image
+        src={ctaImage}
+        alt="Bathroom safety installation"
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
