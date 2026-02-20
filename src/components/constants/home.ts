@@ -288,6 +288,12 @@ export const blogsData = [
     desc: "Cold weather increases fall risks for seniors. Learn practical winter bathroom safety tips to keep your elderly loved ones safe.",
     img: blogImage23,
   },
+  {
+    slug: "winter-bathroom-safety-for-seniors",
+    title: "Many Seniors Are Ill  - What It Means for Home Safety",
+    desc: "Many seniors have undiagnosed illnesses that increase fall and injury risks at home. Know about how families can improve senior home safety.",
+    img: blogImage23,
+  },
 ];
 
 export const kitImageDesktop = [
