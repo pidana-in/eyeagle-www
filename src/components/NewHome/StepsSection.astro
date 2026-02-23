@@ -18,9 +18,7 @@ const stepsData = Astro.props.stepsData as StepItem[];
 ---
 
 <section class="steps-section">
-  <div
-    class="flex flex-col items-center text-center px-4"
-  >
+  <div class="flex flex-col items-center text-center px-4">
     <div class="max-w-[1200px] mb-10">
       <h2 class="text-3xl md:text-[40px] font-bold mb-4 leading-8">
         {stepsContent.title[0]}<br />
@@ -53,8 +51,8 @@ const stepsData = Astro.props.stepsData as StepItem[];
             <div class="step-item" data-index={i}>
               <p class="text-base font-bold mb-1">{item.title}</p>
               <p class="text-base md:min-h-[4.5rem]">{item.step}</p>
-              <div class="step-underline mt-5 h-[2px] bg-gray-200">
-                <div class="step-progress h-full bg-[#CC0000] w-0" />
+              <div class="step-underline mt-5 h-[2px] w-full bg-[#FBEBEB] rounded-full overflow-hidden">
+                <div class="step-progress h-full bg-[#CC0000] rounded-full w-0" />
               </div>
             </div>
           ))
@@ -94,8 +92,8 @@ const stepsData = Astro.props.stepsData as StepItem[];
         });
 
         stepEls.forEach((step) => {
-          step.classList.remove("text-black");
-          step.classList.add("text-gray-500");
+          step.classList.remove("text-black", "font-semibold");
+          step.classList.add("text-gray-400");
         });
 
         bars.forEach((bar) => {
@@ -105,33 +103,25 @@ const stepsData = Astro.props.stepsData as StepItem[];
       }
 
       function activate(index) {
+        reset();
+        current = index;
         images[index].classList.remove("opacity-0");
         images[index].classList.add("opacity-100");
 
-        stepEls[index].classList.remove("text-gray-500");
+        stepEls[index].classList.remove("text-gray-400");
         stepEls[index].classList.add("text-black");
 
         const bar = bars[index];
-        bar.style.transition = "none";
-        bar.style.width = "0%";
-        bar.offsetHeight; // force reflow
+        bar.offsetHeight;
         bar.style.transition = `width ${DURATION}ms linear`;
         bar.style.width = "100%";
       }
 
       function start() {
         stop();
-        reset();
-        current = 0;
         activate(current);
 
         timer = setInterval(() => {
-          bars[current].style.transition = "none";
-          bars[current].style.width = "0%";
-
-          images[current].classList.remove("opacity-100");
-          images[current].classList.add("opacity-0");
-
           current = (current + 1) % images.length;
           activate(current);
         }, DURATION);
@@ -139,8 +129,17 @@ const stepsData = Astro.props.stepsData as StepItem[];
 
       function stop() {
         if (timer) clearInterval(timer);
-        timer = null;
       }
+
+      stepEls.forEach((step, index) => {
+        step.style.cursor = "pointer";
+
+        step.addEventListener("click", () => {
+          stop();
+          activate(index);
+          start();
+        });
+      });
 
       const observer = new IntersectionObserver(
         ([entry]) => {
