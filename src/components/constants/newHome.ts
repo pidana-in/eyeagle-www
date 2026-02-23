@@ -23,7 +23,8 @@ import app from "../../assets/NewHome/app.png";
 import HelpImage from "../../assets/NewHome/HelpImage.png";
 
 export const heroContent = {
-  heading: ["Seconds", "matter", "when they're", "alone."],
+  eyebrow: "Stop Today, Don’t Regret Tomorrow",
+  heading: ["Parents", "fall", "can", "destroy", "all"],
   description:
     "When an older parent is alone, small moments can turn serious fast. EyEagle reduces risk in the bathroom—and helps families respond quickly if something still goes wrong.",
 };
