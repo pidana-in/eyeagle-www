@@ -30,7 +30,7 @@ export const heroDescription =
 
 export const features = [
   {
-    eyebrow: "Seamless",
+    eyebrow: "Connected",
     title: {
       redFirst: "Private",
       black: "Nests & roles",

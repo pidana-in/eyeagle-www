@@ -27,10 +27,18 @@ const metaDesc =
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc}>
-  <HeroSection HeroSectionData={HeroSectionData} heroTitle={heroTitle} heroDescription={heroDescription} />
+  <HeroSection
+    HeroSectionData={HeroSectionData}
+    heroTitle={heroTitle}
+    heroDescription={heroDescription}
+  />
   <Feature features={features} featureData={featureData} />
   <BackupSection backupSection={backupSection} />
-  <Family sectionContent={sectionContent} FamilySection={FamilySection} familyCard={familyCard} />
-  <Membership membershipContent={membershipContent} plans={plans} />
+  <Family
+    sectionContent={sectionContent}
+    FamilySection={FamilySection}
+    familyCard={familyCard}
+  />
+  <!-- <Membership membershipContent={membershipContent} plans={plans} /> -->
   <AppDownload contentData={contentData} stores={stores} />
 </MainLayout>

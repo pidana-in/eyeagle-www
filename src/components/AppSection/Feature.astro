@@ -5,62 +5,58 @@ const features = Astro.props.features;
 const featureData = Astro.props.featureData;
 ---
 
-<section class="xl:container w-full flex flex-col items-center py-20 px-4">
-  <h2 class="text-4xl md:text-6xl font-bold md:mt-20 mb-[60px]">
+<section
+  class="xl:container w-full flex flex-col items-center py-16 md:py-20 px-4 gap-20 lg:gap-[120px]"
+>
+  <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold text-center">
     Features
   </h2>
-  {features.map((feature: any, index: number) => (
-    <>
+
+  {
+    features.map((feature: any) => (
       <div
-        class={`flex flex-col md:flex-row w-full max-w-[1200px] items-center gap-10 md:gap-20
-          ${feature.reverse ? "md:flex-row-reverse" : ""}`}
+        class={`flex flex-col lg:flex-row w-full max-w-[1200px] items-center gap-10 md:gap-12 lg:gap-20
+        ${feature.reverse ? "lg:flex-row-reverse" : ""}`}
       >
-        <!-- TEXT -->
-        <div class="max-w-full md:max-w-[560px] text-start">
-          <p class="text-[#CC0000] text-sm font-semibold uppercase tracking-[4px]">
+        <div class="w-full max-w-xl lg:max-w-[560px] text-start">
+          <p class="text-[#CC0000] text-xs md:text-sm font-semibold uppercase tracking-[4px]">
             {feature.eyebrow}
           </p>
-          <h2 class="text-[32px] md:text-[40px] font-bold mt-4 leading-10">
+          <h2 class="text-2xl md:text-3xl lg:text-[40px] font-bold mt-4 leading-tight">
             {feature.title.redFirst && (
-              <span class="text-[#CC0000]">
-                {feature.title.redFirst}{" "}
-              </span>
+              <span class="text-[#CC0000]">{feature.title.redFirst} </span>
             )}
             {feature.title.black && (
-              <span class="text-black">
-                {feature.title.black}{" "}
-              </span>
+              <span class="text-black">{feature.title.black} </span>
             )}
             {feature.title.redLast && (
-              <span class="text-[#CC0000]">
-                {feature.title.redLast}
-              </span>
+              <span class="text-[#CC0000]">{feature.title.redLast}</span>
             )}
           </h2>
-          <p class="text-base text-[#676B75] leading-7 mt-5">
+          <p class="text-sm md:text-base text-[#676B75] leading-7 mt-5">
             {feature.description}
           </p>
           {feature.bullets && (
-            <ul class="space-y-4 text-[#15803D] mt-5">
+            <ul class="space-y-3 md:space-y-4 text-[#15803D] mt-5 text-sm md:text-base">
               {feature.bullets.map((item: string) => (
-                <li class="flex items-start gap-3">
-                  <Image src={featureData.img1} alt="check" class="w-5 h-5 mt-1" />
+                <li class="flex items-start gap-3 justify-start">
+                  <Image
+                    src={featureData.img1}
+                    alt="check"
+                    class="w-5 h-5 mt-1"
+                  />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           )}
         </div>
-        <!-- IMAGE -->
         <Image
           src={feature.image}
           alt="Feature image"
-          class="w-full md:w-[560px] h-auto rounded-[24px]"
+          class="w-full max-w-xl lg:max-w-[560px] h-auto rounded-[24px]"
         />
       </div>
-      {index !== features.length - 1 && (
-        <Image src={featureData.img2} alt="Line" class="my-[60px]" />
-      )}
-    </>
-  ))}
+    ))
+  }
 </section>
