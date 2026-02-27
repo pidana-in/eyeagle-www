@@ -8,7 +8,7 @@ const faqsData: FAQ[] = Astro.props.faqsData;
 ---
 
 <section
-  class="xl:container py-[120px] flex flex-col items-center px-6 font-sans-instrument"
+  class="xl:container md:py-[120px] py-20 flex flex-col items-center px-6 font-sans-instrument"
 >
   <h2 class="text-4xl font-bold mb-12">FAQs</h2>
   <div class="w-full max-w-5xl space-y-6">
@@ -34,7 +34,7 @@ const faqsData: FAQ[] = Astro.props.faqsData;
             </svg>
           </button>
           <p
-            class="faq-answer hidden mt-3 text-[15px] leading-relaxed text-[#2C2C2C] opacity-[0.6]"
+            class="faq-answer hidden mt-3 text-[15px] leading-relaxed text-neutral-600"
             data-index={i}
           >
             {faq.answer}

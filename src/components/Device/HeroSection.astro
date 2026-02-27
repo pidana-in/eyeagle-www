@@ -6,7 +6,7 @@ const features = Astro.props.features;
 
 <!-- DESKTOP VIEW -->
 <div class="hidden md:block font-sans-instrument">
-  <div class="relative xl:container my-20 overflow-hidden">
+  <div class="relative 2xl:container my-20 overflow-hidden">
     <Image
       src={heroContent.images.img1}
       alt="Bathroom Safety Hero"
@@ -43,19 +43,20 @@ const features = Astro.props.features;
   <div class="xl:container flex justify-evenly text-center my-20 px-4">
     {
       features.map((item: any) => (
-        <div class="flex flex-col items-center max-w-[268px]">
+        <div class="flex flex-col items-center max-w-[280px]">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} class="text-[#CC0000]" />
             <h4 class="text-2xl font-semibold">{item.title}</h4>
           </div>
-          <p class="text-lg text-black opacity-70 mt-2">{item.description}</p>
+          <p class="text-black opacity-70 mt-2">{item.description}</p>
         </div>
       ))
     }
   </div>
 </div>
+
 <!-- MOBILE VIEW -->
-<div class="block md:hidden font-sans-instrument py-[60px] px-4">
+<div class="block md:hidden font-sans-instrument pt-[60px] px-4">
   <div class="flex justify-center">
     <span
       class="px-3 py-1.5 rounded-full text-sm font-semibold border border-black text-black"
@@ -81,24 +82,22 @@ const features = Astro.props.features;
   <p class="text-[#666] text-[11px] text-center mt-4">
     {heroContent.cta.helper}
   </p>
-  <Image
-    src={heroContent.images.img2}
-    alt="Bathroom Product Image"
-    class="w-full object-cover mt-8"
-  />
-  <div class="mt-20 space-y-10 flex flex-col items-center text-center">
-    {
-      features.map((item: any) => (
-        <div class="flex flex-col items-center text-center">
-          <div class="flex items-center gap-3">
-            <Image src={item.icon} alt={item.title} />
-            <h4 class="text-2xl font-semibold">{item.title}</h4>
-          </div>
-          <p class="text-[#000000]/70 mt-3 leading-[140%]">
-            {item.description}
-          </p>
+</div>
+<Image
+  src={heroContent.images.img2}
+  alt="Bathroom Product Image"
+  class="w-full object-cover mt-8"
+/>
+<div class="mt-20 mb-10 space-y-10 flex flex-col items-center text-center">
+  {
+    features.map((item: any) => (
+      <div class="flex flex-col items-center text-center">
+        <div class="flex items-center gap-3">
+          <Image src={item.icon} alt={item.title} />
+          <h4 class="text-2xl font-semibold">{item.title}</h4>
         </div>
-      ))
-    }
-  </div>
+        <p class="text-[#000000]/70 mt-3 leading-[140%]">{item.description}</p>
+      </div>
+    ))
+  }
 </div>

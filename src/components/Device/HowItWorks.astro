@@ -20,7 +20,7 @@ const { header, steps } = Astro.props as Props;
 ---
 
 <section class="how-it-works py-20 bg-black font-sans-instrument">
-  <div class="xl:container px-6 md:px-[120px]">
+  <div class="2xl:container px-4 md:px-[120px]">
     <div class="pb-14 text-white text-center">
       <h2 class="text-3xl md:text-5xl font-bold">
         {header.title}
@@ -67,99 +67,110 @@ const { header, steps } = Astro.props as Props;
     </div>
   </div>
 
-  <!-- AUTO CAROUSEL SCRIPT -->
   <script is:inline>
-    const section = document.querySelector(".how-it-works");
-    const images = section.querySelectorAll(".how-image");
-    const steps = section.querySelectorAll(".how-step");
-    const bars = section.querySelectorAll(".how-progress");
+    document.addEventListener("DOMContentLoaded", () => {
+      const section = document.querySelector(".how-it-works");
+      if (!section) return;
 
-    const DURATION = 4500;
-    let current = 0;
-    let timer = null;
+      const images = section.querySelectorAll(".how-image");
+      const stepEls = section.querySelectorAll(".how-step");
+      const bars = section.querySelectorAll(".how-progress");
 
-    function reset() {
-      images.forEach((img) => {
-        img.classList.remove("opacity-100");
-        img.classList.add("opacity-0");
-      });
+      if (!images.length || !stepEls.length) return;
 
-      steps.forEach((step) => {
-        step.classList.remove("text-white");
-        step.classList.add("text-white/50");
+      const DURATION = 4500;
+      let current = 0;
+      let timer = null;
 
-        const underline = step.querySelector(".how-underline");
-        underline.classList.remove("bg-white");
-        underline.classList.add("bg-white/50");
-      });
+      /* ---------------- RESET ---------------- */
+      function reset() {
+        images.forEach((img) => {
+          img.classList.remove("opacity-100");
+          img.classList.add("opacity-0");
+        });
 
-      bars.forEach((bar) => {
-        bar.style.transition = "none";
-        bar.style.width = "0%";
-      });
-    }
+        stepEls.forEach((step) => {
+          step.classList.remove("text-white");
+          step.classList.add("text-white/50");
 
-    function activate(index) {
-      images[index].classList.remove("opacity-0");
-      images[index].classList.add("opacity-100");
+          const underline = step.querySelector(".how-underline");
+          underline.classList.remove("bg-white");
+          underline.classList.add("bg-white/50");
+        });
 
-      steps[index].classList.remove("text-white/50");
-      steps[index].classList.add("text-[#FFFFFF]");
+        bars.forEach((bar) => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+        });
+      }
 
-      const underline = steps[index].querySelector(".how-underline");
-      underline.classList.remove("bg-white/50");
-      underline.classList.add("bg-[#FFFFFF]");
+      /* ---------------- ACTIVATE ---------------- */
+      function activate(index) {
+        current = index;
 
-      const bar = bars[index];
-      bar.style.transition = "none"; // reset first
-      bar.style.width = "0%";
+        images[index].classList.remove("opacity-0");
+        images[index].classList.add("opacity-100");
 
-      // force reflow so browser applies width=0 instantly
-      bar.offsetHeight;
+        stepEls[index].classList.remove("text-white/50");
+        stepEls[index].classList.add("text-white");
 
-      bar.style.transition = `width ${DURATION}ms linear`;
-      bar.style.width = "100%";
-    }
+        const underline = stepEls[index].querySelector(".how-underline");
+        underline.classList.remove("bg-white/50");
+        underline.classList.add("bg-white");
 
-    function start() {
-      stop();
-      reset();
-      current = 0;
-      activate(current);
+        const bar = bars[index];
+        bar.offsetHeight;
+        bar.style.transition = `width ${DURATION}ms linear`;
+        bar.style.width = "100%";
+      }
 
-      timer = setInterval(() => {
-        // reset progress bar
-        bars[current].style.transition = "none";
-        bars[current].style.width = "0%";
-        // hide image
-        images[current].classList.remove("opacity-100");
-        images[current].classList.add("opacity-0");
-        // downgrade text
-        steps[current].classList.remove("text-[#FFFFFF]");
-        steps[current].classList.add("text-white/50");
-        // downgrade underline
-        const prevUnderline = steps[current].querySelector(".how-underline");
-        prevUnderline.classList.remove("bg-[#FFFFFF]");
-        prevUnderline.classList.add("bg-white/50");
-
+      /* ---------------- NEXT ---------------- */
+      function next() {
+        reset();
         current = (current + 1) % images.length;
         activate(current);
-      }, DURATION);
-    }
+      }
 
-    function stop() {
-      if (timer) clearInterval(timer);
-      timer = null;
-    }
+      /* ---------------- AUTOPLAY ---------------- */
+      function start() {
+        stop(); // prevent double timer
+        timer = setInterval(next, DURATION);
+      }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) start();
-        else stop();
-      },
-      { threshold: 0.5 }
-    );
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
 
-    observer.observe(section);
+      /* ---------------- CLICK SUPPORT ---------------- */
+      stepEls.forEach((step, index) => {
+        step.classList.add("cursor-pointer");
+
+        step.addEventListener("click", () => {
+          stop();
+          reset();
+          activate(index);
+          start();
+        });
+      });
+
+      /* ---------------- INTERSECTION ---------------- */
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            reset();
+            activate(0);
+            start();
+          } else {
+            stop();
+          }
+        },
+        { threshold: 0.3 },
+      );
+
+      observer.observe(section);
+    });
   </script>
 </section>
