@@ -2,11 +2,11 @@
 id: "26"
 title: "Many Seniors Are Ill — and Don’t Know It: What That Means for Home Safety"
 category: "Blog"
-img: ../../assets/Blog/BlogImage17.jpg
+img: ../../assets/Blog/BlogImage24.jpg
 slug: "senior-hidden-illness-and-home-safety"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-02-20
+date: 2026-02-27
 ---
 
 # Many Seniors Are Ill - What It Means for Home Safety
@@ -40,6 +40,8 @@ Mild memory loss or confusion is often brushed off as “normal aging,” but th
 ### 5. Vitamin deficiencies and weak muscles
 
 Low Vitamin D and B12 levels are extremely common in older adults. They lead to weak bones, poor coordination, and slow reflexes, small problems that collectively increase the chance of falls.
+
+![Infographic](../../assets/Blog/Blog24Infographic.jpg)
 
 ## Why hidden illnesses turn homes into risk zones
 
