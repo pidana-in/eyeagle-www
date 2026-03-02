@@ -26,7 +26,7 @@ export const HeroSectionData = {
 
 export const heroTitle = "Feel safer.<br />Stay connected.";
 export const heroDescription =
-  "EyEagle helps families build private “Nests” to check in, share SOS access,and get smart alerts—without overwhelming anyone.";
+  "EyEagle helps families build private “Nests” to check in, share SOS access, and get smart alerts—without overwhelming anyone.";
 
 export const features = [
   {
@@ -36,7 +36,7 @@ export const features = [
       black: "Nests & roles",
     },
     description:
-      "View NFTs in their ideal intended format. Full rich media support no matter the type, from video and audio, to images and interactive.",
+      "Create invite-only Nests for each part of your life home, parents, kids, or travel. Assign roles so everyone has the right access and knows exactly what to do during an alert.",
     image: FeatureImage1,
     reverse: false,
   },
@@ -47,7 +47,7 @@ export const features = [
       redLast: "in one tap",
     },
     description:
-      "Your loved one taps the big red button to raise an SOS. EyEagle instantly alerts all guardians and the support team, so help starts moving right away.",
+      "No explaining, no scrambling. One tap sends an SOS to your trusted circle so help starts moving right away",
     image: FeatureImage2,
     reverse: true,
   },
@@ -58,7 +58,7 @@ export const features = [
       redLast: "in sync",
     },
     description:
-      "When an SOS is raised, everyone in the circle sees who needs help, where they are, and when the alert came in.",
+      "When an SOS is raised, everyone in the nest sees who needs help, where they are, and when the alert came in.",
     bullets: [
       "Send and receive SOS alerts within your Nest",
       "Members can mark their status as “On the way” or “Cannot attend”",
@@ -89,7 +89,7 @@ export const sectionContent = {
     rest: "who watch out for each other",
   },
   description:
-    "Made for families who watch out for each other. EyEagle is for any home where safety is shared. Everyone in a Nest can raise an SOS and coordinate help quickly — whether for a parent, partner, flatmate, or friend.",
+    "EyEagle is for any home where safety is shared. Everyone in a Nest can raise an SOS, see who is responding, and coordinate help quickly, whether it is for a parent, partner, flatmate, or friend.",
 };
 
 export const FamilySection = {
@@ -109,14 +109,14 @@ export const familyCard = [
     image: FamilyImage2,
     title: "Partners, flatmates and close friends",
     description:
-      "Add the people you trust to a Nest and give each other a quick way to ask for help.",
+      "Add the people you trust to a Nest and give each other a quick way to ask for help and reply.",
     showDivider: true,
   },
   {
     image: FamilyImage3,
     title: "Homes with elders, kids or dependents",
     description:
-      "A simple SOS button for them, and clear alerts for everyone in the Nest.",
+      "A simple SOS button for them, and clear alerts for everyone in the Nest about what is happening.",
     showDivider: false,
   },
 ];
@@ -144,7 +144,7 @@ export const plans = {
 export const contentData = {
   title: "Ready When You Are",
   description:
-    "Start with one step. One log at a time. Bevel meets you where you are and helps you move forward with clarity and confidence.",
+    "Because safety shouldn’t start after an emergency. Add your trusted circle now, and stay ready with one tap",
   image: CTAImage,
 };
 
