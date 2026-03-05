@@ -151,7 +151,7 @@ const { noindex } = Astro.props;
           </a>
         </div>
         <ul
-          class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[14%]"
+          class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[10%]"
         >
           {
             navLinks.map((item) => {
@@ -165,7 +165,7 @@ const { noindex } = Astro.props;
                   {!item.children && (
                     <a
                       href={item.url}
-                      class={`hover:underline ${
+                      class={`hover:underline truncate ${
                         isActive
                           ? "text-[#CC0000]"
                           : "text-black hover:text-[#CC0000]"
@@ -258,7 +258,7 @@ const { noindex } = Astro.props;
               </ul>
               {/* order button */}
               <a href={ctaHref}>
-                <button class="bg-primary font-sans-instrument text-white px-4 py-3 text-base rounded-3xl font-semibold">
+                <button class="bg-primary truncate text-white px-4 py-3 text-base rounded-3xl font-semibold">
                   {ctaButtonText}
                 </button>
               </a>
@@ -402,7 +402,7 @@ const { noindex } = Astro.props;
       id="footer"
       class={`py-16 lg:py-20 ${footerClass} bg-[#000000] text-white`}
     >
-      <div class="flex lg:grid lg:grid-cols-2 flex-col">
+      <div class="flex lg:grid lg:grid-cols-2 flex-col xl:container">
         <div
           class="mx-4 lg:mx-[7.5rem] mb-4 lg:mb-10 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start"
         >

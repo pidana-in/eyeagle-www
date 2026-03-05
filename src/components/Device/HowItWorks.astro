@@ -42,7 +42,7 @@ const { header, steps } = Astro.props as Props;
       }
     </div>
     <!-- STEPS -->
-    <div class="grid grid-cols-1 md:grid-cols-4 md:gap-10 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:gap-10 gap-6">
       {
         steps.map((step, i) => (
           <div
@@ -51,7 +51,7 @@ const { header, steps } = Astro.props as Props;
             }`}
             data-index={i}
           >
-            <p class="text-lg md:text-xl font-semibold leading-relaxed md:min-h-[5.725rem]">
+            <p class="text-sm lg:text-xl font-semibold leading-relaxed md:min-h-[5.725rem]">
               {step.text}
             </p>
             <div
