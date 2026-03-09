@@ -40,11 +40,15 @@ const heroDescription = Astro.props.heroDescription;
           Get the app
         </a>
       </div>
-      <Image
-        src={HeroSectionData.images.infograph}
-        alt="App infographic"
-        class="mt-8 sm:mt-10 lg:mt-[54px] w-[70%] md:w-[65%] overflow-auto"
-      />
+      <div
+        class="mt-8 sm:mt-10 lg:mt-[54px] flex justify-center overflow-hidden"
+      >
+        <Image
+          src={HeroSectionData.images.infograph}
+          alt="App infographic"
+          class="w-full max-w-[1100px] h-auto object-contain"
+        />
+      </div>
     </div>
   </div>
 </section>
