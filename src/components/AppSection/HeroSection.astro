@@ -6,13 +6,13 @@ const heroTitle = Astro.props.heroTitle;
 const heroDescription = Astro.props.heroDescription;
 ---
 
-<section class="2xl:container lg:mt-[120px] mt-8">
+<section class="2xl:container lg:mt-20 mt-8">
   <div class="relative w-full">
     <!-- Desktop -->
     <Image
       src={HeroSectionData.images.desktop}
       alt="Hero app desktop"
-      class="hidden sm:block w-full h-[488px] md:h-[690px] lg:min-h-[1000px] object-cover"
+      class="hidden sm:block w-full"
     />
     <!-- Mobile -->
     <Image
@@ -21,7 +21,7 @@ const heroDescription = Astro.props.heroDescription;
       class="block sm:hidden w-full h-[488px] object-cover"
     />
     <div
-      class="absolute inset-0 flex flex-col items-center text-center px-4 pt-10 md:pt-12"
+      class="absolute inset-0 flex flex-col items-center text-center px-4 pt-10 md:pt-20"
     >
       <div class="w-full max-w-lg sm:max-w-xl md:max-w-[800px] text-black">
         <h1
@@ -43,7 +43,7 @@ const heroDescription = Astro.props.heroDescription;
       <Image
         src={HeroSectionData.images.infograph}
         alt="App infographic"
-        class="mt-8 sm:mt-10 lg:mt-[54px] w-full md:w-[90%] overflow-hidden"
+        class="mt-8 sm:mt-10 lg:mt-[54px] w-[70%] md:w-[65%] overflow-auto"
       />
     </div>
   </div>
