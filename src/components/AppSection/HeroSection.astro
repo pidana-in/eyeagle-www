@@ -6,13 +6,13 @@ const heroTitle = Astro.props.heroTitle;
 const heroDescription = Astro.props.heroDescription;
 ---
 
-<section class="2xl:container lg:mt-20 mt-8">
-  <div class="relative w-full">
+<section class="w-full lg:mt-20 mt-8">
+  <div class="relative 2xl:container mx-auto">
     <!-- Desktop -->
     <Image
       src={HeroSectionData.images.desktop}
       alt="Hero app desktop"
-      class="hidden sm:block w-full"
+      class="hidden sm:block w-full h-auto object-cover"
     />
     <!-- Mobile -->
     <Image
@@ -21,7 +21,7 @@ const heroDescription = Astro.props.heroDescription;
       class="block sm:hidden w-full h-[488px] object-cover"
     />
     <div
-      class="absolute inset-0 flex flex-col items-center text-center px-4 pt-10 md:pt-20"
+      class="absolute inset-0 flex flex-col items-center text-center px-4 pt-12 md:pt-20 lg:pt-24"
     >
       <div class="w-full max-w-lg sm:max-w-xl md:max-w-[800px] text-black">
         <h1
@@ -40,9 +40,7 @@ const heroDescription = Astro.props.heroDescription;
           Get the app
         </a>
       </div>
-      <div
-        class="mt-8 sm:mt-10 lg:mt-[54px] flex justify-center overflow-hidden"
-      >
+      <div class="mt-10 md:mt-12 lg:mt-14 flex justify-center overflow-hidden">
         <Image
           src={HeroSectionData.images.infograph}
           alt="App infographic"
