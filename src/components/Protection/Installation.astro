@@ -14,28 +14,25 @@ type FeatureItem = {
 const installSteps = Astro.props.installSteps;
 const installCards = Astro.props.installCards as InstallStep[];
 const installFeatures = Astro.props.installFeatures as FeatureItem[];
-const installImage = Astro.props.installImage;
+const installImages = Astro.props.installImages;
 ---
 
-<section class="xl:container py-12 lg:py-20">
+<section class="2xl:container py-12 lg:py-20">
   <div class="flex flex-col lg:flex-row gap-20 justify-center px-4">
-    <!-- LEFT (Sticky heading) -->
+    <!-- LEFT -->
     <div class="lg:sticky lg:top-32 lg:self-start max-w-[460px] py-6">
       <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
         {installSteps.title}
       </h2>
-      <!-- <p class="mt-6 text-base text-black opacity-70">
-        {installSteps.description}
-      </p> -->
     </div>
 
-    <!-- RIGHT (Steps) -->
+    <!-- RIGHT -->
     <div class="flex flex-col gap-16 lg:max-w-[540px]">
       {
-        installCards.map((card) => (
+        installCards.map((card, i) => (
           <div>
             <Image
-              src={installImage}
+              src={installImages[i]}
               alt={card.title}
               class="rounded-xl w-full"
             />
@@ -52,7 +49,7 @@ const installImage = Astro.props.installImage;
 </section>
 <!-- FEATURES -->
 <div
-  class="xl:container mt-10 md:my-[100px] flex justify-center px-4 md:px-[120px]"
+  class="2xl:container mt-10 md:my-[100px] flex justify-center px-4 md:px-[120px]"
 >
   <div
     class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 text-center max-w-full"

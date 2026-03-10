@@ -22,8 +22,7 @@ const kitData = Astro.props.kitData;
 ---
 
 <section id="Overview" class="py-10">
-  <div class="xl:container md:px-[120px] px-3">
-    <!-- Heading -->
+  <div class="2xl:container mx-auto px-3">
     <div class="text-center">
       <h2 class="text-3xl md:text-5xl font-bold md:leading-[56px]">
         More than a single bar.<br />
@@ -36,7 +35,6 @@ const kitData = Astro.props.kitData;
         tailored to your bathroom and the people who use it.
       </p>
     </div>
-    <!-- Cards -->
     <div
       class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10 max-w-[960px] mx-auto"
     >
@@ -67,10 +65,11 @@ const kitData = Astro.props.kitData;
   </div>
 </section>
 <section id="About Bars">
-  <div class="xl:container pt-[120px] pb-20 px-4 md:px-10 lg:px-60">
-    <!-- Heading -->
+  <div
+    class="xl:container mx-auto py-16 md:my-10 px-4 md:px-10 lg:px-16 xl:px-24"
+  >
     <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[120px] text-start"
+      class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-[120px] text-start"
     >
       <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
         {sectionHeaders.bars.title}
@@ -80,7 +79,6 @@ const kitData = Astro.props.kitData;
         {sectionHeaders.bars.description}
       </p>
     </div>
-    <!-- Bar features -->
     <div
       class="mt-10 md:mt-[72px] flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 text-center"
     >
@@ -110,20 +108,25 @@ const kitData = Astro.props.kitData;
   </div>
   <div class="bg-[#EFE7DC] py-16 md:py-20">
     <div
-      class="xl:container px-6 flex flex-col gap-12
-           lg:flex-row lg:items-center lg:justify-center lg:gap-20"
+      class="2xl:container px-6 flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-center lg:gap-20"
     >
-      <!-- Image 1 -->
-      <Image src={kitData.img1} alt="" class="w-full max-w-[500px] mx-auto" />
-
-      <!-- Image 2 -->
-      <Image src={kitData.img2} alt="" class="w-full max-w-[500px] mx-auto" />
+      <Image
+        src={kitData.img1}
+        alt=""
+        class="w-full max-w-[500px] h-auto mx-auto object-contain"
+      />
+      <Image
+        src={kitData.img2}
+        alt=""
+        class="w-full max-w-[500px] h-auto mx-auto object-contain"
+      />
     </div>
   </div>
   <section id="About Matte">
     <div class="bg-white">
-      <div class="xl:container pt-[120px] pb-20 px-4 md:px-10 lg:px-60">
-        <!-- Heading -->
+      <div
+        class="xl:container mx-auto py-16 md:my-14 px-4 md:px-10 lg:px-16 xl:px-24"
+      >
         <div
           class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[120px] text-start"
         >
@@ -135,7 +138,6 @@ const kitData = Astro.props.kitData;
             {sectionHeaders.mat.description}
           </p>
         </div>
-        <!-- Feature points -->
         <div
           class="mt-10 md:mt-[72px] flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-0 text-center"
         >
@@ -164,25 +166,28 @@ const kitData = Astro.props.kitData;
         </div>
       </div>
     </div>
-    <!-- MAT SHOWCASE -->
     <div class="bg-[#FBF6EB] flex justify-center py-12 md:py-20 px-4">
-      <Image src={kitData.img3} alt="Anti skid mat" class="object-contain" />
+      <Image
+        src={kitData.img3}
+        alt="Anti skid mat"
+        class="w-full max-w-[700px] mx-auto object-contain"
+      />
     </div>
   </section>
   <section id="About Tape">
-    <div class="xl:container pt-[120px] pb-20 px-4 md:px-10 lg:px-60">
-      <!-- Heading -->
+    <div
+      class="xl:container mx-auto py-16 md:mt-12 px-4 md:px-10 lg:px-16 xl:px-24"
+    >
       <div
         class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[120px] text-start"
       >
-        <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
+        <h2 class="text-2xl lg:text-[32px] font-bold leading-tight">
           {sectionHeaders.tape.title}
         </h2>
         <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
           {sectionHeaders.tape.description}
         </p>
       </div>
-      <!-- Features -->
       <div
         class="mt-10 md:mt-[72px] flex flex-col md:flex-row items-center md:items-stretch text-center gap-8 md:gap-10"
       >
@@ -211,7 +216,7 @@ const kitData = Astro.props.kitData;
       </div>
     </div>
   </section>
-  <div class="md:py-20 py-10 xl:container">
+  <div class="md:py-20 py-10 2xl:container">
     <Image
       src={kitData.img4}
       alt="Bathroom floor"

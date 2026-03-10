@@ -19,7 +19,10 @@ import HandleBar from "../../assets/Protection/HandleBar.png";
 import Mount from "../../assets/Protection/Mount.png";
 import Cleaning from "../../assets/Protection/Cleaning.png";
 import Calm from "../../assets/Protection/Calm.png";
-import RaiseAlarm from "../../assets/Protection/RaiseAlarm.png";
+import InstallImage1 from "../../assets/Protection/InstallImage1.png";
+import InstallImage2 from "../../assets/Protection/InstallImage2.png";
+import InstallImage3 from "../../assets/Protection/InstallImage3.png";
+import InstallImage4 from "../../assets/Protection/InstallImage4.png";
 import CtaImage from "../../assets/Protection/CtaImage.png";
 import redCheck from "../../assets/Protection/redCheck.png";
 
@@ -249,15 +252,18 @@ export const installCards = [
   },
   {
     title: "On-site safety walk-through",
-    description: "We visit the site, understand risky zones and mark them.",
+    description:
+      "We walk the path you or your family member actually take and mark toilet, shower and entry zones.",
   },
   {
     title: "Layout sketch & installation",
-    description: "Custom layout, careful installation without damaging tiles.",
+    description:
+      "We suggest bar positions, mat and tape placement, confirm with you, then drill and install with proper tools and hardware.",
   },
   {
     title: "Test run & care tips",
-    description: "We test everything and show how to clean and maintain it.",
+    description:
+      "We do a test walk-through together, adjust if needed, and show you how to clean and look after everything.",
   },
 ];
 
@@ -271,7 +277,12 @@ export const installFeatures = [
   { title: "3 key zones", desc: "Toilet, shower and entry all covered." },
 ];
 
-export const installImage = RaiseAlarm;
+export const installImages = [
+  InstallImage1,
+  InstallImage2,
+  InstallImage3,
+  InstallImage4,
+];
 
 export const comparisonColumns = [
   "Aspect",

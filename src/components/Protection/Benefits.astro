@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 type Card = {
   image: ImageMetadata;
@@ -11,33 +12,40 @@ type Card = {
 const cardsData = Astro.props.cardsData;
 ---
 
-<section class="xl:container py-16 md:py-20">
-  <div class="flex justify-center text-center px-4 md:px-[125px]">
+<section class="2xl:container mx-auto py-16 md:py-20 px-4 md:px-8 lg:px-16">
+  <!-- Heading -->
+  <div class="flex justify-center text-center max-w-[900px] mx-auto">
     <p
-      class="text-[32px] leading-10 md:text-5xl md:leading-[56px] font-bold tracking-wide px-4 md:px-[120px]"
+      class="text-[32px] leading-10 md:text-5xl md:leading-[56px] font-bold tracking-wide"
     >
       Thoughtfully designed for real bathrooms, not brochures.
     </p>
   </div>
+
+  <!-- Cards -->
   <div
-    class="mt-20 flex flex-col md:flex-row md:flex-wrap gap-6 md:gap-8 justify-center px-4 md:px-[120px] text-center"
+    class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1100px] mx-auto text-center"
   >
     {
       cardsData.map((card: Card) => (
-        <div class="flex flex-col rounded-3xl border bg-[#F9F7F7] max-w-full md:max-w-[322px] overflow-hidden">
+        <div class="flex flex-col rounded-3xl border bg-[#F9F7F7] overflow-hidden">
           <Image
             src={card.image}
             alt={card.alt}
-            class="w-full object-cover rounded-t-3xl border"
+            class="w-full h-auto object-cover"
           />
+
           <div class="p-6">
             <h3 class="text-xl font-bold">{card.title}</h3>
-            <p class="mt-3 text-base font-normal opacity-60">{card.desc}</p>
+
+            <p class="mt-3 text-base opacity-60 leading-7">{card.desc}</p>
           </div>
         </div>
       ))
     }
   </div>
+
+  <!-- CTA -->
   <p
     class="mt-10 md:mt-12 text-[#CC0000] underline text-center text-base md:text-lg italic"
   >
