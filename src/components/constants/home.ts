@@ -57,8 +57,8 @@ import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
 import blogImage23 from "../../assets/Blog/BlogImage23.jpg";
 import blogImage24 from "../../assets/Blog/BlogImage24.jpg";
 import HoliBanner from "../../assets/Blog/HoliBanner.jpg";
-import blogImage26 from "../../assets/Blog/blogImage26.jpg";
-import blogImage27 from "../../assets/Blog/blogImage27.jpg";
+import blogImage26 from "../../assets/Blog/BlogImage26.jpg";
+import blogImage27 from "../../assets/Blog/BlogImage27.jpg";
 
 export const bathroomData = [
   {
