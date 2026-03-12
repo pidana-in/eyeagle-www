@@ -57,6 +57,8 @@ import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
 import blogImage23 from "../../assets/Blog/BlogImage23.jpg";
 import blogImage24 from "../../assets/Blog/BlogImage24.jpg";
 import HoliBanner from "../../assets/Blog/HoliBanner.jpg";
+import blogImage26 from "../../assets/Blog/blogImage26.jpg";
+import blogImage27 from "../../assets/Blog/blogImage27.jpg";
 
 export const bathroomData = [
   {
@@ -301,6 +303,18 @@ export const blogsData = [
     title: "Holi Safety at Home: Prevent Slippery Bathroom Accidents",
     desc: "Practice Holi safety at home with these tips. Learn how to prevent slippery bathroom accidents at home and protect your loved ones.",
     img: HoliBanner,
+  },
+  {
+    slug: "importance-of-elderly-fall-prevention",
+    title: "Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority",
+    desc: "Falls are one of the biggest risks to senior safety. Learn practical strategies and home safety tips for elderly fall prevention.",
+    img: blogImage26,
+  },
+  {
+    slug: "senior-home-safety-india",
+    title: "India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors",
+    desc: "Learn why safer homes are essential for India’s seniors and how simple changes can prevent slips, falls, and mobility risks.",
+    img: blogImage27,
   },
 ];
 
