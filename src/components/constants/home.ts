@@ -55,6 +55,8 @@ import blogImage20 from "../../assets/Blog/BlogImage20.jpg";
 import blogImage21 from "../../assets/Blog/BlogImage21.jpg";
 import blogImage22 from "../../assets/Blog/BlogImage22.jpg";
 import blogImage23 from "../../assets/Blog/BlogImage23.jpg";
+import blogImage24 from "../../assets/Blog/BlogImage24.jpg";
+import HoliBanner from "../../assets/Blog/HoliBanner.jpg";
 
 export const bathroomData = [
   {
@@ -287,6 +289,18 @@ export const blogsData = [
     title: "Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls",
     desc: "Cold weather increases fall risks for seniors. Learn practical winter bathroom safety tips to keep your elderly loved ones safe.",
     img: blogImage23,
+  },
+  {
+    slug: "senior-hidden-illness-and-home-safety",
+    title: "Many Seniors Are Ill  - What It Means for Home Safety",
+    desc: "Many seniors have undiagnosed illnesses that increase fall and injury risks at home. Know about how families can improve senior home safety.",
+    img: blogImage24,
+  },
+  {
+    slug: "holi-safety-at-home",
+    title: "Holi Safety at Home: Prevent Slippery Bathroom Accidents",
+    desc: "Practice Holi safety at home with these tips. Learn how to prevent slippery bathroom accidents at home and protect your loved ones.",
+    img: HoliBanner,
   },
 ];
 

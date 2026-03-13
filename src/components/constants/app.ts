@@ -15,13 +15,31 @@ import AppStore from "../../assets/NewApp/AppStore.png";
 import PlayStore from "../../assets/NewApp/PlayStore.png";
 import CTAImage from "../../assets/NewApp/CTAImage.png";
 
+export const stores = [
+  {
+    type: "ios",
+    href: "https://apps.apple.com/in/app/eyeagle/id6740724011",
+    image: AppStore,
+    alt: "Download on the App Store",
+  },
+  {
+    type: "android",
+    href: "https://play.google.com/store/apps/details?id=com.app.eyeagle",
+    image: PlayStore,
+    alt: "Get it on Google Play",
+  },
+];
+
 export const HeroSectionData = {
   images: {
     desktop: HeroImage,
-    infograph: AppInfograph,
     mobile: HeroImageMobile,
+    infograph: AppInfograph,
   },
-  ctaHref: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+  ctaHref: {
+    ios: stores.find((s) => s.type === "ios")?.href,
+    android: stores.find((s) => s.type === "android")?.href,
+  },
 };
 
 export const heroTitle = "Feel safer.<br />Stay connected.";
@@ -147,16 +165,3 @@ export const contentData = {
     "Because safety shouldn’t start after an emergency. Add your trusted circle now, and stay ready with one tap",
   image: CTAImage,
 };
-
-export const stores = [
-  {
-    href: "https://apps.apple.com/in/app/eyeagle/id6740724011",
-    image: AppStore,
-    alt: "Download on the App Store",
-  },
-  {
-    href: "https://play.google.com/store/apps/details?id=com.app.eyeagle",
-    image: PlayStore,
-    alt: "Get it on Google Play",
-  },
-];
