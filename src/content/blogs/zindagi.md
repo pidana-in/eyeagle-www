@@ -6,7 +6,7 @@ img: ../../assets/Blog/BlogImage26.jpg
 slug: "importance-of-elderly-fall-prevention"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-03-12
+date: 2026-03-16
 ---
 
 # Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority

@@ -6,7 +6,7 @@ img: ../../assets/Blog/BlogImage27.jpg
 slug: "senior-home-safety-india"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
-date: 2026-03-12
+date: 2026-03-16
 ---
 
 # India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors
