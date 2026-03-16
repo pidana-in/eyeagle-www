@@ -44,8 +44,11 @@ import Blogs from "../components/Home/Blogs.astro";
 import ShopSection from "../components/Home/ShopSection.astro";
 const metaTitle = siteMeta.title;
 const metaDesc = siteMeta.description;
----
 
+/* disable page */
+const renderPage = false;
+---
+{ renderPage && (
 <MainLayout title={metaTitle} desc={metaDesc}>
   <!-- Hero Section -->
   <HeroSectionComponent heroImage={HeroSection} heroImageMob={HeroImageMobile} heroDescription={heroDescription} heroDescription2={heroDescription2} HeroImageTitle={HeroImageTitle} />
@@ -83,3 +86,4 @@ const metaDesc = siteMeta.description;
   <!-- Desire Section -->
   <DesireSection item={desireImage} desireSection1={desireSection1} descriptionButton={descriptionButton} />
 </MainLayout>
+)}
