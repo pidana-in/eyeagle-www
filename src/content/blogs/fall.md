@@ -7,7 +7,6 @@ slug: "falls-kill-more-seniors-than-you-think"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
 date: 2025-05-26
-# authorImage: "../../images/Abhinav.png"
 ---
 
 <!-- # Falls Kill More Seniors Than You Think – But No One Talks About It -->

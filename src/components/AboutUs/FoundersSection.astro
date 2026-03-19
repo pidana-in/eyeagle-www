@@ -6,22 +6,22 @@ import { Image } from "astro:assets";
   <div class="xl:container">
     <div class="w-full pb-[100px] lg:pb-[200px]">
       <p class="text-[#CC0000] font-medium text-center text-[18px] leading-[21px] mb-2">TEAM</p>
-      <h2 class="font-semibold text-center text-[40px] lg:text-[68px] leading-[44px] lg:leading-[78px]">The Minds Behind <span class="text-[#CC0000]">EyEagle</span></h2>
+      <h2 class="font-semibold text-center text-[40px] lg:text-[68px] leading-[44px] lg:leading-[78px]">The Minds<br /> Behind <span class="text-[#CC0000]">EyEagle</span></h2>
     </div>
 <div class="w-full flex flex-col gap-[80px] lg:flex-row justify-center items-center">
   {aboutUsFoundersData.map((founder, index) => (
-    <div class="bg-[#ffffff] rounded-lg flex flex-col gap-5 h-full relative overflow-hidden group">
-            <div class="relative bg-white m-auto rounded-lg">
+    <div class="bg-[#ffffff] flex flex-col gap-5 h-full relative overflow-hidden group">
+            <div class="relative bg-white m-auto rounded-xl">
         <Image
           src={founder.photo}
           alt={`${founder.name}'s Photo`}
-          class="rounded-lg w-full h-full object-cover transition-all duration-300 group-hover:opacity-60"
+          class="rounded-xl w-full h-full object-cover transition-all duration-300 group-hover:opacity-60"
         />
         <div 
-  class="absolute inset-0 bg-gradient-to-b from-[#CC0000] to-[#660000] flex items-center justify-center text-center p-5 opacity-0 pointer-events-none transition-all duration-300 group-hover:opacity-90 group-hover:pointer-events-auto md:opacity-0 md:pointer-events-none" 
+  class="absolute inset-0 rounded-xl bg-gradient-to-b from-[#CC0000] to-[#660000] flex items-center justify-center text-center p-5 opacity-0 pointer-events-none transition-all duration-300 group-hover:opacity-90 group-hover:pointer-events-auto md:opacity-0 md:pointer-events-none" 
   data-speech-overlay
 >
-  <p class="font-medium text-[20px] leading-7 text-white pt-5 min-h-[120px]">
+  <p class="font-medium text-base leading-7 text-white h-full flex items-center">
     {founder.speech}
   </p>
 
@@ -36,8 +36,8 @@ import { Image } from "astro:assets";
       <div>
         <div class="flex-grow flex flex-col">
           <h2 class="text-[20px] font-medium leading-6 text-[#000000]">{founder.name.toUpperCase()}</h2>
-          <p class="font-medium leading-[17px] text-[16px] text-[#828282]">{founder.title}</p>
-          <p class="font-medium leading-[20px] text-[14px] text-[#000000] max-w-[226px] mt-2">
+          <p class="font-medium leading-[17px] text-[16px] text-[#828282] mt-2">{founder.title}</p>
+          <p class="font-medium leading-[20px] text-[14px] text-[#000000] mt-2">
             {founder.experience}
           </p>
         </div>
