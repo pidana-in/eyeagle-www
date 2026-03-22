@@ -1,6 +1,14 @@
-import HeroImage from "../../assets/NewApp/Hero.png";
-import HeroImageMobile from "../../assets/NewApp/HeroImageMobile.png";
-import AppInfograph from "../../assets/NewApp/AppInfograph.png";
+import HeroImage from "../../assets/NewApp/Hero-new.png";
+import HeroImageMobile from "../../assets/NewApp/Hero-new-mobile.png";
+// import AppInfograph from "../../assets/NewApp/AppInfograph.png";
+import ImageCard1 from "../../assets/NewApp/ImageCard-1.png";
+import ImageCard2 from "../../assets/NewApp/ImageCard-2.png";
+import ImageCard3 from "../../assets/NewApp/ImageCard-3.png";
+import ImageCard4 from "../../assets/NewApp/ImageCard-4.png";
+import ImageCard5 from "../../assets/NewApp/ImageCard-5.png";
+import ImageCard6 from "../../assets/NewApp/ImageCard-6.png";
+import Testimonial1 from "../../assets/NewApp/Testimonial1.png";
+import Testimonial2 from "../../assets/NewApp/Testimonial2.png";
 import FeatureImage1 from "../../assets/NewApp/FeatureImage1.png";
 import FeatureImage2 from "../../assets/NewApp/FeatureImage2.png";
 import FeatureImage3 from "../../assets/NewApp/FeatureImage3.png";
@@ -34,7 +42,7 @@ export const HeroSectionData = {
   images: {
     desktop: HeroImage,
     mobile: HeroImageMobile,
-    infograph: AppInfograph,
+    // infograph: AppInfograph,
   },
   ctaHref: {
     ios: stores.find((s) => s.type === "ios")?.href,
@@ -42,46 +50,63 @@ export const HeroSectionData = {
   },
 };
 
-export const heroTitle = "Feel safer.<br />Stay connected.";
-export const heroDescription =
-  "EyEagle helps families build private “Nests” to check in, share SOS access, and get smart alerts—without overwhelming anyone.";
+export const heroTitle = "Go anywhere.<br/> Stay connected.<br/> Stay safe.";
+export const heroDescription = "Your safety, always one tap away.";
+
+export const nestSection = {
+  title: {
+    line1: "You already have a",
+    red1: "safety net.",
+    line2: "You just call them",
+    red2: "Nest.",
+  },
+  description: [
+    `Your hostel floor. Your weekend trip crew. Your family back home. The friend who walks you to the gate after late-night chai.`,
+    `EyEagle calls them <span class="font-bold">Nests</span> — groups of people who’ve agreed to look out for each other. No setup drama. Just the people you already trust, now connected in a way that actually matters when it counts.`,
+  ],
+  images: [
+    ImageCard1,
+    ImageCard2,
+    ImageCard3,
+    ImageCard4,
+    ImageCard5,
+    ImageCard6,
+  ],
+};
 
 export const features = [
   {
     eyebrow: "Connected",
     title: {
-      redFirst: "Private",
-      black: "Nests & roles",
+      redFirst: "One tap,",
+      black: "and they all know",
     },
     description:
-      "Create invite-only Nests for each part of your life home, parents, kids, or travel. Assign roles so everyone has the right access and knows exactly what to do during an alert.",
+      "Something feels off. You don't need to call anyone, text anyone, or explain anything. One tap sends an SOS to every member of your nest. Instantly.",
     image: FeatureImage1,
     reverse: false,
   },
   {
-    eyebrow: "Seamless",
+    eyebrow: "Connected",
     title: {
-      black: "Raise SOS",
-      redLast: "in one tap",
+      black: "They see exactly where <br/> you are",
     },
-    description:
-      "No explaining, no scrambling. One tap sends an SOS to your trusted circle so help starts moving right away",
+    description: `Not a dropped pin from ten minutes ago. Your live location, moving with you, shared the moment you reach out. No guesswork. No "send me your location." They already have it.`,
     image: FeatureImage2,
     reverse: true,
   },
   {
-    eyebrow: "Seamless",
+    eyebrow: "Loud & clear",
     title: {
-      black: "SOS that keeps everyone",
-      redLast: "in sync",
+      black: "Even if their phone is on silent",
     },
     description:
-      "When an SOS is raised, everyone in the nest sees who needs help, where they are, and when the alert came in.",
-    bullets: [
-      "Send and receive SOS alerts within your Nest",
-      "Members can mark their status as “On the way” or “Cannot attend”",
-      "Get directions to the location in a single tap",
-    ],
+      "EyEagle's alert bypasses silent mode and sounds an alarm on their phone. Because emergencies don't wait for your roommate to check her notifications.",
+    // bullets: [
+    //   "Send and receive SOS alerts within your Nest",
+    //   "Members can mark their status as “On the way” or “Cannot attend”",
+    //   "Get directions to the location in a single tap",
+    // ],
     image: FeatureImage3,
     reverse: false,
   },
@@ -99,6 +124,42 @@ export const backupSection = {
   warning: "Only available for Indian Users currently",
   img: BackupImage,
 };
+
+export const chapterSection = {
+  title: {
+    line1: "Every new chapter.",
+    line2: "A new nest.",
+  },
+  description: "Your safety grows the way your life does. One nest at a time.",
+  buttonText: "Start your nest",
+  scenarios: [
+    "Heading back from the library at midnight?",
+    "Road trip to Rishikesh with your floor?",
+    "First internship in a new city?",
+    "Concert wrapping up at 1AM?",
+    "Dadi's evening walk running late?",
+    "Solo cab ride after tuitions?",
+    "Night shift ending at 2 AM?",
+    "Catching the last metro alone?",
+    "Exploring a new city solo?",
+  ],
+  activeIndex: 4,
+};
+
+export const testimonials = [
+  {
+    name: "Samikcha Kapoor",
+    city: "Bengaluru",
+    text: "I didn’t realise how much I needed this until I installed it. It just feels... safer.",
+    image: Testimonial1,  
+  },
+  {
+    name: "Navya Kumari",
+    city: "Delhi",
+    text: "Now, when I go out late, I don’t overthink as much. That itself is a relief.",
+    image: Testimonial2,
+  },
+];
 
 export const sectionContent = {
   title: {

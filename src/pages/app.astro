@@ -8,17 +8,16 @@ import {
   features,
   featureData,
   backupSection,
-  sectionContent,
-  familyCard,
-  FamilySection,
-  // membershipContent,
-  plans,
+  chapterSection,
+  testimonials,
+  nestSection,
   contentData,
   stores,
 } from "../components/constants/app";
+import Campus from "../components/AppSection/Campus.astro";
 import Feature from "../components/AppSection/Feature.astro";
-import Family from "../components/AppSection/Family.astro";
-// import Membership from "../components/AppSection/Membership.astro";
+import Testimonials from "../components/AppSection/Testimonials.astro";
+import NewChapter from "../components/AppSection/NewChapter.astro";
 import AppDownload from "../components/AppSection/AppDownload.astro";
 import BackupSection from "../components/AppSection/BackupSection.astro";
 const metaTitle = "Advanced Elderly Fall Alert Devices - EyEagle Solutions";
@@ -32,13 +31,19 @@ const metaDesc =
     heroTitle={heroTitle}
     heroDescription={heroDescription}
   />
+  <Campus nestSection={nestSection} />
   <Feature features={features} featureData={featureData} />
   <BackupSection backupSection={backupSection} />
-  <Family
+  <NewChapter
+    chapterSection={chapterSection}
+    HeroSectionData={HeroSectionData}
+  />
+  <Testimonials testimonials={testimonials} />
+  <!-- <Family
     sectionContent={sectionContent}
     FamilySection={FamilySection}
     familyCard={familyCard}
-  />
+  /> -->
   <!-- <Membership membershipContent={membershipContent} plans={plans} /> -->
   <AppDownload contentData={contentData} stores={stores} />
 </MainLayout>

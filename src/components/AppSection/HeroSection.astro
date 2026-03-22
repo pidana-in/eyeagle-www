@@ -9,58 +9,54 @@ const androidLink = HeroSectionData.ctaHref.android;
 const iosLink = HeroSectionData.ctaHref.ios;
 ---
 
-<section class="w-full lg:mt-20 mt-8">
-  <div class="relative 2xl:container mx-auto">
-    <!-- Desktop -->
-    <Image
-      src={HeroSectionData.images.desktop}
-      alt="Hero app desktop"
-      class="hidden sm:block w-full h-auto object-cover"
-    />
+<section class="w-full relative lg:mt-20">
+  <div class="relative w-full">
     <!-- Mobile -->
     <Image
       src={HeroSectionData.images.mobile}
-      alt="Hero app mobile"
-      class="block sm:hidden w-full h-[488px] object-cover"
+      alt="Hero mobile"
+      class="w-full h-auto sm:hidden"
+    />
+    <!-- Desktop -->
+    <Image
+      src={HeroSectionData.images.desktop}
+      alt="Hero desktop"
+      class="w-full h-auto hidden sm:block"
     />
     <div
-      class="absolute inset-0 flex flex-col items-center text-center px-4 pt-12 md:pt-20 lg:pt-24"
+      class="absolute inset-0 z-10 flex items-start lg:items-center px-6 pt-12 lg:pt-0"
     >
-      <div class="w-full max-w-lg sm:max-w-xl md:max-w-[800px] text-black">
-        <h1
-          class="text-4xl md:text-5xl lg:text-[72px] tracking-wide font-bold leading-tight lg:leading-[80px]"
-          set:html={heroTitle}
-        />
-        <p class="text-base md:text-xl leading-7 font-normal mt-4 md:mt-6">
-          {heroDescription}
-        </p>
-        <!-- CTA BUTTON -->
-        <a
-          id="app-download-btn"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-5 sm:mt-6 md:mt-8 inline-block bg-[#CC0000] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-red-600 transition"
-        >
-          Get the app
-        </a>
-      </div>
-      <div class="mt-10 md:mt-12 lg:mt-14 flex justify-center overflow-hidden">
-        <Image
-          src={HeroSectionData.images.infograph}
-          alt="App infographic"
-          class="w-full max-w-[1100px] h-auto object-contain"
-        />
+      <div class="xl:container mx-auto w-full">
+        <div class="text-white">
+          <h1
+            class="text-5xl leading-[56px] lg:text-[72px] font-bold lg:leading-[80px]"
+            set:html={heroTitle}
+          />
+          <p class="my-10 text-xl text-white">
+            {heroDescription}
+          </p>
+          <a
+            id="app-download-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-[#CC0000] text-white px-6 py-4 rounded-full text-xl font-semibold shadow-lg hover:bg-red-600 transition"
+          >
+            Download the app
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<script define:vars={{ androidLink, iosLink }}>
-  const btn = document.getElementById("app-download-btn");
-  const ua = navigator.userAgent;
+<script is:inline define:vars={{ androidLink, iosLink }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("app-download-btn");
+    const ua = navigator.userAgent;
 
-  if (btn) {
+    if (!btn) return;
+
     if (/android/i.test(ua)) {
       btn.href = androidLink;
     } else if (/iPad|iPhone|iPod/.test(ua)) {
@@ -68,5 +64,5 @@ const iosLink = HeroSectionData.ctaHref.ios;
     } else {
       btn.href = androidLink;
     }
-  }
+  });
 </script>

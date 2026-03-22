@@ -1,0 +1,106 @@
+---
+interface ChapterSection {
+  title: {
+    line1: string;
+    line2: string;
+  };
+  description: string;
+  buttonText: string;
+  scenarios: string[];
+  activeIndex: number;
+}
+const HeroSectionData = Astro.props.HeroSectionData;
+const androidLink = HeroSectionData.ctaHref.android;
+const iosLink = HeroSectionData.ctaHref.ios;
+const chapterSection = Astro.props.chapterSection as ChapterSection;
+---
+
+<section class="w-full py-16 lg:py-20">
+  <div class="xl:container mx-auto px-4 lg:px-12">
+    <div class="flex flex-col lg:flex-row gap-12 items-start lg:items-center">
+      <!-- LEFT -->
+      <div class="w-full lg:w-1/2">
+        <h2
+          class="text-[32px] leading-10 lg:text-[48px] font-bold lg:leading-[56px]"
+        >
+          {chapterSection.title.line1}
+          <br class="hidden md:block" />
+          {chapterSection.title.line2}
+        </h2>
+        <p class="mt-5 text-lg leading-7 font-medium">
+          {chapterSection.description}
+        </p>
+        <a
+          class="app-download-btn inline-block mt-10 bg-[#CC0000] text-white px-6 py-4 rounded-full text-xl leading-7 font-semibold shadow-md hover:bg-red-600 transition"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {chapterSection.buttonText}
+        </a>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="w-full lg:w-1/2">
+        <!-- 📱 MOBILE (only 4 items) -->
+        <div class="space-y-5 lg:hidden">
+          {
+            chapterSection.scenarios
+              .slice(2, 6)
+              .map((item: string) => (
+                <p
+                  class={`text-xl leading-10 font-medium ${
+                    item ===
+                    chapterSection.scenarios[chapterSection.activeIndex]
+                      ? "text-black"
+                      : "text-black/30"
+                  }`}
+                >
+                  {item}
+                </p>
+              ))
+          }
+        </div>
+
+        <!-- 💻 DESKTOP (full list with fade) -->
+        <div class="hidden lg:block space-y-5">
+          {
+            chapterSection.scenarios.map((item: string, index: number) => {
+              const distance = Math.abs(index - chapterSection.activeIndex);
+
+              let opacity = "opacity-10";
+              if (distance === 0) opacity = "opacity-100";
+              else if (distance === 1) opacity = "opacity-60";
+              else if (distance === 2) opacity = "opacity-30";
+
+              return (
+                <p
+                  class={`text-xl md:text-2xl leading-10 font-medium transition-all duration-500 ease-in-out ${opacity} ${
+                    distance === 0 ? "text-black scale-102" : "text-black"
+                  }`}
+                >
+                  {item}
+                </p>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ androidLink, iosLink }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".app-download-btn");
+    if (!buttons.length) return;
+
+    const ua = navigator.userAgent;
+    const isAndroid = /android/i.test(ua);
+    const isIOS = /iPad|iPhone|iPod/.test(ua);
+
+    buttons.forEach((btn) => {
+      btn.href = isIOS ? iosLink : androidLink;
+    });
+  });
+</script>
