@@ -120,7 +120,7 @@ export const backupSection = {
   eyebrow: "Backup Emergency",
   title: "When your Nest can’t\nrespond, we do",
   description:
-    "If your trusted circle misses the alert, Eyegle escalates with trained support and emergency coordination when needed.",
+    "If your trusted circle misses the alert, EyEagle escalates with trained support and emergency coordination when needed.",
   warning: "Only available for Indian Users currently",
   img: BackupImage,
 };
