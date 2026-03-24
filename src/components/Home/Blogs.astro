@@ -13,7 +13,7 @@ if (showSeeMoreButton) {
 
 <section class="xl:container lg:py-[120px] py-12 lg:px-20 px-5">
   <p
-    class="text-4xl lg:text-[64px] leading-[2.5rem] lg:leading-[88px] mb-4 font-medium font-sans-instrument"
+    class="text-4xl lg:text-[64px] leading-[2.5rem] lg:leading-[88px] mb-4 font-medium"
   >
     Blog
   </p>
@@ -22,7 +22,7 @@ if (showSeeMoreButton) {
   >
    Latest news and updates
   </p>
-  <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+  <div class="grid gap-8 md:gap-10 lg:grid-cols-3 md:grid-cols-2">
     {
       blogsData.map(({ data, slug }) => (
         <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">

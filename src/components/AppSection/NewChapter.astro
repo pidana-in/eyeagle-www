@@ -1,0 +1,188 @@
+---
+interface ChapterSection {
+  title: {
+    line1: string;
+    line2: string;
+  };
+  description: string;
+  buttonText: string;
+  scenarios: string[];
+  activeIndex: number;
+}
+
+const HeroSectionData = Astro.props.HeroSectionData;
+const androidLink = HeroSectionData.ctaHref.android;
+const iosLink = HeroSectionData.ctaHref.ios;
+const chapterSection = Astro.props.chapterSection as ChapterSection;
+---
+
+<section class="w-full py-16 lg:py-20">
+  <div class="xl:container mx-auto px-4 lg:px-12">
+    <div class="flex flex-col lg:flex-row gap-12 items-start lg:items-center">
+      <!-- LEFT -->
+      <div class="w-full lg:w-1/2">
+        <h2
+          class="text-[32px] leading-10 lg:text-[48px] font-bold lg:leading-[56px]"
+        >
+          {chapterSection.title.line1}
+          <br class="hidden md:block" />
+          {chapterSection.title.line2}
+        </h2>
+
+        <p class="mt-5 text-lg leading-7 font-medium">
+          {chapterSection.description}
+        </p>
+
+        <a
+          class="app-download-btn inline-block mt-10 bg-[#CC0000] text-white px-6 py-4 rounded-full text-xl leading-7 font-semibold shadow-md hover:bg-red-600 transition"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {chapterSection.buttonText}
+        </a>
+      </div>
+
+      <!-- RIGHT -->
+      <div
+        class="w-full lg:w-1/2 overflow-hidden h-[240px] md:h-[360px] relative"
+      >
+        <div
+          id="scrollContainer"
+          class="space-y-3 md:space-y-5 px-2 md:px-4 transition-transform duration-700 ease-in-out"
+        >
+          {
+            [...chapterSection.scenarios, ...chapterSection.scenarios].map(
+              (item: string, index: number) => (
+                <p
+                  data-index={index}
+                  class="text-xl md:text-2xl leading-10 font-medium transition-all duration-500 ease-in-out opacity-10 text-black"
+                >
+                  {item}
+                </p>
+              ),
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUTTON SCRIPT -->
+  <script is:inline define:vars={{ androidLink, iosLink }}>
+    document.addEventListener("DOMContentLoaded", () => {
+      const buttons = document.querySelectorAll(".app-download-btn");
+      if (!buttons.length) return;
+
+      const ua = navigator.userAgent;
+      const isAndroid = /android/i.test(ua);
+      const isIOS = /iPad|iPhone|iPod/.test(ua);
+
+      buttons.forEach((btn) => {
+        btn.href = isIOS ? iosLink : androidLink;
+      });
+    });
+  </script>
+
+  <!-- SCROLL SCRIPT -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("scrollContainer");
+      if (!container) return;
+
+      const items = Array.from(container.children);
+      const total = items.length / 2;
+
+      let activeIndex = Math.floor(total / 2);
+
+      let gap = window.innerWidth < 768 ? 12 : 20;
+      let itemHeight = items[0].getBoundingClientRect().height + gap;
+
+      // ✅ handle mobile resize properly
+      function recalc() {
+        gap = window.innerWidth < 768 ? 12 : 20;
+        itemHeight = items[0].getBoundingClientRect().height + gap;
+
+        setPosition(activeIndex, false);
+      }
+
+      window.addEventListener("resize", recalc);
+
+      function updateStyles() {
+        const current = activeIndex % total;
+
+        items.forEach((el, i) => {
+          const realIndex = i % total;
+
+          const diff = Math.abs(realIndex - current);
+          const distance = Math.min(diff, total - diff);
+
+          el.classList.remove(
+            "opacity-100",
+            "opacity-60",
+            "opacity-30",
+            "opacity-10",
+            "scale-105",
+          );
+
+          if (distance === 0) {
+            el.classList.add("opacity-100", "scale-105");
+          } else if (distance === 1) {
+            el.classList.add("opacity-60");
+          } else if (distance === 2) {
+            el.classList.add("opacity-30");
+          } else {
+            el.classList.add("opacity-10");
+          }
+        });
+      }
+
+      function setPosition(index, withTransition = true) {
+        const parent = container.parentElement;
+        const parentRect = parent.getBoundingClientRect();
+
+        const item = items[index];
+        const itemRect = item.getBoundingClientRect();
+
+        // 🔥 REAL CENTER ALIGNMENT (pixel accurate)
+        const offset =
+          item.offsetTop - parent.clientHeight / 2 + itemRect.height / 2;
+
+        container.style.transition = withTransition
+          ? "transform 0.7s ease-in-out"
+          : "none";
+
+        container.style.transform = `translateY(-${offset}px)`;
+      }
+
+      function scroll() {
+        activeIndex++;
+
+        setPosition(activeIndex);
+        updateStyles();
+
+        // ✅ FIXED LOOP (center-safe, works on mobile)
+        if (activeIndex >= total + Math.floor(total / 2)) {
+          setTimeout(() => {
+            container.style.transition = "none";
+
+            activeIndex = Math.floor(total / 2);
+
+            setPosition(activeIndex, false);
+            updateStyles();
+
+            requestAnimationFrame(() => {
+              container.style.transition = "transform 0.7s ease-in-out";
+            });
+          }, 700);
+        }
+      }
+
+      // ✅ correct initial state (centered)
+      setPosition(activeIndex, false);
+      updateStyles();
+
+      setInterval(scroll, window.innerWidth < 768 ? 2800 : 2000);
+    });
+  </script>
+</section>

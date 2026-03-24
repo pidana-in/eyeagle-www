@@ -1,0 +1,176 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+type Step = {
+  text: string;
+  image: ImageMetadata;
+};
+
+type Header = {
+  title: string;
+};
+
+interface Props {
+  header: Header;
+  steps: Step[];
+}
+
+const { header, steps } = Astro.props as Props;
+---
+
+<section class="how-it-works py-20 bg-black font-sans-instrument">
+  <div class="2xl:container px-4 md:px-[120px]">
+    <div class="pb-14 text-white text-center">
+      <h2 class="text-3xl md:text-5xl font-bold">
+        {header.title}
+      </h2>
+    </div>
+    <!-- IMAGE CAROUSEL -->
+    <div class="relative w-full mb-12 overflow-hidden">
+      {
+        steps.map((step, i) => (
+          <Image
+            src={step.image}
+            alt="How it works step"
+            class={`how-image w-full transition-opacity duration-500 ${
+              i === 0 ? "opacity-100 relative" : "opacity-0 absolute inset-0"
+            }`}
+            data-index={i}
+          />
+        ))
+      }
+    </div>
+    <!-- STEPS -->
+    <div class="grid grid-cols-1 md:grid-cols-4 lg:gap-10 gap-6">
+      {
+        steps.map((step, i) => (
+          <div
+            class={`how-step transition-all duration-300 ${
+              i === 0 ? "text-[#FFFFFF]" : "text-white/50"
+            }`}
+            data-index={i}
+          >
+            <p class="text-sm lg:text-xl font-semibold leading-relaxed md:min-h-[5.725rem]">
+              {step.text}
+            </p>
+            <div
+              class={`how-underline mt-5 h-[2px] w-full overflow-hidden transition-colors duration-300 ${
+                i === 0 ? "bg-[#FFFFFF]" : "bg-white/50"
+              }`}
+            >
+              <div class="how-progress h-full bg-red-600 w-0" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const section = document.querySelector(".how-it-works");
+      if (!section) return;
+
+      const images = section.querySelectorAll(".how-image");
+      const stepEls = section.querySelectorAll(".how-step");
+      const bars = section.querySelectorAll(".how-progress");
+
+      if (!images.length || !stepEls.length) return;
+
+      const DURATION = 4500;
+      let current = 0;
+      let timer = null;
+
+      /* ---------------- RESET ---------------- */
+      function reset() {
+        images.forEach((img) => {
+          img.classList.remove("opacity-100");
+          img.classList.add("opacity-0");
+        });
+
+        stepEls.forEach((step) => {
+          step.classList.remove("text-white");
+          step.classList.add("text-white/50");
+
+          const underline = step.querySelector(".how-underline");
+          underline.classList.remove("bg-white");
+          underline.classList.add("bg-white/50");
+        });
+
+        bars.forEach((bar) => {
+          bar.style.transition = "none";
+          bar.style.width = "0%";
+        });
+      }
+
+      /* ---------------- ACTIVATE ---------------- */
+      function activate(index) {
+        current = index;
+
+        images[index].classList.remove("opacity-0");
+        images[index].classList.add("opacity-100");
+
+        stepEls[index].classList.remove("text-white/50");
+        stepEls[index].classList.add("text-white");
+
+        const underline = stepEls[index].querySelector(".how-underline");
+        underline.classList.remove("bg-white/50");
+        underline.classList.add("bg-white");
+
+        const bar = bars[index];
+        bar.offsetHeight;
+        bar.style.transition = `width ${DURATION}ms linear`;
+        bar.style.width = "100%";
+      }
+
+      /* ---------------- NEXT ---------------- */
+      function next() {
+        reset();
+        current = (current + 1) % images.length;
+        activate(current);
+      }
+
+      /* ---------------- AUTOPLAY ---------------- */
+      function start() {
+        stop(); // prevent double timer
+        timer = setInterval(next, DURATION);
+      }
+
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      /* ---------------- CLICK SUPPORT ---------------- */
+      stepEls.forEach((step, index) => {
+        step.classList.add("cursor-pointer");
+
+        step.addEventListener("click", () => {
+          stop();
+          reset();
+          activate(index);
+          start();
+        });
+      });
+
+      /* ---------------- INTERSECTION ---------------- */
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            reset();
+            activate(0);
+            start();
+          } else {
+            stop();
+          }
+        },
+        { threshold: 0.3 },
+      );
+
+      observer.observe(section);
+    });
+  </script>
+</section>

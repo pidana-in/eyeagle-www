@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import PrevIcon from "../../assets/svgs/Carouselprevious.svg";
+import NextIcon from "../../assets/svgs/Carouselnext.svg";
+
+interface Testimonial {
+  name: string;
+  city: string;
+  text: string;
+  image: any;
+}
+
+const testimonials = Astro.props.testimonials as Testimonial[];
+---
+
+<section class="w-full py-20 lg:py-[120px]">
+  <div class="xl:container mx-auto px-4 lg:px-12">
+    <!-- Heading -->
+    <h2
+      class="text-center text-[28px] md:text-[36px] lg:text-[44px] font-semibold mb-20"
+    >
+      Hear what people are saying
+    </h2>
+    <!-- ROW (Arrows + Slider aligned properly) -->
+    <div class="flex items-center gap-4">
+      <!-- LEFT BUTTON -->
+      <button
+        id="prevBtn"
+        class="w-10 h-10 md:w-12 md:h-12 bg-[#CC0000] rounded-full flex items-center justify-center shadow-md hover:scale-110 transition"
+      >
+        <PrevIcon />
+      </button>
+
+      <!-- SLIDER WRAPPER -->
+      <div class="flex-1 overflow-hidden">
+        <!-- CAROUSEL -->
+        <div
+          id="slider"
+          class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
+        >
+          {
+            testimonials.map((item) => (
+              <div
+                data-card
+                class="snap-center flex-shrink-0 w-[85%] sm:w-[70%] md:w-[48%] lg:w-[48%] xl:w-[512px] bg-[#F7F9FB] border border-black/20 rounded-[20px] p-6 lg:p-8"
+              >
+                <div class="flex flex-col items-start gap-4 mb-4">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    class="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <p class="font-semibold text-lg">{item.name}</p>
+                    <p class="text-sm text-black/60">{item.city}</p>
+                  </div>
+                </div>
+                <p class="text-base md:text-lg text-black/80 leading-7">
+                  {item.text}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <!-- RIGHT BUTTON -->
+      <button
+        id="nextBtn"
+        class="w-10 h-10 md:w-12 md:h-12 bg-[#CC0000] rounded-full flex items-center justify-center shadow-md hover:scale-110 transition"
+      >
+        <NextIcon />
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("slider");
+    const next = document.getElementById("nextBtn");
+    const prev = document.getElementById("prevBtn");
+
+    if (!slider) return;
+
+    const getScrollAmount = () => {
+      // scroll half container → perfect for 2 cards layout
+      return slider.clientWidth / 2;
+    };
+
+    next?.addEventListener("click", () => {
+      slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+    });
+
+    prev?.addEventListener("click", () => {
+      slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+    });
+  });
+</script>

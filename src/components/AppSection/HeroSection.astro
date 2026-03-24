@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+
+const HeroSectionData = Astro.props.HeroSectionData;
+const heroTitle = Astro.props.heroTitle;
+const heroDescription = Astro.props.heroDescription;
+
+const androidLink = HeroSectionData.ctaHref.android;
+const iosLink = HeroSectionData.ctaHref.ios;
+---
+
+<section class="w-full relative lg:mt-20">
+  <div class="relative w-full">
+    <!-- Mobile -->
+    <Image
+      src={HeroSectionData.images.mobile}
+      alt="Hero mobile"
+      class="w-full h-auto sm:hidden"
+    />
+    <!-- Desktop -->
+    <Image
+      src={HeroSectionData.images.desktop}
+      alt="Hero desktop"
+      class="w-full h-auto hidden sm:block"
+    />
+    <div
+      class="absolute inset-0 z-10 flex items-start lg:items-center px-6 pt-12 lg:pt-0"
+    >
+      <div class="xl:container mx-auto w-full">
+        <div class="text-white">
+          <h1
+            class="text-5xl leading-[56px] lg:text-[72px] font-bold lg:leading-[80px]"
+            set:html={heroTitle}
+          />
+          <p class="my-10 text-xl text-white">
+            {heroDescription}
+          </p>
+          <a
+            id="app-download-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-[#CC0000] text-white px-6 py-4 rounded-full text-xl font-semibold shadow-lg hover:bg-red-600 transition"
+          >
+            Download the app
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ androidLink, iosLink }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("app-download-btn");
+    const ua = navigator.userAgent;
+
+    if (!btn) return;
+
+    if (/android/i.test(ua)) {
+      btn.href = androidLink;
+    } else if (/iPad|iPhone|iPod/.test(ua)) {
+      btn.href = iosLink;
+    } else {
+      btn.href = androidLink;
+    }
+  });
+</script>

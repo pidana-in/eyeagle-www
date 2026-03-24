@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+
+interface NestSection {
+  title: {
+    line1: string;
+    red1: string;
+    line2: string;
+    red2: string;
+  };
+  description: string[];
+  images: any[];
+}
+
+const nestSection = Astro.props.nestSection as NestSection;
+---
+
+<section class="w-full bg-white py-[120px] lg:py-24">
+  <div class="xl:container px-4 lg:px-12">
+    <!-- TOP -->
+    <div class="grid lg:grid-cols-2 gap-10">
+      <!-- LEFT -->
+      <h2
+        class="text-[32px] leading-10 md:text-5xl font-bold md:leading-[56px]"
+      >
+        {nestSection.title.line1}
+        <br />
+        <span class="text-[#CC0000]">{nestSection.title.red1}</span>
+        <br />
+        {nestSection.title.line2}
+        <br />
+        <span class="text-[#CC0000]">{nestSection.title.red2}</span>
+      </h2>
+
+      <!-- RIGHT -->
+      <div class="text-base md:text-lg leading-7 space-y-10">
+        {nestSection.description.map((text: string) => <p set:html={text} />)}
+      </div>
+    </div>
+
+    <!-- CAROUSEL (ALL DEVICES) -->
+    <div class="mt-20 overflow-hidden carousel">
+      <div class="flex gap-6 w-max scroll-track">
+        {
+          [...nestSection.images, ...nestSection.images].map(
+            (img: any, i: number) => (
+              <div class="w-[220px] md:w-[320px] lg:w-[340px] h-[290px] md:h-[440px] lg:h-[458px] flex-shrink-0 rounded-[20px] overflow-hidden">
+                <Image
+                  src={img}
+                  alt={`image ${i}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            ),
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scroll-track {
+    animation: scroll 25s linear infinite;
+    animation-play-state: paused; /* default = stopped */
+  }
+
+  .carousel:hover .scroll-track {
+    animation-play-state: running; /* start on hover */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

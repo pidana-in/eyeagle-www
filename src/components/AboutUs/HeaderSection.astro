@@ -3,13 +3,13 @@ import { Image } from "astro:assets";
 import {AboutUsHeaderData} from "../constants/aboutus";
 ---
 
-<section class="w-full lg:py-[85px] bg-[#F6F4F2] mt-1">
+<section class="w-full lg:py-[85px] bg-[#F6F4F2]">
   <div class="relative">
-    <Image src={AboutUsHeaderData.headerBannerSrc} alt={"headerBanner"} class="hidden md:block w-full h-full object-cover " />
-    <Image src={AboutUsHeaderData.headerBannerSrc2} alt={"headerBanner"} class="block md:hidden w-full h-full object-cover " />
-    <div class="absolute max-w-[295px] md:max-w-full bottom-[-90px] lg:bottom-[-50px] right-0 bg-[#F6F4F2] p-5 lg:p-[40px]">
-      <p set:html={AboutUsHeaderData.title} class=" text-[32px] lg:text-[80px] leading-[35px] lg:leading-[88px] font-medium  lg:font-semibold ">{AboutUsHeaderData.title}</p>
+    <Image src={AboutUsHeaderData.headerBannerSrc} alt={"headerBanner"} class="hidden md:block w-full h-full object-cover" />
+    <Image src={AboutUsHeaderData.headerBannerSrc2} alt={"headerBanner"} class="block md:hidden w-full h-full object-cover" />
+    <div class="absolute max-w-[295px] md:max-w-full bottom-[-90px] lg:bottom-[-50px] right-0 rounded-l-3xl bg-[#F6F4F2] p-5 lg:p-[40px]">
+      <p set:html={AboutUsHeaderData.title} class="text-[32px] lg:text-[72px] leading-[35px] lg:leading-[80px] font-medium  lg:font-bold ">{AboutUsHeaderData.title}</p>
     </div>
   </div>
-  <p set:html={AboutUsHeaderData.desc} class="text-[24px] lg:text-[32px] leading-8 lg:leading-10 font-medium px-5 lg:px-[40px] pb-[40px] pt-[110px] lg:pt-[80px]"></p>
+  <p set:html={AboutUsHeaderData.desc} class="text-[24px] lg:text-[32px] leading-8 lg:leading-10 font-medium px-5 lg:px-[120px] pb-[40px] pt-[110px] lg:pt-[80px]"></p>
 </section>

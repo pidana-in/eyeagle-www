@@ -1,20 +1,18 @@
 ---
 import { CoreValuesData } from "../constants/aboutus"
 ---
-<section class="px-5 lg:px-[40px] py-[100px] xl:container">
+<section class="px-5 lg:px-[80px] py-[100px] lg:py-[200px] xl:container">
     <div class="pb-[100px] lg:pb-[160px]">
-
-        <p set:html={CoreValuesData.title} class="font-medium text-center text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px]"></p>
-        <p set:html={CoreValuesData.desc} class="text-[#BDBDBD] font-medium text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px] pt-10 lg:pt-[20px] text-center"></p>
+        <p set:html={CoreValuesData.title} class="text-[#CC0000] font-medium text-center text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px]"></p>
+        <p set:html={CoreValuesData.desc} class="text-black opacity-60 font-medium text-[28px] lg:text-[52px] lg:leading-[72px] pt-10 lg:pt-[20px] text-center"></p>
     </div>
     <div>
-<p set:html={CoreValuesData.coreTitle} class="text-center font-medium text-[40px] lg:text-[72px] leading-[44px] lg:leading-[86px] pb-[100px] lg:pb-[100px] "></p>
+<p set:html={CoreValuesData.coreTitle} class="text-center font-medium lg:font-bold text-[40px] lg:text-5xl leading-[44px] lg:leading-[56px] lg:my-[100px] lg:pb-[100px] pb-20 "></p>
 <div class="flex flex-col gap-[40px] "> 
     {CoreValuesData.values.map((value,index)=>(
         <div class={`flex flex-col lg:flex-row justify-between items-center gap-5 border-b ${CoreValuesData.values?.length-1===index ? "border-none" : "pb-5 border-[#768087]"}`}>
             <div>
-                
-            <p class="leading-[40px] text-[32px] font-normal lg:font-medium text-center">{value.title}</p>
+            <p class="leading-[48px] text-[32px] lg:text-[40px] font-medium lg:font-bold text-center opacity-90">{value.title}</p>
             </div>
             <div> 
             <p class="text-[18px] leading-[28px] lg:max-w-[646px] text-center lg:text-start font-normal">{value.desc}</p>

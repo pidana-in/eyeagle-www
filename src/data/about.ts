@@ -1,17 +1,16 @@
-import AjaySharma from "../assets/Aboutus/AjaySharma.png";
-import Abhinav from "../assets/Aboutus/Abhinav.png";
-import Gaurav from "../assets/Aboutus/Gaurav.png";
-import Vaibhav from "../assets/Aboutus/Vaibhav.png";
+import AjaySharma from "../assets/Aboutus/Founder1.png";
+import Abhinav from "../assets/Aboutus/Founder2.png";
+import Gaurav from "../assets/Aboutus/Founder3.png";
+import Vaibhav from "../assets/Aboutus/Founder4.png";
 import HeaderBanner from "../assets/Aboutus/HeaderBanner.png";
-import HeaderBanner2 from "../assets/Aboutus/HeaderBanner2.png";
+import HeaderBanner2 from "../assets/Aboutus/HeaderBanner.png";
 
 export const aboutHeader = {
   headerBannerSrc: HeaderBanner,
   headerBannerSrc2: HeaderBanner2,
   title:
     'From <span class="text-[#CC0000]">Prevention</span> to <span class="text-[#CC0000]">Protection</span>, <br>We’re with You',
-  desc:
-    '<span class="text-[#CC0000]">Empowering families</span> to care for their elderly loved ones, no matter where they are. Inspired by real challenges faced by seniors and their families, <span class="text-[#CC0000]">EyEagle bridges the gap between technology and compassionate care.</span>',
+  desc: '<span class="text-[#CC0000]">Empowering families</span> to care for their elderly loved ones, no matter where they are.<br /> Inspired by real challenges faced by seniors and their families, <span class="text-[#CC0000]">EyEagle bridges the gap between technology and compassionate care.</span>',
 };
 
 export const aboutUsFoundersData = [
@@ -63,42 +62,42 @@ export const coreValues = [
   {
     title: "Innovation",
     description:
-      "We stay at the forefront of technology to deliver cutting‑edge solutions for senior safety.",
+      "We are committed to staying at the forefront of technology and innovation to develop cutting-edge solutions for senior safety.",
   },
   {
     title: "Reliability",
-    description: "We build for trust, durability and consistent performance in critical moments.",
+    description:
+      "We are dedicated to delivering a reliable and effective product that exceeds customer expectations.",
   },
   {
     title: "Customer Focus",
     description:
-      "We prioritize the needs of seniors and caregivers, shaping every decision around their well‑being.",
+      "We prioritise the needs and satisfaction of our customers, always putting their well-being first.",
   },
 ];
 
 export const whyEyEagle = {
-  title: 'Why <span class="text-[#CC0000]">EyEagle</span> is different?',
+  title: 'Why <span class="text-[#CC0000]">EyEagle</span><br /> is different?',
   content: [
     {
       iconType: "star",
       title: "Best‑in‑class attachments for ultimate safety",
-      desc: "Our installations use premium, high‑visibility fittings engineered for durability and long‑term reliability.",
+      desc: "Our instalments and attachments are crafted from premium materials to ensure durability, reliability and longevity.",
     },
     {
       iconType: "app_promo",
-      title: "The power of the Circles app",
-      desc: "Stay connected from anywhere. Get real‑time alerts and updates via the Circles app integrated with our devices.",
+      title: "The power of the Circle app",
+      desc: "Stay connected, no matter where you are. The Circle App integrates seamlessly with our fall alert devices. This ensures caregivers and families receive real-time notifications of emergencies or unusual activity.",
     },
     {
       iconType: "currency_exchange",
       title: "Cost‑effective peace of mind",
-      desc: "Instant assistance at a fraction of the effort and expense of handling emergencies remotely.",
+      desc: "Handling an emergency from miles away can be costly and time-consuming. EyEagle’s emergency alert devices for the elderly offer instant assistance at a fraction of the expense.",
     },
     {
       iconType: "emergency_home",
       title: "Reliable emergency response",
-      desc: "From incident detection to dispatch coordination, our systems help ensure timely action when it matters most.",
+      desc: "EyEagle’s panic alarm systems ensure swift action in emergencies. Linked to emergency services, they provide rapid response when every second counts. Our 24/7 support team ensures no call for help goes unanswered.",
     },
   ],
 };
-

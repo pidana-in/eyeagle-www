@@ -11,9 +11,9 @@ export const Values = [
 ];
 
 export const CoreValuesData = {
-  title: `At <span class="text-[#CC0000]">EyEagle</span>, we’re redefining elder safety.`,
+  title: `At EyEagle, we’re redefining elder safety.`,
   desc:
     "We strive to provide unmatched protection and peace of mind—ensuring safety doesn’t come at an overwhelming cost.",
-  coreTitle: `Guided by Our <span class=\"text-[#CC0000]\">Core Values</span>`,
+  coreTitle: `Guided by <br/> Our <span class=\"text-[#CC0000]\">Core Values</span>`,
   values: coreValues.map((v) => ({ title: v.title, desc: v.description })),
 };

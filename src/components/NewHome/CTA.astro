@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+const ctaSection = Astro.props.ctaSection;
+---
+
+<section class="relative w-full 2xl:container">
+  <!-- background image -->
+  <div class="absolute inset-0 -z-20">
+    <!-- Desktop Image -->
+    <Image
+      src={ctaSection.image1}
+      alt="Family support"
+      class="hidden md:block w-full h-[720px] object-cover object-center"
+      priority
+    />
+
+    <!-- Mobile Image -->
+    <Image
+      src={ctaSection.image2}
+      alt="Family support mobile"
+      class="block md:hidden"
+      priority
+    />
+  </div>
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-black/90 via-black/60 to-black/20"
+  >
+  </div>
+  <div class="relative min-h-[560px] md:min-h-[720px] flex items-center">
+    <div class="xl:container w-full px-5 sm:px-6 md:px-[120px] text-white">
+      <div class="max-w-[520px] pt-[200px] pb-10 md:py-28">
+        <p class="text-base leading-8 text-white/80 mb-3">
+          {ctaSection.eyebrow}
+        </p>
+
+        <h2
+          class="text-[32px] leading-8 md:text-[40px] md:leading-[48px] font-bold"
+        >
+          {ctaSection.title}
+        </h2>
+        <p
+          class="mt-6 mb-8 md:mb-10 text-sm sm:text-base text-white/80 leading-relaxed"
+        >
+          {ctaSection.description}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href={ctaSection.primaryCta.href}
+            class="rounded-full bg-[#CC0000] px-6 py-3 text-sm font-semibold hover:bg-red-700 transition text-center w-full sm:w-auto"
+          >
+            {ctaSection.primaryCta.label}
+          </a>
+          <a
+            href={ctaSection.secondaryCta.href}
+            class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition text-center w-full sm:w-auto"
+          >
+            {ctaSection.secondaryCta.label}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
