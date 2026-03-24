@@ -23,6 +23,7 @@ import device from "../../assets/NewHome/device.png";
 import app from "../../assets/NewHome/app.png";
 import HelpImage from "../../assets/NewHome/HelpImage.png";
 import HelpImageMobile from "../../assets/NewHome/HelpImageMobile.png";
+import testimonialImg from "../../assets/NewHome/Testimonial.png";
 
 export const heroContent = {
   eyebrow: "Stop Today, Don’t Regret Tomorrow",
@@ -220,6 +221,7 @@ export const testimonialData = {
     "We thought the bathroom was “fine” until the team mapped the space and showed us where slips usually happen. The setup feels safer without making the home feel like a hospital.",
 
   author: "— Subhash Kumar, Bengaluru",
+  image: testimonialImg,
 };
 
 export const stepsContent = {
