@@ -9,7 +9,8 @@ import StepImg1 from "../../assets/NewHome/step1.png";
 import StepImg2 from "../../assets/NewHome/step2.png";
 import StepImg3 from "../../assets/Device/StepImage1.png";
 import StepImg4 from "../../assets/Device/StepImage2.png";
-import StepImg5 from "../../assets/NewHome/step5.png";
+import StepImg5 from "../../assets/NewHome/StepImage5.png";
+import StepImg6 from "../../assets/NewHome/StepImage6.png";
 import LoudAlarm from "../../assets/NewHome/LoudAlarm.png";
 import Offline from "../../assets/NewHome/Offline.png";
 import Backup from "../../assets/NewHome/Backup.png";
@@ -21,6 +22,7 @@ import kit from "../../assets/NewHome/kit.png";
 import device from "../../assets/NewHome/device.png";
 import app from "../../assets/NewHome/app.png";
 import HelpImage from "../../assets/NewHome/HelpImage.png";
+import HelpImageMobile from "../../assets/NewHome/HelpImageMobile.png";
 
 export const heroContent = {
   eyebrow: "Stop Today, Don’t Regret Tomorrow",
@@ -254,7 +256,7 @@ export const stepsData = [
   {
     title: "Action",
     step: "Family and the response team coordinate the next steps—fast.",
-    image: StepImg5,
+    image: StepImg6,
   },
 ];
 
@@ -309,5 +311,6 @@ export const ctaSection = {
     label: "Book a safety audit",
     href: "https://shop.eyeagle.ai/",
   },
-  image: HelpImage,
+  image1: HelpImage,
+  image2: HelpImageMobile,
 };

@@ -9,7 +9,7 @@ export const navLinks = [
   {
     title: "Products",
     children: [
-      { title: "Device", url: "/device" },
+      { title: "Guardian X", url: "/device" },
       { title: "Protection", url: "/protection" },
       { title: "App", url: "/app" },
     ],

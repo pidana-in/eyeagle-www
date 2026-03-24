@@ -39,18 +39,20 @@ const nestSection = Astro.props.nestSection as NestSection;
     </div>
 
     <!-- CAROUSEL (ALL DEVICES) -->
-    <div class="mt-20">
-      <div class="flex gap-6 overflow-x-auto no-scrollbar px-1">
+    <div class="mt-20 overflow-hidden carousel">
+      <div class="flex gap-6 w-max scroll-track">
         {
-          nestSection.images.map((img: any, i: number) => (
-            <div class="w-[220px] md:w-[320px] lg:w-[340px] h-[290px] md:h-[440px] lg:h-[458px] flex-shrink-0 rounded-[20px] overflow-hidden">
-              <Image
-                src={img}
-                alt={`image ${i}`}
-                class="w-full h-full object-cover"
-              />
-            </div>
-          ))
+          [...nestSection.images, ...nestSection.images].map(
+            (img: any, i: number) => (
+              <div class="w-[220px] md:w-[320px] lg:w-[340px] h-[290px] md:h-[440px] lg:h-[458px] flex-shrink-0 rounded-[20px] overflow-hidden">
+                <Image
+                  src={img}
+                  alt={`image ${i}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            ),
+          )
         }
       </div>
     </div>
@@ -64,5 +66,22 @@ const nestSection = Astro.props.nestSection as NestSection;
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+  .scroll-track {
+    animation: scroll 25s linear infinite;
+    animation-play-state: paused; /* default = stopped */
+  }
+
+  .carousel:hover .scroll-track {
+    animation-play-state: running; /* start on hover */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 </style>

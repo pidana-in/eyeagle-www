@@ -6,6 +6,8 @@ import ProductSection from "../components/Device/ProductSection.astro";
 import AppDownload from "../components/AppSection/AppDownload.astro";
 import { contentData, stores } from "../components/constants/app";
 import HowItWorks from "../components/Device/HowItWorks.astro";
+import CTA from "../components/NewHome/CTA.astro";
+import { ctaSection } from "../components/constants/newHome";
 import FAQs from "../components/Device/FAQs.astro";
 import {
   heroContent,
@@ -31,4 +33,5 @@ const metaDesc =
   <HowItWorks steps={steps} header={header} />
   <FAQs faqsData={faqsData} />
   <AppDownload contentData={contentData} stores={stores} />
+  <CTA ctaSection={ctaSection} />
 </MainLayout>
