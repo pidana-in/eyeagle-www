@@ -1,7 +1,7 @@
 export const siteMeta = {
-  title: "EyEagle – Preventing Falls, Saving Lives",
+  title: "EyEagle | Keeping You Safe, Wherever You Are",
   description:
-    "Discover EyEagle's advanced emergency alarm systems for the elderly. Ensure safety, peace of mind, and instant alerts in emergencies!",
+    "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.",
   gtmId: "G-7HPVGH0CKQ",
 };
 
