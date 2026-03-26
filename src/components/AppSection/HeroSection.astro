@@ -16,12 +16,16 @@ const iosLink = HeroSectionData.ctaHref.ios;
       src={HeroSectionData.images.mobile}
       alt="Hero mobile"
       class="w-full h-auto sm:hidden"
+      loading="eager"
+      fetchpriority="high"
     />
     <!-- Desktop -->
     <Image
       src={HeroSectionData.images.desktop}
       alt="Hero desktop"
       class="w-full h-auto hidden sm:block"
+      loading="eager"
+      fetchpriority="high"
     />
     <div
       class="absolute inset-0 z-10 flex items-start lg:items-center px-6 pt-12 lg:pt-0"
