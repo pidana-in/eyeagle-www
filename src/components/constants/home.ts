@@ -59,6 +59,8 @@ import blogImage24 from "../../assets/Blog/BlogImage24.jpg";
 import HoliBanner from "../../assets/Blog/HoliBanner.jpg";
 import blogImage26 from "../../assets/Blog/BlogImage26.jpg";
 import blogImage27 from "../../assets/Blog/BlogImage27.jpg";
+import blogImage28 from "../../assets/Blog/BlogImage28.jpg";
+import blogImage29 from "../../assets/Blog/BlogImage29.jpg";
 
 export const bathroomData = [
   {
@@ -306,15 +308,29 @@ export const blogsData = [
   },
   {
     slug: "importance-of-elderly-fall-prevention",
-    title: "Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority",
+    title:
+      "Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority",
     desc: "Falls are one of the biggest risks to senior safety. Learn practical strategies and home safety tips for elderly fall prevention.",
     img: blogImage26,
   },
   {
     slug: "senior-home-safety-india",
-    title: "India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors",
+    title:
+      "India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors",
     desc: "Learn why safer homes are essential for India’s seniors and how simple changes can prevent slips, falls, and mobility risks.",
     img: blogImage27,
+  },
+  {
+    slug: "protecting-elders-at-home-safety-guide",
+    title: "Kabhi Khushi Kabhie Gham: Protecting Our Elders at Home",
+    desc: "A complete guide to protecting our elders at home with safety tips, elder care routines & wellness practices.",
+    img: blogImage28,
+  },
+  {
+    slug: "stairway-safety-tips-prevent-accidents",
+    title: "Stairway Safety:Simple Fixes to Prevent Slips, Trips & Falls",
+    desc: "Improve stairway safety at home with simple fixes. Learn practical stair safety tips to prevent accidents, and make every step safer.",
+    img: blogImage29,
   },
 ];
 
