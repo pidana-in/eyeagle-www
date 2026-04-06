@@ -94,7 +94,7 @@ export const sections = [
   {
     eyebrow: "alarm unit",
     title:
-      "The Alarm Unit is the voice of Guardian X.<br/>When SOS is triggered, it sounds an audible alert within the home.",
+      "The Alarm Unit is the voice of Guardian X.<br/>SOS is triggered, it sounds an audible alert within the home.",
     bullets: [
       "Loud, attention-grabbing siren",
       "Instant SOS pairing",
