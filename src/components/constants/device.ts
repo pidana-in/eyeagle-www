@@ -82,11 +82,11 @@ export const sections = [
   {
     eyebrow: "SOS button",
     title:
-      "A small sensor that sits on the bathroom latch and alerts when the door is locked for a long time",
+      "A single press is all it takes. The EyEagle SOS Button is a discreet, waterproof device placed within easy reach",
     bullets: [
-      "Detects when the bathroom door stays locked unusually long.",
-      "Fits over common bathroom latches",
-      "Helps family know to check the bathroom first",
+      "Press once to instantly alert your Nest—no phone needed.",
+      "Fast, reliable response",
+      "Simple placement and easy to understand",
     ],
     image: PanicButton,
     reverse: true,
@@ -94,11 +94,11 @@ export const sections = [
   {
     eyebrow: "alarm unit",
     title:
-      "A small sensor that sits on the bathroom latch and alerts when the door is locked for a long time",
+      "The Alarm Unit is the voice of Guardian X.<br/>When SOS is triggered, it sounds an audible alert within the home.",
     bullets: [
-      "Detects when the bathroom door stays locked unusually long.",
-      "Fits over common bathroom latches",
-      "Helps family know to check the bathroom first",
+      "Loud, attention-grabbing siren",
+      "Instant SOS pairing",
+      "Configurable for your home",
     ],
     image: Alarm,
   },
@@ -131,7 +131,6 @@ export const steps = [
     image: StepImage4,
   },
 ];
-
 
 export const faqsData = [
   {
