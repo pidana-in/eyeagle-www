@@ -20,21 +20,28 @@ if (showSeeMoreButton) {
   <p
     class="lg:mb-[60px] mb-6 lg:mt-[32px] text-2xl leading-7 lg:text-4xl lg:leading-10 font-barlow"
   >
-   Latest news and updates
+    Latest news and updates
   </p>
   <div class="grid gap-8 md:gap-10 lg:grid-cols-3 md:grid-cols-2">
     {
-      blogsData.map(({ data, slug }) => (
+      blogsData.map((blog) => (
         <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
-          <a href={`/blogs/${slug}`}>
+          <a href={`/blogs/${blog.id}`}>
             <Image
-              src={data.img}
-              alt={data.title}
+              src={blog.data.img}
+              alt={blog.data.title}
               class="w-full object-cover"
             />
+
             <div class="p-6 flex flex-col justify-between flex-grow font-barlow">
-              <p class="text-lg text-gray-600 leading-5 mb-4">{data.category}</p>
-              <h3 class="text-xl font-semibold text-left mb-2 line-clamp-2">{data.title}</h3>
+              <p class="text-lg text-gray-600 leading-5 mb-4">
+                {blog.data.category}
+              </p>
+
+              <h3 class="text-xl font-semibold text-left mb-2 line-clamp-2">
+                {blog.data.title}
+              </h3>
+
               <div class="mt-auto text-[#Cc0000] font-semibold text-lg inline-flex items-center gap-1 group">
                 Read
                 <svg
