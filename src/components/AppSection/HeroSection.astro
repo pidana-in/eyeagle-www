@@ -63,7 +63,7 @@ const iosLink = HeroSectionData.ctaHref.ios;
 
     if (/android/i.test(ua)) {
       btn.href = androidLink;
-    } else if (/iPad|iPhone|iPod/.test(ua)) {
+    } else if (/iPad|iPhone|mac/i.test(ua)) {
       btn.href = iosLink;
     } else {
       btn.href = androidLink;
