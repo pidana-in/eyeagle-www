@@ -76,7 +76,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
 
       const ua = navigator.userAgent;
       const isAndroid = /android/i.test(ua);
-      const isIOS = /iPad|iPhone|iPod/.test(ua);
+      const isIOS = /iPad|iPhone|mac/i.test(ua);
 
       buttons.forEach((btn) => {
         btn.href = isIOS ? iosLink : androidLink;
