@@ -25,7 +25,7 @@ export const aboutUsFoundersData = [
   },
   {
     id: 2,
-    name: "Abhinav Kushawaha",
+    name: "Abhinav Kushwaha",
     title: "Co-founder",
     experience: "IIT BHU",
     photo: Abhinav,
