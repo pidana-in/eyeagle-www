@@ -46,12 +46,14 @@ const ctaSection = Astro.props.ctaSection;
         <div class="flex flex-col sm:flex-row gap-4">
           <a
             href={ctaSection.primaryCta.href}
+            target="_blank"
             class="rounded-full bg-[#CC0000] px-6 py-3 text-sm font-semibold hover:bg-red-700 transition text-center w-full sm:w-auto"
           >
             {ctaSection.primaryCta.label}
           </a>
           <a
             href={ctaSection.secondaryCta.href}
+            target="_blank"
             class="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold hover:bg-white/10 transition text-center w-full sm:w-auto"
           >
             {ctaSection.secondaryCta.label}
