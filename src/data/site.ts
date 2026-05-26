@@ -29,13 +29,12 @@ export const userMenu = [
 ];
 
 export const ctaButtonText = "Get Started";
-export const ctaHref =
-  "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
+export const ctaHref = "/plan/";
 
 export const footerProductLinks = [
   {
     title: "Bathroom Safety kit",
-    url: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+    url: "/plan/",
   },
   { title: "How it works", url: "/solution/" },
   { title: "Guardian X Kit", url: "/protection" },
