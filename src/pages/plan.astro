@@ -46,7 +46,7 @@ const plans = [
     commitmentTitle: "No lock-in.",
     commitmentCopy: "Cancel your monthly coverage anytime.",
     ctaSelect: "Choose Peace Of Mind",
-    href: "https://payments.cashfree.com/forms/eyeagle-ultimate",
+    href: "https://shop.eyeagle.ai/checkouts/cn/hWNCcJthWoXSPqgvgH0mNPGr/en-in?_r=AQABac_2B_C6Ds4Kq48x-HnumeZcz1DqqnLhdVuICl_vHas&preview_theme_id=172838092993",
   },
   {
     id: "easy",
@@ -63,7 +63,7 @@ const plans = [
     commitmentTitle: "12-month commitment.",
     commitmentCopy: "Cancel anytime after month 12.",
     ctaSelect: "Choose Easy Start",
-    href: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+    href: "https://shop.eyeagle.ai/checkouts/cn/hWNCcJpL0Is9Iav2BQIdhpp3/en-in?_r=AQABndcfAzq482EYtD_Hjx9Q8t1kYovMBQkWeviUG1ISP5I&preview_theme_id=172838092993",
   },
 ];
 ---
@@ -229,6 +229,14 @@ const plans = [
     --ey-radius-lg: 1rem;
     --ey-radius-2xl: 1.5rem;
     --ey-radius-pill: 999rem;
+    --ey-type-plan-title-size: 1.75rem;
+    --ey-type-plan-title-line: 2.125rem;
+    --ey-type-plan-price-size: 1.75rem;
+    --ey-type-plan-price-line: 2.125rem;
+    --ey-type-plan-card-title-size: 1rem;
+    --ey-type-plan-card-title-line: 1.375rem;
+    --ey-type-plan-fine-size: 0.8125rem;
+    --ey-type-plan-fine-line: 1.1875rem;
     --ey-type-caption-size: 0.75rem;
     --ey-type-caption-line: 1rem;
     --ey-type-label-size: 0.875rem;
@@ -270,9 +278,9 @@ const plans = [
   }
 
   .plan-hero h1 {
-    font-size: 1.75rem;
+    font-size: var(--ey-type-plan-title-size);
     font-weight: var(--ey-font-semibold);
-    line-height: 2.125rem;
+    line-height: var(--ey-type-plan-title-line);
     letter-spacing: var(--ey-tracking-default);
   }
 
@@ -349,9 +357,9 @@ const plans = [
   }
 
   .plan-card-heading h2 {
-    font-size: 1rem;
+    font-size: var(--ey-type-plan-card-title-size);
     font-weight: var(--ey-font-semibold);
-    line-height: 1.375rem;
+    line-height: var(--ey-type-plan-card-title-line);
     letter-spacing: var(--ey-tracking-default);
   }
 
@@ -380,9 +388,9 @@ const plans = [
   }
 
   .plan-price-row strong {
-    font-size: 1.75rem;
+    font-size: var(--ey-type-plan-price-size);
     font-weight: var(--ey-font-semibold);
-    line-height: 2.125rem;
+    line-height: var(--ey-type-plan-price-line);
     letter-spacing: var(--ey-tracking-default);
   }
 
@@ -393,8 +401,8 @@ const plans = [
   .plan-footnote,
   .plan-shared > div > p {
     color: var(--ey-color-text-secondary);
-    font-size: 0.8125rem;
-    line-height: 1.1875rem;
+    font-size: var(--ey-type-plan-fine-size);
+    line-height: var(--ey-type-plan-fine-line);
   }
 
   .plan-month-row strong {
@@ -430,7 +438,7 @@ const plans = [
     border-radius: var(--ey-radius-md);
     background: var(--ey-color-brand-primary-soft);
     padding: var(--ey-space-3) var(--ey-space-4);
-    font-size: 0.8125rem;
+    font-size: var(--ey-type-plan-fine-size);
     line-height: var(--ey-type-label-line);
   }
 
@@ -458,7 +466,7 @@ const plans = [
     background: linear-gradient(180deg, #262626, #111111);
     color: var(--ey-color-text-inverse);
     padding: var(--ey-space-3) var(--ey-space-5);
-    font-size: 0.875rem;
+    font-size: var(--ey-type-label-size);
     font-weight: var(--ey-font-medium);
     line-height: var(--ey-type-button-line);
     letter-spacing: var(--ey-tracking-default);
@@ -468,7 +476,7 @@ const plans = [
   .plan-included-link {
     width: fit-content;
     color: var(--ey-color-text-secondary);
-    font-size: 0.8125rem;
+    font-size: var(--ey-type-plan-fine-size);
     font-weight: var(--ey-font-medium);
     line-height: var(--ey-type-label-line);
     text-decoration: underline;
@@ -546,7 +554,7 @@ const plans = [
 
   .plan-shared-column h3 {
     color: var(--ey-color-text-primary);
-    font-size: 0.875rem;
+    font-size: var(--ey-type-label-size);
     font-weight: var(--ey-font-semibold);
     line-height: 1.25rem;
     letter-spacing: var(--ey-tracking-default);
@@ -582,9 +590,9 @@ const plans = [
   }
 
   .plan-trust-row strong {
-    font-size: 0.8125rem;
+    font-size: var(--ey-type-plan-fine-size);
     font-weight: var(--ey-font-semibold);
-    line-height: 1.125rem;
+    line-height: var(--ey-type-plan-fine-line);
   }
 
   .plan-trust-row span {
@@ -594,9 +602,9 @@ const plans = [
   }
 
   @media (min-width: 48rem) {
-    .plan-hero h1 {
-      font-size: 1.875rem;
-      line-height: 2.25rem;
+    .plan-page {
+      --ey-type-plan-title-size: 1.875rem;
+      --ey-type-plan-title-line: 2.25rem;
     }
 
     .plan-grid {
