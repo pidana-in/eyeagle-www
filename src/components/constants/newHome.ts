@@ -307,7 +307,7 @@ export const ctaSection = {
     "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
   primaryCta: {
     label: "Get your kit today",
-    href: "https://shop.eyeagle.ai/",
+    href: "/plan/",
   },
   secondaryCta: {
     label: "Book a safety audit",
