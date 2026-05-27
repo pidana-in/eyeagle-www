@@ -1,5 +1,5 @@
 export const siteMeta = {
-  title: "EyEagle | Keeping You Safe, Wherever You Are",
+  title: "EyEagle | Preventing Falls, Saving Lives",
   description:
     "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.",
   gtmId: "G-7HPVGH0CKQ",
