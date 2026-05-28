@@ -21,6 +21,7 @@ const {
 } = Astro.props;
 const { pathname } = Astro.url;
 const loginCredential = false;
+const isPlanPage = pathname === "/plan/";
 const footerClass = Astro.props.footerClass ?? "";
 const { noindex } = Astro.props;
 ---
@@ -133,9 +134,15 @@ const { noindex } = Astro.props;
   <body class="text-gray-900">
     <header
       id="myNav"
-      class="fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-[#FFFFFF] shadow-[0px_6px_20px_0px_#0000000F]"
+      class={`fixed max-lg:hidden w-full top-0 z-40 right-0 ${
+        isPlanPage
+          ? "px-8 py-5 bg-transparent shadow-none"
+          : "px-10 py-4 bg-[#FFFFFF] shadow-[0px_6px_20px_0px_#0000000F]"
+      }`}
     >
-      <nav class="flex items-center justify-around xl:container">
+      <nav class={`flex items-center xl:container ${
+        isPlanPage ? "justify-start" : "justify-around"
+      }`}>
         <div class="flex gap-4">
           <a href="/" aria-label="EyEagle Home Page">
             <img
@@ -147,86 +154,84 @@ const { noindex } = Astro.props;
             />
           </a>
         </div>
-        <ul
-          class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[10%]"
-        >
-          {
-            navLinks.map((item) => {
-              const isActive = item.children
-                ? item.children.some((c) => pathname.startsWith(c.url))
-                : pathname === item.url;
+        {
+          !isPlanPage && (
+            <ul
+              class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[10%]"
+            >
+              {navLinks.map((item) => {
+                const isActive = item.children
+                  ? item.children.some((c) => pathname.startsWith(c.url))
+                  : pathname === item.url;
 
-              return (
-                <li class="relative">
-                  {/* Normal links */}
-                  {!item.children && (
-                    <a
-                      href={item.url}
-                      class={`hover:underline truncate ${
-                        isActive
-                          ? "text-[#CC0000]"
-                          : "text-black hover:text-[#CC0000]"
-                      }`}
-                    >
-                      {item.title}
-                    </a>
-                  )}
-                  {/* Products dropdown */}
-                  {item.children && (
-                    <div class="group relative">
-                      {/* Trigger */}
-                      <span
-                        class={`flex items-center gap-1 cursor-pointer ${
+                return (
+                  <li class="relative">
+                    {!item.children && (
+                      <a
+                        href={item.url}
+                        class={`hover:underline truncate ${
                           isActive
                             ? "text-[#CC0000]"
-                            : "text-black group-hover:text-[#CC0000]"
+                            : "text-black hover:text-[#CC0000]"
                         }`}
                       >
                         {item.title}
-                        <svg
-                          class="w-3 h-3 transition-transform duration-200"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
+                      </a>
+                    )}
+                    {item.children && (
+                      <div class="group relative">
+                        <span
+                          class={`flex items-center gap-1 cursor-pointer ${
+                            isActive
+                              ? "text-[#CC0000]"
+                              : "text-black group-hover:text-[#CC0000]"
+                          }`}
                         >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
+                          {item.title}
+                          <svg
+                            class="w-3 h-3 transition-transform duration-200"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
 
-                      {/* Dropdown — NO GAP */}
-                      <ul
-                        class="absolute left-0 py-2 top-full hidden min-w-[200px]
-                       rounded-lg bg-white shadow-lg border z-[9999]
-                       group-hover:block"
-                      >
-                        {item.children.map((child) => (
-                          <li>
-                            <a
-                              href={child.url}
-                              class={`block px-4 py-2 text-sm ${
-                                pathname === child.url
-                                  ? "text-[#CC0000] font-medium"
-                                  : "text-black hover:text-[#CC0000]"
-                              } hover:bg-gray-100`}
-                            >
-                              {child.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              );
-            })
-          }
-        </ul>
+                        <ul
+                          class="absolute left-0 py-2 top-full hidden min-w-[200px]
+                        rounded-lg bg-white shadow-lg border z-[9999]
+                        group-hover:block"
+                        >
+                          {item.children.map((child) => (
+                            <li>
+                              <a
+                                href={child.url}
+                                class={`block px-4 py-2 text-sm ${
+                                  pathname === child.url
+                                    ? "text-[#CC0000] font-medium"
+                                    : "text-black hover:text-[#CC0000]"
+                                } hover:bg-gray-100`}
+                              >
+                                {child.title}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )
+        }
 
         {
-          pathname === "/plan/" ? (
+          isPlanPage ? (
             ""
           ) : (
             <div class="flex gap-5 justify-end">
@@ -266,7 +271,9 @@ const { noindex } = Astro.props;
     </header>
     <header
       id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-40 bg-[#FFFFFF] w-full"
+      class={`lg:hidden sticky top-0 z-40 w-full ${
+        isPlanPage ? "bg-transparent shadow-none" : "bg-[#FFFFFF] shadow"
+      }`}
     >
       <nav class="flex justify-between items-center px-5 py-4">
         <div class="flex items-center gap-4">
@@ -280,35 +287,39 @@ const { noindex } = Astro.props;
             />
           </a>
         </div>
-        <div id="hamburger">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="24" fill="none"></rect>
-            <path
-              d="M12.3335 18.167H30.6668"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path
-              d="M12.3335 24H30.6668"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path
-              d="M12.3335 29.833H30.6668"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
+        {
+          !isPlanPage && (
+            <div id="hamburger">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="48" height="48" rx="24" fill="none"></rect>
+                <path
+                  d="M12.3335 18.167H30.6668"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M12.3335 24H30.6668"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M12.3335 29.833H30.6668"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          )
+        }
         <div id="crossButton" style={{ display: "none" }}>
           <svg
             width="48"
@@ -631,6 +642,8 @@ const { noindex } = Astro.props;
   let crossButton = document.getElementById("crossButton");
 
   function toggleButtonVisibility() {
+    if (!waitButton || !footer) return;
+
     const footerRect = footer.getBoundingClientRect();
     const buttonRect = waitButton.getBoundingClientRect();
 

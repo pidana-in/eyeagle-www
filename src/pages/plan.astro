@@ -1,89 +1,636 @@
 ---
-import { options, safetyOptionsTop,safetyOptionsBottom } from "../components/constants/plans";
 import MainLayout from "../layouts/MainLayout.astro";
-import Icon from "../components/common/Icon.astro";
-const metaTitle="Secure Your Elderly’s Safety – Place Your Order with EyEagle";
-const metaDesc="Order EyEagle’s emergency alarm systems for the elderly. Ensure safety with real-time alerts and reliable fall detection.";
+
+const metaTitle = "Select Your EyEagle Plan";
+const metaDesc =
+  "Choose an EyEagle bathroom safety kit membership plan for home protection, SOS alerts, and app support.";
+
+const includedGroups = [
+  {
+    id: "kit",
+    title: "Prevention kit",
+    body: "Grab bars, anti-skid mats, grip tape, corner guards, and bathroom safety accessories based on audit needs.",
+  },
+  {
+    id: "sos",
+    title: "SOS system",
+    body: "Bathroom SOS button, home alarm unit, emergency trigger, 4G connectivity, and connected safety alerts.",
+  },
+  {
+    id: "family",
+    title: "Family support",
+    body: "EyEagle app access, trusted circle alerts, support team backup, maintenance, and annual safety re-audit.",
+  },
+];
+
+const trustItems = [
+  ["Free shipping", "across India"],
+  ["Professional", "installation support"],
+  ["18-month", "hardware warranty"],
+  ["24/7", "support"],
+];
+
+const plans = [
+  {
+    id: "peace",
+    name: "Peace Of Mind",
+    badge: "Best long-term value",
+    upfront: "₹44,999",
+    upfrontCompare: "₹59,999",
+    savings: "₹15,000 off",
+    monthly: "₹999",
+    monthlyCompare: "₹1,299",
+    paymentNote: "one-time setup",
+    description: "For families who want the lowest monthly cost and long-term coverage.",
+    total: "₹80,963",
+    commitmentTitle: "No lock-in.",
+    commitmentCopy: "Cancel your monthly coverage anytime.",
+    ctaSelect: "Choose Peace Of Mind",
+    href: "https://shop.eyeagle.ai/checkouts/cn/hWNCcJthWoXSPqgvgH0mNPGr/en-in?_r=AQABac_2B_C6Ds4Kq48x-HnumeZcz1DqqnLhdVuICl_vHas&preview_theme_id=172838092993",
+  },
+  {
+    id: "easy",
+    name: "Easy Start",
+    badge: "Lower upfront cost",
+    upfront: "₹24,999",
+    upfrontCompare: "₹39,999",
+    savings: "₹15,000 off",
+    monthly: "₹1,999",
+    monthlyCompare: "₹2,499",
+    paymentNote: "one-time setup",
+    description: "For families who want to begin with a smaller upfront payment.",
+    total: "₹96,963",
+    commitmentTitle: "12-month commitment.",
+    commitmentCopy: "Cancel anytime after month 12.",
+    ctaSelect: "Choose Easy Start",
+    href: "https://shop.eyeagle.ai/checkouts/cn/hWNCcJpL0Is9Iav2BQIdhpp3/en-in?_r=AQABndcfAzq482EYtD_Hjx9Q8t1kYovMBQkWeviUG1ISP5I&preview_theme_id=172838092993",
+  },
+];
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc} noindex={true}>
-    <div class="relative font-sans-instrument">
-        <section class=" md:pt-16 lg:pt-32 text-center pb-0 md:pb-16 lg:pb-44">
-      
-        </section>
-        <section class="bg-[#F6F4F2] flex flex-col lg:flex-row px-5 md:px-10 lg:px-[80px] justify-center lg:h-[900px] pb-20 lg:pb-0 lg:gap-[60px]">
-          <div class="xl:container">
-          <div class="pt-10 md:pt-20 lg:pt-52 flex flex-col gap-3">
-            {options.map((option) => (
-              <div class="flex gap-2 items-center">
-                <span class="material-symbols-outlined text-[24px] lg:text-[32px]">
-                  check_circle
-                </span>
-                <p class="text-[18px] md:text-[20px] lg:text-[22px] font-bold">{option.title}</p>
-              </div>
-            ))}
-          </div>
-      
-          <div class="bg-[#00506A] p-5 md:p-8 lg:p-[24px]  rounded-lg mt-10 lg:mt-0 lg:absolute lg:top-40 lg:right-20 w-full lg:w-auto lg:max-w-[600px]">
-            <div class="flex flex-col gap-[12px]">
+  <div class="plan-page">
+    <section class="plan-hero" aria-labelledby="plan-title">
+      <p class="plan-eyebrow">EyEagle Bathroom Safety Kit</p>
+      <h1 id="plan-title">Select your plan</h1>
+      <p>
+        One kit, two ways to pay. Both plans include the SOS alarm, bathroom
+        safety accessories, installation guidance, and family app support.
+      </p>
+    </section>
 
-              <h1 class="italic font-sans-instrument text-[28px] md:text-[36px] lg:text-[40px] text-white">
-                Ultimate Safety
-            </h1>
-            <h3 class="text-[21px] md:text-[24px] lg:text-[28px] text-white font-bold">
-Special Launch Offer
-            </h3>
-            <h3 class="text-[24px] md:text-[28px] lg:text-[32px] text-white font-bold mt-[-10px]">
-              ₹49,999  <span class="line-through ml-2">₹89,999</span> 
-            </h3>
-            <p class=" text-white font-normal text-[18px] mt-[-10px]">including GST</p>
-            <p class="text-[16px] md:text-[18px] text-white">
-              Best in class complete solution
-            </p>
-          </div>
-          <a href="https://payments.cashfree.com/forms/eyeagle-ultimate" target="_blank">
-            <button class="bg-[#CC0000] text-white px-5 py-3 my-[28px] rounded-lg text-[16px] md:text-[18px] font-semibold w-full">
-                Get it now
-              </button>
-            </a>
-            
-            <div class="flex flex-col gap-[19px]">
-              {safetyOptionsTop.map((option) => (
-                <div class="flex gap-3 items-center">
-                  <span class="material-symbols-outlined text-white text-[20px] md:text-[24px]">
-                    check_circle
-                  </span>
-                  <p class="text-[16px] md:text-[18px] lg:text-[18px] text-white font-medium">
-                    {option.title}
-                  </p>
-                </div>
-              ))}
-            </div>
-      
-            <div class="border border-[#337388] w-full my-3"></div>
-      
-            <div class="flex flex-col gap-[19px]">
-              {safetyOptionsBottom.map((option) => (
-                <div class="flex gap-3 items-center">
-<Icon iconName="check_circle" classNames="text-white"/>
-                  <p class="text-[16px] md:text-[18px] lg:text-[20px] text-white font-semibold">
-                    {option.title}
-                  </p>
-                </div>
-              ))}
-            </div>
-      
-            <button class="bg-[#FEDBDC] border-2 border-[#FB4C51] rounded-md flex gap-3 items-center justify-center py-2 px-5 mt-[19px] w-full">
-              <span class="material-symbols-outlined text-[#FB4C51] text-[20px] md:text-[24px]">
-                check_circle
+    <section class="plan-grid" aria-label="EyEagle membership plans">
+      {
+        plans.map((plan) => (
+          <article
+            class="plan-card"
+            data-plan-card
+            data-plan-id={plan.id}
+            data-plan-href={plan.href}
+            data-select-label={plan.ctaSelect}
+          >
+            <div class="plan-card-heading">
+              <span class="material-symbols-outlined plan-icon" aria-hidden="true">
+                {plan.id === "peace" ? "groups" : "calendar_month"}
               </span>
-              <p class="text-[14px] md:text-[16px] lg:text-[18px] text-[#FB4C51] font-semibold">
-                Free kit update for the next upgraded version
-              </p>
-            </button>
-          </div>
-        </div>
-        </section>
+              <div>
+                <h2>{plan.name}</h2>
+                <p>{plan.badge}</p>
+              </div>
+            </div>
+
+            <div class="plan-price-block">
+              <div class="plan-price-row">
+                <strong>{plan.upfront}</strong>
+              </div>
+              <p>{plan.paymentNote}</p>
+              <div class="plan-price-divider"></div>
+              <div class="plan-month-row">
+                <strong>+ {plan.monthly}</strong>
+                <s>{plan.monthlyCompare}</s>
+                <span>/ month</span>
+              </div>
+              <p>ongoing safety coverage</p>
+            </div>
+
+            <div class="plan-total-row">
+              <span>3-year total</span>
+              <strong>{plan.total}</strong>
+            </div>
+
+            <p class="plan-commitment">
+              <strong>{plan.commitmentTitle}</strong> {plan.commitmentCopy}
+            </p>
+
+            <p class="plan-audience">{plan.description}</p>
+
+            <a class="plan-included-link" href="#plan-included">
+              What’s included
+            </a>
+
+            <a
+              class="plan-select"
+              data-plan-action
+              href={plan.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span data-plan-action-label>
+                {plan.ctaSelect}
+              </span>
+              <span class="material-symbols-outlined plan-button-icon" aria-hidden="true">
+                arrow_forward
+              </span>
+            </a>
+          </article>
+        ))
+      }
+    </section>
+
+    <section
+      id="plan-included"
+      class="plan-shared"
+      aria-labelledby="plan-shared-title"
+    >
+      <div>
+        <p class="plan-shared-eyebrow">Included with either plan</p>
+        <h2 id="plan-shared-title">Same protection in both plans</h2>
+        <p>
+          Whichever payment plan you pick, EyEagle sets up the same bathroom
+          safety kit and keeps the same emergency coverage active.
+        </p>
       </div>
-      
+
+      <div class="plan-shared-grid">
+        {includedGroups.map((group) => (
+          <div class="plan-shared-column" data-included-id={group.id}>
+            <span class="material-symbols-outlined plan-shared-icon" aria-hidden="true">
+              {group.id === "kit"
+                ? "inventory_2"
+                : group.id === "sos"
+                  ? "notifications_active"
+                  : "groups"}
+            </span>
+            <h3>{group.title}</h3>
+            <p>{group.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="plan-trust-row" aria-label="Plan support details">
+      {trustItems.map(([title, copy]) => (
+        <div>
+          <strong>{title}</strong>
+          <span>{copy}</span>
+        </div>
+      ))}
+    </div>
+
+    <p class="plan-footnote">
+      All prices inclusive of 18% GST.
+    </p>
+  </div>
+
 </MainLayout>
+
+<style>
+  .plan-page {
+    --ey-font-sans: "Plus Jakarta Sans", sans-serif;
+    --ey-font-regular: 400;
+    --ey-font-medium: 500;
+    --ey-font-semibold: 600;
+    --ey-font-bold: 700;
+    --ey-tracking-default: -0.02em;
+    --ey-tracking-caps: 0.03em;
+    --ey-color-brand-primary: #cc0000;
+    --ey-color-brand-primary-soft: #fbebeb;
+    --ey-color-bg-default: #ffffff;
+    --ey-color-bg-page: #f6f4f2;
+    --ey-color-bg-black: #000000;
+    --ey-color-text-primary: #262626;
+    --ey-color-text-secondary: #525252;
+    --ey-color-text-disabled: #a2a2a2;
+    --ey-color-text-inverse: #ffffff;
+    --ey-color-border-subtle: #e4e4e4;
+    --ey-color-focus-ring: #cc0000;
+    --ey-space-1: 0.25rem;
+    --ey-space-2: 0.5rem;
+    --ey-space-3: 0.75rem;
+    --ey-space-4: 1rem;
+    --ey-space-5: 1.25rem;
+    --ey-space-6: 1.5rem;
+    --ey-space-8: 2rem;
+    --ey-space-10: 2.5rem;
+    --ey-space-12: 3rem;
+    --ey-page-padding-mobile: 1rem;
+    --ey-radius-sm: 0.5rem;
+    --ey-radius-md: 0.75rem;
+    --ey-radius-lg: 1rem;
+    --ey-radius-2xl: 1.5rem;
+    --ey-radius-pill: 999rem;
+    --ey-type-plan-title-size: 1.75rem;
+    --ey-type-plan-title-line: 2.125rem;
+    --ey-type-plan-price-size: 1.75rem;
+    --ey-type-plan-price-line: 2.125rem;
+    --ey-type-plan-card-title-size: 1rem;
+    --ey-type-plan-card-title-line: 1.375rem;
+    --ey-type-plan-fine-size: 0.8125rem;
+    --ey-type-plan-fine-line: 1.1875rem;
+    --ey-type-caption-size: 0.75rem;
+    --ey-type-caption-line: 1rem;
+    --ey-type-label-size: 0.875rem;
+    --ey-type-label-line: 1.25rem;
+    --ey-type-body-tight-size: 0.9375rem;
+    --ey-type-body-tight-line: 1.25rem;
+    --ey-type-subsection-size: 1.375rem;
+    --ey-type-subsection-line: 1.75rem;
+    --ey-type-button-line: 1.5rem;
+    min-height: 100svh;
+    overflow-x: clip;
+    padding: 7.25rem var(--ey-page-padding-mobile) var(--ey-space-12);
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent 32rem),
+      var(--ey-color-bg-page);
+    color: var(--ey-color-text-primary);
+  }
+
+  .plan-hero {
+    display: grid;
+    justify-items: center;
+    gap: var(--ey-space-3);
+    max-width: 40rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .plan-eyebrow {
+    width: fit-content;
+    border-radius: var(--ey-radius-pill);
+    background: var(--ey-color-brand-primary-soft);
+    color: var(--ey-color-brand-primary);
+    padding: var(--ey-space-2) var(--ey-space-4);
+    font-size: var(--ey-type-caption-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-caption-line);
+    letter-spacing: var(--ey-tracking-caps);
+    text-transform: uppercase;
+  }
+
+  .plan-hero h1 {
+    font-size: var(--ey-type-plan-title-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-plan-title-line);
+    letter-spacing: var(--ey-tracking-default);
+  }
+
+  .plan-hero > p:not(.plan-eyebrow) {
+    color: var(--ey-color-text-secondary);
+    font-size: var(--ey-type-body-tight-size);
+    line-height: var(--ey-type-body-tight-line);
+  }
+
+  .plan-grid {
+    display: grid;
+    gap: var(--ey-space-5);
+    width: min(100%, 54rem);
+    margin: var(--ey-space-6) auto 0;
+  }
+
+  .plan-card {
+    display: grid;
+    gap: var(--ey-space-5);
+    border: 1px solid rgba(228, 228, 228, 0.92);
+    border-radius: calc(var(--ey-radius-2xl) + var(--ey-space-2));
+    background: var(--ey-color-bg-default);
+    padding: var(--ey-space-5);
+    box-shadow: 0 1rem 3.25rem rgba(17, 24, 39, 0.06);
+  }
+
+  .plan-card[data-plan-id="peace"] {
+    border-color: rgba(204, 0, 0, 0.16);
+    box-shadow:
+      0 1.75rem 4rem rgba(17, 24, 39, 0.12),
+      0 0.25rem 1rem rgba(204, 0, 0, 0.06);
+  }
+
+  .plan-card-heading {
+    display: flex;
+    align-items: center;
+    gap: var(--ey-space-4);
+  }
+
+  .plan-icon,
+  .plan-shared-icon,
+  .plan-button-icon {
+    display: inline-grid;
+    place-items: center;
+    font-variation-settings:
+      "FILL" 0,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+    line-height: 1;
+    border-radius: var(--ey-radius-pill);
+  }
+
+  .plan-icon {
+    width: 3rem;
+    height: 3rem;
+    flex: 0 0 3rem;
+    background: var(--ey-color-brand-primary-soft);
+    color: var(--ey-color-brand-primary);
+  }
+
+  .plan-card[data-plan-id="easy"] .plan-icon {
+    background: #eef4ff;
+    color: #2857b8;
+  }
+
+  .plan-icon,
+  .plan-shared-icon {
+    font-size: 1.35rem;
+  }
+
+  .plan-button-icon {
+    font-size: 1rem;
+  }
+
+  .plan-card-heading h2 {
+    font-size: var(--ey-type-plan-card-title-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-plan-card-title-line);
+    letter-spacing: var(--ey-tracking-default);
+  }
+
+  .plan-card-heading p {
+    color: var(--ey-color-brand-primary);
+    font-size: var(--ey-type-caption-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-caption-line);
+  }
+
+  .plan-card[data-plan-id="easy"] .plan-card-heading p {
+    color: #2857b8;
+  }
+
+  .plan-price-block {
+    display: grid;
+    gap: var(--ey-space-1);
+  }
+
+  .plan-price-row,
+  .plan-month-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--ey-space-2);
+  }
+
+  .plan-price-row strong {
+    font-size: var(--ey-type-plan-price-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-plan-price-line);
+    letter-spacing: var(--ey-tracking-default);
+  }
+
+  .plan-price-block > p,
+  .plan-month-row,
+  .plan-commitment,
+  .plan-audience,
+  .plan-footnote,
+  .plan-shared > div > p {
+    color: var(--ey-color-text-secondary);
+    font-size: var(--ey-type-plan-fine-size);
+    line-height: var(--ey-type-plan-fine-line);
+  }
+
+  .plan-month-row strong {
+    color: var(--ey-color-text-primary);
+    font-weight: var(--ey-font-bold);
+  }
+
+  .plan-month-row s {
+    color: var(--ey-color-text-disabled);
+    font-size: var(--ey-type-label-size);
+    font-weight: var(--ey-font-semibold);
+  }
+
+  .plan-price-divider {
+    height: 1px;
+    margin-block: var(--ey-space-3);
+    background: var(--ey-color-border-subtle);
+  }
+
+  .plan-commitment strong {
+    color: var(--ey-color-text-primary);
+  }
+
+  .plan-audience {
+    max-width: 18rem;
+  }
+
+  .plan-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--ey-space-4);
+    border-radius: var(--ey-radius-md);
+    background: var(--ey-color-brand-primary-soft);
+    padding: var(--ey-space-3) var(--ey-space-4);
+    font-size: var(--ey-type-plan-fine-size);
+    line-height: var(--ey-type-label-line);
+  }
+
+  .plan-card[data-plan-id="easy"] .plan-total-row {
+    background: #eef4ff;
+  }
+
+  .plan-total-row strong {
+    color: var(--ey-color-brand-primary);
+    font-weight: var(--ey-font-bold);
+  }
+
+  .plan-card[data-plan-id="easy"] .plan-total-row strong {
+    color: #2857b8;
+  }
+
+  .plan-select {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ey-space-2);
+    border: 1px solid var(--ey-color-bg-black);
+    border-radius: var(--ey-radius-sm);
+    background: linear-gradient(180deg, #262626, #111111);
+    color: var(--ey-color-text-inverse);
+    padding: var(--ey-space-3) var(--ey-space-5);
+    font-size: var(--ey-type-label-size);
+    font-weight: var(--ey-font-medium);
+    line-height: var(--ey-type-button-line);
+    letter-spacing: var(--ey-tracking-default);
+    margin-top: auto;
+  }
+
+  .plan-included-link {
+    width: fit-content;
+    color: var(--ey-color-text-secondary);
+    font-size: var(--ey-type-plan-fine-size);
+    font-weight: var(--ey-font-medium);
+    line-height: var(--ey-type-label-line);
+    text-decoration: underline;
+    text-decoration-color: rgba(38, 38, 38, 0.28);
+    text-underline-offset: 0.25rem;
+  }
+
+  .plan-select:focus-visible {
+    outline: 2px solid var(--ey-color-focus-ring);
+    outline-offset: 3px;
+  }
+
+  .plan-footnote {
+    max-width: 50rem;
+    margin: var(--ey-space-5) auto 0;
+    text-align: center;
+  }
+
+  .plan-shared {
+    display: grid;
+    justify-items: center;
+    gap: var(--ey-space-8);
+    width: min(100%, 54rem);
+    margin: var(--ey-space-12) auto 0;
+    scroll-margin-top: 7.5rem;
+    text-align: center;
+  }
+
+  .plan-shared-eyebrow {
+    display: none;
+    width: fit-content;
+    margin-bottom: var(--ey-space-3);
+    border-radius: var(--ey-radius-pill);
+    background: var(--ey-color-brand-primary-soft);
+    color: var(--ey-color-brand-primary);
+    padding: var(--ey-space-1) var(--ey-space-3);
+    font-size: var(--ey-type-caption-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-caption-line);
+    letter-spacing: var(--ey-tracking-caps);
+    text-transform: uppercase;
+  }
+
+  .plan-shared h2 {
+    font-size: var(--ey-type-subsection-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-subsection-line);
+    letter-spacing: var(--ey-tracking-default);
+  }
+
+  .plan-shared > div:first-child {
+    display: grid;
+    gap: var(--ey-space-3);
+    max-width: 42rem;
+  }
+
+  .plan-shared-grid {
+    display: grid;
+    gap: var(--ey-space-5);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .plan-shared-column {
+    display: grid;
+    align-content: start;
+    gap: var(--ey-space-4);
+    border: 1px solid rgba(228, 228, 228, 0.9);
+    border-radius: var(--ey-radius-2xl);
+    background: rgba(255, 255, 255, 0.82);
+    padding: var(--ey-space-5);
+    text-align: left;
+    box-shadow: 0 0.75rem 2rem rgba(17, 24, 39, 0.04);
+  }
+
+  .plan-shared-column h3 {
+    color: var(--ey-color-text-primary);
+    font-size: var(--ey-type-label-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: 1.25rem;
+    letter-spacing: var(--ey-tracking-default);
+  }
+
+  .plan-shared-column p {
+    color: var(--ey-color-text-secondary);
+    font-size: var(--ey-type-label-size);
+    line-height: var(--ey-type-label-line);
+  }
+
+  .plan-shared-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    background: var(--ey-color-brand-primary-soft);
+    color: var(--ey-color-brand-primary);
+  }
+
+  .plan-trust-row {
+    display: grid;
+    gap: var(--ey-space-4);
+    width: min(100%, 54rem);
+    margin: var(--ey-space-6) auto 0;
+  }
+
+  .plan-trust-row div {
+    display: grid;
+    gap: var(--ey-space-1);
+    border: 1px solid rgba(228, 228, 228, 0.9);
+    border-radius: var(--ey-radius-lg);
+    background: rgba(255, 255, 255, 0.72);
+    padding: var(--ey-space-4);
+  }
+
+  .plan-trust-row strong {
+    font-size: var(--ey-type-plan-fine-size);
+    font-weight: var(--ey-font-semibold);
+    line-height: var(--ey-type-plan-fine-line);
+  }
+
+  .plan-trust-row span {
+    color: var(--ey-color-text-secondary);
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .plan-page {
+      --ey-type-plan-title-size: 1.875rem;
+      --ey-type-plan-title-line: 2.25rem;
+    }
+
+    .plan-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--ey-space-6);
+    }
+
+    .plan-card {
+      padding: var(--ey-space-6);
+    }
+
+    .plan-shared-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--ey-space-6);
+    }
+
+    .plan-trust-row {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--ey-space-4);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .plan-page {
+      padding-top: 7.75rem;
+      padding-bottom: var(--ey-space-10);
+    }
+  }
+</style>
