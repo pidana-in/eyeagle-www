@@ -1,13 +1,13 @@
 ---
 import { CoreValuesData } from "../constants/aboutus"
 ---
-<section class="px-5 lg:px-[80px] py-[100px] lg:py-[200px] xl:container">
-    <div class="pb-[100px] lg:pb-[160px]">
+<section class="px-5 lg:px-[80px] py-[80px] lg:py-[120px] xl:container">
+    <div>
         <p set:html={CoreValuesData.title} class="text-[#CC0000] font-medium text-center text-[32px] lg:text-[52px] leading-[44px] lg:leading-[72px]"></p>
-        <p set:html={CoreValuesData.desc} class="text-black opacity-60 font-medium text-[28px] lg:text-[52px] lg:leading-[72px] pt-10 lg:pt-[20px] text-center"></p>
+        <p set:html={CoreValuesData.desc} class="text-black opacity-60 font-medium text-[28px] lg:text-[52px] lg:leading-[72px] py-8 lg:pt-[20px] text-center"></p>
     </div>
     <div>
-<p set:html={CoreValuesData.coreTitle} class="text-center font-medium lg:font-bold text-[40px] lg:text-5xl leading-[44px] lg:leading-[56px] lg:my-[100px] lg:pb-[100px] pb-20 "></p>
+<p set:html={CoreValuesData.coreTitle} class="text-center font-medium lg:font-bold text-[40px] lg:text-5xl leading-[44px] lg:leading-[56px] lg:mt-20 lg:mb-24 my-12"></p>
 <div class="flex flex-col gap-[40px] "> 
     {CoreValuesData.values.map((value,index)=>(
         <div class={`flex flex-col lg:flex-row justify-between items-center gap-5 border-b ${CoreValuesData.values?.length-1===index ? "border-none" : "pb-5 border-[#768087]"}`}>

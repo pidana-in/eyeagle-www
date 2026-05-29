@@ -3,13 +3,13 @@ import Icon from "../common/Icon.astro";
 import { EyeagleDiff } from "../constants/aboutus";
 ---
 
-<section class="bg-[#F6F4F2] px-5 lg:px-[40px] py-20 lg:py-[200px]">
+<section class="bg-[#F6F4F2] px-5 lg:px-[40px] py-12 lg:py-[80px]">
   <div class="xl:container">
     <p
       set:html={EyeagleDiff.title}
-      class="text-[40px] text-center leading-[56px] lg:text-[48px] lg:font-bold font-medium lg:pb-[200px] pb-20"
+      class="text-[40px] text-center leading-[56px] lg:text-[48px] lg:font-bold font-medium lg:pb-24 py-10"
     />
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-[40px] lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-[40px] lg:px-8 pb-16">
       {
         EyeagleDiff.content.map((content) => (
           <div class="flex flex-col gap-4 bg-white rounded-xl p-6">
