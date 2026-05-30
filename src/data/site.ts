@@ -35,7 +35,7 @@ export const ctaHref =
 export const footerProductLinks = [
   {
     title: "Bathroom Safety kit",
-    url: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+    url: "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
   },
   { title: "How it works", url: "/solution/" },
   { title: "Guardian X Kit", url: "/protection" },
