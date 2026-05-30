@@ -14,7 +14,7 @@ export const navLinks = [
       { title: "App", url: "/app" },
     ],
   },
-  { title: "Shop", url: "https://shop.eyeagle.ai/" },
+  // { title: "Shop", url: "https://shop.eyeagle.ai/" },
   { title: "How it Works", url: "/solution" },
   { title: "About Us", url: "/about-us" },
   { title: "Blog", url: "/blog" },
@@ -30,12 +30,12 @@ export const userMenu = [
 
 export const ctaButtonText = "Get Started";
 export const ctaHref =
-  "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app";
+  "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088";
 
 export const footerProductLinks = [
   {
     title: "Bathroom Safety kit",
-    url: "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
+    url: "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
   },
   { title: "How it works", url: "/solution/" },
   { title: "Guardian X Kit", url: "/protection" },
