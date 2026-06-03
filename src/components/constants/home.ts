@@ -61,6 +61,8 @@ import blogImage26 from "../../assets/Blog/BlogImage26.jpg";
 import blogImage27 from "../../assets/Blog/BlogImage27.jpg";
 import blogImage28 from "../../assets/Blog/BlogImage28.jpg";
 import blogImage29 from "../../assets/Blog/BlogImage29.jpg";
+import blogImage30 from "../../assets/Blog/BlogImage30.jpg";
+import blogImage31 from "../../assets/Blog/BlogImage31.jpg";
 
 export const bathroomData = [
   {
@@ -331,6 +333,18 @@ export const blogsData = [
     title: "Stairway Safety:Simple Fixes to Prevent Slips, Trips & Falls",
     desc: "Improve stairway safety at home with simple fixes. Learn practical stair safety tips to prevent accidents, and make every step safer.",
     img: blogImage29,
+  },
+  {
+    slug: "senior-fall-risk-denial-why-not-me-mentality",
+    title: "Understanding & Overcoming Senior Denial About Fall Risk",
+    desc: "Learn what is senior fall risk and how families can address it. Explore psychological barriers, consequences and prevention tips.",
+    img: blogImage30,
+  },
+   {
+    slug: "bathroom-safety-features-at-home",
+    title: "What Changed When We Added Bathroom Safety Features at Home",
+    desc: "Discover how simple bathroom safety features improved comfort, reduced fall risks, and supported safe aging in place for our family.",
+    img: blogImage31,
   },
 ];
 
