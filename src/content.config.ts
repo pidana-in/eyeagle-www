@@ -12,6 +12,7 @@ const blogs = defineCollection({
     z.object({
       id: z.coerce.number(),
       title: z.string(),
+      desc: z.string().optional(),
       slug: z.string().optional(),
       category: z.string(),
       img: image(),
