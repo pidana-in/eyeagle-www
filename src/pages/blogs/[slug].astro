@@ -48,13 +48,6 @@ const metaImage = blogMeta?.img
   : blog.data.img
     ? `${site}${blog.data.img.src}`
     : "";
-
-// Debug logs
-console.log("blog slug =", blog.data.slug);
-console.log("blogMeta =", blogMeta);
-console.log("metaTitle =", metaTitle);
-console.log("metaDesc =", metaDesc);
-console.log("metaImage =", metaImage);
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc} metaImage={metaImage}>
