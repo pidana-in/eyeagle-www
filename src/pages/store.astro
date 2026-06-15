@@ -5,18 +5,24 @@ import Inter from "../assets/Common/International.png";
 import { Image } from "astro:assets";
 ---
 
-<MainLayout title="Store">
-  <section class="xl:container lg:pt-36 py-10 lg:pb-32 lg:px-20 px-4 font-sans-instrument bg-[#F6F4F2]">
+<MainLayout title="Store" noindex={true}>
+  <section
+    class="xl:container lg:pt-36 py-10 lg:pb-32 lg:px-20 px-4 font-sans-instrument bg-[#F6F4F2]"
+  >
     <div class="md:text-start text-center place-items-center">
       <!-- Heading -->
       <div class="lg:px-10 py-12">
-        <h1 class="text-3xl md:text-5xl tracking-tight font-semibold md:leading-[60px]">
+        <h1
+          class="text-3xl md:text-5xl tracking-tight font-semibold md:leading-[60px]"
+        >
           <span> Hello! </span>
           <br /> Where are you shopping from?
         </h1>
       </div>
       <!-- Options -->
-      <div class="flex flex-col md:flex-row justify-center items-center text-center gap-24 mt-4">
+      <div
+        class="flex flex-col md:flex-row justify-center items-center text-center gap-24 mt-4"
+      >
         <!-- India -->
         <a href="https://shop.eyeagle.ai/" class="flex flex-col items-center">
           <Image
@@ -48,7 +54,9 @@ import { Image } from "astro:assets";
           <p class="text-sm md:text-base">For customers outside of India</p>
         </a>
       </div>
-      <p class="font-barlow text-base md:text-lg font-medium py-16 text-center md:text-left">
+      <p
+        class="font-barlow text-base md:text-lg font-medium py-16 text-center md:text-left"
+      >
         Currently installations are available in India only.
       </p>
     </div>
