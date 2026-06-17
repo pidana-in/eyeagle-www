@@ -24,6 +24,10 @@ import app from "../../assets/NewHome/app.png";
 import HelpImage from "../../assets/NewHome/HelpImage.png";
 import HelpImageMobile from "../../assets/NewHome/HelpImageMobile.png";
 import testimonialImg from "../../assets/NewHome/Testimonial.png";
+import testimonialImg2 from "../../assets/NewHome/testimonialImage2.png";
+import testimonialImg3 from "../../assets/NewHome/Testimonial3.png";
+import testimonialImg4 from "../../assets/NewHome/Testimonial4.png";
+import testimonialImg5 from "../../assets/NewHome/Testimonial5.png";
 
 export const heroContent = {
   eyebrow: "Stop Today, Don’t Regret Tomorrow",
@@ -215,13 +219,40 @@ export const testimonialData = {
   title: "What families say..",
 
   subtitle:
-    "Real stories from people using EyEagle to make everyday moments safer— especially when parents are alone, and family is far.",
+    "Real stories from people using EyEagle to make everyday moments safer—especially when parents are alone, and family is far.",
 
-  quote:
-    "We thought the bathroom was “fine” until the team mapped the space and showed us where slips usually happen. The setup feels safer without making the home feel like a hospital.",
-
-  author: "— Subhash Kumar, Bengaluru",
-  image: testimonialImg,
+  testimonials: [
+    {
+      quote:
+        "We thought the bathroom was 'fine' until the team mapped the space and showed us where slips usually happen. The setup feels safer without making the home feel like a hospital.",
+      author: "— Subhash Kumar, Bengaluru",
+      image: testimonialImg,
+    },
+    {
+      quote:
+        "Love that it doesn't need WiFi and works during power cuts. The Guardian-X kit has been incredibly dependable. It's reassuring to know the system is always ready when needed.",
+      author: "— Anil Jain, Gurugram",
+      image: testimonialImg3,
+    },
+    {
+      quote:
+        "The high-decibel alarm is impressively loud, and I received an alert almost immediately during testing. It gives our family confidence we'll know right away if my father needs help.",
+      author: "— Jatin Narang, Ghaziabad",
+      image: testimonialImg4,
+    },
+    {
+      quote:
+        "Finally have peace of mind when Mom is alone. The SOS button is a lifesaver and simple for her to use. Knowing help can be alerted instantly has taken a huge weight off our shoulders.",
+      author: "— Nikhil Sachan, Pune",
+      image: testimonialImg2,
+    },
+    {
+      quote:
+        "As someone living in a different city from my parents, this has been a game changer. The instant alerts give me peace of mind and keep me informed when it matters most during emergencies.",
+      author: "— Devender Kumar, Delhi",
+      image: testimonialImg5,
+    },
+  ],
 };
 
 export const stepsContent = {
