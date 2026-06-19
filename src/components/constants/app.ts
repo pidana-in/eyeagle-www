@@ -9,6 +9,10 @@ import ImageCard5 from "../../assets/NewApp/ImageCard-5.png";
 import ImageCard6 from "../../assets/NewApp/ImageCard-6.png";
 import Testimonial1 from "../../assets/NewApp/Testimonial1.png";
 import Testimonial2 from "../../assets/NewApp/Testimonial2.png";
+import Testimonial3 from "../../assets/NewApp/Testimonial3.png";
+import Testimonial4 from "../../assets/NewApp/Testimonial4.png";
+import Testimonial5 from "../../assets/NewApp/Testimonial5.png";
+import Testimonial6 from "../../assets/NewApp/Testimonial6.png";
 import FeatureImage1 from "../../assets/NewApp/FeatureImage1.png";
 import FeatureImage2 from "../../assets/NewApp/FeatureImage2.png";
 import FeatureImage3 from "../../assets/NewApp/FeatureImage3.png";
@@ -148,16 +152,40 @@ export const chapterSection = {
 
 export const testimonials = [
   {
-    name: "Samikcha Kapoor",
+    name: "Navya Kumari",
     city: "Bengaluru",
     text: "I didn’t realise how much I needed this until I installed it. It just feels... safer.",
-    image: Testimonial1,  
+    image: Testimonial1,
   },
   {
-    name: "Navya Kumari",
+    name: "Neha Kapoor",
     city: "Delhi",
     text: "Now, when I go out late, I don’t overthink as much. That itself is a relief.",
     image: Testimonial2,
+  },
+  {
+    name: "Suman Reddy",
+    city: "Hyderabad",
+    text: "It's one of those things you hope you'll never need, but you're grateful to have.",
+    image: Testimonial3,
+  },
+  {
+    name: "Deepak Chauhan",
+    city: "Jaipur",
+    text: "The best part is not thinking about emergencies all the time anymore.",
+    image: Testimonial4,
+  },
+  {
+    name: "Manoj Pillai",
+    city: "Kochi",
+    text: "My parents feel independent, and I feel reassured. That's exactly what we wanted.",
+    image: Testimonial5,
+  },
+  {
+    name: "Ramesh Singh",
+    city: "Noida",
+    text: "We weren't trying to watch over her every second. Just wanted to know if something was wrong, and now we do.",
+    image: Testimonial6,
   },
 ];
 
