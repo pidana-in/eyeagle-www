@@ -63,6 +63,7 @@ import blogImage28 from "../../assets/Blog/BlogImage28.jpg";
 import blogImage29 from "../../assets/Blog/BlogImage29.jpg";
 import blogImage30 from "../../assets/Blog/BlogImage30.jpg";
 import blogImage31 from "../../assets/Blog/BlogImage31.jpg";
+import blogImage32 from "../../assets/Blog/BlogImage32.jpg";
 
 export const bathroomData = [
   {
@@ -345,6 +346,12 @@ export const blogsData = [
     title: "What Changed When We Added Bathroom Safety Features at Home",
     desc: "Discover how simple bathroom safety features improved comfort, reduced fall risks, and supported safe aging in place for our family.",
     img: blogImage31,
+  },
+  {
+    slug: "caring-from-distance",
+    title: "Caring From Distance: An NRI’s Parent Care Story",
+    desc: "Caring from distance for NRIs. Read about how one caregiver balanced work abroad with the safety of their elderly parents at home.",
+    img: blogImage32,
   },
 ];
 
