@@ -80,7 +80,7 @@ Loose rugs, electrical cords, and cluttered walkways are common culprits in fall
 
 ### Paying special attention to bathroom safety
 
-The bathroom is one of the most dangerous places for falls due to slippery surfaces. Installing grab bars, non-slip mats, and using the  <a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Eyeagle Bathroom Safety Kit</a> can greatly reduce risks.
+The bathroom is one of the most dangerous places for falls due to slippery surfaces. Installing grab bars, non-slip mats, and using the  <a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Bathroom Safety Kit</a> can greatly reduce risks.
 
 ### Using mobility aids when necessary
 
