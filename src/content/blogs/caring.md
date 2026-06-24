@@ -88,7 +88,7 @@ Living independently can be made easier with a few thoughtful adjustments at hom
 
 All of these reduce day-to-day stress for your parents while boosting their confidence and independence.
 
-### 3. Add an extra layer of safety with Eyeagle
+### 3. Add an extra layer of safety with EyEagle
 
 While health check-ins and emotional support for elderly parents in India matter deeply, safety at home, especially in spaces like bathrooms, can’t be overlooked. This is where <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle</a> comes in as a practical and proactive solution for urban migrants caring for parents who want peace of mind.
 
@@ -97,7 +97,7 @@ EyEagle helps by:
 - Installing personalized safety kits that include anti-slip mats, grab bars, and visibility aids.
 - Providing an alarm unit with an emergency switch and control hub that allows your parents to call for help when needed.
 - Offering professional installation services to ensure everything is set up correctly and customized for your parents' needs.
-- Giving you access to an Eyeagle circle mobile app where you can receive alerts, updates, and maintain a connected line of support.
+- Giving you access to an EyEagle circle mobile app where you can receive alerts, updates, and maintain a connected line of support.
 
 ## Remote Health Monitoring Challenges and How to Navigate Them
 

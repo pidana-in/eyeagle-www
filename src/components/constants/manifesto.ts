@@ -65,17 +65,17 @@ export const contexts = [
     title:"World Class Safety in the palm of your hands",
     contextList:[
       {imgSrc:worldSafety1,title:"Professional Installation & Personalization",lists:["Our trained professionals install the kit in your home.","The system is calibrated to match your household’s needs."]},
-      {imgSrc:worldSafety2,title:"Connect & Customize the App",lists:["Download the Eyeagle app and connect it to your device." ,"Add caregivers, set notifications, and customize settings."]},
-      {imgSrc:worldSafety3,title:"Continuous Safety & Instant Alerts",lists:["When the emergency button is pressed or the bathroom door remains closed beyond a set time, an alert is triggered.","Caregivers get notified instantly, and if needed, Eyeagle’s safety team takes action."]},
+      {imgSrc:worldSafety2,title:"Connect & Customize the App",lists:["Download the EyEagle app and connect it to your device." ,"Add caregivers, set notifications, and customize settings."]},
+      {imgSrc:worldSafety3,title:"Continuous Safety & Instant Alerts",lists:["When the emergency button is pressed or the bathroom door remains closed beyond a set time, an alert is triggered.","Caregivers get notified instantly, and if needed, EyEagle’s safety team takes action."]},
     ]
   }
 
   export const BenifitsData={
     title:"BENEFITS",
-    subTitle:"Why Eyeagle Works Best",
+    subTitle:"Why EyEagle Works Best",
     remarks:[
       {iconType:"help_clinic",context:"Reliable Emergency Alerts"},
-      {iconType:"support_agent",context:"Caregivers + Eyeagle’s safety team act immediately."},
+      {iconType:"support_agent",context:"Caregivers + EyEagle’s safety team act immediately."},
       {iconType:"airport_shuttle",context:"Ambulance Services in case of emergency"},
       {iconType:"guardian",context:" You’re always in control, even from miles away."}
   ],

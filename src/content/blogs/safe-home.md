@@ -63,7 +63,7 @@ Key bathroom safety modifications include:
 
 - Keeping toiletries within easy reach to avoid sudden movements
 
-Many families only realize bathroom risks after an accident occurs. Today, some homeowners choose to conduct a basic bathroom safety assessment to identify hazards early and plan preventive steps. Simple modifications like <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Eyeagle bathroom safety fittings</a> can dramatically improve safety without affecting comfort or appearance.
+Many families only realize bathroom risks after an accident occurs. Today, some homeowners choose to conduct a basic bathroom safety assessment to identify hazards early and plan preventive steps. Simple modifications like <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a> can dramatically improve safety without affecting comfort or appearance.
 
 ## Stairways, Hallways, and Doorways: Everyday Danger Zones
 
