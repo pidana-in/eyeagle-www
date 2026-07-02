@@ -65,6 +65,7 @@ import blogImage30 from "../../assets/Blog/BlogImage30.jpg";
 import blogImage31 from "../../assets/Blog/BlogImage31.jpg";
 import blogImage32 from "../../assets/Blog/BlogImage32.jpg";
 import blogImage33 from "../../assets/Blog/BlogImage33.jpg";
+import blogImage34 from "../../assets/Blog/BlogImage34.jpg";
 
 export const bathroomData = [
   {
@@ -359,6 +360,12 @@ export const blogsData = [
     title: "How EyEagle Works When You’re Miles Away",
     desc: "Discover how the EyEagle fall alert device helps families protect elderly loved ones from afar. Read on to know more.",
     img: blogImage33,
+  },
+  {
+    slug: "monsoon-bathroom-safety-tips-for-seniors",
+    title: "Monsoon Bathroom Safety Tips for Seniors | EyEagle",
+    desc: "Protect elderly loved ones this monsoon with practical bathroom safety tips to prevent slips, falls, and injuries. Learn how to make bathrooms safer.",
+    img: blogImage34,
   },
 ];
 
