@@ -1,4 +1,4 @@
-import HeroImage from "../../assets/NewApp/Hero-new.png";
+import HeroImage from "../../assets/NewApp/HeroImage.png";
 import HeroImageMobile from "../../assets/NewApp/Hero-new-mobile.png";
 // import AppInfograph from "../../assets/NewApp/AppInfograph.png";
 import ImageCard1 from "../../assets/NewApp/ImageCard-1.png";
