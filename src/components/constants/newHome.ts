@@ -232,19 +232,19 @@ export const testimonialData = {
       quote:
         "Love that it doesn't need WiFi and works during power cuts. The Guardian-X kit has been incredibly dependable. It's reassuring to know the system is always ready when needed.",
       author: "— Anil Jain, Gurugram",
-      image: testimonialImg3,
+      image: testimonialImg2,
     },
     {
       quote:
         "The high-decibel alarm is impressively loud, and I received an alert almost immediately during testing. It gives our family confidence we'll know right away if my father needs help.",
       author: "— Jatin Narang, Ghaziabad",
-      image: testimonialImg4,
+      image: testimonialImg3,
     },
     {
       quote:
         "Finally have peace of mind when Mom is alone. The SOS button is a lifesaver and simple for her to use. Knowing help can be alerted instantly has taken a huge weight off our shoulders.",
       author: "— Nikhil Sachan, Pune",
-      image: testimonialImg2,
+      image: testimonialImg4,
     },
     {
       quote:
