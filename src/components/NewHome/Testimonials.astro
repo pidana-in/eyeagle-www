@@ -84,6 +84,8 @@ const testimonialData = Astro.props.testimonialData;
               src={testimonialData.testimonials[0].image}
               alt="testimonial"
               class="w-full h-full object-cover"
+              loading="eager"
+              fetchpriority="high"
             />
           </div>
         </div>
