@@ -23,8 +23,8 @@ import device from "../../assets/NewHome/device.png";
 import app from "../../assets/NewHome/app.png";
 import HelpImage from "../../assets/NewHome/HelpImage.png";
 import HelpImageMobile from "../../assets/NewHome/HelpImageMobile.png";
-import testimonialImg from "../../assets/NewHome/Testimonial.png";
-import testimonialImg2 from "../../assets/NewHome/testimonialImage2.png";
+import testimonialImg1 from "../../assets/NewHome/Testimonial1.png";
+import testimonialImg2 from "../../assets/NewHome/testimonial2.png";
 import testimonialImg3 from "../../assets/NewHome/Testimonial3.png";
 import testimonialImg4 from "../../assets/NewHome/Testimonial4.png";
 import testimonialImg5 from "../../assets/NewHome/Testimonial5.png";
@@ -226,7 +226,7 @@ export const testimonialData = {
       quote:
         "We thought the bathroom was 'fine' until the team mapped the space and showed us where slips usually happen. The setup feels safer without making the home feel like a hospital.",
       author: "— Subhash Kumar, Bengaluru",
-      image: testimonialImg,
+      image: testimonialImg1,
     },
     {
       quote:
