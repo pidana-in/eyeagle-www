@@ -24,7 +24,7 @@ import app from "../../assets/NewHome/app.png";
 import HelpImage from "../../assets/NewHome/HelpImage.png";
 import HelpImageMobile from "../../assets/NewHome/HelpImageMobile.png";
 import testimonialImg1 from "../../assets/NewHome/Testimonial1.png";
-import testimonialImg2 from "../../assets/NewHome/testimonial2.png";
+import testimonialImg2 from "../../assets/NewHome/Testimonial2.png";
 import testimonialImg3 from "../../assets/NewHome/Testimonial3.png";
 import testimonialImg4 from "../../assets/NewHome/Testimonial4.png";
 import testimonialImg5 from "../../assets/NewHome/Testimonial5.png";
