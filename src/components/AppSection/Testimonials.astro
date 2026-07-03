@@ -92,7 +92,7 @@ const testimonials = Astro.props.testimonials as Testimonial[];
 
     if (!slider) return;
 
-    const getScrollAmount = () => {
+    const scrollAmount = () => {
       const cards = slider.querySelectorAll("[data-card]");
       if (cards.length < 2) return cards[0]?.clientWidth || 0;
 
@@ -100,11 +100,22 @@ const testimonials = Astro.props.testimonials as Testimonial[];
     };
 
     next?.addEventListener("click", () => {
-      slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+      const amount = scrollAmount();
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+      slider.scrollTo({
+        left: Math.min(slider.scrollLeft + amount, maxScroll),
+        behavior: "smooth",
+      });
     });
 
     prev?.addEventListener("click", () => {
-      slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+      const amount = scrollAmount();
+
+      slider.scrollTo({
+        left: Math.max(slider.scrollLeft - amount, 0),
+        behavior: "smooth",
+      });
     });
   });
 </script>
