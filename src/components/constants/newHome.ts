@@ -1,4 +1,5 @@
 import HeroImage from "../../assets/NewHome/HomeImage.png";
+import HeroMobile from "../../assets/NewHome/HeroMobile.png";
 import Moment1 from "../../assets/NewHome/Moment1.png";
 import Moment2 from "../../assets/NewHome/Moment2.png";
 import Moment3 from "../../assets/NewHome/Moment3.png";
@@ -50,7 +51,8 @@ export const heroContent = {
 // export const featureTicks = ["No cameras", "No complex setup"];
 
 export const heroData = {
-  img: HeroImage,
+  img1: HeroImage,
+  img2: HeroMobile,
 };
 
 export const principles = [

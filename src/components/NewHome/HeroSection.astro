@@ -9,7 +9,8 @@ type HeroContent = {
 };
 
 type HeroData = {
-  img: ImageMetadata;
+  img1: ImageMetadata;
+  img2: ImageMetadata;
 };
 
 interface Props {
@@ -62,10 +63,19 @@ const { heroContent, heroData } = Astro.props as Props;
     </div>
   </div>
   <div class="mt-10 md:mt-16">
+    <!-- Desktop -->
     <Image
-      src={heroData.img}
+      src={heroData.img1}
       alt="Elderly person fallen at home"
-      class="w-full h-auto object-cover"
+      class="w-full h-auto object-cover md:hidden block"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Mobile-->
+    <Image
+      src={heroData.img2}
+      alt="Elderly person fallen at home"
+      class="w-full h-auto object-cover md:block hidden"
       loading="eager"
       fetchpriority="high"
     />

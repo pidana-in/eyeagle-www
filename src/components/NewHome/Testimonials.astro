@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 const testimonialData = Astro.props.testimonialData;
 ---
 
-<section class="py-14 md:py-[120px]">
+<section class="container py-14 md:py-[120px]">
   <div class="mx-auto w-full max-w-7xl px-6 lg:px-8 text-center">
     <div class="max-w-[800px] mx-auto">
       <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-neutral-800">
@@ -16,14 +16,14 @@ const testimonialData = Astro.props.testimonialData;
       </p>
     </div>
     <div
-      class="relative max-w-[960px] mx-auto mt-12 md:mt-[100px] md:px-12 px-5"
+      class="relative max-w-[960px] mx-auto mt-12 md:mt-[100px] px-10 md:px-16"
     >
       <!-- Left Arrow -->
       <button
         id="prev-btn"
         type="button"
         aria-label="Previous testimonial"
-        class="absolute left-[-20px] md:left-[-160px] top-[24%] -translate-y-1/2 text-[#CC0000] hover:text-[#a30000] transition-all duration-300 hover:scale-110"
+        class="absolute left-[-20px] lg:left-[-36px] xl:left-[-100px] top-[24%] -translate-y-1/2 text-[#CC0000] hover:text-[#a30000] transition-all duration-300 hover:scale-110"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const testimonialData = Astro.props.testimonialData;
         id="next-btn"
         type="button"
         aria-label="Next testimonial"
-        class="absolute right-[-20px] md:right-[-160px] top-[24%] -translate-y-1/2 text-[#CC0000] hover:text-[#a30000] transition-all duration-300 hover:scale-110"
+        class="absolute right-[-20px] lg:right-[-36px] xl:right-[-100px] top-[24%] -translate-y-1/2 text-[#CC0000] hover:text-[#a30000] transition-all duration-300 hover:scale-110"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
