@@ -21,8 +21,8 @@ interface Props {
 const { heroContent, heroData } = Astro.props as Props;
 ---
 
-<section class="py-12 md:py-16 lg:pt-[200px] 2xl:container">
-  <div class="mx-auto max-w-[1200px] text-center">
+<section class="py-12 md:py-16 lg:pt-[200px]">
+  <div class="text-center">
     <div class="max-w-[960px] mx-auto px-4">
       <div
         class="inline-flex py-1.5 px-3 sm:py-2 sm:px-4 rounded-full bg-[#FBEBEB]"
@@ -50,12 +50,9 @@ const { heroContent, heroData } = Astro.props as Props;
         href="https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088"
         target="_blank"
         rel="noopener noreferrer"
+        class="inline-flex px-6 sm:px-10 md:px-14 py-3 md:py-4 text-base md:text-xl font-bold bg-[#CC0000] text-white rounded-full"
       >
-        <button
-          class="px-6 sm:px-10 md:px-14 py-3 md:py-4 text-base md:text-xl font-bold bg-[#CC0000] text-white rounded-full"
-        >
-          Act Now
-        </button>
+        Act Now
       </a>
       <p class="text-gray-600 font-semibold mt-4 text-sm md:text-base">
         Make their home fall proof
@@ -67,7 +64,7 @@ const { heroContent, heroData } = Astro.props as Props;
     <Image
       src={heroData.img1}
       alt="Elderly person fallen at home"
-      class="w-full h-auto object-cover md:hidden block"
+      class="hidden md:block w-full h-[65vh] object-cover"
       loading="eager"
       fetchpriority="high"
     />
@@ -75,7 +72,7 @@ const { heroContent, heroData } = Astro.props as Props;
     <Image
       src={heroData.img2}
       alt="Elderly person fallen at home"
-      class="w-full h-auto object-cover md:block hidden"
+      class="block md:hidden w-full object-cover"
       loading="eager"
       fetchpriority="high"
     />
