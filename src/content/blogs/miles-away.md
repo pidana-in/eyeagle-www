@@ -3,7 +3,7 @@ id: "35"
 title: "How EyEagle Works When You’re Miles Away"
 category: "Blog"
 img: ../../assets/Blog/BlogImage33.jpg
-slug: "chow-eyeagle-works-when-you-are-miles-away"
+slug: "how-eyeagle-works-when-you-are-miles-away"
 author: "Dr. Ambika Chaurasia"
 authorRole: "Consultant"
 date: 2026-07-01
