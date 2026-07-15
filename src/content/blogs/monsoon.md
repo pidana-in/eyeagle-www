@@ -1,6 +1,7 @@
 ---
 id: "36"
 title: "Monsoon Bathroom Safety Tips for Seniors | EyEagle"
+desc: "Protect elderly loved ones this monsoon with practical bathroom safety tips to prevent slips, falls, and injuries. Learn how to make bathrooms safer."
 category: "Blog"
 img: ../../assets/Blog/BlogImage34.jpg
 slug: "monsoon-bathroom-safety-tips-for-seniors"
@@ -187,4 +188,3 @@ Along with simple bathroom safety upgrades, solutions like the **EyEagle App** a
 Monsoon bathroom safety is not a luxury. For Indian seniors, it is essential. This rainy season, choose to act before something goes wrong.
 
 > **Is your bathroom ready for monsoon?** EyEagle offers a free safety consultation and professional bathroom audit for Indian homes. Book your safety audit at <a href="http://eyeagle.ai" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">eyeagle.ai</a> and give your family peace of mind this rainy season.
-

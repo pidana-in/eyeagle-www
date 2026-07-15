@@ -1,6 +1,7 @@
 ---
 id: "22"
 title: "Turning Your Home Into a Safe Home in 2026"
+desc: "Learn how to turn your home into a safe home in 2026 with practical home safety improvements, fall prevention tips, and age-friendly changes."
 category: "Blog"
 img: ../../assets/Blog/BlogImage20.jpg
 slug: "how-to-make-your-home-safe"

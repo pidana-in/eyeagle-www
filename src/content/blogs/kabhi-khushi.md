@@ -1,6 +1,7 @@
 ---
 id: "30"
 title: "Kabhi Khushi Kabhie Gham: Protecting Our Elders at Home"
+desc: "A complete guide to protecting our elders at home with safety tips, elder care routines & wellness practices."
 category: "Blog"
 img: ../../assets/Blog/BlogImage28.jpg
 slug: "protecting-elders-at-home-safety-guide"

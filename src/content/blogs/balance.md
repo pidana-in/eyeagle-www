@@ -1,6 +1,7 @@
 ---
 id: "8"
 title: "Balance Trouble? It’s More Than Just Old Age"
+desc: "Learn common causes, early warning signs, & simple prevention tips for balance problems in elderly to reduce fall risks and stay independent."
 category: "Blog"
 img: ../../assets/Blog/BlogImage8.jpg
 slug: "balance-problems-in-elderly"

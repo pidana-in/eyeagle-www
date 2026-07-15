@@ -1,6 +1,7 @@
 ---
 id: "29"
 title: "India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors"
+desc: "Learn why safer homes are essential for India’s seniors and how simple changes can prevent slips, falls, and mobility risks."
 category: "Blog"
 img: ../../assets/Blog/BlogImage27.jpg
 slug: "senior-home-safety-india"

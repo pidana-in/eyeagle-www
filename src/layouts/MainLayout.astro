@@ -628,6 +628,32 @@ const { noindex } = Astro.props;
     border-radius: 16px;
   }
 
+  .prose ul ul {
+    list-style-type: circle;
+  }
+
+  .prose ul > li::marker,
+  .prose ol > li::marker {
+    color: #000;
+  }
+
+  .prose blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #FBEBEB;
+    border: none;
+    border-radius: 16px;
+    color: #262626;
+    font-style: normal;
+  }
+
+  .prose blockquote p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+
   /* Hide scrollbars on mobile */
   @media screen and (max-width: 768px) {
     html,

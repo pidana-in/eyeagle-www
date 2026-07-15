@@ -1,6 +1,7 @@
 ---
 id: "16"
 title: "Stretch Daily, Fall Less: Gentle Mobility Tips for Seniors"
+desc: "Know gentle mobility tips for seniors, including safe stretching routines and fall prevention exercises. Improve flexibility & strength after 60."
 category: "Blog"
 img: ../../assets/Blog/BlogImage14.jpg
 slug: "mobility-tips-for-seniors"

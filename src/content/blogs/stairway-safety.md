@@ -1,6 +1,7 @@
 ---
 id: "31"
 title: "Stairway Safety:Simple Fixes to Prevent Slips, Trips & Falls"
+desc: "Improve stairway safety at home with simple fixes. Learn practical stair safety tips to prevent accidents, and make every step safer."
 category: "Blog"
 img: ../../assets/Blog/BlogImage29.jpg
 slug: "stairway-safety-tips-prevent-accidents"

@@ -44,6 +44,18 @@ const metaImage = blogMeta?.img
   : blog.data.img
     ? `${site}${blog.data.img.src}`
     : "";
+
+const availableBlogs = blogs.filter((b) => b.data.slug !== blog.data.slug);
+
+for (let i = availableBlogs.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [availableBlogs[i], availableBlogs[j]] = [
+    availableBlogs[j],
+    availableBlogs[i],
+  ];
+}
+
+const relatedBlogs = availableBlogs.slice(0, 3);
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc} metaImage={metaImage}>
@@ -105,14 +117,14 @@ const metaImage = blogMeta?.img
     </div>
   </section>
 
-  <article class="px-6 md:px-10 lg:px-40 py-16 lg:py-20">
+  <article class="px-6 md:px-10 lg:px-40 pt-16 lg:pt-20">
     <div
       class="mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 place-content-between"
     >
       <!-- TOC -->
       <aside class="hidden lg:block w-[280px] shrink-0">
         <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-          <h3 class="text-xs font-bold uppercase text-[#CC0000] mb-6">
+          <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
             In This Article
           </h3>
 
@@ -128,6 +140,7 @@ const metaImage = blogMeta?.img
       <div
         id="blog-content"
         class="prose prose-lg max-w-[760px]
+        prose-li:marker:text-[#111827]
         prose-h2:scroll-mt-24 prose-h3:scroll-mt-24
         prose-h1:text-2xl lg:prose-h1:text-5xl prose-h2:text-xl
         prose-h3:text-lg lg:prose-h3:text-3xl lg:prose-h2:text-4xl
@@ -141,30 +154,89 @@ const metaImage = blogMeta?.img
     </div>
   </article>
 
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-      const article = document.getElementById("blog-content");
-      const toc = document.getElementById("toc");
+  <!-- CTA -->
+  <div class="mt-20 px-[120px]">
+    <div
+      class="rounded-[32px] bg-[#CC0000] px-10 py-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8"
+    >
+      <div class="">
+        <p class="text-sm uppercase tracking-wide text-white mb-4">Next Step</p>
+        <h2
+          class="text-white text-3xl font-semibold leading-tight mb-4 max-w-[520px]"
+        >
+          Make every step safer before a fall happens.
+        </h2>
+        <p class="text-white/90 max-w-[640px]">
+          EyEagle helps families move from worry to a practical home safety
+          plan, with support that fits real rooms and real routines.
+        </p>
+      </div>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full bg-white text-[#262626] px-8 py-4 font-medium hover:bg-gray-100"
+      >
+        Get bathroom assessment
+      </a>
+    </div>
+  </div>
 
-      if (!article || !toc) return;
-
-      // Only include headings
-      const headings = article.querySelectorAll("h2");
-
-      headings.forEach((heading, index) => {
-        if (!heading.id) {
-          heading.id = `heading-${index + 1}`;
-        }
-
-        const link = document.createElement("a");
-        link.href = `#${heading.id}`;
-        link.textContent = heading.textContent;
-
-        link.className =
-          "block text-[16px] leading-7 text-[#4B5563] hover:text-[#CC0000]";
-
-        toc.appendChild(link);
-      });
-    });
-  </script>
+  <!-- Related Reading -->
+  <div class="not-prose my-20 mx-[120px]">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-4xl font-semibold text-[#262626]">Related reading</h2>
+      <a
+        href="/blog"
+        class="text-[#CC0000] text-sm font-medium uppercase hover:underline"
+      >
+        View All
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        relatedBlogs.map((item) => (
+          <a
+            href={`/blogs/${item.data.slug}`}
+            class="block rounded-3xl border border-[#E5E5E5] p-6 transition-all duration-300 hover:shadow-md"
+          >
+            <p class="text-[#CC0000] text-sm uppercase font-medium mb-5">
+              Insights
+            </p>
+            <h3 class="text-xl font-semibold text-[#262626] leading-snug mb-4 line-clamp-2">
+              {item.data.title}
+            </h3>
+            <p class="text-[#525252] leading-7 line-clamp-2">
+              {item.data.desc}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </MainLayout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const article = document.getElementById("blog-content");
+    const toc = document.getElementById("toc");
+
+    if (!article || !toc) return;
+
+    // Only include headings
+    const headings = article.querySelectorAll("h2");
+
+    headings.forEach((heading, index) => {
+      if (!heading.id) {
+        heading.id = `heading-${index + 1}`;
+      }
+
+      const link = document.createElement("a");
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent;
+
+      link.className =
+        "block text-[16px] leading-7 text-[#525252] hover:text-[#CC0000]";
+
+      toc.appendChild(link);
+    });
+  });
+</script>

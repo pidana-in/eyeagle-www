@@ -1,6 +1,7 @@
 ---
 id: "7"
 title: "Arthritis & Joint Pain in Seniors: How Safety Upgrades Help Reduce Fall Risk"
+desc: "Learn how Arthritis & Joint Pain in seniors increase fall risks & how you can prevent them with safety upgrades, fall prevention strategies."
 category: "Blog"
 img: ../../assets/Blog/BlogImage7.jpg
 slug: "arthritis-and-joint-pain-in-seniors"

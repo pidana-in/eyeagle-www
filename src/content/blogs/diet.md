@@ -1,6 +1,7 @@
 ---
 id: "14"
 title: "The Role of Diet and Nutrition in Healthy Aging"
+desc: "Know how good nutrition supports healthy aging by boosting strength, balance, and energy. Learn key diet tips for keeping older adults healthy and independent."
 category: "Blog"
 img: ../../assets/Blog/BlogImage12.jpg
 slug: "diet-and-nutrition-in-healthy-aging"

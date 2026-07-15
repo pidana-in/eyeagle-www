@@ -1,6 +1,7 @@
 ---
 id: "32"
 title: "The 'Why Not Me?' Mentality: Addressing Senior Denial About Fall Risk"
+desc: "Learn what is senior fall risk and how families can address it. Explore psychological barriers, consequences and prevention tips."
 category: "Blog"
 img: ../../assets/Blog/BlogImage30.jpg
 slug: "senior-fall-risk-denial-why-not-me-mentality"

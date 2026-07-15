@@ -1,6 +1,7 @@
 ---
 id: "10"
 title: "The Importance of Regular Vision Checks for Fall Prevention"
+desc: "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent."
 category: "Blog"
 img: ../../assets/Blog/BlogImage10.jpg
 slug: "importance-of-regular-vision-checks"
@@ -29,14 +30,12 @@ Many seniors don’t realize how much their eyesight affects their safety. Somet
 
 **Vision Problems and Fall Risks**
 
-
-| **Eye Condition**       | **How It Increases Fall Risk**                                                                 |
-|--------------------------|-----------------------------------------------------------------------------------------------|
-| **Cataracts**            | Blurred/cloudy vision makes it harder to see steps and adjust to changes in lighting.          |
-| **Glaucoma**             | Loss of side vision leads to missed obstacles and tripping hazards.                            |
+| **Eye Condition**        | **How It Increases Fall Risk**                                                                       |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Cataracts**            | Blurred/cloudy vision makes it harder to see steps and adjust to changes in lighting.                |
+| **Glaucoma**             | Loss of side vision leads to missed obstacles and tripping hazards.                                  |
 | **Macular Degeneration** | Central vision loss makes it difficult to detect small details like cords, pets, or uneven flooring. |
-| **Presbyopia**           | Trouble with near vision causes difficulties in noticing small objects or reading instructions. |
-
+| **Presbyopia**           | Trouble with near vision causes difficulties in noticing small objects or reading instructions.      |
 
 ## Why Regular Vision Checks Are Essential
 
@@ -80,7 +79,7 @@ Loose rugs, electrical cords, and cluttered walkways are common culprits in fall
 
 ### Paying special attention to bathroom safety
 
-The bathroom is one of the most dangerous places for falls due to slippery surfaces. Installing grab bars, non-slip mats, and using the  <a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Bathroom Safety Kit</a> can greatly reduce risks.
+The bathroom is one of the most dangerous places for falls due to slippery surfaces. Installing grab bars, non-slip mats, and using the <a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Bathroom Safety Kit</a> can greatly reduce risks.
 
 ### Using mobility aids when necessary
 

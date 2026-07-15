@@ -1,6 +1,7 @@
 ---
 id: "26"
 title: "Many Seniors Are Ill — and Don’t Know It: What That Means for Home Safety"
+desc: "Many seniors have undiagnosed illnesses that increase fall and injury risks at home. Know about how families can improve senior home safety."
 category: "Blog"
 img: ../../assets/Blog/BlogImage24.jpg
 slug: "senior-hidden-illness-and-home-safety"

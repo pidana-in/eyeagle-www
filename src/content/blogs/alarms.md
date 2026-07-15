@@ -1,6 +1,7 @@
 ---
 id: "5"
 title: “One Fall Changed Everything” - Real Stories of Families Who Wish they Had a Fall Alarm
+desc: "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle."
 category: "Blog"
 img: ../../assets/Blog/BlogImage5.jpg
 slug: "why-fall-alarms-for-seniors-matter"

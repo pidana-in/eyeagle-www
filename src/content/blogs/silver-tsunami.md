@@ -1,6 +1,7 @@
 ---
 id: "19"
 title: "Silver Tsunami in India: Building a Safer Future for Seniors"
+desc: "Explore how India’s Silver Tsunami demands better senior safety, healthcare, and community care for a dignified and inclusive future."
 category: "Blog"
 img: ../../assets/Blog/BlogImage17.jpg
 slug: "silver-tsunami-india-safer-future-for-seniors"

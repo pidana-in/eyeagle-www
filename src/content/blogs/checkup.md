@@ -1,6 +1,7 @@
 ---
 id: "15"
 title: "Health Checkups After 60: A Complete Guide for Seniors"
+desc: "Discover the must-do health checkups after 60, from heart and diabetes to bone density. A complete guide for seniors and caregivers."
 category: "Blog"
 img: ../../assets/Blog/BlogImage13.jpg
 slug: "regular-health-checkups-for-seniors"

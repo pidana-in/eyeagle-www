@@ -1,6 +1,7 @@
 ---
 id: "28"
 title: "Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority"
+desc: "Falls are one of the biggest risks to senior safety. Learn practical strategies and home safety tips for elderly fall prevention."
 category: "Blog"
 img: ../../assets/Blog/BlogImage26.jpg
 slug: "importance-of-elderly-fall-prevention"

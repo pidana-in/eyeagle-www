@@ -1,6 +1,7 @@
 ---
 id: "35"
 title: "How EyEagle Works When You’re Miles Away"
+desc: "Discover how the EyEagle fall alert device helps families protect elderly loved ones from afar. Read on to know more."
 category: "Blog"
 img: ../../assets/Blog/BlogImage33.jpg
 slug: "how-eyeagle-works-when-you-are-miles-away"

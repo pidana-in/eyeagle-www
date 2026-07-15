@@ -1,6 +1,7 @@
 ---
 id: "33"
 title: "What Changed When We Added Bathroom Safety Features to Our Home"
+desc: "Discover how simple bathroom safety features improved comfort, reduced fall risks, and supported safe aging in place for our family."
 category: "Blog"
 img: ../../assets/Blog/BlogImage31.jpg
 slug: "bathroom-safety-features-at-home"

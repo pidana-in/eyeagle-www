@@ -1,6 +1,7 @@
 ---
 id: "12"
 title: "Senior Safety During Diwali | Keep Your Loved Ones Safe"
+desc: "Learn why senior safety during Diwali is important and how you can implement them in your homes this festive season."
 category: "Blog"
 img: ../../assets/Blog/BlogDiwali1.jpg
 slug: "senior-safety-during-diwali"

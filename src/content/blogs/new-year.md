@@ -1,6 +1,7 @@
 ---
 id: "20"
 title: "New Year, Safer Home: Small Changes That Save Lives"
+desc: "Start the New Year with simple home safety tips that prevent accidents and protect families and seniors. Small safety changes can save lives."
 category: "Blog"
 img: ../../assets/Blog/BlogImage18.jpg
 slug: "new-year-safer-home-safety-tips"

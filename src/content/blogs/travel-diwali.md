@@ -1,6 +1,7 @@
 ---
 id: "13"
 title: "Diwali Travel vs. At-Home Safety: What Families Should Prepare For"
+desc: "Plan a safe, stress-free Diwali with smart travel tips and home safety ideas. Celebrate with awareness & joy wherever you light your diyas."
 category: "Blog"
 img: ../../assets/Blog/BlogDiwali2.jpg
 slug: "diwali-travel-safety-tips-for-seniors"
