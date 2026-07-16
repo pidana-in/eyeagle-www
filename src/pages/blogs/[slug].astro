@@ -127,7 +127,84 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
     <div
       class="mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 place-content-between"
     >
-      <!-- TOC -->
+      <!-- Mobile -->
+      <aside class="block lg:hidden mb-8">
+        <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
+          <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+            In This Article
+          </h3>
+
+          <nav id="toc-mobile" class="space-y-3 text-sm text-[#525252]"></nav>
+        </div>
+
+        <p class="mt-6 text-sm font-normal text-[#5A5A5A]">SHARE</p>
+
+        <div class="flex items-center gap-4 mt-3">
+          <!-- X -->
+          <a
+            href={xShare}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on X"
+            class="text-[#525252] hover:text-[#737373] transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M11 4C7.134 4 4 7.134 4 11V39C4 42.866 7.134 46 11 46H39C42.866 46 46 42.866 46 39V11C46 7.134 42.866 4 39 4H11ZM13.086 13H21.023L26.66 21.01L33.5 13H36L27.789 22.613L37.914 37H29.979L23.438 27.707L15.5 37H13L22.309 26.104L13.086 13Z"
+              ></path>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            href={facebookShare}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Facebook"
+            class="text-[#525252] hover:text-[#737373] transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,.5-3,2v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
+              ></path>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a
+            href={linkedinShare}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on LinkedIn"
+            class="text-[#525252] hover:text-[#737373] transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04H29.42C27,24.96,26,27.02,26,29v10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Desktop -->
       <aside class="hidden lg:block w-[280px] shrink-0">
         <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
           <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
@@ -248,9 +325,14 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
   </div> -->
 
   <!-- Related Reading -->
-  <div class="not-prose my-20 mx-[120px]">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-4xl font-semibold text-[#262626]">Related reading</h2>
+  <div class="not-prose my-12 lg:my-20 px-6 lg:px-40">
+    <div
+      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 lg:mb-8"
+    >
+      <h2 class="text-2xl lg:text-4xl font-semibold text-[#262626]">
+        Related reading
+      </h2>
+
       <a
         href="/blog"
         class="text-[#CC0000] text-sm font-medium uppercase hover:underline"
@@ -258,20 +340,23 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
         View All
       </a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
       {
         relatedBlogs.map((item) => (
           <a
             href={`/blogs/${item.data.slug}`}
-            class="block rounded-3xl border border-[#E5E5E5] p-6 transition-all duration-300 hover:shadow-md"
+            class="block rounded-3xl border border-[#E5E5E5] p-5 lg:p-6 transition-all duration-300 hover:shadow-md"
           >
-            <p class="text-[#CC0000] text-sm uppercase font-medium mb-5">
+            <p class="text-[#CC0000] text-sm uppercase font-medium mb-4 lg:mb-5">
               Insights
             </p>
-            <h3 class="text-xl font-semibold text-[#262626] leading-snug mb-4 line-clamp-2">
+
+            <h3 class="text-lg lg:text-xl font-semibold text-[#262626] leading-snug mb-3 lg:mb-4 line-clamp-2">
               {item.data.title}
             </h3>
-            <p class="text-[#525252] leading-7 line-clamp-2">
+
+            <p class="text-[#525252] text-sm lg:text-base leading-6 lg:leading-7 line-clamp-2">
               {item.data.desc}
             </p>
           </a>
@@ -284,11 +369,11 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const article = document.getElementById("blog-content");
-    const toc = document.getElementById("toc");
+    const tocDesktop = document.getElementById("toc");
+    const tocMobile = document.getElementById("toc-mobile");
 
-    if (!article || !toc) return;
+    if (!article) return;
 
-    // Only include headings
     const headings = article.querySelectorAll("h2");
 
     headings.forEach((heading, index) => {
@@ -296,14 +381,18 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
         heading.id = `heading-${index + 1}`;
       }
 
-      const link = document.createElement("a");
-      link.href = `#${heading.id}`;
-      link.textContent = heading.textContent;
+      [tocDesktop, tocMobile].forEach((toc) => {
+        if (!toc) return;
 
-      link.className =
-        "block text-[16px] leading-7 text-[#525252] hover:text-[#CC0000]";
+        const link = document.createElement("a");
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent;
 
-      toc.appendChild(link);
+        link.className =
+          "block text-[16px] leading-7 text-[#525252] hover:text-[#CC0000]";
+
+        toc.appendChild(link);
+      });
     });
   });
 </script>
