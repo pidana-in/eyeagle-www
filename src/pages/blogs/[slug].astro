@@ -4,6 +4,7 @@ export const prerender = true;
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
+import Divider from "../../assets/Blog/Divider.png";
 import { blogsData } from "../../components/constants/home";
 
 export async function getStaticPaths() {
@@ -118,7 +119,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       </div>
     </div>
     <div class="flex justify-center mt-20">
-      <img src="/src/assets/Blog/Divider.png" alt="divider" />
+      <Image src={Divider} alt="Divider" />
     </div>
   </section>
 
@@ -135,7 +136,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
 
           <nav id="toc" class="space-y-3 text-sm text-[#525252]"></nav>
         </div>
-        
+
         <p class="mt-8 text-sm font-normal text-[#5A5A5A]">SHARE</p>
         <div class="flex items-center gap-4 mt-3">
           <!-- X -->
