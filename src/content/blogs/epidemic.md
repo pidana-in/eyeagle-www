@@ -1,6 +1,7 @@
 ---
 id: "2"
 title: "The Silent Epidemic: Why Falls Are the Biggest Threat to Seniors"
+desc: "Why falls in the elderly are a silent epidemic, how they impact families, & how to prevent them with smart solutions like EyEagle."
 category: "Blog"
 img: ../../assets/Blog/BlogImage2.jpg
 slug: "why-falls-are-the-biggest-threat-to-seniors"
@@ -31,12 +32,10 @@ That’s why experts are calling falls in the elderly a silent epidemic- a growi
 
 So, when we break the silence, we can start making a difference.
 
-
 ## A fall doesn’t just hurt the body- it affects the whole life
 
 When a senior falls, it’s not just about a broken bone or a trip to the hospital. The impact often goes much deeper. Many older adults lose their confidence after a fall. They may stop walking around freely or avoid certain activities, even if they enjoyed them before.
 This fear of falling again can lead to a loss of independence. For someone who once moved around the house with ease, suddenly needing help can be emotionally upsetting.
-
 
 ### Physical health takes a big hit
 
@@ -44,13 +43,11 @@ Falls in the elderly are a major cause of injuries such as hip fractures, head i
 
 Even after recovery, many seniors don’t regain the strength or balance they had before the fall. Some may never return to their normal routine again.
 
-
 ### Emotional and mental health suffer too
 
 Imagine how it feels to suddenly rely on others for simple tasks. Many seniors feel frustrated, embarrassed, or even depressed after a fall. Some may isolate themselves or avoid social interactions, afraid of falling in front of others.
 
 Family members also feel the emotional weight. Watching a loved one go through pain, fear, or loss of independence is not easy. Caregivers may face stress and anxiety, especially when they’re unsure how to help or prevent future falls.
-
 
 ### The financial burden is real
 
@@ -58,28 +55,23 @@ Medical costs after a fall can be very high. Hospital charges, surgeries, medica
 
 Even small injuries can lead to lost work days for family members who need to become caregivers, adding to the financial strain.
 
-
 ### Making prevention a priority with the right support
 
 The impact of falls in the elderly is serious, but we can try and prevent some of these risks with a little help. EyEagle combines proactive bathroom safety installations with an alarm system and Circles app, helping families respond quickly in emergencies.
 
 When seniors feel safer in their environment, and when families have tools to respond quickly, the emotional and physical impact of falls can be reduced and sometimes, avoided altogether.
 
-
 ## What causes falls in elderly people
 
 The truth is, aging changes everything. Muscle strength fades, bones become brittle, and
 reflexes slow down. Elders, who once carried heavy sacks of rice without breaking a sweat, now hesitate before climbing stairs. It’s not just weakness—it’s biology.
 
-But it’s not just their bodies failing them. Most of our homes were never designed with senior safety in mind, especially bathrooms. 
+But it’s not just their bodies failing them. Most of our homes were never designed with senior safety in mind, especially bathrooms.
 Think about it: slippery marble floors, dimly lit corridors, bathrooms without grab bars. We decorate for aesthetics, not safety. And when an elderly person lives alone or with little supervision, a simple fall can become a disaster.
-
 
 ## Can falls in the elderly be prevented? In many cases-yes.
 
-
-![Infographic](../../assets/Blog/BlogImage(Infographics)2.jpg)
-
+![Infographic](<../../assets/Blog/BlogImage(Infographics)2.jpg>)
 
 Preventing falls isn’t just about reacting after one happens. It’s about creating a safer environment and a healthier routine that reduces the risk in the first place.
 
@@ -94,12 +86,9 @@ Here are some effective tips on how to prevent falls in old age:
 
 But sometimes, even with the best efforts, accidents can still happen. That’s why prevention must be paired with preparedness.
 
-
 ## EyEagle: Complete Safety, Thoughtfully Designed
 
-
-![Secondarybanner](../../assets/Blog/BlogImage2(SecondaryBannerImage)2.jpg)
-
+![Secondarybanner](<../../assets/Blog/BlogImage2(SecondaryBannerImage)2.jpg>)
 
 EyEagle: more than just an alarm- it’s like having a guardian angel at home. When it comes to protecting your loved ones, EyEagle offers more than a quick fix. It’s a thoughtfully designed bathroom fall prevention system, alarming caregivers and enabling rapid response.
 
@@ -109,6 +98,7 @@ EyEagle: more than just an alarm- it’s like having a guardian angel at home. W
 
 **Guardian-X System:**
 A patent-pending smart system that features:
+
 - Loud emergency alarm
 - SmartLock that detects doors locked too long
 - SOS buttons placed for easy access

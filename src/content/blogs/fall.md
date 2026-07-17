@@ -1,6 +1,7 @@
 ---
 id: "1"
 title: "Falls Kill More Seniors Than You Think – But No One Talks About It"
+desc: "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care."
 category: "Blog"
 img: ../../assets/Blog/BlogImage1.jpg
 slug: "falls-kill-more-seniors-than-you-think"
@@ -28,8 +29,7 @@ for elderly users — especially those most at risk during nighttime or in the b
 
 ## The Statistics We Can’t Ignore
 
-![Infographic](../../assets/Blog/BlogImage(Infographics)1.jpg)
-
+![Infographic](<../../assets/Blog/BlogImage(Infographics)1.jpg>)
 
 Let’s break it down:
 
@@ -106,9 +106,7 @@ Know more
 
 ## Why EyEagle Isn’t Just a Product — It’s a Promise
 
-
-![Secondary banner](../../assets/Blog/BlogImage(SecondaryBannerImage)1.jpg)
-
+![Secondary banner](<../../assets/Blog/BlogImage(SecondaryBannerImage)1.jpg>)
 
 EyEagle is more than hardware and alerts. It’s a system built around respect, empathy, and trust. From the moment a technician steps into the home for a bathroom safety audit to the instant a caregiver receives an alert, EyEagle is with families at every step. It protects not just the elderly person but the peace of mind of everyone who loves them. We don’t offer empty guarantees. We offer realistic, reliable safety that is installed by people who care.
 

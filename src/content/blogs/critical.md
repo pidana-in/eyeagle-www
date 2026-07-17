@@ -1,6 +1,7 @@
 ---
 id: "11"
 title: "What Happens After a Fall? The Critical 60 Minutes"
+desc: "The first 60 minutes after a fall are critical. Learn how quick response & early treatment of fall injuries can save lives."
 category: "Blog"
 img: ../../assets/Blog/BlogImage11.jpg
 slug: "the-critical-60-minutes-after-a-fall"

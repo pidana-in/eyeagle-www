@@ -4,6 +4,7 @@ export const prerender = true;
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
+import Divider from "../../assets/Blog/Divider.png";
 import { blogsData } from "../../components/constants/home";
 
 export async function getStaticPaths() {
@@ -28,26 +29,38 @@ if (!blog) {
 
 const { Content } = await render(blog);
 
-const blogMeta = blogsData.find(
-  (item) => item.slug === blog.data.slug
-);
+const blogMeta = blogsData.find((item) => item.slug === blog.data.slug);
 
 const metaTitle = blogMeta?.title ?? blog.data.title;
 
-const metaDesc =
-  blogMeta?.desc ??
-  "Read the latest article on EyEagle's blog.";
+const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
 
-const site = (
-  Astro.site?.toString() ||
-  "https://eyeagle.ai"
-).replace(/\/+$/, "");
+const site = (Astro.site?.toString() || "https://eyeagle.ai").replace(
+  /\/+$/,
+  "",
+);
 
 const metaImage = blogMeta?.img
   ? `${site}${blogMeta.img.src}`
   : blog.data.img
     ? `${site}${blog.data.img.src}`
     : "";
+
+const availableBlogs = blogs.filter((b) => b.data.slug !== blog.data.slug);
+
+for (let i = availableBlogs.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [availableBlogs[i], availableBlogs[j]] = [
+    availableBlogs[j],
+    availableBlogs[i],
+  ];
+}
+
+const relatedBlogs = availableBlogs.slice(0, 3);
+const blogUrl = `${site}/blogs/${blog.data.slug}`;
+const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`;
+const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogUrl)}`;
+const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(blog.data.title)}`;
 ---
 
 <MainLayout title={metaTitle} desc={metaDesc} metaImage={metaImage}>
@@ -57,20 +70,45 @@ const metaImage = blogMeta?.img
     }
   </style>
 
-  <section class="bg-[#F6F4F2] text-black lg:pt-44 pt-12 px-6 w-full">
+  <section class="bg-[#FFFFFF] lg:pt-44 pt-12 px-6 lg:px-40 w-full">
     <div
       class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8"
     >
       <div>
-        <h1 class="text-4xl lg:text-5xl font-bold mb-4 lg:leading-[54px]">
+        <div class="flex flex-1 items-center gap-4">
+          <a
+            href="/blog"
+            class="inline-flex items-center text-sm font-medium bg-[#FBEBEB] text-[#CC0000] rounded-full px-3 py-2 hover:bg-[#ebcaca] transition"
+          >
+            BLOG
+          </a>
+
+          <p class="text-sm text-[#737373] font-medium">
+            {
+              new Date(blog.data.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </p>
+        </div>
+        <h1
+          class="text-4xl lg:text-5xl font-semibold mt-6 mb-4 lg:leading-[54px]"
+        >
           {blog.data.title}
         </h1>
-        <a
-          href="/blog"
-          class="inline-block border border-black rounded-full px-6 py-2 hover:bg-white transition"
-        >
-          Blog
-        </a>
+        <div class="mt-6 items-center gap-3">
+          <!-- <img
+            src=""
+            alt={blog.data.author}
+            class="w-10 h-10 rounded-full object-cover bg-[#CC0000]"
+          /> -->
+          <p class="text-base font-medium">
+            {blog.data.author}
+          </p>
+          <p class="text-sm mt-1 font-medium text-[#525252]">Consultant</p>
+        </div>
       </div>
       <div class="flex justify-center">
         <Image
@@ -79,44 +117,284 @@ const metaImage = blogMeta?.img
           class="max-h-80 w-auto rounded-2xl"
         />
       </div>
-      <div class="flex flex-col">
-        <p class="uppercase text-lg md:text-xl font-bold tracking-widest">
-          Written by
-        </p>
-        <div class="flex gap-4 mb-8 py-2">
-          <div class="text-sm leading-6">
-            <p class="text-gray-900 font-semibold">
-              {blog.data.author}
-            </p>
-            <p class="text-gray-700 font-semibold">
-              {blog.data.authorRole}
-            </p>
-            <p class="text-sm text-gray-600 mt-1">
-              {
-                new Date(blog.data.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
-              }
-            </p>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="flex justify-center mt-20">
+      <Image src={Divider} alt="Divider" />
     </div>
   </section>
-  <article
-    class="flex place-content-center lg:flex-row px-6 md:px-10 lg:px-20 py-16 md:py-24 lg:pt-32 lg:pb-20 font-instrument-sans gap-10 md:gap-16 lg:gap-32"
-  >
+
+  <article class="px-6 md:px-10 lg:px-40 pt-16 lg:pt-20">
     <div
-      class="prose prose-lg prose-headings:font-sans-instrument tracking-wide text-black marker:text-black md:text-lg max-w-full lg:max-w-6xl font-barlow
-      prose-h1:text-2xl lg:prose-h1:text-5xl prose-h1:leading-tight lg:prose-h1:leading-[1.2]
-      prose-h2:leading-snug lg:prose-h2:leading-normal
-      prose-h2:text-xl lg:prose-h2:text-4xl
-      prose-h3:text-lg lg:prose-h3:text-3xl prose-h3:font-bold
-      prose-h3:leading-snug lg:prose-h3:leading-normal"
+      class="mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 place-content-between"
     >
-      <Content />
+      <!-- Mobile -->
+      <aside class="block lg:hidden mb-8">
+        <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
+          <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+            In This Article
+          </h3>
+
+          <nav id="toc-mobile" class="space-y-3 text-sm text-[#525252]"></nav>
+        </div>
+
+        <p class="mt-6 text-sm font-normal text-[#5A5A5A]">SHARE</p>
+
+        <div class="flex items-center gap-4 mt-3">
+          <!-- X -->
+          <a
+            href={xShare}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on X"
+            class="text-[#525252] hover:text-[#737373] transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M11 4C7.134 4 4 7.134 4 11V39C4 42.866 7.134 46 11 46H39C42.866 46 46 42.866 46 39V11C46 7.134 42.866 4 39 4H11ZM13.086 13H21.023L26.66 21.01L33.5 13H36L27.789 22.613L37.914 37H29.979L23.438 27.707L15.5 37H13L22.309 26.104L13.086 13Z"
+              ></path>
+            </svg>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            href={facebookShare}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on Facebook"
+            class="text-[#525252] hover:text-[#737373] transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,.5-3,2v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
+              ></path>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a
+            href={linkedinShare}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Share on LinkedIn"
+            class="text-[#525252] hover:text-[#737373] transition"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              fill="currentColor"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04H29.42C27,24.96,26,27.02,26,29v10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Desktop -->
+      <aside class="hidden lg:block w-[280px] shrink-0">
+        <div class="sticky top-28">
+          <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
+            <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+              In This Article
+            </h3>
+
+            <nav id="toc" class="space-y-3 text-sm text-[#525252]"></nav>
+          </div>
+
+          <p class="mt-8 text-sm font-normal text-[#5A5A5A]">SHARE</p>
+          <div class="flex items-center gap-4 mt-3">
+            <!-- X -->
+            <a
+              href={xShare}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on X"
+              class="text-[#525252] hover:text-[#737373] transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 50 50"
+                fill="currentColor"
+              >
+                <path
+                  d="M11 4C7.134 4 4 7.134 4 11V39C4 42.866 7.134 46 11 46H39C42.866 46 46 42.866 46 39V11C46 7.134 42.866 4 39 4H11ZM13.086 13H21.023L26.66 21.01L33.5 13H36L27.789 22.613L37.914 37H29.979L23.438 27.707L15.5 37H13L22.309 26.104L13.086 13Z"
+                ></path>
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a
+              href={facebookShare}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on Facebook"
+              class="text-[#525252] hover:text-[#737373] transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 50 50"
+                fill="currentColor"
+              >
+                <path
+                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,.5-3,2v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
+                ></path>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a
+              href={linkedinShare}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on LinkedIn"
+              class="text-[#525252] hover:text-[#737373] transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 50 50"
+                fill="currentColor"
+              >
+                <path
+                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04H29.42C27,24.96,26,27.02,26,29v10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Blog Content -->
+      <div
+        id="blog-content"
+        class="prose prose-lg max-w-[760px]
+        prose-li:marker:text-[#111827]
+        prose-h2:scroll-mt-24 prose-h3:scroll-mt-24
+        prose-h1:text-2xl lg:prose-h1:text-5xl prose-h2:text-xl
+        prose-h3:text-lg lg:prose-h3:text-3xl lg:prose-h2:text-4xl
+        prose-h1:leading-tight lg:prose-h1:leading-[1.2]
+        prose-h2:leading-snug lg:prose-h2:leading-normal
+        prose-h1:font-semibold prose-h2:font-semibold prose-h3:font-semibold
+        prose-h3:leading-snug lg:prose-h3:leading-normal"
+      >
+        <Content />
+      </div>
     </div>
   </article>
+
+  <!-- CTA -->
+  <!-- <div class="mt-20 px-[120px]">
+    <div
+      class="rounded-[32px] bg-[#CC0000] px-10 py-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8"
+    >
+      <div class="">
+        <p class="text-sm uppercase tracking-wide text-white mb-4">Next Step</p>
+        <h2
+          class="text-white text-3xl font-semibold leading-tight mb-4 max-w-[520px]"
+        >
+          Make every step safer before a fall happens.
+        </h2>
+        <p class="text-white/90 max-w-[640px]">
+          EyEagle helps families move from worry to a practical home safety
+          plan, with support that fits real rooms and real routines.
+        </p>
+      </div>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full bg-white text-[#262626] px-8 py-4 font-medium hover:bg-gray-100"
+      >
+        Get bathroom assessment
+      </a>
+    </div>
+  </div> -->
+
+  <!-- Related Reading -->
+  <div class="not-prose my-12 lg:my-20 px-6 lg:px-40">
+    <div
+      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 lg:mb-8"
+    >
+      <h2 class="text-2xl lg:text-4xl font-semibold text-[#262626]">
+        Related reading
+      </h2>
+
+      <a
+        href="/blog"
+        class="text-[#CC0000] text-sm font-medium uppercase hover:underline"
+      >
+        View All
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      {
+        relatedBlogs.map((item) => (
+          <a
+            href={`/blogs/${item.data.slug}`}
+            class="block rounded-3xl border border-[#E5E5E5] p-5 lg:p-6 transition-all duration-300 hover:shadow-md"
+          >
+            <p class="text-[#CC0000] text-sm uppercase font-medium mb-4 lg:mb-5">
+              Blog
+            </p>
+
+            <h3 class="text-lg lg:text-xl font-semibold text-[#262626] leading-snug mb-3 lg:mb-4 line-clamp-2">
+              {item.data.title}
+            </h3>
+
+            <p class="text-[#525252] text-sm lg:text-base leading-6 lg:leading-7 line-clamp-2">
+              {item.data.desc}
+            </p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </MainLayout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const article = document.getElementById("blog-content");
+    const tocDesktop = document.getElementById("toc");
+    const tocMobile = document.getElementById("toc-mobile");
+
+    if (!article) return;
+
+    const headings = article.querySelectorAll("h2");
+
+    headings.forEach((heading, index) => {
+      if (!heading.id) {
+        heading.id = `heading-${index + 1}`;
+      }
+
+      [tocDesktop, tocMobile].forEach((toc) => {
+        if (!toc) return;
+
+        const link = document.createElement("a");
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent;
+
+        link.className =
+          "block text-[16px] leading-7 text-[#525252] hover:text-[#CC0000]";
+
+        toc.appendChild(link);
+      });
+    });
+  });
+</script>

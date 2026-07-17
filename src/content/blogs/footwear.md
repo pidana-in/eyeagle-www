@@ -1,6 +1,7 @@
 ---
 id: "24"
 title: "Winter Footwear Safety: Why the Right Choice Matters at Home"
+desc: "Winter increases fall risks inside homes. Learn how winter footwear safety is important and can prevent winter-related accidents at home."
 category: "Blog"
 img: ../../assets/Blog/BlogImage22.jpg
 slug: "winter-footwear-safety-at-home"

@@ -1,6 +1,7 @@
 ---
 id: "4"
 title: "How to Make Any Bathroom Senior-Safe in Just a Few Simple Steps"
+desc: "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety."
 category: "Blog"
 img: ../../assets/Blog/BlogImage4.jpg
 slug: "step-by-step-bathroom-safety-tips-for-seniors"

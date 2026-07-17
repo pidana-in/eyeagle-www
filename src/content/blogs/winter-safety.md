@@ -1,6 +1,7 @@
 ---
 id: "25"
 title: "Winter Bathroom Safety for Seniors: How to Prevent Slips & Falls"
+desc: "Cold weather increases fall risks for seniors. Learn practical winter bathroom safety tips to keep your elderly loved ones safe."
 category: "Blog"
 img: ../../assets/Blog/BlogImage23.jpg
 slug: "winter-bathroom-safety-for-seniors"

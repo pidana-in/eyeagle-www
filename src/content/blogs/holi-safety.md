@@ -1,6 +1,7 @@
 ---
 id: "27"
 title: "Holi Safety at Home: Prevent Slippery Bathroom Accidents"
+desc: "Practice Holi safety at home with these tips. Learn how to prevent slippery bathroom accidents at home and protect your loved ones."
 category: "Blog"
 img: ../../assets/Blog/HoliBanner.jpg
 slug: "holi-safety-at-home"

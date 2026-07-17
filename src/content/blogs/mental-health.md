@@ -1,6 +1,7 @@
 ---
 id: "9"
 title: "How Fear of Falling Affects Mental Health"
+desc: "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy."
 category: "Blog"
 img: ../../assets/Blog/BlogImage9.jpg
 slug: "how-fear-of-falling-affects-mental-health"

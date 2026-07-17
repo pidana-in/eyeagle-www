@@ -1,6 +1,7 @@
 ---
 id: "6"
 title: "Caring from a Distance: How Urban Migrants Can Keep Elderly Parents Safe Back Home"
+desc: "Learn simple tech tools & routines for caring elderly parents from a distance. Here are ways to protect their physical & emotional well-being."
 category: "Blog"
 img: ../../assets/Blog/BlogImage6.jpg
 slug: "caring-elderly-parents-from-afar"

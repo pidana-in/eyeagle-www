@@ -1,6 +1,7 @@
 ---
 id: "21"
 title: "A Thoughtful New Year Gift: Safety Over Showpieces"
+desc: "Looking for a meaningful New Year gift? Discover why practical safety gifts offer lasting care and everyday protection for loved ones."
 category: "Blog"
 img: ../../assets/Blog/BlogImage19.jpg
 slug: "thoughtful-new-year-gift-safety-over-showpieces"

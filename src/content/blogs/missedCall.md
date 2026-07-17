@@ -1,6 +1,7 @@
 ---
 id: "23"
 title: "That Missed Call on a Winter Morning"
+desc: "A quiet winter morning, a missed call, and a moment that changed everything. A story that reflects on bathroom falls and home safety."
 category: "Blog"
 img: ../../assets/Blog/BlogImage21.jpg
 slug: "that-missed-call-on-a-winter-morning"

@@ -1,6 +1,7 @@
 ---
 id: "18"
 title: "The Importance of Open Conversations About Aging"
+desc: "Encourage open conversations about aging to build trust, support seniors’ well-being, and strengthen family bonds with empathy and care."
 category: "Blog"
 img: ../../assets/Blog/BlogImage16.jpg
 slug: "importance-of-open-conversations-about-aging"

@@ -1,6 +1,7 @@
 ---
 id: "17"
 title: "Sleep Hygiene for Seniors: Why Rest Matters More Than Ever"
+desc: "Why sleep hygiene for seniors is essential for healthy aging. Know how better sleep habits can boost energy, memory in older adults."
 category: "Blog"
 img: ../../assets/Blog/BlogImage15.jpg
 slug: "sleep-hygiene-for-seniors"

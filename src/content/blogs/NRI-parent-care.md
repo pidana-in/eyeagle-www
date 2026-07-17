@@ -1,6 +1,7 @@
 ---
 id: "34"
 title: "Caring From Distance: An NRI’s Parent Care Story"
+desc: "Caring from distance for NRIs. Read about how one caregiver balanced work abroad with the safety of their elderly parents at home."
 category: "Blog"
 img: ../../assets/Blog/BlogImage32.jpg
 slug: "caring-from-distance"
