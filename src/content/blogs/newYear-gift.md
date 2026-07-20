@@ -39,7 +39,7 @@ When chosen carefully, safety-related items can become a truly thoughtful New Ye
 
 Safety gifts for family members help reduce everyday risks and offer reassurance to both the giver and the recipient. Choosing such practical New Year gifts shows consideration for long-term comfort and care, making them meaningful beyond the festive moment.
 
-<a href="https://shop.eyeagle.ai/" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;" target="_blank" rel="noopener noreferrer">
+<a href="https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;" target="_blank" rel="noopener noreferrer">
 A Thoughtful Gift for Every Home
 </a>
 

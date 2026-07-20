@@ -68,7 +68,7 @@ Every home hides silent danger zones, places we use every day but rarely think a
 
 The bathroom may be small, but it’s where **most household falls occur**. Wet tiles, narrow spaces, and low lighting make even routine tasks risky for seniors struggling with balance or weak joints.
 
-That’s why adding simple safety features can save lives. Installing <a href="https://shop.eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a>, such as anti-slip mats & sturdy grab bars helps reduce accidents without taking away the comfort or dignity of daily routines. These subtle modifications turn an unsafe zone into a confident one.
+That’s why adding simple safety features can save lives. Installing <a href="https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a>, such as anti-slip mats & sturdy grab bars helps reduce accidents without taking away the comfort or dignity of daily routines. These subtle modifications turn an unsafe zone into a confident one.
 
 ### 2. Stairs: Every Step Counts
 

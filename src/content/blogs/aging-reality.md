@@ -62,7 +62,7 @@ A safer home doesn’t always need an expensive renovation. It needs intention, 
 - Remove loose wires, rugs, and obstacles
 - Use anti-skid footwear indoors
 
-Bathrooms remain the highest-risk zone for elderly falls. Installing supports like <a href="https://shop.eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle’s bathroom safety fittings</a> is a practical, affordable step that immediately reduces danger.
+Bathrooms remain the highest-risk zone for elderly falls. Installing supports like <a href="https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle’s bathroom safety fittings</a> is a practical, affordable step that immediately reduces danger.
 
 These changes support mobility, prevent accidents, and give the elderly safety at home.
 

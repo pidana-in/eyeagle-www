@@ -4550,21 +4550,6 @@
       "external": true
     },
     {
-      "source": "src/components/Home/HeroSectionComponent.astro",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/HeroSectionComponent.astro",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/OurTeamSection.astro",
-      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
-      "external": true
-    },
-    {
       "source": "src/components/Home/OurTeamSection.astro",
       "href": "http://www.w3.org/2000/svg",
       "external": true
@@ -4572,11 +4557,6 @@
     {
       "source": "src/components/Home/OurTeamSection.astro",
       "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/OurTeamSection.astro",
-      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
       "external": true
     },
     {
@@ -4670,36 +4650,6 @@
       "external": false
     },
     {
-      "source": "src/components/NewHome/HeroSection.astro",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/HeroSection.astro",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/Membership.astro",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/Membership.astro",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/StepsSection.astro",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/StepsSection.astro",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
       "source": "src/components/NewHome/Testimonials.astro",
       "href": "http://www.w3.org/2000/svg",
       "external": true
@@ -4713,16 +4663,6 @@
       "source": "src/components/Protection/Benefits.astro",
       "href": "#comparison-section",
       "external": false
-    },
-    {
-      "source": "src/components/Waitlist/PostFormField.astro",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-      "external": true
-    },
-    {
-      "source": "src/components/Waitlist/PostFormField.astro",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-      "external": true
     },
     {
       "source": "src/components/Welcome.astro",
@@ -4811,37 +4751,12 @@
     },
     {
       "source": "src/components/constants/home.ts",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/home.ts",
-      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/home.ts",
       "href": "https://eyeagle.ai/join",
       "external": true
     },
     {
       "source": "src/components/constants/newHome.ts",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/newHome.ts",
       "href": "https://eyeagle.ai/solution",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/newHome.ts",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/newHome.ts",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
       "external": true
     },
     {
@@ -4866,12 +4781,12 @@
     },
     {
       "source": "src/content/blogs/aging-reality.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
       "source": "src/content/blogs/aging-reality.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5231,22 +5146,32 @@
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNDvwUSdxWImIipFdapu0O1/en-in?_r=AQABuxkmnEC3qNOzr8d9JMyxDPOx0lg44GjA5687toy4qVU",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "/contact",
-      "external": false
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "/",
-      "external": false
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNDvwUSdxWImIipFdapu0O1/en-in?_r=AQABuxkmnEC3qNOzr8d9JMyxDPOx0lg44GjA5687toy4qVU",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
       "external": true
     },
     {
@@ -5296,7 +5221,7 @@
     },
     {
       "source": "src/content/blogs/newYear-gift.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5311,7 +5236,7 @@
     },
     {
       "source": "src/content/blogs/newYear-gift.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5356,7 +5281,7 @@
     },
     {
       "source": "src/content/blogs/safety-features.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5366,7 +5291,7 @@
     },
     {
       "source": "src/content/blogs/safety-features.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5556,7 +5481,7 @@
     },
     {
       "source": "src/content/blogs/winter-safety.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5571,7 +5496,7 @@
     },
     {
       "source": "src/content/blogs/winter-safety.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5606,7 +5531,7 @@
     },
     {
       "source": "src/content/blogs/zindagi.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5631,7 +5556,17 @@
     },
     {
       "source": "src/content/blogs/zindagi.md",
-      "href": "https://shop.eyeagle.ai/",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
+      "external": true
+    },
+    {
+      "source": "src/data/shop.ts",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
+    },
+    {
+      "source": "src/data/shop.ts",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -5642,16 +5577,6 @@
     {
       "source": "src/data/site.ts",
       "href": "https://shop.eyeagle.ai/",
-      "external": true
-    },
-    {
-      "source": "src/data/site.ts",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
-      "external": true
-    },
-    {
-      "source": "src/data/site.ts",
-      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
       "external": true
     },
     {

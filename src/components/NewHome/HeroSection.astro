@@ -1,6 +1,7 @@
 ---
 import ResponsiveHeroImage from "../common/ResponsiveHeroImage.astro";
 import type { ImageMetadata } from "astro";
+import { SHOP_URLS } from "../../data/shop";
 
 type HeroContent = {
   heading: string[];
@@ -47,7 +48,7 @@ const { heroContent, heroData } = Astro.props as Props;
     </div>
     <div class="mt-8 md:mt-14">
       <a
-        href="https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088"
+        href={SHOP_URLS.protectionKit}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex px-6 sm:px-10 md:px-14 py-3 md:py-4 text-base md:text-xl font-bold bg-primary text-white rounded-full"

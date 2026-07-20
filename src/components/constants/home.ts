@@ -1,4 +1,5 @@
 import BathroomImage1new from "../../assets/Navbar/bathroomImage1new.png";
+import { SHOP_URLS } from "../../data/shop";
 import Frame7 from "../../assets/Navbar/Frame7.jpg";
 import BathroomImage3new from "../../assets/Navbar/bathroomImage3new.png";
 import BathroomImage4new from "../../assets/Navbar/bathroomImage4new.png";
@@ -130,7 +131,7 @@ export const shopData = [
     subcontent: `<span class="line-through">Rs 29,999</span>  Rs 19,999`,
     badge: `Sale`,
     linkTab: `Know more`,
-    link: `https://shop.eyeagle.ai/products/eyeagle-package-prevention-app`,
+    link: SHOP_URLS.protectionKit,
   },
   {
     img: shop2,
@@ -138,7 +139,7 @@ export const shopData = [
     subcontent: `<span class="line-through">Rs 999</span>  Rs 0`,
     badge: `Sale`,
     linkTab: `Know more`,
-    link: `https://shop.eyeagle.ai/products/bathroom-audit`,
+    link: SHOP_URLS.safetyAudit,
   },
   {
     img: shop3,

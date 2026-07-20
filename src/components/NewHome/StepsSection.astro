@@ -1,6 +1,7 @@
 ---
 import Image from "../common/OptimizedImage.astro";
 import type { ImageMetadata } from "astro";
+import { SHOP_URLS } from "../../data/shop";
 
 type StepsContent = {
   title: string;
@@ -61,7 +62,7 @@ const stepsData = Astro.props.stepsData as StepItem[];
     </div>
     <div class="py-20">
       <a
-        href="https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088"
+        href={SHOP_URLS.safetyAudit}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-block rounded-full bg-primary text-white px-6 py-3 text-sm font-semibold hover:bg-red-700 transition"

@@ -3,6 +3,7 @@ import Icon from "../common/Icon.astro";
 import { postFormFillData } from "../constants/waitlist";
 import JoinPhoto from "../../assets/Join/JoinPhoto.png";
 import Image from "../common/OptimizedImage.astro";
+import { SHOP_URLS } from "../../data/shop";
 ---
 
 <section>
@@ -75,7 +76,7 @@ import Image from "../common/OptimizedImage.astro";
     </p> -->
 
         <a
-          href="https://shop.eyeagle.ai/products/eyeagle-package-prevention-app"
+          href={SHOP_URLS.protectionKit}
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -1,3 +1,5 @@
+import { SHOP_URLS } from "./shop";
+
 export const siteMeta = {
   title: "EyEagle | Preventing Falls, Saving Lives",
   description:
@@ -34,13 +36,12 @@ export const userMenu = [
 ];
 
 export const ctaButtonText = "Get Started";
-export const ctaHref =
-  "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088";
+export const ctaHref = SHOP_URLS.protectionKit;
 
 export const footerProductLinks = [
   {
     title: "Bathroom Safety kit",
-    url: "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+    url: SHOP_URLS.protectionKit,
   },
   { title: "How It Works", url: "/solution" },
   { title: "Guardian X", url: "/device" },

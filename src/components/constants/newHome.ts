@@ -29,6 +29,7 @@ import testimonialImg2 from "../../assets/NewHome/Testimonial2.png";
 import testimonialImg3 from "../../assets/NewHome/Testimonial3.png";
 import testimonialImg4 from "../../assets/NewHome/Testimonial4.png";
 import testimonialImg5 from "../../assets/NewHome/Testimonial5.png";
+import { SHOP_URLS } from "../../data/shop";
 
 export const heroContent = {
   eyebrow: "Stop Today, Don’t Regret Tomorrow",
@@ -40,7 +41,7 @@ export const heroContent = {
 // export const ctaButtons = [
 //   {
 //     label: "Get the app",
-//     href: "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+//     href: SHOP_URLS.protectionKit,
 //   },
 //   {
 //     label: "How it works",
@@ -340,11 +341,11 @@ export const ctaSection = {
     "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
   primaryCta: {
     label: "Get your kit today",
-    href: "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+    href: SHOP_URLS.protectionKit,
   },
   secondaryCta: {
     label: "Book a safety audit",
-    href: "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+    href: SHOP_URLS.safetyAudit,
   },
   image1: HelpImage,
   image2: HelpImageMobile,

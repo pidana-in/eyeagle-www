@@ -1,5 +1,6 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import { SHOP_URLS } from "../../data/shop";
 const heroImage = Astro.props.heroImage;
 const HeroImageMob = Astro.props.heroImageMob;
 ---
@@ -47,7 +48,7 @@ const HeroImageMob = Astro.props.heroImageMob;
 
           <!-- CTA Button -->
           <div class="lg:place-content-start lg:mx-0 z-50 lg:my-5 mt-2 flex place-content-center ml-10">
-            <a href="https://shop.eyeagle.ai/products/eyeagle-package-prevention-app">
+            <a href={SHOP_URLS.protectionKit}>
               <button
                 class="bg-[radial-gradient(circle,rgba(255,100,10,0.6)_0%,#cc0000_80%)]
              font-bold sm:text-2xl text-sm text-white

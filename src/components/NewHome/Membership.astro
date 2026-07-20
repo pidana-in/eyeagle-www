@@ -1,6 +1,7 @@
 ---
 import Image from "../common/OptimizedImage.astro";
 import type { ImageMetadata } from "astro";
+import { SHOP_URLS } from "../../data/shop";
 
 type MembershipItem = {
   title: string;
@@ -34,7 +35,7 @@ const { items } = Astro.props as Props;
         </p>
 
         <a
-          href="https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088"
+          href={SHOP_URLS.safetyAudit}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block mt-6 md:mt-10 bg-primary hover:bg-red-700
