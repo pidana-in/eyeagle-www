@@ -1,7 +1,7 @@
 ---
 import { contexts, ContextSectionData } from "../constants/manifesto";
 ---
-<section class="py-10 font-sans-instrument sm:py-[120px] px-6 sm:px-[80px] xl:container">
+<section class="py-10 font-sans-instrument sm:py-30 px-6 sm:px-20 xl:container">
   <h1 class="text-[32px] sm:text-[52px] font-normal text-center sm:text-left" set:html={ContextSectionData.title}>
     
   </h1>
@@ -13,10 +13,10 @@ import { contexts, ContextSectionData } from "../constants/manifesto";
       {contexts.map((context) => (
         <div >
           <h4 class="text-[20px] sm:text-[24px] text-center lg:text-left font-semibold mb-2 sm:mb-3">{context.title}</h4>
-          <p class="text-[16px] sm:text-[18px] max-w-[100%] sm:max-w-[600px]">{context.description}</p>
+          <p class="text-[16px] sm:text-[18px] max-w-full sm:max-w-150">{context.description}</p>
         </div>
       ))}
     </div>
-    <div class="h-[200px] sm:h-[487px] w-full sm:w-[600px] rounded-lg bg-[#D9D9D9]"></div>
+    <div class="h-50 sm:h-121.75 w-full sm:w-150 rounded-lg bg-[#D9D9D9]"></div>
   </div>
 </section>

@@ -5,21 +5,21 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
 ---
 
 <section id="prevention" class="xl:container font-sans-instrument lg:px-20 px-4">
-  <div class="lg:pt-[7.5rem] pt-16">
-    <h2 set:html={ourTeamHeading1} class="lg:text-[64px] font-sans-instrument leading-[2.75rem] text-[2rem] font-medium lg:leading-[3.75rem]"></h2>
+  <div class="lg:pt-30 pt-16">
+    <h2 set:html={ourTeamHeading1} class="lg:text-[64px] font-sans-instrument leading-11 text-[2rem] font-medium lg:leading-15"></h2>
   </div>
 
-  <div class="lg:pt-[3.75rem] pt-8">
+  <div class="lg:pt-15 pt-8">
     <div class="lg:flex">
       <div>
-        <h3 class="font-barlow font-normal text-[20px] lg:text-[40px] lg:leading-[3rem] leading-7">
+        <h3 class="font-barlow font-normal text-[20px] lg:text-[40px] lg:leading-12 leading-7">
           Comprehensive safety fittings, carefully chosen for each bathroom
         </h3>
       </div>
     </div>
 
    <!-- Desktop Layout -->
-   <div class="flex max-md:hidden gap-5 lg:mt-[3.75rem] mt-8 lg:pb-[2.5rem] pb-20">
+   <div class="flex max-md:hidden gap-5 lg:mt-15 mt-8 lg:pb-10 pb-20">
     {kitImageDesktop.map((column) => (
       <div class={column.length > 1 ? "grid gap-5" : "relative"}>
         {column.map((item) => (
@@ -30,7 +30,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
                 <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
               </svg>
             </div>
-            <p class="font-barlow absolute lg:top-[92px] top-[52px] left-4 pr-6 text-white lg:font-medium text-lg lg:text-[1.784rem] sm:leading-6 lg:leading-8 max-w-[90%]">
+            <p class="font-barlow absolute lg:top-23 top-13 left-4 pr-6 text-white lg:font-medium text-lg lg:text-[1.784rem] sm:leading-6 lg:leading-8 max-w-[90%]">
               {item.caption}
             </p>
           </div>
@@ -43,20 +43,20 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
    <!-- Mobile Grid Layout -->
   <div class="grid grid-cols-2 gap-4 md:hidden my-8">
     {kitImageMobile.flat().map((item) => (
-      <div class="relative max-w-[182px] h-[280px] rounded-[13.17px]">
+      <div class="relative max-w-45.5 h-70 rounded-[13.17px]">
         <Image src={item.src} alt={item.alt} class="h-full w-full object-cover rounded-[13.17px]" />
         <div class="absolute top-6 left-5 bg-white h-10 w-10 rounded-full grid place-items-center shadow-md">
           <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
           </svg>
         </div>
-        <p class="font-barlow absolute top-[72px] left-5 pr-5 text-white text-[16px] leading-6 max-w-[90%]">
+        <p class="font-barlow absolute top-18 left-5 pr-5 text-white text-[16px] leading-6 max-w-[90%]">
           {item.caption}
         </p>
       </div>
     ))}
   </div>
-  <a href="https://shop.eyeagle.ai/products/bathroom-audit" class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base my-10 text-center hover:bg-gray-100 transition lg:mb-[120px]">
+  <a href="https://shop.eyeagle.ai/products/bathroom-audit" class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base my-10 text-center hover:bg-gray-100 transition lg:mb-30">
     Get Free Safety Audit
    </a>
 </div>

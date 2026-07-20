@@ -90,7 +90,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
         <div class="flex flex-1 items-center gap-4">
           <a
             href="/blog"
-            class="inline-flex items-center text-sm font-medium bg-[#FBEBEB] text-[#CC0000] rounded-full px-3 py-2 hover:bg-[#ebcaca] transition"
+            class="inline-flex items-center text-sm font-medium bg-[#FBEBEB] text-primary rounded-full px-3 py-2 hover:bg-[#ebcaca] transition"
           >
             BLOG
           </a>
@@ -106,7 +106,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
           </p>
         </div>
         <h1
-          class="text-4xl lg:text-5xl font-semibold mt-6 mb-4 lg:leading-[54px]"
+          class="text-4xl lg:text-5xl font-semibold mt-6 mb-4 lg:leading-13.5"
         >
           {blog.data.title}
         </h1>
@@ -144,7 +144,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       <!-- Mobile -->
       <aside class="block lg:hidden mb-8">
         <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-          <h2 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+          <h2 class="text-sm font-semibold uppercase text-primary mb-4">
             In This Article
           </h2>
 
@@ -219,10 +219,10 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       </aside>
 
       <!-- Desktop -->
-      <aside class="hidden lg:block w-[280px] shrink-0">
+      <aside class="hidden lg:block w-70 shrink-0">
         <div class="sticky top-28">
           <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-            <h2 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+            <h2 class="text-sm font-semibold uppercase text-primary mb-4">
               In This Article
             </h2>
 
@@ -299,7 +299,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       <!-- Blog Content -->
       <div
         id="blog-content"
-        class="prose prose-lg max-w-[760px]
+        class="prose prose-lg max-w-190
         prose-li:marker:text-[#111827]
         prose-h2:scroll-mt-24 prose-h3:scroll-mt-24
         prose-h1:text-2xl lg:prose-h1:text-5xl prose-h2:text-xl
@@ -351,7 +351,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
 
       <a
         href="/blog"
-        class="text-[#CC0000] text-sm font-medium uppercase hover:underline"
+        class="text-primary text-sm font-medium uppercase hover:underline"
       >
         View all articles
       </a>
@@ -364,7 +364,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
             href={`/blogs/${item.data.slug}`}
             class="block rounded-3xl border border-[#E5E5E5] p-5 lg:p-6 transition-all duration-300 hover:shadow-md"
           >
-            <p class="text-[#CC0000] text-sm uppercase font-medium mb-4 lg:mb-5">
+            <p class="text-primary text-sm uppercase font-medium mb-4 lg:mb-5">
               Blog
             </p>
 
@@ -405,7 +405,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
         link.textContent = heading.textContent;
 
         link.className =
-          "block text-[16px] leading-7 text-[#525252] hover:text-[#CC0000]";
+          "block text-[16px] leading-7 text-[#525252] hover:text-primary";
 
         toc.appendChild(link);
       });

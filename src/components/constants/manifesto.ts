@@ -70,7 +70,7 @@ export const contexts = [
     ]
   }
 
-  export const BenifitsData={
+  export const BenefitsData={
     title:"BENEFITS",
     subTitle:"Why EyEagle Works Best",
     remarks:[

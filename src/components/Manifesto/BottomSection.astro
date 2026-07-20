@@ -3,35 +3,35 @@ import Image from "../common/OptimizedImage.astro";
 import { BottomSectionData, explanations } from "../constants/manifesto";
 ---
 
-<section class="bg-[#222222] font-sans-instrument pb-10 sm:pb-20  lg:p-0  pt-[52px] lg:pt-[200px]">
-  <div class="flex flex-col md:flex-row sm:flex-row items-center justify-center lg:gap-[120px] px-5 lg:px-10  gap-[60px] md:gap-5 sm:gap-[88px]  py-10  xl:container">
-    <h1 class="text-[32px] md:text-[64px] font-medium sm:text-[52px] max-w-[611px] text-white text-center sm:text-left leading-[50px] lg:leading-[76px]" set:html={BottomSectionData.title}>
+<section class="bg-secondary font-sans-instrument pb-10 sm:pb-20  lg:p-0  pt-13 lg:pt-50">
+  <div class="flex flex-col md:flex-row sm:flex-row items-center justify-center lg:gap-30 px-5 lg:px-10  gap-15 md:gap-5 sm:gap-22  py-10  xl:container">
+    <h1 class="text-[32px] md:text-[64px] font-medium sm:text-[52px] max-w-152.75 text-white text-center sm:text-left leading-12.5 lg:leading-19" set:html={BottomSectionData.title}>
     </h1>
     <div class="flex flex-col gap-5 lg:gap-10">
 
-      <p class="lg:text-[22px]  text-white text-[18px] max-w-[581px]  text-center sm:text-left font-medium leading-9" set:html={BottomSectionData.desc1}>
+      <p class="lg:text-[22px]  text-white text-[18px] max-w-145.25  text-center sm:text-left font-medium leading-9" set:html={BottomSectionData.desc1}>
       </p>
     </div>
   </div>
-  <div class="px-5 lg:px-10 sm:px-[80px] grid gap-[48px] sm:gap-10 xl:container lg:py-[200px] ">
+  <div class="px-5 lg:px-10 sm:px-20 grid gap-12 sm:gap-10 xl:container lg:py-50 ">
     {explanations.map((explanation,index) => (
-      <div  class="flex flex-col md:flex-row md:items-center lg:flex-row items-center sm:items-start justify-center gap-10 lg:gap-[120px]  lg:pb-">
+      <div  class="flex flex-col md:flex-row md:items-center lg:flex-row items-center sm:items-start justify-center gap-10 lg:gap-30  lg:pb-">
         <div class="flex flex-col items-start w-full sm:w-auto ">
-          <div class="mb-4 h-[36px] w-[36px] rounded-full bg-[#CC0000] flex items-center justify-center text-white">
+          <div class="mb-4 h-9 w-9 rounded-full bg-primary flex items-center justify-center text-white">
             <p>{explanation.title[0]}</p>
           </div>
           <div class="flex gap-5 sm:gap-5">
             <div class="flex flex-col gap-5">
               <h2 class="font-medium text-[32px] sm:text-[32px] text-white">{explanation.title}</h2>
               {index === 0 ? (
-            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px] text-white" set:html={explanation.description } />
+            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-120.25 text-white" set:html={explanation.description } />
           ) : (
-            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px] text-white leading-8">{explanation.description}</p>
+            <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-120.25 text-white leading-8">{explanation.description}</p>
           )}
             </div>
           </div>
         </div>
-        <div class=" rounded-lg overflow-hidden w-[353px] h-[240px] lg:w-[619px] lg:h-[422px]">
+        <div class=" rounded-lg overflow-hidden w-88.25 h-60 lg:w-154.75 lg:h-105.5">
           <Image src={explanation.imgSrc} class="w-full h-full object-cover" alt={explanation.title} />
         </div>
       </div>

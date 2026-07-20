@@ -7,11 +7,11 @@ const { pathname } = Astro.url;
 ---
 
 <div
-  class="relative bg-[#D9D9D9] rounded-[20px] flex flex-col cursor-pointer group lg:max-w-[296px] lg:max-h-[400px] h-auto max-w-[240px]"
+  class="relative bg-[#D9D9D9] rounded-[20px] flex flex-col cursor-pointer group lg:max-w-74 lg:max-h-100 h-auto max-w-60"
   id={`card-${item.id}`}
 >
   <h2
-    class="text-[19.2px] lg:text-[32px] leading-6 font-sans-instrument font-medium lg:leading-[40px] px-5 py-[14.4px] lg:py-6 lg:px-10 text-[#212121]"
+    class="text-[19.2px] lg:text-[32px] leading-6 font-sans-instrument font-medium lg:leading-10 px-5 py-[14.4px] lg:py-6 lg:px-10 text-[#212121]"
   >
     {item.heading.split(" ")[0]}<br />
     {item.heading.split(" ").slice(1).join(" ")}
@@ -25,10 +25,10 @@ const { pathname } = Astro.url;
 
   <!-- Optional: Keep the icon for visual cue -->
   <div
-    class="absolute lg:bottom-[13.5px] lg:right-[16.5px] bottom-[8.5px] right-[10px] z-30 bg-white lg:size-10 size-7 rounded-full grid place-items-center pointer-events-none"
+    class="absolute lg:bottom-[13.5px] lg:right-[16.5px] bottom-[8.5px] right-2.5 z-30 bg-white lg:size-10 size-7 rounded-full grid place-items-center pointer-events-none"
   >
     <svg
-      class="w-[9px] h-[9px] lg:w-4 lg:h-4"
+      class="w-2.25 h-2.25 lg:w-4 lg:h-4"
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

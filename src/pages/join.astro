@@ -106,7 +106,8 @@ if (Astro.request.method === "POST") {
     }
 
     if (apiResult?.status === "success") {
-      return Astro.redirect("/success");
+      Astro.response.status = 303;
+      Astro.response.headers.set("Location", "/success");
     }
   } catch (error) {
     console.error("Error while submitting form:", error);
@@ -122,7 +123,7 @@ if (Astro.request.method === "POST") {
       >
         <div class="lg:w-1/2 text-center md:text-start">
           <h1
-            class="text-3xl md:text-5xl font-semibold md:leading-[60px] mb-5 md:mb-8"
+            class="text-3xl md:text-5xl font-semibold md:leading-15 mb-5 md:mb-8"
           >
             {WaitlistHeaderData.title}
           </h1>
@@ -168,7 +169,7 @@ if (Astro.request.method === "POST") {
                   <div
                     id="dropdownMenu"
                     role="listbox"
-                    class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
+                    class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-62.5 overflow-y-auto w-52 z-20"
                   >
                     {
                       countries
@@ -179,6 +180,7 @@ if (Astro.request.method === "POST") {
                             role="option"
                             class="w-full px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
                             data-value={country.dial_code}
+                            data-country-code={country.code}
                           >
                             <img
                               src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
@@ -269,9 +271,9 @@ if (Astro.request.method === "POST") {
               <button
                 type="submit"
                 id="submitButton"
-                class="md:w-full p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-2 relative"
+                class="md:w-full p-4 rounded-[30px] text-white bg-primary font-medium mt-2 relative"
               >
-                <span id="buttonText">{WaitlistFormData.buttonTitile}</span>
+                <span id="buttonText">{WaitlistFormData.buttonTitle}</span>
                 <div
                   id="loader"
                   class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -295,7 +297,7 @@ if (Astro.request.method === "POST") {
           <span class="relative z-0"
             >around the clock.
             <span
-              class="absolute w-full h-2 bg-[#CC0000]/40 lg:top-9 lg:right-0 top-4 left-0 -z-50"
+              class="absolute w-full h-2 bg-primary/40 lg:top-9 lg:right-0 top-4 left-0 -z-50"
             >
             </span>
           </span>
@@ -342,7 +344,7 @@ if (Astro.request.method === "POST") {
   }
 </style>
 
-<script is:inline define:vars={{ countries }}>
+<script is:inline>
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownMenu = document.getElementById("dropdownMenu");
   const fullNameField = document.getElementById("fullNameField");
@@ -367,16 +369,19 @@ if (Astro.request.method === "POST") {
   });
 
   dropdownMenu.addEventListener("click", (event) => {
-    const option = event.target.closest("[data-value]");
-    if (!option) return;
+    const option = event.target instanceof Element
+      ? event.target.closest("button[data-value][data-country-code]")
+      : null;
+    if (!(option instanceof HTMLButtonElement)) return;
 
     const selectedDialCode = option.dataset.value;
-    const country = countries.find((c) => c.dial_code === selectedDialCode);
+    const selectedCountryCode = option.dataset.countryCode;
+    if (!selectedDialCode || !selectedCountryCode) return;
 
     dropdownButton.innerHTML = "";
     const flagImage = document.createElement("img");
-    flagImage.src = `https://flagcdn.com/w40/${country.code.toLowerCase()}.png`;
-    flagImage.alt = `${country.code} flag`;
+    flagImage.src = `https://flagcdn.com/w40/${selectedCountryCode.toLowerCase()}.png`;
+    flagImage.alt = `${selectedCountryCode} flag`;
     flagImage.width = 20;
     flagImage.className = "mr-2";
 
@@ -410,14 +415,17 @@ if (Astro.request.method === "POST") {
     dropdownButton.classList.add("max-w-[105px]");
 
     const defaultDialCode = "+91";
-    const defaultCountry = countries.find(
-      (c) => c.dial_code === defaultDialCode,
-    );
+    const defaultOption = Array.from(
+      dropdownMenu.querySelectorAll("button[data-value][data-country-code]"),
+    ).find((option) => option.dataset.value === defaultDialCode);
 
-    if (defaultCountry) {
+    if (defaultOption instanceof HTMLButtonElement) {
+      const defaultCountryCode = defaultOption.dataset.countryCode;
+      if (!defaultCountryCode) return;
+
       const flagImage = document.createElement("img");
-      flagImage.src = `https://flagcdn.com/w40/${defaultCountry.code.toLowerCase()}.png`;
-      flagImage.alt = `${defaultCountry.code} flag`;
+      flagImage.src = `https://flagcdn.com/w40/${defaultCountryCode.toLowerCase()}.png`;
+      flagImage.alt = `${defaultCountryCode} flag`;
       flagImage.width = 20;
       flagImage.className = "mr-2";
 
@@ -427,14 +435,7 @@ if (Astro.request.method === "POST") {
       dropdownButton.appendChild(iconSpan);
 
       phCode.value = defaultDialCode;
-
-      const defaultOption = Array.from(
-        dropdownMenu.querySelectorAll("[data-value]"),
-      ).find((el) => el.dataset.value === defaultDialCode);
-
-      if (defaultOption) {
-        defaultOption.classList.add("bg-gray-300");
-      }
+      defaultOption.classList.add("bg-gray-300");
     }
   }
 

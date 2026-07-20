@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import astro from "eslint-plugin-astro";
+import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default [
@@ -20,6 +21,18 @@ export default [
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-expressions": "off",
       "@typescript-eslint/no-unused-vars": "off",
+    },
+  },
+  {
+    files: ["src/**/*.astro"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    rules: {
+      "no-undef": "error",
     },
   },
 ];

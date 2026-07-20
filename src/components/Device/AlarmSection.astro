@@ -12,7 +12,7 @@ const alarmHeader = Astro.props.alarmHeader;
 ---
 
 <section class="flex flex-col items-center py-20 bg-white font-sans-instrument">
-  <div class="text-center mb-[68px] max-w-[820px] mx-auto">
+  <div class="text-center mb-17 max-w-205 mx-auto">
     <h2 class="text-[32px] md:text-5xl font-bold leading-10 tracking-tight">
       {alarmHeader.title}
     </h2>
@@ -24,7 +24,7 @@ const alarmHeader = Astro.props.alarmHeader;
   </div>
   <!-- Tabs -->
   <div
-    class="flex w-[1360px] max-w-full text-sm font-semibold tracking-widest mb-2 px-4"
+    class="flex w-340 max-w-full text-sm font-semibold tracking-widest mb-2 px-4"
   >
     {
       tabsData.map((tab: Tab, index: number) => (
@@ -37,7 +37,7 @@ const alarmHeader = Astro.props.alarmHeader;
           {tab.label}
           <span
             id={`${tab.id}Line`}
-            class={`absolute left-0 bottom-0 h-[2px] w-full ${
+            class={`absolute left-0 bottom-0 h-0.5 w-full ${
               index === 0 ? "bg-red-600" : "bg-transparent"
             }`}
           />
@@ -46,7 +46,7 @@ const alarmHeader = Astro.props.alarmHeader;
     }
   </div>
   <!-- Images -->
-  <div class="relative w-[1360px] max-w-full flex justify-center px-4">
+  <div class="relative w-340 max-w-full flex justify-center px-4">
     {
       tabsData.map((tab: Tab, index: number) => (
         <Image

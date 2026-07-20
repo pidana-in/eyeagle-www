@@ -12,12 +12,12 @@ const stores = Astro.props.stores;
   <div
     class="flex flex-col px-5 items-center justify-center text-center relative z-10 py-40"
   >
-    <div class="md:px-[120px]">
+    <div class="md:px-30">
       <h2 class="text-[28px] md:text-5xl font-bold leading-none tracking-wide">
         {contentData.title}
       </h2>
       <p
-        class="md:text-lg text-base text-[#090D15] font-medium max-w-[960px] py-8"
+        class="md:text-lg text-base text-[#090D15] font-medium max-w-240 py-8"
       >
         {contentData.description}
       </p>
@@ -27,7 +27,7 @@ const stores = Astro.props.stores;
       {
         stores.map((store: any) => (
           <a href={store.href} target="_blank" rel="noopener noreferrer">
-            <Image src={store.image} alt={store.alt} class="max-w-[200px]" />
+            <Image src={store.image} alt={store.alt} class="max-w-50" />
           </a>
         ))
       }

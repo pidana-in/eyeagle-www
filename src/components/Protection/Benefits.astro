@@ -14,9 +14,9 @@ const cardsData = Astro.props.cardsData;
 
 <section class="2xl:container mx-auto py-16 md:py-20 px-4 md:px-8 lg:px-16">
   <!-- Heading -->
-  <div class="flex justify-center text-center max-w-[900px] mx-auto">
+  <div class="flex justify-center text-center max-w-225 mx-auto">
     <p
-      class="text-[32px] leading-10 md:text-5xl md:leading-[56px] font-bold tracking-wide"
+      class="text-[32px] leading-10 md:text-5xl md:leading-14 font-bold tracking-wide"
     >
       Thoughtfully designed for real bathrooms, not brochures.
     </p>
@@ -24,7 +24,7 @@ const cardsData = Astro.props.cardsData;
 
   <!-- Cards -->
   <div
-    class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-[1100px] mx-auto text-center"
+    class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-275 mx-auto text-center"
   >
     {
       cardsData.map((card: Card) => (
@@ -48,7 +48,7 @@ const cardsData = Astro.props.cardsData;
   <!-- CTA -->
   <a
     href="#comparison-section"
-    class="mt-10 md:mt-12 text-[#CC0000] underline text-center block text-base md:text-lg italic"
+    class="mt-10 md:mt-12 text-primary underline text-center block text-base md:text-lg italic"
   >
     Compare with alternatives
   </a>

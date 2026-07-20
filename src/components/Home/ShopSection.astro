@@ -3,9 +3,9 @@ import Image from "../common/OptimizedImage.astro";
 const shopData = Astro.props.shopData;
 ---
 
-<section class="bg-[#222222] text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-[120px] py-12">
+<section class="bg-secondary text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-30 py-12">
  <div class="xl:container">
-  <p class="text-4xl lg:text-[60px] leading-[2.5rem] lg:leading-[72px] lg:mb-20 mb-12 font-medium font-sans-instrument">
+  <p class="text-4xl lg:text-[60px] leading-10 lg:leading-18 lg:mb-20 mb-12 font-medium font-sans-instrument">
     Get Started With Safety Today
   </p>
   <!-- Desktop version -->
@@ -22,7 +22,7 @@ const shopData = Astro.props.shopData;
               <p set:html={item.subcontent} class="font-sans-instrument lg:font-medium text-left font-medium text-base lg:text-[18px] leading-none"/>
             )}
             {item.badge && (
-              <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm lg:text-base">
+              <span class="bg-primary text-white rounded-full px-3 py-1 text-sm lg:text-base">
                 {item.badge}
               </span>
             )}
@@ -52,7 +52,7 @@ const shopData = Astro.props.shopData;
                 <p set:html={item.subcontent} class="font-sans-instrument font-medium text-left text-sm leading-none"/>
               )}
               {item.badge && (
-                <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm">
+                <span class="bg-primary text-white rounded-full px-3 py-1 text-sm">
                   {item.badge}
                 </span>
               )}

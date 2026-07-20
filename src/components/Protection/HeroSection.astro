@@ -8,9 +8,9 @@ const featurePoints: string[] = Astro.props.featurePoints;
 <section class="bg-white py-20 lg:py-36">
   <div class="2xl:container">
     <div class="text-center px-3 md:px-0">
-      <div class="mx-auto max-w-[1100px] mb-10 md:mb-20">
+      <div class="mx-auto max-w-275 mb-10 md:mb-20">
         <h1
-          class="text-5xl md:text-7xl font-bold leading-tight md:leading-[80px]"
+          class="text-5xl md:text-7xl font-bold leading-tight md:leading-20"
         >
           {heroContent.heading.line1}
           <br class="hidden md:block" />
@@ -28,7 +28,7 @@ const featurePoints: string[] = Astro.props.featurePoints;
             <>
               <span class="text-center">{point}</span>
               {i !== featurePoints.length - 1 && (
-                <span class="hidden md:inline text-[#CC0000]">|</span>
+                <span class="hidden md:inline text-primary">|</span>
               )}
             </>
           ))
@@ -39,7 +39,7 @@ const featurePoints: string[] = Astro.props.featurePoints;
       <Image
         src={heroContent.image}
         alt={heroContent.imageAlt}
-        class="w-[578px] h-[245px] object-cover md:size-full"
+        class="w-144.5 h-61.25 object-cover md:size-full"
         loading="lazy"
       />
     </div>

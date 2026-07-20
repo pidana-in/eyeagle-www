@@ -3,11 +3,11 @@ import Image from "../common/OptimizedImage.astro";
 import { PowerfulBentoData } from "../constants/home";
 ---
 
-<section class="xl:container lg:px-[5rem] px-4  md:pt-0 pb-[6.25rem] lg:pb-[7.5rem] ">
-    <div class="pb-[5rem] lg:pb-[5rem]">
+<section class="xl:container lg:px-20 px-4  md:pt-0 pb-25 lg:pb-30 ">
+    <div class="pb-20 lg:pb-20">
 
-        <h2 class="font-medium text-[2rem] lg:text-4xl mb-3 leading-10 lg:leading-[2.75rem]">{PowerfulBentoData.title}</h2>
-        <h2 class="font-medium text-[2rem] text-[#666666] lg:text-4xl leading-10 lg:leading-[2.75rem]">{PowerfulBentoData.subTitle}</h2>
+        <h2 class="font-medium text-[2rem] lg:text-4xl mb-3 leading-10 lg:leading-11">{PowerfulBentoData.title}</h2>
+        <h2 class="font-medium text-[2rem] text-[#666666] lg:text-4xl leading-10 lg:leading-11">{PowerfulBentoData.subTitle}</h2>
     </div>
     
     <div class="flex flex-col justify-center items-center gap-8">
@@ -15,7 +15,7 @@ import { PowerfulBentoData } from "../constants/home";
     <Image src={PowerfulBentoData.bentoImgSrc} alt={"bentoImg"} class={"max-md:hidden bg-cover w-full h-full"}/>
     <Image src={PowerfulBentoData.featsrc3} alt={'bentoMobile'} class={"md:hidden bg-cover w-full h-full"}/>
 </div>
-<div class="flex w-full flex-col justify-between gap-10 lg:flex-row lg:h-[39.938rem] lg:mt-[-60px] mt-0 2xl:lg:mt-0">
+<div class="flex w-full flex-col justify-between gap-10 lg:flex-row lg:h-[39.938rem] lg:-mt-15 mt-0 2xl:lg:mt-0">
     <div>
         <Image src={PowerfulBentoData.featsrc1} alt={"featSrc1"} class={"max-lg:hidden w-full h-full object-contain"}/>
         <Image src={PowerfulBentoData.featsrc4} alt={'powerfulFeat1Mobile'} class={"lg:hidden"}/>

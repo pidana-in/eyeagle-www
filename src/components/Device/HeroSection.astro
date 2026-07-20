@@ -14,7 +14,7 @@ const features = Astro.props.features;
       class="w-full object-cover"
     />
     <div
-      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-[344px] mb-[114px] mx-[120px]"
+      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-86 mb-28.5 mx-30"
     >
       <span
         class="px-3 py-1.5 rounded-full text-sm font-medium border border-white/50 bg-white/20 backdrop-blur text-white"
@@ -33,7 +33,7 @@ const features = Astro.props.features;
       <div class="flex justify-center">
         <a
           href={heroContent.cta.href}
-          class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+          class="bg-primary text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
         >
           {heroContent.cta.text}
         </a>
@@ -44,7 +44,7 @@ const features = Astro.props.features;
   <div class="xl:container flex justify-evenly text-center mb-20 px-4">
     {
       features.map((item: any) => (
-        <div class="flex flex-col items-center max-w-[280px]">
+        <div class="flex flex-col items-center max-w-70">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} />
             <h2 class="text-2xl font-semibold">{item.title}</h2>
@@ -57,7 +57,7 @@ const features = Astro.props.features;
 </div>
 
 <!-- MOBILE VIEW -->
-<div class="block lg:hidden pt-[60px]">
+<div class="block lg:hidden pt-15">
   <div class="px-4">
   <div class="flex justify-center">
     <span
@@ -67,7 +67,7 @@ const features = Astro.props.features;
     </span>
   </div>
   <p
-    class="text-5xl font-bold leading-[56px] text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
+    class="text-5xl font-bold leading-14 text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
     set:html={heroContent.title}
   ></p>
   <p class="text-black text-center leading-7">
@@ -76,7 +76,7 @@ const features = Astro.props.features;
   <div class="flex justify-center">
     <a
       href={heroContent.cta.href}
-      class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+      class="bg-primary text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
     >
       {heroContent.cta.text}
     </a>

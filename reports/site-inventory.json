@@ -5896,12 +5896,12 @@
     },
     {
       "source": "src/pages/join.astro",
-      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
+      "href": "https://flagcdn.com/w40/${selectedCountryCode.toLowerCase(",
       "external": true
     },
     {
       "source": "src/pages/join.astro",
-      "href": "https://flagcdn.com/w40/${defaultCountry.code.toLowerCase(",
+      "href": "https://flagcdn.com/w40/${defaultCountryCode.toLowerCase(",
       "external": true
     },
     {

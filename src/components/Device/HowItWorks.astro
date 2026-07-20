@@ -20,7 +20,7 @@ const { header, steps } = Astro.props as Props;
 ---
 
 <section class="how-it-works py-20 bg-black font-sans-instrument">
-  <div class="2xl:container px-4 md:px-[120px]">
+  <div class="2xl:container px-4 md:px-30">
     <div class="pb-14 text-white text-center">
       <h2 class="text-3xl md:text-5xl font-bold">
         {header.title}
@@ -55,7 +55,7 @@ const { header, steps } = Astro.props as Props;
               {step.text}
             </p>
             <div
-              class={`how-underline mt-5 h-[2px] w-full overflow-hidden transition-colors duration-300 ${
+              class={`how-underline mt-5 h-0.5 w-full overflow-hidden transition-colors duration-300 ${
                 i === 0 ? "bg-[#FFFFFF]" : "bg-white/50"
               }`}
             >
