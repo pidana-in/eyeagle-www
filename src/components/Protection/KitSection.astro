@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 
 type OverviewCard = {
   title: string;
@@ -51,7 +51,7 @@ const kitData = Astro.props.kitData;
                 card.textPosition === "bottom" ? "bottom-6" : "top-6"
               }`}
             >
-              <h4 class="text-xl font-bold text-black">{card.title}</h4>
+              <h3 class="text-xl font-bold text-black">{card.title}</h3>
               <p class="mt-2 text-base text-black/70">{card.desc}</p>
             </div>
           </div>
@@ -112,12 +112,12 @@ const kitData = Astro.props.kitData;
     >
       <Image
         src={kitData.img1}
-        alt=""
+        alt="Wall-mounted bathroom support stand from the EyEagle protection kit"
         class="w-full max-w-[500px] h-auto mx-auto object-contain"
       />
       <Image
         src={kitData.img2}
-        alt=""
+        alt="Bathroom support handle from the EyEagle protection kit"
         class="w-full max-w-[500px] h-auto mx-auto object-contain"
       />
     </div>

@@ -1,0 +1,5993 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "source": "src/pages/index.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/about-us",
+      "source": "src/pages/about-us.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/app",
+      "source": "src/pages/app.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/blog",
+      "source": "src/pages/blog.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/blogs/arthritis-and-joint-pain-in-seniors",
+      "source": "src/content/blogs/arthritis.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/balance-problems-in-elderly",
+      "source": "src/content/blogs/balance.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/bathroom-safety-features-at-home",
+      "source": "src/content/blogs/safety-features.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/caring-elderly-parents-from-afar",
+      "source": "src/content/blogs/caring.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/caring-from-distance",
+      "source": "src/content/blogs/NRI-parent-care.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/diet-and-nutrition-in-healthy-aging",
+      "source": "src/content/blogs/diet.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/diwali-travel-safety-tips-for-seniors",
+      "source": "src/content/blogs/travel-diwali.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/falls-kill-more-seniors-than-you-think",
+      "source": "src/content/blogs/fall.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/holi-safety-at-home",
+      "source": "src/content/blogs/holi-safety.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/how-eyeagle-works-when-you-are-miles-away",
+      "source": "src/content/blogs/miles-away.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/how-fear-of-falling-affects-mental-health",
+      "source": "src/content/blogs/mental-health.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "source": "src/content/blogs/safety.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/how-to-make-your-home-safe",
+      "source": "src/content/blogs/safe-home.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/importance-of-elderly-fall-prevention",
+      "source": "src/content/blogs/zindagi.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/importance-of-open-conversations-about-aging",
+      "source": "src/content/blogs/conversations.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/importance-of-regular-vision-checks",
+      "source": "src/content/blogs/vision.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/mobility-tips-for-seniors",
+      "source": "src/content/blogs/mobility.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/monsoon-bathroom-safety-tips-for-seniors",
+      "source": "src/content/blogs/monsoon.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/new-year-safer-home-safety-tips",
+      "source": "src/content/blogs/new-year.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/protecting-elders-at-home-safety-guide",
+      "source": "src/content/blogs/kabhi-khushi.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/regular-health-checkups-for-seniors",
+      "source": "src/content/blogs/checkup.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/senior-fall-risk-denial-why-not-me-mentality",
+      "source": "src/content/blogs/why-not-me.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/senior-hidden-illness-and-home-safety",
+      "source": "src/content/blogs/seniors-ill.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/senior-home-safety-india",
+      "source": "src/content/blogs/aging-reality.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/senior-safety-during-diwali",
+      "source": "src/content/blogs/safety-diwali.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/silver-tsunami-india-safer-future-for-seniors",
+      "source": "src/content/blogs/silver-tsunami.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/sleep-hygiene-for-seniors",
+      "source": "src/content/blogs/sleep-hygiene.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/stairway-safety-tips-prevent-accidents",
+      "source": "src/content/blogs/stairway-safety.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "source": "src/content/blogs/safety-tips.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/that-missed-call-on-a-winter-morning",
+      "source": "src/content/blogs/missedCall.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/the-critical-60-minutes-after-a-fall",
+      "source": "src/content/blogs/critical.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/thoughtful-new-year-gift-safety-over-showpieces",
+      "source": "src/content/blogs/newYear-gift.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/why-fall-alarms-for-seniors-matter",
+      "source": "src/content/blogs/alarms.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "source": "src/content/blogs/epidemic.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/winter-bathroom-safety-for-seniors",
+      "source": "src/content/blogs/winter-safety.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/winter-footwear-safety-at-home",
+      "source": "src/content/blogs/footwear.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/contact",
+      "source": "src/pages/contact.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/device",
+      "source": "src/pages/device.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/join",
+      "source": "src/pages/join.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/offers/fathers-day-2025",
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/offers/yoga-day-2025",
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/order-details/[id]",
+      "source": "src/pages/order-details/[id].astro",
+      "kind": "dynamic"
+    },
+    {
+      "route": "/privacy",
+      "source": "src/pages/privacy.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/protection",
+      "source": "src/pages/protection.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/refund",
+      "source": "src/pages/refund.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/shipping",
+      "source": "src/pages/shipping.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/solution",
+      "source": "src/pages/solution.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/store",
+      "source": "src/pages/store.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/success",
+      "source": "src/pages/success.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/tnc",
+      "source": "src/pages/tnc.astro",
+      "kind": "page"
+    }
+  ],
+  "images": [
+    {
+      "file": "src/assets/Aboutus/AboutUsHeroBanner.png",
+      "format": "png",
+      "width": 557,
+      "height": 670,
+      "bytes": 449280,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/AboutUs/BannerSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/Ellipse.png",
+      "format": "png",
+      "width": 68,
+      "height": 74,
+      "bytes": 1185,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Aboutus/Founder1.png",
+      "format": "png",
+      "width": 640,
+      "height": 800,
+      "bytes": 805153,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/data/about.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/Founder2.png",
+      "format": "png",
+      "width": 640,
+      "height": 800,
+      "bytes": 772629,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/data/about.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/Founder3.png",
+      "format": "png",
+      "width": 640,
+      "height": 800,
+      "bytes": 701789,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/data/about.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/Founder4.png",
+      "format": "png",
+      "width": 640,
+      "height": 800,
+      "bytes": 866570,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/data/about.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/HeaderBanner.png",
+      "format": "png",
+      "width": 2880,
+      "height": 1200,
+      "bytes": 4389535,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/data/about.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/HeaderBanner2.png",
+      "format": "png",
+      "width": 393,
+      "height": 264,
+      "bytes": 230051,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Aboutus/empowering1.png",
+      "format": "png",
+      "width": 292,
+      "height": 383,
+      "bytes": 206555,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/AboutUs/EmpoweringSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/empowering2.png",
+      "format": "png",
+      "width": 397,
+      "height": 266,
+      "bytes": 194042,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/AboutUs/EmpoweringSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Aboutus/senior-couple.png",
+      "format": "png",
+      "width": 428,
+      "height": 285,
+      "bytes": 208063,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/AboutUs/EmpoweringSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Abhinav.png",
+      "format": "png",
+      "width": 640,
+      "height": 800,
+      "bytes": 426908,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Blog/Blog22Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 964966,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/footwear.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog23Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 865004,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/winter-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog24Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 435628,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/seniors-ill.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog26Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2067038,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/zindagi.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog27Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1418174,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/aging-reality.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog28Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2700608,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/kabhi-khushi.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog29Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1057934,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/stairway-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog30Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1420,
+      "bytes": 1462609,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/why-not-me.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog31Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1198,
+      "bytes": 1441549,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/safety-features.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog32Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1198,
+      "bytes": 1126819,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/NRI-parent-care.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog33Infographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1198,
+      "bytes": 1095042,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/miles-away.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog34Infographic.png",
+      "format": "png",
+      "width": 2136,
+      "height": 1424,
+      "bytes": 2803546,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/monsoon.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogDiwali1.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2388515,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/safety-diwali.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogDiwali2.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2503300,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/travel-diwali.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage(Infographics)1.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 496052,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage(Infographics)2.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 833288,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/epidemic.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage(Infographics)7.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 686498,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/arthritis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage(SecondaryBannerImage)1.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 3417616,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage1.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1210032,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage10.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2425125,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/vision.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage11.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2525558,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/critical.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage12.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2690028,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/diet.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage13.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2617552,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/checkup.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage14.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2371438,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/mobility.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage15.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2433928,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/sleep-hygiene.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage16.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2864735,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/conversations.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage17.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2635233,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/silver-tsunami.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage18.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2159140,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/new-year.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage19.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1958343,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/newYear-gift.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage2(SecondaryBannerImage)2.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 820551,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/epidemic.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage2.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 911155,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/epidemic.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage20.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2176520,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/safe-home.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage21.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1548841,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/missedCall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage22.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1996928,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/footwear.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage23.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1834593,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/winter-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage24.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1825052,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/seniors-ill.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage26.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1662665,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/zindagi.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage27.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2250271,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/aging-reality.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage28.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1961212,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/kabhi-khushi.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage29.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2216333,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/stairway-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage3.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1477795,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage30.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1863349,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/why-not-me.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage31.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1886551,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/safety-features.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage32.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1473053,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/NRI-parent-care.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage33.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1791561,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/miles-away.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage34.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1889718,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/monsoon.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage4.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2735946,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/safety-tips.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage5.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2286166,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/alarms.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage6.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2603216,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/caring.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage7.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2464902,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/arthritis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage8.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2234010,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/balance.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage9.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1389886,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/mental-health.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Divider.png",
+      "format": "png",
+      "width": 1120,
+      "height": 1,
+      "bytes": 170,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/blogs/[slug].astro"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/HoliBanner.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2608360,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/holi-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/HoliInfographic.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 2638233,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/holi-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/struggle1.png",
+      "format": "png",
+      "width": 435,
+      "height": 398,
+      "bytes": 364448,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/struggle2.png",
+      "format": "png",
+      "width": 434,
+      "height": 398,
+      "bytes": 334599,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/struggle3.png",
+      "format": "png",
+      "width": 435,
+      "height": 398,
+      "bytes": 344759,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Cart/productImage.png",
+      "format": "png",
+      "width": 80,
+      "height": 80,
+      "bytes": 15054,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/cart.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Common/Group.png",
+      "format": "png",
+      "width": 600,
+      "height": 576,
+      "bytes": 21213,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/success.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/India.png",
+      "format": "png",
+      "width": 658,
+      "height": 450,
+      "bytes": 41736,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/International.png",
+      "format": "png",
+      "width": 656,
+      "height": 450,
+      "bytes": 60188,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/RightChervon.png",
+      "format": "png",
+      "width": 10,
+      "height": 17,
+      "bytes": 172,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Common/Tick.png",
+      "format": "png",
+      "width": 36,
+      "height": 37,
+      "bytes": 1116,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Orders/OrderStatusCard.astro",
+        "src/pages/order-details/[id].astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/contactLogo1.png",
+      "format": "png",
+      "width": 40,
+      "height": 40,
+      "bytes": 2432,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/contact.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/contactLogo2.png",
+      "format": "png",
+      "width": 40,
+      "height": 40,
+      "bytes": 730,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/contact.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/contactLogo3.png",
+      "format": "png",
+      "width": 40,
+      "height": 40,
+      "bytes": 870,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/contact.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Common/contactLogo4.png",
+      "format": "png",
+      "width": 40,
+      "height": 40,
+      "bytes": 620,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/contact.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Device/Alarm.png",
+      "format": "png",
+      "width": 591,
+      "height": 629,
+      "bytes": 188545,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/AlarmInside.png",
+      "format": "png",
+      "width": 2720,
+      "height": 1800,
+      "bytes": 7114195,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/AlarmOutside.png",
+      "format": "png",
+      "width": 2720,
+      "height": 1800,
+      "bytes": 6366381,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/BathroomImage.png",
+      "format": "png",
+      "width": 1440,
+      "height": 826,
+      "bytes": 2297009,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/BathroomImageMob.png",
+      "format": "png",
+      "width": 786,
+      "height": 722,
+      "bytes": 1029827,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/BlackCheck.png",
+      "format": "png",
+      "width": 59,
+      "height": 59,
+      "bytes": 1020,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/Camera.png",
+      "format": "png",
+      "width": 20,
+      "height": 19,
+      "bytes": 523,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/Lock.png",
+      "format": "png",
+      "width": 711,
+      "height": 461,
+      "bytes": 134285,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/LoudAlarm.png",
+      "format": "png",
+      "width": 22,
+      "height": 20,
+      "bytes": 500,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/NoWifi.png",
+      "format": "png",
+      "width": 24,
+      "height": 24,
+      "bytes": 525,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/PanicButton.png",
+      "format": "png",
+      "width": 508,
+      "height": 427,
+      "bytes": 118692,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/Power.png",
+      "format": "png",
+      "width": 18,
+      "height": 18,
+      "bytes": 470,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/StepImage1.png",
+      "format": "png",
+      "width": 1800,
+      "height": 764,
+      "bytes": 1547600,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/StepImage2.png",
+      "format": "png",
+      "width": 1800,
+      "height": 764,
+      "bytes": 1573768,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/StepImage3.png",
+      "format": "png",
+      "width": 1800,
+      "height": 764,
+      "bytes": 1826182,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Device/StepImage4.png",
+      "format": "png",
+      "width": 1800,
+      "height": 764,
+      "bytes": 1394422,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/Discount.png",
+      "format": "png",
+      "width": 1238,
+      "height": 663,
+      "bytes": 136542,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/offers/fathers-day-2025.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/DiscountNew.png",
+      "format": "png",
+      "width": 822,
+      "height": 824,
+      "bytes": 75475,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/offers/yoga-day-2025.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/FatherBannerNew.png",
+      "format": "png",
+      "width": 3090,
+      "height": 1533,
+      "bytes": 3456234,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/offers/fathers-day-2025.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/FatherImage.png",
+      "format": "png",
+      "width": 2598,
+      "height": 1216,
+      "bytes": 4119689,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/offers/fathers-day-2025.astro",
+        "src/pages/offers/yoga-day-2025.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/FathersdayImage.png",
+      "format": "png",
+      "width": 1030,
+      "height": 511,
+      "bytes": 761752,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Home/HandleImage.png",
+      "format": "png",
+      "width": 650,
+      "height": 489,
+      "bytes": 534377,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/Hero_17.png",
+      "format": "png",
+      "width": 6400,
+      "height": 4132,
+      "bytes": 6462672,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/pages/offers/fathers-day-2025.astro",
+        "src/pages/offers/yoga-day-2025.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/HomePageBannerMobile.png",
+      "format": "png",
+      "width": 393,
+      "height": 593,
+      "bytes": 457402,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Home/HomePageEmergencyBanner.png",
+      "format": "png",
+      "width": 578,
+      "height": 497,
+      "bytes": 378795,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Home/YogadayImage.png",
+      "format": "png",
+      "width": 3090,
+      "height": 1534,
+      "bytes": 2180216,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/offers/yoga-day-2025.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/appStore.png",
+      "format": "png",
+      "width": 288,
+      "height": 96,
+      "bytes": 6389,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Home/CircleMembership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/bentoMobile.png",
+      "format": "png",
+      "width": 1059,
+      "height": 1255,
+      "bytes": 540728,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/circleApp.png",
+      "format": "png",
+      "width": 2560,
+      "height": 1086,
+      "bytes": 1198754,
+      "category": "screenshot",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/circleAppMobile.png",
+      "format": "png",
+      "width": 706,
+      "height": 733,
+      "bytes": 499119,
+      "category": "screenshot",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/googleStore.png",
+      "format": "png",
+      "width": 324,
+      "height": 96,
+      "bytes": 5770,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Home/CircleMembership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/notifications.png",
+      "format": "png",
+      "width": 2560,
+      "height": 1172,
+      "bytes": 272723,
+      "category": "screenshot",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ScrollText.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/powerfulBento.png",
+      "format": "png",
+      "width": 2720,
+      "height": 1172,
+      "bytes": 846050,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/powerfulFeat1.png",
+      "format": "png",
+      "width": 706,
+      "height": 837,
+      "bytes": 68900,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/powerfulFeat1Mobile.png",
+      "format": "png",
+      "width": 1059,
+      "height": 1255,
+      "bytes": 120818,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/powerfulFeat2.png",
+      "format": "png",
+      "width": 1560,
+      "height": 1278,
+      "bytes": 251193,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/powerfulFeat2Mobile.png",
+      "format": "png",
+      "width": 1059,
+      "height": 869,
+      "bytes": 155248,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/powerfulFeatDemo.png",
+      "format": "png",
+      "width": 2560,
+      "height": 1172,
+      "bytes": 541022,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ScrollText.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Home/shop1new.png",
+      "format": "png",
+      "width": 1160,
+      "height": 1161,
+      "bytes": 2185884,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/shop2new.png",
+      "format": "png",
+      "width": 1161,
+      "height": 1161,
+      "bytes": 1248238,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Home/shop3new.png",
+      "format": "png",
+      "width": 1161,
+      "height": 1161,
+      "bytes": 1479650,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Join/JoinPhoto.png",
+      "format": "png",
+      "width": 324,
+      "height": 316,
+      "bytes": 131792,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Waitlist/PostFormField.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/manifesto_explanation1.png",
+      "format": "png",
+      "width": 1238,
+      "height": 844,
+      "bytes": 1516329,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/manifesto_explanation2.png",
+      "format": "png",
+      "width": 1240,
+      "height": 720,
+      "bytes": 285725,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/manifesto_explanation3.png",
+      "format": "png",
+      "width": 1240,
+      "height": 720,
+      "bytes": 978848,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/manifesto_explanation4.png",
+      "format": "png",
+      "width": 1238,
+      "height": 720,
+      "bytes": 941041,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/manifesto_explanation5.png",
+      "format": "png",
+      "width": 1238,
+      "height": 720,
+      "bytes": 906287,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/manifesto_explanation6.png",
+      "format": "png",
+      "width": 1238,
+      "height": 720,
+      "bytes": 1130371,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/worldSafety1.png",
+      "format": "png",
+      "width": 1000,
+      "height": 1002,
+      "bytes": 1533276,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/worldSafety2.png",
+      "format": "png",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 1454030,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Manifesto/worldSafety3.png",
+      "format": "png",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 412210,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/manifesto.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/Account.png",
+      "format": "png",
+      "width": 48,
+      "height": 48,
+      "bytes": 1313,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/ChatGPTImage.png",
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1777809,
+      "category": "generated artwork",
+      "classificationConfidence": "high",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/Eyeagle.png",
+      "format": "png",
+      "width": 244,
+      "height": 54,
+      "bytes": 3007,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/EyeagleLogo.png",
+      "format": "png",
+      "width": 649,
+      "height": 144,
+      "bytes": 7875,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/EyeagleLogoBlack.png",
+      "format": "png",
+      "width": 1240,
+      "height": 198,
+      "bytes": 13050,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/EyeagleLogoMobile.png",
+      "format": "png",
+      "width": 94,
+      "height": 24,
+      "bytes": 1649,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/EyeagleLogoMobileBlack.png",
+      "format": "png",
+      "width": 94,
+      "height": 24,
+      "bytes": 995,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/EyeagleRevampLogo.png",
+      "format": "png",
+      "width": 186,
+      "height": 28,
+      "bytes": 1338,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/EyeagleSecondLogo.png",
+      "format": "png",
+      "width": 120,
+      "height": 28,
+      "bytes": 1359,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/Frame7.jpg",
+      "format": "jpeg",
+      "width": 2880,
+      "height": 2640,
+      "bytes": 991422,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/FrameNew.jpg",
+      "format": "jpeg",
+      "width": 4321,
+      "height": 3971,
+      "bytes": 2218945,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/HeroImage.png",
+      "format": "png",
+      "width": 1920,
+      "height": 1776,
+      "bytes": 3902597,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/HeroImage1.png",
+      "format": "png",
+      "width": 640,
+      "height": 592,
+      "bytes": 611778,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/HeroSection.png",
+      "format": "png",
+      "width": 1440,
+      "height": 823,
+      "bytes": 1969935,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/WhatsAppImage.jpeg",
+      "format": "jpeg",
+      "width": 787,
+      "height": 1600,
+      "bytes": 98021,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage1.png",
+      "format": "png",
+      "width": 972,
+      "height": 1200,
+      "bytes": 1751146,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage1new.png",
+      "format": "png",
+      "width": 888,
+      "height": 816,
+      "bytes": 1076650,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage2.png",
+      "format": "png",
+      "width": 966,
+      "height": 1200,
+      "bytes": 1491113,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage3.png",
+      "format": "png",
+      "width": 966,
+      "height": 1200,
+      "bytes": 936620,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage3new.png",
+      "format": "png",
+      "width": 888,
+      "height": 816,
+      "bytes": 577235,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage4.png",
+      "format": "png",
+      "width": 966,
+      "height": 1200,
+      "bytes": 42471,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/bathroomImage4new.png",
+      "format": "png",
+      "width": 296,
+      "height": 272,
+      "bytes": 60246,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/bathroomimage2new.png",
+      "format": "png",
+      "width": 888,
+      "height": 816,
+      "bytes": 966978,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/desireImage.png",
+      "format": "png",
+      "width": 1440,
+      "height": 900,
+      "bytes": 1478436,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardianKit.png",
+      "format": "png",
+      "width": 1932,
+      "height": 1274,
+      "bytes": 3406315,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit01.png",
+      "format": "png",
+      "width": 361,
+      "height": 292,
+      "bytes": 134009,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit02.png",
+      "format": "png",
+      "width": 362,
+      "height": 293,
+      "bytes": 23874,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit03.png",
+      "format": "png",
+      "width": 362,
+      "height": 293,
+      "bytes": 40772,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit1.png",
+      "format": "png",
+      "width": 1340,
+      "height": 758,
+      "bytes": 1437106,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit1desktop.webp",
+      "format": "webp",
+      "width": 1225,
+      "height": 693,
+      "bytes": 619572,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit1new.png",
+      "format": "png",
+      "width": 542,
+      "height": 438,
+      "bytes": 358705,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit2desktop.webp",
+      "format": "webp",
+      "width": 1079,
+      "height": 693,
+      "bytes": 72966,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit2new.png",
+      "format": "png",
+      "width": 543,
+      "height": 439,
+      "bytes": 42752,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit3.png",
+      "format": "png",
+      "width": 2560,
+      "height": 758,
+      "bytes": 723806,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/ServiceSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit3Mobile.png",
+      "format": "png",
+      "width": 1180,
+      "height": 758,
+      "bytes": 215461,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/guardiankit3new.png",
+      "format": "png",
+      "width": 543,
+      "height": 508,
+      "bytes": 93722,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/image-02.png",
+      "format": "png",
+      "width": 1086,
+      "height": 876,
+      "bytes": 170945,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/kitImage1new.png",
+      "format": "png",
+      "width": 350,
+      "height": 280,
+      "bytes": 110740,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitImage2new.png",
+      "format": "png",
+      "width": 350,
+      "height": 280,
+      "bytes": 123086,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitImage3new.png",
+      "format": "png",
+      "width": 350,
+      "height": 584,
+      "bytes": 295589,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitImage4new.png",
+      "format": "png",
+      "width": 696,
+      "height": 280,
+      "bytes": 390365,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitImage5new.png",
+      "format": "png",
+      "width": 694,
+      "height": 280,
+      "bytes": 136330,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitItem1.png",
+      "format": "png",
+      "width": 320,
+      "height": 553,
+      "bytes": 301184,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/kitItem2.png",
+      "format": "png",
+      "width": 632,
+      "height": 277,
+      "bytes": 398912,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/kitItem3.png",
+      "format": "png",
+      "width": 632,
+      "height": 257,
+      "bytes": 258005,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/kitItem4.png",
+      "format": "png",
+      "width": 320,
+      "height": 281,
+      "bytes": 139178,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/kitItem5.png",
+      "format": "png",
+      "width": 320,
+      "height": 257,
+      "bytes": 105481,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/kitMobile1.png",
+      "format": "png",
+      "width": 546,
+      "height": 840,
+      "bytes": 398853,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitMobile2.png",
+      "format": "png",
+      "width": 546,
+      "height": 840,
+      "bytes": 349066,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitMobile3.png",
+      "format": "png",
+      "width": 546,
+      "height": 841,
+      "bytes": 540343,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitMobile4.png",
+      "format": "png",
+      "width": 546,
+      "height": 841,
+      "bytes": 749264,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/kitmobile5.png",
+      "format": "png",
+      "width": 546,
+      "height": 847,
+      "bytes": 46363,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/latestimage.png",
+      "format": "png",
+      "width": 1603,
+      "height": 3331,
+      "bytes": 3022015,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/newimage.png",
+      "format": "png",
+      "width": 1834,
+      "height": 3451,
+      "bytes": 2995869,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/ourTeam.png",
+      "format": "png",
+      "width": 1421,
+      "height": 676,
+      "bytes": 1156994,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/struggle1.png",
+      "format": "png",
+      "width": 435,
+      "height": 398,
+      "bytes": 364448,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/struggle1mobile.png",
+      "format": "png",
+      "width": 300,
+      "height": 261,
+      "bytes": 149484,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/struggle1new.png",
+      "format": "png",
+      "width": 1380,
+      "height": 1197,
+      "bytes": 2652661,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/struggle2.png",
+      "format": "png",
+      "width": 434,
+      "height": 398,
+      "bytes": 334599,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/struggle2mobile.png",
+      "format": "png",
+      "width": 300,
+      "height": 261,
+      "bytes": 148918,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/struggle2new.png",
+      "format": "png",
+      "width": 1380,
+      "height": 1197,
+      "bytes": 2655644,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/struggle3.png",
+      "format": "png",
+      "width": 435,
+      "height": 398,
+      "bytes": 344759,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/struggle3mobile.png",
+      "format": "png",
+      "width": 900,
+      "height": 781,
+      "bytes": 1100864,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/struggle3new.png",
+      "format": "png",
+      "width": 1380,
+      "height": 1197,
+      "bytes": 2562522,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Navbar/takeCareImage1.png",
+      "format": "png",
+      "width": 619,
+      "height": 361,
+      "bytes": 304048,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/takeCareImage2.png",
+      "format": "png",
+      "width": 619,
+      "height": 361,
+      "bytes": 171879,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Navbar/tick.png",
+      "format": "png",
+      "width": 80,
+      "height": 80,
+      "bytes": 4054,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/NewApp/AppInfograph.png",
+      "format": "png",
+      "width": 1866,
+      "height": 1298,
+      "bytes": 854959,
+      "category": "screenshot",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/AppStore.png",
+      "format": "png",
+      "width": 564,
+      "height": 240,
+      "bytes": 37526,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/BackupImage.png",
+      "format": "png",
+      "width": 840,
+      "height": 783,
+      "bytes": 957300,
+      "category": "screenshot",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/CTAImage.png",
+      "format": "png",
+      "width": 2880,
+      "height": 1112,
+      "bytes": 27761,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FamilyImage1.png",
+      "format": "png",
+      "width": 1620,
+      "height": 1215,
+      "bytes": 2198113,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FamilyImage2.png",
+      "format": "png",
+      "width": 1620,
+      "height": 1215,
+      "bytes": 1987287,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FamilyImage3.png",
+      "format": "png",
+      "width": 1620,
+      "height": 1215,
+      "bytes": 2833298,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FeatureImage1.png",
+      "format": "png",
+      "width": 840,
+      "height": 902,
+      "bytes": 193735,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FeatureImage2.png",
+      "format": "png",
+      "width": 840,
+      "height": 902,
+      "bytes": 216237,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FeatureImage3.png",
+      "format": "png",
+      "width": 840,
+      "height": 902,
+      "bytes": 332253,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/FlightImage.png",
+      "format": "png",
+      "width": 2880,
+      "height": 1403,
+      "bytes": 4101679,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Hero-mobile.png",
+      "format": "png",
+      "width": 393,
+      "height": 597,
+      "bytes": 4092,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/NewApp/Hero-new-mobile.png",
+      "format": "png",
+      "width": 790,
+      "height": 1704,
+      "bytes": 1349918,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Hero.png",
+      "format": "png",
+      "width": 1440,
+      "height": 1070,
+      "bytes": 23522,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/NewApp/HeroImage.png",
+      "format": "png",
+      "width": 2880,
+      "height": 1770,
+      "bytes": 4695550,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/HeroImageMobile.png",
+      "format": "png",
+      "width": 393,
+      "height": 526,
+      "bytes": 7226,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/NewApp/ImageCard-1.png",
+      "format": "png",
+      "width": 682,
+      "height": 916,
+      "bytes": 1065066,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/ImageCard-2.png",
+      "format": "png",
+      "width": 682,
+      "height": 916,
+      "bytes": 932167,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/ImageCard-3.png",
+      "format": "png",
+      "width": 682,
+      "height": 916,
+      "bytes": 1202983,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/ImageCard-4.png",
+      "format": "png",
+      "width": 682,
+      "height": 916,
+      "bytes": 799994,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/ImageCard-5.png",
+      "format": "png",
+      "width": 682,
+      "height": 916,
+      "bytes": 1112496,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/ImageCard-6.png",
+      "format": "png",
+      "width": 682,
+      "height": 916,
+      "bytes": 1190129,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Line.png",
+      "format": "png",
+      "width": 1200,
+      "height": 1,
+      "bytes": 139,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/device.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/PlayStore.png",
+      "format": "png",
+      "width": 603,
+      "height": 240,
+      "bytes": 43324,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Testimonial1.png",
+      "format": "webp",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 1273610,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Testimonial2.png",
+      "format": "webp",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 1578846,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Testimonial3.png",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1969742,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Testimonial4.png",
+      "format": "webp",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 1507782,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Testimonial5.png",
+      "format": "webp",
+      "width": 572,
+      "height": 1024,
+      "bytes": 419034,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/Testimonial6.png",
+      "format": "png",
+      "width": 1475,
+      "height": 1066,
+      "bytes": 2160381,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewApp/check.png",
+      "format": "png",
+      "width": 59,
+      "height": 59,
+      "bytes": 1842,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/AppImage.png",
+      "format": "png",
+      "width": 1440,
+      "height": 601,
+      "bytes": 1174941,
+      "category": "screenshot",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Backup.png",
+      "format": "png",
+      "width": 36,
+      "height": 36,
+      "bytes": 513,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/BathroomKitImage.png",
+      "format": "png",
+      "width": 4320,
+      "height": 1803,
+      "bytes": 4002089,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/HelpImage.png",
+      "format": "png",
+      "width": 1536,
+      "height": 879,
+      "bytes": 1944499,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/HelpImageMobile.png",
+      "format": "png",
+      "width": 786,
+      "height": 1352,
+      "bytes": 714773,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/HeroMobile.png",
+      "format": "png",
+      "width": 393,
+      "height": 163,
+      "bytes": 95491,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/HomeImage.png",
+      "format": "png",
+      "width": 4320,
+      "height": 1782,
+      "bytes": 1979697,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts",
+        "src/layouts/MainLayout.astro"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/LoudAlarm.png",
+      "format": "png",
+      "width": 36,
+      "height": 36,
+      "bytes": 804,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/device.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Moment1.png",
+      "format": "png",
+      "width": 379,
+      "height": 364,
+      "bytes": 234039,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Moment2.png",
+      "format": "png",
+      "width": 379,
+      "height": 364,
+      "bytes": 235504,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Moment3.png",
+      "format": "png",
+      "width": 379,
+      "height": 364,
+      "bytes": 209841,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Offline.png",
+      "format": "png",
+      "width": 36,
+      "height": 36,
+      "bytes": 852,
+      "category": "icon",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/StepImage5.png",
+      "format": "png",
+      "width": 1200,
+      "height": 509,
+      "bytes": 953123,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/StepImage6.png",
+      "format": "png",
+      "width": 1200,
+      "height": 509,
+      "bytes": 637820,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Testimonial1.png",
+      "format": "png",
+      "width": 100,
+      "height": 100,
+      "bytes": 23687,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Testimonial2.png",
+      "format": "png",
+      "width": 100,
+      "height": 100,
+      "bytes": 19347,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Testimonial3.png",
+      "format": "png",
+      "width": 100,
+      "height": 100,
+      "bytes": 16808,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Testimonial4.png",
+      "format": "png",
+      "width": 100,
+      "height": 100,
+      "bytes": 20846,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/Testimonial5.png",
+      "format": "png",
+      "width": 100,
+      "height": 100,
+      "bytes": 22952,
+      "category": "photograph",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/app.ts",
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/app.png",
+      "format": "png",
+      "width": 1143,
+      "height": 642,
+      "bytes": 115831,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/audit.png",
+      "format": "png",
+      "width": 1143,
+      "height": 639,
+      "bytes": 1044770,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/device.png",
+      "format": "png",
+      "width": 1143,
+      "height": 642,
+      "bytes": 128917,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/kit.png",
+      "format": "png",
+      "width": 1143,
+      "height": 639,
+      "bytes": 511664,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/step1.png",
+      "format": "png",
+      "width": 1200,
+      "height": 510,
+      "bytes": 987743,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/step2.png",
+      "format": "png",
+      "width": 1200,
+      "height": 510,
+      "bytes": 824420,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/works1.png",
+      "format": "png",
+      "width": 1096,
+      "height": 720,
+      "bytes": 957069,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/works2.png",
+      "format": "png",
+      "width": 1096,
+      "height": 720,
+      "bytes": 1202746,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/NewHome/works3.png",
+      "format": "png",
+      "width": 1096,
+      "height": 720,
+      "bytes": 770428,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/newHome.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Orders/OrderItemImage.png",
+      "format": "png",
+      "width": 100,
+      "height": 100,
+      "bytes": 22316,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OrderDetails/OrderDetailsSection.astro",
+        "src/components/Orders/OrderCard.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/BathroomFloorImage.png",
+      "format": "png",
+      "width": 1440,
+      "height": 611,
+      "bytes": 1098507,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Calm.png",
+      "format": "png",
+      "width": 322,
+      "height": 214,
+      "bytes": 113530,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Caregivers.png",
+      "format": "png",
+      "width": 376,
+      "height": 264,
+      "bytes": 202464,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Cleaning.png",
+      "format": "png",
+      "width": 322,
+      "height": 214,
+      "bytes": 120198,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/ContentImage.png",
+      "format": "png",
+      "width": 950,
+      "height": 542,
+      "bytes": 960075,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Protection/DesignedFor.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/CtaImage.png",
+      "format": "png",
+      "width": 560,
+      "height": 616,
+      "bytes": 532988,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Entry.png",
+      "format": "png",
+      "width": 393,
+      "height": 248,
+      "bytes": 157278,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/GrabBar.png",
+      "format": "png",
+      "width": 322,
+      "height": 214,
+      "bytes": 102089,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/HandleBar.png",
+      "format": "png",
+      "width": 322,
+      "height": 214,
+      "bytes": 132204,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/InstallImage1.png",
+      "format": "png",
+      "width": 1080,
+      "height": 640,
+      "bytes": 878983,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/InstallImage2.png",
+      "format": "png",
+      "width": 1080,
+      "height": 640,
+      "bytes": 898783,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/InstallImage3.png",
+      "format": "png",
+      "width": 1080,
+      "height": 640,
+      "bytes": 931480,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/InstallImage4.png",
+      "format": "png",
+      "width": 1080,
+      "height": 640,
+      "bytes": 832778,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/MainImage.png",
+      "format": "png",
+      "width": 1440,
+      "height": 611,
+      "bytes": 1103709,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Mount.png",
+      "format": "png",
+      "width": 322,
+      "height": 214,
+      "bytes": 138492,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/PostSurgery.png",
+      "format": "png",
+      "width": 376,
+      "height": 264,
+      "bytes": 192548,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/ProductCard-AntiSlipMat.png",
+      "format": "png",
+      "width": 445,
+      "height": 480,
+      "bytes": 203550,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/ProductCard-AntiSlipTape.png",
+      "format": "png",
+      "width": 445,
+      "height": 480,
+      "bytes": 214264,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/ProductCard-GrabBar.png",
+      "format": "png",
+      "width": 445,
+      "height": 480,
+      "bytes": 155635,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/ProductCard-HandRail.png",
+      "format": "png",
+      "width": 445,
+      "height": 480,
+      "bytes": 187519,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/SeniorParent.png",
+      "format": "png",
+      "width": 376,
+      "height": 264,
+      "bytes": 193435,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Shower.png",
+      "format": "png",
+      "width": 393,
+      "height": 248,
+      "bytes": 165961,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/SteelStrength.png",
+      "format": "png",
+      "width": 322,
+      "height": 214,
+      "bytes": 98862,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/SupportHandle.png",
+      "format": "png",
+      "width": 563,
+      "height": 458,
+      "bytes": 102194,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/SupportStand.png",
+      "format": "png",
+      "width": 595,
+      "height": 490,
+      "bytes": 55019,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/Toilet.png",
+      "format": "png",
+      "width": 393,
+      "height": 248,
+      "bytes": 156205,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/VectorBottom.png",
+      "format": "png",
+      "width": 102,
+      "height": 32,
+      "bytes": 422,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Protection/VectorLeft.png",
+      "format": "png",
+      "width": 110,
+      "height": 133,
+      "bytes": 623,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Protection/VectorRight.png",
+      "format": "png",
+      "width": 91,
+      "height": 120,
+      "bytes": 613,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Protection/matdetails.png",
+      "format": "png",
+      "width": 947,
+      "height": 408,
+      "bytes": 270219,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Protection/redCheck.png",
+      "format": "png",
+      "width": 39,
+      "height": 39,
+      "bytes": 984,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/protection.ts"
+      ]
+    },
+    {
+      "file": "src/assets/astro.svg",
+      "format": "svg",
+      "width": 115,
+      "height": 48,
+      "bytes": 2914,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Welcome.astro"
+      ]
+    },
+    {
+      "file": "src/assets/background.svg",
+      "format": "svg",
+      "width": 1440,
+      "height": 1024,
+      "bytes": 1454,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Welcome.astro"
+      ]
+    },
+    {
+      "file": "src/assets/svgs/Carouselnext.svg",
+      "format": "svg",
+      "width": 40,
+      "height": 40,
+      "bytes": 1331,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/AppSection/Testimonials.astro"
+      ]
+    },
+    {
+      "file": "src/assets/svgs/Carouselprevious.svg",
+      "format": "svg",
+      "width": 40,
+      "height": 40,
+      "bytes": 1256,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/AppSection/Testimonials.astro"
+      ]
+    },
+    {
+      "file": "src/assets/svgs/contact.svg",
+      "format": "svg",
+      "width": 40,
+      "height": 40,
+      "bytes": 1662,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/orderDetails.ts"
+      ]
+    },
+    {
+      "file": "src/assets/svgs/package.svg",
+      "format": "svg",
+      "width": 40,
+      "height": 40,
+      "bytes": 1385,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/orderDetails.ts"
+      ]
+    },
+    {
+      "file": "src/assets/svgs/smile.svg",
+      "format": "svg",
+      "width": 40,
+      "height": 40,
+      "bytes": 1049,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/orderDetails.ts"
+      ]
+    },
+    {
+      "file": "src/assets/svgs/truck.svg",
+      "format": "svg",
+      "width": 40,
+      "height": 40,
+      "bytes": 1544,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/constants/orderDetails.ts"
+      ]
+    },
+    {
+      "file": "public/FavIcon.png",
+      "format": "png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 185521,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/layouts/MainLayout.astro"
+      ]
+    },
+    {
+      "file": "public/favicon.svg",
+      "format": "svg",
+      "width": 256,
+      "height": 256,
+      "bytes": 5450,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/blogsList.json.ts"
+      ]
+    },
+    {
+      "file": "public/svg/Logo-new.svg",
+      "format": "svg",
+      "width": 242,
+      "height": 29,
+      "bytes": 23306,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/layouts/MainLayout.astro"
+      ]
+    },
+    {
+      "file": "public/svg/Logo.svg",
+      "format": "svg",
+      "width": 310,
+      "height": 36,
+      "bytes": 13632,
+      "category": "logo",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/svg/tag-desktop.svg",
+      "format": "svg",
+      "width": 310,
+      "height": 36,
+      "bytes": 13626,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/svg/tag-new.svg",
+      "format": "svg",
+      "width": 242,
+      "height": 29,
+      "bytes": 23306,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/layouts/MainLayout.astro"
+      ]
+    },
+    {
+      "file": "public/svg/tagline-mobile.svg",
+      "format": "svg",
+      "width": 87,
+      "height": 25,
+      "bytes": 16688,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    }
+  ],
+  "links": [
+    {
+      "source": "src/components/AppSection/BackupSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/AppSection/HeroSection.astro",
+      "href": "#",
+      "external": false
+    },
+    {
+      "source": "src/components/AppSection/NewChapter.astro",
+      "href": "#",
+      "external": false
+    },
+    {
+      "source": "src/components/Cart/BillingDetail.astro",
+      "href": "mailto:${object?.replyto}?subject=Request",
+      "external": false
+    },
+    {
+      "source": "src/components/Home/BathroomSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/Blogs.astro",
+      "href": "/blog",
+      "external": false
+    },
+    {
+      "source": "src/components/Home/Blogs.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/Blogs.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/CircleMembership.astro",
+      "href": "https://play.google.com/store/apps/details?id=com.app.eyeagle",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/CircleMembership.astro",
+      "href": "https://apps.apple.com/in/app/eyeagle/id6740724011",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/CircleMembership.astro",
+      "href": "https://play.google.com/store/apps/details?id=com.app.eyeagle",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/CircleMembership.astro",
+      "href": "https://apps.apple.com/in/app/eyeagle/id6740724011",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/DesireSection.astro",
+      "href": "/join",
+      "external": false
+    },
+    {
+      "source": "src/components/Home/DesireSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/FatherSection.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/FatherSection.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/FatherSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/HeroSectionComponent.astro",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/HeroSectionComponent.astro",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/OurTeamSection.astro",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/OurTeamSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/OurTeamSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/OurTeamSection.astro",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/ServiceSection.astro",
+      "href": "https://eyeagle.ai/join",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/ServiceSection.astro",
+      "href": "https://eyeagle.ai/join",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSection.astro",
+      "href": "https://www.youtube.com/embed/6hyfU1h-yNM?controls=0&modestbranding=0&rel=0&iv_load_policy=3&playsinline=1",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://www.youtube-nocookie.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://www.youtube.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://i.ytimg.com/vi/${videoId}/hqdefault.jpg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://www.youtube-nocookie.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://www.youtube.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://i.ytimg.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://www.google.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/VideoSectionNoPreload.astro",
+      "href": "https://www.gstatic.com",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/YogaSection.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/YogaSection.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/components/Home/YogaSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/BathroomKit.astro",
+      "href": "/protection",
+      "external": false
+    },
+    {
+      "source": "src/components/NewHome/EyeagleApp.astro",
+      "href": "/app",
+      "external": false
+    },
+    {
+      "source": "src/components/NewHome/GuardianX.astro",
+      "href": "/device",
+      "external": false
+    },
+    {
+      "source": "src/components/NewHome/HeroSection.astro",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/HeroSection.astro",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/Membership.astro",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/Membership.astro",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/StepsSection.astro",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/StepsSection.astro",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/Testimonials.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/NewHome/Testimonials.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/OrderDetails/OrderDetailsSection.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Protection/Benefits.astro",
+      "href": "#comparison-section",
+      "external": false
+    },
+    {
+      "source": "src/components/Waitlist/PostFormField.astro",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+      "external": true
+    },
+    {
+      "source": "src/components/Waitlist/PostFormField.astro",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://astro.build",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://docs.astro.build",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://astro.build/chat",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://astro.build/blog/astro-5/",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://astro.build",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://docs.astro.build",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://astro.build/chat",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "https://astro.build/blog/astro-5/",
+      "external": true
+    },
+    {
+      "source": "src/components/Welcome.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/common/svgs/contactSvg.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/common/svgs/packageSvg.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/common/svgs/smileSvg.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/common/svgs/truckSvg.astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/app.ts",
+      "href": "https://apps.apple.com/in/app/eyeagle/id6740724011",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/app.ts",
+      "href": "https://play.google.com/store/apps/details?id=com.app.eyeagle",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/device.ts",
+      "href": "https://eyeagle.ai/join",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/home.ts",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/home.ts",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/home.ts",
+      "href": "https://eyeagle.ai/join",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/newHome.ts",
+      "href": "https://shop.eyeagle.ai/products/eyeagle-package-prevention-app",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/newHome.ts",
+      "href": "https://eyeagle.ai/solution",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/newHome.ts",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/components/constants/newHome.ts",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/NRI-parent-care.md",
+      "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/NRI-parent-care.md",
+      "href": "/protection",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/NRI-parent-care.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/aging-reality.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/aging-reality.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/aging-reality.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/alarms.md",
+      "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/alarms.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/alarms.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/alarms.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/arthritis.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/arthritis.md",
+      "href": "/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/arthritis.md",
+      "href": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/arthritis.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "/blogs/why-fall-alarms-for-seniors-matter",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "https://www.mayoclinic.org/diseases-conditions/vertigo/symptoms-causes/syc-20370055",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "https://www.mayoclinic.org/diseases-conditions/menieres-disease/symptoms-causes/syc-20374910",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "/blogs/arthritis-and-joint-pain-in-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "https://www.mayoclinic.org/diseases-conditions/vertigo/symptoms-causes/syc-20370055",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/balance.md",
+      "href": "https://www.mayoclinic.org/diseases-conditions/menieres-disease/symptoms-causes/syc-20374910",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/caring.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/caring.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/caring.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/caring.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/checkup.md",
+      "href": "/blogs/arthritis-and-joint-pain-in-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/checkup.md",
+      "href": "/blogs/importance-of-regular-vision-checks",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/checkup.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/critical.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/critical.md",
+      "href": "https://play.google.com/store/apps/details?id=com.app.eyeagle&hl=en_IN",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/critical.md",
+      "href": "/blogs/importance-of-regular-vision-checks",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/critical.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/critical.md",
+      "href": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/critical.md",
+      "href": "https://play.google.com/store/apps/details?id=com.app.eyeagle&hl=en_IN",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diet.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/diet.md",
+      "href": "/blogs/arthritis-and-joint-pain-in-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/diet.md",
+      "href": "https://www.healthline.com/nutrition/mind-diet",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diet.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/diet.md",
+      "href": "https://www.healthline.com/nutrition/mind-diet",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/epidemic.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/epidemic.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/epidemic.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/epidemic.md",
+      "href": "/contact",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/fall.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/fall.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/fall.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/fall.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/footwear.md",
+      "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/footwear.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/footwear.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/footwear.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/footwear.md",
+      "href": "/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/holi-safety.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/holi-safety.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/kabhi-khushi.md",
+      "href": "/blogs/how-to-make-your-home-safe",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/kabhi-khushi.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/kabhi-khushi.md",
+      "href": "/blogs/regular-health-checkups-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/kabhi-khushi.md",
+      "href": "/blogs/diet-and-nutrition-in-healthy-aging",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mental-health.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mental-health.md",
+      "href": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mental-health.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mental-health.md",
+      "href": "/blogs/caring-elderly-parents-from-afar",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mental-health.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/miles-away.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/miles-away.md",
+      "href": "/app",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/miles-away.md",
+      "href": "/device",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/miles-away.md",
+      "href": "/app",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/missedCall.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mobility.md",
+      "href": "/blogs/arthritis-and-joint-pain-in-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mobility.md",
+      "href": "/blogs/regular-health-checkups-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/mobility.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/protection",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/device",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/app",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/device",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNDvwUSdxWImIipFdapu0O1/en-in?_r=AQABuxkmnEC3qNOzr8d9JMyxDPOx0lg44GjA5687toy4qVU",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/contact",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/monsoon.md",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNDvwUSdxWImIipFdapu0O1/en-in?_r=AQABuxkmnEC3qNOzr8d9JMyxDPOx0lg44GjA5687toy4qVU",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/new-year.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/new-year.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/new-year.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/new-year.md",
+      "href": "/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/new-year.md",
+      "href": "/blogs/importance-of-open-conversations-about-aging",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/new-year.md",
+      "href": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "/blogs/new-year-safer-home-safety-tips",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/newYear-gift.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/safe-home.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safe-home.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-diwali.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-diwali.md",
+      "href": "/blogs/diwali-travel-safety-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "/blogs/how-fear-of-falling-affects-mental-health",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "/device",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "/blogs/how-to-make-your-home-safe",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "/app",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-features.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/safety-tips.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-tips.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-tips.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety-tips.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety.md",
+      "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/safety.md",
+      "href": "/contact",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "https://www.iipsindia.ac.in/lasi",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "/blogs/regular-health-checkups-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "/blogs/how-to-make-your-home-safe",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "/blogs/mobility-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/seniors-ill.md",
+      "href": "https://www.iipsindia.ac.in/lasi",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "/blogs/regular-health-checkups-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "https://dghs.mohfw.gov.in/national-programme-for-the-health-care-of-the-elderly.php",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "https://abdm.gov.in/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "https://dghs.mohfw.gov.in/national-programme-for-the-health-care-of-the-elderly.php",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/silver-tsunami.md",
+      "href": "https://abdm.gov.in/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/sleep-hygiene.md",
+      "href": "/blogs/mobility-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/sleep-hygiene.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/travel-diwali.md",
+      "href": "/blogs/senior-safety-during-diwali",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/travel-diwali.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/vision.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/vision.md",
+      "href": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/vision.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/why-not-me.md",
+      "href": "/blogs/senior-home-safety-india",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/why-not-me.md",
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/why-not-me.md",
+      "href": "/blogs/balance-problems-in-elderly",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/why-not-me.md",
+      "href": "/protection",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/why-not-me.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/why-not-me.md",
+      "href": "/device",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/winter-safety.md",
+      "href": "/blogs/why-fall-alarms-for-seniors-matter",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/winter-safety.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/winter-safety.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/winter-safety.md",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/winter-safety.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/silver-tsunami-india-safer-future-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/importance-of-open-conversations-about-aging",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/mobility-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/regular-health-checkups-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/how-to-make-your-home-safe",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/mobility-tips-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/how-to-make-your-home-safe",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/regular-health-checkups-for-seniors",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "/blogs/diet-and-nutrition-in-healthy-aging",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/zindagi.md",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://in.linkedin.com/in/eyeagle-ai-036996362?trk=org-employees",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://www.x.com/eyeagle_ai",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://www.instagram.com/eyeagle_ai",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://www.facebook.com/share/157riPbHvhq/?mibextid=wwXIfr",
+      "external": true
+    },
+    {
+      "source": "src/data/site.ts",
+      "href": "https://www.youtube.com/@eyeagle_ai?si=JsVgBSwxqc5rJTPW",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.gstatic.com",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "/sitemap-index.xml",
+      "external": false
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "/FavIcon.png",
+      "external": false
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "#main-content",
+      "external": false
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://schema.org",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.gstatic.com",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://www.googletagmanager.com/gtag/js?id=${siteMeta.gtmId}",
+      "external": true
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
+      "href": "https://eu.i.posthog.com",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "/blog",
+      "external": false
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "/contact",
+      "external": false
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "/blog",
+      "external": false
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "https://eyeagle.ai",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogUrl",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogsList.json.ts",
+      "href": "https://eyeagle.ai",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogsList.json.ts",
+      "href": "https://eyeagle.ai/blogs/",
+      "external": true
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "mailto:support@eyeagle.ai",
+      "external": false
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
+      "external": true
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
+      "external": true
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "mailto:support@eyeagle.ai",
+      "external": false
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
+      "external": true
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
+      "external": true
+    },
+    {
+      "source": "src/pages/join.astro",
+      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
+      "external": true
+    },
+    {
+      "source": "src/pages/join.astro",
+      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
+      "external": true
+    },
+    {
+      "source": "src/pages/join.astro",
+      "href": "https://flagcdn.com/w40/${defaultCountry.code.toLowerCase(",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "external": true
+    },
+    {
+      "source": "src/pages/store.astro",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/pages/store.astro",
+      "href": "https://shop.eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/pages/success.astro",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/server/shopify.ts",
+      "href": "https://${trimmed}",
+      "external": true
+    },
+    {
+      "source": "src/utils/urls.ts",
+      "href": "https://dev01.eyeagle.ai/api/v1/user/waitlist",
+      "external": true
+    }
+  ]
+}

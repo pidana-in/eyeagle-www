@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 
 const desireImage = Astro.props.item;
 const className = Astro.props.className ?? '';
@@ -23,18 +23,15 @@ const descriptionButton = Astro.props.descriptionButton;
           <p class="xl:container xl:w-[43.75rem] xl:right-[36.25rem] xl:left-10 absolute max-lg:top-28 top-[16.875rem] max-lg:text-lg lg:max-w-2xl text-white lg:left-20 left-5">
             {desireSection2}
           </p>
-          <a href="/join">  
-            <button class="xl:container xl:w-[15.625rem] xl:right-[63.75rem] xl:left-10 py-4 flex justify-between items-center w-48 text-white absolute top-56 lg:top-[23.75rem] lg:left-20 left-5 px-8 lg:rounded-[99px] bg-primary rounded-full">
+          <a href="/join" class="xl:container xl:w-[15.625rem] xl:right-[63.75rem] xl:left-10 py-4 flex justify-between items-center w-48 text-white absolute top-56 lg:top-[23.75rem] lg:left-20 left-5 px-8 lg:rounded-[99px] bg-primary rounded-full">
               <span>
                 {descriptionButton}
               </span>
               <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
               </svg>
-            </button>
           </a>
         </div>
       </div>
     </div>
-  </div>
 </section>

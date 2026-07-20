@@ -1,11 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import logo from "../assets/Common/Group.png"
-import { Image } from "astro:assets";
+import Image from "../components/common/OptimizedImage.astro";
 ---
 
-<MainLayout title="Success" noindex={true}>
- <section class="lg:pt-60 pt-12 pb-6 lg:pb-24 lg:px-20 font-sans-instrument bg-[#F6F4F2]">
+<MainLayout title="Thank You for Joining EyEagle" desc="Your EyEagle registration has been received." noindex={true}>
+ <section class="py-12 lg:py-20 lg:px-20 font-sans-instrument bg-[#F6F4F2]">
   <div class="xl:container">
   <div class="flex place-content-center">
   <Image src={logo} alt={"EyEagle | Preventing Falls, Saving Lives"} id="imageBg" class="md:w-[12rem] w-[7rem]" quality={"max"} loading="eager" fetchpriority="high" />  
@@ -16,7 +16,7 @@ import { Image } from "astro:assets";
   </div>
   </div>
   <div class="my-8">
-  <a href="https://eyeagle.ai/solution"
+  <a href="/solution"
      class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base text-center hover:bg-gray-100 transition">
      Learn How EyEagle Works
   </a>

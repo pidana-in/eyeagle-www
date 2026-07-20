@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const testimonialData = Astro.props.testimonialData;
 ---
 
@@ -84,8 +84,7 @@ const testimonialData = Astro.props.testimonialData;
               src={testimonialData.testimonials[0].image}
               alt="testimonial"
               class="w-full h-full object-cover"
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
             />
           </div>
         </div>
@@ -100,7 +99,7 @@ const testimonialData = Astro.props.testimonialData;
   </div>
 </section>
 
-<script define:vars={{ testimonials: testimonialData.testimonials }}>
+<script is:inline define:vars={{ testimonials: testimonialData.testimonials }}>
   let current = 0;
 
   const quote = document.getElementById("testimonial-quote");

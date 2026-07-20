@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const shopData = Astro.props.shopData;
 ---
 
@@ -11,7 +11,7 @@ const shopData = Astro.props.shopData;
   <!-- Desktop version -->
   <div class="md:flex justify-center gap-6 hidden">
     {
-      shopData?.map((item: any, i: number) => (
+      shopData?.map((item: any) => (
         <a href={item.link} class="flex flex-col gap-3 justify-start text-center p-4 rounded-lg hover:shadow-lg transition cursor-pointer w-[90%]">
           <div class="mb-3">
             <Image src={item.img} alt={"doctorImage1"} quality={"max"} />
@@ -41,7 +41,7 @@ const shopData = Astro.props.shopData;
   <div class="block md:hidden">
     <div class="flex flex-col gap-10">
       {
-        shopData?.map((item: any, i: number) => (
+        shopData?.map((item: any) => (
           <a href={item.link} class="flex flex-col gap-3 justify-start text-center p-4 rounded-xl hover:shadow-md transition cursor-pointer w-full">
             <div class="w-full mb-4">
               <Image src={item.img} alt={`doctorImageMobile`} class="w-full rounded-xl"/>

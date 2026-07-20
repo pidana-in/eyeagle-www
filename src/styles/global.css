@@ -1,4 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-barlow: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans-instrument: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #cc0000;
+  --color-secondary: #222222;
+}
+
+@media (min-width: 80rem) {
+  .xl\:container {
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 96rem) {
+  .\32xl\:container {
+    margin-inline: auto;
+  }
+}

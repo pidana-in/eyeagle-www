@@ -3,7 +3,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Faqs from "../../components/Home/Faqs.astro";
 import BathroomSection from "../../components/Home/BathroomSection.astro";
 import { bathroomData } from "../../components/constants/home";
-import { Image } from "astro:assets";
+import Image from "../../components/common/OptimizedImage.astro";
 import img from "../../assets/Home/Hero_17.png";
 import Frame from "../../assets/Home/YogadayImage.png";
 import Discount from "../../assets/Home/DiscountNew.png"
@@ -13,14 +13,14 @@ import { scrollDataSection } from "../../components/constants/home";
 import YogaSection from "../../components/Home/YogaSection.astro";
 ---
 
-<MainLayout noindex={true}>
+<MainLayout title="Expired International Yoga Day 2025 Offer | EyEagle" desc="This EyEagle International Yoga Day 2025 safety-kit offer has expired." noindex={true}>
   <section class="relative w-full min-h-[440px] sm:min-h-[600px] lg:min-h-[1200px]">
     <Image src={img} alt="hero image"  class="absolute inset-0 w-full h-full object-cover" />
     <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-10 lg:pt-20">
       <div class="absolute lg:top-40 top-10 font-sans-instrument">
-        <p class="text-[#000000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
-          Yoga se health,<span class="text-[#CC0000]"> EyEagle se care</span><br>Dono saath ho, to bane perfect pair!</br>
-        </p>
+        <h1 class="text-[#000000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
+          Yoga se health,<span class="text-[#CC0000]"> EyEagle se care</span><br />Dono saath ho, to bane perfect pair!
+        </h1>
        <div class="lg:my-[18px] my-2 justify-center flex">
         <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">
        <Image src={Discount} alt="Discount offer" class="w-[30%] mx-auto sm:w-[120px] lg:w-[260px]" />
@@ -44,13 +44,9 @@ import YogaSection from "../../components/Home/YogaSection.astro";
         <!-- <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-[#CC0000] lg:mx-20">
          Prevent bathroom falls. Protect your parents.
       </p> -->
-        <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-lg lg:my-[68px] my-6 inline-block lg:text-2xl text-sm font-semibold text-white">
-            <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">  
-              <button class="">
-                Book Now
-              </button>
-            </a>
-          </div>
+        <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer" class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-lg lg:my-[68px] my-6 inline-block lg:text-2xl text-sm font-semibold text-white">
+          Book Now
+        </a>
       <p class="lg:text-[40px] lg:leading-tight text-lg font-semibold"><span class="text-[#CC0000]">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
     </div>
 
@@ -70,12 +66,10 @@ import YogaSection from "../../components/Home/YogaSection.astro";
     <div class="text-[#000000] text-center font-sans-instrument mt-10">
    <p class="lg:text-5xl text-xl font-medium">Get 15% OFF on EyEagle Safety Kit + Free Safety Audit</p>
    <p class="lg:text-2xl text-sm font-medium mt-4 lg:mt-8 lg:mb-4">Offer valid till June 21. Limited slots available.</p>
-     <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-full mt-5 inline-block lg:text-lg text-sm font-normal text-white">
-            <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">
-              <button class="">
-                Book Now
-              </button>
-              <span class="material-symbols-outlined text-white text-sm ml-2">arrow_forward</span>
+     <div class="mt-5">
+            <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer" class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-full inline-flex items-center lg:text-lg text-sm font-normal text-white">
+              Book Now
+              <span class="ml-2 text-sm" aria-hidden="true">→</span>
             </a>
           </div>
           </div>
@@ -88,7 +82,7 @@ import YogaSection from "../../components/Home/YogaSection.astro";
   </section>
 </MainLayout>
 
-<script type="module">
+<script is:inline>
   const expiryDate = new Date("2025-06-21T23:59:59");
   const now = new Date();
 

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 
 interface NestSection {
   title: {
@@ -50,7 +50,7 @@ const nestSection = Astro.props.nestSection as NestSection;
             <div class="w-[220px] md:w-[320px] lg:w-[340px] h-[290px] md:h-[440px] lg:h-[458px] flex-shrink-0 rounded-[20px] overflow-hidden">
               <Image
                 src={img}
-                alt={`image ${i}`}
+                alt={`EyEagle family safety app screen ${(i % nestSection.images.length) + 1}`}
                 class="w-full h-full object-cover"
               />
             </div>

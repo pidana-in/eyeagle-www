@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-09-26
 ---
 
-# Why the First Hour After a Fall Matters
+## Why the First Hour After a Fall Matters
 
 A fall can happen in an instant, but what happens in the first 60 minutes afterward can make all the difference between a safe recovery and life-threatening complications. For older adults, in particular, fall injuries are one of the leading causes of hospitalization. Broken bones, head trauma, and internal bleeding are common, but it’s often the delay in getting care that turns a manageable injury into a medical emergency.
 
@@ -154,15 +154,15 @@ Simple adjustments at home can reduce risks significantly:
 
 - Remove loose rugs or clutter that can trip someone
 
-For protection, the <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> EyEagle Bathroom Safety Kit </a> provides extra peace of mind. The SOS button can be pressed in case of a fall, immediately sounding an alarm outside the bathroom while also sending a notification to family members’ phones through the <a href="https://play.google.com/store/apps/details?id=com.app.eyeagle&hl=en_IN" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Circles App.</a> This ensures that help reaches the person quickly, even if they can’t call out.
+For protection, the <a href="/" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kit </a> provides extra peace of mind. The SOS button can be pressed in case of a fall, immediately sounding an alarm outside the bathroom while also sending a notification to family members’ phones through the <a href="https://play.google.com/store/apps/details?id=com.app.eyeagle&hl=en_IN" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Circles App.</a> This ensures that help reaches the person quickly, even if they can’t call out.
 
 ### Regular vision and hearing checks
 
-Poor vision and hearing are major contributors to falls.<a href="https://eyeagle.ai/blogs/importance-of-regular-vision-checks" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> Routine eye exams</a> and hearing assessments help older adults stay more aware of their surroundings, reducing accidents and lowering the risk of fall injuries
+Poor vision and hearing are major contributors to falls.<a href="/blogs/importance-of-regular-vision-checks" style="color:#CC0000; text-decoration:none;"> Routine eye exams</a> and hearing assessments help older adults stay more aware of their surroundings, reducing accidents and lowering the risk of fall injuries
 
 ### Strength and balance exercises
 
-Programs like tai chi or gentle yoga <a href="https://eyeagle.ai/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> improve balance</a>, flexibility, and muscle strength. Studies show that balance training can reduce the risk of falls in elderly fall injury risks by up to 30% in older adults.
+Programs like tai chi or gentle yoga <a href="/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;"> improve balance</a>, flexibility, and muscle strength. Studies show that balance training can reduce the risk of falls in elderly fall injury risks by up to 30% in older adults.
 
 ### Medication review
 
@@ -172,6 +172,6 @@ Some prescriptions cause dizziness or drowsiness, increasing fall risk. Regular 
 
 Falls can happen to anyone, but for older adults, they often bring life-changing consequences. What happens in the first 60 minutes after a fall can determine whether recovery is smooth or complicated. Quick action, emergency response, and timely hospital care save lives and reduce the risks linked to fall injuries.
 
-But the story doesn’t end there. Preventing future falls is just as critical. From <a href="https://eyeagle.ai/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">home safety adjustments </a> and routine eye exams to strength training and caregiver support, small steps can make a huge difference in maintaining safety and mobility.
+But the story doesn’t end there. Preventing future falls is just as critical. From <a href="/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;">home safety adjustments </a> and routine eye exams to strength training and caregiver support, small steps can make a huge difference in maintaining safety and mobility.
 
 Never ignore a fall. Even if it looks minor, seeking immediate medical attention can prevent hidden injuries from turning into life-threatening conditions. With awareness, preparedness, and preventive care, older adults can continue living independently, confidently, and safely.

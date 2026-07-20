@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 
 type CTAItem = {
   text: string;
@@ -30,7 +30,7 @@ const ctaImage = Astro.props.ctaImage;
         {
           ctaData.map((item: CTAItem) => (
             <li class="flex items-start gap-2">
-              <Image src={item.icon} alt="icon" class="mt-1 size-4" />
+              <Image src={item.icon} alt="" class="mt-1 size-4" />
               <span>{item.text}</span>
             </li>
           ))

@@ -10,13 +10,13 @@ authorRole: "Consultant"
 date: 2025-08-28
 ---
 
-# Balance Problems in Elderly: Causes, Warning Signs & Prevention
+## Balance Problems in Elderly: Causes, Warning Signs & Prevention
 
 Sometimes it starts small, your dad grabs the wall when getting out of bed. Or your grandmother hesitates a second too long before stepping off a curb. You might think, “It’s just age catching up with them.” However, here’s the thing: balance trouble in older adults doesn’t always come from aging alone.
 
 Yes, our bodies do slow down with time. Muscles lose strength, vision changes, and joints don’t move like they used to. But when an older person starts feeling unsteady often, sways while standing, or feels lightheaded for no clear reason, it might be something more.
 
-Balance problems in elderly adults can be early signs of deeper health concerns. Ignoring the signs can quietly increase the chances of falls, and in older age, <a href="https://eyeagle.ai/blogs/why-fall-alarms-for-seniors-matter" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">one bad fall can change everything.</a>
+Balance problems in elderly adults can be early signs of deeper health concerns. Ignoring the signs can quietly increase the chances of falls, and in older age, <a href="/blogs/why-fall-alarms-for-seniors-matter" style="color:#CC0000; text-decoration:none;">one bad fall can change everything.</a>
 
 ## The Myth of Aging and Balance
 
@@ -54,7 +54,7 @@ Seeing where you’re going and hearing what’s around you are both key to feel
 
 ### 5. Muscle Weakness and Joint Pain
 
-Years of wear and tear can make<a href="https://eyeagle.ai/blogs/arthritis-and-joint-pain-in-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> joints stiff and muscles less responsive.</a> This isn’t always due to a specific disease; it can just be inactivity. But when muscle weakness in elderly people isn’t addressed, it becomes a serious risk factor for falls.
+Years of wear and tear can make<a href="/blogs/arthritis-and-joint-pain-in-seniors" style="color:#CC0000; text-decoration:none;"> joints stiff and muscles less responsive.</a> This isn’t always due to a specific disease; it can just be inactivity. But when muscle weakness in elderly people isn’t addressed, it becomes a serious risk factor for falls.
 
 ## Understanding Fall Risk: More Than Just Physical Decline
 
@@ -142,7 +142,7 @@ Loose rugs, cords across walkways, wobbly furniture, all of these are avoidable 
 
 ### 3. Add Grab Bars Where They Matter Most
 
-Bathrooms are high-risk zones for slips and falls. Install grab bars next to toilets, inside showers, and near bathtubs to provide steady support where it’s needed most. The <a href="https://eyeagle.ai/solution/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> EyEagle Bathroom Safety Kit</a> makes it easier as it has easy-to-install grab bars and other safety essentials designed specifically for seniors.
+Bathrooms are high-risk zones for slips and falls. Install grab bars next to toilets, inside showers, and near bathtubs to provide steady support where it’s needed most. The <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kit</a> makes it easier as it has easy-to-install grab bars and other safety essentials designed specifically for seniors.
 
 ### 4. Rethink Shoe and Slipper Choices
 

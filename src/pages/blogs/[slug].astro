@@ -3,7 +3,8 @@ export const prerender = true;
 
 import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
+import Image from "../../components/common/OptimizedImage.astro";
 import Divider from "../../assets/Blog/Divider.png";
 import { blogsData } from "../../components/constants/home";
 
@@ -31,46 +32,57 @@ const { Content } = await render(blog);
 
 const blogMeta = blogsData.find((item) => item.slug === blog.data.slug);
 
-const metaTitle = blogMeta?.title ?? blog.data.title;
+const metaTitle = blog.data.title;
 
-const metaDesc = blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
+const metaDesc = blog.data.desc ?? blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
 
 const site = (Astro.site?.toString() || "https://eyeagle.ai").replace(
   /\/+$/,
   "",
 );
 
-const metaImage = blogMeta?.img
-  ? `${site}${blogMeta.img.src}`
-  : blog.data.img
-    ? `${site}${blog.data.img.src}`
-    : "";
+const socialImage = await getImage({
+  src: blog.data.img,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpg",
+  quality: 82,
+});
+const metaImage = `${site}${socialImage.src}`;
 
 const availableBlogs = blogs.filter((b) => b.data.slug !== blog.data.slug);
 
-for (let i = availableBlogs.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [availableBlogs[i], availableBlogs[j]] = [
-    availableBlogs[j],
-    availableBlogs[i],
-  ];
-}
-
-const relatedBlogs = availableBlogs.slice(0, 3);
+const relatedBlogs = availableBlogs
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 const blogUrl = `${site}/blogs/${blog.data.slug}`;
 const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`;
 const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogUrl)}`;
 const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(blog.data.title)}`;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} metaImage={metaImage}>
+<MainLayout
+  title={metaTitle}
+  desc={metaDesc}
+  metaImage={metaImage}
+  metaImageAlt={blog.data.title}
+  metaImageWidth={1200}
+  metaImageHeight={630}
+  article={{
+    headline: blog.data.title,
+    author: blog.data.author,
+    datePublished: blog.data.date.toISOString(),
+    image: metaImage,
+  }}
+>
   <style is:global>
     .prose ul ul {
       list-style-type: circle;
     }
   </style>
 
-  <section class="bg-[#FFFFFF] lg:pt-44 pt-12 px-6 lg:px-40 w-full">
+  <section class="bg-[#FFFFFF] py-12 lg:py-20 px-6 lg:px-40 w-full">
     <div
       class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8"
     >
@@ -107,7 +119,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
           <p class="text-base font-medium">
             {blog.data.author}
           </p>
-          <p class="text-sm mt-1 font-medium text-[#525252]">Consultant</p>
+          <p class="text-sm mt-1 font-medium text-[#525252]">{blog.data.authorRole}</p>
         </div>
       </div>
       <div class="flex justify-center">
@@ -115,6 +127,8 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
           src={blog.data.img}
           alt={blog.data.title}
           class="max-h-80 w-auto rounded-2xl"
+          loading="eager"
+          fetchpriority="high"
         />
       </div>
     </div>
@@ -130,9 +144,9 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       <!-- Mobile -->
       <aside class="block lg:hidden mb-8">
         <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-          <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+          <h2 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
             In This Article
-          </h3>
+          </h2>
 
           <nav id="toc-mobile" class="space-y-3 text-sm text-[#525252]"></nav>
         </div>
@@ -208,9 +222,9 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       <aside class="hidden lg:block w-[280px] shrink-0">
         <div class="sticky top-28">
           <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-            <h3 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
+            <h2 class="text-sm font-semibold uppercase text-[#CC0000] mb-4">
               In This Article
-            </h3>
+            </h2>
 
             <nav id="toc" class="space-y-3 text-sm text-[#525252]"></nav>
           </div>
@@ -339,7 +353,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
         href="/blog"
         class="text-[#CC0000] text-sm font-medium uppercase hover:underline"
       >
-        View All
+        View all articles
       </a>
     </div>
 

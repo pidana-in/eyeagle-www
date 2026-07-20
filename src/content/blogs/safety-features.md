@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-06-03
 ---
 
-# What Changed When We Added Bathroom Safety Features to Our Home
+## What Changed When We Added Bathroom Safety Features to Our Home
 
 For years, our bathroom looked perfectly fine. Clean tiles, a sturdy door, good lighting, nothing seemed “unsafe” at first glance. Like many families, we assumed that accidents only happen when someone is careless. But the truth is, bathrooms don’t announce danger. They quietly become risky over time, especially as our loved ones age. It wasn’t until a small but frightening incident that we truly understood the importance of bathroom safety features. What followed wasn’t a dramatic renovation, but a series of simple, thoughtful changes. And those changes ultimately transformed not just the bathroom, but also how safe and confident our home felt every single day.
 
@@ -18,9 +18,9 @@ For years, our bathroom looked perfectly fine. Clean tiles, a sturdy door, good 
 
 One morning, my father slipped slightly while stepping out of the shower. He didn’t fall completely; he caught the wall just in time, but the look on his face stayed with us. It wasn’t pain. It was fear.
 
-That moment made us realize something important: bathroom accidents don’t always end in injuries, but <a href="https://eyeagle.ai/blogs/how-fear-of-falling-affects-mental-health" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">they always leave behind anxiety</a>. After that incident, he became hesitant. He rushed showers. He avoided bathing when no one was home. A space meant for privacy and comfort had quietly turned into a place of worry.
+That moment made us realize something important: bathroom accidents don’t always end in injuries, but <a href="/blogs/how-fear-of-falling-affects-mental-health" style="color:#CC0000; text-decoration:none;">they always leave behind anxiety</a>. After that incident, he became hesitant. He rushed showers. He avoided bathing when no one was home. A space meant for privacy and comfort had quietly turned into a place of worry.
 
-That’s when we started thinking seriously about <a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">bathroom fall prevention</a> and senior home safety modifications, not as “elderly solutions,” but as family safety measures.
+That’s when we started thinking seriously about <a href="/device" style="color:#CC0000; text-decoration:none;">bathroom fall prevention</a> and senior home safety modifications, not as “elderly solutions,” but as family safety measures.
 
 ## Why Bathrooms Are Riskier Than We Think
 
@@ -35,7 +35,7 @@ What surprised us most was how normal our bathroom hazards were. Wet tiles after
 
 ## The Bathroom Safety Features We Chose (And Why)
 
-We didn’t want to turn our bathroom into a hospital-like space. Our goal was simple: <a href="https://eyeagle.ai/blogs/how-to-make-your-home-safe" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">reduce fall risk while keeping the bathroom comfortable and familiar</a>.
+We didn’t want to turn our bathroom into a hospital-like space. Our goal was simple: <a href="/blogs/how-to-make-your-home-safe" style="color:#CC0000; text-decoration:none;">reduce fall risk while keeping the bathroom comfortable and familiar</a>.
 
 ### Shower Grab Bars – Support That Builds Confidence
 
@@ -69,9 +69,9 @@ These changes reduced bending, stretching, and awkward movements, all common cau
 
 ## How We Discovered EyEagle - A Smarter Way to Keep Bathrooms Safe
 
-As we researched reliable ways to make our bathroom safer beyond just grab bars and mats, one solution that really stood out was <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle</a>. Unlike ordinary products you might pick up off the shelf, EyEagle offers a <a href="https://shop.eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">comprehensive bathroom safety system</a> that tackles not just fall prevention, but real-time emergency awareness and response as well.
+As we researched reliable ways to make our bathroom safer beyond just grab bars and mats, one solution that really stood out was <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle</a>. Unlike ordinary products you might pick up off the shelf, EyEagle offers a <a href="https://shop.eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">comprehensive bathroom safety system</a> that tackles not just fall prevention, but real-time emergency awareness and response as well.
 
-What impressed us most was the thoughtful approach: they start with a bathroom audit to mark all the ways in which a bathroom is unsafe or may have potential danger points. Then comes prevention by installing non-slip surfaces, sturdy grab bars, and anti-skid mats, but they don’t stop there. Their system also includes a smart alert alarm technology. This alarm, when pressed, can immediately notify caregivers or family members <a href="https://eyeagle.ai/app/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">through an app</a> if something goes wrong, even if you’re far away.
+What impressed us most was the thoughtful approach: they start with a bathroom audit to mark all the ways in which a bathroom is unsafe or may have potential danger points. Then comes prevention by installing non-slip surfaces, sturdy grab bars, and anti-skid mats, but they don’t stop there. Their system also includes a smart alert alarm technology. This alarm, when pressed, can immediately notify caregivers or family members <a href="/app" style="color:#CC0000; text-decoration:none;">through an app</a> if something goes wrong, even if you’re far away.
 
 For us, that blend of everyday safety improvements and peace-of-mind technology felt like the best of both worlds. It wasn’t just about reducing risk; it was about creating a safer, more responsive environment where everyone in the family could feel confident and secure in one of the most fall-prone spaces in the house.
 

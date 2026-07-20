@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-01-12
 ---
 
-# Turning Your Home Into a Safe Home in 2026
+## Turning Your Home Into a Safe Home in 2026
 
 As we move into 2026, the meaning of a “safe home” is evolving. Homes are no longer just places to live; they are where we work, care for aging parents, raise children, and recover from illness or injury. With changing lifestyles and longer life expectancy, home safety is becoming a necessity rather than an afterthought.
 
@@ -18,7 +18,7 @@ Most people assume accidents happen outdoors, but studies and real-life experien
 
 ## Understanding Fall Risks Inside the Home
 
-<a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Falls are one of the leading causes</a> of injury at home, particularly among older adults. However, fall risks don’t affect seniors alone. Children, pregnant women, and people with temporary mobility issues are equally vulnerable.
+<a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;">Falls are one of the leading causes</a> of injury at home, particularly among older adults. However, fall risks don’t affect seniors alone. Children, pregnant women, and people with temporary mobility issues are equally vulnerable.
 
 Common causes of falls include:
 
@@ -64,7 +64,7 @@ Key bathroom safety modifications include:
 
 - Keeping toiletries within easy reach to avoid sudden movements
 
-Many families only realize bathroom risks after an accident occurs. Today, some homeowners choose to conduct a basic bathroom safety assessment to identify hazards early and plan preventive steps. Simple modifications like <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a> can dramatically improve safety without affecting comfort or appearance.
+Many families only realize bathroom risks after an accident occurs. Today, some homeowners choose to conduct a basic bathroom safety assessment to identify hazards early and plan preventive steps. Simple modifications like <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety fittings</a> can dramatically improve safety without affecting comfort or appearance.
 
 ## Stairways, Hallways, and Doorways: Everyday Danger Zones
 

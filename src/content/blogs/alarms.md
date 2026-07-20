@@ -10,9 +10,9 @@ authorRole: "Consultant"
 date: 2025-07-24
 ---
 
-# One Fall Can Change Everything
+## One Fall Can Change Everything
 
-Across many Indian households, elderly parents and grandparents are choosing to live independently or are often alone for long hours during the day. While families do their best to provide care and comfort, one area of the home remains especially unsafe for seniors-the bathroom. With slippery tiles, hard surfaces, and limited space, even a minor slip can lead to serious consequences. Unfortunately,<a href="https://eyeagle.ai/blogs/why-falls-are-the-biggest-threat-to-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> most of these incidents happen in silence and behind closed doors.</a>
+Across many Indian households, elderly parents and grandparents are choosing to live independently or are often alone for long hours during the day. While families do their best to provide care and comfort, one area of the home remains especially unsafe for seniors-the bathroom. With slippery tiles, hard surfaces, and limited space, even a minor slip can lead to serious consequences. Unfortunately,<a href="/blogs/why-falls-are-the-biggest-threat-to-seniors" style="color:#CC0000; text-decoration:none;"> most of these incidents happen in silence and behind closed doors.</a>
 
 A fall in the bathroom is not just painful-it can also be dangerous if help doesn’t arrive in time. Many families realise this only after going through the distress of discovering a loved one injured, sometimes hours later. In most of these situations, there’s one thing they all wish they had in place, a simple way for their loved one to call for help immediately.
 
@@ -68,9 +68,9 @@ It’s a small step that can make a big difference in everyday life.
 
 ## Choosing the Right Fall Alarm
 
-When it comes to bathroom safety for seniors, having a reliable and easy-to-use fall alarm is essential. It should be designed specifically for bathroom environments, where the risk of slipping is highest. That’s where <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> EyEagle </a> offers a practical and thoughtful solution.
+When it comes to bathroom safety for seniors, having a reliable and easy-to-use fall alarm is essential. It should be designed specifically for bathroom environments, where the risk of slipping is highest. That’s where <a href="/" style="color:#CC0000; text-decoration:none;"> EyEagle </a> offers a practical and thoughtful solution.
 
-<a href="https://eyeagle.ai/solution/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle’s Guardian‑X Kit </a> is a bathroom-focused safety setup for Indian homes. It includes alarm buttons placed near high-risk areas like the toilet and shower. If a fall or emergency occurs, the senior can press the button easily even from the floor.
+<a href="/solution" style="color:#CC0000; text-decoration:none;">EyEagle’s Guardian‑X Kit </a> is a bathroom-focused safety setup for Indian homes. It includes alarm buttons placed near high-risk areas like the toilet and shower. If a fall or emergency occurs, the senior can press the button easily even from the floor.
 
 Once pressed, the alarm rings immediately within the home to alert anyone nearby. At the same time, a notification is sent to the **EyCircle app** to family members or caregivers, ensuring quick action without the need for a smartphone or internet connection by the senior. **“If no action is taken by the family member, the EyEagle safety team will step in.”**
 
@@ -78,7 +78,7 @@ The kit is supported with safety add-ons such as **anti-slip mats** and **grab b
 
 For families looking for a reliable elderly safety alarm that works specifically in the bathroom, EyEagle offers a simple yet effective system backed by a strong support team.
 
-<a href="https://eyeagle.ai/solution/" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;" target="_blank" rel="noopener noreferrer">
+<a href="/solution" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 

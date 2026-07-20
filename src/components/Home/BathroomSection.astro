@@ -1,9 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 import { scrollDataSection } from "../constants/home";
 
 const item = Astro.props.item;
-const mobile = Astro.props.mobile;
 const { pathname } = Astro.url;
 ---
 
@@ -69,4 +68,3 @@ const { pathname } = Astro.url;
     }
   }
 </script>
-

@@ -9,9 +9,6 @@ import {
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
 import Icon from "../components/common/Icon.astro";
-import BathroomSection from "../components/Home/BathroomSection.astro";
-import { bathroomData } from "../components/constants/home";
-import { scrollDataSection } from "../components/constants/home";
 import { upsertShopifySubscriber } from "../server/shopify";
 import nodemailer from "nodemailer";
 
@@ -20,12 +17,12 @@ const metaDesc =
   "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!";
 
 const {
-  PUBLIC_SMTP_HOST: smtpHost,
-  PUBLIC_SMTP_USER: smtpUser,
-  PUBLIC_SMTP_PASS: smtpPassword,
-  PUBLIC_SMTP_FROM: smtpFrom,
-  PUBLIC_SMTP_TO: smtpTo,
-  PUBLIC_SMTP_PORT: smtpPort,
+  SMTP_HOST: smtpHost,
+  SMTP_USER: smtpUser,
+  SMTP_PASS: smtpPassword,
+  SMTP_FROM: smtpFrom,
+  SMTP_TO: smtpTo,
+  SMTP_PORT: smtpPort,
   USE_SHOPIFY_JOIN,
 } = import.meta.env;
 
@@ -67,7 +64,7 @@ if (Astro.request.method === "POST") {
     if (useShopify) {
       // Subscribe/create customer in Shopify with double opt-in when accepted
       try {
-        if (acceptance) {
+        if (acceptance.length > 0) {
           const fullPhone = `${countryCode || ""}${phoneNumber || ""}`.trim();
           const tags = ["waitlist", "source:join-page"]; // Adjust if you prefer different tags
           const subResult = await upsertShopifySubscriber({
@@ -89,11 +86,11 @@ if (Astro.request.method === "POST") {
         const transporter = nodemailer.createTransport({
           host: smtpHost,
           port: Number(smtpPort),
-          secure: false,
+          secure: Number(smtpPort) === 465,
           auth: { user: smtpUser, pass: smtpPassword },
         });
 
-        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${fullName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance ? "Yes" : "No"}\n        `;
+        const emailContent = `\nNew Waitlist Registration:\n\nName: ${`${fullName}`.trim()}\nEmail: ${email}\nPhone: ${countryCode || ""}${phoneNumber || ""}\nCity: ${city}\nNewsletter: ${acceptance.length > 0 ? "Yes" : "No"}\n        `;
 
         const currentDate = new Date().toISOString().slice(0, 10);
 
@@ -124,18 +121,18 @@ if (Astro.request.method === "POST") {
         class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-28"
       >
         <div class="lg:w-1/2 text-center md:text-start">
-          <h2
+          <h1
             class="text-3xl md:text-5xl font-semibold md:leading-[60px] mb-5 md:mb-8"
           >
             {WaitlistHeaderData.title}
-          </h2>
+          </h1>
           <p class="text-lg font-medium">{WaitlistHeaderData.description}</p>
         </div>
         <div class="lg:w-1/2 md:p-10 rounded-xl">
           <div id="joinForm" class={formPosted ? "hidden" : "block"}>
             <form method="POST" class="flex flex-col gap-5" id="waitlistForm">
               <div class="flex flex-col gap-3">
-                <label>Full Name*</label>
+                <label for="fullNameField">Full Name*</label>
                 <input
                   id="fullNameField"
                   type="text"
@@ -149,10 +146,14 @@ if (Astro.request.method === "POST") {
                 </p>
               </div>
               <div class="flex flex-col gap-3">
-                <label>Phone number*</label>
+                <label for="phoneNumField">Phone number*</label>
                 <div class="relative">
-                  <div
+                  <button
+                    type="button"
                     id="dropdownButton"
+                    aria-label="Choose country calling code"
+                    aria-controls="dropdownMenu"
+                    aria-expanded="false"
                     class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
                   >
                     <span class="flex items-center">
@@ -162,18 +163,21 @@ if (Astro.request.method === "POST") {
                       />
                     </span>
                     <div class="flex items-center gap-2"></div>
-                  </div>
+                  </button>
                   <input id="phCode" name="phCode" value="" class="hidden" />
                   <div
                     id="dropdownMenu"
+                    role="listbox"
                     class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-[250px] overflow-y-auto w-52 z-20"
                   >
                     {
                       countries
                         .sort((a, b) => a.code.localeCompare(b.code))
                         .map((country) => (
-                          <div
-                            class="px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                          <button
+                            type="button"
+                            role="option"
+                            class="w-full px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
                             data-value={country.dial_code}
                           >
                             <img
@@ -182,7 +186,7 @@ if (Astro.request.method === "POST") {
                               width="20"
                             />
                             {country.dial_code}
-                          </div>
+                          </button>
                         ))
                     }
                   </div>
@@ -192,8 +196,9 @@ if (Astro.request.method === "POST") {
                     name="phoneNumber"
                     placeholder="Phone Number"
                     required
+                    inputmode="numeric"
+                    pattern="[6-9][0-9]{9}"
                     maxlength="10"
-                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
                     class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                   />
                 </div>
@@ -202,8 +207,9 @@ if (Astro.request.method === "POST") {
                 </p>
               </div>
               <div class="flex flex-col gap-3">
-                <label>Email*</label>
+                <label for="emailField">Email*</label>
                 <input
+                  id="emailField"
                   type="email"
                   name="userEmail"
                   placeholder="Enter Email"
@@ -212,8 +218,9 @@ if (Astro.request.method === "POST") {
                 />
               </div>
               <div class="flex flex-col gap-3">
-                <label>City*</label>
+                <label for="cityField">City*</label>
                 <input
+                  id="cityField"
                   type="text"
                   name="userCity"
                   placeholder="City Name"
@@ -224,7 +231,7 @@ if (Astro.request.method === "POST") {
               <div class="mt-2">
                 <p class="font-medium mb-3">Interest (Optional)</p>
                 <div class="flex flex-col gap-2">
-                  <div class="flex items-center gap-2">
+                  <label class="flex items-center gap-2">
                     <input
                       type="checkbox"
                       name="userAcceptCheck"
@@ -234,7 +241,7 @@ if (Astro.request.method === "POST") {
                     <span class="text-[#2E2323]"
                       >{WaitlistFormData.notifyLaunch}</span
                     >
-                  </div>
+                  </label>
                   <label class="flex items-center gap-2">
                     <input
                       type="checkbox"
@@ -335,7 +342,7 @@ if (Astro.request.method === "POST") {
   }
 </style>
 
-<script is:inline define:vars={{ countries, formPosted }}>
+<script is:inline define:vars={{ countries }}>
   const dropdownButton = document.getElementById("dropdownButton");
   const dropdownMenu = document.getElementById("dropdownMenu");
   const fullNameField = document.getElementById("fullNameField");
@@ -345,14 +352,18 @@ if (Astro.request.method === "POST") {
   const submitButton = document.getElementById("submitButton");
   const buttonText = document.getElementById("buttonText");
   const loader = document.getElementById("loader");
-  const pageLoader = document.getElementById("pageLoader");
 
   const iconSpan = document.createElement("span");
-  iconSpan.className = "material-symbols-outlined text-base md:text-lg ml-2";
-  iconSpan.textContent = "keyboard_arrow_down";
+  iconSpan.className = "text-base md:text-lg ml-2";
+  iconSpan.setAttribute("aria-hidden", "true");
+  iconSpan.textContent = "⌄";
 
   dropdownButton.addEventListener("click", () => {
     dropdownMenu.classList.toggle("hidden");
+    dropdownButton.setAttribute(
+      "aria-expanded",
+      String(!dropdownMenu.classList.contains("hidden")),
+    );
   });
 
   dropdownMenu.addEventListener("click", (event) => {
@@ -376,9 +387,10 @@ if (Astro.request.method === "POST") {
     phCode.value = selectedDialCode;
 
     dropdownMenu.classList.add("hidden");
+    dropdownButton.setAttribute("aria-expanded", "false");
 
     document
-      .querySelectorAll("#dropdownMenu > div[data-value]")
+      .querySelectorAll("#dropdownMenu > button[data-value]")
       .forEach((el) => el.classList.remove("bg-gray-300"));
     option.classList.add("bg-gray-300");
   });
@@ -389,6 +401,7 @@ if (Astro.request.method === "POST") {
       !dropdownMenu.contains(event.target)
     ) {
       dropdownMenu.classList.add("hidden");
+      dropdownButton.setAttribute("aria-expanded", "false");
     }
   });
 
@@ -425,11 +438,6 @@ if (Astro.request.method === "POST") {
     }
   }
 
-  function scrollToFunction() {
-    const joinForm = document.getElementById("joinForm");
-    const postFormfill = document.getElementById("postFormField");
-  }
-  scrollToFunction();
   initializeDefaultPhoneCode();
 
   const phoneError = document.getElementById("phoneError");

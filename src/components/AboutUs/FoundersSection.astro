@@ -1,6 +1,6 @@
 ---
 import { aboutUsFoundersData } from "../constants/aboutus";
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 ---
 <section class="bg-white font-sans-instrument pb-20 px-5 lg:px-[40px] py-[120px]">
   <div class="xl:container">
@@ -9,7 +9,7 @@ import { Image } from "astro:assets";
       <h2 class="font-semibold text-center text-[40px] lg:text-[68px] leading-[44px] lg:leading-[78px]">The Minds<br /> Behind <span class="text-[#CC0000]">EyEagle</span></h2>
     </div>
 <div class="w-full flex flex-col gap-[80px] lg:flex-row justify-center items-center">
-  {aboutUsFoundersData.map((founder, index) => (
+  {aboutUsFoundersData.map((founder) => (
     <div class="bg-[#ffffff] flex flex-col gap-5 h-full relative overflow-hidden group">
             <div class="relative bg-white m-auto rounded-xl">
         <Image

@@ -1,25 +1,19 @@
 ---
-import { Image } from "astro:assets";
+import ResponsiveHeroImage from "../common/ResponsiveHeroImage.astro";
 const ctaSection = Astro.props.ctaSection;
 ---
 
 <section class="relative w-full max-w-[1920px] mx-auto">
   <!-- background image -->
   <div class="absolute inset-0 -z-20">
-    <!-- Desktop Image -->
-    <Image
-      src={ctaSection.image1}
-      alt="Family support"
-      class="hidden md:block w-full h-[720px] object-cover object-center"
-      priority
-    />
-
-    <!-- Mobile Image -->
-    <Image
-      src={ctaSection.image2}
-      alt="Family support mobile"
-      class="block md:hidden"
-      priority
+    <ResponsiveHeroImage
+      desktop={ctaSection.image1}
+      mobile={ctaSection.image2}
+      alt="Family supporting an older relative at home"
+      class="w-full h-[560px] md:h-[720px] object-cover object-center"
+      breakpoint={767}
+      loading="lazy"
+      fetchpriority="auto"
     />
   </div>
   <div

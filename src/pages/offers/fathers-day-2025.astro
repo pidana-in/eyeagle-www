@@ -3,7 +3,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Faqs from "../../components/Home/Faqs.astro";
 import BathroomSection from "../../components/Home/BathroomSection.astro";
 import { bathroomData } from "../../components/constants/home";
-import { Image } from "astro:assets";
+import Image from "../../components/common/OptimizedImage.astro";
 import img from "../../assets/Home/Hero_17.png";
 import Frame from "../../assets/Home/FatherBannerNew.png";
 import Discount from "../../assets/Home/Discount.png"
@@ -13,7 +13,7 @@ import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../c
 import { scrollDataSection } from "../../components/constants/home";
 ---
 
-<MainLayout noindex={true}>
+<MainLayout title="Expired Father’s Day 2025 Offer | EyEagle" desc="This EyEagle Father’s Day 2025 safety-kit offer has expired." noindex={true}>
   <!-- Toast Message -->
 <div class="fixed top-[80px] z-50 bg-[#CC0000] font-sans-instrument text-white text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 shadow-lg w-full text-center"
 >
@@ -25,9 +25,9 @@ import { scrollDataSection } from "../../components/constants/home";
     <Image src={img} alt="hero image"  class="absolute inset-0 w-full h-full object-cover" />
     <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-10 lg:pt-20">
       <div class="absolute lg:top-40 top-10 font-sans-instrument">
-        <p class="text-[#CC0000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
-          This Father’s Day, don’t just thank him.<br> Protect him</br>
-        </p>
+        <h1 class="text-[#CC0000] lg:text-6xl sm:text-3xl text-xl font-semibold lg:leading-tight sm:leading-10 leading-7">
+          This Father’s Day, don’t just thank him.<br /> Protect him
+        </h1>
        <div class="lg:my-[18px] my-2 justify-center flex">
         <!-- <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer"> -->
        <Image src={Discount} alt="Discount offer" class="w-[50%] mx-auto sm:w-[300px] lg:w-[404px] lg:h-[212px]" />
@@ -53,7 +53,7 @@ import { scrollDataSection } from "../../components/constants/home";
       </p>
         <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-lg lg:my-[68px] my-6 inline-block lg:text-2xl text-sm font-semibold text-white">
             <!-- <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">   -->
-              <button class="">
+              <button type="button" disabled aria-disabled="true">
                 Book Now
               </button>
             <!-- </a> -->
@@ -79,10 +79,10 @@ import { scrollDataSection } from "../../components/constants/home";
    <p class="lg:text-2xl text-sm font-medium mt-4 lg:mt-8 lg:mb-4">Offer valid June 12–15. Limited slots available.</p>
      <div class="bg-[#CC0000] lg:py-3 lg:px-5 px-3 py-2 rounded-full mt-5 inline-block lg:text-lg text-sm font-normal text-white">
             <!-- <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer"> -->
-              <button class="">
+              <button type="button" disabled aria-disabled="true">
                 Book Now
               </button>
-              <span class="material-symbols-outlined text-white text-sm ml-2">arrow_forward</span>
+              <span class="ml-2 text-sm" aria-hidden="true">→</span>
             <!-- </a> -->
           </div>
           </div>
@@ -94,4 +94,3 @@ import { scrollDataSection } from "../../components/constants/home";
     <FatherSection item={FatherImage} FatherSection1={FatherSection1} FatherSection2={FatherSection2} descriptionButtonFathersday={descriptionButtonFathersday}/>
   </section>
 </MainLayout>
-

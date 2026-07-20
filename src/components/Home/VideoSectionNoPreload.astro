@@ -51,7 +51,6 @@ const thumbMax = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
       class="w-full h-full rounded-xl"
       src={`${ytDomain}/embed/${videoId}?controls=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1`}
       title={title}
-      frameborder="0"
       allow="accelerometer; autoplay; encrypted-media;"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
@@ -65,7 +64,6 @@ const thumbMax = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
 
       const embedUrl = wrapper.getAttribute("data-embed-url");
       const thumbMax = wrapper.getAttribute("data-thumb-max");
-      const thumbHQ = wrapper.getAttribute("data-thumb-hq");
       const title = wrapper.getAttribute("data-title") || "YouTube video";
 
       // --- utilities ---

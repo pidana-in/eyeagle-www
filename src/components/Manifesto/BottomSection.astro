@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 import { BottomSectionData, explanations } from "../constants/manifesto";
 ---
 
@@ -22,7 +22,7 @@ import { BottomSectionData, explanations } from "../constants/manifesto";
           </div>
           <div class="flex gap-5 sm:gap-5">
             <div class="flex flex-col gap-5">
-              <h3 class="font-medium text-[32px] sm:text-[32px] text-white">{explanation.title}</h3>
+              <h2 class="font-medium text-[32px] sm:text-[32px] text-white">{explanation.title}</h2>
               {index === 0 ? (
             <p class="text-[18px] sm:text-[18px] max-w-full sm:max-w-[481px] text-white" set:html={explanation.description } />
           ) : (

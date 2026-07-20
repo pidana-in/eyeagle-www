@@ -40,14 +40,12 @@ import { HomeFaqsData } from "../constants/home";
               const otherContent = otherHeader.nextElementSibling;
               const otherIcon = otherHeader.querySelector('.faq-icon');
               otherContent.classList.add('hidden');
-              otherIcon.textContent = 'keyboard_arrow_down';
+              otherIcon.classList.remove('rotate-180');
             }
           });
   
           content.classList.toggle('hidden');
-          icon.textContent = content.classList.contains('hidden') 
-            ? 'keyboard_arrow_down' 
-            : 'keyboard_arrow_up';
+          icon.classList.toggle('rotate-180', !content.classList.contains('hidden'));
         });
       });
     });

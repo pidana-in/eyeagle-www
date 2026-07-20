@@ -2,26 +2,43 @@
   "name": "eyeagle-www",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@11.15.1",
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "pnpm": ">=11.15.1 <12"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint .",
+    "inventory": "node scripts/generate-inventory.mjs",
+    "audit:site": "node scripts/audit-rendered-site.mjs",
+    "validate": "pnpm run check && pnpm run lint && pnpm run build"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.1.2",
-    "@astrojs/netlify": "^7.0.10",
+    "@astrojs/markdown-remark": "^7.2.1",
+    "@astrojs/netlify": "^8.1.2",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/tailwind": "6.0.2",
-    "@tailwindcss/typography": "^0.5.19",
-    "astro": "^6.3.5",
-    "nodemailer": "^8.0.7",
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.1.1",
+    "nodemailer": "^9.0.3",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
-    "@types/nodemailer": "^8.0.0",
-    "sharp": "^0.34.5"
+    "@astrojs/check": "^0.9.9",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.13.3",
+    "@types/nodemailer": "^8.0.1",
+    "eslint": "^10.7.0",
+    "eslint-plugin-astro": "^3.0.1",
+    "sharp": "^0.35.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.64.0"
   }
 }

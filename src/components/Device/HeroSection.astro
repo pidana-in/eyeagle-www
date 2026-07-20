@@ -1,10 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const heroContent = Astro.props.heroContent;
 const features = Astro.props.features;
 ---
 
 <!-- DESKTOP VIEW -->
+<h1 class="sr-only" set:html={heroContent.title}></h1>
 <div class="hidden lg:block">
   <div class="relative 2xl:container lg:py-20">
     <Image
@@ -20,10 +21,10 @@ const features = Astro.props.features;
       >
         {heroContent.badge}
       </span>
-      <h2
+      <p
         class="max-lg:text-4xl lg:text-[68px] font-bold leading-[100%] text-white my-5 drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
         set:html={heroContent.title}
-      />
+      ></p>
       <p
         class="text-white text-xl leading-[140%] drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
       >
@@ -46,7 +47,7 @@ const features = Astro.props.features;
         <div class="flex flex-col items-center max-w-[280px]">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} />
-            <h4 class="text-2xl font-semibold">{item.title}</h4>
+            <h2 class="text-2xl font-semibold">{item.title}</h2>
           </div>
           <p class="text-black opacity-70 mt-2">{item.description}</p>
         </div>
@@ -65,10 +66,10 @@ const features = Astro.props.features;
       {heroContent.badge}
     </span>
   </div>
-  <h2
+  <p
     class="text-5xl font-bold leading-[56px] text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
     set:html={heroContent.title}
-  />
+  ></p>
   <p class="text-black text-center leading-7">
     {heroContent.description}
   </p>
@@ -86,7 +87,7 @@ const features = Astro.props.features;
   </div>
   <Image
     src={heroContent.images.img2}
-    alt="Bathroom Product Image"
+    alt="EyEagle Guardian X emergency alarm kit"
     class="w-full object-cover mt-8"
   />
   <div class="mt-20 mb-10 space-y-10 flex flex-col items-center text-center">
@@ -95,7 +96,7 @@ const features = Astro.props.features;
         <div class="flex flex-col items-center text-center">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} />
-            <h4 class="text-2xl font-semibold">{item.title}</h4>
+            <h2 class="text-2xl font-semibold">{item.title}</h2>
           </div>
           <p class="text-[#000000]/70 mt-3 leading-[140%]">
             {item.description}

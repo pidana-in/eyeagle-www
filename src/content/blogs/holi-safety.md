@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-02-27
 ---
 
-# Safe Holi: Don’t Let Slippery Bathrooms Ruin the Celebration
+## Safe Holi: Don’t Let Slippery Bathrooms Ruin the Celebration
 
 Holi is one of the most joyful festivals in India, a vibrant celebration of colors, laughter, music, and togetherness. From playful water fights to buckets of bright gulal, the day is filled with excitement for children, adults, and elders alike. But once the celebrations wind down, an unexpected danger quietly enters many homes: slippery bathrooms. In the rush to wash off colors, bathrooms often become waterlogged, stained with powders and oils, and dangerously slick. Unfortunately, what begins as festive fun can quickly turn into painful injuries. Practicing Holi safety at home means not just enjoying the festival responsibly outdoors, but also ensuring your home remains accident-free afterwards.
 
@@ -170,9 +170,9 @@ This simple checklist can significantly reduce slippery bathroom accidents.
 
 Festivals bring families together, grandparents playing with grandchildren, parents laughing with kids, and friends sharing memories. Protecting that joy means looking beyond the visible excitement and identifying hidden risks.
 
-A fall in the bathroom may seem like a small incident, but it can have <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">serious consequences</a>, especially for elderly loved ones. Practicing thoughtful bathroom fall prevention ensures the only memories from Holi are colorful and happy ones.
+A fall in the bathroom may seem like a small incident, but it can have <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;">serious consequences</a>, especially for elderly loved ones. Practicing thoughtful bathroom fall prevention ensures the only memories from Holi are colorful and happy ones.
 
-To add protection at our homes, solutions like the <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Bathroom Prevention Kit</a> are designed to reduce slip risks and enhance bathroom safety at home.
+To add protection at our homes, solutions like the <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle Bathroom Prevention Kit</a> are designed to reduce slip risks and enhance bathroom safety at home.
 
 ## Final Thoughts
 

@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-10-23
 ---
 
-# Health Checkups After 60: A Complete Guide for Seniors
+## Health Checkups After 60: A Complete Guide for Seniors
 
 Turning 60 is a milestone that brings wisdom, freedom, and more time for loved ones. But it also means the body needs extra care to stay strong and active. With age, the chances of conditions like diabetes, high blood pressure, heart disease, and bone problems naturally increase. This is why regular health checkups become more important than ever.
 
@@ -32,9 +32,9 @@ With age, the body becomes more vulnerable to certain conditions that can affect
 
 - **Diabetes –** The risk of type 2 diabetes increases with age. A simple fasting sugar or HbA1c test can detect the condition early and help manage it better.
 
-- **Bone & Joint Problems –** <a href="https://eyeagle.ai/blogs/arthritis-and-joint-pain-in-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Osteoporosis and arthritis </a> are common as bones lose density and joints wear down, often leading to fractures or mobility issues.
+- **Bone & Joint Problems –** <a href="/blogs/arthritis-and-joint-pain-in-seniors" style="color:#CC0000; text-decoration:none;">Osteoporosis and arthritis </a> are common as bones lose density and joints wear down, often leading to fractures or mobility issues.
 
-- **Vision & Hearing Loss –** Cataracts, glaucoma, and age-related hearing decline are frequent after 60, making <a href="https://eyeagle.ai/blogs/importance-of-regular-vision-checks" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">routine eye and ear checkups</a> important.
+- **Vision & Hearing Loss –** Cataracts, glaucoma, and age-related hearing decline are frequent after 60, making <a href="/blogs/importance-of-regular-vision-checks" style="color:#CC0000; text-decoration:none;">routine eye and ear checkups</a> important.
 
 - **Cognitive Decline –** Conditions like dementia or Alzheimer’s may develop gradually, highlighting the need for mental health awareness and timely evaluation.
 
@@ -118,7 +118,7 @@ Medical checkups are important, but daily lifestyle habits play an equally big r
 
 **Regular social interaction –** Spending time with family, friends, or community groups reduces loneliness and supports emotional health.
 
-**Prevent falls at home –** Use non-slip mats, keep pathways clutter-free, ensure proper lighting, and practice balance exercises like yoga or tai chi. Installing <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle safety fittings</a> in the bathroom can also reduce the risk of slips and falls, giving seniors and families extra peace of mind.
+**Prevent falls at home –** Use non-slip mats, keep pathways clutter-free, ensure proper lighting, and practice balance exercises like yoga or tai chi. Installing <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle safety fittings</a> in the bathroom can also reduce the risk of slips and falls, giving seniors and families extra peace of mind.
 
 Healthy habits, combined with routine health checkups after 60, make aging not just about living longer but living better.
 

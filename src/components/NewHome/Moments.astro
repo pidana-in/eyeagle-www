@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 import type { ImageMetadata } from "astro";
 
 type MomentFeature = {
@@ -20,8 +20,8 @@ const momentFeatures = Astro.props.momentFeatures as MomentFeature[];
         <h2
           class="text-3xl md:text-[48px] font-bold mb-4 md:mb-10 leading-snug md:leading-[56px]"
         >
-          <span class="text-[#CC0000]">{momentData.title[0]}</span>
-          {momentData.title[1]}
+          <span class="text-[#CC0000]">{momentData.title[0]}</span>{" "}
+          {momentData.title[1]}{" "}
           <span class="text-[#CC0000]">{momentData.title[2]}</span>
           <br />
           {momentData.title[3]}

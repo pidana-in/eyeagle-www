@@ -1,4 +1,18 @@
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+autoInstallPeers: false
+minimumReleaseAgeExclude:
+  - tmp@0.2.6
+  - esbuild@0.28.1
+  - tar@7.5.16
+  - '@opentelemetry/core@2.8.0'
+  - js-yaml@4.1.2
+overrides:
+  '@opentelemetry/core@<2.8.0': ^2.8.0
+  esbuild@>=0.27.3 <0.28.1: ^0.28.1
+  tmp@<0.2.6: ^0.2.6
+peerDependencyRules:
+  ignoreMissing:
+    - eslint-plugin-jsx-a11y

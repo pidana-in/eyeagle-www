@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-10-23
 ---
 
-# The Role of Diet and Nutrition in Healthy Aging
+## The Role of Diet and Nutrition in Healthy Aging
 
 Aging is a natural process, but how we age depends significantly on the choices we make, particularly in terms of our diet. The right nutrition doesn’t just fuel the body; it plays a vital role in healthy aging, helping to maintain strength, independence, and overall quality of life.
 
@@ -38,7 +38,7 @@ As we age, the body requires fewer calories but more nutrients. This means every
 
 - Lower risk of chronic diseases such as diabetes, heart disease, and osteoporosis.
 
-- <a href="https://eyeagle.ai/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Improved mobility and strength</a>, reducing the chance of falls and fractures.
+- <a href="/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;">Improved mobility and strength</a>, reducing the chance of falls and fractures.
 
 - Sharper mental function, which helps with memory and decision-making.
 
@@ -102,7 +102,7 @@ Diabetes is common in older adults, but the risk can be lowered with mindful eat
 
 ### Anti-inflammatory foods for joint health
 
-<a href="https://eyeagle.ai/blogs/arthritis-and-joint-pain-in-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Arthritis and joint pain </a> can make daily life challenging. Certain foods help fight inflammation, easing discomfort:
+<a href="/blogs/arthritis-and-joint-pain-in-seniors" style="color:#CC0000; text-decoration:none;">Arthritis and joint pain </a> can make daily life challenging. Certain foods help fight inflammation, easing discomfort:
 
 - Fatty fish (rich in omega-3s)
 
@@ -186,7 +186,7 @@ Dental problems or ill-fitting dentures can make chewing tough foods challenging
 
 ### Falls in the elderly and nutrition’s role
 
-Muscle weakness, poor bone health, and dehydration can increase the risk of instability while walking, making seniors more prone to falls. Since many falls occur in the bathroom, additional safety steps matter too. Supportive tools, such as the <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety kit</a>, can help create a safer environment and give seniors confidence in daily routines.
+Muscle weakness, poor bone health, and dehydration can increase the risk of instability while walking, making seniors more prone to falls. Since many falls occur in the bathroom, additional safety steps matter too. Supportive tools, such as the <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety kit</a>, can help create a safer environment and give seniors confidence in daily routines.
 
 ## Nourishing the body for longevity and vitality
 

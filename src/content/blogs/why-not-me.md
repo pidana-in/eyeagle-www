@@ -10,13 +10,13 @@ authorRole: "Consultant"
 date: 2026-06-03
 ---
 
-# The 'Why Not Me?' Mentality: Addressing Senior Denial About Fall Risk
+## The 'Why Not Me?' Mentality: Addressing Senior Denial About Fall Risk
 
 Many seniors know that falls are a leading cause of injury among older adults, but rarely believe it applies to them. This mindset, often called the “Why Not Me?” mentality, is a form of denial that leads aging adults to underestimate their vulnerability. Understanding senior fall risk isn’t just about identifying physical hazards. It’s also about recognizing the emotional and psychological barriers that stop seniors from taking precautions. This blog explores why denial happens, how families can address it respectfully, and how fall prevention becomes easier when seniors feel empowered rather than judged.
 
 ## Understanding Fall Risk in Older Adults
 
-Age brings gradual changes in muscle strength, balance, vision, reaction time, and joint stability. <a href="https://eyeagle.ai/blogs/senior-home-safety-india" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">These changes increase the likelihood of falls</a>, especially on stairs, uneven surfaces, or in poorly lit areas. Studies consistently show that a significant percentage of <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">seniors experience at least one fall each year</a>, and many of those falls lead to hospitalization or reduced mobility.
+Age brings gradual changes in muscle strength, balance, vision, reaction time, and joint stability. <a href="/blogs/senior-home-safety-india" style="color:#CC0000; text-decoration:none;">These changes increase the likelihood of falls</a>, especially on stairs, uneven surfaces, or in poorly lit areas. Studies consistently show that a significant percentage of <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;">seniors experience at least one fall each year</a>, and many of those falls lead to hospitalization or reduced mobility.
 
 Yet awareness does not always translate into action. Even with the facts, many aging adults believe “It won’t happen to me.” This perception gap slows down preventive behaviour and makes fall prevention for seniors more challenging.
 
@@ -40,7 +40,7 @@ Because they’ve lived in the same home for years, seniors assume familiarity e
 
 ### 4. Gradual Decline Goes Unnoticed
 
-<a href="https://eyeagle.ai/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Changes in balance</a> or eyesight occur slowly. Seniors adapt without realizing how much stability they’ve lost over time.
+<a href="/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;">Changes in balance</a> or eyesight occur slowly. Seniors adapt without realizing how much stability they’ve lost over time.
 
 ### 5. Avoidance of Difficult Conversations
 
@@ -76,7 +76,7 @@ This shifts the conversation from blame to teamwork.
 
 ### 2. Normalize Safety Tools
 
-Present grab bars, anti-slip treads, or motion lighting as <a href="https://eyeagle.ai/protection" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">home upgrades</a>, not aging equipment. Language influences acceptance.
+Present grab bars, anti-slip treads, or motion lighting as <a href="/protection" style="color:#CC0000; text-decoration:none;">home upgrades</a>, not aging equipment. Language influences acceptance.
 
 ### 3. Involve Seniors in the Decision-Making
 
@@ -123,13 +123,13 @@ Vision changes and medication side effects can increase fall risk but often go u
 
 Shoes with grip and ankle support significantly reduce slipping incidents.
 
-These steps form the foundation of <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">senior fall risk safety and fall prevention</a>, practical, effective, and easy to implement.
+These steps form the foundation of <a href="/" style="color:#CC0000; text-decoration:none;">senior fall risk safety and fall prevention</a>, practical, effective, and easy to implement.
 
 ### Enhance Bathroom Safety
 
 Bathrooms are one of the most common places for slips and falls among seniors. Installing the right safety fittings can drastically reduce the risk.
 
-<a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a>, such as anti-skid mats, grab bars, provide stability, comfort, and added confidence during everyday routines.
+<a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety fittings</a>, such as anti-skid mats, grab bars, provide stability, comfort, and added confidence during everyday routines.
 
 ## Conclusion
 

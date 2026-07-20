@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-07-02
 ---
 
-# Monsoon-Proof Your Indian Bathroom: A Senior's Survival Guide for the Rainy Season
+## Monsoon-Proof Your Indian Bathroom: A Senior's Survival Guide for the Rainy Season
 
 The monsoon is here. The air smells fresh. The streets feel cool. But inside your bathroom, something quietly dangerous is happening. Every year, thousands of elderly Indians fall in their bathrooms during the rainy season. The floors get wetter. The humidity stays high. Water tracks in from the corridor. A single wrong step can change everything. If you have an elderly parent at home, or if you are a senior yourself, the monsoon bathroom safety guide is for you. We will walk you through every corner of your bathroom and show you exactly what to fix before the rains catch you off guard.
 
@@ -27,9 +27,9 @@ Here is the truth. Monsoon changes your bathroom in ways you may not notice righ
 - Soap scum and hard water deposits build up more quickly, making tiles extra slippery.
 - People track rainwater from outside, making the area near the bathroom entrance especially wet.
 
-For seniors, these conditions are serious. <a href="https://eyeagle.ai/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Older adults already have reduced balance</a>, slower reflexes, and weaker bones. A fall that a younger person shakes off can send an elderly person to the hospital with a hip fracture.
+For seniors, these conditions are serious. <a href="/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;">Older adults already have reduced balance</a>, slower reflexes, and weaker bones. A fall that a younger person shakes off can send an elderly person to the hospital with a hip fracture.
 
-> According to Indian health data, <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> bathroom falls are one of the leading causes</a> of injury-related hospitalisation in adults above 60. Most of these falls happen in the monsoon months.
+> According to Indian health data, <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;"> bathroom falls are one of the leading causes</a> of injury-related hospitalisation in adults above 60. Most of these falls happen in the monsoon months.
 
 ### Start Here: A Room-by-Room Safety Walk
 
@@ -81,7 +81,7 @@ Look for a slatted mat with a rubber base that lets water drain through while yo
 
 ### 2. Install Grab Bars. This Is Non-Negotiable
 
-<a href="https://eyeagle.ai/protection" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Grab bars</a> are the single most effective way to prevent wet floor elderly falls. They give seniors something solid and fixed to hold as they stand, sit, turn, and move.
+<a href="/protection" style="color:#CC0000; text-decoration:none;">Grab bars</a> are the single most effective way to prevent wet floor elderly falls. They give seniors something solid and fixed to hold as they stand, sit, turn, and move.
 
 Install them in at least three spots:
 
@@ -91,7 +91,7 @@ Install them in at least three spots:
 
 Make sure bars are fixed into the wall studs or with proper rawl plugs. A poorly fixed bar that gives way is worse than no bar at all.
 
-For added peace of mind, EyEagle also offers the <a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Guardian-X Alarm Device</a> and the <a href="https://eyeagle.ai/app" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle App</a>, allowing seniors to send an SOS alert instantly while notifying family members in real time during an emergency.
+For added peace of mind, EyEagle also offers the <a href="/device" style="color:#CC0000; text-decoration:none;">Guardian-X Alarm Device</a> and the <a href="/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a>, allowing seniors to send an SOS alert instantly while notifying family members in real time during an emergency.
 
 > EyEagle offers a professional bathroom safety audit and installs premium grab bars based on where YOUR senior actually moves. It is not a one-size-fits-all kit; it is tailored to your home
 
@@ -138,7 +138,7 @@ Call your parent at a fixed time every morning and evening. Keep it consistent. 
 A basic phone is not enough in a fall situation. An elderly person who falls may not be able to reach their phone, unlock it, and dial a number while in pain on a wet floor.
 
 This is exactly the gap that
-<a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle's Guardian-X</a> device is designed to fill. It is a one-press SOS button that triggers a loud alarm and instantly notifies family members through the EyEagle app. It works even without Wi-Fi and has a battery backup in case of power cuts, which are common during Indian monsoons.
+<a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle's Guardian-X</a> device is designed to fill. It is a one-press SOS button that triggers a loud alarm and instantly notifies family members through the EyEagle app. It works even without Wi-Fi and has a battery backup in case of power cuts, which are common during Indian monsoons.
 
 ### Share Emergency Information With Neighbours
 
@@ -173,7 +173,7 @@ Some bathroom safety problems cannot be fixed with a mat and a stool. If your ba
 - No solid wall near the toilet for grab bar installation
 - Cramped layout that forces the senior to twist or turn in tight spaces
 
-EyEagle provides an <a href="https://eyeagle.ai/contact" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">in-home bathroom safety audit</a> by trained professionals. They assess the actual risk in your bathroom, not a generic checklist. Based on that, they install the right combination of safety hardware. Families across India have used this service to finally feel confident about leaving a parent alone at home.
+EyEagle provides an <a href="/contact" style="color:#CC0000; text-decoration:none;">in-home bathroom safety audit</a> by trained professionals. They assess the actual risk in your bathroom, not a generic checklist. Based on that, they install the right combination of safety hardware. Families across India have used this service to finally feel confident about leaving a parent alone at home.
 
 ## Final Thoughts: Act Before the Rains Do
 
@@ -187,4 +187,4 @@ Along with simple bathroom safety upgrades, solutions like the **EyEagle App** a
 
 Monsoon bathroom safety is not a luxury. For Indian seniors, it is essential. This rainy season, choose to act before something goes wrong.
 
-> **Is your bathroom ready for monsoon?** EyEagle offers a free safety consultation and professional bathroom audit for Indian homes. Book your safety audit at <a href="http://eyeagle.ai" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">eyeagle.ai</a> and give your family peace of mind this rainy season.
+> **Is your bathroom ready for monsoon?** EyEagle offers a free safety consultation and professional bathroom audit for Indian homes. Book your safety audit at <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle’s home page</a> and give your family peace of mind this rainy season.

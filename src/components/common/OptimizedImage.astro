@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+
+const {
+  src,
+  alt,
+  format: requestedFormat,
+  quality: requestedQuality,
+  layout: requestedLayout,
+  loading = "lazy",
+  decoding = "async",
+  ...rest
+} = Astro.props;
+
+const metadata = typeof src === "object" && src !== null ? src : undefined;
+const sourceFormat = metadata?.format;
+const sourcePath = metadata?.src ?? "";
+const isVector = sourceFormat === "svg";
+const needsExtraDetail = /(?:blog|infographic|logo|store|playstore|appstore)/i.test(
+  sourcePath,
+);
+
+const format = requestedFormat ?? (isVector ? undefined : "webp");
+const quality =
+  typeof requestedQuality === "number"
+    ? requestedQuality
+    : needsExtraDetail
+      ? 85
+      : 80;
+const layout = requestedLayout ?? (isVector ? "none" : "constrained");
+
+const imageProps = {
+  ...rest,
+  src,
+  alt,
+  loading,
+  decoding,
+  layout,
+  ...(format ? { format, quality } : {}),
+} as any;
+---
+
+<Image {...imageProps} />

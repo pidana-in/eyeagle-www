@@ -1,16 +1,41 @@
 ---
-  const { iconName, classNames = '' } = Astro.props ;
+export interface Props {
+  iconName: string;
+  classNames?: string;
+}
 
+const { iconName, classNames = "" } = Astro.props as Props;
+const paths: Record<string, string> = {
+  check: "m5 12 4 4L19 6",
+  check_circle: "m5 12 4 4L19 6",
+  keyboard_arrow_down: "m6 9 6 6 6-6",
+  stat_minus_1: "m6 9 6 6 6-6",
+  package_2: "M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9ZM4 7.5l8 4.5 8-4.5M12 12v9",
+  star: "m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20l1.1-6.2L3 9.4l6.2-.9L12 3Z",
+  app_promo: "M8 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm2 15h4",
+  currency_exchange: "M7 7h10l-2-2m2 2-2 2M17 17H7l2 2m-2-2 2-2",
+  emergency_home: "M3 11 12 4l9 7v9h-6v-6H9v6H3v-9Zm9-4v4m0 3v.1",
+  help_clinic: "M12 3v18M3 12h18",
+  support_agent: "M4 13v-1a8 8 0 0 1 16 0v1M4 13h3v6H5a1 1 0 0 1-1-1v-5Zm16 0h-3v6h2a1 1 0 0 0 1-1v-5Zm-3 6c0 1.1-1.8 2-4 2",
+  e911_emergency: "M12 3 3 20h18L12 3Zm0 6v5m0 3v.1",
+  airport_shuttle: "M3 7h13l4 5v6h-2m-12 0H3V7Zm3 0h12m-9-7h4m-4 0a2 2 0 1 0 4 0m-4 0h4",
+  guardian: "M12 3 5 6v5c0 4.5 2.8 8.2 7 10 4.2-1.8 7-5.5 7-10V6l-7-3Zm-3 9 2 2 4-4",
+};
+const path = paths[iconName] ?? paths.star;
 ---
-<script>
-  export interface IconProps {
-    iconName: string;
-    classNames?: string;
-  }
 
-</script>
-
-
-  <span class=`material-symbols-outlined  text-[20px] md:text-[32px] ${classNames}`>
-    {iconName}
-  </span>
+<svg
+  viewBox="0 0 24 24"
+  width="1em"
+  height="1em"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={`inline-block shrink-0 text-[20px] md:text-[32px] ${classNames}`}
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d={path}></path>
+</svg>

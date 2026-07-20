@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-04-01
 ---
 
-# Stairway Safety: Simple Fixes to Prevent Accidents
+## Stairway Safety: Simple Fixes to Prevent Accidents
 
 Stairways are among the most common places where home accidents occur, yet people rarely pay attention to them until something goes wrong. Whether you live with children, seniors, or simply climb stairs multiple times a day, improving stairway safety is one of the smartest steps you can take to protect your family. Many falls happen not because the stairs are dangerous by design, but because small hazards go unnoticed for months.
 

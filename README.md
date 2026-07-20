@@ -1,48 +1,42 @@
-# Astro Starter Kit: Basics
+# EyEagle website
+
+The public EyEagle website is an Astro application rendered with the Netlify adapter. It uses Tailwind CSS through Vite, Astro content collections for articles, and pnpm for dependency management.
+
+## Requirements
+
+- Node.js 24 (`.node-version` pins the tested release)
+- pnpm 11.15 or newer in the 11.x line
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template basics
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+The local server is available at `http://localhost:4321` by default.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Validation
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+pnpm check
+pnpm lint
+pnpm inventory
+pnpm build
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+`pnpm inventory` writes route, link, and image inventories to `reports/`. With the development server running, `pnpm audit:site` crawls the rendered routes and validates page metadata, canonical URLs, headings, image alt attributes, links, and JSON-LD.
 
-## 🧞 Commands
+## Runtime configuration
 
-All commands are run from the root of the project, from a terminal:
+The join flow and optional Shopify integration use deployment environment variables. Never commit their values.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM`, `SMTP_TO`
+- `USE_SHOPIFY_JOIN`
+- `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_ADMIN_ACCESS_TOKEN`, `SHOPIFY_API_VERSION`
 
-## 👀 Want to learn more?
+SMTP credentials use private server-only variable names and must never use Astro's `PUBLIC_` prefix.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Deployment
+
+`pnpm build` produces the Netlify server bundle and static assets in `dist/`. This repository does not contain a `netlify.toml`; build and environment settings are managed outside the repository.

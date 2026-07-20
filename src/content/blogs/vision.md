@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-09-09
 ---
 
-# Why Vision Matters for Fall Prevention
+## Why Vision Matters for Fall Prevention
 
 For many older adults, falling isn’t just a small accident; it can be life-changing. Falls are the leading cause of injury-related hospital visits among seniors, and about 1 in 4 adults over the age of 65 experiences a fall each year, according to the Centers for Disease Control and Prevention (CDC). These falls can lead to broken bones, head injuries, and in some cases, a loss of independence. Most people are aware that weak muscles, balance issues, or unsafe home environments can increase the risk of falling. But what often gets overlooked is the role of regular vision checks. Clear eyesight helps us notice steps, avoid obstacles, and move safely from one place to another.
 
@@ -63,11 +63,11 @@ Fall prevention programs often focus on exercise, home safety, and mobility trai
 
 ### Integrating vision health with mobility training
 
-Many physical therapy and <a href="https://eyeagle.ai/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">balance programs </a> for seniors now highlight the connection between eyesight and movement. For example, exercises that improve coordination are more effective when paired with updated glasses prescriptions or treatments for vision problems. Together, these strategies reduce fall risk more than either one could on its own.
+Many physical therapy and <a href="/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;">balance programs </a> for seniors now highlight the connection between eyesight and movement. For example, exercises that improve coordination are more effective when paired with updated glasses prescriptions or treatments for vision problems. Together, these strategies reduce fall risk more than either one could on its own.
 
 ## Lifestyle and Home Safety Tips for Fall Prevention
 
-Even with regular vision checks, <a href="https://eyeagle.ai/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">creating a safe environment at home </a> and practicing good daily habits are key to reducing fall risks. Many falls happen in familiar spaces like bedrooms, hallways, and bathrooms, where simple changes can make a big difference.
+Even with regular vision checks, <a href="/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;">creating a safe environment at home </a> and practicing good daily habits are key to reducing fall risks. Many falls happen in familiar spaces like bedrooms, hallways, and bathrooms, where simple changes can make a big difference.
 
 ### Proper lighting and contrast in living spaces
 
@@ -79,7 +79,7 @@ Loose rugs, electrical cords, and cluttered walkways are common culprits in fall
 
 ### Paying special attention to bathroom safety
 
-The bathroom is one of the most dangerous places for falls due to slippery surfaces. Installing grab bars, non-slip mats, and using the <a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Bathroom Safety Kit</a> can greatly reduce risks.
+The bathroom is one of the most dangerous places for falls due to slippery surfaces. Installing grab bars, non-slip mats, and using the <a href="/solution" style="color:#CC0000; text-decoration:none;">EyEagle Bathroom Safety Kit</a> can greatly reduce risks.
 
 ### Using mobility aids when necessary
 
