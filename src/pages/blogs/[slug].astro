@@ -65,6 +65,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
 <MainLayout
   title={metaTitle}
   desc={metaDesc}
+  canonicalPath={`/blogs/${blog.data.slug}`}
   metaImage={metaImage}
   metaImageAlt={blog.data.title}
   metaImageWidth={1200}
