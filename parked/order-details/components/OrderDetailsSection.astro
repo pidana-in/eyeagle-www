@@ -1,6 +1,6 @@
 ---
-import OrderItemImage from "../../assets/Orders/OrderItemImage.png";
-import Image from "../common/OptimizedImage.astro";
+import OrderItemImage from "../../../src/assets/Orders/OrderItemImage.png";
+import Image from "../../../src/components/common/OptimizedImage.astro";
 ---
 
 <div class="p-5 md:p-10">
@@ -30,13 +30,12 @@ import Image from "../common/OptimizedImage.astro";
 </div>
 
 <script>
-    const dropDown = document.getElementById("dropDown");
-    const kitContent = document.getElementById("kitContent");
-    dropDown?.addEventListener("click", () => {
-      dropDown.style.transform = `${dropDown.style.transform === "rotate(180deg)" ? "" : "rotate(180deg)"}`;
-      dropDown.style.transition = "transform 0.3s ease-in-out";
-      if (!kitContent) return;
-      kitContent.style.display = `${kitContent.style.display === "none" ? "" : "none"}`;
-    });
-  </script>
-  
+  const dropDown = document.getElementById("dropDown");
+  const kitContent = document.getElementById("kitContent");
+  dropDown?.addEventListener("click", () => {
+    dropDown.style.transform = `${dropDown.style.transform === "rotate(180deg)" ? "" : "rotate(180deg)"}`;
+    dropDown.style.transition = "transform 0.3s ease-in-out";
+    if (!kitContent) return;
+    kitContent.style.display = `${kitContent.style.display === "none" ? "" : "none"}`;
+  });
+</script>

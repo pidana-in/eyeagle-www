@@ -1,10 +1,11 @@
 @import "tailwindcss";
+@import "./fonts.css";
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-barlow: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-sans-instrument: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-barlow: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans-instrument: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
   --color-primary: #cc0000;
   --color-secondary: #222222;
 }

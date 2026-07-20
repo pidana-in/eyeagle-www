@@ -1,5 +1,6 @@
 ---
 import { getImage } from "astro:assets";
+import plusJakartaSansUrl from "@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url";
 import defaultSocialSource from "../assets/NewHome/HomeImage.png";
 import {
   navLinks,
@@ -54,9 +55,10 @@ const {
 
 const site = Astro.site ?? new URL(siteMeta.url);
 const rawPath = canonicalPath ?? Astro.url.pathname;
-const normalizedPath = rawPath === "/" ? "/" : rawPath.replace(/\/+$/, "");
+const routePath = rawPath.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+const normalizedPath = routePath === "/" ? "/" : routePath.replace(/\/+$/, "");
 const canonicalUrl = new URL(normalizedPath, site).toString();
-const pathname = Astro.url.pathname;
+const pathname = normalizedPath;
 
 const defaultSocialImage = await getImage({
   src: defaultSocialSource,
@@ -200,11 +202,7 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={metaImageAlt} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.setAttribute('media', 'all')" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
+    <link rel="preload" href={plusJakartaSansUrl} as="font" type="font/woff2" crossorigin />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/FavIcon.png" type="image/png" />
     <script type="application/ld+json" is:inline set:html={structuredData}></script>
@@ -224,7 +222,7 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     <header class="sticky top-0 z-50 w-full border-b border-black/5 bg-white/95 shadow-sm backdrop-blur" data-site-header>
       <nav class="mx-auto flex min-h-18 max-w-360 items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-10" aria-label="Primary navigation">
         <a href="/" aria-label="EyEagle home" class="shrink-0">
-          <img src="/svg/tag-new.svg" width="242" height="29" alt="EyEagle — Preventing Falls, Saving Lives" class="h-7 w-auto sm:h-8" decoding="async" />
+          <img src="/svg/tag-new.svg" width="234" height="28" alt="EyEagle — Preventing Falls, Saving Lives" class="h-7 w-58.5 sm:h-8 sm:w-66.75" decoding="async" />
         </a>
 
         <ul class="hidden items-center gap-6 text-[15px] font-semibold lg:flex">
@@ -297,7 +295,7 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     <footer id="footer" class={`bg-black py-16 text-white lg:py-20 ${footerClass}`}>
       <div class="mx-auto grid max-w-360 gap-12 px-6 lg:grid-cols-[1fr_1.5fr] lg:px-20">
         <div class="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
-          <img src="/svg/Logo-new.svg" width="242" height="29" alt="EyEagle — Preventing Falls, Saving Lives" class="h-8 w-auto" loading="lazy" decoding="async" />
+          <img src="/svg/Logo-new.svg" width="267" height="32" alt="EyEagle — Preventing Falls, Saving Lives" class="h-8 w-66.75" loading="lazy" decoding="async" />
           <div class="flex gap-3">
             {[
               { href: socialLinks.linkedin, label: "LinkedIn", text: "in" },
@@ -362,36 +360,12 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
       }, { passive: true });
     </script>
 
-    <script is:inline>
-      !(function (t, e) {
-        var o, n, p, r;
-        e.__SV || (window.posthog && window.posthog.__loaded) || ((window.posthog = e), (e._i = []), (e.init = function (i, s, a) {
-          function g(t, e) { var o = e.split("."); 2 == o.length && ((t = t[o[0]]), (e = o[1])); t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }; }
-          (p = t.createElement("script")).type = "text/javascript"; p.crossOrigin = "anonymous"; p.async = !0;
-          p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js";
-          (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e;
-          void 0 !== a ? (u = e[a] = []) : (a = "posthog"); u.people = u.people || [];
-          o = "init capture identify group reset opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_distinct_id get_session_id".split(" ");
-          for (n = 0; n < o.length; n++) g(u, o[n]); e._i.push([i, s, a]);
-        }), (e.__SV = 1));
-      })(document, window.posthog || []);
-      posthog.init("phc_DRoq88uBlB5Pgwkek6x8hvyZ3YgTiUlkwbbEt4eDCxh", {
-        api_host: "https://eu.i.posthog.com",
-        defaults: "2025-05-24",
-        person_profiles: "identified_only",
-        disable_session_recording: true,
-        disable_surveys: true,
-        enable_heatmaps: false,
-        advanced_disable_feature_flags: true,
-        advanced_disable_toolbar_metrics: true,
-      });
-    </script>
   </body>
 </html>
 
 <style is:global>
   html { scroll-behavior: smooth; }
-  body { font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; }
+  body { font-family: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif; }
   [hidden] { display: none !important; }
   summary::-webkit-details-marker { display: none; }
   :focus-visible { outline: 2px solid #cc0000; outline-offset: 3px; }

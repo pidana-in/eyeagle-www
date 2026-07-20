@@ -226,11 +226,6 @@
       "kind": "page"
     },
     {
-      "route": "/order-details/[id]",
-      "source": "src/pages/order-details/[id].astro",
-      "kind": "dynamic"
-    },
-    {
       "route": "/privacy",
       "source": "src/pages/privacy.astro",
       "kind": "page"
@@ -1361,8 +1356,7 @@
       "needsVisualReview": false,
       "referenced": true,
       "references": [
-        "src/components/Orders/OrderStatusCard.astro",
-        "src/pages/order-details/[id].astro"
+        "src/components/Orders/OrderStatusCard.astro"
       ]
     },
     {
@@ -3841,7 +3835,6 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OrderDetails/OrderDetailsSection.astro",
         "src/components/Orders/OrderCard.astro"
       ]
     },
@@ -4338,10 +4331,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/components/constants/orderDetails.ts"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/svgs/package.svg",
@@ -4352,10 +4343,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/components/constants/orderDetails.ts"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/svgs/smile.svg",
@@ -4366,10 +4355,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/components/constants/orderDetails.ts"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/svgs/truck.svg",
@@ -4380,10 +4367,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/components/constants/orderDetails.ts"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "public/FavIcon.png",
@@ -4721,11 +4706,6 @@
     },
     {
       "source": "src/components/NewHome/Testimonials.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/OrderDetails/OrderDetailsSection.astro",
       "href": "http://www.w3.org/2000/svg",
       "external": true
     },
@@ -5701,31 +5681,6 @@
     },
     {
       "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.gstatic.com",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
       "href": "/sitemap-index.xml",
       "external": false
     },
@@ -5751,37 +5706,7 @@
     },
     {
       "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.gstatic.com",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
       "href": "https://www.googletagmanager.com/gtag/js?id=${siteMeta.gtmId}",
-      "external": true
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
-      "href": "https://eu.i.posthog.com",
       "external": true
     },
     {

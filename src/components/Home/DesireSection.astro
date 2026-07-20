@@ -10,11 +10,12 @@ const descriptionButton = Astro.props.descriptionButton;
 
 <section>
     <div class=`lg:py-30 lg:px-20 bg-secondary ${className}`>
-      <div class={"relative h-[20.438rem] lg:h-225 "}>
+      <div class="relative h-[20.438rem] overflow-hidden lg:h-225">
         <Image
           src={desireImage}
-          alt="Our healthcare team"
+          alt="An older adult spending time with two young children"
           class="w-full h-full object-cover brightness-95 rounded-sm"
+          style="height: 100%;"
         />
         <div class="w-full font-sans-instrument">
           <p class="xl:container xl:w-175 xl:right-145 xl:left-10 absolute lg:top-20 top-10 lg:left-20 left-5 lg:text-[4rem] text-2xl font-normal lg:leading-23 max-w-186 mx-auto  text-white">

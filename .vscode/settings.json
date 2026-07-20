@@ -1,8 +1,7 @@
 {
   "cSpell.language": "en,en-GB",
   "cSpell.ignoreRegExpList": [
-    "/\\bG-[A-Z0-9]+\\b/g",
-    "/\\bphc_[A-Za-z0-9]+\\b/g"
+    "/\\bG-[A-Z0-9]+\\b/g"
   ],
   "cSpell.words": [
     "Abhinav",
@@ -44,6 +43,7 @@
     "fathersday",
     "featsrc",
     "fname",
+    "fontsource",
     "Futuna",
     "Gaurav",
     "Ghaziabad",
@@ -105,7 +105,6 @@
     "Pillai",
     "playstore",
     "Plurinational",
-    "posthog",
     "preconnecting",
     "Ramesh",
     "Ranganathan",
@@ -134,6 +133,7 @@
     "Tokelau",
     "Vaibhav",
     "waitlist",
+    "woff",
     "Yogaday",
     "Zindagi"
   ]

@@ -2,7 +2,10 @@ import { getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-export const prerender = false;
+// The blog collection is build-time content. Prerender the legacy JSON feed so
+// it never consumes a serverless invocation; query parameters intentionally
+// resolve to the same immutable first page on static hosting.
+export const prerender = true;
 
 const imageModules = import.meta.glob<{ default: ImageMetadata }>("/src/assets/Blog/*.{jpg,jpeg,png,webp,avif}", { eager: true });
 

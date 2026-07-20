@@ -1,13 +1,16 @@
 ---
-export const prerender = false;
-import StatusCard from "../../components/common/StatusCard.astro";
-import MainLayout from "../../layouts/MainLayout.astro";
-import Tick from "../../assets/Common/Tick.png";
-import OrderDetailsSection from "../../components/OrderDetails/OrderDetailsSection.astro";
-import OrderFlow from "../../components/OrderDetails/OrderFlow.astro";
+import StatusCard from "../../src/components/common/StatusCard.astro";
+import MainLayout from "../../src/layouts/MainLayout.astro";
+import Tick from "../../src/assets/Common/Tick.png";
+import OrderDetailsSection from "./components/OrderDetailsSection.astro";
+import OrderFlow from "./components/OrderFlow.astro";
 ---
 
-<MainLayout title="Order Details | EyEagle" desc="Review the delivery and installation status of your EyEagle order." noindex={true}>
+<MainLayout
+  title="Order Details | EyEagle"
+  desc="Review the delivery and installation status of your EyEagle order."
+  noindex={true}
+>
   <section>
     <StatusCard
       classNames="w-full px-6 py-5"

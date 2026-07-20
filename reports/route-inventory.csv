@@ -44,7 +44,6 @@
 "/join","page","src/pages/join.astro"
 "/offers/fathers-day-2025","page","src/pages/offers/fathers-day-2025.astro"
 "/offers/yoga-day-2025","page","src/pages/offers/yoga-day-2025.astro"
-"/order-details/[id]","dynamic","src/pages/order-details/[id].astro"
 "/privacy","page","src/pages/privacy.astro"
 "/protection","page","src/pages/protection.astro"
 "/refund","page","src/pages/refund.astro"

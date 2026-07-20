@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   site: "https://eyeagle.ai/",
   trailingSlash: "never",
-  output: "server",
+  output: "static",
   build: {
     format: "file",
   },
