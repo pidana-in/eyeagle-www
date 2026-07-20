@@ -9,6 +9,9 @@ export default defineConfig({
   site: "https://eyeagle.ai/",
   trailingSlash: "never",
   output: "server",
+  build: {
+    format: "file",
+  },
   adapter: netlify(),
   devToolbar: {
     enabled: false,
