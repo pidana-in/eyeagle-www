@@ -2,6 +2,11 @@ export const siteMeta = {
   title: "EyEagle | Preventing Falls, Saving Lives",
   description:
     "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.",
+  url: "https://eyeagle.ai/",
+  organizationName: "EyEagle",
+  legalName: "PIDANA Technologies Pvt. Ltd.",
+  defaultSocialImageAlt:
+    "EyEagle home safety system supporting older adults and their families",
   gtmId: "G-7HPVGH0CKQ",
 };
 
@@ -37,8 +42,9 @@ export const footerProductLinks = [
     title: "Bathroom Safety kit",
     url: "https://shop.eyeagle.ai/checkouts/cn/hWNCkj5hqhao9C2DRG2RMuSP/en-in?_r=AQABXJLu_eKTNdLhlgxQVlrnpaBhXDAhdEAJCpRhwsYC088",
   },
-  { title: "How it works", url: "/solution/" },
-  { title: "Guardian X Kit", url: "/protection" },
+  { title: "How It Works", url: "/solution" },
+  { title: "Guardian X", url: "/device" },
+  { title: "Protection", url: "/protection" },
   { title: "EyEagle App", url: "/app" },
 ];
 

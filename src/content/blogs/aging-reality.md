@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-03-16
 ---
 
-# India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors
+## India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors
 
 India is aging faster than most of us realize. With longer lifespans, smaller families, and more seniors choosing to live independently, our homes now carry responsibilities they were never designed for. Home safety for seniors in India is no longer a luxury; it’s an urgent necessity for a population aging without adequate support systems.
 
@@ -42,7 +42,7 @@ Even a moment of dizziness can become a fall when the environment isn’t built 
 
 ## Falls: The Silent Epidemic We Don’t Discuss
 
-Falls are now one of the leading causes of severe injuries among Indian seniors. A hip fracture or head injury can take months to heal, and often, independence never fully returns. That’s why senior citizen safety India, especially <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">fall prevention for seniors</a>, has to be a household priority, not something we address only after an accident.
+Falls are now one of the leading causes of severe injuries among Indian seniors. A hip fracture or head injury can take months to heal, and often, independence never fully returns. That’s why senior citizen safety India, especially <a href="/" style="color:#CC0000; text-decoration:none;">fall prevention for seniors</a>, has to be a household priority, not something we address only after an accident.
 
 To stop this silent epidemic, families must understand that preventing slips and falls is not about restricting movement; it’s about enabling safe movement.
 

@@ -1,5 +1,6 @@
 ---
-import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Image from "../common/OptimizedImage.astro";
 
 type ProcessItem = {
   step: number;
@@ -28,18 +29,18 @@ const { processData } = Astro.props as Props;
       </h2>
     </div>
     <div
-      class="mt-10 md:mt-[120px] flex flex-col md:flex-row gap-12 md:gap-[72px] items-start justify-center"
+      class="mt-10 md:mt-30 flex flex-col md:flex-row gap-12 md:gap-18 items-start justify-center"
     >
       {
         processData.items.map((card, index) => (
-          <div class="relative mx-auto w-full md:max-w-[380px]">
+          <div class="relative mx-auto w-full md:max-w-95">
             <div class="relative rounded-xl overflow-hidden">
               <Image
                 src={card.image}
                 alt={card.title}
                 class="w-full h-auto object-cover"
               />
-              <div class="absolute top-3 left-3 w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#CC0000] text-white text-xs md:text-sm font-semibold flex items-center justify-center shadow-md">
+              <div class="absolute top-3 left-3 w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary text-white text-xs md:text-sm font-semibold flex items-center justify-center shadow-md">
                 {card.step}
               </div>
             </div>
@@ -50,15 +51,15 @@ const { processData } = Astro.props as Props;
               </p>
             </div>
             {index < processData.items.length - 1 && (
-              <div class="hidden md:flex absolute top-1/2 right-[-56px] -translate-y-1/2 items-center">
-                <div class="w-8 h-[2px] bg-[#CC0000]" />
-                <div class="w-2 h-2 bg-[#CC0000] rounded-full" />
+              <div class="hidden md:flex absolute top-1/2 -right-14 -translate-y-1/2 items-center">
+                <div class="w-8 h-0.5 bg-primary" />
+                <div class="w-2 h-2 bg-primary rounded-full" />
               </div>
             )}
             {index < processData.items.length - 1 && (
-              <div class="md:hidden absolute left-1/2 bottom-[-32px] -translate-x-1/2 flex flex-col items-center">
-                <div class="h-6 w-[2px] bg-[#CC0000]" />
-                <div class="w-2 h-2 bg-[#CC0000] rounded-full" />
+              <div class="md:hidden absolute left-1/2 -bottom-8 -translate-x-1/2 flex flex-col items-center">
+                <div class="h-6 w-0.5 bg-primary" />
+                <div class="w-2 h-2 bg-primary rounded-full" />
               </div>
             )}
           </div>

@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-06-22
 ---
 
-# An NRI's Journey: Caring for Mom From Singapore While Working Full-Time
+## An NRI's Journey: Caring for Mom From Singapore While Working Full-Time
 
 Living in Singapore had always felt like a step forward in my career. The work was demanding, the pace fast, and the days packed with meetings that often stretched across time zones. Caring from distance is a reality many NRIs don’t prepare for. You move abroad for growth, but your heart remains tethered to home.
 
@@ -34,9 +34,9 @@ It wasn’t a dramatic fall. There was no hospital visit, no urgent midnight fli
 
 But something did happen to me.
 
-Bathrooms are one of the <a href="https://eyeagle.ai/blogs/why-falls-are-the-biggest-threat-to-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">most dangerous spaces for seniors.</a> Wet floors, smooth tiles, and the simple act of standing up or sitting down can become risky over time. What struck me wasn’t the slip itself, but how easily it could have turned serious.
+Bathrooms are one of the <a href="/blogs/why-falls-are-the-biggest-threat-to-seniors" style="color:#CC0000; text-decoration:none;">most dangerous spaces for seniors.</a> Wet floors, smooth tiles, and the simple act of standing up or sitting down can become risky over time. What struck me wasn’t the slip itself, but how easily it could have turned serious.
 
-This was no longer about comfort. It was about <a href="https://eyeagle.ai/protection" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">bathroom safety for seniors</a> and fall prevention for elderly, real risks hiding in familiar spaces.
+This was no longer about comfort. It was about <a href="/protection" style="color:#CC0000; text-decoration:none;">bathroom safety for seniors</a> and fall prevention for elderly, real risks hiding in familiar spaces.
 
 ![Infographic](../../assets/Blog/Blog32Infographic.jpg)
 
@@ -48,7 +48,7 @@ Most families respond to accidents. I realised we needed to prevent them. Instea
 
 Coordinating changes from Singapore wasn’t easy. I needed people on the ground who understood senior safety, not just construction. Professionals who could assess risk, suggest practical solutions, and communicate clearly with family members abroad.
 
-That’s when we connected with a senior safety-focused team in India. <a href="https://eyeagle.ai" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle</a>, who approached the situation differently. They didn’t start by listing products. They started by understanding my mother’s daily routine, her mobility challenges, and the spaces she used most. From that distance, having someone who understood senior risk made all the difference.
+That’s when we connected with a senior safety-focused team in India. <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle</a>, who approached the situation differently. They didn’t start by listing products. They started by understanding my mother’s daily routine, her mobility challenges, and the spaces she used most. From that distance, having someone who understood senior risk made all the difference.
 
 ## What Changed After the Modifications
 

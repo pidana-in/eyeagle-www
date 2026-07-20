@@ -1,5 +1,6 @@
 ---
-import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Image from "../common/OptimizedImage.astro";
 
 type KitFeature = {
   title: string;
@@ -15,7 +16,7 @@ const guardianData = Astro.props.guardianData;
   <div class="px-4 md:px-0 max-w-[1920px] mx-auto">
     <div class="flex flex-col items-center text-center mx-auto">
       <div
-        class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center mb-4"
+        class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-primary text-sm md:text-base font-bold flex items-center justify-center mb-4"
       >
         02
       </div>
@@ -24,9 +25,9 @@ const guardianData = Astro.props.guardianData;
       </h2>
     </div>
     <div
-      class="flex flex-col md:flex-row gap-8 md:gap-[120px] mt-12 md:mt-20 justify-evenly px-0"
+      class="flex flex-col md:flex-row gap-8 md:gap-30 mt-12 md:mt-20 justify-evenly px-0"
     >
-      <div class="max-w-[722px]">
+      <div class="max-w-180.5">
         <p
           class="text-lg md:text-xl font-medium leading-7 md:leading-8 mb-6 md:mb-8"
         >
@@ -36,7 +37,7 @@ const guardianData = Astro.props.guardianData;
           {guardianData.desc}
         </p>
       </div>
-      <div class="space-y-6 max-w-[358px]">
+      <div class="space-y-6 max-w-89.5">
         {
           kitFeatures.map((item) => (
             <div class="flex items-start gap-4">
@@ -64,7 +65,7 @@ const guardianData = Astro.props.guardianData;
       <Image
         src={guardianData.img}
         alt="EyEagle Guardian-X Kit components"
-        class="w-full max-w-[480px] md:max-w-none"
+        class="w-full max-w-120 md:max-w-none"
         loading="lazy"
       />
     </div>
@@ -72,9 +73,9 @@ const guardianData = Astro.props.guardianData;
   <div class="pt-12 md:pt-20 pb-10 flex justify-center">
     <a
       href="/device"
-      class="rounded-full bg-[#CC0000] text-white px-6 py-3 text-sm font-medium hover:bg-red-700 transition"
+      class="rounded-full bg-primary text-white px-6 py-3 text-sm font-medium hover:bg-red-700 transition"
     >
-      Learn more
+      Explore Guardian X
     </a>
   </div>
 </section>

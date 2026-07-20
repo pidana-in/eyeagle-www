@@ -3,17 +3,17 @@ import Icon from "../common/Icon.astro";
 import { HomeFaqsData } from "../constants/home";
 ---
 
-<section class="bg-secondary px-5 lg:px-[12.188rem] py-[7.5rem]">
+<section class="bg-secondary px-5 lg:px-[12.188rem] py-30">
 <div class="xl:container">
-<h2 class="font-medium text-center text-white leading-[2.75rem] text-[2.5rem] lg:leading-[4.5rem] lg:text-[3.75rem] pb-20">{HomeFaqsData.title}</h2>
+<h2 class="font-medium text-center text-white leading-11 text-[2.5rem] lg:leading-18 lg:text-[3.75rem] pb-20">{HomeFaqsData.title}</h2>
 <div class="flex flex-col gap-5">
-    {HomeFaqsData.content.map((contnet,index)=>(
+    {HomeFaqsData.content.map((content,index)=>(
         <div id={`${index}faq`} class="faq-header flex items-center justify-between">
-            <h2 class="cursor-pointer font-medium text-lg leading-6 lg:text-lg lg:leading-7 text-white">{contnet.title}</h2>
+            <h2 class="cursor-pointer font-medium text-lg leading-6 lg:text-lg lg:leading-7 text-white">{content.title}</h2>
             <Icon iconName="stat_minus_1" classNames="cursor-pointer text-white text-[1.5rem] text-white faq-icon"/>
         </div>
         <div class="hidden">
-           <h3 class=" text-white opacity-[60%] font-normal text-base lg:text-lg leading-6 lg:leading-7">{contnet.desc}</h3> 
+           <h3 class=" text-white opacity-60 font-normal text-base lg:text-lg leading-6 lg:leading-7">{content.desc}</h3>
         </div>
         <div class="border-b border-[#D9D9D9] pt-5 lg:pt-5"></div>
     ))}
@@ -40,14 +40,12 @@ import { HomeFaqsData } from "../constants/home";
               const otherContent = otherHeader.nextElementSibling;
               const otherIcon = otherHeader.querySelector('.faq-icon');
               otherContent.classList.add('hidden');
-              otherIcon.textContent = 'keyboard_arrow_down';
+              otherIcon.classList.remove('rotate-180');
             }
           });
   
           content.classList.toggle('hidden');
-          icon.textContent = content.classList.contains('hidden') 
-            ? 'keyboard_arrow_down' 
-            : 'keyboard_arrow_up';
+          icon.classList.toggle('rotate-180', !content.classList.contains('hidden'));
         });
       });
     });

@@ -40,7 +40,7 @@ Before the diyas are lit and the sweets are shared, every home goes through a ro
 
 - Footwear with firm grip soles can also reduce the risk of falls.
 
-- It’s also important to remember that bathrooms are among the highest fall-risk zones for seniors, especially during frequent festive use or cleaning. Installing grab bars, anti-slip mats, and using <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> EyEagle Bathroom Safety Kits </a> can significantly reduce the chance of falls while maintaining comfort and confidence.
+- It’s also important to remember that bathrooms are among the highest fall-risk zones for seniors, especially during frequent festive use or cleaning. Installing grab bars, anti-slip mats, and using <a href="/" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kits </a> can significantly reduce the chance of falls while maintaining comfort and confidence.
 
 A little awareness goes a long way in turning the excitement of Diwali cleaning into a safe, shared family activity.
 
@@ -72,7 +72,7 @@ Festivals are most meaningful when celebrated together, and few moments are as p
 
 - Emotional comfort is equally vital. Engage them in conversations, ask for their blessings, and let them share stories from their childhood Diwali moments that make them feel valued and connected.
 
-- If travel is part of the celebrations, plan ahead for their comfort—choose shorter journeys when possible, ensure easy access to seating and rest stops, and pack essentials like medications, light snacks, and comfortable clothing. You can also explore our guide on <a href="https://eyeagle.ai/blogs/diwali-travel-safety-tips-for-seniors/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> travel safety tips for seniors </a> to make their journeys safer and more enjoyable.
+- If travel is part of the celebrations, plan ahead for their comfort—choose shorter journeys when possible, ensure easy access to seating and rest stops, and pack essentials like medications, light snacks, and comfortable clothing. You can also explore our guide on <a href="/blogs/diwali-travel-safety-tips-for-seniors" style="color:#CC0000; text-decoration:none;"> travel safety tips for seniors </a> to make their journeys safer and more enjoyable.
 
 - Above all, ensure someone is always nearby during gatherings to assist with movement or seating.
 

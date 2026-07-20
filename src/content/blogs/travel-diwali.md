@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-10-16
 ---
 
-# Diwali travel vs at-home safety: what families should prepare for
+## Diwali travel vs at-home safety: what families should prepare for
 
 The sparkle of Diwali brings more than just lights; it brings reunions, road trips, and the warmth of being with loved ones. For many families, this season means packing bags and setting out on long journeys, while others choose to celebrate in the comfort of their homes. That’s why a little awareness about Diwali travel safety and home precautions can go a long way. Crowded airports, long drives, unpredictable weather, and the rush of festive preparations can all turn joy into stress if not planned mindfully. Whether you’re traveling across cities to visit relatives or staying home to host guests, one thing remains constant- safety. This Diwali, let’s ensure the light of awareness shines as brightly as the diyas we celebrate with.
 
@@ -38,11 +38,11 @@ Because smart travel doesn’t just get you there but makes the journey part of 
 
 ## Diwali home safety – protecting comfort and care indoors
 
-If you’ve decided to skip the travel and enjoy Diwali at home, great choice. Nothing beats the comfort of celebrating in your own space. But even home can get a little risky during the festive buzz, so a few <a href="https://eyeagle.ai/blogs/senior-safety-during-diwali/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Diwali home safety steps</a> can keep the fun worry-free.
+If you’ve decided to skip the travel and enjoy Diwali at home, great choice. Nothing beats the comfort of celebrating in your own space. But even home can get a little risky during the festive buzz, so a few <a href="/blogs/senior-safety-during-diwali" style="color:#CC0000; text-decoration:none;">Diwali home safety steps</a> can keep the fun worry-free.
 
 Start with the basics: keep decorative lights and extension cords away from walkways and avoid overloading sockets. When lighting diyas, choose stable surfaces away from curtains, paper decor, or spots where kids and pets move around. Switch to LED or battery diyas if you want a safer alternative that still gives that warm festive glow.
 
-During house cleaning, make sure floors are dry, and avoid cluttering corners with boxes or rangoli materials that could cause trips or falls, and don’t forget the most common danger zone: the bathroom. It’s where most slips and falls happen, especially among elders. Installing grab bars or using the <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle Bathroom Safety Kit </a> can make a big difference. Keep a fire extinguisher or a bucket of sand nearby if you’re using candles or firecrackers outdoors, ensuring your Diwali remains safe and worry-free.
+During house cleaning, make sure floors are dry, and avoid cluttering corners with boxes or rangoli materials that could cause trips or falls, and don’t forget the most common danger zone: the bathroom. It’s where most slips and falls happen, especially among elders. Installing grab bars or using the <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle Bathroom Safety Kit </a> can make a big difference. Keep a fire extinguisher or a bucket of sand nearby if you’re using candles or firecrackers outdoors, ensuring your Diwali remains safe and worry-free.
 
 Because a safe home doesn’t dull the festival, it brightens it.
 

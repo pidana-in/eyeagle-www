@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const testimonialData = Astro.props.testimonialData;
 ---
 
-<section class="container py-14 md:py-[120px]">
+<section class="container py-14 md:py-30">
   <div class="mx-auto w-full max-w-7xl px-6 lg:px-8 text-center">
-    <div class="max-w-[800px] mx-auto">
+    <div class="max-w-200 mx-auto">
       <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-neutral-800">
         {testimonialData.title}
       </h2>
@@ -16,14 +16,14 @@ const testimonialData = Astro.props.testimonialData;
       </p>
     </div>
     <div
-      class="relative max-w-[960px] mx-auto mt-12 md:mt-[100px] px-10 md:px-16"
+      class="relative max-w-240 mx-auto mt-12 md:mt-25 px-10 md:px-16"
     >
       <!-- Left Arrow -->
       <button
         id="prev-btn"
         type="button"
         aria-label="Previous testimonial"
-        class="absolute left-[-20px] lg:left-[-36px] xl:left-[-100px] top-[24%] -translate-y-1/2 text-[#CC0000] hover:text-[#a30000] transition-all duration-300 hover:scale-110"
+        class="absolute -left-5 lg:-left-9 xl:-left-25 top-[24%] -translate-y-1/2 text-primary hover:text-[#a30000] transition-all duration-300 hover:scale-110"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const testimonialData = Astro.props.testimonialData;
         id="next-btn"
         type="button"
         aria-label="Next testimonial"
-        class="absolute right-[-20px] lg:right-[-36px] xl:right-[-100px] top-[24%] -translate-y-1/2 text-[#CC0000] hover:text-[#a30000] transition-all duration-300 hover:scale-110"
+        class="absolute -right-5 lg:-right-9 xl:-right-25 top-[24%] -translate-y-1/2 text-primary hover:text-[#a30000] transition-all duration-300 hover:scale-110"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -59,19 +59,19 @@ const testimonialData = Astro.props.testimonialData;
         </svg>
       </button>
       <span
-        class="absolute left-0 top-0 text-[#CC0000] text-4xl sm:text-5xl md:text-7xl leading-none"
+        class="absolute left-0 top-0 text-primary text-4xl sm:text-5xl md:text-7xl leading-none"
       >
         “
       </span>
       <span
-        class="absolute right-0 bottom-28 text-[#CC0000] text-4xl sm:text-5xl md:text-7xl leading-none"
+        class="absolute right-0 bottom-28 text-primary text-4xl sm:text-5xl md:text-7xl leading-none"
       >
         ”
       </span>
       <div id="testimonial-content">
         <p
           id="testimonial-quote"
-          class="min-h-[180px] md:min-h-[220px] text-lg sm:text-xl md:text-[32px] leading-relaxed md:leading-10 text-neutral-800 font-medium"
+          class="min-h-45 md:min-h-55 text-lg sm:text-xl md:text-[32px] leading-relaxed md:leading-10 text-neutral-800 font-medium"
         >
           {testimonialData.testimonials[0].quote}
         </p>
@@ -84,8 +84,7 @@ const testimonialData = Astro.props.testimonialData;
               src={testimonialData.testimonials[0].image}
               alt="testimonial"
               class="w-full h-full object-cover"
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
             />
           </div>
         </div>
@@ -100,7 +99,7 @@ const testimonialData = Astro.props.testimonialData;
   </div>
 </section>
 
-<script define:vars={{ testimonials: testimonialData.testimonials }}>
+<script is:inline define:vars={{ testimonials: testimonialData.testimonials }}>
   let current = 0;
 
   const quote = document.getElementById("testimonial-quote");

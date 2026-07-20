@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-01-13
 ---
 
-# That Missed Call on a Winter Morning
+## That Missed Call on a Winter Morning
 
 Winter mornings have a way of slowing everything down, except life.
 
@@ -72,7 +72,7 @@ That’s where the idea of a silent guardian matters.
 
 Not something that replaces care, but something that supports it. Something that notices when someone doesn’t get up. When too much time passes. When silence lasts longer than it should.
 
-This is where <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle</a> exists, not as alarms screaming for attention, but as a calm, constant presence in the background. Watching over spaces we don’t think to worry about. Bridging the gap between everyday life and moments when help is needed but can’t be asked for.
+This is where <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle</a> exists, not as alarms screaming for attention, but as a calm, constant presence in the background. Watching over spaces we don’t think to worry about. Bridging the gap between everyday life and moments when help is needed but can’t be asked for.
 
 ## Bathroom safety isn’t about fear; it’s about responsibility
 

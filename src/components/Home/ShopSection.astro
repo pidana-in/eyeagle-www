@@ -1,17 +1,17 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const shopData = Astro.props.shopData;
 ---
 
-<section class="bg-[#222222] text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-[120px] py-12">
+<section class="bg-secondary text-[#FFFFFF] text-center lg:px-20 px-5 lg:py-30 py-12">
  <div class="xl:container">
-  <p class="text-4xl lg:text-[60px] leading-[2.5rem] lg:leading-[72px] lg:mb-20 mb-12 font-medium font-sans-instrument">
+  <p class="text-4xl lg:text-[60px] leading-10 lg:leading-18 lg:mb-20 mb-12 font-medium font-sans-instrument">
     Get Started With Safety Today
   </p>
   <!-- Desktop version -->
   <div class="md:flex justify-center gap-6 hidden">
     {
-      shopData?.map((item: any, i: number) => (
+      shopData?.map((item: any) => (
         <a href={item.link} class="flex flex-col gap-3 justify-start text-center p-4 rounded-lg hover:shadow-lg transition cursor-pointer w-[90%]">
           <div class="mb-3">
             <Image src={item.img} alt={"doctorImage1"} quality={"max"} />
@@ -22,7 +22,7 @@ const shopData = Astro.props.shopData;
               <p set:html={item.subcontent} class="font-sans-instrument lg:font-medium text-left font-medium text-base lg:text-[18px] leading-none"/>
             )}
             {item.badge && (
-              <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm lg:text-base">
+              <span class="bg-primary text-white rounded-full px-3 py-1 text-sm lg:text-base">
                 {item.badge}
               </span>
             )}
@@ -41,7 +41,7 @@ const shopData = Astro.props.shopData;
   <div class="block md:hidden">
     <div class="flex flex-col gap-10">
       {
-        shopData?.map((item: any, i: number) => (
+        shopData?.map((item: any) => (
           <a href={item.link} class="flex flex-col gap-3 justify-start text-center p-4 rounded-xl hover:shadow-md transition cursor-pointer w-full">
             <div class="w-full mb-4">
               <Image src={item.img} alt={`doctorImageMobile`} class="w-full rounded-xl"/>
@@ -52,7 +52,7 @@ const shopData = Astro.props.shopData;
                 <p set:html={item.subcontent} class="font-sans-instrument font-medium text-left text-sm leading-none"/>
               )}
               {item.badge && (
-                <span class="bg-[#CC0000] text-white rounded-full px-3 py-1 text-sm">
+                <span class="bg-primary text-white rounded-full px-3 py-1 text-sm">
                   {item.badge}
                 </span>
               )}

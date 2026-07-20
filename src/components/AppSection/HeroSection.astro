@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import ResponsiveHeroImage from "../common/ResponsiveHeroImage.astro";
 
 const HeroSectionData = Astro.props.HeroSectionData;
 const heroTitle = Astro.props.heroTitle;
@@ -9,23 +9,14 @@ const androidLink = HeroSectionData.ctaHref.android;
 const iosLink = HeroSectionData.ctaHref.ios;
 ---
 
-<section class="w-full relative lg:mt-20">
+<section class="w-full relative">
   <div class="relative w-full">
-    <!-- Mobile -->
-    <Image
-      src={HeroSectionData.images.mobile}
-      alt="Hero mobile"
-      class="w-full h-auto sm:hidden"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <!-- Desktop -->
-    <Image
-      src={HeroSectionData.images.desktop}
-      alt="Hero desktop"
-      class="w-full h-auto hidden sm:block"
-      loading="eager"
-      fetchpriority="high"
+    <ResponsiveHeroImage
+      desktop={HeroSectionData.images.desktop}
+      mobile={HeroSectionData.images.mobile}
+      alt="EyEagle app emergency alert interface"
+      class="w-full h-auto"
+      breakpoint={639}
     />
     <div
       class="absolute inset-0 z-10 flex items-start lg:items-center px-6 pt-12 lg:pt-0"
@@ -33,7 +24,7 @@ const iosLink = HeroSectionData.ctaHref.ios;
       <div class="xl:container mx-auto w-full">
         <div class="text-white">
           <h1
-            class="text-5xl leading-[56px] lg:text-[72px] font-bold lg:leading-[80px]"
+            class="text-5xl leading-14 lg:text-[72px] font-bold lg:leading-20"
             set:html={heroTitle}
           />
           <p class="my-10 text-xl text-white">
@@ -44,7 +35,7 @@ const iosLink = HeroSectionData.ctaHref.ios;
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-block bg-[#CC0000] text-white px-4 py-3 md:px-6 md:py-4 rounded-full text-xl font-semibold shadow-lg hover:bg-red-600 transition"
+            class="inline-block bg-primary text-white px-4 py-3 md:px-6 md:py-4 rounded-full text-xl font-semibold shadow-lg hover:bg-red-600 transition"
           >
             Download the app
           </a>

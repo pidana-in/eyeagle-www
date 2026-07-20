@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 import type { ImageMetadata } from "astro";
 
 type BathroomKit = {
@@ -17,7 +17,7 @@ const bathroomKit = Astro.props.bathroomKit as BathroomKit;
 <section class="py-8 md:py-20 mx-auto max-w-[1920px]">
   <div class="flex flex-col items-center text-center">
     <div
-      class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-[#CC0000] text-sm md:text-base font-bold flex items-center justify-center"
+      class="size-9 md:size-10 rounded-full bg-[#FBEBEB] text-primary text-sm md:text-base font-bold flex items-center justify-center"
     >
       {bathroomKit.step}
     </div>
@@ -25,17 +25,17 @@ const bathroomKit = Astro.props.bathroomKit as BathroomKit;
       {bathroomKit.title}
     </h2>
     <p
-      class="text-lg md:text-xl font-medium opacity-60 max-w-[960px] mb-5 leading-relaxed"
+      class="text-lg md:text-xl font-medium opacity-60 max-w-240 mb-5 leading-relaxed"
     >
       {bathroomKit.subtitle}
     </p>
     <p
-      class="text-lg md:text-xl font-medium opacity-60 max-w-[960px] leading-relaxed"
+      class="text-lg md:text-xl font-medium opacity-60 max-w-240 leading-relaxed"
     >
       {bathroomKit.desc}
     </p>
     <div
-      class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-0 text-base md:text-xl font-bold text-[#CC0000] max-w-[1200px] md:mt-[60px] mt-8 mb-12 md:mb-20"
+      class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-0 text-base md:text-xl font-bold text-primary max-w-300 md:mt-15 mt-8 mb-12 md:mb-20"
     >
       {
         bathroomKit.features.map((feature, index) => (
@@ -43,7 +43,7 @@ const bathroomKit = Astro.props.bathroomKit as BathroomKit;
             class={`font-semibold px-4 md:px-6  md:py-4 text-center
               ${
                 index !== bathroomKit.features.length - 1
-                  ? "md:border-r md:border-[#CC0000]"
+                  ? "md:border-r md:border-primary"
                   : ""
               }
             `}
@@ -64,7 +64,7 @@ const bathroomKit = Astro.props.bathroomKit as BathroomKit;
       href="/protection"
       class="inline-block rounded-full bg-[#090D15] text-white py-2 px-3  md:px-6 md:py-3 text-sm font-semibold"
     >
-      Learn more
+      Explore bathroom protection
     </a>
   </div>
 </section>

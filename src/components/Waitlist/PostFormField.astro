@@ -2,18 +2,18 @@
 import Icon from "../common/Icon.astro";
 import { postFormFillData } from "../constants/waitlist";
 import JoinPhoto from "../../assets/Join/JoinPhoto.png";
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 ---
 
 <section>
-  <div class="bg-white px-5 md:px-8 p-8 rounded-[32px] relative">
+  <div class="bg-white px-5 md:px-8 p-8 rounded-4xl relative">
     <div
       class="flex flex-col-reverse md:flex-row items-center justify-center gap-10"
     >
       <div
-        class="absolute top-0 left-0 px-6 py-3 rounded-tl-[32px] rounded-br-[32px] bg-[#CC0000]"
+        class="absolute top-0 left-0 px-6 py-3 rounded-tl-4xl rounded-br-4xl bg-primary"
       >
-        <p class="text-[#ffffff] font-medium text-[16px] leading-[19px]">
+        <p class="text-[#ffffff] font-medium text-[16px] leading-4.75">
           {postFormFillData.floatingText}
         </p>
       </div>
@@ -25,7 +25,7 @@ import { Image } from "astro:assets";
           class="bg-[#F5F5F5] py-1 px-8 lg:px-4 rounded-xl flex items-center justify-start md:justify-center w-[70%] lg:w-6/12 mt-8 mb-4 md:mb-0 md:mt-0"
         >
           <p
-            class="text-[#CC0000] font-medium lg:font-normal text-[14px] leading-[16px]"
+            class="text-primary font-medium lg:font-normal text-[14px] leading-4"
           >
             {postFormFillData.boxContent}
           </p>
@@ -33,9 +33,9 @@ import { Image } from "astro:assets";
 
         <p
           set:html={postFormFillData.title}
-          class="font-medium text-[20px] leading-[24px] pt-4 pb-4 hidden md:block"
+          class="font-medium text-[20px] leading-6 pt-4 pb-4 hidden md:block"
         />
-        <div class="h-[1px] bg-[#D9D9D9] w-full mb-4 hidden md:block"></div>
+        <div class="h-px bg-[#D9D9D9] w-full mb-4 hidden md:block"></div>
         <div class="flex items-center gap-2 pb-4">
           <p class="text-[24px] font-medium leading-7">
             {postFormFillData.originalPrice}
@@ -44,34 +44,34 @@ import { Image } from "astro:assets";
             set:html={postFormFillData.cutPrice}
             class="text-[24px] font-medium leading-7"
           />
-          <p class="text-[16px] leading-[19px]">{postFormFillData.duration}</p>
+          <p class="text-[16px] leading-4.75">{postFormFillData.duration}</p>
         </div>
-        <p class="text-[16px] leading-[19px] mb-4 font-medium">including GST</p>
-        <div class="h-[1px] bg-[#D9D9D9] w-full mb-4"></div>
+        <p class="text-[16px] leading-4.75 mb-4 font-medium">including GST</p>
+        <div class="h-px bg-[#D9D9D9] w-full mb-4"></div>
         <p
-          set:html={postFormFillData.mobileTtle}
-          class="font-medium text-[20px] leading-[24px] pt-4 pb-4 block md:hidden"
+          set:html={postFormFillData.mobileTitle}
+          class="font-medium text-[20px] leading-6 pt-4 pb-4 block md:hidden"
         />
-        <div class="h-[1px] bg-[#D9D9D9] w-full mb-4 block md:hidden"></div>
+        <div class="h-px bg-[#D9D9D9] w-full mb-4 block md:hidden"></div>
 
         <div class="flex flex-col gap-6">
           {
             postFormFillData.contacts.map((contact) => (
               <div class="flex gap-4 items-center justify-start">
-                <div class="bg-[#CC0000] h-[24px] w-[24px] lg:h-[40px] lg:w-[40px] rounded-full flex justify-center items-center">
+                <div class="bg-primary h-6 w-6 lg:h-10 lg:w-10 rounded-full flex justify-center items-center">
                   <Icon
                     iconName={contact.iconType}
                     classNames="text-white text-[16px]"
                   />
                 </div>
                 <div>
-                  <p class="max-w-[220px] md:max-w-full">{contact.title}</p>
+                  <p class="max-w-55 md:max-w-full">{contact.title}</p>
                 </div>
               </div>
             ))
           }
         </div>
-        <!-- <p set:html={postFormFillData.title} class="font-medium text-[22px] lg:text-[20px] leading-[26px] lg:leading-[24px] py-[33px] block md:hidden">
+        <!-- <p set:html={postFormFillData.title} class="font-medium text-[22px] lg:text-[20px] leading-[26px] lg:leading-6 py-[33px] block md:hidden">
     </p> -->
 
         <a
@@ -80,12 +80,12 @@ import { Image } from "astro:assets";
           rel="noopener noreferrer"
         >
           <button
-            class="flex items-center justify-center py-2 px-4 bg-[#CC0000] rounded-3xl mt-4 text-[#F6F4F2] font-medium text-[16px] leading-6 w-full"
+            class="flex items-center justify-center py-2 px-4 bg-primary rounded-3xl mt-4 text-[#F6F4F2] font-medium text-[16px] leading-6 w-full"
           >
             {postFormFillData.btnText}
           </button>
         </a>
-        <p class="text-center text-[12px] leading-[20px] mt-10 lg:mt-5">
+        <p class="text-center text-[12px] leading-5 mt-10 lg:mt-5">
           {postFormFillData.shippingText}
         </p>
       </div>

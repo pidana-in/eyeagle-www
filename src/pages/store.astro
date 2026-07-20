@@ -2,18 +2,18 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import India from "../assets/Common/India.png";
 import Inter from "../assets/Common/International.png";
-import { Image } from "astro:assets";
+import Image from "../components/common/OptimizedImage.astro";
 ---
 
-<MainLayout title="Store" noindex={true}>
+<MainLayout title="Choose Your EyEagle Store" desc="Choose the EyEagle store for your shopping region." noindex={true}>
   <section
-    class="xl:container lg:pt-36 py-10 lg:pb-32 lg:px-20 px-4 font-sans-instrument bg-[#F6F4F2]"
+    class="xl:container py-10 lg:py-20 lg:px-20 px-4 font-sans-instrument bg-[#F6F4F2]"
   >
     <div class="md:text-start text-center place-items-center">
       <!-- Heading -->
       <div class="lg:px-10 py-12">
         <h1
-          class="text-3xl md:text-5xl tracking-tight font-semibold md:leading-[60px]"
+          class="text-3xl md:text-5xl tracking-tight font-semibold md:leading-15"
         >
           <span> Hello! </span>
           <br /> Where are you shopping from?
@@ -39,7 +39,7 @@ import { Image } from "astro:assets";
           <p class="text-sm md:text-base">For customers in India</p>
         </a>
         <!-- International -->
-        <a class="flex flex-col items-center">
+        <div class="flex flex-col items-center" aria-label="International store coming soon">
           <Image
             src={Inter}
             alt="International"
@@ -52,7 +52,7 @@ import { Image } from "astro:assets";
           />
           <h2 class="font-bold text-xl md:text-2xl mt-4">International</h2>
           <p class="text-sm md:text-base">For customers outside of India</p>
-        </a>
+        </div>
       </div>
       <p
         class="font-barlow text-base md:text-lg font-medium py-16 text-center md:text-left"

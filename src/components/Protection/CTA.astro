@@ -1,5 +1,6 @@
 ---
-import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Image from "../common/OptimizedImage.astro";
 
 type CTAItem = {
   text: string;
@@ -11,16 +12,16 @@ const ctaData = Astro.props.ctaData;
 const ctaImage = Astro.props.ctaImage;
 ---
 
-<section class="2xl:container px-4 md:px-[120px]">
+<section class="2xl:container px-4 md:px-30">
   <div
-    class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl border bg-[#F6F6F6] overflow-hidden max-w-[1200px] mx-auto"
+    class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl border bg-[#F6F6F6] overflow-hidden max-w-300 mx-auto"
   >
     <div
-      class="px-5 py-8 sm:px-8 md:px-[60px] md:py-[60px] flex flex-col justify-center"
+      class="px-5 py-8 sm:px-8 md:px-15 md:py-15 flex flex-col justify-center"
     >
       <p class="mb-2 text-[#111827]">{ctaContent.eyebrow}</p>
       <h2
-        class="text-[28px] md:text-[40px] font-bold leading-[48px]"
+        class="text-[28px] md:text-[40px] font-bold leading-12"
         set:html={ctaContent.title}
       />
       <p class="mt-4 max-w-md text-sm md:text-base text-[#525252]">
@@ -30,7 +31,7 @@ const ctaImage = Astro.props.ctaImage;
         {
           ctaData.map((item: CTAItem) => (
             <li class="flex items-start gap-2">
-              <Image src={item.icon} alt="icon" class="mt-1 size-4" />
+              <Image src={item.icon} alt="" class="mt-1 size-4" />
               <span>{item.text}</span>
             </li>
           ))
@@ -41,12 +42,12 @@ const ctaImage = Astro.props.ctaImage;
         <span class="text-sm">/ one-time payment</span>
       </div>
       <button
-        class="mt-5 md:mt-6 w-full max-w-[280px] rounded-full bg-[#CC0000] py-3 font-semibold text-white transition hover:bg-red-700"
+        class="mt-5 md:mt-6 w-full max-w-70 rounded-full bg-primary py-3 font-semibold text-white transition hover:bg-red-700"
       >
         Get Started
       </button>
     </div>
-    <div class="relative w-full h-[260px] sm:h-[360px] lg:h-[616px]">
+    <div class="relative w-full h-65 sm:h-90 lg:h-154">
       <Image
         src={ctaImage}
         alt="Bathroom safety installation"

@@ -12,7 +12,7 @@ export const WaitlistBannerData = {
 
 export const WaitlistFormData = {
   acceptation: "I want to subscribe to the newsletter",
-  buttonTitile: "Reserve My Safety Now!",
+  buttonTitle: "Reserve My Safety Now!",
   notifyLaunch: "Notify me when Guardian-X Kit launches",
   earlyAccess: "I want early access / beta testing",
   talkExpert: "I want to talk to a safety expert",
@@ -24,7 +24,7 @@ export const postFormFillData = {
   floatingText: "SPECIAL LAUNCH OFFER",
   boxContent: "For the next 100 people",
   title: `<span class="text-[#CC0000]">Less</span> than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
-  mobileTtle: `For Less than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
+  mobileTitle: `For Less than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
   cutPrice: ` + <span class="line-through">29,999</span>`,
   originalPrice: "₹19,999",
   duration: "",

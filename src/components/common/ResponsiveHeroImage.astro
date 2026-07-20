@@ -1,0 +1,75 @@
+---
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  desktop: ImageMetadata;
+  mobile: ImageMetadata;
+  alt: string;
+  class?: string;
+  breakpoint?: number;
+  quality?: number;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "auto" | "low";
+}
+
+const {
+  desktop,
+  mobile,
+  alt,
+  class: className = "w-full h-auto object-cover",
+  breakpoint = 767,
+  quality = 80,
+  loading = "eager",
+  fetchpriority = "high",
+} = Astro.props as Props;
+
+async function createCandidates(source: ImageMetadata, requested: number[]) {
+  const widths = [...new Set([...requested.filter((width) => width < source.width), source.width])];
+  return Promise.all(
+    widths.map((width) =>
+      getImage({ src: source, width, format: "webp", quality }),
+    ),
+  );
+}
+
+const mobileCandidates = await createCandidates(mobile, [320, 480, 640, 800]);
+const desktopCandidates = await createCandidates(desktop, [640, 800, 1024, 1280, 1600, 1920]);
+const desktopFallback = desktopCandidates.at(-1)!;
+
+const mobileSrcset = mobileCandidates
+  .map((candidate) => `${candidate.src} ${candidate.attributes.width}w`)
+  .join(", ");
+const desktopSrcset = desktopCandidates
+  .map((candidate) => `${candidate.src} ${candidate.attributes.width}w`)
+  .join(", ");
+---
+
+<picture>
+  <source
+    media={`(max-width: ${breakpoint}px)`}
+    srcset={mobileSrcset}
+    sizes="100vw"
+    type="image/webp"
+    width={mobile.width}
+    height={mobile.height}
+  />
+  <source
+    media={`(min-width: ${breakpoint + 1}px)`}
+    srcset={desktopSrcset}
+    sizes="100vw"
+    type="image/webp"
+    width={desktop.width}
+    height={desktop.height}
+  />
+  <img
+    src={desktopFallback.src}
+    alt={alt}
+    width={desktop.width}
+    height={desktop.height}
+    class={className}
+    loading={loading}
+    decoding="async"
+    fetchpriority={fetchpriority}
+  />
+</picture>

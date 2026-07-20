@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 import type { ImageMetadata } from "astro";
 import ContentImage from "../../assets/Protection/ContentImage.png";
 
@@ -21,9 +21,9 @@ interface Props {
 const { userCards, statsData } = Astro.props as Props;
 ---
 
-<section class="2xl:container py-16 md:py-20 px-4 lg:px-[120px]">
+<section class="2xl:container py-16 md:py-20 px-4 lg:px-30">
   <div class="flex flex-col items-center text-center">
-    <div class="md:mx-[120px]">
+    <div class="md:mx-30">
       <h2 class="text-[32px] leading-10 md:text-5xl font-bold">
         Designed around the people who use it.
       </h2>
@@ -38,7 +38,7 @@ const { userCards, statsData } = Astro.props as Props;
   >
     {
       userCards.map((card: UserCard) => (
-        <div class="flex-shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col rounded-3xl border bg-[#F9F7F7] overflow-hidden text-center">
+        <div class="shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col rounded-3xl border bg-[#F9F7F7] overflow-hidden text-center">
           <Image
             src={card.image}
             alt={card.title}
@@ -52,17 +52,17 @@ const { userCards, statsData } = Astro.props as Props;
       ))
     }
   </div>
-  <div class="flex flex-col items-center text-center mt-[120px]">
+  <div class="flex flex-col items-center text-center mt-30">
     <p class="text-[28px] lg:text-[40px] font-bold">
       Safety you can feel, numbers you can trust.
     </p>
     <div
-      class="mt-8 md:mt-[60px] grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10"
+      class="mt-8 md:mt-15 grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10"
     >
       {
         statsData.map((stat: StatItem) => (
-          <div class="flex flex-col max-w-[208px] mx-auto">
-            <h3 class="text-[#CC0000] text-xl md:text-2xl font-bold">
+          <div class="flex flex-col max-w-52 mx-auto">
+            <h3 class="text-primary text-xl md:text-2xl font-bold">
               {stat.value}
             </h3>
             <p class="text-base opacity-60 mt-2">{stat.label}</p>

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const heroImage = Astro.props.heroImage;
 const HeroImageMob = Astro.props.heroImageMob;
 ---
@@ -9,10 +9,10 @@ const HeroImageMob = Astro.props.heroImageMob;
     <!-- Left: Hero image -->
     <div class="relative w-full lg:w-[75%] overflow-hidden lg:-ml-32 -mt-16">
       <!-- Red gradient (only for md and up) -->
-      <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-90 z-10 pointer-events-none w-full lg:w-[70%]"></div>
+      <div class="hidden lg:block absolute inset-0 bg-linear-to-r from-red-600 to-transparent opacity-90 z-10 pointer-events-none w-full lg:w-[70%]"></div>
       <Image src={heroImage} alt="Fallen elderly woman" class="w-full h-[48vh] object-cover sm:h-[60vh] lg:h-[110vh] scale-x-[-1] landscape:h-[110vh]" loading={"eager"} />
       <!-- Phone on large screens -->
-      <div class="hidden lg:block absolute top-[25%] left-[20%] w-[250px] z-10">
+      <div class="hidden lg:block absolute top-[25%] left-[20%] w-62.5 z-10">
         <Image src={HeroImageMob} alt="Phone mockup" class="w-full h-full" loading={"eager"} />
       </div>
     </div>
@@ -20,28 +20,28 @@ const HeroImageMob = Astro.props.heroImageMob;
     <!-- Right: Text content -->
     <div class="relative lg:w-[30%] flex items-center justify-center px-6 py-2 lg:py-0 z-10">
       <!-- Curve background -->
-      <div class="absolute lg:left-[-30%] lg:top-10 -top-[15%] w-[160%] lg:w-[95%] h-full bg-[#ffff] md:rounded-l-[90%] rounded-t-[90%] z-0"></div>
+      <div class="absolute lg:left-[-30%] lg:top-10 top-[-15%] w-[160%] lg:w-[95%] h-full bg-[#ffff] md:rounded-l-[90%] rounded-t-[90%] z-0"></div>
       <!-- Actual content -->
-      <div class="z-10 w-full min-w-[300px] lg:min-w-[500px] text-right lg:text-left lg:ml-0">
+      <div class="z-10 w-full min-w-75 lg:min-w-125 text-right lg:text-left lg:ml-0">
         <!-- Phone on mobile only -->
 
-        <div class="absolute block lg:hidden mx-0 mb-6 w-[132px] sm:w-[200px] -top-32 sm:-top-44 -ml-4">
+        <div class="absolute block lg:hidden mx-0 mb-6 w-33 sm:w-50 -top-32 sm:-top-44 -ml-4">
           <Image src={HeroImageMob} alt="Phone mockup" class="w-full h-full z-50" loading={"eager"} />
         </div>
         <div>
           <h1
-            class="text-[20px] tracking-[2px] sm:text-4xl xl:text-[54px] xl:leading-[60px] text-start pl-[120px] sm:pl-[200px] lg:pl-0 font-barlow font-normal text-[#Cc0000] -mt-3 lg:mt-16 lg:mb-4 leading-tight"
+            class="text-[20px] tracking-[2px] sm:text-4xl xl:text-[54px] xl:leading-15 text-start pl-30 sm:pl-50 lg:pl-0 font-barlow font-normal text-primary -mt-3 lg:mt-16 lg:mb-4 leading-tight"
           >
             PARENT'S FALL<br />DESTROYS ALL
           </h1>
-          <div class="w-14 sm:w-28 lg:w-40 sm:h-[3px] h-[2px] text-start bg-[#000000] ml-[120px] sm:ml-[200px] lg:ml-0 my-2 sm:my-3 lg:my-4"></div>
-          <p class="text-start ml-[120px] sm:ml-[200px] lg:ml-0 sm:text-3xl lg:text-4xl text-lg font-bold my-2 bg-gradient-to-r from-[#CC0000] to-[#F78555] bg-clip-text text-transparent sm:my-3">
+          <div class="w-14 sm:w-28 lg:w-40 sm:h-0.75 h-0.5 text-start bg-[#000000] ml-30 sm:ml-50 lg:ml-0 my-2 sm:my-3 lg:my-4"></div>
+          <p class="text-start ml-30 sm:ml-50 lg:ml-0 sm:text-3xl lg:text-4xl text-lg font-bold my-2 bg-linear-to-r from-[#CC0000] to-[#F78555] bg-clip-text text-transparent sm:my-3">
             STOP TODAY
           </p>
-          <p class="text-[16px] leading-none sm:text-[28px] xl:text-4xl font-semibold text-black text-start pl-[120px] sm:pl-[200px] sm:leading-[40px] lg:pl-0 mb-2 sm:mb-4">Don’t Regret Tomorrow</p>
+          <p class="text-[16px] leading-none sm:text-[28px] xl:text-4xl font-semibold text-black text-start pl-30 sm:pl-50 sm:leading-10 lg:pl-0 mb-2 sm:mb-4">Don’t Regret Tomorrow</p>
         </div>
         <div>
-          <p class="text-[16px] sm:text-2xl text-gray-500 font-normal text-center lg:text-start pl-[32px] leading-normal lg:pl-0 mb-2 sm:mt-3">
+          <p class="text-[16px] sm:text-2xl text-gray-500 font-normal text-center lg:text-start pl-8 leading-normal lg:pl-0 mb-2 sm:mt-3">
             Price : <span class="italic"> Less than your Flight Ticket</span>
           </p>
 
@@ -49,7 +49,7 @@ const HeroImageMob = Astro.props.heroImageMob;
           <div class="lg:place-content-start lg:mx-0 z-50 lg:my-5 mt-2 flex place-content-center ml-10">
             <a href="https://shop.eyeagle.ai/products/eyeagle-package-prevention-app">
               <button
-                class="bg-[radial-gradient(circle,_rgba(255,100,10,0.6)_0%,_#cc0000_80%)]
+                class="bg-[radial-gradient(circle,rgba(255,100,10,0.6)_0%,#cc0000_80%)]
              font-bold sm:text-2xl text-sm text-white
              lg:px-8 lg:py-2 px-4 py-1
              rounded-full"
@@ -58,17 +58,17 @@ const HeroImageMob = Astro.props.heroImageMob;
               </button>
             </a>
           </div>
-          <p class="text-[16px] sm:text-2xl text-[#Cc0000] font-bold text-center lg:text-start lg:ml-0 ml-10 leading-normal mb-2 mt-3">MAKE THEIR HOME FALL PROOF</p>
+          <p class="text-[16px] sm:text-2xl text-primary font-bold text-center lg:text-start lg:ml-0 ml-10 leading-normal mb-2 mt-3">MAKE THEIR HOME FALL PROOF</p>
         </div>
       </div>
       <!-- Decorative Circles (desktop only) -->
-      <div class="hidden lg:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[100px] right-[30px]"></div>
-      <div class="hidden lg:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] top-[140px] -right-[40px]"></div>
-      <div class="hidden lg:block absolute w-44 h-44 rounded-full z-0 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] bottom-[-40px] -right-[132px]">
+      <div class="hidden lg:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,rgba(210,60,10,0.6)_0%,rgba(210,60,10,1)_60%)] top-25 right-7.5"></div>
+      <div class="hidden lg:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,rgba(210,60,10,0.6)_0%,rgba(210,60,10,1)_60%)] top-35 -right-10"></div>
+      <div class="hidden lg:block absolute w-44 h-44 rounded-full z-0 pointer-events-none bg-[radial-gradient(circle,rgba(210,60,10,0.6)_0%,rgba(210,60,10,1)_60%)] -bottom-10 -right-33">
       </div>
-      <div class="hidden lg:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] bottom-[20px] right-[280px]">
+      <div class="hidden lg:block absolute w-10 h-10 rounded-full z-20 pointer-events-none bg-[radial-gradient(circle,rgba(210,60,10,0.6)_0%,rgba(210,60,10,1)_60%)] bottom-5 right-70">
       </div>
-      <div class="hidden lg:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,_rgba(210,60,10,0.6)_0%,_rgba(210,60,10,1)_60%)] -bottom-[24px] right-[200px]">
+      <div class="hidden lg:block absolute w-14 h-14 rounded-full z-10 pointer-events-none bg-[radial-gradient(circle,rgba(210,60,10,0.6)_0%,rgba(210,60,10,1)_60%)] -bottom-6 right-50">
       </div>
     </div>
   </div>

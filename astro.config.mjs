@@ -2,18 +2,35 @@
 import { defineConfig } from "astro/config";
 import netlify from "@astrojs/netlify";
 import partytown from "@astrojs/partytown";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   site: "https://eyeagle.ai/",
+  trailingSlash: "never",
   output: "server",
+  build: {
+    format: "file",
+  },
   adapter: netlify(),
+  devToolbar: {
+    enabled: false,
+  },
+  image: {
+    layout: "constrained",
+    responsiveStyles: true,
+    breakpoints: [320, 480, 640, 800, 1024, 1280, 1600, 1920],
+  },
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
+    sitemap({
+      filter: (page) =>
+        !page.includes("/offers/") &&
+        !page.endsWith("/store") &&
+        !page.endsWith("/success"),
     }),
-    sitemap(),
     partytown({
       config: {
         forward: ["dataLayer.push"],

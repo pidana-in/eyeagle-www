@@ -1,17 +1,17 @@
 ---
 import { banner2Contexts } from "../constants/manifesto";
 import manifestoBanner2 from "../../assets/Manifesto/manifesto_banner_2.png";
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 ---
-<section class="h-auto font-sans-instrument sm:h-[991px] bg-[#F6F4F2] relative w-full pb-[50px] md:pb-0">
-  <Image src={manifestoBanner2} class="h-[250px] sm:h-[653px] w-full object-cover" alt="Manifesto Banner" />
-  <div class=" lg:absolute lg:bottom-10 sm:bottom-52 lg:left-1/2 lg:transform lg:-translate-x-1/2  max-lg:overflow-x-auto flex gap-6 sm:gap-10 px-4 sm:px-40 pt-10 lg:pt-0 lg:bottom-60 xl:container  w-full  ">
+<section class="h-auto font-sans-instrument sm:h-247.75 bg-[#F6F4F2] relative w-full pb-12.5 md:pb-0">
+  <Image src={manifestoBanner2} class="h-62.5 sm:h-163.25 w-full object-cover" alt="Manifesto Banner" />
+  <div class="lg:absolute sm:bottom-52 lg:bottom-60 lg:left-1/2 lg:transform lg:-translate-x-1/2 max-lg:overflow-x-auto flex gap-6 sm:gap-10 px-4 sm:px-40 pt-10 lg:pt-0 xl:container w-full">
     {banner2Contexts.map((context) => (
       <div
-        class="flex flex-col gap-3 p-6 sm:p-8 rounded-lg items-center justify-center bg-[#FFFFFFE5]  min-w-[280px] w-[373px] md:min-w-[260px]  shadow-md"
+        class="flex flex-col gap-3 p-6 sm:p-8 rounded-lg items-center justify-center bg-[#FFFFFFE5]  min-w-70 w-93.25 md:min-w-65  shadow-md"
       >
         <p class="text-center text-sm sm:text-base">"{context?.description}"</p>
-        <div class="w-[30px] h-[2px] bg-[#CC0000]"></div>
+        <div class="w-7.5 h-0.5 bg-primary"></div>
         <p class="text-center text-sm sm:text-base font-medium">{context?.author}</p>
       </div>
     ))}

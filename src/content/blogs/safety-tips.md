@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-07-24
 ---
 
-# Why Bathroom Safety Deserves Immediate Attention
+## Why Bathroom Safety Deserves Immediate Attention
 
 Have you ever thought about how risky a bathroom can be for your aging parents or grandparents?
 
@@ -18,7 +18,7 @@ It’s a place we use every day without thinking twice. But for seniors, a quick
 
 Sadly, many families only realise this after an accident happens. A fall in the bathroom can lead to serious injuries like hip fractures, head trauma, or long hospital stays. Beyond the physical pain, it can also take away confidence, independence, and peace of mind- for both seniors and their loved ones.
 
-The good news is, making a bathroom safe doesn’t always require a complete renovation. With simple changes, thoughtful modifications, and <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> safety solutions like EyEagle,</a> you can create a senior-friendly bathroom that prevents falls and makes daily life easier and safer.
+The good news is, making a bathroom safe doesn’t always require a complete renovation. With simple changes, thoughtful modifications, and <a href="/" style="color:#CC0000; text-decoration:none;"> safety solutions like EyEagle,</a> you can create a senior-friendly bathroom that prevents falls and makes daily life easier and safer.
 
 ## Why Bathroom Safety for Seniors is Essential
 
@@ -26,7 +26,7 @@ The good news is, making a bathroom safe doesn’t always require a complete ren
 
 Did you know that the bathroom is one of the most dangerous places for older adults?
 
-Studies show that <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> more than 80% of falls at home happen in the bathroom.</a> Wet floors, slippery tiles, and small, cramped spaces make it easy to lose balance. For seniors with limited mobility, weakened muscles, or health conditions like arthritis, these risks multiply.
+Studies show that <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;"> more than 80% of falls at home happen in the bathroom.</a> Wet floors, slippery tiles, and small, cramped spaces make it easy to lose balance. For seniors with limited mobility, weakened muscles, or health conditions like arthritis, these risks multiply.
 
 ### The Impact of a Fall is More Than Physical
 
@@ -41,7 +41,7 @@ Families often end up facing heavy medical expenses, emotional stress, and chang
 
 ### Prevention is Always Better Than Cure
 
-While these risks are real, the good news is that most bathroom falls can be prevented. By making small, practical changes and using solutions like <a href="https://eyeagle.ai/solution/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> EyEagle’s fall prevention care package,</a> you can create a senior-friendly bathroom.
+While these risks are real, the good news is that most bathroom falls can be prevented. By making small, practical changes and using solutions like <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle’s fall prevention care package,</a> you can create a senior-friendly bathroom.
 
 After all, the goal isn’t just to prevent accidents but to allow your loved ones to live with dignity, comfort, and peace of mind.
 
@@ -105,7 +105,7 @@ Clutter increases fall risks. Seniors need toiletries, towels, and supplies with
 
 Even with bathroom grab bars installation, non-slip mats, and raised toilet seats, emergencies can happen. That’s why having an alert system in the bathroom provides an extra layer of safety and quick response.
 
-Solutions like <a href="https://eyeagle.ai/solution/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> EyEagle’s Guardian-X Safety System </a> are designed to keep seniors protected 24/7. The system includes:
+Solutions like <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle’s Guardian-X Safety System </a> are designed to keep seniors protected 24/7. The system includes:
 
 - **Emergency Press Buttons:**
   Easy-to-access SOS buttons that seniors can press if they slip, feel unwell, or need urgent help. These are strategically placed within reach in the bathroom.

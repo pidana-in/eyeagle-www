@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 
 const sectionContent = Astro.props.sectionContent;
 const familyCard = Astro.props.familyCard;
@@ -12,13 +12,13 @@ const FamilySection = Astro.props.FamilySection;
     <Image src={FamilySection.flightImage} alt="flightImage" class="w-full" />
   </div>
   <div
-    class="flex flex-col lg:flex-row gap-[120px] justify-center px-4 md:pt-20"
+    class="flex flex-col lg:flex-row gap-30 justify-center px-4 md:pt-20"
   >
     <!-- Sticky Left Content -->
-    <div class="lg:sticky lg:top-32 lg:self-start max-w-[540px] md:pt-12">
-      <h2 class="text-4xl md:text-5xl md:leading-[56px] font-bold md:pr-10">
+    <div class="lg:sticky lg:top-32 lg:self-start max-w-135 md:pt-12">
+      <h2 class="text-4xl md:text-5xl md:leading-14 font-bold md:pr-10">
         {sectionContent.title.black}
-        <span class="text-[#CC0000]">
+        <span class="text-primary">
           {sectionContent.title.red}
         </span>
         {" "}
@@ -29,7 +29,7 @@ const FamilySection = Astro.props.FamilySection;
       </p>
     </div>
     <!-- Scrollable Cards -->
-    <div class="flex flex-col gap-14 md:gap-20 lg:max-w-[560px]">
+    <div class="flex flex-col gap-14 md:gap-20 lg:max-w-140">
       {
         familyCard.map((card: any) => (
           <div>

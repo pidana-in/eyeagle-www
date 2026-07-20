@@ -5,16 +5,15 @@ type Props = {
 const className = Astro.props.className;
 ---
 
-<section class={`bg-secondary ${className ? className : "lg:py-[7.5rem] py-[3.75rem]"} lg:px-[12.5rem] px-5`}>
+<section class={`bg-secondary ${className ? className : "lg:py-30 py-15"} lg:px-50 px-5`}>
   <div class="w-full flex justify-center items-center relative">
     <!-- Video Wrapper -->
-    <div class="relative md:w-[65rem] md:h-[36.25rem] w-[22.063rem] h-[12rem] rounded-xl overflow-hidden">
+    <div class="relative md:w-260 md:h-145 w-[22.063rem] h-48 rounded-xl overflow-hidden">
       <!-- YouTube Iframe (lazy-loaded) -->
       <iframe
         class="w-full h-full rounded-xl"
         data-src="https://www.youtube.com/embed/6hyfU1h-yNM?controls=0&modestbranding=0&rel=0&iv_load_policy=3&playsinline=1"
         title="EyEagle Song"
-        frameborder="0"
         allow="accelerometer; autoplay; encrypted-media;"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen

@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-12-19
 ---
 
-# New Year, Safer Home: Small Changes That Save Lives
+## New Year, Safer Home: Small Changes That Save Lives
 
 New Year is often associated with fresh beginnings. We set resolutions to eat healthier, save better, and slow down our busy lives. But one important area rarely makes it to the list, home safety. Here we will discuss home safety tips that will help you to keep your family safe this new year. Ironically, the place we feel safest is also where most everyday accidents occur.
 
@@ -22,7 +22,7 @@ As families step into a new year, this is the perfect moment to pause and look a
 
 Most home accidents don’t happen because of negligence; they happen because of familiarity. We grow so used to our surroundings that we stop noticing loose rugs, dim corners, slippery floors, or cluttered pathways. Over time, these small hazards quietly turn into serious risks.
 
-Falls, burns, cuts, and electrical mishaps are among the most common household accidents. Children may trip while running indoors, adults may slip while multitasking, and elderly family members face a higher risk due to <a href="https://eyeagle.ai/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">reduced balance, vision, or mobility.</a> This makes home accident prevention not just a safety concern, but a responsibility shared by the entire family.
+Falls, burns, cuts, and electrical mishaps are among the most common household accidents. Children may trip while running indoors, adults may slip while multitasking, and elderly family members face a higher risk due to <a href="/blogs/balance-problems-in-elderly" style="color:#CC0000; text-decoration:none;">reduced balance, vision, or mobility.</a> This makes home accident prevention not just a safety concern, but a responsibility shared by the entire family.
 
 The start of a new year offers a natural reset point. It’s when routines change, homes get reorganized, and intentions are renewed. Making home safety improvements during this time ensures protection is built into daily life, rather than added only after an incident occurs.
 
@@ -53,7 +53,7 @@ Winter brings its own set of home safety challenges. Colder floors, shorter dayl
 
 ## Bathroom Safety: The Most Overlooked Risk Zone
 
-Bathrooms are one of the most dangerous areas in the home, especially for seniors. Water, smooth surfaces, and limited space <a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">increase the risk of slips and falls,</a> but simple changes can make a big difference.
+Bathrooms are one of the most dangerous areas in the home, especially for seniors. Water, smooth surfaces, and limited space <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;">increase the risk of slips and falls,</a> but simple changes can make a big difference.
 
 **Important bathroom safety tips:**
 
@@ -61,7 +61,7 @@ Bathrooms are one of the most dangerous areas in the home, especially for senior
   Wet bathroom floors are a major cause of falls. Using anti-skid mats near the shower, sink, and toilet helps improve grip and stability.
 
 - **Install support handles where needed**  
-  Since bathrooms offer limited space to regain balance, installing dedicated safety fittings like grab bars and anti-slip mats becomes essential.<a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> Install EyEagle bathroom safety fittings</a> that are designed to provide stable support near toilets and showers, helping seniors move safely and confidently.
+  Since bathrooms offer limited space to regain balance, installing dedicated safety fittings like grab bars and anti-slip mats becomes essential.<a href="/" style="color:#CC0000; text-decoration:none;"> Install EyEagle bathroom safety fittings</a> that are designed to provide stable support near toilets and showers, helping seniors move safely and confidently.
 
 - **Improve lighting for day and night use**  
   Poor lighting can make it hard to judge wet areas or steps. Bright lights and night lamps help prevent accidents during late-night bathroom visits.
@@ -71,7 +71,7 @@ Bathrooms are one of the most dangerous areas in the home, especially for senior
 
 These simple steps greatly improve home safety for elderly family members and make bathrooms safer for everyone in the household.
 
-<a href="https://eyeagle.ai/blogs/step-by-step-bathroom-safety-tips-for-seniors/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Learn how to make any bathroom senior-safe.</a>
+<a href="/blogs/step-by-step-bathroom-safety-tips-for-seniors" style="color:#CC0000; text-decoration:none;">Learn how to make any bathroom senior-safe.</a>
 
 ## Creating a Safety-First Home Culture
 
@@ -83,13 +83,13 @@ Home safety is not just about making changes once; it’s about building habits 
   Periodically walk through your home to look for loose rugs, poor lighting, or cluttered areas that may have been overlooked.
 
 - **Involve the entire family**  
-  Teach children safe habits and encourage elderly family members to <a href="https://eyeagle.ai/blogs/importance-of-open-conversations-about-aging" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">speak up about areas where they feel uncomfortable or unsafe.</a>
+  Teach children safe habits and encourage elderly family members to <a href="/blogs/importance-of-open-conversations-about-aging" style="color:#CC0000; text-decoration:none;">speak up about areas where they feel uncomfortable or unsafe.</a>
 
 - **Pay attention to changes in mobility**  
   As parents age or routines change, safety needs may evolve. Early adjustments help maintain independence and confidence.
 
 - **Seek guidance when needed**  
-  Some families choose professional safety assessments to better understand hidden risks, especially when <a href="https://eyeagle.ai/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">caring for seniors or individuals living alone.</a>
+  Some families choose professional safety assessments to better understand hidden risks, especially when <a href="/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;">caring for seniors or individuals living alone.</a>
 
 A proactive approach ensures home safety for families isn’t reactive, but thoughtful and ongoing.
 

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../components/common/OptimizedImage.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import contactLogo1 from "../assets/Common/contactLogo1.png";
 import contactLogo2 from "../assets/Common/contactLogo2.png";
@@ -11,53 +11,53 @@ const metaDesc =
   "Need help or have questions about EyEagle’s emergency alarm systems? Contact us today for reliable customer support and assistance.";
 ---
 
-<MainLayout title="Contact Us" title={metaTitle} desc={metaDesc}>
+<MainLayout title={metaTitle} desc={metaDesc} schemaType="ContactPage">
   <section
-    class="bg-[#F6F4F2] lg:px-[56px] font-sans-instrument px-4 lg:py-[120px] grid max-lg:gap-10 py-10 lg:pt-40 pt-[82px]"
+    class="bg-[#F6F4F2] lg:px-14 font-sans-instrument px-4 grid max-lg:gap-10 py-16 lg:py-24"
   >
     <div class="text-center">
-      <h1 class="font-medium text-lg leading-[21px] text-[#CC0000] mb-2">
+      <p class="font-medium text-lg leading-5.25 text-primary mb-2">
         CONTACT US
-      </h1>
-      <h3
-        class="font-medium lg:text-[72px] lg:leading-[79px] text-[40px] leading-[44px] lg:mb-10 mb-5"
+      </p>
+      <h1
+        class="font-medium lg:text-[72px] lg:leading-19.75 text-[40px] leading-11 lg:mb-10 mb-5"
       >
-        Get in Touch <br /> With Our <span class="text-[#CC0000]">Team</span>
-      </h3>
+        Get in Touch <br /> With Our <span class="text-primary">Team</span>
+      </h1>
       <p
-        class="font-medium text-[32px] lg:leading-7 leading-[44px] lg:mb-20 mb-[60px]"
+        class="font-medium text-[32px] lg:leading-7 leading-11 lg:mb-20 mb-15"
       >
         For inquiries, support, or subscription-related questions
       </p>
     </div>
-    <div class="grid lg:grid-cols-2 justify-center items-center gap-[60px]">
+    <div class="grid lg:grid-cols-2 justify-center items-center gap-15">
       <div
         class="border border-[#0000001A] rounded-[10px] p-6 shadow-[0px_0px_12px_0px_#0000001A]"
       >
-        <Image src={contactLogo1} alt={"contactLogo1"} class="pb-8" />
-        <h3 class="font-medium text-2xl leading-6 pb-5">
+        <Image src={contactLogo1} alt="" class="pb-8" />
+        <h2 class="font-medium text-2xl leading-6 pb-5">
           Merchant Legal entity name
-        </h3>
-        <p class="font-medium text-lg lg:leading-[21px] leading-[40px]">
+        </h2>
+        <p class="font-medium text-lg lg:leading-5.25 leading-10">
           PIDANA Technologies Pvt. Ltd.
         </p>
       </div>
       <div
         class="border border-[#0000001A] rounded-[10px] p-6 shadow-[0px_0px_12px_0px_#0000001A]"
       >
-        <Image src={contactLogo2} alt={"contactLogo1"} class="pb-8" />
-        <h3 class="font-medium text-2xl leading-6 pb-5">Support Email</h3>
+        <Image src={contactLogo2} alt="" class="pb-8" />
+        <h2 class="font-medium text-2xl leading-6 pb-5">Support Email</h2>
         <a
           href="mailto:support@eyeagle.ai"
-          class="font-medium text-lg text-[#CC0000] leading-[21px] hover:cursor-pointer hover:underline"
+          class="font-medium text-lg text-primary leading-5.25 hover:cursor-pointer hover:underline"
           >support@eyeagle.ai</a
         >
       </div>
       <div
         class="border border-[#0000001A] rounded-[10px] p-6 shadow-[0px_0px_12px_0px_#0000001A] h-full flex flex-col"
       >
-        <Image src={contactLogo3} alt={"contactLogo1"} class="pb-8" />
-        <h3 class="font-medium text-2xl leading-6 pb-5">Registered Address</h3>
+        <Image src={contactLogo3} alt="" class="pb-8" />
+        <h2 class="font-medium text-2xl leading-6 pb-5">Registered Address</h2>
         <p class="font-medium text-lg leading-7 tracking-wide">
           BHIVE Workspace - No.112, AKR Tech Park, "A" and "B" Block, 7th Mile
           Hosur Rd, Krishna Reddy Industrial Area, Madivala, Bangalore,
@@ -68,11 +68,11 @@ const metaDesc =
       <div
         class="border border-[#0000001A] rounded-[10px] p-6 h-full flex flex-col shadow-[0px_0px_12px_0px_#0000001A]"
       >
-        <Image src={contactLogo4} alt="contactLogo4" class="pb-8" />
+        <Image src={contactLogo4} alt="" class="pb-8" />
 
-        <h3 class="font-medium text-2xl leading-6 pb-5">
+        <h2 class="font-medium text-2xl leading-6 pb-5">
           Support Phone Number
-        </h3>
+        </h2>
 
         <p class="font-medium text-lg leading-7">
           +91&nbsp;&nbsp;94296&nbsp;94911
@@ -81,47 +81,10 @@ const metaDesc =
       <!-- <div class="border-[#0000001A] p-6 rounded-[10px] border">
           <Image src={contactLogo3} alt={'contactLogo1'} class="pb-8"/>
           <h3 class="font-medium text-2xl leading-6 pb-5">Operational Address</h3>
-          <p class="font-medium pb-8 text-lg lg:leading-[21px] leading-[40px]">A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka
+          <p class="font-medium pb-8 text-lg lg:leading-5.25 leading-10">A-101, DSR ULTIMA, HARALUR ROAD, BANGALORE, Karnataka
             PIN: 560102</p>
             <a href="https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9" class="text-base leading-7 font-medium px-3 py-3 border-2 rounded-[8px]">GET DIRECTION</a>
         </div> -->
     </div>
   </section>
 </MainLayout>
-<style>
-  .invalid-feedback,
-  .empty-feedback {
-    display: none;
-  }
-
-  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
-    display: block;
-  }
-
-  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
-    display: block;
-  }
-
-  .is-invalid,
-  .was-validated :invalid {
-    border-color: #dc3545;
-  }
-</style>
-
-<script is:inline>
-  const form = document.getElementById("form");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    form.classList.add("was-validated");
-    if (!form.checkValidity()) {
-      form.querySelectorAll(":invalid")[0].focus();
-      return;
-    }
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    location.href = `mailto:${object?.replyto}?subject=Request to Connect - ${object.name}&body=Hi,%0D%0A%0D%0A${object?.message}%0D%0A%0D%0ARegards,%0D%0A${object?.name}%0D%0A${object?.phone}%0D%0A${object?.email}`;
-    form.reset();
-    form.classList.remove("was-validated");
-  });
-</script>

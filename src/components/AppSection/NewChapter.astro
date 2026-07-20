@@ -22,7 +22,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
       <!-- LEFT -->
       <div class="w-full lg:w-1/2">
         <h2
-          class="text-[32px] leading-10 lg:text-[48px] font-bold lg:leading-[56px]"
+          class="text-[32px] leading-10 lg:text-[48px] font-bold lg:leading-14"
         >
           {chapterSection.title.line1}
           <br class="hidden md:block" />
@@ -34,7 +34,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
         </p>
 
         <a
-          class="app-download-btn inline-block mt-10 bg-[#CC0000] text-white px-6 py-4 rounded-full text-xl leading-7 font-semibold shadow-md hover:bg-red-600 transition"
+          class="app-download-btn inline-block mt-10 bg-primary text-white px-6 py-4 rounded-full text-xl leading-7 font-semibold shadow-md hover:bg-red-600 transition"
           href="#"
           target="_blank"
           rel="noopener noreferrer"
@@ -45,7 +45,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
 
       <!-- RIGHT -->
       <div
-        class="w-full lg:w-1/2 overflow-hidden h-[240px] md:h-[360px] relative"
+        class="w-full lg:w-1/2 overflow-hidden h-60 md:h-90 relative"
       >
         <div
           id="scrollContainer"
@@ -75,7 +75,6 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
       if (!buttons.length) return;
 
       const ua = navigator.userAgent;
-      const isAndroid = /android/i.test(ua);
       const isIOS = /iPad|iPhone|mac/i.test(ua);
 
       buttons.forEach((btn) => {
@@ -95,14 +94,8 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
 
       let activeIndex = Math.floor(total / 2);
 
-      let gap = window.innerWidth < 768 ? 12 : 20;
-      let itemHeight = items[0].getBoundingClientRect().height + gap;
-
       // ✅ handle mobile resize properly
       function recalc() {
-        gap = window.innerWidth < 768 ? 12 : 20;
-        itemHeight = items[0].getBoundingClientRect().height + gap;
-
         setPosition(activeIndex, false);
       }
 
@@ -139,8 +132,6 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
 
       function setPosition(index, withTransition = true) {
         const parent = container.parentElement;
-        const parentRect = parent.getBoundingClientRect();
-
         const item = items[index];
         const itemRect = item.getBoundingClientRect();
 

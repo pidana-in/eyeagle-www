@@ -13,13 +13,13 @@ import { WaitlistFormData } from "../constants/waitlist";
           name="userName"
           placeholder="Enter name"
           required
-          class={`md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]  `}
+          class={`md:w-157 p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]  `}
         />
         <label> Phone number* </label>
-        <div class={`relative md:w-[628px] `}>
+        <div class={`relative md:w-157 `}>
           <select
             name="countryCode"
-            class="absolute inset-y-0 left-0 bg-transparent pl-2 pr-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full !bg-[#F6F6F6]"
+            class="absolute inset-y-0 left-0 pl-2 pr-2 text-[#666666] text-[16px] border-2 border-[#9C9C9C] border-r-0 rounded-l-xl focus:outline-none h-full bg-[#F6F6F6]!"
             required
           >
             <option value="+91">+91</option>
@@ -33,7 +33,7 @@ import { WaitlistFormData } from "../constants/waitlist";
             placeholder="Phone Number"
             maxlength="10"
             required
-            class={`md:w-[628px] pl-[75px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
+            class={`md:w-157 pl-18.75 p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px] `}
           />
         </div>
 
@@ -43,7 +43,7 @@ import { WaitlistFormData } from "../constants/waitlist";
           name="userEmail"
           placeholder="Enter Email"
           required
-          class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
+          class="md:w-157 p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
         />
 
         <label> City* </label>
@@ -52,16 +52,16 @@ import { WaitlistFormData } from "../constants/waitlist";
           name="userCity"
           placeholder="City Name"
           required
-          class="md:w-[628px] p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
+          class="md:w-157 p-4 border-2 border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-[16px]"
         />
         <div class="flex justify-start items-center gap-2">
 
-        <input type="checkbox" name="userAcceptCheck" class="h-[18px] w-[18px]  border border-gray-400" required/><span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
+        <input type="checkbox" name="userAcceptCheck" class="h-4.5 w-4.5  border border-gray-400" required/><span class="text-[#666666]">{WaitlistFormData.acceptation}</span>
         </div>
 
         <button
-          class="md:w-[628px] p-4 rounded-[30px] text-white bg-[#CC0000] font-medium mt-[8px]"
-          >{WaitlistFormData.buttonTitile}</button
+          class="md:w-157 p-4 rounded-[30px] text-white bg-primary font-medium mt-2"
+          >{WaitlistFormData.buttonTitle}</button
         >
       </form>
     </div>

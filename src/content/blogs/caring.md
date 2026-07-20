@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2025-08-14
 ---
 
-# How to Care for Elderly Parents Remotely
+## How to Care for Elderly Parents Remotely
 
 In every family WhatsApp group, there’s often one silent concern tucked between forwarded messages and festival greetings: “How’s Ma doing all alone these days?” It’s a quiet but constant thought shared by countless urban migrants juggling careers in busy cities while their elderly parents age back home.
 
@@ -26,19 +26,19 @@ As we continue caring elderly parents from afar, their needs go beyond medical c
 
 ### 1. Physical health and safety
 
-Many seniors face challenges like mobility issues, chronic illnesses, or balance problems.<a href="https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> Among the most dangerous are falls,</a> especially in bathrooms, where nearly 80% of senior falls occur, and many lead to hospitalization.
+Many seniors face challenges like mobility issues, chronic illnesses, or balance problems.<a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;"> Among the most dangerous are falls,</a> especially in bathrooms, where nearly 80% of senior falls occur, and many lead to hospitalization.
 
 Providing physical safety support remotely becomes crucial.
 
 **How EyEagle Supports Safety:**
 
-- EyEagle offers a <a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> bathroom safety kit</a> featuring grab bars, anti‑slip mats, and high‑visibility grip tapes, installed after a personalized safety audit to proactively prevent falls.
+- EyEagle offers a <a href="/solution" style="color:#CC0000; text-decoration:none;"> bathroom safety kit</a> featuring grab bars, anti‑slip mats, and high‑visibility grip tapes, installed after a personalized safety audit to proactively prevent falls.
 - An alarm unit, control hub, and responsive switch offer emergency-ready features designed for low effort and high reliability.
 - Installations are done by trained professionals who handle setup, calibration, app onboarding, and full testing, so you don’t need to manage logistics from afar.
 
 These components ensure your parents are protected around the clock, even when you're miles away.
 
-<a href="https://eyeagle.ai/solution/"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;" target="_blank" rel="noopener noreferrer">
+<a href="/solution"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 
@@ -91,7 +91,7 @@ All of these reduce day-to-day stress for your parents while boosting their conf
 
 ### 3. Add an extra layer of safety with EyEagle
 
-While health check-ins and emotional support for elderly parents in India matter deeply, safety at home, especially in spaces like bathrooms, can’t be overlooked. This is where <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle</a> comes in as a practical and proactive solution for urban migrants caring for parents who want peace of mind.
+While health check-ins and emotional support for elderly parents in India matter deeply, safety at home, especially in spaces like bathrooms, can’t be overlooked. This is where <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle</a> comes in as a practical and proactive solution for urban migrants caring for parents who want peace of mind.
 
 EyEagle helps by:
 

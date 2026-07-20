@@ -1,10 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 const heroContent = Astro.props.heroContent;
 const features = Astro.props.features;
 ---
 
 <!-- DESKTOP VIEW -->
+<h1 class="sr-only" set:html={heroContent.title}></h1>
 <div class="hidden lg:block">
   <div class="relative 2xl:container lg:py-20">
     <Image
@@ -13,17 +14,17 @@ const features = Astro.props.features;
       class="w-full object-cover"
     />
     <div
-      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-[344px] mb-[114px] mx-[120px]"
+      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-86 mb-28.5 mx-30"
     >
       <span
         class="px-3 py-1.5 rounded-full text-sm font-medium border border-white/50 bg-white/20 backdrop-blur text-white"
       >
         {heroContent.badge}
       </span>
-      <h2
+      <p
         class="max-lg:text-4xl lg:text-[68px] font-bold leading-[100%] text-white my-5 drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
         set:html={heroContent.title}
-      />
+      ></p>
       <p
         class="text-white text-xl leading-[140%] drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
       >
@@ -32,7 +33,7 @@ const features = Astro.props.features;
       <div class="flex justify-center">
         <a
           href={heroContent.cta.href}
-          class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+          class="bg-primary text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
         >
           {heroContent.cta.text}
         </a>
@@ -43,10 +44,10 @@ const features = Astro.props.features;
   <div class="xl:container flex justify-evenly text-center mb-20 px-4">
     {
       features.map((item: any) => (
-        <div class="flex flex-col items-center max-w-[280px]">
+        <div class="flex flex-col items-center max-w-70">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} />
-            <h4 class="text-2xl font-semibold">{item.title}</h4>
+            <h2 class="text-2xl font-semibold">{item.title}</h2>
           </div>
           <p class="text-black opacity-70 mt-2">{item.description}</p>
         </div>
@@ -56,7 +57,7 @@ const features = Astro.props.features;
 </div>
 
 <!-- MOBILE VIEW -->
-<div class="block lg:hidden pt-[60px]">
+<div class="block lg:hidden pt-15">
   <div class="px-4">
   <div class="flex justify-center">
     <span
@@ -65,17 +66,17 @@ const features = Astro.props.features;
       {heroContent.badge}
     </span>
   </div>
-  <h2
-    class="text-5xl font-bold leading-[56px] text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
+  <p
+    class="text-5xl font-bold leading-14 text-center my-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]"
     set:html={heroContent.title}
-  />
+  ></p>
   <p class="text-black text-center leading-7">
     {heroContent.description}
   </p>
   <div class="flex justify-center">
     <a
       href={heroContent.cta.href}
-      class="bg-[#CC0000] text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
+      class="bg-primary text-white mt-6 py-4 px-5 rounded-full font-semibold text-sm inline-flex"
     >
       {heroContent.cta.text}
     </a>
@@ -86,7 +87,7 @@ const features = Astro.props.features;
   </div>
   <Image
     src={heroContent.images.img2}
-    alt="Bathroom Product Image"
+    alt="EyEagle Guardian X emergency alarm kit"
     class="w-full object-cover mt-8"
   />
   <div class="mt-20 mb-10 space-y-10 flex flex-col items-center text-center">
@@ -95,7 +96,7 @@ const features = Astro.props.features;
         <div class="flex flex-col items-center text-center">
           <div class="flex items-center gap-3">
             <Image src={item.icon} alt={item.title} />
-            <h4 class="text-2xl font-semibold">{item.title}</h4>
+            <h2 class="text-2xl font-semibold">{item.title}</h2>
           </div>
           <p class="text-[#000000]/70 mt-3 leading-[140%]">
             {item.description}

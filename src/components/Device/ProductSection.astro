@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 import type { ImageMetadata } from "astro";
 
 type FeatureSection = {
@@ -29,10 +29,10 @@ const { sections, featureAssets } = Astro.props as Props;
           <div
             class={`flex flex-col ${
               section.reverse ? "md:flex-row-reverse" : "md:flex-row"
-            } justify-around items-center md:gap-[120px] gap-10 py-16 md:py-[120px] px-4`}
+            } justify-around items-center md:gap-30 gap-10 py-16 md:py-30 px-4`}
           >
-            <div class="flex flex-col md:max-w-[580px] w-full">
-              <p class="text-[#CC0000] text-sm font-semibold tracking-[4px] uppercase mb-4">
+            <div class="flex flex-col md:max-w-145 w-full">
+              <p class="text-primary text-sm font-semibold tracking-[4px] uppercase mb-4">
                 {section.eyebrow}
               </p>
               <h2

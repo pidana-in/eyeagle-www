@@ -1,37 +1,37 @@
 ---
-import { Image } from "astro:assets";
+import Image from "../common/OptimizedImage.astro";
 
 const features = Astro.props.features;
 const featureData = Astro.props.featureData;
 ---
 
 <section
-  class="xl:container w-full flex flex-col items-center py-10 md:py-20 px-4 gap-10 lg:gap-[120px]"
+  class="xl:container w-full flex flex-col items-center py-10 md:py-20 px-4 gap-10 lg:gap-30"
 >
   <h2
-    class="text-[32px] leading-10 md:text-5xl md:leading-[56px] font-bold text-center"
+    class="text-[32px] leading-10 md:text-5xl md:leading-14 font-bold text-center"
   >
     Simple to set up. <br /> Powerful when it matters.
   </h2>
   {
     features.map((feature: any) => (
       <div
-        class={`flex flex-col lg:flex-row w-full max-w-[1200px] items-center gap-10 md:gap-12 lg:gap-20
+        class={`flex flex-col lg:flex-row w-full max-w-300 items-center gap-10 md:gap-12 lg:gap-20
         ${feature.reverse ? "lg:flex-row-reverse" : ""}`}
       >
-        <div class="w-full max-w-xl lg:max-w-[560px] text-start my-10">
-          <p class="text-[#CC0000] text-xs md:text-sm font-semibold uppercase tracking-[4px]">
+        <div class="w-full max-w-xl lg:max-w-140 text-start my-10">
+          <p class="text-primary text-xs md:text-sm font-semibold uppercase tracking-[4px]">
             {feature.eyebrow}
           </p>
-          <h2 class="text-2xl lg:text-[40px] lg:leading-[48px] font-bold mt-4 lg:max-w-[560px]">
+          <h2 class="text-2xl lg:text-[40px] lg:leading-12 font-bold mt-4 lg:max-w-140">
             {feature.title.redFirst && (
-              <span class="text-[#CC0000]">{feature.title.redFirst} </span>
+              <span class="text-primary">{feature.title.redFirst} </span>
             )}
             {feature.title.black && (
               <span class="text-black" set:html={feature.title.black} />
             )}
             {feature.title.redLast && (
-              <span class="text-[#CC0000]">{feature.title.redLast}</span>
+              <span class="text-primary">{feature.title.redLast}</span>
             )}
           </h2>
           <p class="text-sm md:text-base text-[#676B75] md:leading-7 mt-5">
@@ -55,7 +55,7 @@ const featureData = Astro.props.featureData;
         <Image
           src={feature.image}
           alt="Feature image"
-          class="w-full max-w-xl lg:max-w-[560px] h-auto rounded-[24px]"
+          class="w-full max-w-xl lg:max-w-140 h-auto rounded-3xl"
         />
       </div>
     ))

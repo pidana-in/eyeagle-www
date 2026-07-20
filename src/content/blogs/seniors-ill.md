@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-02-27
 ---
 
-# Many Seniors Are Ill - What It Means for Home Safety
+## Many Seniors Are Ill - What It Means for Home Safety
 
 When 72-year-old Mr. Iyer stopped going for his evening walk, his family thought it was just age slowing him down. A few months later, a medical check-up revealed that he was living with undiagnosed diabetes and nerve damage, silent conditions that had slowly weakened his balance and confidence. His story is a reminder that **senior home safety** isn’t only about preventing accidents; it begins with understanding hidden health risks.
 
@@ -52,13 +52,13 @@ A senior with mild dizziness from high blood pressure may misjudge a step. Someo
 
 According to multiple health studies, over **60% of elderly injuries happen at home**, and the majority are due to **falls**, often triggered by underlying, unnoticed elderly health issues. These aren’t random accidents; they’re symptoms of a system that’s quietly failing inside the body.
 
-Among all home areas, bathrooms pose the highest risk for falls- wet floors, narrow spaces, and poor lighting make them particularly dangerous for seniors with balance or vision issues. Installing <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a>, such as anti-slip mats and grab bars, can drastically reduce these risks.
+Among all home areas, bathrooms pose the highest risk for falls- wet floors, narrow spaces, and poor lighting make them particularly dangerous for seniors with balance or vision issues. Installing <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety fittings</a>, such as anti-slip mats and grab bars, can drastically reduce these risks.
 
 When movement slows, reflexes dull, and vision fades, the environment that once offered comfort begins to challenge independence. The same familiar furniture, stairs, or bathroom corners become potential hazards, not because the home changed, but because health did.
 
 The truth is simple yet often overlooked: senior home safety isn’t just about railings, ramps, or mats. It’s about understanding how internal health and external surroundings interact. Without awareness of what’s happening inside, even the most well-equipped home can fall short of being truly safe.
 
-For a deeper dive into how falls have become a silent epidemic among seniors,<a href="https://eyeagle.ai/blogs/why-falls-are-the-biggest-threat-to-seniors/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer"> read the full article</a>.
+For a deeper dive into how falls have become a silent epidemic among seniors,<a href="/blogs/why-falls-are-the-biggest-threat-to-seniors" style="color:#CC0000; text-decoration:none;"> read the full article</a>.
 
 ## Recognizing subtle signs: when seniors don’t say they’re unwell
 
@@ -80,11 +80,11 @@ Awareness is only half the battle; the next step is action. When seniors face hi
 
 ### 1. Begin with a Health Baseline
 
-Before rearranging furniture or adding gadgets, schedule a <a href="https://eyeagle.ai/blogs/regular-health-checkups-for-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">full medical check-up,</a> including blood pressure, sugar, eyesight, hearing, bone health, and cognitive screening. Detecting issues early allows you to match the right safety measures to the real risks.
+Before rearranging furniture or adding gadgets, schedule a <a href="/blogs/regular-health-checkups-for-seniors" style="color:#CC0000; text-decoration:none;">full medical check-up,</a> including blood pressure, sugar, eyesight, hearing, bone health, and cognitive screening. Detecting issues early allows you to match the right safety measures to the real risks.
 
 ### 2. Audit the Home for Hidden Hazards
 
-<a href="https://eyeagle.ai/blogs/how-to-make-your-home-safe" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Do a slow, detailed walkthrough of the home</a>, especially bathrooms, kitchens, and staircases. Look for loose rugs, uneven tiles, dim corners, or slippery flooring. Most falls happen in “familiar zones” because people underestimate small risks.
+<a href="/blogs/how-to-make-your-home-safe" style="color:#CC0000; text-decoration:none;">Do a slow, detailed walkthrough of the home</a>, especially bathrooms, kitchens, and staircases. Look for loose rugs, uneven tiles, dim corners, or slippery flooring. Most falls happen in “familiar zones” because people underestimate small risks.
 
 ### 3. Add Simple, Smart Aids
 
@@ -102,7 +102,7 @@ These small upgrades reinforce senior home safety without disrupting comfort or 
 
 ### 4. Encourage Gentle Movement and Good Nutrition
 
-A weak body is more prone to accidents. <a href="https://eyeagle.ai/blogs/mobility-tips-for-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Encourage light exercises</a> like walking, yoga, or chair stretches, ideally under medical advice. Pair that with protein-rich meals, hydration, and supplements for Vitamin D and calcium to strengthen muscles and bones.
+A weak body is more prone to accidents. <a href="/blogs/mobility-tips-for-seniors" style="color:#CC0000; text-decoration:none;">Encourage light exercises</a> like walking, yoga, or chair stretches, ideally under medical advice. Pair that with protein-rich meals, hydration, and supplements for Vitamin D and calcium to strengthen muscles and bones.
 
 ### 5. Build a Support Circle
 

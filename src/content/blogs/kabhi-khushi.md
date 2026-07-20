@@ -10,7 +10,7 @@ authorRole: "Consultant"
 date: 2026-04-01
 ---
 
-# Why protecting our elders at home matters more than ever
+## Why protecting our elders at home matters more than ever
 
 In every Indian home, elders are the silent pillars who hold together generations with their wisdom, values, and experiences. Their presence brings a sense of warmth, **kabhi khushi** through their laughter, affection, and stories, and **kabhi gham** through the challenges that come with aging. As they grow older, their needs evolve, and the responsibility of caring for them gradually shifts onto the younger members of the family.
 
@@ -24,7 +24,7 @@ Caring for aging parents at home requires a blend of caregiving, patience, and t
 
 ## Creating a safe home environment for elders
 
-A home is meant to be a sanctuary. But for seniors, everyday spaces can become risky without proper support. A well-designed and <a href="https://eyeagle.ai/blogs/how-to-make-your-home-safe" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">safe home environment for elders</a> reduces hazards and boosts independence.
+A home is meant to be a sanctuary. But for seniors, everyday spaces can become risky without proper support. A well-designed and <a href="/blogs/how-to-make-your-home-safe" style="color:#CC0000; text-decoration:none;">safe home environment for elders</a> reduces hazards and boosts independence.
 
 ### 1. Fall-prevention strategies for seniors
 
@@ -36,7 +36,7 @@ Falls are the most common cause of injury in older adults. To minimize risks:
 
 - Install grab bars in bathrooms and anti-slip mats near wet areas.
 
-For enhanced protection, consider using <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">EyEagle bathroom safety fittings</a> such as anti-slip mats & grab bars, designed specifically to prevent bathroom falls.
+For enhanced protection, consider using <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety fittings</a> such as anti-slip mats & grab bars, designed specifically to prevent bathroom falls.
 
 - Add handrails on both sides of staircases.
 
@@ -48,7 +48,7 @@ Small changes can prevent big accidents.
 
 ### 2. Regular medical check-ups
 
-<a href="https://eyeagle.ai/blogs/regular-health-checkups-for-seniors" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Schedule routine health assessments</a> to keep track of:
+<a href="/blogs/regular-health-checkups-for-seniors" style="color:#CC0000; text-decoration:none;">Schedule routine health assessments</a> to keep track of:
 
 - Blood pressure, sugar levels, and cholesterol
 
@@ -123,7 +123,7 @@ Healthy eating supports energy, immunity, and mood.
 - Ensure proper hydration.
 - Customize diets based on medical conditions.
 
-<a href="https://eyeagle.ai/blogs/diet-and-nutrition-in-healthy-aging/" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Know more about the role of diet and nutrition in healthy aging</a>
+<a href="/blogs/diet-and-nutrition-in-healthy-aging" style="color:#CC0000; text-decoration:none;">Know more about the role of diet and nutrition in healthy aging</a>
 
 ### 9. Divide tasks mindfully
 

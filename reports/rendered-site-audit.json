@@ -1,0 +1,1211 @@
+{
+  "summary": {
+    "auditedRoutes": 53,
+    "routesWithIssues": 0,
+    "duplicateTitles": [],
+    "duplicateDescriptions": []
+  },
+  "results": [
+    {
+      "route": "/",
+      "source": "src/pages/index.astro",
+      "status": 200,
+      "title": "EyEagle | Preventing Falls, Saving Lives",
+      "description": "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.",
+      "canonical": "https://eyeagle.ai/",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Parents fall can destroy all"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/about-us",
+      "source": "src/pages/about-us.astro",
+      "status": 200,
+      "title": "About EyEagle | Safer, More Independent Living",
+      "description": "Meet the people and purpose behind EyEagle, founded to help older adults live more safely and independently at home.",
+      "canonical": "https://eyeagle.ai/about-us",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "From Prevention to Protection , We’re with You"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "AboutPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/app",
+      "source": "src/pages/app.astro",
+      "status": 200,
+      "title": "EyEagle | Your safety, one tap away",
+      "description": "Your trusted people, always one tap away. Create a Nest, send an SOS with live location, and get help instantly — no calls, no texts, no delay.",
+      "canonical": "https://eyeagle.ai/app",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Go anywhere. Stay connected. Stay safe."
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blog",
+      "source": "src/pages/blog.astro",
+      "status": 200,
+      "title": "Blog | EyEagle",
+      "description": "Read the latest article on EyEagle's blog.",
+      "canonical": "https://eyeagle.ai/blog",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "EyEagle Blog"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/arthritis-and-joint-pain-in-seniors",
+      "source": "src/content/blogs/arthritis.md",
+      "status": 200,
+      "title": "Arthritis Joint Pain in Seniors: How Safety Upgrades Help Reduce Fall Risk",
+      "description": "Learn how Arthritis &amp; Joint Pain in seniors increase fall risks &amp; how you can prevent them with safety upgrades, fall prevention strategies.",
+      "canonical": "https://eyeagle.ai/blogs/arthritis-and-joint-pain-in-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Arthritis Joint Pain in Seniors: How Safety Upgrades Help Reduce Fall Risk"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/balance-problems-in-elderly",
+      "source": "src/content/blogs/balance.md",
+      "status": 200,
+      "title": "Balance Trouble? It’s More Than Just Old Age",
+      "description": "Learn common causes, early warning signs, &amp; simple prevention tips for balance problems in elderly to reduce fall risks and stay independent.",
+      "canonical": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Balance Trouble? It’s More Than Just Old Age"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/bathroom-safety-features-at-home",
+      "source": "src/content/blogs/safety-features.md",
+      "status": 200,
+      "title": "What Changed When We Added Bathroom Safety Features to Our Home",
+      "description": "Discover how simple bathroom safety features improved comfort, reduced fall risks, and supported safe aging in place for our family.",
+      "canonical": "https://eyeagle.ai/blogs/bathroom-safety-features-at-home",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "What Changed When We Added Bathroom Safety Features to Our Home"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/caring-elderly-parents-from-afar",
+      "source": "src/content/blogs/caring.md",
+      "status": 200,
+      "title": "Caring from a Distance: How Urban Migrants Can Keep Elderly Parents Safe Back Home",
+      "description": "Learn simple tech tools &amp; routines for caring elderly parents from a distance. Here are ways to protect their physical &amp; emotional well-being.",
+      "canonical": "https://eyeagle.ai/blogs/caring-elderly-parents-from-afar",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Caring from a Distance: How Urban Migrants Can Keep Elderly Parents Safe Back Home"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/caring-from-distance",
+      "source": "src/content/blogs/NRI-parent-care.md",
+      "status": 200,
+      "title": "Caring From Distance: An NRI’s Parent Care Story",
+      "description": "Caring from distance for NRIs. Read about how one caregiver balanced work abroad with the safety of their elderly parents at home.",
+      "canonical": "https://eyeagle.ai/blogs/caring-from-distance",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Caring From Distance: An NRI’s Parent Care Story"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/diet-and-nutrition-in-healthy-aging",
+      "source": "src/content/blogs/diet.md",
+      "status": 200,
+      "title": "The Role of Diet and Nutrition in Healthy Aging",
+      "description": "Know how good nutrition supports healthy aging by boosting strength, balance, and energy. Learn key diet tips for keeping older adults healthy and independent.",
+      "canonical": "https://eyeagle.ai/blogs/diet-and-nutrition-in-healthy-aging",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The Role of Diet and Nutrition in Healthy Aging"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/diwali-travel-safety-tips-for-seniors",
+      "source": "src/content/blogs/travel-diwali.md",
+      "status": 200,
+      "title": "Diwali Travel vs. At-Home Safety: What Families Should Prepare For",
+      "description": "Plan a safe, stress-free Diwali with smart travel tips and home safety ideas. Celebrate with awareness &amp; joy wherever you light your diyas.",
+      "canonical": "https://eyeagle.ai/blogs/diwali-travel-safety-tips-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Diwali Travel vs. At-Home Safety: What Families Should Prepare For"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/falls-kill-more-seniors-than-you-think",
+      "source": "src/content/blogs/fall.md",
+      "status": 200,
+      "title": "Falls Kill More Seniors Than You Think – But No One Talks About It",
+      "description": "Discover how EyEagle - an emergency alert device for the elderly can protect your loved ones with quiet, reliable care.",
+      "canonical": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Falls Kill More Seniors Than You Think – But No One Talks About It"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/holi-safety-at-home",
+      "source": "src/content/blogs/holi-safety.md",
+      "status": 200,
+      "title": "Holi Safety at Home: Prevent Slippery Bathroom Accidents",
+      "description": "Practice Holi safety at home with these tips. Learn how to prevent slippery bathroom accidents at home and protect your loved ones.",
+      "canonical": "https://eyeagle.ai/blogs/holi-safety-at-home",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Holi Safety at Home: Prevent Slippery Bathroom Accidents"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/how-eyeagle-works-when-you-are-miles-away",
+      "source": "src/content/blogs/miles-away.md",
+      "status": 200,
+      "title": "How EyEagle Works When You’re Miles Away",
+      "description": "Discover how the EyEagle fall alert device helps families protect elderly loved ones from afar. Read on to know more.",
+      "canonical": "https://eyeagle.ai/blogs/how-eyeagle-works-when-you-are-miles-away",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "How EyEagle Works When You’re Miles Away"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/how-fear-of-falling-affects-mental-health",
+      "source": "src/content/blogs/mental-health.md",
+      "status": 200,
+      "title": "How Fear of Falling Affects Mental Health",
+      "description": "Learn how fear of falling and mental health are connected, and know the steps to restore safety, confidence, and joy.",
+      "canonical": "https://eyeagle.ai/blogs/how-fear-of-falling-affects-mental-health",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "How Fear of Falling Affects Mental Health"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "source": "src/content/blogs/safety.md",
+      "status": 200,
+      "title": "Do Your Parents Live Alone? Here’s How to Ensure Their Safety 24/7",
+      "description": "Worried about elderly safety at home? Know how to keep your aging parents safe 24/7 with simple tips and solutions like EyEagle.",
+      "canonical": "https://eyeagle.ai/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Do Your Parents Live Alone? Here’s How to Ensure Their Safety 24/7"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/how-to-make-your-home-safe",
+      "source": "src/content/blogs/safe-home.md",
+      "status": 200,
+      "title": "Turning Your Home Into a Safe Home in 2026",
+      "description": "Learn how to turn your home into a safe home in 2026 with practical home safety improvements, fall prevention tips, and age-friendly changes.",
+      "canonical": "https://eyeagle.ai/blogs/how-to-make-your-home-safe",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Turning Your Home Into a Safe Home in 2026"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/importance-of-elderly-fall-prevention",
+      "source": "src/content/blogs/zindagi.md",
+      "status": 200,
+      "title": "Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority",
+      "description": "Falls are one of the biggest risks to senior safety. Learn practical strategies and home safety tips for elderly fall prevention.",
+      "canonical": "https://eyeagle.ai/blogs/importance-of-elderly-fall-prevention",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Zindagi Na Milegi Dobara: Why Preventing Elderly Falls Should Be a Priority"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/importance-of-open-conversations-about-aging",
+      "source": "src/content/blogs/conversations.md",
+      "status": 200,
+      "title": "The Importance of Open Conversations About Aging",
+      "description": "Encourage open conversations about aging to build trust, support seniors’ well-being, and strengthen family bonds with empathy and care.",
+      "canonical": "https://eyeagle.ai/blogs/importance-of-open-conversations-about-aging",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The Importance of Open Conversations About Aging"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/importance-of-regular-vision-checks",
+      "source": "src/content/blogs/vision.md",
+      "status": 200,
+      "title": "The Importance of Regular Vision Checks for Fall Prevention",
+      "description": "Learn how regular vision checks, safe home practices, and lifestyle changes help older adults stay confident and independent.",
+      "canonical": "https://eyeagle.ai/blogs/importance-of-regular-vision-checks",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The Importance of Regular Vision Checks for Fall Prevention"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/mobility-tips-for-seniors",
+      "source": "src/content/blogs/mobility.md",
+      "status": 200,
+      "title": "Stretch Daily, Fall Less: Gentle Mobility Tips for Seniors",
+      "description": "Know gentle mobility tips for seniors, including safe stretching routines and fall prevention exercises. Improve flexibility &amp; strength after 60.",
+      "canonical": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Stretch Daily, Fall Less: Gentle Mobility Tips for Seniors"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/monsoon-bathroom-safety-tips-for-seniors",
+      "source": "src/content/blogs/monsoon.md",
+      "status": 200,
+      "title": "Monsoon Bathroom Safety Tips for Seniors | EyEagle",
+      "description": "Protect elderly loved ones this monsoon with practical bathroom safety tips to prevent slips, falls, and injuries. Learn how to make bathrooms safer.",
+      "canonical": "https://eyeagle.ai/blogs/monsoon-bathroom-safety-tips-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Monsoon Bathroom Safety Tips for Seniors | EyEagle"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/new-year-safer-home-safety-tips",
+      "source": "src/content/blogs/new-year.md",
+      "status": 200,
+      "title": "New Year, Safer Home: Small Changes That Save Lives",
+      "description": "Start the New Year with simple home safety tips that prevent accidents and protect families and seniors. Small safety changes can save lives.",
+      "canonical": "https://eyeagle.ai/blogs/new-year-safer-home-safety-tips",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "New Year, Safer Home: Small Changes That Save Lives"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/protecting-elders-at-home-safety-guide",
+      "source": "src/content/blogs/kabhi-khushi.md",
+      "status": 200,
+      "title": "Kabhi Khushi Kabhie Gham: Protecting Our Elders at Home",
+      "description": "A complete guide to protecting our elders at home with safety tips, elder care routines &amp; wellness practices.",
+      "canonical": "https://eyeagle.ai/blogs/protecting-elders-at-home-safety-guide",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Kabhi Khushi Kabhie Gham: Protecting Our Elders at Home"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/regular-health-checkups-for-seniors",
+      "source": "src/content/blogs/checkup.md",
+      "status": 200,
+      "title": "Health Checkups After 60: A Complete Guide for Seniors",
+      "description": "Discover the must-do health checkups after 60, from heart and diabetes to bone density. A complete guide for seniors and caregivers.",
+      "canonical": "https://eyeagle.ai/blogs/regular-health-checkups-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Health Checkups After 60: A Complete Guide for Seniors"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/senior-fall-risk-denial-why-not-me-mentality",
+      "source": "src/content/blogs/why-not-me.md",
+      "status": 200,
+      "title": "The Why Not Me? Mentality: Addressing Senior Denial About Fall Risk",
+      "description": "Learn what is senior fall risk and how families can address it. Explore psychological barriers, consequences and prevention tips.",
+      "canonical": "https://eyeagle.ai/blogs/senior-fall-risk-denial-why-not-me-mentality",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The Why Not Me? Mentality: Addressing Senior Denial About Fall Risk"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/senior-hidden-illness-and-home-safety",
+      "source": "src/content/blogs/seniors-ill.md",
+      "status": 200,
+      "title": "Many Seniors Are Ill — and Don’t Know It: What That Means for Home Safety",
+      "description": "Many seniors have undiagnosed illnesses that increase fall and injury risks at home. Know about how families can improve senior home safety.",
+      "canonical": "https://eyeagle.ai/blogs/senior-hidden-illness-and-home-safety",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Many Seniors Are Ill — and Don’t Know It: What That Means for Home Safety"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/senior-home-safety-india",
+      "source": "src/content/blogs/aging-reality.md",
+      "status": 200,
+      "title": "India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors",
+      "description": "Learn why safer homes are essential for India’s seniors and how simple changes can prevent slips, falls, and mobility risks.",
+      "canonical": "https://eyeagle.ai/blogs/senior-home-safety-india",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "India’s Aging Reality: Why Home Safety Must Evolve with Our Seniors"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/senior-safety-during-diwali",
+      "source": "src/content/blogs/safety-diwali.md",
+      "status": 200,
+      "title": "Senior Safety During Diwali | Keep Your Loved Ones Safe",
+      "description": "Learn why senior safety during Diwali is important and how you can implement them in your homes this festive season.",
+      "canonical": "https://eyeagle.ai/blogs/senior-safety-during-diwali",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Senior Safety During Diwali | Keep Your Loved Ones Safe"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/silver-tsunami-india-safer-future-for-seniors",
+      "source": "src/content/blogs/silver-tsunami.md",
+      "status": 200,
+      "title": "Silver Tsunami in India: Building a Safer Future for Seniors",
+      "description": "Explore how India’s Silver Tsunami demands better senior safety, healthcare, and community care for a dignified and inclusive future.",
+      "canonical": "https://eyeagle.ai/blogs/silver-tsunami-india-safer-future-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Silver Tsunami in India: Building a Safer Future for Seniors"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/sleep-hygiene-for-seniors",
+      "source": "src/content/blogs/sleep-hygiene.md",
+      "status": 200,
+      "title": "Sleep Hygiene for Seniors: Why Rest Matters More Than Ever",
+      "description": "Why sleep hygiene for seniors is essential for healthy aging. Know how better sleep habits can boost energy, memory in older adults.",
+      "canonical": "https://eyeagle.ai/blogs/sleep-hygiene-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Sleep Hygiene for Seniors: Why Rest Matters More Than Ever"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/stairway-safety-tips-prevent-accidents",
+      "source": "src/content/blogs/stairway-safety.md",
+      "status": 200,
+      "title": "Stairway Safety:Simple Fixes to Prevent Slips, Trips Falls",
+      "description": "Improve stairway safety at home with simple fixes. Learn practical stair safety tips to prevent accidents, and make every step safer.",
+      "canonical": "https://eyeagle.ai/blogs/stairway-safety-tips-prevent-accidents",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Stairway Safety:Simple Fixes to Prevent Slips, Trips Falls"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "source": "src/content/blogs/safety-tips.md",
+      "status": 200,
+      "title": "How to Make Any Bathroom Senior-Safe in Just a Few Simple Steps",
+      "description": "Create a senior-friendly bathroom at home with simple steps, essential modifications, and trusted solutions like EyEagle for elderly safety.",
+      "canonical": "https://eyeagle.ai/blogs/step-by-step-bathroom-safety-tips-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "How to Make Any Bathroom Senior-Safe in Just a Few Simple Steps"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/that-missed-call-on-a-winter-morning",
+      "source": "src/content/blogs/missedCall.md",
+      "status": 200,
+      "title": "That Missed Call on a Winter Morning",
+      "description": "A quiet winter morning, a missed call, and a moment that changed everything. A story that reflects on bathroom falls and home safety.",
+      "canonical": "https://eyeagle.ai/blogs/that-missed-call-on-a-winter-morning",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "That Missed Call on a Winter Morning"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/the-critical-60-minutes-after-a-fall",
+      "source": "src/content/blogs/critical.md",
+      "status": 200,
+      "title": "What Happens After a Fall? The Critical 60 Minutes",
+      "description": "The first 60 minutes after a fall are critical. Learn how quick response &amp; early treatment of fall injuries can save lives.",
+      "canonical": "https://eyeagle.ai/blogs/the-critical-60-minutes-after-a-fall",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "What Happens After a Fall? The Critical 60 Minutes"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/thoughtful-new-year-gift-safety-over-showpieces",
+      "source": "src/content/blogs/newYear-gift.md",
+      "status": 200,
+      "title": "A Thoughtful New Year Gift: Safety Over Showpieces",
+      "description": "Looking for a meaningful New Year gift? Discover why practical safety gifts offer lasting care and everyday protection for loved ones.",
+      "canonical": "https://eyeagle.ai/blogs/thoughtful-new-year-gift-safety-over-showpieces",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "A Thoughtful New Year Gift: Safety Over Showpieces"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/why-fall-alarms-for-seniors-matter",
+      "source": "src/content/blogs/alarms.md",
+      "status": 200,
+      "title": "“One Fall Changed Everything” - Real Stories of Families Who Wish they Had a Fall Alarm",
+      "description": "Real stories of bathroom falls show why a fall alarm for seniors is a must. Learn more on fall-prevention with EyEagle.",
+      "canonical": "https://eyeagle.ai/blogs/why-fall-alarms-for-seniors-matter",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "“One Fall Changed Everything” - Real Stories of Families Who Wish they Had a Fall Alarm"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "source": "src/content/blogs/epidemic.md",
+      "status": 200,
+      "title": "The Silent Epidemic: Why Falls Are the Biggest Threat to Seniors",
+      "description": "Why falls in the elderly are a silent epidemic, how they impact families, &amp; how to prevent them with smart solutions like EyEagle.",
+      "canonical": "https://eyeagle.ai/blogs/why-falls-are-the-biggest-threat-to-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The Silent Epidemic: Why Falls Are the Biggest Threat to Seniors"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/winter-bathroom-safety-for-seniors",
+      "source": "src/content/blogs/winter-safety.md",
+      "status": 200,
+      "title": "Winter Bathroom Safety for Seniors: How to Prevent Slips Falls",
+      "description": "Cold weather increases fall risks for seniors. Learn practical winter bathroom safety tips to keep your elderly loved ones safe.",
+      "canonical": "https://eyeagle.ai/blogs/winter-bathroom-safety-for-seniors",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Winter Bathroom Safety for Seniors: How to Prevent Slips Falls"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/winter-footwear-safety-at-home",
+      "source": "src/content/blogs/footwear.md",
+      "status": 200,
+      "title": "Winter Footwear Safety: Why the Right Choice Matters at Home",
+      "description": "Winter increases fall risks inside homes. Learn how winter footwear safety is important and can prevent winter-related accidents at home.",
+      "canonical": "https://eyeagle.ai/blogs/winter-footwear-safety-at-home",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Winter Footwear Safety: Why the Right Choice Matters at Home"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/contact",
+      "source": "src/pages/contact.astro",
+      "status": 200,
+      "title": "Reach Out for Queries Support - Contact EyEagle",
+      "description": "Need help or have questions about EyEagle’s emergency alarm systems? Contact us today for reliable customer support and assistance.",
+      "canonical": "https://eyeagle.ai/contact",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Get in Touch With Our Team"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "ContactPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/device",
+      "source": "src/pages/device.astro",
+      "status": 200,
+      "title": "Guardian X Emergency Alarm for Older Adults | EyEagle",
+      "description": "Explore Guardian X, EyEagle’s emergency alarm with a loud local alert, offline operation, battery backup, and app-connected family notifications.",
+      "canonical": "https://eyeagle.ai/device",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "One press. The right people know"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/join",
+      "source": "src/pages/join.astro",
+      "status": 200,
+      "title": "Join Our Community for Elderly Safety Solutions – EyEagle",
+      "description": "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!",
+      "canonical": "https://eyeagle.ai/join",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Be the First to Experience the EyEagle Guardian-X Kit"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/offers/fathers-day-2025",
+      "source": "src/pages/offers/fathers-day-2025.astro",
+      "status": 200,
+      "title": "Expired Father’s Day 2025 Offer | EyEagle",
+      "description": "This EyEagle Father’s Day 2025 safety-kit offer has expired.",
+      "canonical": "https://eyeagle.ai/offers/fathers-day-2025",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "This Father’s Day, don’t just thank him. Protect him"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/offers/yoga-day-2025",
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "status": 200,
+      "title": "Expired International Yoga Day 2025 Offer | EyEagle",
+      "description": "This EyEagle International Yoga Day 2025 safety-kit offer has expired.",
+      "canonical": "https://eyeagle.ai/offers/yoga-day-2025",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "Yoga se health, EyEagle se care Dono saath ho, to bane perfect pair!"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/privacy",
+      "source": "src/pages/privacy.astro",
+      "status": 200,
+      "title": "Privacy Policy – Your Data Security Matters with EyEagle",
+      "description": "Learn how EyEagle protects your personal information. Our privacy policy ensures your data stays secure with our emergency alarm systems.",
+      "canonical": "https://eyeagle.ai/privacy",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Privacy policy"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/protection",
+      "source": "src/pages/protection.astro",
+      "status": 200,
+      "title": "Bathroom Fall-Prevention and Safety Products | EyEagle",
+      "description": "Make bathrooms safer with professionally installed grab bars, anti-slip mats, grip tape, and a home safety assessment from EyEagle.",
+      "canonical": "https://eyeagle.ai/protection",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Safer support in the bathroom, every single day."
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/refund",
+      "source": "src/pages/refund.astro",
+      "status": 200,
+      "title": "Hassle-Free Refund Policy – EyEagle",
+      "description": "Understand EyEagle’s refund policy for emergency alarm systems. Easy returns and transparent refunds for a worry-free purchase experience.",
+      "canonical": "https://eyeagle.ai/refund",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Cancellation & Refund Policy"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/shipping",
+      "source": "src/pages/shipping.astro",
+      "status": 200,
+      "title": "Fast Reliable Delivery| EyEagle Shipping Policy",
+      "description": "Learn about EyEagle’s shipping policy. Get fast and reliable delivery of emergency alarm systems for elderly safety across the globe.",
+      "canonical": "https://eyeagle.ai/shipping",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Shipping Policy"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/solution",
+      "source": "src/pages/solution.astro",
+      "status": 200,
+      "title": "How EyEagle’s Home Safety System Works",
+      "description": "See how EyEagle combines fall prevention, Guardian X emergency alerts, family coordination, and practical home-safety support.",
+      "canonical": "https://eyeagle.ai/solution",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "World’s first PIDANA Protocol. End to End Solution"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/store",
+      "source": "src/pages/store.astro",
+      "status": 200,
+      "title": "Choose Your EyEagle Store",
+      "description": "Choose the EyEagle store for your shopping region.",
+      "canonical": "https://eyeagle.ai/store",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "Hello! Where are you shopping from?"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/success",
+      "source": "src/pages/success.astro",
+      "status": 200,
+      "title": "Thank You for Joining EyEagle",
+      "description": "Your EyEagle registration has been received.",
+      "canonical": "https://eyeagle.ai/success",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "Thank you for joining the EyEagle family"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/tnc",
+      "source": "src/pages/tnc.astro",
+      "status": 200,
+      "title": "Terms Conditions – EyEagle | User Agreement",
+      "description": "Read EyEagle’s terms and conditions for using our website and emergency alarm systems. Transparent policies for a trusted experience.",
+      "canonical": "https://eyeagle.ai/tnc",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Terms & Conditions"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    }
+  ]
+}

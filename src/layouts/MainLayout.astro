@@ -1,9 +1,8 @@
 ---
-import EyeagleLogo from "../assets/Navbar/EyeagleLogo.png";
-import EyeagleLogoBlack from "../assets/Navbar/EyeagleLogoBlack.png";
+import { getImage } from "astro:assets";
+import defaultSocialSource from "../assets/NewHome/HomeImage.png";
 import {
   navLinks,
-  userMenu,
   ctaButtonText,
   ctaHref,
   footerPolicyLinks,
@@ -14,715 +13,394 @@ import {
   siteMeta,
 } from "../data/site";
 import "../styles/global.css";
+
+type SchemaType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
+
+type ArticleMetadata = {
+  headline: string;
+  author: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+};
+
+interface Props {
+  title?: string;
+  desc?: string;
+  metaImage?: string;
+  metaImageAlt?: string;
+  metaImageWidth?: number;
+  metaImageHeight?: number;
+  canonicalPath?: string;
+  noindex?: boolean;
+  footerClass?: string;
+  schemaType?: SchemaType;
+  article?: ArticleMetadata;
+}
+
 const {
-  title = "EyEagle | Preventing Falls, Saving Lives",
-  desc = "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.",
-  metaImage = "https://eyeagle.ai/FavIcon.png",
-} = Astro.props;
-const { pathname } = Astro.url;
-const loginCredential = false;
-const footerClass = Astro.props.footerClass ?? "";
-const { noindex } = Astro.props;
+  title = siteMeta.title,
+  desc = siteMeta.description,
+  metaImage,
+  metaImageAlt = siteMeta.defaultSocialImageAlt,
+  metaImageWidth,
+  metaImageHeight,
+  canonicalPath,
+  noindex = false,
+  footerClass = "",
+  schemaType = "WebPage",
+  article,
+} = Astro.props as Props;
+
+const site = Astro.site ?? new URL(siteMeta.url);
+const rawPath = canonicalPath ?? Astro.url.pathname;
+const normalizedPath = rawPath === "/" ? "/" : rawPath.replace(/\/+$/, "");
+const canonicalUrl = new URL(normalizedPath, site).toString();
+const pathname = Astro.url.pathname;
+
+const defaultSocialImage = await getImage({
+  src: defaultSocialSource,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpg",
+  quality: 82,
+});
+const socialImageUrl = new URL(metaImage || defaultSocialImage.src, site).toString();
+const socialImageWidth = metaImageWidth ?? (metaImage ? undefined : 1200);
+const socialImageHeight = metaImageHeight ?? (metaImage ? undefined : 630);
+
+const organizationId = new URL("/#organization", site).toString();
+const websiteId = new URL("/#website", site).toString();
+const webpageId = `${canonicalUrl}#webpage`;
+
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": organizationId,
+  name: siteMeta.organizationName,
+  legalName: siteMeta.legalName,
+  url: siteMeta.url,
+  logo: new URL("/svg/Logo-new.svg", site).toString(),
+  sameAs: [socialLinks.linkedin, socialLinks.instagram, socialLinks.facebook, socialLinks.youtube],
+};
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": websiteId,
+  url: siteMeta.url,
+  name: siteMeta.organizationName,
+  description: siteMeta.description,
+  publisher: { "@id": organizationId },
+  inLanguage: "en-IN",
+};
+
+const pageSchema = {
+  "@type": schemaType,
+  "@id": webpageId,
+  url: canonicalUrl,
+  name: title,
+  description: desc,
+  isPartOf: { "@id": websiteId },
+  about: { "@id": organizationId },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: socialImageUrl,
+  },
+  inLanguage: "en-IN",
+};
+
+const segmentLabels: Record<string, string> = {
+  blogs: "Blog",
+  "about-us": "About Us",
+  app: "App",
+  contact: "Contact Us",
+  device: "Guardian X",
+  protection: "Protection",
+  solution: "How It Works",
+  shipping: "Shipping Policy",
+  refund: "Refund Policy",
+  privacy: "Privacy Policy",
+  tnc: "Terms of Service",
+};
+const segments = normalizedPath.split("/").filter(Boolean);
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: "Home",
+    item: new URL("/", site).toString(),
+  },
+  ...segments.map((segment, index) => {
+    const isLast = index === segments.length - 1;
+    const pathToSegment = `/${segments.slice(0, index + 1).join("/")}`;
+    const name = isLast
+      ? title.replace(/\s*[|–-]\s*EyEagle.*$/i, "").trim()
+      : (segmentLabels[segment] ?? segment.replaceAll("-", " "));
+    return {
+      "@type": "ListItem",
+      position: index + 2,
+      name,
+      item: new URL(segment === "blogs" ? "/blog" : pathToSegment, site).toString(),
+    };
+  }),
+];
+
+const graph: Record<string, unknown>[] = [organizationSchema, websiteSchema, pageSchema];
+if (segments.length > 0) {
+  graph.push({
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumb`,
+    itemListElement: breadcrumbItems,
+  });
+}
+if (article) {
+  graph.push({
+    "@type": "BlogPosting",
+    "@id": `${canonicalUrl}#article`,
+    headline: article.headline,
+    mainEntityOfPage: { "@id": webpageId },
+    url: canonicalUrl,
+    image: article.image || socialImageUrl,
+    author: { "@type": "Person", name: article.author },
+    publisher: { "@id": organizationId },
+    datePublished: article.datePublished,
+    ...(article.dateModified ? { dateModified: article.dateModified } : {}),
+    inLanguage: "en-IN",
+  });
+}
+const structuredData = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="viewport" content="width=device-width" />
     <meta name="description" content={desc} />
-    <meta property="og:type" content="article" />
+    <meta name="robots" content={noindex ? "noindex, nofollow, noarchive" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content={article ? "article" : "website"} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={metaImage} />
-    <meta property="og:image:secure_url" content={metaImage} />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="EyEagle" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content={socialImageUrl.endsWith(".png") ? "image/png" : "image/jpeg"} />
+    {socialImageWidth && <meta property="og:image:width" content={String(socialImageWidth)} />}
+    {socialImageHeight && <meta property="og:image:height" content={String(socialImageHeight)} />}
+    <meta property="og:image:alt" content={metaImageAlt} />
+    <meta property="og:site_name" content={siteMeta.organizationName} />
+    <meta property="og:locale" content="en_IN" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={desc} />
-    <meta name="twitter:image" content={metaImage} />
-    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={metaImageAlt} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.setAttribute('media', 'all')" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" /></noscript>
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/FavIcon.png" type="image/png" />
-    <script
-      type="text/partytown"
-      is:inline
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${siteMeta.gtmId}`}
-    ></script>
-    <script
-      type="text/partytown"
-      is:inline
-      define:vars={{ gtmId: siteMeta.gtmId }}
-    >
+    <script type="application/ld+json" is:inline set:html={structuredData}></script>
+
+    <script type="text/partytown" is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteMeta.gtmId}`}></script>
+    <script type="text/partytown" is:inline define:vars={{ gtmId: siteMeta.gtmId }}>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
       gtag("config", gtmId);
     </script>
+  </head>
+
+  <body class="min-h-screen bg-white text-gray-900 antialiased">
+    <a href="#main-content" class="sr-only z-100 rounded bg-white px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
+
+    <header class="sticky top-0 z-50 w-full border-b border-black/5 bg-white/95 shadow-sm backdrop-blur" data-site-header>
+      <nav class="mx-auto flex min-h-18 max-w-360 items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-10" aria-label="Primary navigation">
+        <a href="/" aria-label="EyEagle home" class="shrink-0">
+          <img src="/svg/tag-new.svg" width="242" height="29" alt="EyEagle — Preventing Falls, Saving Lives" class="h-7 w-auto sm:h-8" decoding="async" />
+        </a>
+
+        <ul class="hidden items-center gap-6 text-[15px] font-semibold lg:flex">
+          {navLinks.map((item) => {
+            const active = item.children
+              ? item.children.some((child) => pathname === child.url || pathname.startsWith(`${child.url}/`))
+              : pathname === item.url || pathname.startsWith(`${item.url}/`);
+            return (
+              <li>
+                {!item.children ? (
+                  <a href={item.url} aria-current={active ? "page" : undefined} class:list={["rounded px-1 py-3 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary", active && "text-primary"]}>
+                    {item.title}
+                  </a>
+                ) : (
+                  <details class="group relative" data-desktop-dropdown>
+                    <summary class:list={["flex cursor-pointer list-none items-center gap-1 rounded px-1 py-3 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary", active && "text-primary"]}>
+                      {item.title}
+                      <svg aria-hidden="true" class="size-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"></path></svg>
+                    </summary>
+                    <ul class="absolute left-0 top-full min-w-52 rounded-xl border border-black/10 bg-white p-2 shadow-xl">
+                      {item.children.map((child) => (
+                        <li><a href={child.url} aria-current={pathname === child.url ? "page" : undefined} class="block rounded-lg px-4 py-3 text-sm text-black hover:bg-gray-100 hover:text-primary">{child.title}</a></li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+
+        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="hidden min-h-11 shrink-0 items-center rounded-full bg-primary px-5 py-2.5 font-bold text-white hover:bg-[#a90000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex">
+          {ctaButtonText}
+        </a>
+
+        <button type="button" class="inline-flex size-12 items-center justify-center rounded-full border border-black/10 lg:hidden" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
+          <svg data-menu-open-icon aria-hidden="true" class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg>
+          <svg data-menu-close-icon aria-hidden="true" class="hidden size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="m6 6 12 12M18 6 6 18"></path></svg>
+        </button>
+      </nav>
+
+      <div id="mobile-menu" class="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/5 bg-white p-4 shadow-xl lg:hidden" hidden data-mobile-menu>
+        <ul class="space-y-1 font-semibold">
+          {navLinks.map((item) => (
+            <li>
+              {!item.children ? (
+                <a href={item.url} class="block min-h-12 rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-primary">{item.title}</a>
+              ) : (
+                <details class="group">
+                  <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between rounded-lg px-4 py-3 hover:bg-gray-100">
+                    {item.title}
+                    <svg aria-hidden="true" class="size-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"></path></svg>
+                  </summary>
+                  <ul class="ml-4 border-l border-gray-200 pl-3">
+                    {item.children.map((child) => <li><a href={child.url} class="block min-h-11 rounded-lg px-4 py-3 text-sm hover:bg-gray-100 hover:text-primary">{child.title}</a></li>)}
+                  </ul>
+                </details>
+              )}
+            </li>
+          ))}
+        </ul>
+        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="mt-4 flex min-h-12 items-center justify-center rounded-full bg-primary px-5 py-3 font-bold text-white">{ctaButtonText}</a>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer id="footer" class={`bg-black py-16 text-white lg:py-20 ${footerClass}`}>
+      <div class="mx-auto grid max-w-360 gap-12 px-6 lg:grid-cols-[1fr_1.5fr] lg:px-20">
+        <div class="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
+          <img src="/svg/Logo-new.svg" width="242" height="29" alt="EyEagle — Preventing Falls, Saving Lives" class="h-8 w-auto" loading="lazy" decoding="async" />
+          <div class="flex gap-3">
+            {[
+              { href: socialLinks.linkedin, label: "LinkedIn", text: "in" },
+              { href: socialLinks.instagram, label: "Instagram", text: "ig" },
+              { href: socialLinks.facebook, label: "Facebook", text: "f" },
+              { href: socialLinks.youtube, label: "YouTube", text: "▶" },
+            ].map((social) => (
+              <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.text}, Visit EyEagle on ${social.label}`} class="inline-flex size-11 items-center justify-center rounded-full border border-white/30 font-bold text-white hover:border-white hover:bg-white hover:text-black"><span aria-hidden="true">{social.text}</span></a>
+            ))}
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-10 sm:grid-cols-3">
+          {[
+            { heading: "Product", links: footerProductLinks },
+            { heading: "Company", links: footerCompanyLinks },
+            { heading: "Resources", links: footerPolicyLinks },
+          ].map((group) => (
+            <div>
+              <h2 class="mb-4 font-bold">{group.heading}</h2>
+              <ul class="space-y-3">
+                {group.links.map((item) => <li><a href={item.url} class="text-white/75 hover:text-white hover:underline">{item.title}</a></li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p class="mt-16 px-6 text-center text-sm text-white/65">{footerCopyright}</p>
+    </footer>
+
+    <script is:inline>
+      const menuButton = document.querySelector("[data-menu-toggle]");
+      const mobileMenu = document.querySelector("[data-mobile-menu]");
+      const openIcon = document.querySelector("[data-menu-open-icon]");
+      const closeIcon = document.querySelector("[data-menu-close-icon]");
+
+      const setMenuOpen = (open) => {
+        if (!menuButton || !mobileMenu) return;
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        mobileMenu.hidden = !open;
+        openIcon?.classList.toggle("hidden", open);
+        closeIcon?.classList.toggle("hidden", !open);
+        document.body.classList.toggle("overflow-hidden", open);
+      };
+
+      menuButton?.addEventListener("click", () => setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true"));
+      mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMenuOpen(false);
+          document.querySelectorAll("[data-desktop-dropdown][open]").forEach((details) => details.removeAttribute("open"));
+        }
+      });
+      document.addEventListener("click", (event) => {
+        document.querySelectorAll("[data-desktop-dropdown][open]").forEach((details) => {
+          if (!details.contains(event.target)) details.removeAttribute("open");
+        });
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) setMenuOpen(false);
+      }, { passive: true });
+    </script>
+
     <script is:inline>
       !(function (t, e) {
         var o, n, p, r;
-        e.__SV ||
-          (window.posthog && window.posthog.__loaded) ||
-          ((window.posthog = e),
-          (e._i = []),
-          (e.init = function (i, s, a) {
-            function g(t, e) {
-              var o = e.split(".");
-              (2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                (t[e] = function () {
-                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
-                }));
-            }
-            (((p = t.createElement("script")).type = "text/javascript"),
-              (p.crossOrigin = "anonymous"),
-              (p.async = !0),
-              (p.src =
-                s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") +
-                "/static/array.js"),
-              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
-                p,
-                r,
-              ));
-            var u = e;
-            for (
-              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                u.people = u.people || [],
-                u.toString = function (t) {
-                  var e = "posthog";
-                  return (
-                    "posthog" !== a && (e += "." + a),
-                    t || (e += " (stub)"),
-                    e
-                  );
-                },
-                u.people.toString = function () {
-                  return u.toString(1) + ".people (stub)";
-                },
-                o =
-                  "init yi Ar jr mi Or Mr capture Li calculateEventProperties Nr register register_once register_for_session unregister unregister_for_session Br getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty zr Lr createPersonProfile Hr Rr qr opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug L Ur getPageViewId captureTraceFeedback captureTraceMetric Pr".split(
-                    " ",
-                  ),
-                n = 0;
-              n < o.length;
-              n++
-            )
-              g(u, o[n]);
-            e._i.push([i, s, a]);
-          }),
-          (e.__SV = 1));
+        e.__SV || (window.posthog && window.posthog.__loaded) || ((window.posthog = e), (e._i = []), (e.init = function (i, s, a) {
+          function g(t, e) { var o = e.split("."); 2 == o.length && ((t = t[o[0]]), (e = o[1])); t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }; }
+          (p = t.createElement("script")).type = "text/javascript"; p.crossOrigin = "anonymous"; p.async = !0;
+          p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js";
+          (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e;
+          void 0 !== a ? (u = e[a] = []) : (a = "posthog"); u.people = u.people || [];
+          o = "init capture identify group reset opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_distinct_id get_session_id".split(" ");
+          for (n = 0; n < o.length; n++) g(u, o[n]); e._i.push([i, s, a]);
+        }), (e.__SV = 1));
       })(document, window.posthog || []);
       posthog.init("phc_DRoq88uBlB5Pgwkek6x8hvyZ3YgTiUlkwbbEt4eDCxh", {
         api_host: "https://eu.i.posthog.com",
         defaults: "2025-05-24",
-        person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+        person_profiles: "identified_only",
+        disable_session_recording: true,
+        disable_surveys: true,
+        enable_heatmaps: false,
+        advanced_disable_feature_flags: true,
+        advanced_disable_toolbar_metrics: true,
       });
     </script>
-  </head>
-
-  <body class="text-gray-900">
-    <header
-      id="myNav"
-      class="fixed max-lg:hidden w-full top-0 z-40 right-0 px-10 py-4 bg-[#FFFFFF] shadow-[0px_6px_20px_0px_#0000000F]"
-    >
-      <nav class="flex items-center justify-around xl:container">
-        <div class="flex gap-4">
-          <a href="/" aria-label="EyEagle Home Page">
-            <img
-              src="/svg/tag-new.svg"
-              alt="Preventing Falls, Saving Lives"
-              class="h-[32px]"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-        </div>
-        <ul
-          class="hidden md:flex space-x-[26px] font-barlow pl-10 text-[15.4px] leading-[19.6px] tracking-[0.66px] font-medium px-4 mr-[10%]"
-        >
-          {
-            navLinks.map((item) => {
-              const isActive = item.children
-                ? item.children.some((c) => pathname.startsWith(c.url))
-                : pathname === item.url;
-
-              return (
-                <li class="relative">
-                  {/* Normal links */}
-                  {!item.children && (
-                    <a
-                      href={item.url}
-                      class={`hover:underline truncate ${
-                        isActive
-                          ? "text-[#CC0000]"
-                          : "text-black hover:text-[#CC0000]"
-                      }`}
-                    >
-                      {item.title}
-                    </a>
-                  )}
-                  {/* Products dropdown */}
-                  {item.children && (
-                    <div class="group relative">
-                      {/* Trigger */}
-                      <span
-                        class={`flex items-center gap-1 cursor-pointer ${
-                          isActive
-                            ? "text-[#CC0000]"
-                            : "text-black group-hover:text-[#CC0000]"
-                        }`}
-                      >
-                        {item.title}
-                        <svg
-                          class="w-3 h-3 transition-transform duration-200"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-
-                      {/* Dropdown — NO GAP */}
-                      <ul
-                        class="absolute left-0 py-2 top-full hidden min-w-[200px]
-                       rounded-lg bg-white shadow-lg border z-[9999]
-                       group-hover:block"
-                      >
-                        {item.children.map((child) => (
-                          <li>
-                            <a
-                              href={child.url}
-                              class={`block px-4 py-2 text-sm ${
-                                pathname === child.url
-                                  ? "text-[#CC0000] font-medium"
-                                  : "text-black hover:text-[#CC0000]"
-                              } hover:bg-gray-100`}
-                            >
-                              {child.title}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              );
-            })
-          }
-        </ul>
-
-        {
-          pathname === "/plan/" ? (
-            ""
-          ) : (
-            <div class="flex gap-5 justify-end">
-              {/* <button class="relative">
-          <Image id="account" src={Account} alt={'Account'}/>
-        </button> */}
-              <ul
-                id="accountDetails"
-                style={{ display: "none" }}
-                class="absolute hover:cursor-pointer top-[85%] right-[13%] bg-white w-[8.5rem] rounded-xl font-sans-instrument font-normal text-lg"
-              >
-                {userMenu?.map((item) => (
-                  <>
-                    {!loginCredential && item.title === "Login" && (
-                      <a href={`${item.url}`}>
-                        <li class="p-3 hover:text-primary">{item.title}</li>
-                      </a>
-                    )}
-                    {item.title !== "Login" && (
-                      <a href={`${item.url}`}>
-                        <li class="p-3 hover:text-primary">{item.title}</li>
-                      </a>
-                    )}
-                  </>
-                ))}
-              </ul>
-              {/* order button */}
-              <a href={ctaHref} target="blank" rel="noopener noreferrer">
-                <button class="bg-primary truncate text-white px-4 py-3 text-base rounded-3xl font-semibold">
-                  {ctaButtonText}
-                </button>
-              </a>
-            </div>
-          )
-        }
-      </nav>
-    </header>
-    <header
-      id="mobileNav"
-      class="lg:hidden sticky top-0 shadow z-40 bg-[#FFFFFF] w-full"
-    >
-      <nav class="flex justify-between items-center px-5 py-4">
-        <div class="flex items-center gap-4">
-          <a href="/" aria-label="EyEagle Home Page">
-            <img
-              src="/svg/tag-new.svg"
-              alt="Preventing Falls, Saving Lives"
-              class="h-[28px]"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-        </div>
-        <div id="hamburger">
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="24" fill="none"></rect>
-            <path
-              d="M12.3335 18.167H30.6668"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path
-              d="M12.3335 24H30.6668"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path
-              d="M12.3335 29.833H30.6668"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <div id="crossButton" style={{ display: "none" }}>
-          <svg
-            width="48"
-            height="48"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="48" height="48" rx="24" fill="none"></rect>
-            <path
-              d="M29.8337 18.167L18.167 29.8337M18.167 18.167L29.8337 29.8337"
-              stroke="#000000"
-              stroke-width="1.25"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-      </nav>
-    </header>
-    <section
-      id="mobileNavContent"
-      style={{ display: "none" }}
-      class="lg:hidden fixed z-[60] top-22 bg-white h-auto w-full text-center text-lg font-normal py-5 shadow"
-    >
-      <ul class="grid gap-6 font-sans-instrument text-base">
-        {
-          navLinks.map((item) => (
-            <li class="text-center">
-              {/* Normal link */}
-              {!item.children && (
-                <a href={item.url} class="block py-2 hover:text-primary">
-                  {item.title}
-                </a>
-              )}
-
-              {/* Products dropdown */}
-              {item.children && (
-                <div class="flex flex-col items-center">
-                  {/* Trigger */}
-                  <button
-                    type="button"
-                    class="flex items-center gap-2 py-2 font-medium hover:text-primary"
-                    data-mobile-dropdown
-                  >
-                    {item.title}
-                    <svg
-                      class="w-4 h-4 transition-transform"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                  {/* Dropdown */}
-                  <ul
-                    class="mt-4 hidden w-full max-w-xs rounded-xl bg-gray-50 py-3 px-4 shadow-sm
-                     space-y-3 text-sm"
-                    data-mobile-dropdown-menu
-                  >
-                    {item.children.map((child) => (
-                      <li>
-                        <a
-                          href={child.url}
-                          class="block rounded-md py-2 px-3 hover:bg-white hover:text-primary"
-                        >
-                          {child.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-
-    <main>
-      <slot />
-    </main>
-
-    <footer
-      id="footer"
-      class={`py-16 lg:py-20 ${footerClass} bg-[#000000] text-white`}
-    >
-      <div class="flex lg:grid lg:grid-cols-2 flex-col xl:container">
-        <div
-          class="mx-4 lg:mx-[7.5rem] mb-4 lg:mb-10 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start"
-        >
-          <img
-            src="/svg/Logo-new.svg"
-            alt="EyEagle | Preventing Falls, Saving Lives"
-            class="h-[32px]"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="flex justify-center lg:justify-start gap-4">
-            <a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit EyEagle on LinkedIn"
-              class="text-white hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="32"
-                height="32"
-                viewBox="0 0 50 50"
-                fill="currentColor"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
-                ></path>
-              </svg>
-            </a>
-            <!-- <a href={socialLinks.x} target="_blank">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="32"
-                height="32"
-                viewBox="0 0 50 50"
-              >
-                <path
-                  d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
-                ></path>
-              </svg>
-            </a> -->
-            <a
-              href={socialLinks.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit EyEagle on Instagram"
-              class="text-white hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 50 50"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href={socialLinks.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit EyEagle on Facebook"
-              class="text-white hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 50 50"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <path
-                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,0.5-3,2 v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
-                ></path>
-              </svg>
-            </a>
-
-            <a
-              href={socialLinks.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit EyEagle on YouTube"
-              class="text-white hover:text-gray-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="34"
-                height="34"
-                fill="currentColor"
-                viewBox="0 0 28 20"
-                aria-hidden="true"
-                focusable="false"
-                ><path
-                  fill="currentColor"
-                  d="M11.83.005c-2.96.056-4.594.12-6.14.237C3.805.385 3.093.511 2.475.81c-.357.173-.62.357-.92.648C.825 2.173.53 2.913.321 4.569l-.085.67a45 45 0 0 0-.162 2.222c-.099 2.083-.099 2.994 0 5.083.03.662.121 1.906.162 2.221l.085.67c.21 1.657.503 2.397 1.234 3.112.714.696 1.393.95 3.008 1.118C6.72 19.89 9.763 20 14 20c3.646 0 6.203-.073 8.31-.235 1.899-.148 2.597-.27 3.215-.57.357-.173.62-.357.92-.648.73-.715 1.025-1.455 1.234-3.111l.085-.67c.04-.316.132-1.56.162-2.222.099-2.089.099-3 0-5.083a45 45 0 0 0-.162-2.221l-.085-.67c-.21-1.657-.503-2.397-1.234-3.112C25.956.98 25.43.695 24.736.536c-.983-.23-3.269-.397-6.684-.492A295 295 0 0 0 11.83.005m.192 6.266c1.055.611 2.063 1.195 5.324 3.08.594.341 1.083.635 1.083.651 0 .014-.789.484-1.753 1.04a2861 2861 0 0 0-5.511 3.187c-.014.006-.022-1.897-.022-4.226 0-2.33.008-4.232.022-4.227.01.003.395.226.857.495"
-                ></path></svg
-              >
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-row justify-center gap-x-3 gap-y-8 md:gap-x-20 text-start mt-10 md:mt-0 mx-4"
-        >
-          {/* PRODUCT */}
-          <div class="flex flex-col gap-3 min-w-[100px]">
-            <p class="font-semibold">Product</p>
-            {
-              footerProductLinks?.map((item) => (
-                <a
-                  href={item.url}
-                  class="text-white/80 hover:text-white transition"
-                >
-                  {item.title}
-                </a>
-              ))
-            }
-          </div>
-
-          {/* COMPANY */}
-          <div class="flex flex-col gap-3 min-w-[100px]">
-            <p class="font-semibold">Company</p>
-            {
-              footerCompanyLinks?.map((item) => (
-                <a
-                  href={item.url}
-                  class="text-white/80 hover:text-white transition"
-                >
-                  {item.title}
-                </a>
-              ))
-            }
-          </div>
-
-          {/* RESOURCES */}
-          <div class="flex flex-col gap-3 min-w-[100px]">
-            <p class="font-semibold">Resources</p>
-            {
-              footerPolicyLinks?.map((item) => (
-                <a
-                  href={item.url}
-                  class="text-white/80 hover:text-white transition"
-                >
-                  {item.title}
-                </a>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-
-      <p
-        class="text-center font-normal text-sm leading-[1.4rem] opacity-70 mt-20"
-      >
-        {footerCopyright}
-      </p>
-    </footer>
   </body>
 </html>
 
 <style is:global>
-  /* Show styled scrollbar on desktop */
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  html::-webkit-scrollbar-track,
-  body::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  html::-webkit-scrollbar-thumb,
-  body::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    border: 2px solid transparent;
-    background-clip: content-box;
-  }
-  html,
-  body,
-  h1,
-  h2,
-  h3,
-  p {
-    font-family: "Plus Jakarta Sans", sans-serif;
-  }
-  html::-webkit-scrollbar-thumb:hover,
-  body::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-  }
-
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2);
-  }
-
-  article img {
-    border-radius: 16px;
-  }
-
-  .prose ul ul {
-    list-style-type: circle;
-  }
-
-  .prose ul > li::marker,
-  .prose ol > li::marker {
-    color: #000;
-  }
-
-  .prose blockquote {
-    margin: 2rem 0;
-    padding: 1.5rem;
-    background: #FBEBEB;
-    border: none;
-    border-radius: 16px;
-    color: #262626;
-    font-style: normal;
-  }
-
-  .prose blockquote p {
-    margin: 0;
-    font-size: 20px;
-    line-height: 32px;
-    font-weight: 600;
-  }
-
-  /* Hide scrollbars on mobile */
-  @media screen and (max-width: 768px) {
-    html,
-    body {
-      -ms-overflow-style: none; /* IE 10+ */
-      scrollbar-width: none; /* Firefox */
-    }
-
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-      display: none; /* Chrome, Safari */
-    }
-  }
-  html {
-    scroll-behavior: smooth;
+  html { scroll-behavior: smooth; }
+  body { font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; }
+  [hidden] { display: none !important; }
+  summary::-webkit-details-marker { display: none; }
+  :focus-visible { outline: 2px solid #cc0000; outline-offset: 3px; }
+  article img { border-radius: 16px; }
+  .prose ul ul { list-style-type: circle; }
+  .prose blockquote { margin: 2rem 0; border: 0; border-radius: 16px; background: #fbebeb; padding: 1.5rem; color: #262626; font-style: normal; }
+  .prose blockquote p { margin: 0; font-size: 1.125rem; font-weight: 600; line-height: 1.75; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   }
 </style>
-
-<script is:inline define:vars={{ EyeagleLogoBlack, EyeagleLogo }}>
-  let waitButton = document.getElementById("waitBtn");
-  let footer = document.getElementById("footer");
-  let hamburger = document.getElementById("hamburger");
-  let mobileNavContent = document.getElementById("mobileNavContent");
-  let account = document.getElementById("account");
-  let accountDetails = document.getElementById("accountDetails");
-  let crossButton = document.getElementById("crossButton");
-
-  function toggleButtonVisibility() {
-    const footerRect = footer.getBoundingClientRect();
-    const buttonRect = waitButton.getBoundingClientRect();
-
-    if (
-      footerRect.top <= window.innerHeight &&
-      footerRect.bottom >= buttonRect.bottom
-    ) {
-      waitButton.style.display = "none"; // Hide button if it overlaps with the footer
-    } else {
-      waitButton.style.display = ""; // Show button otherwise
-    }
-  }
-
-  window.addEventListener("scroll", toggleButtonVisibility);
-  window.addEventListener("resize", toggleButtonVisibility);
-
-  hamburger?.addEventListener("click", function () {
-    hamburger.style.display = "none";
-    crossButton.style.display = "block";
-    mobileNavContent.style.display = "";
-  });
-
-  crossButton?.addEventListener("click", () => {
-    hamburger.style.display = "block";
-    crossButton.style.display = "none";
-    mobileNavContent.style.display = `none`;
-  });
-
-  account?.addEventListener("click", () => {
-    let display = accountDetails.style.display;
-    accountDetails.style.display = `${display ? "" : "none"}`;
-  });
-</script>
-<script is:inline>
-  document.querySelectorAll("[data-mobile-dropdown]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const menu = btn.nextElementSibling;
-      const arrow = btn.querySelector("svg");
-
-      menu.classList.toggle("hidden");
-      arrow?.classList.toggle("rotate-180");
-    });
-  });
-</script>

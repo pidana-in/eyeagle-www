@@ -1,7 +1,5 @@
 ---
-import { ctaHref } from "../../data/site";
-import { Image } from "astro:assets";
-import BathroomSection from "./BathroomSection.astro";
+import Image from "../common/OptimizedImage.astro";
 import guardianKit from "../../assets/Navbar/guardianKit.png";
 import guardiankit01 from "../../assets/Navbar/guardiankit01.png";
 import guardiankit02 from "../../assets/Navbar/guardiankit02.png";
@@ -9,30 +7,18 @@ import guardiankit3 from "../../assets/Navbar/guardiankit3.png";
 import guardiankit03 from "../../assets/Navbar/guardiankit03.png";
 import guardiankit1desktop from "../../assets/Navbar/guardiankit1desktop.webp";
 import guardiankit2desktop from "../../assets/Navbar/guardiankit2desktop.webp";
-interface Props {
-    takeCareData : {
-    id: number;
-    heading: string;
-    title: string;
-    description: string;
-    image: ImageMetadata;
-}[],
-serviceSectionTitle:string;
-}
-const takeCareData = Astro.props.takeCareData;
-const serviceSectionTitle = Astro.props.serviceSectionTitle;
 ---
 
-<section id="services" class="bg-[#222222]">
-  <div class="xl:container py-[3.75rem] lg:py-[5rem] font-sans-instrument">
-  <div class="lg:pb-20 pb-[6.25rem]">
-    <h2 class="text-white opacity-[60%] text-center font-medium text-[16px] lg:text-lg leading-[1.375rem] mb-2">INTERACTION</h2>
-        <h2 class="lg:text-6xl text-white xl:container font-sans-instrument leading-10 text-[2.5rem] font-medium lg:font-medium lg:leading-[4.5rem] text-center">
-          EyEagle <br><span>Guardian-X Kit</span> 
+<section id="services" class="bg-secondary">
+  <div class="xl:container py-15 lg:py-20 font-sans-instrument">
+  <div class="lg:pb-20 pb-25">
+    <h2 class="text-white opacity-60 text-center font-medium text-[16px] lg:text-lg leading-5.5 mb-2">INTERACTION</h2>
+        <h2 class="lg:text-6xl text-white xl:container font-sans-instrument leading-10 text-[2.5rem] font-medium lg:font-medium lg:leading-18 text-center">
+          EyEagle <br /><span>Guardian-X Kit</span>
         </h2>
   </div>
     <div class="px-4 lg:px-20 lg:pb-20 pb-20">
-      <h2 class="text-white font-normal lg:font-medium text-[2rem] lg:text-4xl leading:[2.5rem] lg:leading-[2.75rem] text-center pb-6 lg:pb-8">Patent-pending technology, seamlessly integrated safety system that alerts and responds instantly</h2>
+      <h2 class="text-white font-normal lg:font-medium text-[2rem] lg:text-4xl leading:[2.5rem] lg:leading-11 text-center pb-6 lg:pb-8">Patent-pending technology, seamlessly integrated safety system that alerts and responds instantly</h2>
       <p class="font-normal text-lg leading-7 text-center text-white pb-20 opacity-75">
         Equipped with a smart alarm unit, control hub, responsive switch, and automated door mechanism, it ensures unmatched security and peace of mind—whether you’re near or far. Stay connected, stay protected.
       </p>
@@ -40,9 +26,9 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
         <Image src={guardianKit} alt={'guardianKit'} class="lg:w-4/5"/>
       </div>
     </div>
-    <div class="grid lg:grid-cols-2 gap-[7.5rem] text-white lg:px-20 px-4 pb-20">
+    <div class="grid lg:grid-cols-2 gap-30 text-white lg:px-20 px-4 pb-20">
       <div >
-        <h2 class="font-medium text-[32px] lg:text-4xl leading-[2.5rem] lg:leading-[2.75rem] pb-8">Uncompromising Safety,<br/><span class="opacity-60"> Smartly Engineered.</span></h2>
+        <h2 class="font-medium text-[32px] lg:text-4xl leading-10 lg:leading-11 pb-8">Uncompromising Safety,<br/><span class="opacity-60"> Smartly Engineered.</span></h2>
       <p class="font-normal text-base opacity-70 leading-7 lg:text-lg">Seamlessly linked to the EyEagle mobile app, it ensures instant alerts, a direct line to the dispatch team in case of emergencies, and a smart lock that detects emergencies, allowing quick access when needed.</p>
       </div>
       <div class="flex flex-col lg:flex-row justify-center items-start lg:items-end gap-5">
@@ -95,7 +81,7 @@ const serviceSectionTitle = Astro.props.serviceSectionTitle;
       </div>
     </div>
   </div>
-  <div class="lg:pb-[120px] pb-10">
+  <div class="lg:pb-30 pb-10">
     <a href="https://eyeagle.ai/join"
       class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base text-center hover:bg-gray-100 transition">
       Subscribe to Updates
