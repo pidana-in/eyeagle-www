@@ -68,6 +68,7 @@ import blogImage32 from "../../assets/Blog/BlogImage32.jpg";
 import blogImage33 from "../../assets/Blog/BlogImage33.jpg";
 import blogImage34 from "../../assets/Blog/BlogImage34.jpg";
 import blogImage35 from "../../assets/Blog/BlogImage35.jpg";
+import blogImage36 from "../../assets/Blog/BlogImage36.jpg";
 
 export const bathroomData = [
   {
@@ -374,6 +375,12 @@ export const blogsData = [
     title: "“Kuch Nahi Hoga”-The Most Dangerous Sentence in Indian Household",
     desc: "The “kuch nahi hoga” mentality in Indian households often ignores real safety risks for aging parents. Learn why quiet preparedness matters.",
     img: blogImage35,
+  },
+   {
+    slug: "elderly-fall-story-home-safety-wake-up-call",
+    title: "The Day Dad Fell: How One Accident Became Our Wake-Up Call",
+    desc: "Learn about bathroom falls among the elderly, home safety for elderly parents, and simple fall prevention steps to keep your loved ones safe.",
+    img: blogImage36,
   },
 ];
 
