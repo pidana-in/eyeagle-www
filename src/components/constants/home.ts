@@ -67,6 +67,7 @@ import blogImage31 from "../../assets/Blog/BlogImage31.jpg";
 import blogImage32 from "../../assets/Blog/BlogImage32.jpg";
 import blogImage33 from "../../assets/Blog/BlogImage33.jpg";
 import blogImage34 from "../../assets/Blog/BlogImage34.jpg";
+import blogImage35 from "../../assets/Blog/BlogImage35.jpg";
 
 export const bathroomData = [
   {
@@ -367,6 +368,12 @@ export const blogsData = [
     title: "Monsoon Bathroom Safety Tips for Seniors | EyEagle",
     desc: "Protect elderly loved ones this monsoon with practical bathroom safety tips to prevent slips, falls, and injuries. Learn how to make bathrooms safer.",
     img: blogImage34,
+  },
+   {
+    slug: "kuch-nahi-hoga-the-most-dangerous-sentence-in-indian-households",
+    title: "“Kuch Nahi Hoga”-The Most Dangerous Sentence in Indian Household",
+    desc: "The “kuch nahi hoga” mentality in Indian households often ignores real safety risks for aging parents. Learn why quiet preparedness matters.",
+    img: blogImage35,
   },
 ];
 
