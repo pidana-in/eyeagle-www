@@ -49,7 +49,10 @@ const testimonials = Astro.props.testimonials as Testimonial[];
                     <Image
                       src={item.image}
                       alt={item.name}
-                      class="w-full h-full object-cover"
+                      layout="fixed"
+                      width={48}
+                      height={48}
+                      class="rounded-full object-cover"
                     />
                   </div>
                   <div>
