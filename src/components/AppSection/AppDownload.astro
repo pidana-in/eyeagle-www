@@ -26,8 +26,7 @@ const stores = Astro.props.stores;
         stores.map((store: any) => (
           <a href={store.href} target="_blank" rel="noopener noreferrer">
             <div class="w-50">
-
-            <Image src={store.image} alt={store.alt} class="max-w-50" />
+              <Image src={store.image} alt={store.alt} class="w-full h-auto" />
             </div>
           </a>
         ))

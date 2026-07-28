@@ -52,11 +52,13 @@ const featureData = Astro.props.featureData;
             </ul>
           )}
         </div>
-        <Image
-          src={feature.image}
-          alt="Feature image"
-          class="w-full max-w-xl lg:max-w-140 h-auto rounded-3xl"
-        />
+        <div class="w-full lg:w-120 flex justify-center">
+          <Image
+            src={feature.image}
+            alt="Feature image"
+            class="w-full h-auto rounded-3xl"
+          />
+        </div>
       </div>
     ))
   }
