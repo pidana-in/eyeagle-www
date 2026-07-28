@@ -7,14 +7,14 @@ const features = Astro.props.features;
 <!-- DESKTOP VIEW -->
 <h1 class="sr-only" set:html={heroContent.title}></h1>
 <div class="hidden lg:block">
-  <div class="relative 2xl:container lg:py-20">
+  <div class="relative 2xl:container lg:pb-20">
     <Image
       src={heroContent.images.img1}
       alt="Bathroom Safety Hero"
       class="w-full object-cover"
     />
     <div
-      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-86 mb-28.5 mx-30"
+      class="absolute inset-0 flex flex-col items-center justify-center text-center px-10 mt-64 mb-28.5 mx-30"
     >
       <span
         class="px-3 py-1.5 rounded-full text-sm font-medium border border-white/50 bg-white/20 backdrop-blur text-white"
