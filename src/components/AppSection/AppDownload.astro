@@ -16,9 +16,7 @@ const stores = Astro.props.stores;
       <h2 class="text-[28px] md:text-5xl font-bold leading-none tracking-wide">
         {contentData.title}
       </h2>
-      <p
-        class="md:text-lg text-base text-[#090D15] font-medium max-w-240 py-8"
-      >
+      <p class="md:text-lg text-base text-[#090D15] font-medium max-w-240 py-8">
         {contentData.description}
       </p>
     </div>
@@ -27,7 +25,10 @@ const stores = Astro.props.stores;
       {
         stores.map((store: any) => (
           <a href={store.href} target="_blank" rel="noopener noreferrer">
+            <div class="w-50">
+
             <Image src={store.image} alt={store.alt} class="max-w-50" />
+            </div>
           </a>
         ))
       }
