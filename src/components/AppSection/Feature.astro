@@ -16,7 +16,7 @@ const featureData = Astro.props.featureData;
   {
     features.map((feature: any) => (
       <div
-        class={`flex flex-col lg:flex-row w-full max-w-300 items-center gap-10 md:gap-12 lg:gap-20
+        class={`flex flex-col lg:flex-row w-full max-w-300 items-center justify-between gap-10 md:gap-12 lg:gap-20
         ${feature.reverse ? "lg:flex-row-reverse" : ""}`}
       >
         <div class="w-full max-w-xl lg:max-w-140 text-start my-10">
@@ -52,11 +52,13 @@ const featureData = Astro.props.featureData;
             </ul>
           )}
         </div>
-        <Image
-          src={feature.image}
-          alt="Feature image"
-          class="w-full max-w-xl lg:max-w-140 h-auto rounded-3xl"
-        />
+        <div class="w-full lg:w-140 flex justify-center">
+          <Image
+            src={feature.image}
+            alt="Feature image"
+            class="w-full h-auto rounded-3xl"
+          />
+        </div>
       </div>
     ))
   }

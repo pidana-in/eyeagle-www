@@ -38,7 +38,7 @@ const { userCards, statsData } = Astro.props as Props;
   >
     {
       userCards.map((card: UserCard) => (
-        <div class="shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col rounded-3xl border bg-[#F9F7F7] overflow-hidden text-center">
+        <div class="shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col rounded-3xl border border-[#00000014] bg-[#F9F7F7] overflow-hidden text-center">
           <Image
             src={card.image}
             alt={card.title}
