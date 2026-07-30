@@ -56,6 +56,11 @@
       "kind": "blog"
     },
     {
+      "route": "/blogs/elderly-fall-story-home-safety-wake-up-call",
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/falls-kill-more-seniors-than-you-think",
       "source": "src/content/blogs/fall.md",
       "kind": "blog"
@@ -98,6 +103,11 @@
     {
       "route": "/blogs/importance-of-regular-vision-checks",
       "source": "src/content/blogs/vision.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/kuch-nahi-hoga-the-most-dangerous-sentence-in-indian-households",
+      "source": "src/content/blogs/Kuch-nhi-hoga.md",
       "kind": "blog"
     },
     {
@@ -595,6 +605,34 @@
       "referenced": true,
       "references": [
         "src/content/blogs/monsoon.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog35Infographic.png",
+      "format": "png",
+      "width": 1024,
+      "height": 1415,
+      "bytes": 1352431,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/Kuch-nhi-hoga.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/Blog36Infographic.png",
+      "format": "png",
+      "width": 1062,
+      "height": 598,
+      "bytes": 919012,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/day-Dad-fell.md"
       ]
     },
     {
@@ -1103,6 +1141,36 @@
       ]
     },
     {
+      "file": "src/assets/Blog/BlogImage35.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1902962,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/Kuch-nhi-hoga.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage36.jpg",
+      "format": "jpeg",
+      "width": 2124,
+      "height": 1320,
+      "bytes": 1561760,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/day-Dad-fell.md"
+      ]
+    },
+    {
       "file": "src/assets/Blog/BlogImage4.jpg",
       "format": "jpeg",
       "width": 2124,
@@ -1362,57 +1430,85 @@
     {
       "file": "src/assets/Common/contactLogo1.png",
       "format": "png",
-      "width": 40,
-      "height": 40,
-      "bytes": 2432,
+      "width": 208,
+      "height": 208,
+      "bytes": 4915,
       "category": "logo",
       "classificationConfidence": "high",
       "needsVisualReview": false,
       "referenced": true,
       "references": [
-        "src/pages/contact.astro"
+        "src/components/constants/contactus.ts"
       ]
     },
     {
       "file": "src/assets/Common/contactLogo2.png",
       "format": "png",
-      "width": 40,
-      "height": 40,
-      "bytes": 730,
+      "width": 208,
+      "height": 208,
+      "bytes": 5454,
       "category": "logo",
       "classificationConfidence": "high",
       "needsVisualReview": false,
       "referenced": true,
       "references": [
-        "src/pages/contact.astro"
+        "src/components/constants/contactus.ts"
       ]
     },
     {
-      "file": "src/assets/Common/contactLogo3.png",
+      "file": "src/assets/Contactus/contact1.png",
       "format": "png",
-      "width": 40,
-      "height": 40,
-      "bytes": 870,
-      "category": "logo",
-      "classificationConfidence": "high",
-      "needsVisualReview": false,
+      "width": 570,
+      "height": 418,
+      "bytes": 413766,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/contact.astro"
+        "src/components/constants/contactus.ts"
       ]
     },
     {
-      "file": "src/assets/Common/contactLogo4.png",
+      "file": "src/assets/Contactus/contact2.png",
       "format": "png",
-      "width": 40,
-      "height": 40,
-      "bytes": 620,
-      "category": "logo",
-      "classificationConfidence": "high",
-      "needsVisualReview": false,
+      "width": 550,
+      "height": 367,
+      "bytes": 344715,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/contact.astro"
+        "src/components/constants/contactus.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Contactus/contact3.png",
+      "format": "png",
+      "width": 550,
+      "height": 367,
+      "bytes": 362341,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/contactus.ts"
+      ]
+    },
+    {
+      "file": "src/assets/Contactus/contact4.png",
+      "format": "png",
+      "width": 550,
+      "height": 367,
+      "bytes": 371266,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/contactus.ts"
       ]
     },
     {
@@ -4745,6 +4841,26 @@
       "external": true
     },
     {
+      "source": "src/components/constants/contactus.ts",
+      "href": "tel:+919429694911",
+      "external": false
+    },
+    {
+      "source": "src/components/constants/contactus.ts",
+      "href": "mailto:${SUPPORT_EMAIL}",
+      "external": false
+    },
+    {
+      "source": "src/components/constants/contactus.ts",
+      "href": "mailto:${CONTACT_EMAIL}",
+      "external": false
+    },
+    {
+      "source": "src/components/constants/contactus.ts",
+      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
+      "external": true
+    },
+    {
       "source": "src/components/constants/device.ts",
       "href": "https://eyeagle.ai/join",
       "external": true
@@ -4757,6 +4873,21 @@
     {
       "source": "src/components/constants/newHome.ts",
       "href": "https://eyeagle.ai/solution",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/Kuch-nhi-hoga.md",
+      "href": "/blogs/caring-from-distance",
+      "external": false
+    },
+    {
+      "source": "src/content/blogs/Kuch-nhi-hoga.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/Kuch-nhi-hoga.md",
+      "href": "https://eyeagle.ai/",
       "external": true
     },
     {
@@ -4927,6 +5058,66 @@
     {
       "source": "src/content/blogs/critical.md",
       "href": "https://play.google.com/store/apps/details?id=com.app.eyeagle&hl=en_IN",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "http://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/blogs/how-to-make-your-home-safe",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "http://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/blogs/how-to-make-your-home-safe",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "href": "https://eyeagle.ai/app",
       "external": true
     },
     {
@@ -5707,36 +5898,6 @@
     {
       "source": "src/pages/blogsList.json.ts",
       "href": "https://eyeagle.ai/blogs/",
-      "external": true
-    },
-    {
-      "source": "src/pages/contact.astro",
-      "href": "mailto:support@eyeagle.ai",
-      "external": false
-    },
-    {
-      "source": "src/pages/contact.astro",
-      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
-      "external": true
-    },
-    {
-      "source": "src/pages/contact.astro",
-      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
-      "external": true
-    },
-    {
-      "source": "src/pages/contact.astro",
-      "href": "mailto:support@eyeagle.ai",
-      "external": false
-    },
-    {
-      "source": "src/pages/contact.astro",
-      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
-      "external": true
-    },
-    {
-      "source": "src/pages/contact.astro",
-      "href": "https://maps.app.goo.gl/CTSoBpsFi6zbqWkP9",
       "external": true
     },
     {
