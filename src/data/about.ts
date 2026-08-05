@@ -9,8 +9,8 @@ export const aboutHeader = {
   headerBannerSrc: HeaderBanner,
   headerBannerSrc2: HeaderBanner2,
   title:
-    'From <span class="text-[#CC0000]">Prevention</span> to <span class="text-[#CC0000]">Protection</span>, <br>We’re with You',
-  desc: '<span class="text-[#CC0000]">Empowering families</span> to care for their elderly loved ones, no matter where they are.<br /> Inspired by real challenges faced by seniors and their families, <span class="text-[#CC0000]">EyEagle bridges the gap between technology and compassionate care.</span>',
+    'From <span class="text-primary">Prevention</span> to <span class="text-primary">Protection</span>, <br>We’re with You',
+  desc: '<span class="text-primary">Empowering families</span> to care for their elderly loved ones, no matter where they are.<br /> Inspired by real challenges faced by seniors and their families, <span class="text-primary">EyEagle bridges the gap between technology and compassionate care.</span>',
 };
 
 export const aboutUsFoundersData = [
@@ -77,7 +77,7 @@ export const coreValues = [
 ];
 
 export const whyEyEagle = {
-  title: 'Why <span class="text-[#CC0000]">EyEagle</span><br /> is different?',
+  title: 'Why <span class="text-primary">EyEagle</span><br /> is different?',
   content: [
     {
       iconType: "star",

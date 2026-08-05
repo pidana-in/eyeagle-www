@@ -44,20 +44,20 @@ export const contexts = [
   }
 
   export const BottomSectionData={
-    title:`<span class="text-[#CC0000]">World’s first PIDANA</span> Protocol. End to End Solution`,
+    title:`<span class="text-primary">World’s first PIDANA</span> Protocol. End to End Solution`,
     desc1:`At the core of EyEagle’s safety philosophy is the 6-step protection system PIDANA(Prevention, Interaction, Detection, Alarm, Notification, and Action) that ensures your loved ones are safe, even when you’re not around`,
 
   }
   
   export const ContextSectionData={
-    title:`A <span class="text-[#CC0000]">Single Fall</span> Can Change Everything.`,
+    title:`A <span class="text-primary">Single Fall</span> Can Change Everything.`,
     desc:" For many families, a fall can mean more than just a trip to the emergency room—it can take away a loved one’s independence. Falls in the bathroom are often the tipping point that leads to more serious injuries, hospitalization, or worse."
   }
 
   export const HeroSectionData={
     btnText:"HOW WE DO",
-    title:` Because <span class="text-[#CC0000]">Prevention</span> is<br />
-      Better Than <span class="text-[#CC0000]">Reaction</span>`,
+    title:` Because <span class="text-primary">Prevention</span> is<br />
+      Better Than <span class="text-primary">Reaction</span>`,
       desc:"Every year, millions of elderly people experience falls in their homes, with the bathroom being the highest-risk area. These falls aren’t just accidents—they’re preventable events that can drastically impact quality of life."
   }
 
