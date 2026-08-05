@@ -23,8 +23,8 @@ export const WaitlistFormData = {
 export const postFormFillData = {
   floatingText: "SPECIAL LAUNCH OFFER",
   boxContent: "For the next 100 people",
-  title: `<span class="text-[#CC0000]">Less</span> than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
-  mobileTitle: `For Less than your <span class="text-[#CC0000]">emergency</span> flight ticket`,
+  title: `<span class="text-primary">Less</span> than your <span class="text-primary">emergency</span> flight ticket`,
+  mobileTitle: `For Less than your <span class="text-primary">emergency</span> flight ticket`,
   cutPrice: ` + <span class="line-through">29,999</span>`,
   originalPrice: "₹19,999",
   duration: "",
