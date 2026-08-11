@@ -29,12 +29,16 @@ export interface InfoCard {
 
 export const PHONE_DISPLAY = "+91 94296 94911";
 export const PHONE_TEL_LINK = "tel:+919429694911";
+
 export const SUPPORT_EMAIL = "support@eyeagle.ai";
 export const SUPPORT_EMAIL_LINK = `mailto:${SUPPORT_EMAIL}`;
-export const CONTACT_EMAIL = "contact.eyeagle@gmail.com";
-export const CONTACT_EMAIL_LINK = `mailto:${CONTACT_EMAIL}`;
+
+export const CONTACT_EMAIL = SUPPORT_EMAIL;
+export const CONTACT_EMAIL_LINK = SUPPORT_EMAIL_LINK;
+
 export const REGISTERED_ADDRESS =
   "BHIVE Workspace - No.112, AKR Tech Park, 7th Mile Hosur Rd, Krishna Reddy Industrial Area, Madivala, Bangalore, Bangalore South, Karnataka, India, 560068";
+
 export const HERO = {
   heading: "Need help protecting someone at home?",
   description:
@@ -80,8 +84,14 @@ export const INFO_CARDS: InfoCard[] = [
     alt: "Contact",
     title: "Contacts",
     lines: [
-      { href: CONTACT_EMAIL_LINK, text: CONTACT_EMAIL },
-      { href: PHONE_TEL_LINK, text: PHONE_DISPLAY },
+      {
+        href: CONTACT_EMAIL_LINK,
+        text: CONTACT_EMAIL,
+      },
+      {
+        href: PHONE_TEL_LINK,
+        text: PHONE_DISPLAY,
+      },
     ],
   },
   {
