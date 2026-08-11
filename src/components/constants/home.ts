@@ -69,6 +69,7 @@ import blogImage33 from "../../assets/Blog/BlogImage33.jpg";
 import blogImage34 from "../../assets/Blog/BlogImage34.jpg";
 import blogImage35 from "../../assets/Blog/BlogImage35.jpg";
 import blogImage36 from "../../assets/Blog/BlogImage36.jpg";
+import blogImage37 from "../../assets/Blog/BlogImage37.jpg";
 
 export const bathroomData = [
   {
@@ -381,6 +382,12 @@ export const blogsData = [
     title: "The Day Dad Fell: How One Accident Became Our Wake-Up Call",
     desc: "Learn about bathroom falls among the elderly, home safety for elderly parents, and simple fall prevention steps to keep your loved ones safe.",
     img: blogImage36,
+  },
+     {
+    slug: "hidden-fall-risk-osteoporosis-in-indian-women",
+    title: "Osteoporosis in Indian Women: Fall Risks After 50",
+    desc: "Discover why osteoporosis is common in Indian women after 50. Learn the signs, risk factors, DEXA scan cost, and ways to protect bone health.",
+    img: blogImage37,
   },
 ];
 
