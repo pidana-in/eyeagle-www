@@ -12,11 +12,17 @@ if (showSeeMoreButton) {
 ---
 
 <section class="2xl:container lg:py-16 py-8 lg:px-20 px-5">
-  {showSeeMoreButton ? (
-    <h2 class="text-4xl lg:text-[64px] leading-10 lg:leading-22 mb-4 font-medium">Blog</h2>
-  ) : (
-    <h1 class="text-4xl lg:text-[64px] leading-10 lg:leading-22 mb-4 font-medium">EyEagle Blog</h1>
-  )}
+  {
+    showSeeMoreButton ? (
+      <h2 class="text-4xl lg:text-[64px] leading-10 lg:leading-22 mb-4 font-medium">
+        Blog
+      </h2>
+    ) : (
+      <h1 class="text-4xl lg:text-[64px] leading-10 lg:leading-22 mb-4 font-medium">
+        EyEagle Blog
+      </h1>
+    )
+  }
   <p
     class="lg:mb-15 mb-6 lg:mt-8 text-2xl leading-7 lg:text-4xl lg:leading-10 font-barlow"
   >
@@ -27,11 +33,13 @@ if (showSeeMoreButton) {
       blogsData.map((blog) => (
         <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
           <a href={`/blogs/${blog.id}`}>
-            <Image
-              src={blog.data.img}
-              alt={blog.data.title}
-              class="w-full object-cover"
-            />
+            <div class="aspect-5/3 w-full overflow-hidden">
+              <Image
+                src={blog.data.img}
+                alt={blog.data.title}
+                class="w-full object-cover"
+              />
+            </div>
 
             <div class="p-6 flex flex-col justify-between grow font-barlow">
               <p class="text-lg text-gray-600 leading-5 mb-4">
