@@ -117,19 +117,25 @@ if (Astro.request.method === "POST") {
 
 <MainLayout title={metaTitle} desc={metaDesc}>
   <section class="bg-[#F6F4F2] font-sans-instrument">
-    <section class="xl:container px-5 py-10 md:px-20 md:pt-32 md:pb-12">
+    <section
+      class="xl:container px-5 sm:px-8 py-8 sm:py-10 md:pt-20 md:pb-12 lg:pt-32"
+    >
       <div
-        class="flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-28"
+        class="flex flex-col lg:flex-row justify-between items-center gap-8 sm:gap-10 lg:gap-28"
       >
-        <div class="lg:w-1/2 text-center md:text-start">
+        <!-- Left Content -->
+        <div class="w-full lg:w-1/2 text-center md:text-start">
           <h1
-            class="text-3xl md:text-5xl font-semibold md:leading-15 mb-5 md:mb-8"
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight md:leading-14 mb-4 md:mb-6"
           >
             {WaitlistHeaderData.title}
           </h1>
-          <p class="text-lg font-medium">{WaitlistHeaderData.description}</p>
+          <p class="text-base sm:text-lg font-medium leading-6 sm:leading-7">
+            {WaitlistHeaderData.description}
+          </p>
         </div>
-        <div class="lg:w-1/2 md:p-10 rounded-xl">
+        <!-- Form -->
+        <div class="w-full lg:w-1/2 rounded-xl">
           <div id="joinForm" class={formPosted ? "hidden" : "block"}>
             <form method="POST" class="flex flex-col gap-5" id="waitlistForm">
               <div class="flex flex-col gap-3">
@@ -148,14 +154,14 @@ if (Astro.request.method === "POST") {
               </div>
               <div class="flex flex-col gap-3">
                 <label for="phoneNumField">Phone number*</label>
-                <div class="relative">
+                <div class="relative w-full">
                   <button
                     type="button"
                     id="dropdownButton"
                     aria-label="Choose country calling code"
                     aria-controls="dropdownMenu"
                     aria-expanded="false"
-                    class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
+                    class="absolute inset-y-0 left-0 w-25 sm:w-26.25 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
                   >
                     <span class="flex items-center">
                       <Icon
@@ -186,6 +192,8 @@ if (Astro.request.method === "POST") {
                               src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
                               alt={`${country.code} flag`}
                               width="20"
+                              height="15"
+                              loading="lazy"
                             />
                             {country.dial_code}
                           </button>
@@ -201,13 +209,14 @@ if (Astro.request.method === "POST") {
                     inputmode="numeric"
                     pattern="[6-9][0-9]{9}"
                     maxlength="10"
-                    class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                    class="w-full p-3 pl-26.25 sm:pl-28 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
                   />
                 </div>
                 <p id="phoneError" class="text-red-500 text-sm hidden">
                   Please enter a valid 10-digit mobile number
                 </p>
               </div>
+              <!-- Email -->
               <div class="flex flex-col gap-3">
                 <label for="emailField">Email*</label>
                 <input
@@ -219,6 +228,7 @@ if (Astro.request.method === "POST") {
                   class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
                 />
               </div>
+              <!-- City -->
               <div class="flex flex-col gap-3">
                 <label for="cityField">City*</label>
                 <input
@@ -230,6 +240,7 @@ if (Astro.request.method === "POST") {
                   class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666]"
                 />
               </div>
+              <!-- Interest -->
               <div class="mt-2">
                 <p class="font-medium mb-3">Interest (Optional)</p>
                 <div class="flex flex-col gap-2">
@@ -240,9 +251,9 @@ if (Astro.request.method === "POST") {
                       value="notify_launch"
                       class="h-4 w-4 border-gray-400"
                     />
-                    <span class="text-[#2E2323]"
-                      >{WaitlistFormData.notifyLaunch}</span
-                    >
+                    <span class="text-[#2E2323]">
+                      {WaitlistFormData.notifyLaunch}
+                    </span>
                   </label>
                   <label class="flex items-center gap-2">
                     <input
@@ -251,9 +262,9 @@ if (Astro.request.method === "POST") {
                       value="early_access"
                       class="h-4 w-4 border-gray-400"
                     />
-                    <span class="text-[#2E2323]"
-                      >{WaitlistFormData.earlyAccess}</span
-                    >
+                    <span class="text-[#2E2323]">
+                      {WaitlistFormData.earlyAccess}
+                    </span>
                   </label>
                   <label class="flex items-center gap-2">
                     <input
@@ -262,18 +273,21 @@ if (Astro.request.method === "POST") {
                       value="talk_expert"
                       class="h-4 w-4 border-gray-400"
                     />
-                    <span class="text-[#2E2323]"
-                      >{WaitlistFormData.talkExpert}</span
-                    >
+                    <span class="text-[#2E2323]">
+                      {WaitlistFormData.talkExpert}
+                    </span>
                   </label>
                 </div>
               </div>
+              <!-- Submit -->
               <button
                 type="submit"
                 id="submitButton"
-                class="md:w-full p-4 rounded-[30px] text-white bg-primary font-medium mt-2 relative"
+                class="w-full p-4 rounded-[30px] text-white bg-primary font-medium mt-2 relative"
               >
-                <span id="buttonText">{WaitlistFormData.buttonTitle}</span>
+                <span id="buttonText">
+                  {WaitlistFormData.buttonTitle}
+                </span>
                 <div
                   id="loader"
                   class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -369,16 +383,20 @@ if (Astro.request.method === "POST") {
   });
 
   dropdownMenu.addEventListener("click", (event) => {
-    const option = event.target instanceof Element
-      ? event.target.closest("button[data-value][data-country-code]")
-      : null;
+    const option =
+      event.target instanceof Element
+        ? event.target.closest("button[data-value][data-country-code]")
+        : null;
+
     if (!(option instanceof HTMLButtonElement)) return;
 
     const selectedDialCode = option.dataset.value;
     const selectedCountryCode = option.dataset.countryCode;
+
     if (!selectedDialCode || !selectedCountryCode) return;
 
     dropdownButton.innerHTML = "";
+
     const flagImage = document.createElement("img");
     flagImage.src = `https://flagcdn.com/w40/${selectedCountryCode.toLowerCase()}.png`;
     flagImage.alt = `${selectedCountryCode} flag`;
@@ -397,6 +415,7 @@ if (Astro.request.method === "POST") {
     document
       .querySelectorAll("#dropdownMenu > button[data-value]")
       .forEach((el) => el.classList.remove("bg-gray-300"));
+
     option.classList.add("bg-gray-300");
   });
 
@@ -411,30 +430,32 @@ if (Astro.request.method === "POST") {
   });
 
   function initializeDefaultPhoneCode() {
-    phoneNumField.classList.add("pl-[112px]");
-    dropdownButton.classList.add("max-w-[105px]");
-
     const defaultDialCode = "+91";
+
     const defaultOption = Array.from(
       dropdownMenu.querySelectorAll("button[data-value][data-country-code]"),
     ).find((option) => option.dataset.value === defaultDialCode);
 
     if (defaultOption instanceof HTMLButtonElement) {
       const defaultCountryCode = defaultOption.dataset.countryCode;
+
       if (!defaultCountryCode) return;
 
       const flagImage = document.createElement("img");
+
       flagImage.src = `https://flagcdn.com/w40/${defaultCountryCode.toLowerCase()}.png`;
       flagImage.alt = `${defaultCountryCode} flag`;
       flagImage.width = 20;
       flagImage.className = "mr-2";
 
       dropdownButton.innerHTML = "";
+
       dropdownButton.appendChild(flagImage);
       dropdownButton.appendChild(document.createTextNode(defaultDialCode));
       dropdownButton.appendChild(iconSpan);
 
       phCode.value = defaultDialCode;
+
       defaultOption.classList.add("bg-gray-300");
     }
   }
@@ -461,18 +482,22 @@ if (Astro.request.method === "POST") {
       // FULL NAME VALIDATION
       if (!nameRegex.test(fullNameValue)) {
         e.preventDefault();
+
         fullNameError.classList.remove("hidden");
         fullNameField.classList.add("border-red-500");
         fullNameField.focus();
+
         return;
       }
 
       // PHONE VALIDATION
       if (!phoneRegex.test(phoneValue)) {
         e.preventDefault();
+
         phoneError.classList.remove("hidden");
         phoneNumField.classList.add("border-red-500");
         phoneNumField.focus();
+
         return;
       }
 

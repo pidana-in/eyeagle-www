@@ -16,6 +16,11 @@
       "kind": "page"
     },
     {
+      "route": "/assessment-form",
+      "source": "src/pages/assessment-form.astro",
+      "kind": "page"
+    },
+    {
       "route": "/blog",
       "source": "src/pages/blog.astro",
       "kind": "page"
@@ -63,6 +68,11 @@
     {
       "route": "/blogs/falls-kill-more-seniors-than-you-think",
       "source": "src/content/blogs/fall.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/hidden-fall-risk-osteoporosis-in-indian-women",
+      "source": "src/content/blogs/osteoporosis.md",
       "kind": "blog"
     },
     {
@@ -1168,6 +1178,105 @@
       "references": [
         "src/components/constants/home.ts",
         "src/content/blogs/day-Dad-fell.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37.jpg",
+      "format": "png",
+      "width": 2200,
+      "height": 1320,
+      "bytes": 3713884,
+      "category": "photograph or generated artwork",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37Info-1.png",
+      "format": "png",
+      "width": 2200,
+      "height": 1466,
+      "bytes": 4535529,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37Info-2.png",
+      "format": "png",
+      "width": 2400,
+      "height": 1316,
+      "bytes": 3462609,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37Info-3.png",
+      "format": "png",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 2784489,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37Info-4.png",
+      "format": "png",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 3632311,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37Info-5.png",
+      "format": "png",
+      "width": 2400,
+      "height": 1316,
+      "bytes": 2443590,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage37Info-6.png",
+      "format": "png",
+      "width": 2400,
+      "height": 1502,
+      "bytes": 6138693,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/osteoporosis.md"
       ]
     },
     {
@@ -4746,6 +4855,11 @@
       "external": false
     },
     {
+      "source": "src/components/NewHome/StepsSection.astro",
+      "href": "/assessment-form",
+      "external": false
+    },
+    {
       "source": "src/components/NewHome/Testimonials.astro",
       "href": "http://www.w3.org/2000/svg",
       "external": true
@@ -4849,16 +4963,6 @@
       "source": "src/components/constants/contactus.ts",
       "href": "mailto:${SUPPORT_EMAIL}",
       "external": false
-    },
-    {
-      "source": "src/components/constants/contactus.ts",
-      "href": "mailto:${CONTACT_EMAIL}",
-      "external": false
-    },
-    {
-      "source": "src/components/constants/contactus.ts",
-      "href": "https://shop.eyeagle.ai/products/bathroom-audit",
-      "external": true
     },
     {
       "source": "src/components/constants/device.ts",
@@ -5431,6 +5535,76 @@
       "external": true
     },
     {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/diet-and-nutrition-in-healthy-aging",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/diet-and-nutrition-in-healthy-aging",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/new-year-safer-home-safety-tips",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/importance-of-open-conversations-about-aging",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/diet-and-nutrition-in-healthy-aging",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/diet-and-nutrition-in-healthy-aging",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/new-year-safer-home-safety-tips",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/osteoporosis.md",
+      "href": "https://eyeagle.ai/blogs/importance-of-open-conversations-about-aging",
+      "external": true
+    },
+    {
       "source": "src/content/blogs/safe-home.md",
       "href": "/blogs/falls-kill-more-seniors-than-you-think",
       "external": false
@@ -5826,6 +6000,21 @@
       "external": true
     },
     {
+      "source": "src/pages/assessment-form.astro",
+      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
+      "external": true
+    },
+    {
+      "source": "src/pages/assessment-form.astro",
+      "href": "https://flagcdn.com/w40/${selectedCountryCode.toLowerCase(",
+      "external": true
+    },
+    {
+      "source": "src/pages/assessment-form.astro",
+      "href": "https://flagcdn.com/w40/${defaultCountryCode.toLowerCase(",
+      "external": true
+    },
+    {
       "source": "src/pages/blogs/[slug].astro",
       "href": "/blog",
       "external": false
@@ -5998,6 +6187,16 @@
     {
       "source": "src/utils/urls.ts",
       "href": "https://dev01.eyeagle.ai/api/v1/user/waitlist",
+      "external": true
+    },
+    {
+      "source": "src/utils/urls.ts",
+      "href": "https://dev.eyeagle.ai",
+      "external": true
+    },
+    {
+      "source": "src/utils/urls.ts",
+      "href": "https://uat.eyeagle.ai",
       "external": true
     }
   ]
