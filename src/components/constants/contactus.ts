@@ -64,7 +64,7 @@ export const ACTION_CARDS: ActionCard[] = [
     description:
       "Schedule a home visit and let our experts assess potential risks and recommend practical safety improvements.",
     ctaLabel: "Schedule a Visit",
-    ctaHref: "https://shop.eyeagle.ai/products/bathroom-audit",
+    ctaHref: "/assessment-form",
   },
 ];
 

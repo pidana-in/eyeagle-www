@@ -1,0 +1,876 @@
+---
+export const prerender = false;
+
+import MainLayout from "../layouts/MainLayout.astro";
+import { countries } from "../components/constants/common";
+import Icon from "../components/common/Icon.astro";
+import {
+  consideringForOptions,
+  safetyConcernOptions,
+  immediateSafetyConcernOptions,
+  whatNextOptions,
+  preferredContactDayOptions,
+  preferredContactTimeOptions,
+  checkboxRadioClass,
+} from "../components/constants/assessment";
+
+const metaTitle = "Home Safety Assessment | EyEagle";
+const metaDesc =
+  "EyEagle helps families reduce bathroom fall risks and get faster help during emergencies. Share your details and our team will contact you for a safety check or product explanation";
+---
+
+<MainLayout title={metaTitle} desc={metaDesc}>
+  <section class="bg-[#F6F4F2]">
+    <div
+      class="xl:container px-4 sm:px-6 md:px-10 lg:px-20 py-8 sm:py-10 md:pt-24 lg:pt-32 md:pb-12"
+    >
+      <div class="flex flex-col lg:flex-row justify-between gap-10 lg:gap-28">
+        <!-- LEFT — STICKY -->
+        <div class="lg:w-1/2 text-center md:text-start">
+          <div
+            class="lg:sticky lg:top-28 lg:flex lg:flex-col lg:justify-center lg:min-h-[calc(100vh-7rem-2rem)]"
+          >
+            <h1
+              class="text-3xl sm:text-4xl md:text-5xl font-semibold md:leading-15 mb-5 md:mb-8"
+            >
+              EyEagle Home Safety Assessment Form
+            </h1>
+
+            <p class="text-base sm:text-lg font-medium">
+              EyEagle helps families reduce bathroom fall risks and get faster
+              help during emergencies. Share your details and our team will
+              contact you for a safety check or product explanation
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT — FORM -->
+        <div class="lg:w-1/2 md:p-10 rounded-xl">
+          <div id="assessmentFormWrapper" class="block">
+            <div
+              id="submitErrorBanner"
+              class="hidden mb-5 rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-600"
+            >
+            </div>
+
+            <form method="POST" class="flex flex-col gap-5" id="assessmentForm">
+              <!-- NAME -->
+              <div class="flex flex-col gap-3">
+                <label for="fullNameField">
+                  Your Name<span class="text-primary">*</span>
+                </label>
+
+                <input
+                  id="fullNameField"
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Name"
+                  required
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                />
+
+                <p id="fullNameError" class="text-red-500 text-sm hidden">
+                  Please enter a valid full name
+                </p>
+              </div>
+
+              <!-- PHONE -->
+              <div class="flex flex-col gap-3">
+                <label for="phoneNumField">
+                  Phone Number / WhatsApp No.<span class="text-primary">*</span>
+                </label>
+
+                <div class="relative">
+                  <button
+                    type="button"
+                    id="dropdownButton"
+                    aria-label="Choose country calling code"
+                    aria-controls="dropdownMenu"
+                    aria-expanded="false"
+                    class="absolute inset-y-0 left-0 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
+                  >
+                    <span class="flex items-center">
+                      <Icon
+                        iconName="keyboard_arrow_down"
+                        classNames="hidden"
+                      />
+                    </span>
+
+                    <div class="flex items-center gap-2"></div>
+                  </button>
+
+                  <input id="phCode" name="phCode" value="" class="hidden" />
+
+                  <!-- COUNTRY DROPDOWN -->
+                  <div
+                    id="dropdownMenu"
+                    role="listbox"
+                    class="absolute mt-1 bg-white border border-gray-300 rounded-md shadow-md hidden text-black max-h-62.5 overflow-y-auto w-44 sm:w-52 z-20"
+                  >
+                    {
+                      countries
+                        .sort((a, b) => a.code.localeCompare(b.code))
+                        .map((country) => (
+                          <button
+                            type="button"
+                            role="option"
+                            class="w-full px-4 py-2 cursor-pointer hover:bg-gray-300 text-black flex items-center gap-2"
+                            data-value={country.dial_code}
+                            data-country-code={country.code}
+                          >
+                            <img
+                              src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                              alt={`${country.code} flag`}
+                              width="20"
+                            />
+
+                            {country.dial_code}
+                          </button>
+                        ))
+                    }
+                  </div>
+
+                  <input
+                    id="phoneNumField"
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    required
+                    inputmode="numeric"
+                    pattern="[6-9][0-9]{9}"
+                    maxlength="10"
+                    class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                  />
+                </div>
+
+                <p id="phoneError" class="text-red-500 text-sm hidden">
+                  Please enter a valid 10-digit mobile number
+                </p>
+              </div>
+
+              <!-- SITE NAME / LOCATION -->
+              <div class="flex flex-col gap-3">
+                <label for="siteLocation"> Site name or location </label>
+
+                <input
+                  id="siteLocation"
+                  type="text"
+                  name="siteLocation"
+                  placeholder="Enter site name or location"
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base"
+                />
+              </div>
+
+              <!-- WHO ARE YOU CONSIDERING EYEEAGLE FOR -->
+              <div class="mt-2">
+                <p class="font-medium mb-3">
+                  Who are you considering EyeEagle for?
+                  <span class="text-primary">*</span>
+                </p>
+
+                <div class="flex flex-col gap-2">
+                  {
+                    consideringForOptions.map((option) => (
+                      <label class="flex items-start gap-2">
+                        <input
+                          type="checkbox"
+                          name="consideringFor"
+                          value={option}
+                          class={checkboxRadioClass}
+                        />
+                        <span class="text-[#2E2323]">{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+
+                <p
+                  id="consideringForError"
+                  class="text-red-500 text-sm hidden mt-2"
+                >
+                  Please select at least one option
+                </p>
+              </div>
+
+              <!-- MAIN SAFETY CONCERN -->
+              <div class="mt-2">
+                <p class="font-medium mb-3">
+                  What is your main safety concern?
+                  <span class="text-primary">*</span>
+                </p>
+
+                <div class="flex flex-col gap-2">
+                  {
+                    safetyConcernOptions.map((option) => (
+                      <label class="flex items-start gap-2">
+                        <input
+                          type="checkbox"
+                          name="safetyConcerns"
+                          value={option}
+                          class={checkboxRadioClass}
+                        />
+                        <span class="text-[#2E2323]">{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+
+                <p
+                  id="safetyConcernError"
+                  class="text-red-500 text-sm hidden mt-2"
+                >
+                  Please select at least one option
+                </p>
+              </div>
+
+              <!-- IMMEDIATE SAFETY CONCERN -->
+              <div class="mt-2">
+                <p class="font-medium mb-3">
+                  Any immediate safety concern?
+                  <span class="text-primary">*</span>
+                </p>
+
+                <div class="flex flex-col gap-2">
+                  {
+                    immediateSafetyConcernOptions.map((option) => (
+                      <label class="flex items-start gap-2">
+                        <input
+                          type="radio"
+                          name="immediateSafetyConcern"
+                          value={option.value}
+                          required={option.required}
+                          class={checkboxRadioClass}
+                        />
+                        <span class="text-[#2E2323]">{option.value}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- DESCRIPTION -->
+              <div class="flex flex-col gap-3">
+                <label for="concernDescription">
+                  Brief description of concern
+                </label>
+
+                <textarea
+                  id="concernDescription"
+                  name="concernDescription"
+                  rows="6"
+                  class="w-full p-3 border border-[#9C9C9C] rounded-xl placeholder:text-[#666666] placeholder:text-base resize-y"
+                ></textarea>
+              </div>
+
+              <!-- WHAT WOULD YOU LIKE NEXT -->
+              <div class="mt-2">
+                <p class="font-medium mb-3">
+                  What would you like next?
+                  <span class="text-primary">*</span>
+                </p>
+
+                <div class="flex flex-col gap-2">
+                  {
+                    whatNextOptions.map((option) => (
+                      <label class="flex items-start gap-2">
+                        <input
+                          type="radio"
+                          name="whatNext"
+                          value={option.value}
+                          required={option.required}
+                          class={checkboxRadioClass}
+                        />
+                        <span class="text-[#2E2323]">{option.value}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- PREFERRED CONTACT DAY -->
+              <div class="mt-2">
+                <p class="font-medium mb-3">Preferred time to contact</p>
+
+                <div class="flex flex-col gap-2">
+                  {
+                    preferredContactDayOptions.map((option) => (
+                      <label class="flex items-start gap-2">
+                        <input
+                          type="radio"
+                          name="preferredContactDay"
+                          value={option}
+                          class={checkboxRadioClass}
+                        />
+                        <span class="text-[#2E2323]">{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- TIMINGS -->
+              <div class="mt-2">
+                <p class="font-medium mb-3">Timings</p>
+
+                <div class="flex flex-col gap-2">
+                  {
+                    preferredContactTimeOptions.map((option) => (
+                      <label class="flex items-start gap-2">
+                        <input
+                          type="radio"
+                          name="preferredContactTime"
+                          value={option}
+                          class={checkboxRadioClass}
+                        />
+                        <span class="text-[#2E2323]">{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- CONSENT -->
+              <div class="mt-2">
+                <label class="flex items-start gap-2">
+                  <input
+                    id="consent"
+                    type="checkbox"
+                    name="consent"
+                    value="yes"
+                    required
+                    class={checkboxRadioClass}
+                  />
+
+                  <span class="text-[#2E2323]">
+                    I agree to be contacted about this request.
+                    <span class="text-primary">*</span>
+
+                    <span class="text-red-500 text-xs font-medium ml-1">
+                      REQUIRED
+                    </span>
+                  </span>
+                </label>
+              </div>
+
+              <!-- SUBMIT -->
+              <button
+                type="submit"
+                id="submitButton"
+                class="w-full p-4 rounded-[30px] text-white bg-primary font-medium mt-2 relative"
+              >
+                <span id="buttonText"> Submit </span>
+
+                <div
+                  id="loader"
+                  class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                >
+                  <div class="spinner"></div>
+                </div>
+              </button>
+            </form>
+          </div>
+
+          <!-- SUCCESS MESSAGE — shown after a successful CRM API submission -->
+          <div
+            id="assessmentSuccessMessage"
+            class="hidden rounded-xl border border-green-300 bg-green-50 p-6 text-center"
+          >
+            <p id="assessmentSuccessText" class="text-green-700 font-medium">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  .spinner-large {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(204, 0, 0, 0.3);
+    border-radius: 50%;
+    border-top-color: #cc0000;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script is:inline>
+  const dropdownButton = document.getElementById("dropdownButton");
+
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  const fullNameField = document.getElementById("fullNameField");
+
+  const fullNameError = document.getElementById("fullNameError");
+
+  const phCode = document.getElementById("phCode");
+
+  const phoneNumField = document.getElementById("phoneNumField");
+
+  const submitButton = document.getElementById("submitButton");
+
+  const buttonText = document.getElementById("buttonText");
+
+  const loader = document.getElementById("loader");
+
+  const consideringForError = document.getElementById("consideringForError");
+
+  const safetyConcernError = document.getElementById("safetyConcernError");
+
+  const siteLocationField = document.getElementById("siteLocation");
+
+  const concernDescriptionField = document.getElementById("concernDescription");
+
+  const iconSpan = document.createElement("span");
+
+  iconSpan.className = "text-base md:text-lg ml-2";
+
+  iconSpan.setAttribute("aria-hidden", "true");
+
+  iconSpan.textContent = "⌄";
+
+  /*
+   * COUNTRY DROPDOWN
+   */
+
+  dropdownButton.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
+
+    dropdownButton.setAttribute(
+      "aria-expanded",
+      String(!dropdownMenu.classList.contains("hidden")),
+    );
+  });
+
+  dropdownMenu.addEventListener("click", (event) => {
+    const option =
+      event.target instanceof Element
+        ? event.target.closest("button[data-value][data-country-code]")
+        : null;
+
+    if (!(option instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const selectedDialCode = option.dataset.value;
+
+    const selectedCountryCode = option.dataset.countryCode;
+
+    if (!selectedDialCode || !selectedCountryCode) {
+      return;
+    }
+
+    dropdownButton.innerHTML = "";
+
+    const flagImage = document.createElement("img");
+
+    flagImage.src = `https://flagcdn.com/w40/${selectedCountryCode.toLowerCase()}.png`;
+
+    flagImage.alt = `${selectedCountryCode} flag`;
+
+    flagImage.width = 20;
+
+    flagImage.className = "mr-2";
+
+    dropdownButton.appendChild(flagImage);
+
+    dropdownButton.appendChild(document.createTextNode(selectedDialCode));
+
+    dropdownButton.appendChild(iconSpan);
+
+    phCode.value = selectedDialCode;
+
+    dropdownMenu.classList.add("hidden");
+
+    dropdownButton.setAttribute("aria-expanded", "false");
+
+    document
+      .querySelectorAll("#dropdownMenu > button[data-value]")
+      .forEach((el) => el.classList.remove("bg-gray-300"));
+
+    option.classList.add("bg-gray-300");
+  });
+
+  /*
+   * CLOSE DROPDOWN OUTSIDE CLICK
+   */
+
+  document.addEventListener("click", (event) => {
+    if (
+      !dropdownButton.contains(event.target) &&
+      !dropdownMenu.contains(event.target)
+    ) {
+      dropdownMenu.classList.add("hidden");
+
+      dropdownButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  /*
+   * DEFAULT INDIA CODE
+   */
+
+  function initializeDefaultPhoneCode() {
+    phoneNumField.classList.add("pl-[112px]");
+
+    dropdownButton.classList.add("max-w-[105px]");
+
+    const defaultDialCode = "+91";
+
+    const defaultOption = Array.from(
+      dropdownMenu.querySelectorAll("button[data-value][data-country-code]"),
+    ).find((option) => option.dataset.value === defaultDialCode);
+
+    if (defaultOption instanceof HTMLButtonElement) {
+      const defaultCountryCode = defaultOption.dataset.countryCode;
+
+      if (!defaultCountryCode) {
+        return;
+      }
+
+      const flagImage = document.createElement("img");
+
+      flagImage.src = `https://flagcdn.com/w40/${defaultCountryCode.toLowerCase()}.png`;
+
+      flagImage.alt = `${defaultCountryCode} flag`;
+
+      flagImage.width = 20;
+
+      flagImage.className = "mr-2";
+
+      dropdownButton.innerHTML = "";
+
+      dropdownButton.appendChild(flagImage);
+
+      dropdownButton.appendChild(document.createTextNode(defaultDialCode));
+
+      dropdownButton.appendChild(iconSpan);
+
+      phCode.value = defaultDialCode;
+
+      defaultOption.classList.add("bg-gray-300");
+    }
+  }
+
+  initializeDefaultPhoneCode();
+
+  /*
+   * FORM VALIDATION + CRM API SUBMISSION
+   */
+
+  const phoneError = document.getElementById("phoneError");
+
+  const assessmentFormEl = document.getElementById("assessmentForm");
+
+  const assessmentFormWrapper = document.getElementById(
+    "assessmentFormWrapper",
+  );
+
+  const submitErrorBanner = document.getElementById("submitErrorBanner");
+
+  const successMessageBlock = document.getElementById(
+    "assessmentSuccessMessage",
+  );
+
+  const successMessageText = document.getElementById("assessmentSuccessText");
+
+  const consentField = document.getElementById("consent");
+
+  /*
+   * CLIENT SUBMISSION ID
+   *
+   * Generated once per "attempt" and reused across retries/double
+   * clicks so the backend can dedupe on its side. Persisted in
+   * sessionStorage so it survives a manual page refresh mid-retry.
+   * Only cleared after a confirmed SUCCESS response.
+   */
+
+  const SUBMISSION_ID_KEY = "eyeagle_assessment_submission_id";
+
+  function getOrCreateClientSubmissionId() {
+    let id = sessionStorage.getItem(SUBMISSION_ID_KEY);
+
+    if (!id) {
+      id = crypto.randomUUID();
+
+      sessionStorage.setItem(SUBMISSION_ID_KEY, id);
+    }
+
+    return id;
+  }
+
+  function clearClientSubmissionId() {
+    sessionStorage.removeItem(SUBMISSION_ID_KEY);
+  }
+
+  function showSubmitError(message) {
+    submitErrorBanner.textContent = message;
+
+    submitErrorBanner.classList.remove("hidden");
+
+    submitErrorBanner.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function hideSubmitError() {
+    submitErrorBanner.classList.add("hidden");
+
+    submitErrorBanner.textContent = "";
+  }
+
+  function setSubmitting(isSubmitting) {
+    buttonText.classList.toggle("opacity-0", isSubmitting);
+
+    loader.classList.toggle("hidden", !isSubmitting);
+
+    submitButton.disabled = isSubmitting;
+  }
+
+  /*
+   * Fire-and-forget request that triggers the SMTP notification email
+   * on the server. Not awaited by the main submit flow — its result
+   * has no effect on the success/error UI shown to the user.
+   */
+
+  function notifyByEmail() {
+    try {
+      fetch(window.location.pathname, {
+        method: "POST",
+        headers: {
+          "X-Requested-With": "fetch",
+        },
+        body: new FormData(assessmentFormEl),
+      }).catch(() => {});
+    } catch (err) {
+      // Non-critical — swallow, the CRM submission is what matters.
+    }
+  }
+
+  assessmentFormEl.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const phoneValue = phoneNumField.value.trim();
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    const fullNameValue = fullNameField.value.trim();
+
+    const nameRegex = /^[A-Za-z\s]{2,}$/;
+
+    /*
+     * RESET ERRORS
+     */
+
+    phoneError.classList.add("hidden");
+
+    fullNameError.classList.add("hidden");
+
+    consideringForError.classList.add("hidden");
+
+    safetyConcernError.classList.add("hidden");
+
+    phoneNumField.classList.remove("border-red-500");
+
+    fullNameField.classList.remove("border-red-500");
+
+    hideSubmitError();
+
+    /*
+     * FULL NAME VALIDATION
+     */
+
+    if (!nameRegex.test(fullNameValue)) {
+      fullNameError.classList.remove("hidden");
+
+      fullNameField.classList.add("border-red-500");
+
+      fullNameField.focus();
+
+      return;
+    }
+
+    /*
+     * PHONE VALIDATION
+     */
+
+    if (!phoneRegex.test(phoneValue)) {
+      phoneError.classList.remove("hidden");
+
+      phoneNumField.classList.add("border-red-500");
+
+      phoneNumField.focus();
+
+      return;
+    }
+
+    /*
+     * CONSIDERING FOR VALIDATION
+     */
+
+    const consideringForChecked = Array.from(
+      document.querySelectorAll('input[name="consideringFor"]:checked'),
+    ).map((el) => el.value);
+
+    if (consideringForChecked.length === 0) {
+      consideringForError.classList.remove("hidden");
+
+      consideringForError.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      return;
+    }
+
+    /*
+     * SAFETY CONCERN VALIDATION
+     */
+
+    const safetyConcernsChecked = Array.from(
+      document.querySelectorAll('input[name="safetyConcerns"]:checked'),
+    ).map((el) => el.value);
+
+    if (safetyConcernsChecked.length === 0) {
+      safetyConcernError.classList.remove("hidden");
+
+      safetyConcernError.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      return;
+    }
+
+    /*
+     * BUILD CRM API PAYLOAD
+     */
+
+    const immediateConcernField = document.querySelector(
+      'input[name="immediateSafetyConcern"]:checked',
+    );
+
+    const whatNextField = document.querySelector(
+      'input[name="whatNext"]:checked',
+    );
+
+    const preferredDayField = document.querySelector(
+      'input[name="preferredContactDay"]:checked',
+    );
+
+    const preferredTimingField = document.querySelector(
+      'input[name="preferredContactTime"]:checked',
+    );
+
+    const clientSubmissionId = getOrCreateClientSubmissionId();
+
+    const payload = {
+      clientSubmissionId,
+      name: fullNameValue,
+      phone: `${phCode.value} ${phoneValue}`,
+      location: siteLocationField ? siteLocationField.value.trim() : "",
+      consideringFor: consideringForChecked,
+      mainConcerns: safetyConcernsChecked,
+      immediateConcern: immediateConcernField
+        ? immediateConcernField.value
+        : "",
+      description: concernDescriptionField
+        ? concernDescriptionField.value.trim()
+        : "",
+      interestedIn: whatNextField ? whatNextField.value : "",
+      preferredDay: preferredDayField ? preferredDayField.value : "",
+      preferredTiming: preferredTimingField ? preferredTimingField.value : "",
+      contactConsent: consentField ? consentField.checked : false,
+    };
+
+    setSubmitting(true);
+
+    // Fire the SMTP notification in parallel — not awaited.
+    notifyByEmail();
+
+    try {
+      const response = await fetch("/api/assessment-submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (data?.status?.toLowerCase() === "success") {
+        // SUCCESS
+        successMessageText.textContent =
+          data?.result ||
+          data?.data ||
+          "Thank you for your interest in EyEagle. Your form has been submitted successfully, and our team will contact you shortly.";
+
+        assessmentFormWrapper.classList.add("hidden");
+        successMessageBlock.classList.remove("hidden");
+
+        // Clear form and submission ID ONLY after successful submission
+        assessmentFormEl.reset();
+        clearClientSubmissionId();
+      } else {
+        // BACKEND FAILURE
+        const errorMessage =
+          data?.error?.message ||
+          data?.error?.title ||
+          "Something went wrong while submitting the form. Please try again.";
+
+        showSubmitError(errorMessage);
+      }
+    } catch (err) {
+      console.error("Error while submitting assessment form:", err);
+
+      showSubmitError(
+        "Something went wrong while submitting the form. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  });
+
+  /*
+   * CLEAR NAME ERROR
+   */
+
+  fullNameField.addEventListener("input", () => {
+    fullNameError.classList.add("hidden");
+
+    fullNameField.classList.remove("border-red-500");
+  });
+
+  /*
+   * CLEAR PHONE ERROR
+   */
+
+  phoneNumField.addEventListener("input", () => {
+    phoneError.classList.add("hidden");
+
+    phoneNumField.classList.remove("border-red-500");
+  });
+
+  /*
+   * ONLY NUMBERS IN PHONE
+   */
+
+  phoneNumField.addEventListener("input", () => {
+    phoneNumField.value = phoneNumField.value.replace(/\D/g, "");
+  });
+</script>

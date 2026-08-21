@@ -344,7 +344,7 @@ export const ctaSection = {
     href: SHOP_URLS.protectionKit,
   },
   secondaryCta: {
-    label: "Book a safety audit",
+    label: "Book a safety assessment",
     href: SHOP_URLS.safetyAudit,
   },
   image1: HelpImage,
