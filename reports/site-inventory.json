@@ -26,6 +26,11 @@
       "kind": "page"
     },
     {
+      "route": "/blogs/apartment-safety-for-elderly-india",
+      "source": "src/content/blogs/apartment-safety.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/arthritis-and-joint-pain-in-seniors",
       "source": "src/content/blogs/arthritis.md",
       "kind": "blog"
@@ -1277,6 +1282,90 @@
       "referenced": true,
       "references": [
         "src/content/blogs/osteoporosis.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage38.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 995553,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/apartment-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage38Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1341536,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/apartment-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage38Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1143024,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/apartment-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage38Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1352087,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/apartment-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage38Info-4.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 844825,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/apartment-safety.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage38Info-5.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 976977,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/apartment-safety.md"
       ]
     },
     {
@@ -5043,6 +5132,46 @@
       "source": "src/content/blogs/alarms.md",
       "href": "/solution",
       "external": false
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/apartment-safety.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
     },
     {
       "source": "src/content/blogs/arthritis.md",

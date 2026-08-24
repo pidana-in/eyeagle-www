@@ -4,6 +4,7 @@
 "/app","page","src/pages/app.astro"
 "/assessment-form","page","src/pages/assessment-form.astro"
 "/blog","page","src/pages/blog.astro"
+"/blogs/apartment-safety-for-elderly-india","blog","src/content/blogs/apartment-safety.md"
 "/blogs/arthritis-and-joint-pain-in-seniors","blog","src/content/blogs/arthritis.md"
 "/blogs/balance-problems-in-elderly","blog","src/content/blogs/balance.md"
 "/blogs/bathroom-safety-features-at-home","blog","src/content/blogs/safety-features.md"
