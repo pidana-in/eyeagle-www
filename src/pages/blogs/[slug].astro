@@ -438,25 +438,40 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
       </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
       {
         relatedBlogs.map((item) => (
-          <a
-            href={`/blogs/${item.data.slug}`}
-            class="block rounded-3xl border border-[#E5E5E5] p-5 lg:p-6 transition-all duration-300 hover:shadow-md"
-          >
-            <p class="text-primary text-sm uppercase font-medium mb-4 lg:mb-5">
-              Blog
-            </p>
-
-            <h3 class="text-lg lg:text-xl font-semibold text-[#262626] leading-snug mb-3 lg:mb-4 line-clamp-2">
-              {item.data.title}
-            </h3>
-
-            <p class="text-[#525252] text-sm lg:text-base leading-6 lg:leading-7 line-clamp-2">
-              {item.data.desc}
-            </p>
-          </a>
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
+            <a href={`/blogs/${item.data.slug}`}>
+              <div class="aspect-5/3 w-full overflow-hidden">
+                <Image
+                  src={item.data.img}
+                  alt={item.data.title}
+                  class="w-full object-cover"
+                />
+              </div>
+              <div class="p-6 flex flex-col justify-between grow font-barlow">
+                <p class="text-lg text-gray-600 leading-5 mb-4">
+                  {item.data.category}
+                </p>
+                <h3 class="text-xl font-semibold text-left mb-2 line-clamp-2">
+                  {item.data.title}
+                </h3>
+                <div class="mt-auto text-primary font-semibold text-lg inline-flex items-center gap-1 group">
+                  Read
+                  <span class="sr-only">{item.data.title}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M10.59 16.59L15.17 12 10.59 7.41 9.17 8.83 12.34 12 9.17 15.17z" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
         ))
       }
     </div>
