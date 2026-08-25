@@ -288,31 +288,31 @@ Healthy eating, regular exercise, adequate vitamin D, and maintaining muscle str
 
 ## FAQ
 
-**At what age should Indian women get their first bone density test?**
+### At what age should Indian women get their first bone density test?
 
 Doctors generally recommend a bone density test for women aged 65 and above. However, women with early menopause, a family history of osteoporosis, previous fractures, or other risk factors may need screening earlier.
 
-**How much does a DEXA scan cost in India?**
+### How much does a DEXA scan cost in India?
 
 The DEXA scan cost in India usually ranges between **₹1,500 and ₹4,500**, depending on the city, hospital, and diagnostic centre.
 
-**Is osteoporosis reversible?**
+### Is osteoporosis reversible?
 
 Osteoporosis is a long-term condition, but early diagnosis, medical treatment, healthy nutrition, and regular exercise can slow bone loss and reduce fracture risk.
 
-**Can vegetarian Indian women get enough calcium?**
+### Can vegetarian Indian women get enough calcium?
 
 Yes. Milk, curd, paneer, ragi, sesame seeds, soy products, green leafy vegetables, and calcium-fortified foods are excellent vegetarian sources of calcium.
 
-**Can osteoporosis cause back pain?**
+### Can osteoporosis cause back pain?
 
 Yes. Small compression fractures in the spine can cause persistent back pain, loss of height, and a stooped posture. Any ongoing or unexplained back pain should be evaluated by a healthcare professional.
 
-**Does taking calcium tablets alone prevent osteoporosis?**
+### Does taking calcium tablets alone prevent osteoporosis?
 
 No. Calcium is only one part of maintaining healthy bones. Bone health also depends on vitamin D, protein, exercise, hormones, and overall nutrition. Always consult a healthcare professional before starting supplements.
 
-**Can exercise be safe for women with osteoporosis?**
+### Can exercise be safe for women with osteoporosis?
 
 Yes. Low-impact, weight-bearing, and balance exercises can strengthen bones and muscles while reducing the risk of falls. However, exercises should be chosen based on a healthcare provider's advice, especially for women with severe osteoporosis.
 

@@ -143,30 +143,30 @@ You can't be there every hour of every day. But with a few of the right changes 
 
 ## Faq
 
-**1. Can I install grab bars in a rented apartment?**
+### Can I install grab bars in a rented apartment?
 
 Yes, but check your rental agreement and get your landlord's permission before drilling or making permanent changes. But in case you go for EyEagle: our professional installation will help prevent damage to walls or tiles. And later, if you shift out, the team will support you to shift the setup, but you have to be our subscriber.
 
-**2. Do I need RWA approval for safety modifications in common areas?**
+### Do I need RWA approval for safety modifications in common areas?
 
 Usually, yes. Modifications to shared spaces such as staircases, corridors, lobbies or driveways may require RWA or society approval. For changes inside your flat, check your society rules and rental agreement, especially if they involve structural or external alterations.
 
-**3. What's the safest floor for elderly parents to live on?**
+### What's the safest floor for elderly parents to live on?
 
 Lower floors are safer, mainly because they cut dependence on the lift during power cuts. The ground or first floor works well if stairs are ever needed.
 
-**4. How often should we do a home safety check?**
+### How often should we do a home safety check?
 
 Every three to six months, and again after any change in your parent's health or mobility.
 
-**5. Are Indian bathroom designs inherently unsafe for elderly parents?**
+### Are Indian bathroom designs inherently unsafe for elderly parents?
 
 Largely, yes. Sloped wet-and-dry floors and missing grab bars are common. Targeted fixes like grab bars and anti-slip surfaces solve most of it without a renovation.
 
-**6. What's the single most important modification we should make?**
+### What's the single most important modification we should make?
 
 A properly tested grab bar in the bathroom, near the toilet, and inside the shower. It addresses the highest fall risk in the home directly.
 
-**7. How much does it cost to make an apartment senior-safe in India?**
+### How much does it cost to make an apartment senior-safe in India?
 
 There is no fixed cost. It depends on the apartment and the level of safety required. Basic changes can improve everyday safety, while a more complete solution should also provide emergency detection and response. **EyEagle brings these layers together in one practical, reasonable, affordable senior safety system.**
