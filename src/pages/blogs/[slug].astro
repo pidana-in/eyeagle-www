@@ -34,7 +34,10 @@ const blogMeta = blogsData.find((item) => item.slug === blog.data.slug);
 
 const metaTitle = blog.data.title;
 
-const metaDesc = blog.data.desc ?? blogMeta?.desc ?? "Read the latest article on EyEagle's blog.";
+const metaDesc =
+  blog.data.desc ??
+  blogMeta?.desc ??
+  "Read the latest article on EyEagle's blog.";
 
 const site = (Astro.site?.toString() || "https://eyeagle.ai").replace(
   /\/+$/,
@@ -81,6 +84,81 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
     .prose ul ul {
       list-style-type: circle;
     }
+    #blog-content .faq-accordion {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    #blog-content .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px 0;
+      margin: 0;
+      cursor: pointer;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #111827;
+      text-align: left;
+      background: transparent;
+      border: 0;
+    }
+
+    #blog-content .faq-question:hover {
+      color: #cc0000;
+    }
+
+    #blog-content .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    #blog-content .faq-icon::before,
+    #blog-content .faq-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 14px;
+      height: 2px;
+      background: currentColor;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s ease;
+    }
+
+    #blog-content .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    #blog-content .faq-accordion.active .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    #blog-content .faq-answer {
+      display: none;
+      padding: 0 48px 20px 0;
+    }
+    #blog-content .faq-accordion.active .faq-answer {
+      display: block;
+    }
+    #blog-content .faq-answer p {
+      margin: 0 0 1rem;
+    }
+    #blog-content .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      #blog-content .faq-question {
+        gap: 16px;
+        padding: 18px 0;
+        font-size: 1rem;
+      }
+      #blog-content .faq-answer {
+        padding: 0 32px 18px 0;
+      }
+    }
   </style>
 
   <section class="bg-[#FFFFFF] py-12 lg:py-20 px-6 lg:px-40 w-full">
@@ -120,7 +198,9 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
           <p class="text-base font-medium">
             {blog.data.author}
           </p>
-          <p class="text-sm mt-1 font-medium text-[#525252]">{blog.data.authorRole}</p>
+          <p class="text-sm mt-1 font-medium text-[#525252]">
+            {blog.data.authorRole}
+          </p>
         </div>
       </div>
       <div class="flex justify-center">
@@ -409,6 +489,80 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
           "block text-[16px] leading-6 text-[#525252] hover:text-primary";
 
         toc.appendChild(link);
+      });
+    });
+
+    const faqHeading = Array.from(article.querySelectorAll("h2")).find(
+      (heading) => heading.textContent?.trim().toLowerCase() === "faq",
+    );
+
+    if (!faqHeading) return;
+    const faqQuestions = [];
+    let currentElement = faqHeading.nextElementSibling;
+    while (currentElement && currentElement.tagName !== "H2") {
+      if (currentElement.tagName === "H3") {
+        faqQuestions.push(currentElement);
+      }
+      currentElement = currentElement.nextElementSibling;
+    }
+
+    faqQuestions.forEach((question) => {
+      const accordion = document.createElement("div");
+      accordion.className = "faq-accordion";
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "faq-question";
+      button.setAttribute("aria-expanded", "false");
+
+      const questionText = document.createElement("span");
+      questionText.textContent = question.textContent;
+
+      const icon = document.createElement("span");
+      icon.className = "faq-icon";
+      icon.setAttribute("aria-hidden", "true");
+      button.appendChild(questionText);
+      button.appendChild(icon);
+
+      const answer = document.createElement("div");
+      answer.className = "faq-answer";
+
+      question.parentNode.insertBefore(accordion, question);
+      accordion.appendChild(button);
+      accordion.appendChild(answer);
+
+      let nextElement = question.nextElementSibling;
+      while (
+        nextElement &&
+        nextElement.tagName !== "H3" &&
+        nextElement.tagName !== "H2"
+      ) {
+        const elementToMove = nextElement;
+        nextElement = nextElement.nextElementSibling;
+
+        answer.appendChild(elementToMove);
+      }
+
+      question.remove();
+
+      button.addEventListener("click", () => {
+        const isOpen = accordion.classList.contains("active");
+
+        article.querySelectorAll(".faq-accordion.active").forEach((item) => {
+          if (item !== accordion) {
+            item.classList.remove("active");
+
+            const itemButton = item.querySelector(".faq-question");
+
+            if (itemButton) {
+              itemButton.setAttribute("aria-expanded", "false");
+            }
+          }
+        });
+
+        accordion.classList.toggle("active", !isOpen);
+
+        button.setAttribute("aria-expanded", String(!isOpen));
       });
     });
   });
