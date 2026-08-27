@@ -70,6 +70,7 @@ import blogImage34 from "../../assets/Blog/BlogImage34.jpg";
 import blogImage35 from "../../assets/Blog/BlogImage35.jpg";
 import blogImage36 from "../../assets/Blog/BlogImage36.jpg";
 import blogImage37 from "../../assets/Blog/BlogImage37.jpg";
+import blogImage38 from "../../assets/Blog/BlogImage38.png";
 
 export const bathroomData = [
   {
@@ -388,6 +389,18 @@ export const blogsData = [
     title: "Osteoporosis in Indian Women: Fall Risks After 50",
     desc: "Discover why osteoporosis is common in Indian women after 50. Learn the signs, risk factors, DEXA scan cost, and ways to protect bone health.",
     img: blogImage37,
+  },
+     {
+    slug: "apartment-safety-for-elderly-india",
+    title: "Apartment Safety for Elderly India: A Room-by-Room Guide",
+    desc: "A guide to apartment safety for elderly India, covering flat modifications, high-rise safety for elderly, and a home safety checklist.",
+    img: blogImage38,
+  },
+     {
+    slug: "caring-for-elderly-parents-while-working-abroad",
+    title: "Caring for Elderly Parents While Working Abroad | EyEagle",
+    desc: "Read on to know about caring for elderly parents while living abroad and reliable elderly care solutions in India like EyEagle.",
+    img: blogImage38,
   },
 ];
 
