@@ -71,6 +71,7 @@ import blogImage35 from "../../assets/Blog/BlogImage35.jpg";
 import blogImage36 from "../../assets/Blog/BlogImage36.jpg";
 import blogImage37 from "../../assets/Blog/BlogImage37.jpg";
 import blogImage38 from "../../assets/Blog/BlogImage38.png";
+import blogImage39 from "../../assets/Blog/BlogImage39.png";
 
 export const bathroomData = [
   {
@@ -400,7 +401,7 @@ export const blogsData = [
     slug: "caring-for-elderly-parents-while-working-abroad",
     title: "Caring for Elderly Parents While Working Abroad | EyEagle",
     desc: "Read on to know about caring for elderly parents while living abroad and reliable elderly care solutions in India like EyEagle.",
-    img: blogImage38,
+    img: blogImage39,
   },
 ];
 
