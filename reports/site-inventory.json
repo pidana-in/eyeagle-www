@@ -51,6 +51,11 @@
       "kind": "blog"
     },
     {
+      "route": "/blogs/caring-for-elderly-parents-while-working-abroad",
+      "source": "src/content/blogs/working-abroad.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/caring-from-distance",
       "source": "src/content/blogs/NRI-parent-care.md",
       "kind": "blog"
@@ -203,6 +208,11 @@
     {
       "route": "/blogs/thoughtful-new-year-gift-safety-over-showpieces",
       "source": "src/content/blogs/newYear-gift.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/track-food-delivery-but-not-parents-safety",
+      "source": "src/content/blogs/food-track.md",
       "kind": "blog"
     },
     {
@@ -1187,10 +1197,10 @@
     },
     {
       "file": "src/assets/Blog/BlogImage37.jpg",
-      "format": "png",
+      "format": "jpeg",
       "width": 2200,
       "height": 1320,
-      "bytes": 3713884,
+      "bytes": 1720773,
       "category": "photograph or generated artwork",
       "classificationConfidence": "low",
       "needsVisualReview": true,
@@ -1295,6 +1305,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
+        "src/components/constants/home.ts",
         "src/content/blogs/apartment-safety.md"
       ]
     },
@@ -1369,6 +1380,63 @@
       ]
     },
     {
+      "file": "src/assets/Blog/BlogImage39.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 1116667,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/working-abroad.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage39Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1299167,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/working-abroad.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage39Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1146557,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/working-abroad.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage39Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1184196,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/working-abroad.md"
+      ]
+    },
+    {
       "file": "src/assets/Blog/BlogImage4.jpg",
       "format": "jpeg",
       "width": 2124,
@@ -1381,6 +1449,63 @@
       "references": [
         "src/components/constants/home.ts",
         "src/content/blogs/safety-tips.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage40.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 957088,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/food-track.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage40Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1313450,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/food-track.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage40Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 937400,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/food-track.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage40Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1234036,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/food-track.md"
       ]
     },
     {
@@ -5419,6 +5544,86 @@
       "external": false
     },
     {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/how-to-make-your-home-safe",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/caring-for-elderly-parents-while-working-abroad",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/how-to-ensure-safety-for-parents-living-alone",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/how-to-make-your-home-safe",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/blogs/caring-for-elderly-parents-while-working-abroad",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/food-track.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
       "source": "src/content/blogs/footwear.md",
       "href": "/blogs/why-falls-are-the-biggest-threat-to-seniors",
       "external": false
@@ -5994,6 +6199,46 @@
       "external": true
     },
     {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/blogs/caring-from-distance",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/blogs/caring-from-distance",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/device",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/working-abroad.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
       "source": "src/content/blogs/zindagi.md",
       "href": "/blogs/silver-tsunami-india-safer-future-for-seniors",
       "external": false
@@ -6176,6 +6421,11 @@
     {
       "source": "src/pages/blogs/[slug].astro",
       "href": "https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl",
+      "external": true
+    },
+    {
+      "source": "src/pages/blogs/[slug].astro",
+      "href": "http://www.w3.org/2000/svg",
       "external": true
     },
     {
