@@ -1,0 +1,95 @@
+.logo {
+  display: inline-flex;
+  width: 241.5px;
+  height: 28.045px;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+}
+
+.logo[data-tone="dark"] { color: #000; }
+.logo[data-tone="light"] { color: #fff; }
+
+.wordmark {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 2.793px;
+}
+
+.shield {
+  width: 27.931px;
+  height: 28px;
+}
+
+.name {
+  width: 104.761px;
+  height: 20px;
+}
+
+.divider {
+  width: 1px;
+  height: 24.889px;
+  flex: 0 0 1px;
+  background: currentColor;
+}
+
+.tagline {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: var(--type-weight-medium);
+  line-height: 12.444px;
+  white-space: nowrap;
+}
+
+.logo[data-size="footer"] {
+  width: 301.389px;
+  height: 35px;
+  gap: 9.984px;
+}
+
+.logo[data-size="footer"] .wordmark { gap: 3.486px; }
+.logo[data-size="footer"] .shield { width: 34.856px; height: 34.944px; }
+.logo[data-size="footer"] .name { width: 130.74px; height: 24.96px; }
+.logo[data-size="footer"] .divider { width: 2px; height: 31.061px; flex-basis: 2px; }
+.logo[data-size="footer"] .tagline { font-size: 12.48px; line-height: 15.531px; }
+
+@media (max-width: 960px) {
+  .logo[data-size="header"] {
+    width: 154px;
+    height: 22px;
+    gap: 6px;
+  }
+
+  .logo[data-size="header"] .wordmark { gap: 2.5px; }
+  .logo[data-size="header"] .shield { width: 22px; height: 22px; }
+  .logo[data-size="header"] .name { width: 74px; height: auto; }
+  .logo[data-size="header"] .divider { height: 19px; }
+  .logo[data-size="header"] .tagline { font-size: 7.75px; line-height: 9.5px; }
+}
+
+@media (max-width: 900px) {
+  .logo[data-size="footer"] {
+    width: min(100%, 320px);
+    height: auto;
+    gap: 12px;
+  }
+
+  .logo[data-size="footer"] .wordmark { gap: 4.7px; }
+  .logo[data-size="footer"] .shield { width: 37px; height: 37px; }
+  .logo[data-size="footer"] .name { width: 125px; height: auto; }
+  .logo[data-size="footer"] .divider { height: 33px; }
+  .logo[data-size="footer"] .tagline { font-size: 13.25px; line-height: 16.5px; }
+}
+
+@media (max-width: 600px) {
+  .logo[data-size="header"] { width:102px; height:23px; }
+  .logo[data-size="header"] .shield { width:23px; height:23px; }
+  .logo[data-size="header"] .name { width:76px; }
+  .logo[data-size="header"] .tagline,
+  .logo[data-size="header"] .divider { display:none; }
+}
