@@ -32,6 +32,8 @@ interface Props {
   footerClass?: string;
   schemaType?: SchemaType;
   article?: ArticleMetadata;
+  showChrome?: boolean;
+  bodyClass?: string;
 }
 
 const {
@@ -46,6 +48,8 @@ const {
   footerClass = "",
   schemaType = "WebPage",
   article,
+  showChrome = true,
+  bodyClass = "",
 } = Astro.props as Props;
 
 const site = Astro.site ?? new URL(siteMeta.url);
@@ -210,12 +214,14 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     </script>
   </head>
 
-  <body class="min-h-screen bg-white text-gray-900 antialiased">
+  <body class:list={["min-h-screen bg-white text-gray-900 antialiased", bodyClass]}>
     <a href="#main-content" class="sr-only z-100 rounded bg-white px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
 
-    <SiteHeader solidAtTop />
-    <main id="main-content" class="site-chrome-content"><slot /></main>
-    <SiteFooter footerClass={footerClass} />
+    <slot name="header" />
+    {showChrome && <SiteHeader solidAtTop />}
+    {showChrome ? <main id="main-content" class="site-chrome-content"><slot /></main> : <slot />}
+    {showChrome && <SiteFooter footerClass={footerClass} />}
+    <slot name="footer" />
 
   </body>
 </html>

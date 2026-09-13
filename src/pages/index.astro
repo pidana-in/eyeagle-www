@@ -1,51 +1,181 @@
 ---
-import HeroSection from "../components/NewHome/HeroSection.astro";
-import Moments from "../components/NewHome/Moments.astro";
-import Membership from "../components/NewHome/Membership.astro";
+import { getImage } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
-import ProcessSection from "../components/NewHome/ProcessSection.astro";
-import StepsSection from "../components/NewHome/StepsSection.astro";
-// import FAQs from "../components/NewHome/FAQs.astro";
-import CTA from "../components/NewHome/CTA.astro";
-import {
-  heroContent,
-  heroData,
-  membershipItems,
-  momentFeatures,
-  momentData,
-  appSection,
-  appData,
-  guardianData,
-  kitFeatures,
-  bathroomKit,
-  processData,
-  stepsContent,
-  stepsData,
-  testimonialData,
-  ctaSection,
-} from "../components/constants/newHome";
-import EyeagleTab from "../components/NewHome/EyeagleTab.astro";
-import Testimonials from "../components/NewHome/Testimonials.astro";
+import AlarmStory from "../components/HomeV3/AlarmStory.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import IncludedStory from "../components/HomeV3/IncludedStory.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import SystemMapTabs from "../components/HomeV3/SystemMapTabs.astro";
+import Image from "../components/common/OptimizedImage.astro";
+import styles from "../styles/HomeV3/home.module.css";
+import "../styles/home-v3-tokens.css";
+import heroFamily from "../assets/HomeV3/hero-family.png";
+import heroFamilyMobile from "../assets/HomeV3/hero-family-mobile-v1.png";
+import systemAlarm from "../assets/HomeV3/system-alarm-product-v3.png";
+import systemApp from "../assets/HomeV3/system-nest-alert-v4.png";
+import systemResponse from "../assets/HomeV3/system-response-product-v3.png";
+import emergencyImage from "../assets/HomeV3/emergency-latest.png";
+import installationImage from "../assets/HomeV3/installation-latest.png";
+import SafetyHotspots from "../components/HomeV3/SafetyHotspots.astro";
+import checkIcon from "../assets/HomeV3/check-latest.svg";
 
-const metaTitle = "EyEagle | Preventing Falls, Saving Lives";
-const metaDesc =
-  "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.";
+const systemParts = [
+  { number: "01", title: "Alarm at home", description: "A press sounds the paired alarm.", image: systemAlarm, alt: "EyEagle shield-shaped alarm unit mounted beside a bathroom doorway" },
+  { number: "02", title: "Your trusted people are alerted", description: "Your Nest—your circle of trusted contacts—can respond in the EyEagle app.", image: systemApp, alt: "Phone displaying the EyEagle SOS alert and trusted contacts’ responses" },
+  { number: "03", title: "EyEagle responds", description: "24/7 response support.", image: systemResponse, alt: "Response specialist coordinating an unanswered SOS at a workstation" },
+] as const;
+
+const emergencyHighlights = [
+  { title: "One press, no phone required", description: "A deliberate press sounds the Alarm Unit outside the bathroom and starts the connected response." },
+  { title: "No home Wi-Fi required", description: "EyEagle does not depend on the home’s Wi-Fi connection to raise an SOS." },
+  { title: "Power backup included", description: "Built-in backup power keeps the system available if the home’s main power is interrupted." },
+] as const;
+
+const installationDetails = [
+  { title: "Installed in the right place", description: "We position the SOS Button within easy reach and its paired Alarm Unit where others can hear it." },
+  { title: "Connected to the people who matter", description: "We help add family, neighbours and other trusted contacts to your Nest in the EyEagle app." },
+  { title: "Tested from press to response", description: "The button, alarm, app notification and response connection are tested together after installation." },
+] as const;
+
+const protectionItems = [
+  { title: "Understand the bathroom", description: "Our team assesses access, movement, flooring, lighting, fixtures and other relevant safety considerations." },
+  { title: "Recommend practical improvements", description: "We suggest suitable safety equipment and changes based on the person, their routine and their bathroom." },
+  { title: "Install the selected upgrades", description: "Our team installs the safety improvements you choose for your bathroom." },
+] as const;
+
+const metaTitle = "EyEagle | Peace of mind starts at home";
+const metaDesc = "One press sounds the home alarm and alerts trusted contacts. If the incident is not marked safe within five minutes, EyEagle’s 24/7 Response team coordinates help.";
+const heroDesktopSource = await getImage({ src: heroFamily, format: "webp", quality: 84 });
+const heroMobileSource = await getImage({ src: heroFamilyMobile, format: "webp", quality: 84 });
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc}>
-  <HeroSection heroContent={heroContent} heroData={heroData} />
-  <Moments momentData={momentData} momentFeatures={momentFeatures} />
-  <EyeagleTab
-    appSection={appSection}
-    appData={appData}
-    guardianData={guardianData}
-    kitFeatures={kitFeatures}
-    bathroomKit={bathroomKit}
-  />
-  <StepsSection stepsContent={stepsContent} stepsData={stepsData} />
-  <ProcessSection processData={processData} />
-  <Membership items={membershipItems} />
-  <!-- <FAQs faqsData={faqsData} /> -->
-  <Testimonials testimonialData={testimonialData} />
-  <CTA ctaSection={ctaSection} />
+<MainLayout title={metaTitle} desc={metaDesc} showChrome={false} bodyClass="eyeagle-home-v3">
+  <SiteHeader slot="header" />
+
+  <main id="main-content" class={styles.homeMain}>
+    <section class={styles.hero} aria-labelledby="home-title">
+      <picture class={styles.heroMedia}>
+        <source media="(max-width: 760px)" srcset={heroMobileSource.src} />
+        <img
+          alt="A mother and daughter sharing a quiet moment at home"
+          decoding="async"
+          fetchpriority="high"
+          height={heroFamily.height}
+          loading="eager"
+          src={heroDesktopSource.src}
+          width={heroFamily.width}
+        />
+      </picture>
+      <div class={styles.heroOverlay}></div>
+      <div class={styles.heroContent}>
+        <div class={styles.heroCopy}>
+          <h1 id="home-title">Peace of mind<br />starts at home</h1>
+          <p>A bathroom SOS button alerts your home and trusted people, backed by EyEagle’s 24/7 Response team.</p>
+        </div>
+        <div class={styles.heroActions}>
+          <ButtonLink href="/store" size="large">Get membership</ButtonLink>
+          <ButtonLink class={styles.darkButton} href="/solution" size="large" variant="glass">How it works</ButtonLink>
+        </div>
+      </div>
+    </section>
+
+    <section class={styles.systemSection} aria-labelledby="system-title">
+      <div class:list={[styles.centeredHeading, styles.systemHeadingReveal]} data-reveal data-reveal-visible="false">
+        <h2 id="system-title">One press should start more than an alarm.</h2>
+        <p>EyEagle turns one deliberate press into a connected response—a loud alarm at home, an SOS in the app and 24/7 response support.</p>
+      </div>
+      <div class:list={[styles.threeColumnGrid, styles.systemCardsReveal]} data-reveal data-reveal-visible="false">
+        {systemParts.map((item) => (
+          <article class={styles.card} data-system-card={item.number}>
+            <div class={styles.cardImage}><Image alt={item.alt} layout="full-width" src={item.image} /></div>
+            {item.number === "01" && <><span class={styles.alarmStatus}><i aria-hidden="true"></i>Alarm activated</span><span class={styles.signalRings} aria-hidden="true"></span></>}
+            {item.number === "03" && <div class={styles.responseScreen} aria-label="Illustration of response coordination"><span class={styles.responseBrand}>EyEagle Response</span><strong>Response in progress</strong><ol><li>Contacting the Nest</li><li>Coordinating next steps</li></ol></div>}
+            <div class={styles.cardShade}></div>
+            <div class={styles.cardContent}>
+              <span class={styles.cardNumber}>{({ "01": "EyEagle Device", "02": "EyEagle App", "03": "EyEagle Response Team" } as const)[item.number]}</span>
+              <div class={styles.cardCopy}><h3>{item.title}</h3><p>{item.description}</p></div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <SystemMapTabs />
+
+    <section class={styles.imageFeature}>
+      <Image alt="EyEagle SOS hardware installed in a bathroom" class={styles.fillImage} layout="full-width" src={emergencyImage} />
+      <div class={styles.imageFeatureShade}></div>
+      <div class={styles.featureHeading}>
+        <h2>Built for the realities of a bathroom emergency.</h2>
+        <p>The EyEagle SOS Button and paired Alarm Unit provide a direct, private way to raise an alarm when a phone may not be within reach.</p>
+      </div>
+      <div class={styles.featureDetails}>
+        {emergencyHighlights.map((item) => <article class={styles.featureDetail}><h3>{item.title}</h3><p>{item.description}</p></article>)}
+      </div>
+    </section>
+
+    <AlarmStory />
+
+    <section class={styles.imageFeature}>
+      <Image alt="An EyEagle technician installing the SOS Button" class={styles.fillImage} layout="full-width" src={installationImage} />
+      <div class={styles.imageFeatureShade}></div>
+      <div class={styles.featureHeading}>
+        <h2>Installed by EyEagle.<br />Set up around your family.</h2>
+        <p>Our team installs the hardware, configures the app and prepares the Nest so the complete response is ready before we leave.</p>
+      </div>
+      <div class={styles.featureDetails}>
+        {installationDetails.map((item) => <article class={styles.featureDetail}><h3>{item.title}</h3><p>{item.description}</p></article>)}
+      </div>
+    </section>
+
+    <section class={styles.protectionSection} aria-labelledby="protection-title">
+      <div class={styles.centeredHeading}>
+        <p class={styles.sectionEyebrow}>Proactive bathroom safety</p>
+        <h2 id="protection-title">Reduce risks before an emergency happens.</h2>
+        <p>EyEagle helps when something goes wrong. Our bathroom assessment and safety improvements can also help address risks before they lead to an emergency.</p>
+      </div>
+      <SafetyHotspots />
+      <div class={styles.protectionDetails}>
+        {protectionItems.map((item) => <article><h3>{item.title}</h3><p>{item.description}</p></article>)}
+      </div>
+      <p class={styles.offerNote}>Opening offer: optional bathroom safety improvements are included with your kit.</p>
+      <ButtonLink class={styles.softButton} href="/assessment-form" variant="inverse">Get your bathroom assessment</ButtonLink>
+    </section>
+
+    <IncludedStory />
+
+    <section class={styles.closing} aria-labelledby="closing-title">
+      <div class={styles.closingContent}>
+        <h2 id="closing-title">Your EyEagle membership starts here.</h2>
+        <div class={styles.checklist}>
+          {["Service coverage across India", "3-year membership included", "2-year warranty"].map((item) => (
+            <span class={styles.checkItem}><Image alt="" height={24} src={checkIcon} width={24} />{item}</span>
+          ))}
+        </div>
+        <div class={styles.heroActions}>
+          <ButtonLink href="/store" size="large">Get membership</ButtonLink>
+          <ButtonLink class={styles.darkButton} href="/contact" size="large" variant="glass">Talk to the team</ButtonLink>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" />
 </MainLayout>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if (reducedMotion.matches) reveals.forEach((element) => { element.dataset.revealVisible = "true"; });
+  else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        (entry.target as HTMLElement).dataset.revealVisible = "true";
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -12%", threshold: 0.12 });
+    reveals.forEach((element) => observer.observe(element));
+  }
+</script>

@@ -1,0 +1,76 @@
+---
+import styles from "../../styles/HomeV3/alarm-story.module.css";
+import Image from "../common/OptimizedImage.astro";
+import alarm01 from "../../assets/HomeV3/alarm-story-01.png";
+import alarm02 from "../../assets/HomeV3/alarm-story-02.png";
+import alarm03 from "../../assets/HomeV3/alarm-story-03.png";
+import alarm04 from "../../assets/HomeV3/alarm-story-04.png";
+import alarm05 from "../../assets/HomeV3/alarm-story-05.png";
+import alarm06 from "../../assets/HomeV3/alarm-story-06.png";
+
+const steps = [
+  { title: "01. The alarm sounds", description: "The alarm sounds immediately at home. It must be switched off manually, even if the incident is marked safe in the app.", image: alarm01, alt: "A family member hearing the EyEagle Alarm Unit outside the bathroom" },
+  { title: "02. The Nest is alerted", description: "Your Nest—the trusted contacts you choose—receives the SOS and its location in the EyEagle app.", image: alarm02, alt: "A trusted contact receiving an EyEagle SOS in the app" },
+  { title: "03. A Nest member responds", description: "A trusted contact responds and checks on the person. Acknowledging the SOS does not close the incident; it must be explicitly marked safe.", image: alarm03, alt: "A Nest member heading to check on the person" },
+  { title: "04. EyEagle steps in after five minutes", description: "If the incident is not marked safe within five minutes of the SOS, our 24/7 team starts coordinating help. We also call the person who responded to check on the situation.", image: alarm04, alt: "An EyEagle Response specialist handling an unanswered SOS" },
+  { title: "05. Local help is coordinated", description: "Our team coordinates with trusted contacts, appropriate local support and our directly partnered hospitals across India as needed.", image: alarm05, alt: "Local responders arriving at the person’s home" },
+  { title: "06. We stay with the response", description: "Our team stays connected with the people helping and follows up until the situation is confirmed safe.", image: alarm06, alt: "A family member staying with the person after the response" },
+] as const;
+---
+
+<section class={styles.track} aria-labelledby="alarm-story-title" data-alarm-story>
+  <header class={styles.heading}><p>From the first press</p><h2 id="alarm-story-title">A clear path to help.</h2><p>The alarm gets attention. Your trusted people and EyEagle keep the response moving.</p></header>
+  <div class={styles.scrollTrack} data-alarm-scroll>
+  <div class={styles.journey}>
+    <div class={styles.steps} data-alarm-steps>
+      {steps.map((step, index) => <article class={styles.step} data-alarm-step data-pair-visible={String(index < 2)} data-active={String(index === 0)}><h3>{step.title}</h3><p>{step.description}</p><Image class={styles.mobileImage} alt={step.alt} layout="full-width" src={step.image} /></article>)}
+    </div>
+    <div class={styles.images} aria-hidden="true">
+      {steps.map((step, index) => <Image alt="" class={styles.image} data-active={String(index === 0)} data-alarm-image layout="full-width" src={step.image} />)}
+      <span class={styles.progress} data-alarm-progress>01 / 06</span>
+    </div>
+  </div>
+  </div>
+</section>
+<script>
+  const story = document.querySelector<HTMLElement>("[data-alarm-story]");
+  const track = story?.querySelector<HTMLElement>("[data-alarm-scroll]");
+  const stepsRail = story?.querySelector<HTMLElement>("[data-alarm-steps]");
+  const steps = Array.from(story?.querySelectorAll<HTMLElement>("[data-alarm-step]") ?? []);
+  const images = Array.from(story?.querySelectorAll<HTMLElement>("[data-alarm-image]") ?? []);
+  const staticView = window.matchMedia("(max-width:760px), (max-height:650px), (prefers-reduced-motion:reduce)");
+  const mobileView = window.matchMedia("(max-width:760px)");
+  let queued = false;
+  const update = () => {
+    queued = false;
+    if (!track) return;
+    const top = 96;
+    const travel = Math.max(1, track.offsetHeight - (window.innerHeight - top - 32));
+    const ratio = Math.max(0, Math.min(1, (top - track.getBoundingClientRect().top) / travel));
+    const active = mobileView.matches && stepsRail
+      ? steps.reduce((closest, step, index) => {
+          const currentDistance = Math.abs(step.offsetLeft - stepsRail.scrollLeft - 20);
+          const closestDistance = Math.abs(steps[closest].offsetLeft - stepsRail.scrollLeft - 20);
+          return currentDistance < closestDistance ? index : closest;
+        }, 0)
+      : Math.min(5, Math.floor(ratio * 6));
+    const pair = Math.floor(active / 2);
+    steps.forEach((step, index) => {
+      const visible = staticView.matches || Math.floor(index / 2) === pair;
+      step.dataset.pairVisible = String(visible);
+      step.dataset.active = String(index === active);
+      step.setAttribute("aria-hidden", String(!visible));
+    });
+    images.forEach((image, index) => { image.dataset.active = String(index === active); });
+    const progress = story?.querySelector("[data-alarm-progress]");
+    if (progress) progress.textContent = `${String(active + 1).padStart(2,"0")} / 06`;
+  };
+  const requestUpdate = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", requestUpdate, {passive:true});
+  window.addEventListener("resize", requestUpdate);
+  stepsRail?.addEventListener("scroll", requestUpdate, {passive:true});
+  staticView.addEventListener("change", requestUpdate);
+  mobileView.addEventListener("change", requestUpdate);
+  story?.setAttribute("data-enhanced", "true");
+  update();
+</script>

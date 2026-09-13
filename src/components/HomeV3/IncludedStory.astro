@@ -1,0 +1,34 @@
+---
+import styles from "../../styles/HomeV3/included-story.module.css";
+import Image from "../common/OptimizedImage.astro";
+import hardwareImage from "../../assets/HomeV3/included-hardware-latest.png";
+import installImage from "../../assets/HomeV3/included-install-latest.png";
+import appImage from "../../assets/HomeV3/app-alert-mockup-v1.png";
+import responseImage from "../../assets/HomeV3/included-response-latest.png";
+
+const items = [
+  { title: "EyEagle hardware", description: "The SOS hardware, EyEagle Control Unit and EyEagle Alarm Unit for your selected setup.", image: hardwareImage },
+  { title: "Installation and setup", description: "Professional installation, location configuration, Nest setup and complete system testing.", image: installImage },
+  { title: "EyEagle app access", description: "Trusted family members, neighbours and guards can receive and respond to an SOS through the EyEagle app.", image: appImage },
+  { title: "24/7 EyEagle Response", description: "Round-the-clock coordination, responder check-ins and follow-up when help is needed.", image: responseImage },
+] as const;
+---
+
+<section class={styles.track} aria-labelledby="included-title" data-included-story>
+  <div class={styles.scene} data-included-scene>
+    <div class={styles.heading}>
+      <h2 id="included-title">Included with your membership.</h2>
+      <p>Hardware, professional setup, app access and three years of 24/7 response membership.</p>
+    </div>
+    <div class={styles.viewport} data-included-viewport>
+      <div class={styles.rail} data-included-rail>
+        {items.map((item) => (
+          <article class={styles.card}>
+            <div class={styles.image}><Image alt="" layout="full-width" src={item.image} /></div>
+            <h3>{item.title}</h3><p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
