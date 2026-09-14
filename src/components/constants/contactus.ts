@@ -50,31 +50,31 @@ export const HERO = {
 export const ACTION_CARDS: ActionCard[] = [
   {
     image: contactImage2,
-    alt: "Talk to a Safety Expert",
-    title: "Talk to a Safety Expert",
+    alt: "EyEagle specialist speaking with a family",
+    title: "Talk to our team",
     description:
       "Speak directly with an EyEagle specialist to discuss your concerns and understand the safest options for your home.",
-    ctaLabel: "Book a Call",
+    ctaLabel: "Call the team",
     ctaHref: PHONE_TEL_LINK,
   },
   {
     image: contactImage3,
-    alt: "Get a Home Assessment",
-    title: "Get a Home Assessment",
+    alt: "EyEagle specialist completing a bathroom assessment",
+    title: "Get your bathroom assessment",
     description:
       "Schedule a home visit and let our experts assess potential risks and recommend practical safety improvements.",
-    ctaLabel: "Schedule a Visit",
+    ctaLabel: "Request a bathroom assessment",
     ctaHref: "/assessment-form",
   },
 ];
 
 export const PARTNER_CARD: ActionCard = {
   image: contactImage4,
-  alt: "Partner with Us",
-  title: "Partner with Us",
+  alt: "EyEagle team discussing a healthcare partnership",
+  title: "Partner with EyEagle",
   description:
     "Bring safer homes to your community. We work with hospitals, senior living communities, housing societies and healthcare partners to prevent falls before they happen.",
-  ctaLabel: "Become a Partner",
+  ctaLabel: "Discuss a partnership",
   ctaHref: SUPPORT_EMAIL_LINK,
 };
 
