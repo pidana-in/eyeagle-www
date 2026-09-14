@@ -1,110 +1,141 @@
 ---
 import Image from "../components/common/OptimizedImage.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
 import {
   HERO,
   ACTION_CARDS,
   PARTNER_CARD,
   INFO_CARDS,
+  PHONE_TEL_LINK,
 } from "../components/constants/contactus";
-const metaTitle = "Reach Out for Queries & Support - Contact EyEagle";
-const metaDesc =
-  "Need help or have questions about EyEagle’s emergency alarm systems? Contact us today for reliable customer support and assistance.";
+import styles from "../styles/Contact/page.module.css";
+import "../styles/home-v3-tokens.css";
+
+const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} schemaType="ContactPage">
-  <section class="bg-[#F6F4F2]">
-    <div class="mx-auto max-w-[1728px] px-4 py-14 lg:py-20 lg:px-30">
-      <div class="grid lg:grid-cols-2 gap-15 items-center">
-        <div class="lg:max-w-140.5">
-          <h1
-            class="text-[40px] lg:text-5xl lg:leading-14 leading-12 font-semibold tracking-[-0.02em]"
-          >
-            {HERO.heading}
-          </h1>
-          <p class="mt-6 text-[#525252] text-lg leading-8">
-            {HERO.description}
-          </p>
-        </div>
-        <Image
-          src={HERO.image}
-          alt={HERO.imageAlt}
-          class="w-full rounded-2xl object-cover"
-        />
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="mx-auto max-w-[1728px] px-4 lg:px-30 py-20">
-      <!-- Top Cards -->
-      <div class="grid lg:grid-cols-2 gap-10">
-        {
-          ACTION_CARDS.map((card) => (
-            <div>
-              <Image
-                src={card.image}
-                alt={card.alt}
-                class="w-full rounded-2xl"
-              />
-              <h2 class="my-4 text-2xl font-bold">{card.title}</h2>
-              <p class="text-base font-medium text-[#525252]">
-                {card.description}
-              </p>
-              <a
-                href={card.ctaHref}
-                class="inline-flex mt-8 px-5 py-3 rounded-full text-[#262626] font-semibold border border-[#000000] hover:bg-[#000000] hover:text-white transition"
-              >
-                {card.ctaLabel}
-              </a>
-            </div>
-          ))
-        }
-      </div>
+<MainLayout
+  title="Contact EyEagle | Questions, support and partnerships"
+  desc="Talk to EyEagle about your home, request a bathroom assessment or discuss a partnership."
+  schemaType="ContactPage"
+  showChrome={false}
+  bodyClass="eyeagle-home-v3"
+>
+  <SiteHeader slot="header" solidAtTop />
 
-      <!-- Partner Card -->
-      <div class="flex justify-center lg:mt-20 mt-10">
-        <div class="w-full lg:max-w-140">
+  <main id="main-content" class={styles.main}>
+    <section class={styles.hero} aria-labelledby="contact-title">
+      <div class={styles.heroInner}>
+        <div class={styles.heroCopy}>
+          <p class={styles.eyebrow}>Contact EyEagle</p>
+          <h1 id="contact-title">{HERO.heading}</h1>
+          <p class={styles.intro}>{HERO.description}</p>
+          <div class={styles.heroActions}>
+            <ButtonLink href="/assessment-form">Request a bathroom assessment</ButtonLink>
+            <a class={styles.secondaryLink} href={PHONE_TEL_LINK}>
+              Call the team <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class={styles.heroImage}>
           <Image
-            src={PARTNER_CARD.image}
-            alt={PARTNER_CARD.alt}
-            class="w-full rounded-2xl"
+            src={HERO.image}
+            alt={HERO.imageAlt}
+            layout="full-width"
+            loading="eager"
+            fetchpriority="high"
           />
-          <h2 class="my-4 text-2xl font-bold">{PARTNER_CARD.title}</h2>
-          <p class="text-base font-medium text-[#525252]">
-            {PARTNER_CARD.description}
-          </p>
-          <a
-            href={PARTNER_CARD.ctaHref}
-            class="inline-flex mt-8 px-5 py-3 rounded-full text-[#262626] font-semibold border border-[#000000] hover:bg-[#000000] hover:text-white transition"
-          >
-            {PARTNER_CARD.ctaLabel}
-          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Bottom Cards -->
-      <div class="grid lg:grid-cols-2 gap-8 mt-24">
-        {
-          INFO_CARDS.map((card) => (
-            <div class="rounded-3xl border border-[#E5E5E5] p-5 text-[#525252]">
-              <Image src={card.logo} alt={card.alt} class="w-13 h-13" />
-              <h3 class="text-[28px] font-medium mb-3">{card.title}</h3>
-              {card.lines ? (
-                card.lines.map((line, i) => (
-                  <a
-                    href={line.href}
-                    class={`block text-lg text-[#525252] hover:text-primary ${i > 0 ? "mt-3" : ""}`}
-                  >
-                    {line.text}
-                  </a>
-                ))
-              ) : (
-                <p class="text-[#525252] text-lg">{card.text}</p>
-              )}
-            </div>
-          ))
-        }
+    <section class={styles.options} id="contact-options" aria-labelledby="contact-options-title">
+      <div class={styles.sectionIntro}>
+        <p class={styles.eyebrow}>How can we help?</p>
+        <h2 id="contact-options-title">Choose the support you need.</h2>
+        <p>Start with the route that best matches what you need today.</p>
       </div>
-    </div>
-  </section>
+
+      <div class={styles.actionGrid}>
+        {contactRoutes.map((card, index) => (
+          <article class={styles.card} style={`--card-index: ${index}`}>
+            <div class={styles.cardImage}>
+              <Image src={card.image} alt={card.alt} layout="full-width" />
+            </div>
+            <div class={styles.cardBody}>
+              <p class={styles.cardNumber}>0{index + 1}</p>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+              <ButtonLink
+                href={card.ctaHref}
+                class={index === 1 ? styles.primaryCardAction : styles.secondaryCardAction}
+              >{card.ctaLabel}</ButtonLink>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class={styles.details} aria-labelledby="direct-details-title">
+      <div class={styles.detailsInner}>
+        <div class={styles.detailsIntro}>
+          <p class={styles.eyebrow}>Direct details</p>
+          <h2 id="direct-details-title">Reach the right person, directly.</h2>
+          <p>Email or call our team, or find our registered office details.</p>
+        </div>
+
+        <div class={styles.infoGrid}>
+          {INFO_CARDS.map((card) => (
+            <section class={styles.info}>
+              <div class={styles.infoHeader}>
+                <h3>{card.lines ? "Contact details" : "Registered address"}</h3>
+                <Image src={card.logo} alt="" width={32} height={32} />
+              </div>
+
+              {card.lines ? (
+                <div class={styles.contactRows}>
+                  {card.lines.map((line) => (
+                    <a class={styles.contactRow} href={line.href}>
+                      <span>
+                        <small>{line.href.startsWith("mailto:") ? "Email us" : "Call us"}</small>
+                        <strong>{line.text}</strong>
+                      </span>
+                      <span class={styles.rowArrow} aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <address class={styles.address}>
+                  <strong>BHIVE Workspace</strong>
+                  <span>No.112, AKR Tech Park, 7th Mile Hosur Rd</span>
+                  <span>Krishna Reddy Industrial Area, Madivala</span>
+                  <span>Bangalore, Bangalore South, Karnataka</span>
+                  <span>India · 560068</span>
+                </address>
+              )}
+            </section>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class={styles.closing} aria-labelledby="closing-title">
+      <div class={styles.closingInner}>
+        <div>
+          <p class={styles.closingEyebrow}>A safer bathroom starts here</p>
+          <h2 id="closing-title">Ready to make the bathroom safer?</h2>
+        </div>
+        <div class={styles.closingActions}>
+          <ButtonLink href="/assessment-form">Request a bathroom assessment</ButtonLink>
+          <a class={styles.closingLink} href={PHONE_TEL_LINK}>Call the team <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" />
 </MainLayout>
