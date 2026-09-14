@@ -305,8 +305,8 @@
   .brand { width:102px; min-height:40px; flex:0 0 102px; }
   .logoLayer { transform:none; }
   .mobileActions { gap:8px; }
-  .mobileActions > a { min-height:40px; padding:10px 12px; font-size:12px; white-space:nowrap; }
-  .menuButton { width:40px; height:40px; flex-shrink:0; }
+  .mobileActions > a { min-height:44px; padding:10px 12px; font-size:12px; white-space:nowrap; }
+  .menuButton { width:44px; height:44px; flex-shrink:0; }
 }
 @media (max-width: 360px) {
   .bar { padding-inline:14px; gap:6px; }

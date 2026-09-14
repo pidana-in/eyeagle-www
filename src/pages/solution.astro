@@ -1,29 +1,185 @@
 ---
-import BottomContextsSection from "../components/Manifesto/BottomSection.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import DesireSection from "../components/Home/DesireSection.astro";
-import desireImage from "../assets/Navbar/desireImage.png";
-import {descriptionButton,desireSection1} from "../components/constants/home";
-import WorldSafety from "../components/Manifesto/WorldSafety.astro";
-import Benefits from "../components/Manifesto/Benefits.astro";
-import Blogs from "../components/Home/Blogs.astro";
-import { blogsData } from "../components/constants/home";
+import Image from "../components/common/OptimizedImage.astro";
+import SosFlow from "../components/HowItWorks/SosFlow.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import styles from "../styles/HowItWorks/page.module.css";
+import "../styles/home-v3-tokens.css";
+import heroImage from "../assets/HowItWorks/everyday-system-eyeagle-v2.png";
+import nestBackground from "../assets/HowItWorks/response-nest-live-v3.png";
+import responseTeamImage from "../assets/HomeV3/included-response-latest.png";
+import doorImage from "../assets/HowItWorks/door-duration.png";
+import assessmentImage from "../assets/HowItWorks/bathroom-protection-assessment-v1.png";
+import setupImage from "../assets/HowItWorks/everyday-system-eyeagle-v2.png";
+import nestSetupImage from "../assets/HowItWorks/response-nest-natural-phone-v2.png";
+import testingImage from "../assets/HowItWorks/trust-testing-eyeagle-kit-v2.png";
 
-const metaTitle = "How EyEagle’s Home Safety System Works";
-const metaDesc =
-  "See how EyEagle combines fall prevention, Guardian X emergency alerts, family coordination, and practical home-safety support.";
+const pidanaSteps = [
+  { letter: "P", title: "Prevention", description: "Assess the bathroom and reduce avoidable risks with practical safety improvements." },
+  { letter: "I", title: "Interaction", description: "Configure EyEagle around the household’s routines and the people who provide care." },
+  { letter: "D", title: "Detection", description: "Recognise a deliberate SOS press or a configured door-duration concern." },
+  { letter: "A", title: "Alarm", description: "Sound an immediate, unmistakable alert inside the home." },
+  { letter: "N", title: "Notification", description: "Share the SOS and its location with selected trusted contacts through Nest." },
+  { letter: "A", title: "Action", description: "Help family and eligible EyEagle Response support coordinate the approved next step." },
+] as const;
+const responseActions = [
+  { title: "A person reviews the alert", description: "The EyEagle SOS team reviews an eligible unresolved alert under the approved response process." },
+  { title: "The right people are contacted", description: "The team can contact trusted family and available local support." },
+  { title: "Further help can be coordinated", description: "When required, the team can coordinate an ambulance or other emergency support." },
+] as const;
+const doorDurationSteps = [
+  { title: "The door is locked", description: "The configured duration begins." },
+  { title: "The expected time passes", description: "A door-duration concern is identified after the approved duration." },
+  { title: "Trusted contacts are notified", description: "Nest informs the appropriate people so they can check in." },
+] as const;
+const showDoorAwareness = false;
+const setupSteps = [
+  { label: "Understand", title: "Start with the home", description: "Review the bathroom, door and surrounding layout.", image: assessmentImage },
+  { label: "Install", title: "Place the system", description: "Position the SOS button, door sensor and alarm unit.", image: setupImage },
+  { label: "Connect", title: "Create the Nest", description: "Choose the trusted people who receive and can act on alerts.", image: nestSetupImage },
+  { label: "Test", title: "Verify the whole path", description: "Set approved timings and response preferences, then test the complete alert journey.", image: testingImage },
+] as const;
+const faqItems = [
+  { question: "What is EyEagle and how does it work?", answer: "EyEagle is an installed bathroom SOS system. A deliberate press sounds the Alarm Unit at home, shares the alert with selected trusted contacts through Nest and can connect eligible unresolved alerts to EyEagle Response." },
+  { question: "Does EyEagle need home Wi-Fi?", answer: "No. EyEagle does not depend on the home’s Wi-Fi connection to raise an SOS. The system is configured and tested during installation for the available service at your home." },
+  { question: "What happens during a power outage?", answer: "The installed system includes backup power so it can remain available when the home’s main power is interrupted. Our team explains the backup and testing process during installation." },
+  { question: "Who receives an alert?", answer: "The trusted family members, neighbours or guards selected for your Nest can receive the SOS and its location in the EyEagle app. You decide who belongs to that private circle." },
+  { question: "How is the system installed?", answer: "An EyEagle team member reviews the bathroom and surrounding layout, positions the hardware, helps configure the Nest and tests the complete response path before handover." },
+  { question: "What happens if nobody in the Nest responds?", answer: "With an eligible membership, an unresolved alert can reach the EyEagle SOS team for further assessment, contact attempts and coordination under the approved response process." },
+] as const;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc}>
-  <!-- <HeroSection /> -->
-  <!-- <BannerSection1 /> -->
-  <!-- <ContextSection /> -->
-  <BottomContextsSection />
-  <!-- <BannerSection2 /> -->
-   <WorldSafety/>
-   <Benefits/>
-   <Blogs blogsData={blogsData} showSeeMoreButton={true} />
-  <section class="w-full">
-    <DesireSection item={desireImage} desireSection1={desireSection1} descriptionButton={descriptionButton} className="mt-0 bg-white"/>
-  </section>
+<MainLayout title="How It Works | EyEagle" desc="See how EyEagle, Nest and EyEagle Response work together from prevention to coordinated support." showChrome={false} bodyClass="eyeagle-home-v3">
+  <SiteHeader slot="header" solidAtTop />
+  <main class={styles.main} id="main-content">
+    <section class={styles.hero} aria-labelledby="how-title">
+      <div class={styles.heroCopy} data-reveal data-reveal-visible="false">
+        <p class={styles.eyebrow}>How EyEagle works</p>
+        <h1 id="how-title">One press. A connected response.</h1>
+        <p>EyEagle is an installed bathroom SOS system that raises a loud alarm at home, notifies trusted family through Nest and connects eligible unresolved alerts to EyEagle Response.</p>
+        <ButtonLink href="/store" size="large">Get EyEagle</ButtonLink>
+      </div>
+      <div class={styles.heroMedia}><Image alt="EyEagle installed beside a bathroom at home" class={styles.fillImage} fetchpriority="high" layout="full-width" loading="eager" quality={86} src={heroImage} /></div>
+    </section>
+
+    <section class={styles.protocol} aria-labelledby="pidana-title">
+      <header class={styles.protocolIntro} data-reveal data-reveal-visible="false">
+        <p class={styles.eyebrow}>The PIDANA protocol</p>
+        <h2 id="pidana-title">Protection begins before the alarm.</h2>
+        <p>PIDANA is EyEagle’s six-stage framework, connecting prevention at home with a clear path to action.</p>
+      </header>
+      <ol class={styles.protocolRail} aria-label="PIDANA protocol stages" data-reveal data-reveal-visible="false">
+        {pidanaSteps.map((step) => <li class={styles.protocolStep}><span class={styles.protocolLetter} aria-hidden="true">{step.letter}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>)}
+      </ol>
+    </section>
+
+    <SosFlow />
+
+    <div class={styles.storyStack} aria-label="How the connected response works">
+      <section class:list={[styles.nest, styles.storyPanel]} style="--stack-index: 0" aria-labelledby="nest-title">
+        <div class={styles.nestMedia} aria-hidden="true"><Image alt="" class={styles.fillImage} layout="full-width" src={nestBackground} /></div>
+        <div class={styles.nestShade}></div>
+        <div class={styles.nestCopy} data-reveal data-reveal-visible="false">
+          <p class={styles.eyebrow}>EyEagle Nest · trusted contacts</p>
+          <h2 id="nest-title">The alert reaches one private circle.</h2>
+          <p>Nest gives selected family, neighbours and guards the same view of the SOS and its location, so they can acknowledge it and decide who is responding.</p>
+          <div class={styles.nestActions} aria-label="What trusted contacts can do"><span>See the alert</span><span>Acknowledge it</span><span>Coordinate the next step</span></div>
+        </div>
+      </section>
+
+      <section class:list={[styles.response, styles.storyPanel]} style="--stack-index: 1" aria-labelledby="response-title">
+        <div class={styles.responseMedia} data-reveal data-reveal-visible="false"><Image alt="EyEagle response specialist reviewing an alert" class={styles.fillImage} layout="full-width" src={responseTeamImage} /></div>
+        <div class={styles.responseCopy} data-reveal data-reveal-visible="false">
+          <p class={styles.eyebrow}>When family needs support</p>
+          <h2 id="response-title">A trained person helps move the response forward.</h2>
+          <p class={styles.responseLead}>Family remains the first response. With an eligible membership, an unresolved alert can reach the EyEagle SOS team for further assessment and coordination.</p>
+          <ol class={styles.responseList}>{responseActions.map((action) => <li><h3>{action.title}</h3><p>{action.description}</p></li>)}</ol>
+        </div>
+      </section>
+
+      {showDoorAwareness && (
+        <section class:list={[styles.door, styles.storyPanel]} style="--stack-index: 2" aria-labelledby="door-title" data-door-demo>
+          <div class={styles.doorCopy} data-reveal data-reveal-visible="false">
+            <p class={styles.eyebrow}>Door-duration awareness</p>
+            <h2 id="door-title">A second path to awareness.</h2>
+            <p>EyEagle can monitor how long the bathroom door remains locked and raise a concern through the approved notification process.</p>
+            <ol class={styles.doorSteps}>
+              {doorDurationSteps.map((step, index) => <li><button class={styles.doorStep} type="button" data-door-step={index} aria-pressed={index === 0 ? "true" : "false"}><span aria-hidden="true">0{index + 1}</span><span><strong>{step.title}</strong><small>{step.description}</small></span></button></li>)}
+            </ol>
+          </div>
+          <div class={styles.doorMedia} data-reveal data-reveal-visible="false">
+            <Image alt="EyEagle alarm installed outside a bathroom" class={styles.fillImage} layout="full-width" src={doorImage} />
+            <div class={styles.doorSignal} aria-live="polite"><span>Current stage</span><strong data-door-status>The door is locked</strong><p data-door-copy>The configured duration begins.</p></div>
+          </div>
+        </section>
+      )}
+    </div>
+
+    <section class={styles.setup} aria-labelledby="setup-title">
+      <div class={styles.setupSticky}>
+        <header class={styles.sectionHeading} data-reveal data-reveal-visible="false">
+          <p class={styles.eyebrow}>Set up around your home</p>
+          <h2 id="setup-title">Installed as one complete system.</h2>
+          <p>Placement, trusted contacts and the response path are configured and tested together before handover.</p>
+        </header>
+        <div class={styles.setupRail} aria-label="Home setup stages">
+          {setupSteps.map((step) => <article class={styles.setupStep}><div class={styles.setupImage}><Image alt="" class={styles.fillImage} layout="full-width" src={step.image} /></div><p class={styles.setupLabel}>{step.label}</p><h3>{step.title}</h3><p>{step.description}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class={styles.faq} aria-labelledby="faq-title">
+      <header class={styles.faqHeading}>
+        <p class={styles.eyebrow}>Questions about EyEagle</p>
+        <h2 id="faq-title">Frequently asked questions.</h2>
+        <p>Clear answers about the system, installation and connected response.</p>
+      </header>
+      <div class={styles.faqList}>
+        {faqItems.map((item, index) => (
+          <details class={styles.faqItem} open={index === 0}>
+            <summary><span>{item.question}</span><i aria-hidden="true"></i></summary>
+            <div><p>{item.answer}</p></div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class={styles.finalCta} aria-labelledby="availability-title">
+      <p class={styles.eyebrow}>Get EyEagle</p><h2 id="availability-title">A connected response starts at home.</h2>
+      <p>Explore the membership and check current availability for your home.</p>
+      <ButtonLink href="/store" size="large">Become a member</ButtonLink>
+    </section>
+  </main>
+  <SiteFooter slot="footer" />
 </MainLayout>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if (reducedMotion.matches) reveals.forEach((element) => { element.dataset.revealVisible = "true"; });
+  else {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (entry.isIntersecting) { (entry.target as HTMLElement).dataset.revealVisible = "true"; observer.unobserve(entry.target); }
+    }), { rootMargin: "0px 0px -10%", threshold: .12 });
+    reveals.forEach((element) => observer.observe(element));
+  }
+</script>
+
+<script is:inline>
+(() => {
+  const root = document.querySelector('[data-door-demo]');
+  if (!root) return;
+  const buttons = Array.from(root.querySelectorAll('[data-door-step]'));
+  const status = root.querySelector('[data-door-status]');
+  const copy = root.querySelector('[data-door-copy]');
+  const select = (index) => {
+    buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+    const active = buttons[index];
+    status.textContent = active.querySelector('strong').textContent;
+    copy.textContent = active.querySelector('small').textContent;
+  };
+  buttons.forEach((button, index) => button.addEventListener('click', () => select(index)));
+})();
+</script>
