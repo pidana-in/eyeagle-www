@@ -25,12 +25,12 @@ const kitData = Astro.props.kitData;
 <section id="Overview" class="py-10">
   <div class="2xl:container mx-auto px-3">
     <div class="text-center">
-      <h2 class="text-3xl md:text-5xl font-bold md:leading-14">
+      <h2 class="protection-section-title">
         More than a single bar.<br />
         A complete bathroom protection kit.
       </h2>
 
-      <p class="mt-6 text-base md:text-lg md:px-30">
+      <p class="protection-section-intro mt-6 md:px-30">
         Instead of selling a single grab bar and leaving the rest to guesswork,
         we combine grab bars, floor grip and a planned layout into one system
         tailored to your bathroom and the people who use it.
@@ -72,11 +72,11 @@ const kitData = Astro.props.kitData;
     <div
       class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-30 text-start"
     >
-      <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
+      <h2 class="protection-subsection-title">
         {sectionHeaders.bars.title}
       </h2>
 
-      <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
+      <p class="protection-section-intro max-w-xl mx-auto lg:mx-0">
         {sectionHeaders.bars.description}
       </p>
     </div>
@@ -124,18 +124,18 @@ const kitData = Astro.props.kitData;
     </div>
   </div>
   <section id="About Matte">
-    <div class="bg-white">
+    <div class="bg-[var(--color-surface)]">
       <div
         class="xl:container mx-auto py-16 md:my-14 px-4 md:px-10 lg:px-16 xl:px-24"
       >
         <div
           class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-30 text-start"
         >
-          <h2 class="text-2xl md:text-[32px] font-bold leading-tight">
+          <h2 class="protection-subsection-title">
             {sectionHeaders.mat.title}
           </h2>
 
-          <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
+          <p class="protection-section-intro max-w-xl mx-auto lg:mx-0">
             {sectionHeaders.mat.description}
           </p>
         </div>
@@ -170,7 +170,7 @@ const kitData = Astro.props.kitData;
     <div class="bg-[#FBF6EB] flex justify-center py-12 md:py-20 px-4">
       <Image
         src={kitData.img3}
-        alt="Anti skid mat"
+        alt="Anti-slip bathroom mat with a draining slatted surface"
         class="w-full max-w-175 mx-auto object-contain"
       />
     </div>
@@ -182,10 +182,10 @@ const kitData = Astro.props.kitData;
       <div
         class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-30 text-start"
       >
-        <h2 class="text-2xl lg:text-[32px] font-bold leading-tight">
+        <h2 class="protection-subsection-title">
           {sectionHeaders.tape.title}
         </h2>
-        <p class="text-base leading-7 max-w-xl mx-auto lg:mx-0">
+        <p class="protection-section-intro max-w-xl mx-auto lg:mx-0">
           {sectionHeaders.tape.description}
         </p>
       </div>

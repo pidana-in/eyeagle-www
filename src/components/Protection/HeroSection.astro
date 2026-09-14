@@ -1,32 +1,40 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import ButtonLink from "../HomeV3/ButtonLink.astro";
 
 const heroContent = Astro.props.heroContent;
 const featurePoints: string[] = Astro.props.featurePoints;
 ---
 
-<section class="bg-white py-20 lg:py-36">
+<section class="protection-hero bg-[var(--color-surface)] py-20 lg:py-36">
   <div class="2xl:container">
     <div class="text-center px-3 md:px-0">
       <div class="mx-auto max-w-275 mb-10 md:mb-20">
+        <p class="protection-kicker">Bathroom protection</p>
         <h1
-          class="text-5xl md:text-7xl font-bold leading-tight md:leading-20"
+          class="protection-hero-title"
         >
           {heroContent.heading.line1}
           <br class="hidden md:block" />
+          {" "}
           {heroContent.heading.line2}
         </h1>
-        <p class="text-xl md:text-xl opacity-[0.7] mt-6 md:mt-12">
+        <p class="protection-hero-intro">
           {heroContent.description}
         </p>
+        <div class="protection-hero-action">
+          <ButtonLink href="/assessment-form" size="large">
+            Get a bathroom assessment
+          </ButtonLink>
+        </div>
       </div>
       <div
-        class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-base md:text-xl font-medium"
+        class="protection-benefit-list flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8"
       >
         {
           featurePoints.map((point, i) => (
             <>
-              <span class="text-center">{point}</span>
+              <span class="protection-benefit text-center">{point}</span>
               {i !== featurePoints.length - 1 && (
                 <span class="hidden md:inline text-primary">|</span>
               )}
