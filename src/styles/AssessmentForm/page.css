@@ -1,5 +1,6 @@
 .assessment-page {
   background: var(--color-surface-muted);
+  --color-focus: var(--color-action);
 }
 
 .assessment-shell {
@@ -186,9 +187,13 @@
 }
 
 .assessment-input:focus {
-  border-color: var(--color-text);
+  border-color: var(--color-action);
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.07);
+  box-shadow: 0 0 0 3px var(--color-focus-soft);
+}
+
+.assessment-page .assessment-input:focus-visible {
+  outline: 0;
 }
 
 .assessment-input.border-red-500 {
