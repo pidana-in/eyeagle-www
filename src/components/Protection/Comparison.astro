@@ -13,17 +13,17 @@ const comparisonData = Astro.props.comparisonData;
 
 <section id="comparison-section" class="my-20 2xl:container">
   <div class="px-4 md:px-40 text-center md:mb-25 mb-20">
-    <h2 class="text-[28px] md:text-5xl leading-8 md:leading-14 font-bold">
+    <h2 class="protection-section-title">
       {comparisonData.title}
     </h2>
-    <p class="mt-5 text-base leading-7">
+    <p class="protection-section-intro mt-5">
       {comparisonData.desc}
     </p>
   </div>
-  <div class="lg:hidden px-4 space-y-4">
+  <div class="xl:hidden px-4 space-y-4">
     {
       comparisonRows.map((row: ComparisonRow) => (
-        <details class="group border border-gray-200 rounded-xl bg-white overflow-hidden">
+        <details class="group border border-gray-200 rounded-xl bg-[var(--color-surface)] overflow-hidden">
           <summary class="flex justify-between items-center p-4 font-semibold text-lg cursor-pointer list-none">
             {row.label}
             <svg
@@ -59,9 +59,9 @@ const comparisonData = Astro.props.comparisonData;
       ))
     }
   </div>
-  <div class="hidden lg:block">
+  <div class="hidden xl:block">
     <div
-      class="px-4 md:px-40 overflow-x-auto md:overflow-visible scrollbar-hide"
+      class="px-4 xl:px-10 overflow-x-auto scrollbar-hide"
     >
       <div class="min-w-275 text-lg">
         <div class="grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] border-b">

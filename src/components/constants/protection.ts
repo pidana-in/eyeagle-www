@@ -29,18 +29,18 @@ import redCheck from "../../assets/Protection/redCheck.png";
 export const heroContent = {
   heading: {
     line1: "Safer support in the bathroom,",
-    line2: "every single day.",
+    line2: "every day.",
   },
   description:
-    "A simple system of support bars, anti-skid mats and floor grip that quietly reduces slips and falls for seniors, recovery patients and anyone who feels unsteady on wet tiles.",
+    "A planned system of grab bars, anti-slip mats and floor grip that helps reduce the risk of slips and falls for older adults, people recovering after surgery and anyone who feels unsteady on wet tiles.",
   imageAlt: "Bathroom safety support system",
   image: MainImage,
 };
 
 export const featurePoints = [
-  "Stable sit–stand support at the toilet",
-  "Steady handholds around wet, slippery areas",
-  "Discreet, clean look that suits most bathrooms",
+  "Steadier support when sitting and standing",
+  "Reliable handholds around wet areas",
+  "A discreet look that suits most bathrooms",
 ];
 
 export const overviewCards = [
@@ -51,19 +51,19 @@ export const overviewCards = [
     textPosition: "top",
   },
   {
-    title: "Toilet side rail",
+    title: "Toilet support rail",
     desc: "Heavy-duty sit–stand support beside the toilet seat for confident movement.",
     image: ToiletSideRail,
     textPosition: "bottom",
   },
   {
-    title: "Anti-skid mat",
+    title: "Anti-slip mat",
     desc: "Grippy, draining surface where you stand in the wettest parts of the bathroom.",
     image: AntiSkidMat,
     textPosition: "top",
   },
   {
-    title: "Anti-skid tape",
+    title: "Anti-slip tape",
     desc: "Thin, transparent strips that add traction on narrow, slippery paths.",
     image: AntiSkidTape,
     textPosition: "top",
@@ -71,9 +71,9 @@ export const overviewCards = [
 ];
 
 export const barFeatures = [
-  { title: "Grip safety", desc: "Textured Nylon Surface" },
-  { title: "Structural strength", desc: "304 Stainless-steel Tube" },
-  { title: "Corrosion resistance", desc: "Bathroom-ready Materials" },
+  { title: "Grip safety", desc: "Textured ABS surface" },
+  { title: "Structural strength", desc: "304 stainless-steel tube" },
+  { title: "Corrosion resistance", desc: "Bathroom-ready materials" },
 ];
 
 export const matFeatures = [
@@ -108,7 +108,7 @@ export const tapeFeatures = [
 
 export const sectionHeaders = {
   bars: {
-    title: "One simple bar system that quietly prevents big falls.",
+    title: "Support where everyday bathroom movements become risky.",
     description:
       "Most bathroom falls happen in the same few movements: sitting and standing at the toilet, stepping into wet areas, turning on slippery tiles. Our grab bars add steady handholds at those exact points, so everyday movements feel controlled instead of risky.",
   },
@@ -121,9 +121,9 @@ export const sectionHeaders = {
 
   tape: {
     title:
-      "Transparent anti-skid tape, almost invisible grip on critical paths.",
+      "Transparent anti-slip tape for critical paths.",
     description:
-      "For narrow, high-risk lines—like the strip you step on while entering the shower or the slope to the floor drain—we use transparent anti-skid tape. It adds a fine, sand-like texture that your feet can feel, without changing how your tiles look.",
+      "For narrow, high-risk lines—like the strip you step on while entering the shower or the slope to the floor drain—we use transparent anti-slip tape. It adds a fine, sand-like texture that your feet can feel, without changing how your tiles look.",
   },
 };
 
@@ -160,18 +160,18 @@ export const installData = {
     "We follow your exact path through the bathroom and add support to it.",
   desc: "During installation, we ask you (or your family member) to walk us through a normal bathroom visit. We watch where you step, turn and reach, then plan support around three critical zones.",
   footer:
-    "Every home is different. We sketch the layout with you before drilling a single hole",
+    "Every home is different. We sketch the layout with you before drilling a single hole.",
 };
 
 export const userCards = [
   {
     image: SeniorParent,
-    title: "Seniors/Elderly parents",
+    title: "Older adults and parents",
     desc: "Makes everyday bathroom visits less stressful, with support where they need it most.",
   },
   {
     image: PostSurgery,
-    title: "Post-surgery & chronic pain",
+    title: "Recovery and chronic pain",
     desc: "Helps people with knee, hip or back issues lower and lift themselves without fear of sudden slips.",
   },
   {
@@ -203,44 +203,44 @@ export const statsData = [
 export const cardsData = [
   {
     image: GrabBar,
-    alt: "Toilet Image",
-    title: "Anti-slip nylon sleeve",
-    desc: "Textured ABS sleeve stays grippy even with soap and water, so hands don’t slide when you reach for support",
+    alt: "Hand gripping an EyEagle wall grab bar beside a tiled wall",
+    title: "Anti-slip ABS sleeve",
+    desc: "The textured ABS sleeve stays grippy around soap and water, helping hands hold the bar more securely.",
   },
   {
     image: SteelStrength,
-    alt: "Steel Strength",
+    alt: "Stainless-steel structure inside an EyEagle grab bar",
     title: "Steel strength inside",
-    desc: "304 stainless-steel tubes inside every bar keep them rigid and reliable through years of daily use.",
+    desc: "304 stainless-steel tubes inside every bar provide rigid support for regular daily use.",
   },
   {
     image: HandleBar,
-    alt: "Toilet Image",
+    alt: "Hand holding an EyEagle wall grab bar",
     title: "Comfortable to hold",
     desc: "Hand-friendly thickness so most people can wrap their fingers fully and push or pull without strain.",
   },
   {
     image: Mount,
-    alt: "Mount Image",
+    alt: "Wall plate and anchors used to mount an EyEagle grab bar",
     title: "Mounts made for tiles",
     desc: "Strong wall plates and hardware designed specifically for tiled RCC walls, not flimsy partitions.",
   },
   {
     image: Calm,
-    alt: "Calm Image",
+    alt: "White EyEagle grab bar blending into a neutral bathroom",
     title: "Calm, neutral look",
-    desc: "Soft white finish and simple shapes blend with beige, grey and patterned tiles without shouting for attention",
+    desc: "Soft white finishes and simple shapes blend with beige, grey and patterned tiles without shouting for attention.",
   },
   {
     image: Cleaning,
-    alt: "Cleaning Image",
+    alt: "EyEagle grab bar being wiped clean",
     title: "Easy to keep clean",
     desc: "Smooth, closed surfaces that wipe down quickly with mild bathroom cleaner—no special care needed.",
   },
 ];
 
 export const installSteps = {
-  title: "How we actually make this happen in your bathroom",
+  title: "How we plan and install your bathroom supports.",
   description:
     "We keep the process simple, respectful, and adapted to real homes — not showrooms.",
 };
@@ -248,7 +248,7 @@ export const installSteps = {
 export const installCards = [
   {
     title: "Quick call & photos",
-    description: "You tell us the bathroom, we ask a few photos or a video.",
+    description: "Tell us about the bathroom, then share a few photos or a short video.",
   },
   {
     title: "On-site safety walk-through",
@@ -287,7 +287,7 @@ export const installImages = [
 export const comparisonColumns = [
   "Aspect",
   "No safety kit",
-  "One random grab bar",
+  "One grab bar",
   "Our planned safety kit",
 ];
 
@@ -331,8 +331,8 @@ export const comparisonRows = [
 ];
 
 export const comparisonData = {
-  title: "How this compares to ‘do nothing’ or ‘just one bar’.",
-  desc: " Most bathrooms either have no support or a single bar added as an afterthought. Our kit is planned around how you actually move, so the whole room works together instead of relying on one lucky grab point.",
+  title: "How the complete kit compares.",
+  desc: "Many bathrooms have no support or a single bar added without a wider plan. Our kit is arranged around how you move, so the toilet, wet zone and entry path work together instead of relying on one grab point.",
 };
 
 export const ctaContent = {
@@ -361,38 +361,38 @@ export const ctaImage = CtaImage;
 
 export const faqsData = [
   {
-    question: "What is EyEagle and how does it work?",
+    question: "What is included in the bathroom protection kit?",
     answer:
-      "EyEagle is a comprehensive bathroom safety system designed to prevent accidents and provide quick emergency response. It includes a patented alarm system, non-slip surfaces, grab bars, and an app that sends instant notifications to caregivers or emergency contacts when an incident is detected.",
+      "The recommended kit can include wall grab bars, a toilet support rail, an anti-slip mat and transparent anti-slip tape. The exact combination depends on your bathroom, the wall and floor surfaces, and how the person using the space moves through it.",
   },
   {
-    question: "Do I need Wi-Fi for the system to work?",
+    question: "Why do I need an assessment before buying?",
     answer:
-      "No, EyEagle does not rely on Wi-Fi. It operates independently to ensure safety is never compromised due to internet connectivity issues.",
+      "Support works best when it is placed where you naturally sit, stand, turn and reach. The assessment helps us understand those movements, review the bathroom surfaces and recommend a layout before installation.",
   },
   {
-    question: "How does EyEagle ensure notifications are reliable?",
+    question: "How do you decide where the supports should go?",
     answer:
-      "Our patent-pending device is designed to function in any corner of the house, even on low-bandwidth 2G networks. This ensures alerts are always delivered.",
+      "We ask you or your family member to walk through a normal bathroom visit. We then plan support around the toilet, wet zone, entry path and the places where hands and feet naturally land.",
   },
   {
-    question: "What happens if there’s a power outage?",
+    question: "Will the kit suit my bathroom?",
     answer:
-      "EyEagle comes equipped with a battery that lasts up to 6 hours, ensuring continuous protection even during power outages.",
+      "Most recommendations can be adapted to the bathroom’s layout and finish. During the assessment, we review the available wall and floor surfaces and explain which supports can be installed safely in your space.",
   },
   {
-    question: "Who receives the alerts when the alarm is triggered?",
+    question: "Who is the protection kit designed for?",
     answer:
-      "Alerts can be sent to multiple people, including caregivers, family members, or emergency services. You can customise this in the app.",
+      "It is designed for older adults, people recovering after surgery, people living with joint or mobility difficulties, and anyone who wants steadier support in a wet bathroom.",
   },
   {
-    question: "How is the system installed?",
+    question: "What happens during installation?",
     answer:
-      "Our expert team installs the system based on your bathroom’s specific floor plan, ensuring optimal placement for maximum safety.",
+      "We confirm the proposed layout with you, install the selected supports with suitable hardware, then complete a test walk-through and explain how to clean and care for each item.",
   },
   {
-    question: "What if my device goes offline?",
+    question: "How do I get started?",
     answer:
-      "If a device disconnects, you’ll receive a “Device Offline” alert, prompting you to check power and connectivity.",
+      "Complete the bathroom assessment form with a few details about the person and the space. Our team will contact you to understand your needs and arrange the next step.",
   },
 ];

@@ -6,6 +6,7 @@ import styles from "../../styles/HomeV3/site-header.module.css";
 interface Props {
   solidAtTop?: boolean;
   actionHref?: string;
+  actionLabel?: string;
   showAction?: boolean;
   showNavigation?: boolean;
 }
@@ -13,10 +14,10 @@ interface Props {
 const {
   solidAtTop = false,
   actionHref = "/store",
+  actionLabel = "Get membership",
   showAction = true,
   showNavigation = true,
 } = Astro.props;
-const actionLabel = "Get membership";
 const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
 const navigation = [

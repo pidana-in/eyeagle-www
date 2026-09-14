@@ -34,6 +34,9 @@ interface Props {
   article?: ArticleMetadata;
   showChrome?: boolean;
   bodyClass?: string;
+  mainClass?: string;
+  headerActionHref?: string;
+  headerActionLabel?: string;
 }
 
 const {
@@ -50,6 +53,9 @@ const {
   article,
   showChrome = true,
   bodyClass = "",
+  mainClass = "site-chrome-content",
+  headerActionHref = "/store",
+  headerActionLabel = "Get membership",
 } = Astro.props as Props;
 
 const site = Astro.site ?? new URL(siteMeta.url);
@@ -218,8 +224,8 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     <a href="#main-content" class="sr-only z-100 rounded bg-white px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
 
     <slot name="header" />
-    {showChrome && <SiteHeader solidAtTop />}
-    {showChrome ? <main id="main-content" class="site-chrome-content"><slot /></main> : <slot />}
+    {showChrome && <SiteHeader solidAtTop actionHref={headerActionHref} actionLabel={headerActionLabel} />}
+    {showChrome ? <main id="main-content" class={mainClass}><slot /></main> : <slot />}
     {showChrome && <SiteFooter footerClass={footerClass} />}
     <slot name="footer" />
 

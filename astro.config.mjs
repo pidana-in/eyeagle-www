@@ -28,6 +28,7 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes("/offers/") &&
+        !page.endsWith("/app") &&
         !page.endsWith("/store") &&
         !page.endsWith("/success"),
     }),
