@@ -91,6 +91,12 @@ body.eyeagle-home-v3 {
   --color-action-hover: #b91b25;
   --color-on-action: #ffffff;
   --color-focus: #315efb;
+  --color-focus-soft: rgba(209, 31, 43, 0.12);
+  --color-status-surface: #f7ecec;
+  --color-status-border: rgba(209, 31, 43, 0.18);
+  --color-product-surface: #efefec;
+  --color-error: #b42318;
+  --shadow-elevated-soft: 0 18px 44px rgba(28, 24, 20, 0.07), 0 3px 10px rgba(28, 24, 20, 0.04);
   --color-footer-surface: #000000;
   --color-footer-text: #ffffff;
   --color-footer-text-muted: rgba(255, 255, 255, 0.6);
