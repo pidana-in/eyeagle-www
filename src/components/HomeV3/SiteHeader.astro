@@ -6,11 +6,15 @@ import styles from "../../styles/HomeV3/site-header.module.css";
 interface Props {
   solidAtTop?: boolean;
   actionHref?: string;
+  showAction?: boolean;
+  showNavigation?: boolean;
 }
 
 const {
   solidAtTop = false,
   actionHref = "/store",
+  showAction = true,
+  showNavigation = true,
 } = Astro.props;
 const actionLabel = "Get membership";
 const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
@@ -33,6 +37,7 @@ const isActive = (href: string) =>
   data-menu-open="false"
   data-overlay="true"
   data-solid-at-top={String(solidAtTop)}
+  data-auto-hide={String(showNavigation || showAction)}
   data-compact-action="true"
   data-home-v3-header
 >
@@ -46,66 +51,76 @@ const isActive = (href: string) =>
       </span>
     </a>
 
-    <nav class={styles.desktopNav} aria-label="Primary navigation">
-      {navigation.map((item) => (
-        <a
-          aria-current={isActive(item.href) ? "page" : undefined}
-          class={styles.navLink}
-          data-active={String(isActive(item.href))}
-          href={item.href}
-        >{item.label}</a>
-      ))}
-    </nav>
+    {showNavigation && (
+      <nav class={styles.desktopNav} aria-label="Primary navigation">
+        {navigation.map((item) => (
+          <a
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class={styles.navLink}
+            data-active={String(isActive(item.href))}
+            href={item.href}
+          >{item.label}</a>
+        ))}
+      </nav>
+    )}
 
-    <div class={styles.desktopAction}>
-      <ButtonLink href={actionHref} size="small">{actionLabel}</ButtonLink>
-    </div>
+    {showAction && (
+      <div class={styles.desktopAction}>
+        <ButtonLink href={actionHref} size="small">{actionLabel}</ButtonLink>
+      </div>
+    )}
 
-    <div class={styles.mobileActions}>
-      <ButtonLink href={actionHref} size="small">{actionLabel}</ButtonLink>
-      <button
-        aria-controls="mobile-navigation"
-        aria-expanded="false"
-        aria-label="Open navigation"
-        class={styles.menuButton}
-        data-home-v3-menu-button
-        type="button"
-      >
-        <span class={styles.menuLine}></span>
-        <span class={styles.menuLine}></span>
-      </button>
-    </div>
+    {(showAction || showNavigation) && (
+      <div class={styles.mobileActions}>
+        {showAction && <ButtonLink href={actionHref} size="small">{actionLabel}</ButtonLink>}
+        {showNavigation && (
+          <button
+            aria-controls="mobile-navigation"
+            aria-expanded="false"
+            aria-label="Open navigation"
+            class={styles.menuButton}
+            data-home-v3-menu-button
+            type="button"
+          >
+            <span class={styles.menuLine}></span>
+            <span class={styles.menuLine}></span>
+          </button>
+        )}
+      </div>
+    )}
   </div>
 
-  <div
-    aria-hidden="true"
-    class={styles.mobileMenu}
-    data-home-v3-mobile-menu
-    data-open="false"
-    id="mobile-navigation"
-    inert
-  >
-    <nav class={styles.mobileNav} aria-label="Mobile navigation">
-      {navigation.map((item, index) => (
-        <a
-          aria-current={isActive(item.href) ? "page" : undefined}
-          class={styles.mobileLink}
-          data-active={String(isActive(item.href))}
-          data-mobile-nav-link
-          href={item.href}
-          style={`--link-index: ${index}`}
-          tabindex="-1"
-        >
-          <span>{item.label}</span><span aria-hidden="true">↗</span>
-        </a>
-      ))}
-    </nav>
+  {showNavigation && (
+    <div
+      aria-hidden="true"
+      class={styles.mobileMenu}
+      data-home-v3-mobile-menu
+      data-open="false"
+      id="mobile-navigation"
+      inert
+    >
+      <nav class={styles.mobileNav} aria-label="Mobile navigation">
+        {navigation.map((item, index) => (
+          <a
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class={styles.mobileLink}
+            data-active={String(isActive(item.href))}
+            data-mobile-nav-link
+            href={item.href}
+            style={`--link-index: ${index}`}
+            tabindex="-1"
+          >
+            <span>{item.label}</span><span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </nav>
 
-    <div class={styles.mobileMenuFooter}>
-      <p>Device, app and human response.</p>
-      <ButtonLink href={actionHref} size="large" tabindex={-1}>{actionLabel}</ButtonLink>
+      <div class={styles.mobileMenuFooter}>
+        <p>Device, app and human response.</p>
+        {showAction && <ButtonLink href={actionHref} size="large" tabindex={-1}>{actionLabel}</ButtonLink>}
+      </div>
     </div>
-  </div>
+  )}
 </header>
 
 <script>
@@ -117,6 +132,7 @@ const isActive = (href: string) =>
   const mobileLinks = Array.from(header?.querySelectorAll<HTMLElement>("[data-mobile-nav-link]") ?? []);
   const mobileMenuLinks = Array.from(mobileMenu?.querySelectorAll<HTMLElement>("a") ?? []);
   const solidAtTop = header?.dataset.solidAtTop === "true";
+  const autoHide = header?.dataset.autoHide === "true";
   let menuOpen = false;
   let lastScrollY = Math.max(window.scrollY, 0);
   let frameId = 0;
@@ -149,7 +165,7 @@ const isActive = (href: string) =>
     lightLogo?.setAttribute("data-visible", String(overlay && !menuOpen));
     darkLogo?.setAttribute("data-visible", String(!overlay || menuOpen));
 
-    if (atTop || menuOpen) header.dataset.hidden = "false";
+    if (!autoHide || atTop || menuOpen) header.dataset.hidden = "false";
     else {
       const distance = currentY - lastScrollY;
       if (distance > 8) header.dataset.hidden = "true";

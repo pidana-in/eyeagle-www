@@ -1,64 +1,178 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import India from "../assets/Common/India.png";
-import Inter from "../assets/Common/International.png";
 import Image from "../components/common/OptimizedImage.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import kit from "../assets/Store/guardian-kit-v2.png";
+import installedButton from "../assets/Store/sos-installed-v2.png";
+import sensor from "../assets/Store/door-sensor-v2.png";
+import livingRoomAlarm from "../assets/Store/ecu-living-room-v1.png";
+import appMockup from "../assets/HomeV3/app-alert-mockup-v1.png";
+import styles from "../styles/Store/page.module.css";
+import "../styles/home-v3-tokens.css";
+const views = [
+  { image: kit, label: "The system", caption: "The complete system, designed for the home.", alt: "EyEagle alarm unit, SOS button, door sensor and latch arranged in a bathroom", contain: false },
+  { image: installedButton, label: "SOS in place", caption: "Installed within reach for a deliberate press.", alt: "A hand pressing the installed EyEagle SOS button", contain: false },
+  { image: sensor, label: "Door sensor", caption: "Door awareness, connected to the same response.", alt: "EyEagle bathroom door sensor and latch", contain: true },
+  { image: livingRoomAlarm, label: "Alarm at home", caption: "The sounding alarm calls attention throughout the home.", alt: "EyEagle sounding alarm mounted on a living-room wall beside a hallway", contain: false },
+  { image: appMockup, label: "EyEagle app", caption: "Trusted contacts can see the alert and coordinate a response.", alt: "EyEagle mobile app showing a home SOS alert and trusted-contact responses", contain: false },
+];
 ---
-
-<MainLayout title="Choose Your EyEagle Store" desc="Choose the EyEagle store for your shopping region." noindex={true}>
-  <section
-    class="xl:container py-10 lg:py-20 lg:px-20 px-4 font-sans-instrument bg-[#F6F4F2]"
-  >
-    <div class="md:text-start text-center place-items-center">
-      <!-- Heading -->
-      <div class="lg:px-10 py-12">
-        <h1
-          class="text-3xl md:text-5xl tracking-tight font-semibold md:leading-15"
-        >
-          <span> Hello! </span>
-          <br /> Where are you shopping from?
-        </h1>
+<MainLayout title="EyEagle system | Explore your setup" desc="Explore the EyEagle bathroom safety system, three-year membership and options for your home. Get updates when ordering opens." noindex={true} showChrome={false} bodyClass="eyeagle-home-v3">
+  <SiteHeader slot="header" solidAtTop showAction={false} showNavigation={false} />
+  <main id="main-content" class={styles.main}>
+    <aside class={styles.availabilityRail} aria-label="Ordering availability">
+      <div class={styles.availabilityState}>
+        <i aria-hidden="true"></i>
+        <strong>Ordering is currently unavailable</strong>
+        <span>Explore the system and preview a setup for your home.</span>
       </div>
-      <!-- Options -->
-      <div
-        class="flex flex-col md:flex-row justify-center items-center text-center gap-24 mt-4"
-      >
-        <!-- India -->
-        <a href="https://shop.eyeagle.ai/" class="flex flex-col items-center">
-          <Image
-            src={India}
-            alt="India"
-            width={220}
-            height={150}
-            class="object-contain"
-            quality="max"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <h2 class="font-bold text-xl md:text-2xl mt-4">India</h2>
-          <p class="text-sm md:text-base">For customers in India</p>
-        </a>
-        <!-- International -->
-        <div class="flex flex-col items-center" aria-label="International store coming soon">
-          <Image
-            src={Inter}
-            alt="International"
-            width={220}
-            height={150}
-            class="object-contain"
-            quality="max"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <h2 class="font-bold text-xl md:text-2xl mt-4">International</h2>
-          <p class="text-sm md:text-base">For customers outside of India</p>
+      <a href="#availability">Get availability updates <span aria-hidden="true">→</span></a>
+    </aside>
+
+    <section class={styles.product} aria-labelledby="product-title">
+      <div class={styles.gallery}>
+        <div class={styles.galleryStage}>
+          {views.map((view, index) => <figure data-gallery-panel={index} hidden={index !== 0} id={`product-view-${index}`}>
+            <Image src={view.image} alt={view.alt} class={`${styles.productImage} ${view.contain ? styles.productImageContain : ""}`} layout="full-width" loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} quality={86} />
+            <figcaption><span>EyEagle</span><p>{view.caption}</p></figcaption>
+          </figure>)}
+        </div>
+        <div class={styles.galleryNav} aria-label="Product views" style={`--gallery-columns:${views.length}`}>
+          {views.map((view, index) => <button type="button" data-gallery-button={index} aria-pressed={index === 0 ? "true" : "false"} aria-controls={`product-view-${index}`}><Image src={view.image} alt="" width={72} height={64} /><span>{view.label}</span></button>)}
         </div>
       </div>
-      <p
-        class="font-barlow text-base md:text-lg font-medium py-16 text-center md:text-left"
-      >
-        Currently installations are available in India only.
-      </p>
-    </div>
-  </section>
+      <div class={styles.productCopy}>
+        <p class={styles.eyebrow}>Bathroom safety, connected.</p>
+        <h1 id="product-title">The EyEagle system.</h1>
+        <p class={styles.intro}>An SOS press—or a bathroom door that stays locked longer than expected—sounds the alarm at home, notifies trusted contacts through Nest, and can connect an eligible unanswered alert to EyEagle Response.</p>
+        <div class={styles.offer}>
+          <div class={styles.price}><strong>$799</strong><span>USD · excluding GST</span></div>
+          <p>Includes one bathroom setup and three years of response membership.</p>
+          <ul class={styles.inclusions}><li>System hardware & installation</li><li>EyEagle app & premium Nest membership</li><li>Response membership</li></ul>
+          <div class={styles.renewalPrice}>
+            <span>Membership after three years</span>
+            <p><strong>$20/month</strong> from year four, with your approval</p>
+          </div>
+        </div>
+        <section class={styles.configuration} aria-labelledby="configuration-title">
+          <div class={styles.configHeader}><h2 id="configuration-title">Tailor your setup</h2><span>Adjust quantities to preview your setup</span></div>
+          <fieldset aria-label="Configuration options">
+            <div class={styles.option}><div><h3>Bathrooms</h3><p>One included · same setup for +$200 each</p></div><div class={styles.stepper}><button type="button" data-quantity="bathrooms" data-delta="-1" aria-label="Decrease number of bathrooms" disabled>−</button><input id="bathrooms" aria-label="Bathrooms" type="number" min="1" max="3" step="1" value="1" inputmode="numeric" /><button type="button" data-quantity="bathrooms" data-delta="1" aria-label="Increase number of bathrooms">+</button></div></div>
+            <div class={styles.option}><div><h3>Extra SOS buttons</h3><p>+$100 per button</p></div><div class={styles.stepper}><button type="button" data-quantity="extras" data-delta="-1" aria-label="Decrease extra SOS buttons" disabled>−</button><input id="extras" aria-label="Extra SOS buttons" type="number" min="0" max="3" step="1" value="0" inputmode="numeric" /><button type="button" data-quantity="extras" data-delta="1" aria-label="Increase extra SOS buttons">+</button></div></div>
+          </fieldset>
+          <p class={styles.lockedNote}><span>Preview prices are shown in USD and exclude GST. Final pricing and installation availability will be confirmed before ordering opens.</span><a href="/contact">Need more than three bathrooms or three extra SOS buttons? Contact the EyEagle team for a tailored setup. <i aria-hidden="true">↗</i></a></p>
+          <div class={styles.configurationTotal} aria-live="polite" aria-atomic="true"><div><span>Estimated setup</span><p data-quantity-summary>1 bathroom · no extra SOS buttons</p></div><strong data-configuration-total>$799</strong></div>
+        </section>
+        <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
+          <div class={styles.availabilityHeading}><h2>Get notified when ordering opens.</h2></div>
+          <p class={styles.availabilityCopy}>Leave your email and we’ll let you know when EyEagle is available to order.</p>
+          <label class={styles.srOnly} for="availability-email">Email address</label>
+          <div class={styles.formRow}><input aria-describedby="availability-note availability-status" aria-invalid="false" autocomplete="email" id="availability-email" inputmode="email" name="email" placeholder="Your email address" required type="email" /><button type="submit">Notify me <span aria-hidden="true">→</span></button></div>
+          <p class={styles.formStatus} data-form-status id="availability-status"></p>
+          <p class={styles.formNote} id="availability-note">Availability updates only. No marketing emails.</p>
+          <a class={styles.contactLink} href="/contact"><span>Questions about your home?</span><strong>Contact the EyEagle team <i aria-hidden="true">↗</i></strong></a>
+        </form>
+        <div class={styles.details}>
+          <details><summary>What’s included <span aria-hidden="true">+</span></summary><p>Your one-bathroom system includes the Alarm Unit, SOS button, door sensor and latch, professional installation, the EyEagle app with premium Nest membership, three years of response membership, and a three-year hardware warranty.</p></details>
+          <details><summary>Membership after three years <span aria-hidden="true">+</span></summary><p>Before your included membership ends, our team will contact you. Service continues at $20 per month only after you approve a recurring payment mandate.</p></details>
+          <details><summary>Planning for more than one bathroom <span aria-hidden="true">+</span></summary><p>Each additional bathroom includes the same bathroom hardware and professional installation as the first, at $200 each. Additional SOS buttons are $100 each. For more than three bathrooms or three extra SOS buttons, contact our team for a tailored setup.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <SiteFooter slot="footer" storeHref="#availability" storeLabel="Get availability updates" />
 </MainLayout>
+<script>
+  const bathroomInput = document.querySelector<HTMLInputElement>("#bathrooms");
+  const extrasInput = document.querySelector<HTMLInputElement>("#extras");
+  const normalize = (input: HTMLInputElement) => {
+    const value = Number(input.value);
+    const minimum = Number(input.min);
+    const maximum = input.max ? Number(input.max) : Number.POSITIVE_INFINITY;
+    input.value = String(Number.isSafeInteger(value) ? Math.min(maximum, Math.max(minimum, value)) : minimum);
+  };
+  const updateConfiguration = () => {
+    if (!bathroomInput || !extrasInput) return;
+    const bathrooms = Number(bathroomInput.value);
+    const extras = Number(extrasInput.value);
+    if (!bathroomInput.validity.valid || !extrasInput.validity.valid || !bathroomInput.value || !extrasInput.value) return;
+    const total = document.querySelector<HTMLElement>("[data-configuration-total]");
+    if (total) total.textContent = new Intl.NumberFormat("en-US", {style:"currency",currency:"USD",maximumFractionDigits:0}).format(799 + (bathrooms - 1) * 200 + extras * 100);
+    const summary = document.querySelector<HTMLElement>("[data-quantity-summary]");
+    if (summary) summary.textContent = `${bathrooms} bathroom${bathrooms === 1 ? "" : "s"} · ${extras || "no"} extra SOS button${extras === 1 ? "" : "s"}`;
+    document.querySelectorAll<HTMLButtonElement>("[data-delta]").forEach(button => {
+      const input = button.dataset.quantity === "bathrooms" ? bathroomInput : extrasInput;
+      const value = Number(input.value);
+      const delta = Number(button.dataset.delta);
+      button.disabled = delta < 0 ? value <= Number(input.min) : value >= Number(input.max);
+    });
+  };
+  [bathroomInput, extrasInput].forEach(input => {
+    input?.addEventListener("input", updateConfiguration);
+    input?.addEventListener("change", () => { normalize(input); updateConfiguration(); });
+  });
+  document.querySelectorAll<HTMLButtonElement>("[data-quantity]").forEach(button => button.addEventListener("click", () => {
+    const input = button.dataset.quantity === "bathrooms" ? bathroomInput : extrasInput;
+    if (!input) return;
+    normalize(input);
+    input.value = String(Math.min(Number(input.max), Math.max(Number(input.min), Number(input.value) + Number(button.dataset.delta))));
+    updateConfiguration();
+  }));
+
+  const galleryPanels = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-panel]"));
+  const galleryButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-gallery-button]"));
+  galleryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.galleryButton;
+      galleryPanels.forEach((panel) => { panel.hidden = panel.dataset.galleryPanel !== selected; });
+      galleryButtons.forEach((item) => { item.setAttribute("aria-pressed", String(item === button)); });
+    });
+  });
+  const form = document.querySelector<HTMLFormElement>("[data-availability-form]");
+  const emailInput = form?.querySelector<HTMLInputElement>('input[name="email"]');
+  const submitButton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const status = form?.querySelector<HTMLElement>("[data-form-status]");
+  const setFormStatus = (message: string, isError = false) => {
+    if (!status || !emailInput) return;
+    status.setAttribute("role", isError ? "alert" : "status");
+    status.dataset.error = String(isError);
+    status.textContent = message;
+    emailInput.setAttribute("aria-invalid", String(isError));
+  };
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!emailInput || !submitButton || !status) return;
+
+    const email = emailInput.value.trim();
+    if (!emailInput.validity.valid || !email) {
+      setFormStatus("Enter a valid email address.", true);
+      emailInput.focus();
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Saving…";
+    setFormStatus("");
+
+    try {
+      const response = await fetch("/api/store-waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || "We couldn’t add you to the list. Please try again.");
+
+      form.dataset.complete = "true";
+      emailInput.disabled = true;
+      submitButton.textContent = "You’re on the list";
+      setFormStatus("We’ll email you when EyEagle is available.");
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = "Notify me";
+      setFormStatus(error instanceof Error ? error.message : "We couldn’t add you to the list. Please try again.", true);
+    }
+  });
+</script>
