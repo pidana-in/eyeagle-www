@@ -5,6 +5,7 @@ import { getCollection, render } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import { getImage } from "astro:assets";
 import Image from "../../components/common/OptimizedImage.astro";
+import MaterialIcon from "../../components/common/MaterialIcon.astro";
 import Divider from "../../assets/Blog/Divider.png";
 import { blogsData } from "../../components/constants/home";
 
@@ -460,14 +461,7 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
                 <div class="mt-auto text-primary font-semibold text-lg inline-flex items-center gap-1 group">
                   Read
                   <span class="sr-only">{item.data.title}</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6 group-hover:translate-x-1 transition-transform"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M10.59 16.59L15.17 12 10.59 7.41 9.17 8.83 12.34 12 9.17 15.17z" />
-                  </svg>
+                  <MaterialIcon name="arrow_forward" classNames="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </a>
