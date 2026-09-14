@@ -30,8 +30,6 @@
 .price strong { font-size:32px; line-height:1.2; font-weight:500; letter-spacing:-.035em; }
 .price span { font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); color:var(--color-text-muted); }
 .offer > p { font-size:var(--type-body-sm-size); line-height:var(--type-body-sm-line); margin:10px 0 16px; }
-.inclusions { display:flex; flex-wrap:wrap; column-gap:16px; row-gap:8px; list-style:none; padding:0; margin:0; font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); color:var(--color-text-muted); }
-.inclusions li::before { content:'✓'; margin-right:6px; color:var(--color-text); }
 .renewalPrice { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-top:18px; padding-top:16px; border-top:1px solid var(--color-line-strong); }
 .renewalPrice > span { color:var(--color-text-muted); font-size:var(--type-body-xs-size); font-weight:var(--type-weight-medium); line-height:var(--type-body-xs-line); letter-spacing:.08em; text-transform:uppercase; }
 .renewalPrice p { margin:0; color:var(--color-text-muted); font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); }
@@ -56,7 +54,6 @@
 .notifyForm { margin-top:28px; scroll-margin-top:145px; }
 .availabilityHeading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
 .availabilityHeading h2 { font-size:var(--type-h3-size); font-weight:var(--type-weight-regular); line-height:var(--type-h3-line); margin:0; letter-spacing:var(--type-letter-spacing); }
-.availabilityCopy { font-size:var(--type-body-sm-size); line-height:var(--type-body-sm-line); color:var(--color-text-muted); margin:10px 0 18px; }
 .formRow { display:flex; padding:5px; border:1px solid var(--color-line-strong); border-radius:8px; background:var(--color-surface-soft); transition:border-color .2s,box-shadow .2s; }
 .formRow input { width:100%; min-width:0; border:0; background:transparent; padding:0 12px; font:inherit; font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); color:var(--color-text); }
 .formRow button { display:flex; gap:18px; justify-content:space-between; align-items:center; flex-shrink:0; min-height:44px; padding:0 18px; border:0; border-radius:5px; color:var(--color-on-action); background:var(--color-action); font-size:var(--type-button-small-size); font-weight:var(--type-weight-medium); line-height:var(--type-button-small-line); cursor:pointer; transition:background .2s; }
