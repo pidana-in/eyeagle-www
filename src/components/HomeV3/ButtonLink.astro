@@ -1,0 +1,23 @@
+---
+import styles from "../../styles/HomeV3/button-link.module.css";
+
+interface Props {
+  href: string;
+  size?: "large" | "small";
+  variant?: "solid" | "inverse" | "glass";
+  class?: string;
+  tabindex?: number;
+}
+
+const {
+  href,
+  size = "large",
+  variant = "solid",
+  class: className,
+  tabindex,
+} = Astro.props;
+---
+
+<a class:list={[styles.button, styles[size], className]} data-variant={variant} href={href} tabindex={tabindex}>
+  <slot />
+</a>

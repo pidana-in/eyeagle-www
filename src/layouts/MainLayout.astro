@@ -3,17 +3,12 @@ import { getImage } from "astro:assets";
 import plusJakartaSansUrl from "@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url";
 import defaultSocialSource from "../assets/NewHome/HomeImage.png";
 import {
-  navLinks,
-  ctaButtonText,
-  ctaHref,
-  footerPolicyLinks,
-  footerProductLinks,
-  footerCompanyLinks,
-  footerCopyright,
-  socialLinks,
   siteMeta,
+  socialLinks,
 } from "../data/site";
 import "../styles/global.css";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 
 type SchemaType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
 
@@ -58,7 +53,6 @@ const rawPath = canonicalPath ?? Astro.url.pathname;
 const routePath = rawPath.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
 const normalizedPath = routePath === "/" ? "/" : routePath.replace(/\/+$/, "");
 const canonicalUrl = new URL(normalizedPath, site).toString();
-const pathname = normalizedPath;
 
 const defaultSocialImage = await getImage({
   src: defaultSocialSource,
@@ -219,146 +213,9 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
   <body class="min-h-screen bg-white text-gray-900 antialiased">
     <a href="#main-content" class="sr-only z-100 rounded bg-white px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
 
-    <header class="sticky top-0 z-50 w-full border-b border-black/5 bg-white/95 shadow-sm backdrop-blur" data-site-header>
-      <nav class="mx-auto flex min-h-18 max-w-360 items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-10" aria-label="Primary navigation">
-        <a href="/" aria-label="EyEagle home" class="shrink-0">
-          <img src="/svg/tag-new.svg" width="234" height="28" alt="EyEagle — Preventing Falls, Saving Lives" class="h-7 w-58.5 sm:h-8 sm:w-66.75" decoding="async" />
-        </a>
-
-        <ul class="hidden items-center gap-6 text-[15px] font-semibold mr-24 lg:flex">
-          {navLinks.map((item) => {
-            const active = item.children
-              ? item.children.some((child) => pathname === child.url || pathname.startsWith(`${child.url}/`))
-              : pathname === item.url || pathname.startsWith(`${item.url}/`);
-            return (
-              <li>
-                {!item.children ? (
-                  <a href={item.url} aria-current={active ? "page" : undefined} class:list={["rounded px-1 py-3 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary", active && "text-primary"]}>
-                    {item.title}
-                  </a>
-                ) : (
-                  <details class="group relative" data-desktop-dropdown>
-                    <summary class:list={["flex cursor-pointer list-none items-center gap-1 rounded px-1 py-3 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary", active && "text-primary"]}>
-                      {item.title}
-                      <svg aria-hidden="true" class="size-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"></path></svg>
-                    </summary>
-                    <ul class="absolute left-0 top-full min-w-52 rounded-xl border border-black/10 bg-white p-2 shadow-xl">
-                      {item.children.map((child) => (
-                        <li><a href={child.url} aria-current={pathname === child.url ? "page" : undefined} class="block rounded-lg px-4 py-3 text-sm text-black hover:bg-gray-100 hover:text-primary">{child.title}</a></li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-
-        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="hidden min-h-11 shrink-0 items-center rounded-full bg-primary px-5 py-2.5 font-bold text-white hover:bg-[#a90000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex">
-          {ctaButtonText}
-        </a>
-
-        <button type="button" class="inline-flex size-12 items-center justify-center rounded-full border border-black/10 lg:hidden" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
-          <svg data-menu-open-icon aria-hidden="true" class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg>
-          <svg data-menu-close-icon aria-hidden="true" class="hidden size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="m6 6 12 12M18 6 6 18"></path></svg>
-        </button>
-      </nav>
-
-      <div id="mobile-menu" class="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/5 bg-white p-4 shadow-xl lg:hidden" hidden data-mobile-menu>
-        <ul class="space-y-1 font-semibold">
-          {navLinks.map((item) => (
-            <li>
-              {!item.children ? (
-                <a href={item.url} class="block min-h-12 rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-primary">{item.title}</a>
-              ) : (
-                <details class="group">
-                  <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between rounded-lg px-4 py-3 hover:bg-gray-100">
-                    {item.title}
-                    <svg aria-hidden="true" class="size-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"></path></svg>
-                  </summary>
-                  <ul class="ml-4 border-l border-gray-200 pl-3">
-                    {item.children.map((child) => <li><a href={child.url} class="block min-h-11 rounded-lg px-4 py-3 text-sm hover:bg-gray-100 hover:text-primary">{child.title}</a></li>)}
-                  </ul>
-                </details>
-              )}
-            </li>
-          ))}
-        </ul>
-        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="mt-4 flex min-h-12 items-center justify-center rounded-full bg-primary px-5 py-3 font-bold text-white">{ctaButtonText}</a>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <slot />
-    </main>
-
-    <footer id="footer" class={`bg-black py-16 text-white lg:py-20 ${footerClass}`}>
-      <div class="mx-auto grid max-w-360 gap-12 px-6 lg:grid-cols-[1fr_1.5fr] lg:px-20">
-        <div class="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
-          <img src="/svg/Logo-new.svg" width="267" height="32" alt="EyEagle — Preventing Falls, Saving Lives" class="h-8 w-66.75" loading="lazy" decoding="async" />
-          <div class="flex gap-3">
-            {[
-              { href: socialLinks.linkedin, label: "LinkedIn", text: "in" },
-              { href: socialLinks.instagram, label: "Instagram", text: "ig" },
-              { href: socialLinks.facebook, label: "Facebook", text: "f" },
-              { href: socialLinks.youtube, label: "YouTube", text: "▶" },
-            ].map((social) => (
-              <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.text}, Visit EyEagle on ${social.label}`} class="inline-flex size-11 items-center justify-center rounded-full border border-white/30 font-bold text-white hover:border-white hover:bg-white hover:text-black"><span aria-hidden="true">{social.text}</span></a>
-            ))}
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-10 sm:grid-cols-3">
-          {[
-            { heading: "Product", links: footerProductLinks },
-            { heading: "Company", links: footerCompanyLinks },
-            { heading: "Resources", links: footerPolicyLinks },
-          ].map((group) => (
-            <div>
-              <h2 class="mb-4 font-bold">{group.heading}</h2>
-              <ul class="space-y-3">
-                {group.links.map((item) => <li><a href={item.url} class="text-white/75 hover:text-white hover:underline">{item.title}</a></li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      <p class="mt-16 px-6 text-center text-sm text-white/65">{footerCopyright}</p>
-    </footer>
-
-    <script is:inline>
-      const menuButton = document.querySelector("[data-menu-toggle]");
-      const mobileMenu = document.querySelector("[data-mobile-menu]");
-      const openIcon = document.querySelector("[data-menu-open-icon]");
-      const closeIcon = document.querySelector("[data-menu-close-icon]");
-
-      const setMenuOpen = (open) => {
-        if (!menuButton || !mobileMenu) return;
-        menuButton.setAttribute("aria-expanded", String(open));
-        menuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
-        mobileMenu.hidden = !open;
-        openIcon?.classList.toggle("hidden", open);
-        closeIcon?.classList.toggle("hidden", !open);
-        document.body.classList.toggle("overflow-hidden", open);
-      };
-
-      menuButton?.addEventListener("click", () => setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true"));
-      mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          setMenuOpen(false);
-          document.querySelectorAll("[data-desktop-dropdown][open]").forEach((details) => details.removeAttribute("open"));
-        }
-      });
-      document.addEventListener("click", (event) => {
-        document.querySelectorAll("[data-desktop-dropdown][open]").forEach((details) => {
-          if (!details.contains(event.target)) details.removeAttribute("open");
-        });
-      });
-      window.addEventListener("resize", () => {
-        if (window.innerWidth >= 1024) setMenuOpen(false);
-      }, { passive: true });
-    </script>
+    <SiteHeader solidAtTop />
+    <main id="main-content" class="site-chrome-content"><slot /></main>
+    <SiteFooter footerClass={footerClass} />
 
   </body>
 </html>
@@ -369,6 +226,7 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
   [hidden] { display: none !important; }
   summary::-webkit-details-marker { display: none; }
   :focus-visible { outline: 2px solid #cc0000; outline-offset: 3px; }
+  .site-chrome-content { padding-top: 68px; }
   article img { border-radius: 16px; }
   .prose ul ul { list-style-type: circle; }
   .prose blockquote { margin: 2rem 0; border: 0; border-radius: 16px; background: #fbebeb; padding: 1.5rem; color: #262626; font-style: normal; }
