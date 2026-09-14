@@ -1,26 +1,186 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeaderSection from "../components/AboutUs/HeaderSection.astro";
-import FoundersSection from "../components/AboutUs/FoundersSection.astro";
-import BannerSection from "../components/AboutUs/BannerSection.astro";
-import CoreValues from "../components/AboutUs/CoreValues.astro";
-import Explanation from "../components/AboutUs/Explanation.astro";
-import CTA from "../components/NewHome/CTA.astro";
-import { ctaSection } from "../components/constants/newHome";
-import Blogs from "../components/Home/Blogs.astro";
-import { blogsData } from "../components/constants/home";
+import Image from "../components/common/OptimizedImage.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import FoundersTeam from "../components/OurStory/FoundersTeam.astro";
+import styles from "../styles/OurStory/page.module.css";
+import "../styles/home-v3-tokens.css";
+import heroImage from "../assets/OurStory/about-hero-independence-v1-4k.png";
+import nanijiImage from "../assets/OurStory/about-naniji-framed-v1.png";
+import independenceImage from "../assets/OurStory/about-card-independence-v1.png";
+import privacyImage from "../assets/OurStory/about-card-privacy-v1.png";
+import responseImage from "../assets/OurStory/about-card-response-v1.png";
+import responseAtHomeImage from "../assets/OurStory/about-response-alarm-at-home-v1.png";
 
-const metaTitle = "About EyEagle | Safer, More Independent Living";
-const metaDesc =
-  "Meet the people and purpose behind EyEagle, founded to help older adults live more safely and independently at home.";
+const principles = [
+  {
+    title: "Independence stays with the parent",
+    description: "Growing older should not mean giving up control over how you live in your own home.",
+    image: independenceImage,
+    alt: "An older woman putting on her shoes at home",
+  },
+  {
+    title: "Privacy is non-negotiable",
+    description: "Bathroom safety should never require a camera, microphone or constant observation.",
+    image: privacyImage,
+    alt: "A closed bathroom door in a private home",
+  },
+  {
+    title: "An alert needs a response",
+    description: "Families need to know who has seen the SOS, who is responding and what happens next.",
+    image: responseImage,
+    alt: "A family member receiving an SOS alert on a phone",
+  },
+] as const;
+
+const responseSteps = [
+  {
+    number: "01",
+    title: "The alarm sounds at home",
+    description: "The paired Alarm Unit calls attention outside the bathroom immediately.",
+  },
+  {
+    number: "02",
+    title: "The Nest connects",
+    description: "Trusted contacts receive the SOS and can take responsibility in the EyEagle app.",
+  },
+  {
+    number: "03",
+    title: "EyEagle Response can coordinate",
+    description: "With an eligible membership, an unresolved alert can reach the EyEagle SOS team for assessment and coordination under the approved response process.",
+  },
+] as const;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} schemaType="AboutPage">
-  <HeaderSection />
-  <BannerSection />
-  <CoreValues />
-  <Explanation />
-  <FoundersSection />
-  <Blogs blogsData={blogsData} showSeeMoreButton={true} />
-  <CTA ctaSection={ctaSection} />
+<MainLayout
+  title="Our Story | EyEagle"
+  desc="The personal story and principles behind EyEagle's connected response system for parents living independently."
+  showChrome={false}
+  bodyClass="eyeagle-home-v3"
+>
+  <SiteHeader slot="header" solidAtTop />
+
+  <main class={styles.main} id="main-content">
+    <section class={styles.hero} aria-labelledby="about-title">
+      <div class={styles.heroCopy} data-reveal data-reveal-visible="false">
+        <h1 id="about-title">More independence for parents.<br />More clarity for families.</h1>
+        <p>EyEagle makes help easier to reach at home, while keeping trusted people connected when something goes wrong.</p>
+      </div>
+
+      <div class={styles.heroMedia} data-reveal data-reveal-visible="false">
+        <Image
+          alt="An older woman tending plants on her balcony"
+          class={styles.fillImage}
+          fetchpriority="high"
+          layout="full-width"
+          loading="eager"
+          quality={88}
+          src={heroImage}
+        />
+      </div>
+    </section>
+
+    <section class={styles.origin} aria-labelledby="origin-title">
+      <div class={styles.originCopy} data-reveal data-reveal-visible="false">
+        <h2 id="origin-title">Built in memory of a woman who lived on her own terms.</h2>
+        <div class={styles.originBody}>
+          <p>Savitri Devi Sharma—our Naniji—was widowed at just 24. She moved from Rajasthan to Kolkata and raised five children, building a life defined by courage, resilience and an unmistakable joy.</p>
+          <p>Years later, we lost her following a fall in the bathroom.</p>
+          <p>That loss changed the way we thought about safety at home. It showed us that protecting someone should not begin after their independence has already been taken away.</p>
+          <p>EyEagle began in Naniji’s memory, with a determination to make support easier to reach while preserving the dignity she lived with throughout her life.</p>
+        </div>
+      </div>
+
+      <div class={styles.originMedia} data-reveal data-reveal-visible="false">
+        <Image
+          alt="A framed family photograph of Savitri Devi Sharma"
+          class={styles.fillImage}
+          layout="full-width"
+          quality={88}
+          src={nanijiImage}
+        />
+      </div>
+    </section>
+
+    <FoundersTeam />
+
+    <section class={styles.principles} aria-labelledby="principles-title">
+      <div class={styles.sectionHeading} data-reveal data-reveal-visible="false">
+        <h2 id="principles-title">Safety should protect independence, not replace it.</h2>
+      </div>
+
+      <div class={styles.principlesGrid}>
+        {principles.map((principle) => (
+          <article class={styles.principle} data-reveal data-reveal-visible="false">
+            <div class={styles.principleVisual}>
+              <Image alt={principle.alt} class={styles.fillImage} layout="full-width" quality={84} src={principle.image} />
+            </div>
+            <h3>{principle.title}</h3>
+            <p>{principle.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class={styles.response} aria-labelledby="response-title">
+      <div class={styles.responseCopy}>
+        <div class={styles.responseIntro} data-reveal data-reveal-visible="false">
+          <h2 id="response-title">We designed the <span class={styles.responseAccent}>response</span>, not just the alarm.</h2>
+          <p>A deliberate SOS press draws attention through the Alarm Unit at home and connects trusted contacts through Nest. With an eligible membership, an unresolved alert can reach the EyEagle SOS team for further assessment and coordination.</p>
+        </div>
+
+        <ol class={styles.responseSteps}>
+          {responseSteps.map((step) => (
+            <li data-reveal data-reveal-visible="false">
+              <span class={styles.stepNumber}>{step.number}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class={styles.responseMedia} data-reveal data-reveal-visible="false">
+        <Image
+          alt="A family member responding to an EyEagle bathroom alarm at home"
+          class={styles.fillImage}
+          layout="full-width"
+          quality={88}
+          src={responseAtHomeImage}
+        />
+      </div>
+    </section>
+
+    <section class={styles.closing} aria-labelledby="closing-title">
+      <div class={styles.closingInner} data-reveal data-reveal-visible="false">
+        <h2 id="closing-title">Make help easier to reach.<br />Keep independence intact.</h2>
+        <ButtonLink class={styles.closingAction} href="/solution" size="small" variant="inverse">See how EyEagle works</ButtonLink>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" />
 </MainLayout>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+
+  if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+    reveals.forEach((element) => element.dataset.revealVisible = "true");
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        (entry.target as HTMLElement).dataset.revealVisible = "true";
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -10%", threshold: 0.12 });
+
+    reveals.forEach((element) => observer.observe(element));
+  }
+</script>

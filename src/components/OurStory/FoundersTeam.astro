@@ -1,0 +1,103 @@
+---
+import Image from "../common/OptimizedImage.astro";
+import styles from "../../styles/OurStory/founders.module.css";
+import ajayImage from "../../assets/OurStory/team/ajay.png";
+import abhinavImage from "../../assets/OurStory/team/abhinav.png";
+import gauravImage from "../../assets/OurStory/team/gaurav.png";
+import vaibhavImage from "../../assets/OurStory/team/vaibhav.png";
+import edelweissLogo from "../../assets/OurStory/team/edelweiss.png";
+import mangoTownLogo from "../../assets/OurStory/team/mango-town.png";
+import iitLogo from "../../assets/OurStory/team/iit.png";
+import iimaLogo from "../../assets/OurStory/team/iima.png";
+import ipsatorLogo from "../../assets/OurStory/team/ipsator.png";
+import phonepeLogo from "../../assets/OurStory/team/phonepe.png";
+import bluejeansLogo from "../../assets/OurStory/team/bluejeans.png";
+import flipkartLogo from "../../assets/OurStory/team/flipkart.png";
+import nomuraLogo from "../../assets/OurStory/team/nomura.png";
+import unoonaLogo from "../../assets/OurStory/team/unoona.png";
+
+const founders = [
+  {
+    name: "Ajay Sharma",
+    role: "Co-Founder",
+    quote: "The goal is to make support easier to reach without asking parents to give up independence. We are building EyEagle around that balance, especially in the bathroom where privacy matters.",
+    image: ajayImage,
+    alt: "Ajay Sharma, Co-Founder of EyEagle",
+    affiliations: [
+      { src: edelweissLogo, alt: "Edelweiss" },
+      { src: mangoTownLogo, alt: "Mango Town" },
+      { src: iitLogo, alt: "Indian Institute of Technology" },
+      { src: iimaLogo, alt: "Indian Institute of Management Ahmedabad" },
+    ],
+  },
+  {
+    name: "Abhinav Kushwaha",
+    role: "Co-Founder",
+    quote: "Our mission began with a simple question: how can families stay connected without making parents feel watched? EyEagle gives trusted people a clear way to see an SOS and coordinate the next step.",
+    image: abhinavImage,
+    alt: "Abhinav Kushwaha, Co-Founder of EyEagle",
+    affiliations: [
+      { src: ipsatorLogo, alt: "Ipsator" },
+      { src: phonepeLogo, alt: "PhonePe" },
+      { src: bluejeansLogo, alt: "BlueJeans by Verizon" },
+      { src: flipkartLogo, alt: "Flipkart" },
+      { src: iitLogo, alt: "Indian Institute of Technology" },
+    ],
+  },
+  {
+    name: "Gaurav Kumar",
+    role: "Co-Founder",
+    quote: "Reliability comes down to details. Careful placement, testing and handover help make sure the system fits the household and that everyone understands the response path.",
+    image: gauravImage,
+    alt: "Gaurav Kumar, Co-Founder of EyEagle",
+    affiliations: [
+      { src: ipsatorLogo, alt: "Ipsator" },
+      { src: nomuraLogo, alt: "Nomura" },
+      { src: unoonaLogo, alt: "Unoona" },
+      { src: iitLogo, alt: "Indian Institute of Technology" },
+    ],
+  },
+  {
+    name: "Vaibhav Saxena",
+    role: "Co-Founder",
+    quote: "People ageing at home deserve support that respects their routines and choices. EyEagle is designed to reduce uncertainty by making an alert visible and the next step easier to coordinate.",
+    image: vaibhavImage,
+    alt: "Vaibhav Saxena, Co-Founder of EyEagle",
+    affiliations: [
+      { src: ipsatorLogo, alt: "Ipsator" },
+      { src: iitLogo, alt: "Indian Institute of Technology" },
+    ],
+  },
+] as const;
+---
+
+<section class={styles.section} aria-labelledby="founders-title">
+  <header class={styles.heading} data-reveal data-reveal-visible="false">
+    <h2 id="founders-title">A personal beginning. A shared responsibility.</h2>
+    <p>Together, we are building across product, technology, installation and response operations—with the understanding that every decision ultimately enters someone’s home and affects a real family.</p>
+  </header>
+
+  <div class={styles.grid}>
+    {founders.map((founder) => (
+      <article class={styles.card} data-reveal data-reveal-visible="false">
+        <div class={styles.profile}>
+          <div class={styles.portrait}>
+            <Image alt={founder.alt} class={styles.portraitImage} layout="full-width" quality={88} src={founder.image} />
+          </div>
+          <div class={styles.story}>
+            <div class={styles.identity}>
+              <h3>{founder.name}</h3>
+              <p>{founder.role}</p>
+            </div>
+            <p class={styles.quote}>{founder.quote}</p>
+          </div>
+        </div>
+        <ul class={styles.affiliations} aria-label={`${founder.name} affiliations`}>
+          {founder.affiliations.map((affiliation) => (
+            <li><Image alt={affiliation.alt} class={styles.logo} layout="constrained" quality={90} src={affiliation.src} /></li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
