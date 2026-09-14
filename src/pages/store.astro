@@ -11,11 +11,11 @@ import appMockup from "../assets/HomeV3/app-alert-mockup-v1.png";
 import styles from "../styles/Store/page.module.css";
 import "../styles/home-v3-tokens.css";
 const views = [
-  { image: kit, label: "The system", caption: "The complete system, designed for the home.", alt: "EyEagle alarm unit, SOS button, door sensor and latch arranged in a bathroom", contain: false },
-  { image: installedButton, label: "SOS in place", caption: "Installed within reach for a deliberate press.", alt: "A hand pressing the installed EyEagle SOS button", contain: false },
-  { image: sensor, label: "Door sensor", caption: "Door awareness, connected to the same response.", alt: "EyEagle bathroom door sensor and latch", contain: true },
-  { image: livingRoomAlarm, label: "Alarm at home", caption: "The sounding alarm calls attention throughout the home.", alt: "EyEagle sounding alarm mounted on a living-room wall beside a hallway", contain: false },
-  { image: appMockup, label: "EyEagle app", caption: "Trusted contacts can see the alert and coordinate a response.", alt: "EyEagle mobile app showing a home SOS alert and trusted-contact responses", contain: false },
+  { image: kit, label: "The system", caption: "One connected system for the home.", alt: "EyEagle alarm unit, SOS button, door sensor and latch arranged in a bathroom", contain: false },
+  { image: installedButton, label: "SOS in place", caption: "A deliberate press within reach.", alt: "A hand pressing the installed EyEagle SOS button", contain: false },
+  { image: sensor, label: "Door sensor", caption: "A locked door can trigger help.", alt: "EyEagle bathroom door sensor and latch", contain: true },
+  { image: livingRoomAlarm, label: "Alarm at home", caption: "Calls attention throughout the home.", alt: "EyEagle sounding alarm mounted on a living-room wall beside a hallway", contain: false },
+  { image: appMockup, label: "EyEagle app", caption: "Trusted contacts see and coordinate alerts.", alt: "EyEagle mobile app showing a home SOS alert and trusted-contact responses", contain: false },
 ];
 ---
 <MainLayout title="EyEagle system | Explore your setup" desc="Explore the EyEagle bathroom safety system, three-year membership and options for your home. Get updates when ordering opens." noindex={true} showChrome={false} bodyClass="eyeagle-home-v3">
@@ -25,7 +25,6 @@ const views = [
       <div class={styles.availabilityState}>
         <i aria-hidden="true"></i>
         <strong>Ordering is currently unavailable</strong>
-        <span>Explore the system and preview a setup for your home.</span>
       </div>
       <a href="#availability">Get availability updates <span aria-hidden="true">→</span></a>
     </aside>
@@ -45,38 +44,36 @@ const views = [
       <div class={styles.productCopy}>
         <p class={styles.eyebrow}>Bathroom safety, connected.</p>
         <h1 id="product-title">The EyEagle system.</h1>
-        <p class={styles.intro}>An SOS press—or a bathroom door that stays locked longer than expected—sounds the alarm at home, notifies trusted contacts through Nest, and can connect an eligible unanswered alert to EyEagle Response.</p>
+        <p class={styles.intro}>SOS or a prolonged locked door alerts the home, Nest and EyEagle Response.</p>
         <div class={styles.offer}>
           <div class={styles.price}><strong>$799</strong><span>USD · excluding GST</span></div>
-          <p>Includes one bathroom setup and three years of response membership.</p>
-          <ul class={styles.inclusions}><li>System hardware & installation</li><li>EyEagle app & premium Nest membership</li><li>Response membership</li></ul>
+          <p>Hardware, installation, app and three years of response included.</p>
           <div class={styles.renewalPrice}>
-            <span>Membership after three years</span>
-            <p><strong>$20/month</strong> from year four, with your approval</p>
+            <span>After year three</span>
+            <p><strong>$20/month</strong> with your approval</p>
           </div>
         </div>
         <section class={styles.configuration} aria-labelledby="configuration-title">
-          <div class={styles.configHeader}><h2 id="configuration-title">Tailor your setup</h2><span>Adjust quantities to preview your setup</span></div>
+          <div class={styles.configHeader}><h2 id="configuration-title">Tailor your setup</h2></div>
           <fieldset aria-label="Configuration options">
-            <div class={styles.option}><div><h3>Bathrooms</h3><p>One included · same setup for +$200 each</p></div><div class={styles.stepper}><button type="button" data-quantity="bathrooms" data-delta="-1" aria-label="Decrease number of bathrooms" disabled>−</button><input id="bathrooms" aria-label="Bathrooms" type="number" min="1" max="3" step="1" value="1" inputmode="numeric" /><button type="button" data-quantity="bathrooms" data-delta="1" aria-label="Increase number of bathrooms">+</button></div></div>
+            <div class={styles.option}><div><h3>Bathrooms</h3><p>1 included · +$200 each</p></div><div class={styles.stepper}><button type="button" data-quantity="bathrooms" data-delta="-1" aria-label="Decrease number of bathrooms" disabled>−</button><input id="bathrooms" aria-label="Bathrooms" type="number" min="1" max="3" step="1" value="1" inputmode="numeric" /><button type="button" data-quantity="bathrooms" data-delta="1" aria-label="Increase number of bathrooms">+</button></div></div>
             <div class={styles.option}><div><h3>Extra SOS buttons</h3><p>+$100 per button</p></div><div class={styles.stepper}><button type="button" data-quantity="extras" data-delta="-1" aria-label="Decrease extra SOS buttons" disabled>−</button><input id="extras" aria-label="Extra SOS buttons" type="number" min="0" max="3" step="1" value="0" inputmode="numeric" /><button type="button" data-quantity="extras" data-delta="1" aria-label="Increase extra SOS buttons">+</button></div></div>
           </fieldset>
-          <p class={styles.lockedNote}><span>Preview prices are shown in USD and exclude GST. Final pricing and installation availability will be confirmed before ordering opens.</span><a href="/contact">Need more than three bathrooms or three extra SOS buttons? Contact the EyEagle team for a tailored setup. <i aria-hidden="true">↗</i></a></p>
+          <p class={styles.lockedNote}><span>Preview only · USD, excluding GST.</span><a href="/contact">Larger setup? Talk to us. <i aria-hidden="true">↗</i></a></p>
           <div class={styles.configurationTotal} aria-live="polite" aria-atomic="true"><div><span>Estimated setup</span><p data-quantity-summary>1 bathroom · no extra SOS buttons</p></div><strong data-configuration-total>$799</strong></div>
         </section>
         <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
-          <div class={styles.availabilityHeading}><h2>Get notified when ordering opens.</h2></div>
-          <p class={styles.availabilityCopy}>Leave your email and we’ll let you know when EyEagle is available to order.</p>
+          <div class={styles.availabilityHeading}><h2>Get availability updates.</h2></div>
           <label class={styles.srOnly} for="availability-email">Email address</label>
           <div class={styles.formRow}><input aria-describedby="availability-note availability-status" aria-invalid="false" autocomplete="email" id="availability-email" inputmode="email" name="email" placeholder="Your email address" required type="email" /><button type="submit">Notify me <span aria-hidden="true">→</span></button></div>
           <p class={styles.formStatus} data-form-status id="availability-status"></p>
-          <p class={styles.formNote} id="availability-note">Availability updates only. No marketing emails.</p>
-          <a class={styles.contactLink} href="/contact"><span>Questions about your home?</span><strong>Contact the EyEagle team <i aria-hidden="true">↗</i></strong></a>
+          <p class={styles.formNote} id="availability-note">No marketing.</p>
+          <a class={styles.contactLink} href="/contact"><span>Need help?</span><strong>Talk to us <i aria-hidden="true">↗</i></strong></a>
         </form>
         <div class={styles.details}>
-          <details><summary>What’s included <span aria-hidden="true">+</span></summary><p>Your one-bathroom system includes the Alarm Unit, SOS button, door sensor and latch, professional installation, the EyEagle app with premium Nest membership, three years of response membership, and a three-year hardware warranty.</p></details>
-          <details><summary>Membership after three years <span aria-hidden="true">+</span></summary><p>Before your included membership ends, our team will contact you. Service continues at $20 per month only after you approve a recurring payment mandate.</p></details>
-          <details><summary>Planning for more than one bathroom <span aria-hidden="true">+</span></summary><p>Each additional bathroom includes the same bathroom hardware and professional installation as the first, at $200 each. Additional SOS buttons are $100 each. For more than three bathrooms or three extra SOS buttons, contact our team for a tailored setup.</p></details>
+          <details><summary>In the system <span aria-hidden="true">+</span></summary><p>Alarm Unit, SOS button, door sensor and latch, installation, EyEagle app with premium Nest, three years of response, and a three-year hardware warranty.</p></details>
+          <details><summary>After year three <span aria-hidden="true">+</span></summary><p>We’ll contact you before membership ends. Service continues at $20/month only after you approve recurring payment.</p></details>
+          <details><summary>Larger setups <span aria-hidden="true">+</span></summary><p>Each extra bathroom includes the same hardware and installation for $200. Extra SOS buttons cost $100. For more than three of either, talk to us.</p></details>
         </div>
       </div>
     </section>
