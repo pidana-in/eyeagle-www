@@ -1,0 +1,353 @@
+---
+import { countries } from "../constants/common";
+import Icon from "../common/Icon.astro";
+import {
+  consideringForOptions,
+  safetyConcernOptions,
+  immediateSafetyConcernOptions,
+  whatNextOptions,
+  preferredContactDayOptions,
+  preferredContactTimeOptions,
+  checkboxRadioClass,
+} from "../constants/assessment";
+
+const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
+---
+
+<section class="assessment-shell" aria-labelledby="assessment-title">
+  <div class="assessment-layout">
+    <aside class="assessment-intro">
+      <div class="assessment-intro-inner">
+        <p class="assessment-kicker">Bathroom safety assessment</p>
+        <h1 id="assessment-title">EyEagle Home Safety Assessment Form</h1>
+        <p class="assessment-intro-copy">
+          EyEagle helps families reduce bathroom fall risks and get faster help
+          during emergencies. Share your details and our team will contact you
+          for a safety check or product explanation.
+        </p>
+        <div class="assessment-intro-note">
+          <span aria-hidden="true"></span>
+          <p>Your answers help our team prepare before speaking with you.</p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="assessment-panel">
+      <div id="assessmentFormWrapper" class="block">
+        <div
+          id="submitErrorBanner"
+          class="assessment-alert assessment-alert-error hidden"
+          role="alert"
+        ></div>
+
+        <form method="POST" id="assessmentForm" class="assessment-form">
+          <section class="assessment-form-section" aria-labelledby="details-heading">
+            <div class="assessment-section-heading">
+              <span aria-hidden="true">01</span>
+              <div>
+                <h2 id="details-heading">Your details</h2>
+                <p>Tell us how to reach you and which home we should discuss.</p>
+              </div>
+            </div>
+
+            <div class="assessment-fields">
+              <div class="assessment-field">
+                <label for="fullNameField">
+                  Your Name<span aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="fullNameField"
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Name"
+                  required
+                  autocomplete="name"
+                  class="assessment-input"
+                />
+                <p id="fullNameError" class="assessment-error hidden">
+                  Please enter a valid full name
+                </p>
+              </div>
+
+              <div class="assessment-field">
+                <label for="phoneNumField">
+                  Phone Number / WhatsApp No.<span aria-hidden="true">*</span>
+                </label>
+                <div class="assessment-phone-field">
+                  <button
+                    type="button"
+                    id="dropdownButton"
+                    aria-label="Choose country calling code"
+                    aria-controls="dropdownMenu"
+                    aria-expanded="false"
+                    class="assessment-country-button"
+                  >
+                    <span class="flex items-center">
+                      <Icon iconName="keyboard_arrow_down" classNames="hidden" />
+                    </span>
+                    <div class="flex items-center gap-2"></div>
+                  </button>
+
+                  <input id="phCode" name="phCode" value="" class="hidden" />
+
+                  <div
+                    id="dropdownMenu"
+                    role="listbox"
+                    class="assessment-country-menu hidden"
+                  >
+                    {
+                      countries
+                        .sort((a, b) => a.code.localeCompare(b.code))
+                        .map((country) => (
+                          <button
+                            type="button"
+                            role="option"
+                            class="assessment-country-option"
+                            data-value={country.dial_code}
+                            data-country-code={country.code}
+                          >
+                            <img
+                              src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                              alt={`${country.code} flag`}
+                              width="20"
+                              height="15"
+                            />
+                            <span>{country.name}</span>
+                            <strong>{country.dial_code}</strong>
+                          </button>
+                        ))
+                    }
+                  </div>
+
+                  <input
+                    id="phoneNumField"
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    required
+                    autocomplete="tel-national"
+                    inputmode="numeric"
+                    pattern="[6-9][0-9]{9}"
+                    maxlength="10"
+                    class="assessment-input assessment-phone-input"
+                  />
+                </div>
+                <p id="phoneError" class="assessment-error hidden">
+                  Please enter a valid 10-digit mobile number
+                </p>
+              </div>
+
+              <div class="assessment-field assessment-field-wide">
+                <label for="siteLocation">Site name or location</label>
+                <input
+                  id="siteLocation"
+                  type="text"
+                  name="siteLocation"
+                  placeholder="Enter site name or location"
+                  autocomplete="street-address"
+                  class="assessment-input"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section class="assessment-form-section" aria-labelledby="safety-heading">
+            <div class="assessment-section-heading">
+              <span aria-hidden="true">02</span>
+              <div>
+                <h2 id="safety-heading">Safety context</h2>
+                <p>Share what is happening at home and where support may help.</p>
+              </div>
+            </div>
+
+            <fieldset class="assessment-question">
+              <legend>
+                Who are you considering EyeEagle for?<span aria-hidden="true">*</span>
+              </legend>
+              <div class="assessment-choice-list assessment-choice-list-two">
+                {
+                  consideringForOptions.map((option) => (
+                    <label class="assessment-choice">
+                      <input
+                        type="checkbox"
+                        name="consideringFor"
+                        value={option}
+                        class={choiceControlClass}
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))
+                }
+              </div>
+              <p id="consideringForError" class="assessment-error hidden">
+                Please select at least one option
+              </p>
+            </fieldset>
+
+            <fieldset class="assessment-question">
+              <legend>
+                What is your main safety concern?<span aria-hidden="true">*</span>
+              </legend>
+              <div class="assessment-choice-list assessment-choice-list-two">
+                {
+                  safetyConcernOptions.map((option) => (
+                    <label class="assessment-choice">
+                      <input
+                        type="checkbox"
+                        name="safetyConcerns"
+                        value={option}
+                        class={choiceControlClass}
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))
+                }
+              </div>
+              <p id="safetyConcernError" class="assessment-error hidden">
+                Please select at least one option
+              </p>
+            </fieldset>
+
+            <fieldset class="assessment-question">
+              <legend>
+                Any immediate safety concern?<span aria-hidden="true">*</span>
+              </legend>
+              <div class="assessment-choice-list assessment-choice-list-compact">
+                {
+                  immediateSafetyConcernOptions.map((option) => (
+                    <label class="assessment-choice">
+                      <input
+                        type="radio"
+                        name="immediateSafetyConcern"
+                        value={option.value}
+                        required={option.required}
+                        class={choiceControlClass}
+                      />
+                      <span>{option.value}</span>
+                    </label>
+                  ))
+                }
+              </div>
+            </fieldset>
+
+            <div class="assessment-field">
+              <label for="concernDescription">Brief description of concern</label>
+              <textarea
+                id="concernDescription"
+                name="concernDescription"
+                rows="5"
+                placeholder="Add any context that would help our team understand the space"
+                class="assessment-input assessment-textarea"
+              ></textarea>
+            </div>
+          </section>
+
+          <section class="assessment-form-section assessment-form-section-last" aria-labelledby="next-heading">
+            <div class="assessment-section-heading">
+              <span aria-hidden="true">03</span>
+              <div>
+                <h2 id="next-heading">Preferred next step</h2>
+                <p>Choose what would be most useful and when we should contact you.</p>
+              </div>
+            </div>
+
+            <fieldset class="assessment-question">
+              <legend>
+                What would you like next?<span aria-hidden="true">*</span>
+              </legend>
+              <div class="assessment-choice-list">
+                {
+                  whatNextOptions.map((option) => (
+                    <label class="assessment-choice">
+                      <input
+                        type="radio"
+                        name="whatNext"
+                        value={option.value}
+                        required={option.required}
+                        class={choiceControlClass}
+                      />
+                      <span>{option.value}</span>
+                    </label>
+                  ))
+                }
+              </div>
+            </fieldset>
+
+            <div class="assessment-contact-grid">
+              <fieldset class="assessment-question">
+                <legend>Preferred time to contact</legend>
+                <div class="assessment-choice-list">
+                  {
+                    preferredContactDayOptions.map((option) => (
+                      <label class="assessment-choice">
+                        <input
+                          type="radio"
+                          name="preferredContactDay"
+                          value={option}
+                          class={choiceControlClass}
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+              </fieldset>
+
+              <fieldset class="assessment-question">
+                <legend>Timings</legend>
+                <div class="assessment-choice-list">
+                  {
+                    preferredContactTimeOptions.map((option) => (
+                      <label class="assessment-choice">
+                        <input
+                          type="radio"
+                          name="preferredContactTime"
+                          value={option}
+                          class={choiceControlClass}
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <div class="assessment-submit-area">
+            <label class="assessment-consent">
+              <input
+                id="consent"
+                type="checkbox"
+                name="consent"
+                value="yes"
+                required
+                class={choiceControlClass}
+              />
+              <span>
+                I agree to be contacted about this request.<span aria-hidden="true">*</span>
+                <small>Required</small>
+              </span>
+            </label>
+
+            <button type="submit" id="submitButton" class="assessment-submit">
+              <span id="buttonText">Submit assessment</span>
+              <span aria-hidden="true" class="assessment-submit-arrow">→</span>
+              <div id="loader" class="hidden assessment-loader">
+                <div class="spinner"></div>
+              </div>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        id="assessmentSuccessMessage"
+        class="assessment-alert assessment-alert-success hidden"
+        role="status"
+      >
+        <p id="assessmentSuccessText"></p>
+      </div>
+    </div>
+  </div>
+</section>
