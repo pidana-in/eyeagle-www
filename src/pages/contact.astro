@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import MaterialIcon from "../components/common/MaterialIcon.astro";
 import {
   HERO,
   ACTION_CARDS,
@@ -36,7 +37,7 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
           <div class={styles.heroActions}>
             <ButtonLink href="/assessment-form">Request a bathroom assessment</ButtonLink>
             <a class={styles.secondaryLink} href={PHONE_TEL_LINK}>
-              Call the team <span aria-hidden="true">↗</span>
+              Call the team <MaterialIcon name="arrow_outward" />
             </a>
           </div>
         </div>
@@ -104,7 +105,7 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
                         <small>{line.href.startsWith("mailto:") ? "Email us" : "Call us"}</small>
                         <strong>{line.text}</strong>
                       </span>
-                      <span class={styles.rowArrow} aria-hidden="true">↗</span>
+                      <span class={styles.rowArrow} aria-hidden="true"><MaterialIcon name="arrow_outward" /></span>
                     </a>
                   ))}
                 </div>
@@ -131,7 +132,7 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
         </div>
         <div class={styles.closingActions}>
           <ButtonLink href="/assessment-form">Request a bathroom assessment</ButtonLink>
-          <a class={styles.closingLink} href={PHONE_TEL_LINK}>Call the team <span aria-hidden="true">↗</span></a>
+          <a class={styles.closingLink} href={PHONE_TEL_LINK}>Call the team <MaterialIcon name="arrow_outward" /></a>
         </div>
       </div>
     </section>

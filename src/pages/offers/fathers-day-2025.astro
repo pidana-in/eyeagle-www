@@ -11,6 +11,7 @@ import FatherImage from "../../assets/Home/FatherImage.png";
 import FatherSection from "../../components/Home/FatherSection.astro";
 import {descriptionButtonFathersday,FatherSection1,FatherSection2} from "../../components/constants/home";
 import { scrollDataSection } from "../../components/constants/home";
+import MaterialIcon from "../../components/common/MaterialIcon.astro";
 ---
 
 <MainLayout title="Expired Father’s Day 2025 Offer | EyEagle" desc="This EyEagle Father’s Day 2025 safety-kit offer has expired." noindex={true}>
@@ -82,7 +83,7 @@ import { scrollDataSection } from "../../components/constants/home";
               <button type="button" disabled aria-disabled="true">
                 Book Now
               </button>
-              <span class="ml-2 text-sm" aria-hidden="true">→</span>
+              <MaterialIcon name="arrow_forward" classNames="ml-2 text-sm" />
             <!-- </a> -->
           </div>
           </div>

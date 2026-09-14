@@ -264,7 +264,7 @@
 
   .mobileMenu[data-open="true"] .mobileLink { opacity: 1; transform: translateY(0); }
   .mobileLink[data-active="true"] { color: var(--color-text-muted); }
-  .mobileLink span:last-child { font-size: var(--type-link-sm-size); line-height: var(--type-link-sm-line); }
+  .mobileLink :global(.material-symbol-rounded) { font-size: var(--type-link-sm-size); line-height: var(--type-link-sm-line); }
 
   .mobileMenuFooter {
     display: grid;

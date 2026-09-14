@@ -8,7 +8,7 @@ import {
 } from "../components/constants/waitlist";
 import { URLS } from "../utils/urls";
 import { countries } from "../components/constants/common";
-import Icon from "../components/common/Icon.astro";
+import MaterialIcon from "../components/common/MaterialIcon.astro";
 import { upsertShopifySubscriber } from "../server/shopify";
 import nodemailer from "nodemailer";
 
@@ -163,13 +163,9 @@ if (Astro.request.method === "POST") {
                     aria-expanded="false"
                     class="absolute inset-y-0 left-0 w-25 sm:w-26.25 bg-[#F6F6F6] px-2 text-[#666666] text-base border border-r-0 border-[#9C9C9C] rounded-l-xl flex items-center cursor-pointer"
                   >
-                    <span class="flex items-center">
-                      <Icon
-                        iconName="keyboard_arrow_down"
-                        classNames="hidden"
-                      />
+                    <span id="countryIcon" class="ml-2 text-base md:text-lg" aria-hidden="true">
+                      <MaterialIcon name="expand_more" />
                     </span>
-                    <div class="flex items-center gap-2"></div>
                   </button>
                   <input id="phCode" name="phCode" value="" class="hidden" />
                   <div
@@ -369,10 +365,7 @@ if (Astro.request.method === "POST") {
   const buttonText = document.getElementById("buttonText");
   const loader = document.getElementById("loader");
 
-  const iconSpan = document.createElement("span");
-  iconSpan.className = "text-base md:text-lg ml-2";
-  iconSpan.setAttribute("aria-hidden", "true");
-  iconSpan.textContent = "⌄";
+  const iconSpan = document.getElementById("countryIcon");
 
   dropdownButton.addEventListener("click", () => {
     dropdownMenu.classList.toggle("hidden");
