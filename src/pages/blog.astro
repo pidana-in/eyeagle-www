@@ -1,12 +1,132 @@
 ---
+import { blogTopic } from "../utils/blog-topic";
+import { getCollection, type CollectionEntry } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
-import Blogs from "../components/Home/Blogs.astro";
-const metaTitle = "Blog | EyEagle";
-const metaDesc = "Read the latest article on EyEagle's blog.";
+import Image from "../components/common/OptimizedImage.astro";
+import MaterialIcon from "../components/common/MaterialIcon.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import styles from "../styles/Blog/page.module.css";
+import "../styles/home-v3-tokens.css";
+
+const displayTitle = (title: string) => title.replace(/\s*\|\s*EyEagle\s*$/i, "");
+const metaTitle = "EyEagle Journal | Safer Living and Family Care";
+const metaDesc = "Practical guidance for safer homes, healthy ageing and caring for older family members from EyEagle.";
+const articles: CollectionEntry<"blogs">[] = (await getCollection("blogs"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || b.data.id - a.data.id);
+const featured = articles[0];
+const stories = articles.slice(1);
+const categories = [...new Set(stories.map(article => blogTopic(article.data.title)))].sort();
+const formatDate = (date: Date) => new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric" }).format(date);
+const articleHref = (article: CollectionEntry<"blogs">) => `/blogs/${article.data.slug ?? article.id}`;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} schemaType="CollectionPage">
-  <section class="2xl:container lg:mt-8 lg:px-20">
-  <Blogs />
-  </section>
+<MainLayout title={metaTitle} desc={metaDesc} schemaType="CollectionPage" showChrome={false} bodyClass="eyeagle-home-v3">
+  <SiteHeader slot="header" solidAtTop />
+  <main class={styles.main} id="main-content">
+    <section class={styles.intro} aria-labelledby="journal-title">
+      <p class={styles.eyebrow}>EyEagle Journal</p>
+      <h1 id="journal-title">Useful thinking for <br />safer living.</h1>
+      <p class={styles.introCopy}>Practical guidance for safer homes, healthy ageing and staying close to the people who matter.</p>
+    </section>
+
+    {featured && (
+      <section class={styles.featured} aria-labelledby="featured-title" data-reveal data-reveal-visible="false">
+        <a class={styles.featuredLink} href={articleHref(featured)}>
+          <div class={styles.featuredMedia}><Image alt={featured.data.title} class={styles.fillImage} fetchpriority="high" layout="full-width" loading="eager" quality={84} src={featured.data.img} /></div>
+          <div class={styles.featuredCopy}>
+            <div class={styles.meta}><span>Featured</span><time datetime={featured.data.date.toISOString()}>{formatDate(featured.data.date)}</time></div>
+            <h2 id="featured-title">{displayTitle(featured.data.title)}</h2>
+            {featured.data.desc && <p>{featured.data.desc}</p>}
+            <span class={styles.readLink}>Read the story <MaterialIcon name="arrow_outward" classNames={styles.readIcon} /></span>
+          </div>
+        </a>
+      </section>
+    )}
+
+    <section class={styles.stories} aria-labelledby="latest-title">
+      <div class={styles.storiesHeading}><h2 id="latest-title">Latest stories</h2><p>{stories.length} stories</p></div>
+      <form class={styles.filters} role="search" data-blog-filters hidden>
+        <label>Search stories<input type="search" name="search" placeholder="Search by title or topic" data-blog-search /></label>
+        <label>Topic<select data-blog-category><option value="">All topics</option>{categories.map(category => <option value={category}>{category}</option>)}</select></label>
+      </form>
+      <p class={styles.results} data-blog-results aria-live="polite" hidden></p>
+      <div class={styles.storyGrid}>
+        {stories.map((article, index) => (
+          <article data-blog-story data-search={`${article.data.title} ${article.data.desc ?? ""}`.toLowerCase()} data-category={blogTopic(article.data.title)} class={styles.story} data-reveal data-reveal-visible="false" style={`--reveal-delay: ${Math.min(index % 3, 2) * 70}ms`}>
+            <a href={articleHref(article)}>
+              <div class={styles.storyMedia}><Image alt={article.data.title} class={styles.fillImage} layout="full-width" src={article.data.img} /></div>
+              <div class={styles.storyCopy}>
+                <div class={styles.storyMeta}><time datetime={article.data.date.toISOString()}>{formatDate(article.data.date)}</time><span>{article.data.author}</span></div>
+                <h3>{displayTitle(article.data.title)}</h3>
+                {article.data.desc && <p>{article.data.desc}</p>}
+                <MaterialIcon name="arrow_outward" classNames={styles.storyArrow} />
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+      <nav class={styles.pagination} aria-label="Story pages" data-blog-pagination hidden>
+        <button type="button" data-blog-previous>Previous</button><span data-blog-page></span><button type="button" data-blog-next>Next</button>
+      </nav>
+    </section>
+
+    <section class={styles.closing} aria-labelledby="closing-title" data-reveal data-reveal-visible="false">
+      <div><p class={styles.eyebrow}>A safer home starts here</p><h2 id="closing-title">Put a clear response behind one simple press.</h2></div>
+      <div class={styles.closingActions}><ButtonLink href="/store" size="large">Configure your kit</ButtonLink><ButtonLink href="/solution" size="large" variant="inverse">See how it works</ButtonLink></div>
+    </section>
+  </main>
+  <SiteFooter slot="footer" />
 </MainLayout>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if (reducedMotion.matches) reveals.forEach((element) => { element.dataset.revealVisible = "true"; });
+  else {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      (entry.target as HTMLElement).dataset.revealVisible = "true";
+      observer.unobserve(entry.target);
+    }), { rootMargin: "0px 0px -10%", threshold: .08 });
+    reveals.forEach((element) => observer.observe(element));
+  }
+</script>
+
+<script>
+  const filters = document.querySelector<HTMLFormElement>("[data-blog-filters]");
+  const search = document.querySelector<HTMLInputElement>("[data-blog-search]");
+  const category = document.querySelector<HTMLSelectElement>("[data-blog-category]");
+  const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-blog-story]"));
+  const pagination = document.querySelector<HTMLElement>("[data-blog-pagination]");
+  const previous = document.querySelector<HTMLButtonElement>("[data-blog-previous]");
+  const next = document.querySelector<HTMLButtonElement>("[data-blog-next]");
+  const pageLabel = document.querySelector<HTMLElement>("[data-blog-page]");
+  const results = document.querySelector<HTMLElement>("[data-blog-results]");
+  let page = 1;
+  const pageSize = 9;
+  const update = () => {
+    const query = search?.value.trim().toLowerCase() ?? "";
+    const topic = category?.value ?? "";
+    const matching = cards.filter(card => (!query || card.dataset.search?.includes(query)) && (!topic || card.dataset.category === topic));
+    const pages = Math.max(1, Math.ceil(matching.length / pageSize));
+    page = Math.min(page, pages);
+    const visible = new Set(matching.slice((page - 1) * pageSize, page * pageSize));
+    cards.forEach(card => { card.hidden = !visible.has(card); if (!card.hidden) card.dataset.revealVisible = "true"; });
+    if (previous) previous.disabled = page === 1;
+    if (next) next.disabled = page === pages;
+    if (pageLabel) pageLabel.textContent = `Page ${page} of ${pages}`;
+    if (results) { results.hidden = false; results.textContent = matching.length ? `${matching.length} stories${topic ? ` in ${topic}` : ""}` : "No stories found. Try another search or topic."; }
+    if (pagination) pagination.hidden = matching.length <= pageSize;
+  };
+  const reset = () => { page = 1; update(); };
+  filters?.addEventListener("submit", event => event.preventDefault());
+  search?.addEventListener("input", reset);
+  category?.addEventListener("change", reset);
+  const turnPage = (direction: number) => { page += direction; update(); filters?.scrollIntoView({block: "start", behavior: "instant"}); };
+  previous?.addEventListener("click", () => turnPage(-1));
+  next?.addEventListener("click", () => turnPage(1));
+  if (filters) filters.hidden = false;
+  update();
+</script>

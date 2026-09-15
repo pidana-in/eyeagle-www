@@ -1,13 +1,5 @@
-@font-face {
-  font-family: "Geist";
-  src: url("/fonts/geist-latin.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-}
-
 body.eyeagle-home-v3 {
-  --type-font-family: "Geist", Arial, sans-serif;
+  --type-font-family: "Geist", system-ui, Arial, sans-serif;
   --type-weight-regular: 400;
   --type-weight-medium: 500;
   /* Display type is set tight, the way large product type reads best. */

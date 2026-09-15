@@ -80,8 +80,8 @@
   white-space: nowrap;
 }
 
-.secondaryLink span,
-.closingLink span { transition: transform 180ms ease; }
+.secondaryLink :global(.material-symbol-rounded),
+.closingLink :global(.material-symbol-rounded) { transition: transform 180ms ease; }
 
 .heroImage,
 .cardImage {
@@ -321,8 +321,8 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .secondaryLink:hover span,
-  .closingLink:hover span { transform: translate(2px, -2px); }
+  .secondaryLink:hover :global(.material-symbol-rounded),
+  .closingLink:hover :global(.material-symbol-rounded) { transform: translate(2px, -2px); }
   .card:hover .cardImage img { transform: scale(1.03); }
 
   .secondaryCardAction:hover {
@@ -508,7 +508,7 @@
   .card { animation: none; }
 
   .cardImage img,
-  .secondaryLink span,
-  .closingLink span,
+  .secondaryLink :global(.material-symbol-rounded),
+  .closingLink :global(.material-symbol-rounded),
   .rowArrow { transition: none; }
 }

@@ -3,9 +3,9 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-barlow: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-sans-instrument: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, Arial, sans-serif;
+  --font-barlow: "Geist", system-ui, Arial, sans-serif;
+  --font-sans-instrument: "Geist", system-ui, Arial, sans-serif;
   --color-primary: #cc0000;
   --color-secondary: #222222;
 
@@ -34,6 +34,13 @@
   --text-6xl--line-height: 1.08;
   --text-7xl: clamp(52px, 5.2vw, 90px);
   --text-7xl--line-height: 1.05;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 @media (min-width: 80rem) {

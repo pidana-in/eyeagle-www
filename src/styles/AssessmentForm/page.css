@@ -288,10 +288,16 @@
   object-fit: cover;
 }
 
-.assessment-country-button > span:last-child {
+.assessment-country-chevron {
+  display: inline-flex;
   margin-left: 8px !important;
   font-size: 16px;
   line-height: 1;
+  transition: transform var(--motion-duration-ui);
+}
+
+.assessment-country-button[aria-expanded="true"] .assessment-country-chevron {
+  transform: rotate(180deg);
 }
 
 .assessment-country-menu {
@@ -487,7 +493,10 @@
 
 .assessment-submit-arrow {
   font-size: 20px;
+  transition: opacity var(--motion-duration-ui);
 }
+
+.assessment-submit:disabled .assessment-submit-arrow { opacity: 0; }
 
 .assessment-loader {
   position: absolute;

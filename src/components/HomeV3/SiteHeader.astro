@@ -1,6 +1,7 @@
 ---
 import ButtonLink from "./ButtonLink.astro";
 import SiteLogo from "./SiteLogo.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 import styles from "../../styles/HomeV3/site-header.module.css";
 
 interface Props {
@@ -111,7 +112,7 @@ const isActive = (href: string) =>
             style={`--link-index: ${index}`}
             tabindex="-1"
           >
-            <span>{item.label}</span><span aria-hidden="true">↗</span>
+            <span>{item.label}</span><MaterialIcon name="arrow_outward" />
           </a>
         ))}
       </nav>

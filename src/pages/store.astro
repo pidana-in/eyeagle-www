@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Image from "../components/common/OptimizedImage.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import MaterialIcon from "../components/common/MaterialIcon.astro";
 import kit from "../assets/Store/guardian-kit-v2.png";
 import installedButton from "../assets/Store/sos-installed-v2.png";
 import sensor from "../assets/Store/door-sensor-v2.png";
@@ -26,7 +27,7 @@ const views = [
         <i aria-hidden="true"></i>
         <strong>Ordering is currently unavailable</strong>
       </div>
-      <a href="#availability">Get availability updates <span aria-hidden="true">→</span></a>
+      <a href="#availability">Get availability updates <MaterialIcon name="arrow_forward" /></a>
     </aside>
 
     <section class={styles.product} aria-labelledby="product-title">
@@ -56,24 +57,24 @@ const views = [
         <section class={styles.configuration} aria-labelledby="configuration-title">
           <div class={styles.configHeader}><h2 id="configuration-title">Tailor your setup</h2></div>
           <fieldset aria-label="Configuration options">
-            <div class={styles.option}><div><h3>Bathrooms</h3><p>1 included · +$200 each</p></div><div class={styles.stepper}><button type="button" data-quantity="bathrooms" data-delta="-1" aria-label="Decrease number of bathrooms" disabled>−</button><input id="bathrooms" aria-label="Bathrooms" type="number" min="1" max="3" step="1" value="1" inputmode="numeric" /><button type="button" data-quantity="bathrooms" data-delta="1" aria-label="Increase number of bathrooms">+</button></div></div>
-            <div class={styles.option}><div><h3>Extra SOS buttons</h3><p>+$100 per button</p></div><div class={styles.stepper}><button type="button" data-quantity="extras" data-delta="-1" aria-label="Decrease extra SOS buttons" disabled>−</button><input id="extras" aria-label="Extra SOS buttons" type="number" min="0" max="3" step="1" value="0" inputmode="numeric" /><button type="button" data-quantity="extras" data-delta="1" aria-label="Increase extra SOS buttons">+</button></div></div>
+            <div class={styles.option}><div><h3>Bathrooms</h3><p>1 included · +$200 each</p></div><div class={styles.stepper}><button type="button" data-quantity="bathrooms" data-delta="-1" aria-label="Decrease number of bathrooms" disabled><MaterialIcon name="remove" /></button><input id="bathrooms" aria-label="Bathrooms" type="number" min="1" max="3" step="1" value="1" inputmode="numeric" /><button type="button" data-quantity="bathrooms" data-delta="1" aria-label="Increase number of bathrooms"><MaterialIcon name="add" /></button></div></div>
+            <div class={styles.option}><div><h3>Extra SOS buttons</h3><p>+$100 per button</p></div><div class={styles.stepper}><button type="button" data-quantity="extras" data-delta="-1" aria-label="Decrease extra SOS buttons" disabled><MaterialIcon name="remove" /></button><input id="extras" aria-label="Extra SOS buttons" type="number" min="0" max="3" step="1" value="0" inputmode="numeric" /><button type="button" data-quantity="extras" data-delta="1" aria-label="Increase extra SOS buttons"><MaterialIcon name="add" /></button></div></div>
           </fieldset>
-          <p class={styles.lockedNote}><span>Preview only · USD, excluding GST.</span><a href="/contact">Larger setup? Talk to us. <i aria-hidden="true">↗</i></a></p>
+          <p class={styles.lockedNote}><span>Preview only · USD, excluding GST.</span><a href="/contact">Larger setup? Talk to us. <MaterialIcon name="arrow_outward" /></a></p>
           <div class={styles.configurationTotal} aria-live="polite" aria-atomic="true"><div><span>Estimated setup</span><p data-quantity-summary>1 bathroom · no extra SOS buttons</p></div><strong data-configuration-total>$799</strong></div>
         </section>
         <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
           <div class={styles.availabilityHeading}><h2>Get availability updates.</h2></div>
           <label class={styles.srOnly} for="availability-email">Email address</label>
-          <div class={styles.formRow}><input aria-describedby="availability-note availability-status" aria-invalid="false" autocomplete="email" id="availability-email" inputmode="email" name="email" placeholder="Your email address" required type="email" /><button type="submit">Notify me <span aria-hidden="true">→</span></button></div>
+          <div class={styles.formRow}><input aria-describedby="availability-note availability-status" aria-invalid="false" autocomplete="email" id="availability-email" inputmode="email" name="email" placeholder="Your email address" required type="email" /><button type="submit"><span data-submit-label>Notify me</span><MaterialIcon name="arrow_forward" /></button></div>
           <p class={styles.formStatus} data-form-status id="availability-status"></p>
           <p class={styles.formNote} id="availability-note">No marketing.</p>
-          <a class={styles.contactLink} href="/contact"><span>Need help?</span><strong>Talk to us <i aria-hidden="true">↗</i></strong></a>
+          <a class={styles.contactLink} href="/contact"><span>Need help?</span><strong>Talk to us <MaterialIcon name="arrow_outward" /></strong></a>
         </form>
         <div class={styles.details}>
-          <details><summary>In the system <span aria-hidden="true">+</span></summary><p>Alarm Unit, SOS button, door sensor and latch, installation, EyEagle app with premium Nest, three years of response, and a three-year hardware warranty.</p></details>
-          <details><summary>After year three <span aria-hidden="true">+</span></summary><p>We’ll contact you before membership ends. Service continues at $20/month only after you approve recurring payment.</p></details>
-          <details><summary>Larger setups <span aria-hidden="true">+</span></summary><p>Each extra bathroom includes the same hardware and installation for $200. Extra SOS buttons cost $100. For more than three of either, talk to us.</p></details>
+          <details><summary>In the system <MaterialIcon name="add" /></summary><p>Alarm Unit, SOS button, door sensor and latch, installation, EyEagle app with premium Nest, three years of response, and a three-year hardware warranty.</p></details>
+          <details><summary>After year three <MaterialIcon name="add" /></summary><p>We’ll contact you before membership ends. Service continues at $20/month only after you approve recurring payment.</p></details>
+          <details><summary>Larger setups <MaterialIcon name="add" /></summary><p>Each extra bathroom includes the same hardware and installation for $200. Extra SOS buttons cost $100. For more than three of either, talk to us.</p></details>
         </div>
       </div>
     </section>
@@ -129,6 +130,7 @@ const views = [
   const form = document.querySelector<HTMLFormElement>("[data-availability-form]");
   const emailInput = form?.querySelector<HTMLInputElement>('input[name="email"]');
   const submitButton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const submitLabel = submitButton?.querySelector<HTMLElement>("[data-submit-label]");
   const status = form?.querySelector<HTMLElement>("[data-form-status]");
   const setFormStatus = (message: string, isError = false) => {
     if (!status || !emailInput) return;
@@ -140,7 +142,7 @@ const views = [
 
   form?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (!emailInput || !submitButton || !status) return;
+    if (!emailInput || !submitButton || !submitLabel || !status) return;
 
     const email = emailInput.value.trim();
     if (!emailInput.validity.valid || !email) {
@@ -150,7 +152,7 @@ const views = [
     }
 
     submitButton.disabled = true;
-    submitButton.textContent = "Saving…";
+    submitLabel.textContent = "Saving…";
     setFormStatus("");
 
     try {
@@ -164,11 +166,11 @@ const views = [
 
       form.dataset.complete = "true";
       emailInput.disabled = true;
-      submitButton.textContent = "You’re on the list";
+      submitLabel.textContent = "You’re on the list";
       setFormStatus("We’ll email you when EyEagle is available.");
     } catch (error) {
       submitButton.disabled = false;
-      submitButton.textContent = "Notify me";
+      submitLabel.textContent = "Notify me";
       setFormStatus(error instanceof Error ? error.message : "We couldn’t add you to the list. Please try again.", true);
     }
   });
