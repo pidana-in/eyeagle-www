@@ -1,5 +1,5 @@
 body.eyeagle-home-v3 {
-  --type-font-family: "Geist", Arial, sans-serif;
+  --type-font-family: "Geist", system-ui, Arial, sans-serif;
   --type-weight-regular: 400;
   --type-weight-medium: 500;
   --type-letter-spacing: 0;

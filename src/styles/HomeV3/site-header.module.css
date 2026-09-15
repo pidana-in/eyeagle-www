@@ -34,7 +34,7 @@
   top: 0;
   width: 100%;
   background: var(--color-surface);
-  font-family: "Geist", Arial, sans-serif;
+  font-family: "Geist", system-ui, Arial, sans-serif;
   transform: translateY(0);
   transition: transform 320ms var(--motion-ease-enter), background-color 280ms var(--motion-ease-standard), color 280ms var(--motion-ease-standard);
 }

@@ -3,11 +3,18 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Geist", Arial, sans-serif;
-  --font-barlow: "Geist", Arial, sans-serif;
-  --font-sans-instrument: "Geist", Arial, sans-serif;
+  --font-sans: "Geist", system-ui, Arial, sans-serif;
+  --font-barlow: "Geist", system-ui, Arial, sans-serif;
+  --font-sans-instrument: "Geist", system-ui, Arial, sans-serif;
   --color-primary: #cc0000;
   --color-secondary: #222222;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 @media (min-width: 80rem) {

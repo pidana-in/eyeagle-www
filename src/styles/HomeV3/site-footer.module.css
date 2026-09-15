@@ -17,7 +17,7 @@
   padding: 60px;
   background: var(--color-footer-surface);
   color: var(--color-footer-text);
-  font-family: "Geist", Arial, sans-serif;
+  font-family: "Geist", system-ui, Arial, sans-serif;
 }
 
 .primary {
