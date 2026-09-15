@@ -3,9 +3,9 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-barlow: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-sans-instrument: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", Arial, sans-serif;
+  --font-barlow: "Geist", Arial, sans-serif;
+  --font-sans-instrument: "Geist", Arial, sans-serif;
   --color-primary: #cc0000;
   --color-secondary: #222222;
 }
