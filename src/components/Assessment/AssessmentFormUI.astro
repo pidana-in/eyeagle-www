@@ -1,6 +1,6 @@
 ---
 import { countries } from "../constants/common";
-import Icon from "../common/Icon.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 import {
   consideringForOptions,
   safetyConcernOptions,
@@ -82,10 +82,9 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
                     aria-expanded="false"
                     class="assessment-country-button"
                   >
-                    <span class="flex items-center">
-                      <Icon iconName="keyboard_arrow_down" classNames="hidden" />
+                    <span id="countryIcon" class="assessment-country-chevron" aria-hidden="true">
+                      <MaterialIcon name="expand_more" />
                     </span>
-                    <div class="flex items-center gap-2"></div>
                   </button>
 
                   <input id="phCode" name="phCode" value="" class="hidden" />
@@ -332,7 +331,7 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
 
             <button type="submit" id="submitButton" class="assessment-submit">
               <span id="buttonText">Submit assessment</span>
-              <span aria-hidden="true" class="assessment-submit-arrow">→</span>
+              <MaterialIcon name="arrow_forward" classNames="assessment-submit-arrow" />
               <div id="loader" class="hidden assessment-loader">
                 <div class="spinner"></div>
               </div>

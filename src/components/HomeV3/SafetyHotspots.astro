@@ -1,5 +1,6 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 import photo from "../../assets/HomeV3/protection-latest.png";
 const features = [
   { x: 82, y: 40, title: "Shower grab bar", what: "A fixed handhold beside the shower.", why: "Gives you support while standing or moving in the shower." },
@@ -15,7 +16,7 @@ const features = [
     {features.map((feature, i) => <button class="safety-dot" style={`left:${feature.x}%;top:${feature.y}%`} type="button" aria-label={`Learn about the ${feature.title.toLowerCase()}`} aria-expanded="false" aria-controls="safety-feature-description" data-feature={i}><span aria-hidden="true"></span></button>)}
     </div>
     <div class="safety-description" id="safety-feature-description" hidden>
-      <button class="safety-close" type="button" aria-label="Close feature description">×</button>
+      <button class="safety-close" type="button" aria-label="Close feature description"><MaterialIcon name="close" /></button>
       <p class="safety-eyebrow">Bathroom safety</p>
       <h3 data-feature-title></h3>
       <p data-feature-what></p>
@@ -42,7 +43,7 @@ const features = [
   .safety-description p:not(.safety-eyebrow) { font-size:14px; line-height:21px; color:rgba(255,255,255,.8); }
   .safety-why { margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,.2); }
   .safety-why strong { display:block; margin-bottom:5px; font-size:12px; font-weight:500; color:white; }
-  .safety-close { position:absolute; top:8px; right:8px; width:28px; height:28px; border:0; background:transparent; color:white; cursor:pointer; font-size:22px; }
+  .safety-close { position:absolute; top:8px; right:8px; width:28px; height:28px; display:grid; place-items:center; border:0; background:transparent; color:white; cursor:pointer; font-size:20px; }
   @media(max-width:760px) { .safety-description { position:relative; left:auto; top:auto; width:100%; margin-top:12px; padding:22px; } .explorer-hint { display:none; } .safety-dot { width:36px; height:36px; } .safety-dot span { width:12px; height:12px; border-width:2px; } }
   @media(prefers-reduced-motion:reduce) { .safety-dot span { transition:none; } }
 </style>

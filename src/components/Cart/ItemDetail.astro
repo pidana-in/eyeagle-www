@@ -1,5 +1,6 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 const item = Astro.props.item;
 ---
 
@@ -11,7 +12,7 @@ const item = Astro.props.item;
             <p class="font-normal text-lg line-clamp-2 leading-6">{item.description}</p>
         </div>
         <div id={item.id} class="flex gap-2 lg:justify-center lg:items-center">
-            <button id={`removeButton-${item.id}`} class="h-8 w-8 rounded-full border font-normal border-black">-</button><p id={`quantityShow-${item.id}`} class="font-normal w-4 flex justify-center items-center">1</p><button id={`addButton-${item.id}`} class="h-8 w-8 rounded-full border font-normal border-black">+</button>
+            <button id={`removeButton-${item.id}`} aria-label="Decrease quantity" class="h-8 w-8 rounded-full border font-normal border-black"><MaterialIcon name="remove" /></button><p id={`quantityShow-${item.id}`} class="font-normal w-4 flex justify-center items-center">1</p><button id={`addButton-${item.id}`} aria-label="Increase quantity" class="h-8 w-8 rounded-full border font-normal border-black"><MaterialIcon name="add" /></button>
         </div>
     </div>
 </section>

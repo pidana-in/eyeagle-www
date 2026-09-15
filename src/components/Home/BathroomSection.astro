@@ -1,5 +1,6 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 import { scrollDataSection } from "../constants/home";
 
 const item = Astro.props.item;
@@ -27,18 +28,7 @@ const { pathname } = Astro.url;
   <div
     class="absolute lg:bottom-[13.5px] lg:right-[16.5px] bottom-[8.5px] right-2.5 z-30 bg-white lg:size-10 size-7 rounded-full grid place-items-center pointer-events-none"
   >
-    <svg
-      class="w-2.25 h-2.25 lg:w-4 lg:h-4"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M0.804688 8.8994H11.7775L6.74081 13.9361L7.99999 15.1953L15.1953 7.99999L7.99999 0.804688L6.74081 2.06386L11.7775 7.10058H0.804688L0.804688 8.8994Z"
-        fill="#CC0000"></path>
-    </svg>
+    <MaterialIcon name="arrow_forward" classNames="w-2.25 h-2.25 lg:w-4 lg:h-4 text-primary" />
   </div>
 </div>
 
