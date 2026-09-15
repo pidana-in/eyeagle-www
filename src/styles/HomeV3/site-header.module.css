@@ -11,19 +11,19 @@
 .header {
   --type-weight-regular: 400;
   --type-weight-medium: 500;
-  --type-letter-spacing: 0;
-  --type-h2-size: clamp(26px, 2.2vw, 31px);
-  --type-h2-line: 1.2;
-  --type-body-xs-size: 13px;
-  --type-body-xs-line: 19px;
-  --type-link-sm-size: 15px;
-  --type-link-sm-line: 22px;
-  --type-link-xs-size: 13px;
-  --type-link-xs-line: 19px;
-  --type-button-large-size: 15px;
-  --type-button-large-line: 22px;
-  --type-button-small-size: 13px;
-  --type-button-small-line: 19px;
+  --type-letter-spacing: -0.02em;
+  --type-h2-size: clamp(26px, 2.8vw, 42px);
+  --type-h2-line: 1.16;
+  --type-body-xs-size: clamp(14px, 1vw, 16px);
+  --type-body-xs-line: 1.45;
+  --type-link-sm-size: clamp(16px, 1.05vw, 18px);
+  --type-link-sm-line: 1.45;
+  --type-link-xs-size: clamp(15px, 1.02vw, 17px);
+  --type-link-xs-line: 1.4;
+  --type-button-large-size: clamp(16px, 1.05vw, 18px);
+  --type-button-large-line: 1.4;
+  --type-button-small-size: clamp(14px, 1vw, 17px);
+  --type-button-small-line: 1.4;
   --motion-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --color-surface: #f3f3f1;
@@ -305,10 +305,10 @@
   .brand { width:102px; min-height:40px; flex:0 0 102px; }
   .logoLayer { transform:none; }
   .mobileActions { gap:8px; }
-  .mobileActions > a { min-height:44px; padding:10px 12px; font-size:12px; white-space:nowrap; }
+  .mobileActions > a { min-height:44px; padding:10px 12px; font-size:13px; white-space:nowrap; }
   .menuButton { width:44px; height:44px; flex-shrink:0; }
 }
 @media (max-width: 360px) {
   .bar { padding-inline:14px; gap:6px; }
-  .mobileActions > a { padding-inline:10px; font-size:11px; }
+  .mobileActions > a { padding-inline:10px; font-size:12px; }
 }

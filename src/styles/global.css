@@ -8,6 +8,32 @@
   --font-sans-instrument: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
   --color-primary: #cc0000;
   --color-secondary: #222222;
+
+  /* Fluid type scale. Each floor matches the size these utilities used to be,
+     so narrow screens are unchanged; only wide displays grow, where the old
+     fixed sizes read small. */
+  --text-xs: clamp(12px, 0.85vw, 15px);
+  --text-xs--line-height: 1.5;
+  --text-sm: clamp(14px, 1vw, 17px);
+  --text-sm--line-height: 1.5;
+  --text-base: clamp(16px, 1.15vw, 20px);
+  --text-base--line-height: 1.6;
+  --text-lg: clamp(18px, 1.3vw, 23px);
+  --text-lg--line-height: 1.55;
+  --text-xl: clamp(20px, 1.5vw, 26px);
+  --text-xl--line-height: 1.5;
+  --text-2xl: clamp(24px, 1.9vw, 33px);
+  --text-2xl--line-height: 1.35;
+  --text-3xl: clamp(28px, 2.4vw, 41px);
+  --text-3xl--line-height: 1.25;
+  --text-4xl: clamp(32px, 2.9vw, 50px);
+  --text-4xl--line-height: 1.18;
+  --text-5xl: clamp(38px, 3.6vw, 62px);
+  --text-5xl--line-height: 1.12;
+  --text-6xl: clamp(44px, 4.4vw, 76px);
+  --text-6xl--line-height: 1.08;
+  --text-7xl: clamp(52px, 5.2vw, 90px);
+  --text-7xl--line-height: 1.05;
 }
 
 @media (min-width: 80rem) {

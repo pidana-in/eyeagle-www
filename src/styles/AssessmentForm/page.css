@@ -448,7 +448,7 @@
   display: inline-block;
   margin-left: 8px;
   color: var(--color-text-subtle);
-  font-size: 10px;
+  font-size: clamp(12px, .85vw, 14px);
   font-weight: var(--type-weight-medium);
   letter-spacing: 0.1em;
   text-transform: uppercase;

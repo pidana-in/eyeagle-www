@@ -1,92 +1,252 @@
-.track { padding:80px 4vw; background:var(--color-surface); color:var(--color-text); }
-.heading { max-width:680px; margin:0 auto 48px; text-align:center; }
-.heading > p:first-child { font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--color-action); margin-bottom:16px; }
-.heading h2 { font-size:var(--type-h1-size); line-height:var(--type-h1-line); font-weight:400; letter-spacing:var(--type-letter-spacing); }
-.heading p { margin-top:16px; font-size:var(--type-body-sm-size); line-height:1.6; color:var(--color-text-muted); }
-.journey { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:7vw; max-width:1500px; margin:auto; align-items:start; }
-.step { min-height:250px; padding:48px 0 48px 24px; border-left:2px solid var(--color-line); transition:border-color .25s; }
-.step[data-active="true"] { border-left-color:var(--color-action); }
-.step h3 { margin:0; font-size:clamp(18px,1.5vw,22px); line-height:1.4; font-weight:500; }
-.step p { max-width:480px; margin:14px 0 0; font-size:var(--type-body-sm-size); line-height:1.65; color:var(--color-text-muted); }
-.images { position:sticky; top:96px; width:100%; height:min(72svh,760px); overflow:hidden; border-radius:12px; background:var(--color-media-placeholder); }
-.image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s; }
-.image[data-active="true"] { opacity:1; }
-.progress { position:absolute; bottom:20px; right:20px; padding:8px 12px; border-radius:999px; color:white; background:rgba(0,0,0,.5); font-size:12px; }
-.mobileImage { display:none; }
-@media(max-width:760px),(prefers-reduced-motion:reduce) {
-  .journey { display:block; }
-  .images { display:none; }
-  .step { min-height:0; padding:24px 0 32px 20px; }
-  .mobileImage { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; border-radius:10px; margin-top:20px; }
-  .track { padding:56px 20px; }
-  .heading { margin-bottom:32px; }
+/*
+ * The response journey. On a roomy screen the whole journey pins and the six
+ * steps cross-fade in place as you scroll; everywhere else it falls back to a
+ * plain list (desktop) or a swipeable rail (phones).
+ */
+
+.track {
+  padding: var(--space-section-y) 4vw;
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
-@media(max-width:760px) {
-  .track { overflow:hidden; }
-  .heading { padding-inline:8px; }
-  .steps {
-    display:flex;
-    width:calc(100% + 40px);
-    margin-inline:-20px;
-    padding:0 20px 12px;
-    gap:16px;
-    overflow-x:auto;
-    overscroll-behavior-inline:contain;
-    scroll-padding-inline:20px;
-    scroll-snap-type:x mandatory;
-    scrollbar-width:none;
+.heading {
+  max-width: 900px;
+  margin: 0 auto var(--space-heading-content);
+  text-align: center;
+}
+
+.heading > p:first-child {
+  margin-bottom: 16px;
+  color: var(--color-action);
+  font-size: var(--type-body-xs-size);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  font-size: var(--type-h1-size);
+  font-weight: var(--type-weight-regular);
+  line-height: var(--type-h1-line);
+  letter-spacing: var(--type-letter-spacing-tight);
+}
+
+.heading p {
+  margin-top: 18px;
+  color: var(--color-text-muted);
+  font-size: var(--type-body-md-size);
+  line-height: var(--type-body-md-line);
+}
+
+.journey {
+  display: grid;
+  max-width: 1500px;
+  margin: auto;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 7vw;
+  align-items: start;
+}
+
+.column { display: flex; min-width: 0; flex-direction: column; gap: 32px; }
+
+.ticks { display: none; margin: 0; padding: 0; gap: 8px; list-style: none; }
+
+.ticks li {
+  height: 3px;
+  flex: 1;
+  border-radius: 999px;
+  background: var(--color-line);
+  transition: background-color 400ms var(--motion-ease-standard);
+}
+
+.ticks li[data-state="done"] { background: rgba(209, 31, 43, .38); }
+.ticks li[data-state="current"] { background: var(--color-action); }
+
+.step {
+  min-height: 250px;
+  padding: 44px 0 44px 24px;
+  border-left: 2px solid var(--color-line);
+  transition: border-color .25s;
+}
+
+.step[data-active="true"] { border-left-color: var(--color-action); }
+
+.step h3 {
+  margin: 0;
+  font-size: var(--type-h3-size);
+  font-weight: var(--type-weight-medium);
+  line-height: var(--type-h3-line);
+  letter-spacing: var(--type-letter-spacing);
+}
+
+.step p {
+  max-width: min(660px, 100%);
+  margin: 18px 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--type-body-md-size);
+  line-height: var(--type-body-md-line);
+}
+
+.images {
+  position: sticky;
+  top: 96px;
+  width: 100%;
+  height: min(72svh, 760px);
+  overflow: hidden;
+  border-radius: var(--radius-media);
+  background: var(--color-media-placeholder);
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 600ms var(--motion-ease-standard), transform 900ms var(--motion-ease-enter);
+}
+
+.image[data-active="true"] { opacity: 1; transform: scale(1); }
+
+.progress {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .5);
+  color: white;
+  font-size: var(--type-body-xs-size);
+}
+
+.mobileImage { display: none; }
+
+/* --------------------------------------------------- pinned, cross-fading */
+
+@media (min-width: 761px) and (min-height: 651px) and (prefers-reduced-motion: no-preference) {
+  .track[data-enhanced="true"] .scrollTrack { height: 300svh; }
+
+  .track[data-enhanced="true"] .journey {
+    position: sticky;
+    top: 96px;
+    height: calc(100svh - 128px);
+    align-items: center;
   }
-  .steps::-webkit-scrollbar { display:none; }
-  .step {
-    flex:0 0 min(84vw,360px);
-    padding:0;
-    border-left:0;
-    scroll-snap-align:start;
-    scroll-snap-stop:always;
+
+  .track[data-enhanced="true"] .ticks { display: flex; }
+
+  /* Every step shares one cell, so they cross-fade rather than jump. */
+  .track[data-enhanced="true"] .steps {
+    display: grid;
+    min-height: min(38svh, 340px);
+    grid-template-areas: "step";
   }
-  .step h3 { font-size:20px; line-height:1.35; }
-  .step p { min-height:5.2em; margin-top:12px; font-size:15px; line-height:1.55; }
+
+  .track[data-enhanced="true"] .step {
+    min-height: 0;
+    padding: 4px 0 4px 26px;
+    grid-area: step;
+    align-self: center;
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 460ms var(--motion-ease-standard),
+      transform 620ms var(--motion-ease-enter),
+      border-color 300ms var(--motion-ease-standard);
+    pointer-events: none;
+  }
+
+  .track[data-enhanced="true"] .step[data-active="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .track[data-enhanced="true"] .images {
+    position: relative;
+    top: auto;
+    height: 100%;
+    max-height: 760px;
+  }
+}
+
+/* ----------------------------------------------------------- static views */
+
+@media (max-width: 760px), (max-height: 650px), (prefers-reduced-motion: reduce) {
+  .journey { display: block; }
+  .images { display: none; }
+  .step { min-height: 0; padding: 24px 0 32px 20px; }
+
   .mobileImage {
-    width:100%;
-    height:auto;
-    aspect-ratio:4 / 5;
-    max-height:none;
-    margin-top:20px;
-    object-fit:cover;
-    border-radius:12px;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    margin-top: 20px;
+    border-radius: var(--radius-media);
+    object-fit: cover;
   }
-  .step::after {
-    display:block;
-    width:100%;
-    height:2px;
-    margin-top:20px;
-    background:var(--color-line);
-    content:"";
-  }
-  .step[data-active="true"]::after { background:var(--color-action); }
-}
-@media(prefers-reduced-motion:reduce) { .step,.image { transition:none; } }
 
-@media(min-width:761px) and (min-height:651px) and (prefers-reduced-motion:no-preference) {
-  .track[data-enhanced="true"] .scrollTrack { height:280svh; }
-  .track[data-enhanced="true"] .journey { position:sticky; top:96px; height:calc(100svh - 128px); align-items:center; }
-  .track[data-enhanced="true"] .steps { display:grid; grid-template-rows:1fr 1fr; height:min(64svh,600px); }
-  .track[data-enhanced="true"] .step { min-height:0; padding:28px 0 28px 24px; display:flex; flex-direction:column; justify-content:center; }
-  .track[data-enhanced="true"] .step[data-pair-visible="false"] { display:none; }
-  .track[data-enhanced="true"] .step[data-pair-visible="true"] { animation:stepEnter .3s ease-out; }
-  .track[data-enhanced="true"] .images { position:relative; top:auto; height:100%; max-height:760px; }
+  .track { padding: var(--space-section-y) 20px; }
+  .heading { margin-bottom: 36px; }
 }
-@keyframes stepEnter { from {opacity:0; transform:translateY(10px)} to {opacity:1; transform:translateY(0)} }
-@media(max-height:650px) {
-  .journey { display:block; }
-  .images { display:none; }
-  .step { min-height:0; padding:24px 0 32px 20px; }
-  .mobileImage { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; margin-top:20px; }
+
+@media (max-width: 760px) {
+  .track { overflow: hidden; }
+  .heading { padding-inline: 8px; text-align: left; }
+
+  .steps {
+    display: flex;
+    width: calc(100% + 40px);
+    margin-inline: -20px;
+    padding: 0 20px 12px;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .steps::-webkit-scrollbar { display: none; }
+
+  .step {
+    flex: 0 0 min(84vw, 380px);
+    padding: 0;
+    border-left: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .step p { min-height: 5.2em; margin-top: 12px; }
+
+  .mobileImage {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    margin-top: 20px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .step::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 20px;
+    background: var(--color-line);
+    content: "";
+  }
+
+  .step[data-active="true"]::after { background: var(--color-action); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step, .image, .ticks li { transition: none; }
 }
 
 @media (min-width: 761px) {
-  .track {
-    padding-inline: calc(4vw + clamp(0px, calc((100vw - 760px) * .1), 60px));
-  }
+  .track { padding-inline: calc(4vw + clamp(0px, calc((100vw - 760px) * .1), 60px)); }
 }

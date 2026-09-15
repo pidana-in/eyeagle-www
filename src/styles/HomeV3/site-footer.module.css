@@ -1,9 +1,9 @@
 .footer {
   --type-weight-medium: 500;
-  --type-body-xs-size: 13px;
-  --type-body-xs-line: 19px;
-  --type-link-sm-size: 15px;
-  --type-link-sm-line: 22px;
+  --type-body-xs-size: clamp(14px, 1vw, 16px);
+  --type-body-xs-line: 1.45;
+  --type-link-sm-size: clamp(16px, 1.05vw, 18px);
+  --type-link-sm-line: 1.45;
   --color-footer-surface: #000;
   --color-footer-text: #fff;
   --color-footer-text-muted: rgba(255, 255, 255, 0.6);

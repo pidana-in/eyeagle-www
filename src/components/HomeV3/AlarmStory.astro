@@ -19,58 +19,89 @@ const steps = [
 ---
 
 <section class={styles.track} aria-labelledby="alarm-story-title" data-alarm-story>
-  <header class={styles.heading}><p>From the first press</p><h2 id="alarm-story-title">A clear path to help.</h2><p>The alarm gets attention. Your trusted people and EyEagle keep the response moving.</p></header>
+  <header class={styles.heading} data-reveal>
+    <p>From the first press</p>
+    <h2 id="alarm-story-title">A clear path to help.</h2>
+    <p>The alarm gets attention. Your trusted people and EyEagle keep the response moving.</p>
+  </header>
+
   <div class={styles.scrollTrack} data-alarm-scroll>
-  <div class={styles.journey}>
-    <div class={styles.steps} data-alarm-steps>
-      {steps.map((step, index) => <article class={styles.step} data-alarm-step data-pair-visible={String(index < 2)} data-active={String(index === 0)}><h3>{step.title}</h3><p>{step.description}</p><Image class={styles.mobileImage} alt={step.alt} layout="full-width" src={step.image} /></article>)}
+    <div class={styles.journey}>
+      <div class={styles.column}>
+        <ol class={styles.ticks} aria-hidden="true" data-alarm-ticks>
+          {steps.map((_, index) => <li data-alarm-tick data-state={index === 0 ? "current" : "ahead"}></li>)}
+        </ol>
+        <div class={styles.steps} data-alarm-steps>
+          {steps.map((step, index) => (
+            <article class={styles.step} data-alarm-step data-active={String(index === 0)}>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+              <Image class={styles.mobileImage} alt={step.alt} layout="full-width" src={step.image} />
+            </article>
+          ))}
+        </div>
+      </div>
+      <div class={styles.images} aria-hidden="true">
+        {steps.map((step, index) => <Image alt="" class={styles.image} data-active={String(index === 0)} data-alarm-image layout="full-width" src={step.image} />)}
+        <span class={styles.progress} data-alarm-progress>01 / 06</span>
+      </div>
     </div>
-    <div class={styles.images} aria-hidden="true">
-      {steps.map((step, index) => <Image alt="" class={styles.image} data-active={String(index === 0)} data-alarm-image layout="full-width" src={step.image} />)}
-      <span class={styles.progress} data-alarm-progress>01 / 06</span>
-    </div>
-  </div>
   </div>
 </section>
+
 <script>
+  import { onScroll, requestTick } from "../../scripts/scroll-ticker";
+
   const story = document.querySelector<HTMLElement>("[data-alarm-story]");
   const track = story?.querySelector<HTMLElement>("[data-alarm-scroll]");
   const stepsRail = story?.querySelector<HTMLElement>("[data-alarm-steps]");
   const steps = Array.from(story?.querySelectorAll<HTMLElement>("[data-alarm-step]") ?? []);
+  const ticks = Array.from(story?.querySelectorAll<HTMLElement>("[data-alarm-tick]") ?? []);
   const images = Array.from(story?.querySelectorAll<HTMLElement>("[data-alarm-image]") ?? []);
+  const progress = story?.querySelector("[data-alarm-progress]");
+
   const staticView = window.matchMedia("(max-width:760px), (max-height:650px), (prefers-reduced-motion:reduce)");
   const mobileView = window.matchMedia("(max-width:760px)");
-  let queued = false;
+
+  let current = -1;
+
   const update = () => {
-    queued = false;
     if (!track) return;
-    const top = 96;
-    const travel = Math.max(1, track.offsetHeight - (window.innerHeight - top - 32));
-    const ratio = Math.max(0, Math.min(1, (top - track.getBoundingClientRect().top) / travel));
+
+    // While the journey is pinned, scroll position picks the step; on the
+    // mobile swipe rail the nearest card wins instead.
+    const offsetTop = 96;
+    const travel = Math.max(1, track.offsetHeight - (window.innerHeight - offsetTop - 32));
+    const ratio = Math.max(0, Math.min(1, (offsetTop - track.getBoundingClientRect().top) / travel));
     const active = mobileView.matches && stepsRail
       ? steps.reduce((closest, step, index) => {
-          const currentDistance = Math.abs(step.offsetLeft - stepsRail.scrollLeft - 20);
+          const distance = Math.abs(step.offsetLeft - stepsRail.scrollLeft - 20);
           const closestDistance = Math.abs(steps[closest].offsetLeft - stepsRail.scrollLeft - 20);
-          return currentDistance < closestDistance ? index : closest;
+          return distance < closestDistance ? index : closest;
         }, 0)
-      : Math.min(5, Math.floor(ratio * 6));
-    const pair = Math.floor(active / 2);
+      : Math.min(steps.length - 1, Math.floor(ratio * steps.length));
+
+    if (active === current) return;
+    current = active;
+
     steps.forEach((step, index) => {
-      const visible = staticView.matches || Math.floor(index / 2) === pair;
-      step.dataset.pairVisible = String(visible);
+      const visible = staticView.matches || index === active;
       step.dataset.active = String(index === active);
       step.setAttribute("aria-hidden", String(!visible));
     });
+    ticks.forEach((tick, index) => {
+      tick.dataset.state = index < active ? "done" : index === active ? "current" : "ahead";
+    });
     images.forEach((image, index) => { image.dataset.active = String(index === active); });
-    const progress = story?.querySelector("[data-alarm-progress]");
-    if (progress) progress.textContent = `${String(active + 1).padStart(2,"0")} / 06`;
+    if (progress) progress.textContent = `${String(active + 1).padStart(2, "0")} / ${String(steps.length).padStart(2, "0")}`;
   };
-  const requestUpdate = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
-  window.addEventListener("scroll", requestUpdate, {passive:true});
-  window.addEventListener("resize", requestUpdate);
-  stepsRail?.addEventListener("scroll", requestUpdate, {passive:true});
-  staticView.addEventListener("change", requestUpdate);
-  mobileView.addEventListener("change", requestUpdate);
+
+  const reset = () => { current = -1; requestTick(); };
+
+  stepsRail?.addEventListener("scroll", requestTick, { passive: true });
+  staticView.addEventListener("change", reset);
+  mobileView.addEventListener("change", reset);
+  window.addEventListener("resize", reset);
   story?.setAttribute("data-enhanced", "true");
-  update();
+  onScroll(update);
 </script>

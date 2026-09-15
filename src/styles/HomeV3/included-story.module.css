@@ -1,27 +1,21 @@
 .track {
   position: relative;
-  height: 245svh;
   background: var(--color-surface-muted);
 }
 
 .scene {
-  position: sticky;
-  top: 0;
   display: flex;
-  height: 100svh;
   flex-direction: column;
-  justify-content: center;
-  gap: clamp(48px, 7vh, 80px);
-  overflow: hidden;
-  padding-block: 48px;
+  gap: var(--space-heading-content);
+  padding-block: var(--space-section-y);
 }
 
 .heading {
   display: flex;
-  width: min(720px, calc(100% - 40px));
+  width: min(900px, calc(100% - 40px));
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-copy-gap);
   margin-inline: auto;
   text-align: center;
 }
@@ -30,102 +24,72 @@
   font-size: var(--type-h1-size);
   font-weight: var(--type-weight-regular);
   line-height: var(--type-h1-line);
-  letter-spacing: var(--type-letter-spacing);
-}
-
-.heading p,
-.card p {
-  color: var(--color-text-muted);
+  letter-spacing: var(--type-letter-spacing-tight);
 }
 
 .heading p {
+  color: var(--color-text-muted);
   font-size: var(--type-body-md-size);
   line-height: var(--type-body-md-line);
 }
 
-.viewport {
-  width: 100%;
-  overflow: hidden;
-}
+.viewport { width: 100%; }
 
 .rail {
-  display: flex;
-  width: max-content;
-  gap: 24px;
-  padding-inline: 40px;
-  will-change: transform;
+  display: grid;
+  width: min(100%, 1360px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-grid-gap);
+  margin-inline: auto;
+  padding-inline: var(--space-page-x);
 }
 
 .card {
   display: flex;
-  width: min(437px, 31vw);
-  flex: 0 0 min(437px, 31vw);
+  min-width: 0;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .image {
   position: relative;
   width: 100%;
-  aspect-ratio: 424 / 346;
   margin-bottom: 8px;
+  aspect-ratio: 424 / 346;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--radius-media);
   background: var(--color-placeholder);
 }
 
-.image img { width: 100%; height: 100%; object-fit: cover; }
+.image img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--motion-ease-enter); }
 
 .card h3 {
   font-size: var(--type-h4-size);
   font-weight: var(--type-weight-medium);
   line-height: var(--type-h4-line);
+  letter-spacing: var(--type-letter-spacing);
 }
 
 .card p {
+  color: var(--color-text-muted);
   font-size: var(--type-body-sm-size);
   line-height: var(--type-body-sm-line);
 }
 
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card:hover .image img { transform: scale(var(--motion-media-scale)); }
+}
+
+@media (max-width: 1000px) {
+  .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
+}
+
 @media (max-width: 760px) {
-  .track { height: 280svh; }
-
-  .scene {
-    top: 0;
-    height: 100svh;
-    gap: 48px;
-    padding-block: 40px;
-  }
-
-  .heading {
-    width: calc(100% - 40px);
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .rail {
-    gap: 16px;
-    padding-inline: 20px;
-  }
-
-  .card {
-    width: 82vw;
-    flex-basis: 82vw;
-  }
+  .heading { width: calc(100% - 40px); align-items: flex-start; text-align: left; }
+  .rail { padding-inline: 20px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .track { height: auto; }
-  .scene { position: relative; top: auto; height: auto; min-height: 95svh; }
-  .viewport { overflow-x: auto; scrollbar-width: none; }
-  .viewport::-webkit-scrollbar { display: none; }
-  .rail { transform: none !important; will-change: auto; }
+@media (max-width: 540px) {
+  .rail { grid-template-columns: 1fr; }
+  .image { aspect-ratio: 4/3; }
 }
-
-.track { height: auto; }
-.scene { position: relative; top: auto; height: auto; min-height: 0; padding-block: var(--space-section-y); gap: 40px; }
-.viewport { overflow: visible; }
-.rail { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); width: min(100%,1292px); margin-inline: auto; padding-inline: var(--space-page-x); gap: var(--space-grid-gap); will-change: auto; }
-.card { width: auto; min-width: 0; }
-@media(max-width:1000px) { .rail { grid-template-columns: repeat(2,minmax(0,1fr)); row-gap: 36px; } }
-@media(max-width:540px) { .rail { grid-template-columns: 1fr; } .image { aspect-ratio: 4/3; } }

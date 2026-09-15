@@ -55,7 +55,7 @@ const faqItems = [
   <SiteHeader slot="header" solidAtTop />
   <main class={styles.main} id="main-content">
     <section class={styles.hero} aria-labelledby="how-title">
-      <div class={styles.heroCopy} data-reveal data-reveal-visible="false">
+      <div class={styles.heroCopy} data-reveal>
         <p class={styles.eyebrow}>How EyEagle works</p>
         <h1 id="how-title">One press. A connected response.</h1>
         <p>EyEagle is an installed bathroom SOS system that raises a loud alarm at home, notifies trusted family through Nest and connects eligible unresolved alerts to EyEagle Response.</p>
@@ -65,12 +65,12 @@ const faqItems = [
     </section>
 
     <section class={styles.protocol} aria-labelledby="pidana-title">
-      <header class={styles.protocolIntro} data-reveal data-reveal-visible="false">
+      <header class={styles.protocolIntro} data-reveal>
         <p class={styles.eyebrow}>The PIDANA protocol</p>
         <h2 id="pidana-title">Protection begins before the alarm.</h2>
         <p>PIDANA is EyEagle’s six-stage framework, connecting prevention at home with a clear path to action.</p>
       </header>
-      <ol class={styles.protocolRail} aria-label="PIDANA protocol stages" data-reveal data-reveal-visible="false">
+      <ol class={styles.protocolRail} aria-label="PIDANA protocol stages" data-reveal>
         {pidanaSteps.map((step) => <li class={styles.protocolStep}><span class={styles.protocolLetter} aria-hidden="true">{step.letter}</span><div><h3>{step.title}</h3><p>{step.description}</p></div></li>)}
       </ol>
     </section>
@@ -81,7 +81,7 @@ const faqItems = [
       <section class:list={[styles.nest, styles.storyPanel]} style="--stack-index: 0" aria-labelledby="nest-title">
         <div class={styles.nestMedia} aria-hidden="true"><Image alt="" class={styles.fillImage} layout="full-width" src={nestBackground} /></div>
         <div class={styles.nestShade}></div>
-        <div class={styles.nestCopy} data-reveal data-reveal-visible="false">
+        <div class={styles.nestCopy} data-reveal>
           <p class={styles.eyebrow}>EyEagle Nest · trusted contacts</p>
           <h2 id="nest-title">The alert reaches one private circle.</h2>
           <p>Nest gives selected family, neighbours and guards the same view of the SOS and its location, so they can acknowledge it and decide who is responding.</p>
@@ -90,8 +90,8 @@ const faqItems = [
       </section>
 
       <section class:list={[styles.response, styles.storyPanel]} style="--stack-index: 1" aria-labelledby="response-title">
-        <div class={styles.responseMedia} data-reveal data-reveal-visible="false"><Image alt="EyEagle response specialist reviewing an alert" class={styles.fillImage} layout="full-width" src={responseTeamImage} /></div>
-        <div class={styles.responseCopy} data-reveal data-reveal-visible="false">
+        <div class={styles.responseMedia} data-reveal><Image alt="EyEagle response specialist reviewing an alert" class={styles.fillImage} layout="full-width" src={responseTeamImage} /></div>
+        <div class={styles.responseCopy} data-reveal>
           <p class={styles.eyebrow}>When family needs support</p>
           <h2 id="response-title">A trained person helps move the response forward.</h2>
           <p class={styles.responseLead}>Family remains the first response. With an eligible membership, an unresolved alert can reach the EyEagle SOS team for further assessment and coordination.</p>
@@ -101,7 +101,7 @@ const faqItems = [
 
       {showDoorAwareness && (
         <section class:list={[styles.door, styles.storyPanel]} style="--stack-index: 2" aria-labelledby="door-title" data-door-demo>
-          <div class={styles.doorCopy} data-reveal data-reveal-visible="false">
+          <div class={styles.doorCopy} data-reveal>
             <p class={styles.eyebrow}>Door-duration awareness</p>
             <h2 id="door-title">A second path to awareness.</h2>
             <p>EyEagle can monitor how long the bathroom door remains locked and raise a concern through the approved notification process.</p>
@@ -109,7 +109,7 @@ const faqItems = [
               {doorDurationSteps.map((step, index) => <li><button class={styles.doorStep} type="button" data-door-step={index} aria-pressed={index === 0 ? "true" : "false"}><span aria-hidden="true">0{index + 1}</span><span><strong>{step.title}</strong><small>{step.description}</small></span></button></li>)}
             </ol>
           </div>
-          <div class={styles.doorMedia} data-reveal data-reveal-visible="false">
+          <div class={styles.doorMedia} data-reveal>
             <Image alt="EyEagle alarm installed outside a bathroom" class={styles.fillImage} layout="full-width" src={doorImage} />
             <div class={styles.doorSignal} aria-live="polite"><span>Current stage</span><strong data-door-status>The door is locked</strong><p data-door-copy>The configured duration begins.</p></div>
           </div>
@@ -119,7 +119,7 @@ const faqItems = [
 
     <section class={styles.setup} aria-labelledby="setup-title">
       <div class={styles.setupSticky}>
-        <header class={styles.sectionHeading} data-reveal data-reveal-visible="false">
+        <header class={styles.sectionHeading} data-reveal>
           <p class={styles.eyebrow}>Set up around your home</p>
           <h2 id="setup-title">Installed as one complete system.</h2>
           <p>Placement, trusted contacts and the response path are configured and tested together before handover.</p>
@@ -155,17 +155,7 @@ const faqItems = [
   <SiteFooter slot="footer" />
 </MainLayout>
 
-<script>
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-  if (reducedMotion.matches) reveals.forEach((element) => { element.dataset.revealVisible = "true"; });
-  else {
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
-      if (entry.isIntersecting) { (entry.target as HTMLElement).dataset.revealVisible = "true"; observer.unobserve(entry.target); }
-    }), { rootMargin: "0px 0px -10%", threshold: .12 });
-    reveals.forEach((element) => observer.observe(element));
-  }
-</script>
+
 
 <script is:inline>
 (() => {

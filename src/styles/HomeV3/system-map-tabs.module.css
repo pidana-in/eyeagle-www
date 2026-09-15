@@ -1,19 +1,14 @@
 .section {
   position: relative;
-  height: 280svh;
   background: var(--color-surface-muted);
 }
 
 .scene {
-  position: sticky;
-  top: 0;
   display: flex;
-  height: 100svh;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
-  padding: 24px 60px 40px;
-  overflow: hidden;
+  gap: 32px;
+  padding: var(--space-section-y-compact) var(--space-page-x);
   background: var(--color-surface-muted);
 }
 
@@ -32,6 +27,7 @@
   position: absolute;
   z-index: -1;
   top: 4px;
+  right: auto;
   bottom: 4px;
   left: 4px;
   width: calc((100% - 8px) / 2);
@@ -45,9 +41,9 @@
 
 .tab {
   position: relative;
-  min-width: 88px;
-  min-height: 40px;
-  padding: 8px 14px;
+  min-width: 96px;
+  min-height: 42px;
+  padding: 8px 16px;
   border: 0;
   border-radius: 999px;
   background: transparent;
@@ -63,21 +59,14 @@
 }
 
 .tab[aria-selected="true"] { color: var(--color-on-action); }
-
-.tab:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 3px;
-}
+.tab:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
 
 .imageFrame {
   position: relative;
-  width: min(1118px, 100%);
-  height: calc(100% - 88px);
+  width: min(1180px, 100%);
+  aspect-ratio: 16/9;
   overflow: hidden;
-  transition: width 320ms var(--motion-ease-standard);
 }
-
-.imageFrame[data-placement="outside"] { width: min(1116px, 100%); }
 
 .image {
   position: absolute;
@@ -86,37 +75,40 @@
   height: 100%;
   object-fit: contain;
   opacity: 0;
-  transform: scale(1.008);
+  transform: scale(1.012);
   transition: opacity 420ms var(--motion-ease-standard), transform 650ms var(--motion-ease-enter);
 }
 
-.image[data-visible="true"] {
-  z-index: 1;
-  opacity: 1;
-  transform: scale(1);
+.image[data-visible="true"] { z-index: 1; opacity: 1; transform: scale(1); }
+
+/* ------------------------------------------------- pinned, scroll-switched */
+
+/* While pinned, scroll position moves between the two sides of the door; the
+   tabs stay clickable and scroll the page to the matching stretch. */
+.section[data-scene-active="true"] { height: 215svh; }
+
+.section[data-scene-active="true"] .scene {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  justify-content: center;
+  gap: clamp(24px, 3.4vh, 44px);
+  padding-block: clamp(76px, 11vh, 132px) clamp(40px, 6vh, 80px);
+  overflow: hidden;
+}
+
+.section[data-scene-active="true"] .imageFrame {
+  height: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  aspect-ratio: auto;
 }
 
 @media (max-width: 760px) {
-  .section { height: 280svh; }
-  .scene {
-    top: 0;
-    height: 100svh;
-    gap: 24px;
-    padding: 20px 20px 32px;
-  }
-  .imageFrame,
-  .imageFrame[data-placement] { width: calc(100% + 40px); height: calc(100% - 68px); }
+  .scene { gap: 24px; padding: var(--space-section-y-compact) 20px; }
+  .imageFrame { width: calc(100% + 40px); aspect-ratio: 4/3; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .section { height: auto; }
-  .scene { position: relative; top: auto; height: auto; min-height: 95svh; }
-  .indicator,
-  .imageFrame,
-  .image { transition: none; }
+  .indicator, .image { transition: none; }
 }
-
-.section { height: auto; }
-.scene { position: relative; top: auto; min-height: 0; height: auto; padding: var(--space-section-y-compact) var(--space-page-x); gap: 28px; }
-.imageFrame, .imageFrame[data-placement] { width: min(1118px,100%); height: auto; aspect-ratio: 16/9; }
-@media(max-width:760px) { .imageFrame, .imageFrame[data-placement] { aspect-ratio: 4/3; } }

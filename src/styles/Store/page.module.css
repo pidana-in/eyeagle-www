@@ -27,7 +27,7 @@
 .intro { font-size:var(--type-body-md-size); line-height:var(--type-body-md-line); max-width:460px; color:var(--color-text-muted); margin:18px 0 0; }
 .offer { margin:28px 0 30px; }
 .price { display:flex; gap:14px; align-items:baseline; }
-.price strong { font-size:32px; line-height:1.2; font-weight:500; letter-spacing:-.035em; }
+.price strong { font-size:var(--type-h2-size); line-height:1.15; font-weight:500; letter-spacing:-.035em; }
 .price span { font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); color:var(--color-text-muted); }
 .offer > p { font-size:var(--type-body-sm-size); line-height:var(--type-body-sm-line); margin:10px 0 16px; }
 .renewalPrice { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-top:18px; padding-top:16px; border-top:1px solid var(--color-line-strong); }
@@ -47,7 +47,7 @@
 .stepper button { width:44px; height:44px; background:transparent; border:0; color:var(--color-text-muted); cursor:not-allowed; opacity:.5; font-size:18px; }
 .stepper button:first-child { border-right:1px solid var(--color-line); }
 .stepper button:last-child { border-left:1px solid var(--color-line); }
-.stepper output { font-size:13px; min-width:20px; text-align:center; }
+.stepper output { font-size:var(--type-body-sm-size); min-width:20px; text-align:center; }
 .lockedNote { display:grid; gap:8px; margin:0; padding:4px 22px 18px; color:var(--color-text-muted); font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); }
 .lockedNote a { width:fit-content; color:var(--color-text); font-weight:var(--type-weight-medium); text-decoration-color:var(--color-line-strong); text-underline-offset:4px; }
 .lockedNote a:hover { color:var(--color-action); text-decoration-color:currentColor; }

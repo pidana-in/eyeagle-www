@@ -64,12 +64,12 @@ const responseSteps = [
 
   <main class={styles.main} id="main-content">
     <section class={styles.hero} aria-labelledby="about-title">
-      <div class={styles.heroCopy} data-reveal data-reveal-visible="false">
+      <div class={styles.heroCopy} data-reveal>
         <h1 id="about-title">More independence for parents.<br />More clarity for families.</h1>
         <p>EyEagle makes help easier to reach at home, while keeping trusted people connected when something goes wrong.</p>
       </div>
 
-      <div class={styles.heroMedia} data-reveal data-reveal-visible="false">
+      <div class={styles.heroMedia} data-reveal>
         <Image
           alt="An older woman tending plants on her balcony"
           class={styles.fillImage}
@@ -83,7 +83,7 @@ const responseSteps = [
     </section>
 
     <section class={styles.origin} aria-labelledby="origin-title">
-      <div class={styles.originCopy} data-reveal data-reveal-visible="false">
+      <div class={styles.originCopy} data-reveal>
         <h2 id="origin-title">Built in memory of a woman who lived on her own terms.</h2>
         <div class={styles.originBody}>
           <p>Savitri Devi Sharma—our Naniji—was widowed at just 24. She moved from Rajasthan to Kolkata and raised five children, building a life defined by courage, resilience and an unmistakable joy.</p>
@@ -93,7 +93,7 @@ const responseSteps = [
         </div>
       </div>
 
-      <div class={styles.originMedia} data-reveal data-reveal-visible="false">
+      <div class={styles.originMedia} data-reveal>
         <Image
           alt="A framed family photograph of Savitri Devi Sharma"
           class={styles.fillImage}
@@ -107,13 +107,13 @@ const responseSteps = [
     <FoundersTeam />
 
     <section class={styles.principles} aria-labelledby="principles-title">
-      <div class={styles.sectionHeading} data-reveal data-reveal-visible="false">
+      <div class={styles.sectionHeading} data-reveal>
         <h2 id="principles-title">Safety should protect independence, not replace it.</h2>
       </div>
 
       <div class={styles.principlesGrid}>
         {principles.map((principle) => (
-          <article class={styles.principle} data-reveal data-reveal-visible="false">
+          <article class={styles.principle} data-reveal>
             <div class={styles.principleVisual}>
               <Image alt={principle.alt} class={styles.fillImage} layout="full-width" quality={84} src={principle.image} />
             </div>
@@ -126,14 +126,14 @@ const responseSteps = [
 
     <section class={styles.response} aria-labelledby="response-title">
       <div class={styles.responseCopy}>
-        <div class={styles.responseIntro} data-reveal data-reveal-visible="false">
+        <div class={styles.responseIntro} data-reveal>
           <h2 id="response-title">We designed the <span class={styles.responseAccent}>response</span>, not just the alarm.</h2>
           <p>A deliberate SOS press draws attention through the Alarm Unit at home and connects trusted contacts through Nest. With an eligible membership, an unresolved alert can reach the EyEagle SOS team for further assessment and coordination.</p>
         </div>
 
         <ol class={styles.responseSteps}>
           {responseSteps.map((step) => (
-            <li data-reveal data-reveal-visible="false">
+            <li data-reveal>
               <span class={styles.stepNumber}>{step.number}</span>
               <div>
                 <h3>{step.title}</h3>
@@ -144,7 +144,7 @@ const responseSteps = [
         </ol>
       </div>
 
-      <div class={styles.responseMedia} data-reveal data-reveal-visible="false">
+      <div class={styles.responseMedia} data-reveal>
         <Image
           alt="A family member responding to an EyEagle bathroom alarm at home"
           class={styles.fillImage}
@@ -156,7 +156,7 @@ const responseSteps = [
     </section>
 
     <section class={styles.closing} aria-labelledby="closing-title">
-      <div class={styles.closingInner} data-reveal data-reveal-visible="false">
+      <div class={styles.closingInner} data-reveal>
         <h2 id="closing-title">Make help easier to reach.<br />Keep independence intact.</h2>
         <ButtonLink class={styles.closingAction} href="/solution" size="small" variant="inverse">See how EyEagle works</ButtonLink>
       </div>
@@ -165,22 +165,3 @@ const responseSteps = [
 
   <SiteFooter slot="footer" />
 </MainLayout>
-
-<script>
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-
-  if (reducedMotion.matches || !("IntersectionObserver" in window)) {
-    reveals.forEach((element) => element.dataset.revealVisible = "true");
-  } else {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        (entry.target as HTMLElement).dataset.revealVisible = "true";
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: "0px 0px -10%", threshold: 0.12 });
-
-    reveals.forEach((element) => observer.observe(element));
-  }
-</script>

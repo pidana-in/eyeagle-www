@@ -14,17 +14,17 @@ if (showSeeMoreButton) {
 <section class="2xl:container lg:py-16 py-8 lg:px-20 px-5">
   {
     showSeeMoreButton ? (
-      <h2 class="text-4xl lg:text-[64px] leading-10 lg:leading-22 mb-4 font-medium">
+      <h2 class="text-4xl lg:text-6xl leading-tight mb-4 font-medium">
         Blog
       </h2>
     ) : (
-      <h1 class="text-4xl lg:text-[64px] leading-10 lg:leading-22 mb-4 font-medium">
+      <h1 class="text-4xl lg:text-6xl leading-tight mb-4 font-medium">
         EyEagle Blog
       </h1>
     )
   }
   <p
-    class="lg:mb-15 mb-6 lg:mt-8 text-2xl leading-7 lg:text-4xl lg:leading-10 font-barlow"
+    class="lg:mb-15 mb-6 lg:mt-8 text-2xl lg:text-4xl leading-tight font-barlow"
   >
     Latest news and updates
   </p>
@@ -42,7 +42,7 @@ if (showSeeMoreButton) {
             </div>
 
             <div class="p-6 flex flex-col justify-between grow font-barlow">
-              <p class="text-lg text-gray-600 leading-5 mb-4">
+              <p class="text-sm text-gray-600 leading-normal mb-4">
                 {blog.data.category}
               </p>
 
@@ -50,7 +50,7 @@ if (showSeeMoreButton) {
                 {blog.data.title}
               </h2>
 
-              <div class="mt-auto text-primary font-semibold text-lg inline-flex items-center gap-1 group">
+              <div class="mt-auto text-primary font-semibold text-base inline-flex items-center gap-1 group">
                 Read <span class="sr-only">{blog.data.title}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

@@ -16,12 +16,12 @@ const items = [
 
 <section class={styles.track} aria-labelledby="included-title" data-included-story>
   <div class={styles.scene} data-included-scene>
-    <div class={styles.heading}>
+    <div class={styles.heading} data-reveal>
       <h2 id="included-title">Included with your membership.</h2>
       <p>Hardware, professional setup, app access and three years of 24/7 response membership.</p>
     </div>
     <div class={styles.viewport} data-included-viewport>
-      <div class={styles.rail} data-included-rail>
+      <div class={styles.rail} data-reveal-group data-included-rail>
         {items.map((item) => (
           <article class={styles.card}>
             <div class={styles.image}><Image alt="" layout="full-width" src={item.image} /></div>

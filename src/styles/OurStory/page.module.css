@@ -165,8 +165,8 @@
 .responseIntro p {
   max-width: 480px;
   color: var(--color-text-muted);
-  font-size: 14px;
-  line-height: 22px;
+  font-size: var(--type-body-sm-size);
+  line-height: var(--type-body-sm-line);
 }
 
 .responseAccent {
@@ -202,7 +202,7 @@
 }
 
 .responseSteps h3 {
-  font-size: clamp(28px, 2.5vw, 36px);
+  font-size: var(--type-h2-size);
   font-weight: var(--type-weight-regular);
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -249,16 +249,7 @@
   color: var(--color-surface) !important;
 }
 
-:global([data-reveal]) {
-  opacity: 0;
-  transform: translateY(var(--motion-distance-reveal));
-  transition: opacity var(--motion-duration-reveal) var(--motion-ease-enter), transform var(--motion-duration-reveal) var(--motion-ease-enter);
-}
-
-:global([data-reveal][data-reveal-visible="true"]) {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Entrances come from the shared scroll-motion layer. */
 
 @media (hover: hover) and (pointer: fine) {
   .principle:hover .principleVisual .fillImage {

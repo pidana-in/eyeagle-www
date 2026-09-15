@@ -7,6 +7,7 @@ import IncludedStory from "../components/HomeV3/IncludedStory.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SystemMapTabs from "../components/HomeV3/SystemMapTabs.astro";
+import FeatureScene from "../components/HomeV3/FeatureScene.astro";
 import Image from "../components/common/OptimizedImage.astro";
 import styles from "../styles/HomeV3/home.module.css";
 import "../styles/home-v3-tokens.css";
@@ -54,7 +55,7 @@ const heroMobileSource = await getImage({ src: heroFamilyMobile, format: "webp",
   <SiteHeader slot="header" />
 
   <main id="main-content" class={styles.homeMain}>
-    <section class={styles.hero} aria-labelledby="home-title">
+    <section class={styles.hero} aria-labelledby="home-title" data-scene>
       <picture class={styles.heroMedia}>
         <source media="(max-width: 760px)" srcset={heroMobileSource.src} />
         <img
@@ -81,11 +82,11 @@ const heroMobileSource = await getImage({ src: heroFamilyMobile, format: "webp",
     </section>
 
     <section class={styles.systemSection} aria-labelledby="system-title">
-      <div class:list={[styles.centeredHeading, styles.systemHeadingReveal]} data-reveal data-reveal-visible="false">
+      <div class={styles.centeredHeading} data-reveal>
         <h2 id="system-title">One press should start more than an alarm.</h2>
         <p>EyEagle turns one deliberate press into a connected response—a loud alarm at home, an SOS in the app and 24/7 response support.</p>
       </div>
-      <div class:list={[styles.threeColumnGrid, styles.systemCardsReveal]} data-reveal data-reveal-visible="false">
+      <div class:list={[styles.threeColumnGrid, styles.systemCardsReveal]} data-reveal-group>
         {systemParts.map((item) => (
           <article class={styles.card} data-system-card={item.number}>
             <div class={styles.cardImage}><Image alt={item.alt} layout="full-width" src={item.image} /></div>
@@ -103,50 +104,44 @@ const heroMobileSource = await getImage({ src: heroFamilyMobile, format: "webp",
 
     <SystemMapTabs />
 
-    <section class={styles.imageFeature}>
-      <Image alt="EyEagle SOS hardware installed in a bathroom" class={styles.fillImage} layout="full-width" src={emergencyImage} />
-      <div class={styles.imageFeatureShade}></div>
-      <div class={styles.featureHeading}>
-        <h2>Built for the realities of a bathroom emergency.</h2>
-        <p>The EyEagle SOS Button and paired Alarm Unit provide a direct, private way to raise an alarm when a phone may not be within reach.</p>
-      </div>
-      <div class={styles.featureDetails}>
-        {emergencyHighlights.map((item) => <article class={styles.featureDetail}><h3>{item.title}</h3><p>{item.description}</p></article>)}
-      </div>
-    </section>
+    <FeatureScene
+      alt="EyEagle SOS hardware installed in a bathroom"
+      description="The EyEagle SOS Button and paired Alarm Unit provide a direct, private way to raise an alarm when a phone may not be within reach."
+      details={emergencyHighlights}
+      headingId="emergency-title"
+      image={emergencyImage}
+      title="Built for the realities of a bathroom emergency."
+    />
 
     <AlarmStory />
 
-    <section class={styles.imageFeature}>
-      <Image alt="An EyEagle technician installing the SOS Button" class={styles.fillImage} layout="full-width" src={installationImage} />
-      <div class={styles.imageFeatureShade}></div>
-      <div class={styles.featureHeading}>
-        <h2>Installed by EyEagle.<br />Set up around your family.</h2>
-        <p>Our team installs the hardware, configures the app and prepares the Nest so the complete response is ready before we leave.</p>
-      </div>
-      <div class={styles.featureDetails}>
-        {installationDetails.map((item) => <article class={styles.featureDetail}><h3>{item.title}</h3><p>{item.description}</p></article>)}
-      </div>
-    </section>
+    <FeatureScene
+      alt="An EyEagle technician installing the SOS Button"
+      description="Our team installs the hardware, configures the app and prepares the Nest so the complete response is ready before we leave."
+      details={installationDetails}
+      headingId="installation-title"
+      image={installationImage}
+      title="Installed by EyEagle.<br />Set up around your family."
+    />
 
     <section class={styles.protectionSection} aria-labelledby="protection-title">
-      <div class={styles.centeredHeading}>
+      <div class={styles.centeredHeading} data-reveal>
         <p class={styles.sectionEyebrow}>Proactive bathroom safety</p>
         <h2 id="protection-title">Reduce risks before an emergency happens.</h2>
         <p>EyEagle helps when something goes wrong. Our bathroom assessment and safety improvements can also help address risks before they lead to an emergency.</p>
       </div>
       <SafetyHotspots />
-      <div class={styles.protectionDetails}>
+      <div class={styles.protectionDetails} data-reveal-group>
         {protectionItems.map((item) => <article><h3>{item.title}</h3><p>{item.description}</p></article>)}
       </div>
-      <p class={styles.offerNote}>Opening offer: optional bathroom safety improvements are included with your kit.</p>
-      <ButtonLink class={styles.softButton} href="/assessment-form" variant="inverse">Get your bathroom assessment</ButtonLink>
+      <p class={styles.offerNote} data-reveal="fade">Opening offer: optional bathroom safety improvements are included with your kit.</p>
+      <ButtonLink class={styles.softButton} data-reveal="fade" href="/assessment-form" variant="inverse">Get your bathroom assessment</ButtonLink>
     </section>
 
     <IncludedStory />
 
     <section class={styles.closing} aria-labelledby="closing-title">
-      <div class={styles.closingContent}>
+      <div class={styles.closingContent} data-reveal>
         <h2 id="closing-title">Your EyEagle membership starts here.</h2>
         <div class={styles.checklist}>
           {["Service coverage across India", "3-year membership included", "2-year warranty"].map((item) => (
@@ -163,19 +158,3 @@ const heroMobileSource = await getImage({ src: heroFamilyMobile, format: "webp",
 
   <SiteFooter slot="footer" />
 </MainLayout>
-
-<script>
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-  if (reducedMotion.matches) reveals.forEach((element) => { element.dataset.revealVisible = "true"; });
-  else {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        (entry.target as HTMLElement).dataset.revealVisible = "true";
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: "0px 0px -12%", threshold: 0.12 });
-    reveals.forEach((element) => observer.observe(element));
-  }
-</script>

@@ -72,14 +72,14 @@ const founders = [
 ---
 
 <section class={styles.section} aria-labelledby="founders-title">
-  <header class={styles.heading} data-reveal data-reveal-visible="false">
+  <header class={styles.heading} data-reveal>
     <h2 id="founders-title">A personal beginning. A shared responsibility.</h2>
     <p>Together, we are building across product, technology, installation and response operations—with the understanding that every decision ultimately enters someone’s home and affects a real family.</p>
   </header>
 
   <div class={styles.grid}>
     {founders.map((founder) => (
-      <article class={styles.card} data-reveal data-reveal-visible="false">
+      <article class={styles.card} data-reveal>
         <div class={styles.profile}>
           <div class={styles.portrait}>
             <Image alt={founder.alt} class={styles.portraitImage} layout="full-width" quality={88} src={founder.image} />

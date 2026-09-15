@@ -350,12 +350,7 @@
 .faqItem > div > p { max-width: 680px; padding: 0 56px 24px 0; overflow: hidden; }
 .faqItem[open] > div { grid-template-rows: 1fr; }
 
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(var(--motion-distance-reveal));
-  transition: opacity var(--motion-duration-reveal) var(--motion-ease-enter), transform var(--motion-duration-reveal) var(--motion-ease-enter);
-}
-[data-reveal][data-reveal-visible="true"] { opacity: 1; transform: translateY(0); }
+/* Entrances come from the shared scroll-motion layer. */
 
 @media (max-width: 980px) {
   .protocolRail { grid-template-columns: repeat(2, minmax(0, 1fr)); }

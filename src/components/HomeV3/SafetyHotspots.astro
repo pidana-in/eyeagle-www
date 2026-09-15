@@ -9,7 +9,7 @@ const features = [
 ---
 <div class="safety-explorer" data-safety-explorer>
   <p class="explorer-hint">Explore the safety features <span>Hover, tap or focus a dot</span></p>
-  <div class="safety-photo">
+  <div class="safety-photo" data-reveal="scale">
     <div class="safety-stage">
     <Image alt="A woman holding a shower grab bar, with a toilet support rail and shower mat also visible" layout="full-width" src={photo} />
     {features.map((feature, i) => <button class="safety-dot" style={`left:${feature.x}%;top:${feature.y}%`} type="button" aria-label={`Learn about the ${feature.title.toLowerCase()}`} aria-expanded="false" aria-controls="safety-feature-description" data-feature={i}><span aria-hidden="true"></span></button>)}
@@ -26,7 +26,7 @@ const features = [
 </div>
 <style>
   .safety-explorer { width: min(1138px,100%); }
-  .explorer-hint { display:flex; justify-content:space-between; gap:12px; margin-bottom:14px; font-size:13px; line-height:20px; }
+  .explorer-hint { display:flex; justify-content:space-between; gap:12px; margin-bottom:16px; font-size:var(--type-body-xs-size); line-height:var(--type-body-xs-line); }
   .explorer-hint span { color:var(--color-text-muted); }
   .safety-photo { position:relative; }
   .safety-stage { position:relative; }
@@ -35,13 +35,13 @@ const features = [
   .safety-dot span { width:15px; height:15px; border:3px solid white; border-radius:50%; background:var(--color-action); box-shadow:0 0 0 7px rgba(255,255,255,.3),0 2px 12px rgba(0,0,0,.25); transition:transform 180ms ease,box-shadow 180ms ease; }
   .safety-dot[aria-expanded=true] span,.safety-dot:hover span { transform:scale(1.15); box-shadow:0 0 0 9px rgba(255,255,255,.4); }
   .safety-dot:focus-visible,.safety-close:focus-visible { outline:2px solid var(--color-focus); outline-offset:3px; border-radius:50%; }
-  .safety-description { position:absolute; left:4%; top:10%; width:31%; padding:24px; border:1px solid rgba(255,255,255,.25); border-radius:12px; background:rgba(22,23,22,.93); color:white; backdrop-filter:blur(12px); z-index:3; }
+  .safety-description { position:absolute; left:4%; top:10%; width:min(34%,340px); padding:24px; border:1px solid rgba(255,255,255,.25); border-radius:12px; background:rgba(22,23,22,.93); color:white; backdrop-filter:blur(12px); z-index:3; }
   .safety-description[hidden] { display:none; }
-  .safety-eyebrow { font-size:11px; color:rgba(255,255,255,.6); margin-bottom:10px; }
-  .safety-description h3 { font-size:20px; line-height:1.25; font-weight:400; margin-bottom:10px; }
-  .safety-description p:not(.safety-eyebrow) { font-size:14px; line-height:21px; color:rgba(255,255,255,.8); }
+  .safety-eyebrow { font-size:var(--type-body-xs-size); color:rgba(255,255,255,.6); margin-bottom:10px; }
+  .safety-description h3 { font-size:var(--type-h3-size); line-height:var(--type-h3-line); font-weight:400; margin-bottom:12px; letter-spacing:var(--type-letter-spacing); }
+  .safety-description p:not(.safety-eyebrow) { font-size:var(--type-body-sm-size); line-height:var(--type-body-sm-line); color:rgba(255,255,255,.82); }
   .safety-why { margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,.2); }
-  .safety-why strong { display:block; margin-bottom:5px; font-size:12px; font-weight:500; color:white; }
+  .safety-why strong { display:block; margin-bottom:6px; font-size:var(--type-body-xs-size); font-weight:500; color:white; }
   .safety-close { position:absolute; top:8px; right:8px; width:28px; height:28px; border:0; background:transparent; color:white; cursor:pointer; font-size:22px; }
   @media(max-width:760px) { .safety-description { position:relative; left:auto; top:auto; width:100%; margin-top:12px; padding:22px; } .explorer-hint { display:none; } .safety-dot { width:36px; height:36px; } .safety-dot span { width:12px; height:12px; border-width:2px; } }
   @media(prefers-reduced-motion:reduce) { .safety-dot span { transition:none; } }
