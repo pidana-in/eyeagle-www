@@ -1,5 +1,6 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 
 const FatherImage = Astro.props.item;
 const className = Astro.props.className ?? '';
@@ -27,9 +28,7 @@ const descriptionButtonFathersday = Astro.props.descriptionButtonFathersday;
               <span>
                 {descriptionButtonFathersday}
               </span>
-              <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.609375 8.76805H11.5822L6.5455 13.8048L7.80467 15.0639L15 7.86864L7.80467 0.67334L6.5455 1.93252L11.5822 6.96923H0.609375L0.609375 8.76805Z" fill="white"/>
-              </svg>
+              <MaterialIcon name="arrow_forward" classNames="text-base" />
           </a>
         </div>
       </div>

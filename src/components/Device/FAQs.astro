@@ -1,4 +1,6 @@
 ---
+import MaterialIcon from "../common/MaterialIcon.astro";
+
 type FAQ = {
   question: string;
   answer: string;
@@ -22,16 +24,7 @@ const faqsData: FAQ[] = Astro.props.faqsData;
             <span class="text-[18px] text-[#2C2C2C] font-semibold">
               {faq.question}
             </span>
-            <svg
-              class="chevron w-5 h-5 transition-transform"
-              data-index={i}
-              fill="none"
-              stroke="black"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
+            <MaterialIcon name="expand_more" classNames="chevron w-5 h-5 transition-transform" />
           </button>
           <p
             class="faq-answer hidden mt-3 text-[15px] leading-relaxed text-neutral-600"

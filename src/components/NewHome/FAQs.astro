@@ -1,4 +1,6 @@
 ---
+import MaterialIcon from "../common/MaterialIcon.astro";
+
 type FAQItem = {
   question: string;
   answer: string;
@@ -26,16 +28,7 @@ const faqsData = Astro.props.faqsData as FAQItem[];
           </span>
 
           <!-- Chevron -->
-          <svg
-            class="chevron w-5 h-5 transition-transform duration-200"
-            data-index={i}
-            fill="none"
-            stroke="black"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path d="M6 9l6 6 6-6" />
-          </svg>
+          <MaterialIcon name="expand_more" classNames="chevron w-5 h-5 transition-transform duration-200" />
         </button>
 
         <!-- Answer -->
@@ -65,4 +58,3 @@ const faqsData = Astro.props.faqsData as FAQItem[];
     });
   </script>
 </section>
-
