@@ -1,475 +1,123 @@
 ---
 export const prerender = true;
 
-import { getCollection, render } from "astro:content";
-import MainLayout from "../../layouts/MainLayout.astro";
+import { blogTopic } from "../../utils/blog-topic";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import { getImage } from "astro:assets";
+import MainLayout from "../../layouts/MainLayout.astro";
 import Image from "../../components/common/OptimizedImage.astro";
 import MaterialIcon from "../../components/common/MaterialIcon.astro";
-import Divider from "../../assets/Blog/Divider.png";
+import SiteHeader from "../../components/HomeV3/SiteHeader.astro";
+import SiteFooter from "../../components/HomeV3/SiteFooter.astro";
+import styles from "../../styles/Blog/article.module.css";
+import "../../styles/home-v3-tokens.css";
+import "../../styles/blog-editorial.css";
 import { blogsData } from "../../components/constants/home";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("blogs");
-
-  return blogs.map((blog) => ({
-    params: {
-      slug: blog.id,
-    },
-  }));
+  return blogs.flatMap((blog) => {
+    const publicSlug = blog.data.slug ?? blog.id;
+    const slugs = publicSlug === blog.id ? [publicSlug] : [publicSlug, blog.id];
+    return slugs.map((slug) => ({ params: { slug } }));
+  });
 }
 
 const { slug } = Astro.params;
-
 const blogs = await getCollection("blogs");
-
-const blog = blogs.find((b) => b.id === slug);
-
-if (!blog) {
-  throw new Error("Blog not found");
-}
+const blog = blogs.find((entry) => (entry.data.slug ?? entry.id) === slug || entry.id === slug);
+if (!blog) throw new Error("Blog not found");
 
 const { Content } = await render(blog);
-
 const blogMeta = blogsData.find((item) => item.slug === blog.data.slug);
-
+const displayTitle = (title: string) => title.replace(/\s*\|\s*EyEagle\s*$/i, "");
 const metaTitle = blog.data.title;
-
-const metaDesc =
-  blog.data.desc ??
-  blogMeta?.desc ??
-  "Read the latest article on EyEagle's blog.";
-
-const site = (Astro.site?.toString() || "https://eyeagle.ai").replace(
-  /\/+$/,
-  "",
-);
-
-const socialImage = await getImage({
-  src: blog.data.img,
-  width: 1200,
-  height: 630,
-  fit: "cover",
-  format: "jpg",
-  quality: 82,
-});
+const metaDesc = blog.data.desc ?? blogMeta?.desc ?? "Read the latest article on EyEagle's journal.";
+const site = (Astro.site?.toString() || "https://eyeagle.ai").replace(/\/+$/, "");
+const socialImage = await getImage({ src: blog.data.img, width: 1200, height: 630, fit: "cover", format: "jpg", quality: 82 });
 const metaImage = `${site}${socialImage.src}`;
-
-const availableBlogs = blogs.filter((b) => b.data.slug !== blog.data.slug);
-
-const relatedBlogs = availableBlogs
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+const relatedBlogs = blogs
+  .filter((entry) => entry.id !== blog.id)
+  .sort((a, b) => Number(blogTopic(b.data.title) === blogTopic(blog.data.title)) - Number(blogTopic(a.data.title) === blogTopic(blog.data.title)) || b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
-const blogUrl = `${site}/blogs/${blog.data.slug}`;
+const publicSlug = blog.data.slug ?? blog.id;
+const blogUrl = `${site}/blogs/${publicSlug}`;
 const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`;
 const linkedinShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogUrl)}`;
 const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(blog.data.title)}`;
+const formatDate = (date: Date) => new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "long", year: "numeric" }).format(date);
+const articleHref = (entry: CollectionEntry<"blogs">) => `/blogs/${entry.data.slug ?? entry.id}`;
 ---
 
 <MainLayout
   title={metaTitle}
   desc={metaDesc}
-  canonicalPath={`/blogs/${blog.data.slug}`}
+  canonicalPath={`/blogs/${publicSlug}`}
   metaImage={metaImage}
   metaImageAlt={blog.data.title}
   metaImageWidth={1200}
   metaImageHeight={630}
-  article={{
-    headline: blog.data.title,
-    author: blog.data.author,
-    datePublished: blog.data.date.toISOString(),
-    image: metaImage,
-  }}
+  article={{ headline: blog.data.title, author: blog.data.author, datePublished: blog.data.date.toISOString(), image: metaImage }}
+  showChrome={false}
+  bodyClass="eyeagle-home-v3 eyeagle-blog"
 >
-  <style is:global>
-    .prose ul ul {
-      list-style-type: circle;
-    }
-    #blog-content .faq-accordion {
-      border-bottom: 1px solid #e5e5e5;
-    }
-    #blog-content .faq-question {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 20px 0;
-      margin: 0;
-      cursor: pointer;
-      font-size: 1.125rem;
-      line-height: 1.5;
-      font-weight: 600;
-      color: #111827;
-      text-align: left;
-      background: transparent;
-      border: 0;
-    }
+  <SiteHeader slot="header" solidAtTop />
 
-    #blog-content .faq-question:hover {
-      color: #cc0000;
-    }
-
-    #blog-content .faq-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      position: relative;
-    }
-
-    #blog-content .faq-icon::before,
-    #blog-content .faq-icon::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 14px;
-      height: 2px;
-      background: currentColor;
-      transform: translate(-50%, -50%);
-      transition: transform 0.2s ease;
-    }
-
-    #blog-content .faq-icon::after {
-      transform: translate(-50%, -50%) rotate(90deg);
-    }
-    #blog-content .faq-accordion.active .faq-icon::after {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    #blog-content .faq-answer {
-      display: none;
-      padding: 0 48px 20px 0;
-    }
-    #blog-content .faq-accordion.active .faq-answer {
-      display: block;
-    }
-    #blog-content .faq-answer p {
-      margin: 0 0 1rem;
-    }
-    #blog-content .faq-answer p:last-child {
-      margin-bottom: 0;
-    }
-
-    @media (max-width: 768px) {
-      #blog-content .faq-question {
-        gap: 16px;
-        padding: 18px 0;
-        font-size: 1rem;
-      }
-      #blog-content .faq-answer {
-        padding: 0 32px 18px 0;
-      }
-    }
-  </style>
-
-  <section class="bg-[#FFFFFF] py-12 lg:py-20 px-6 lg:px-40 w-full">
-    <div
-      class="lg:max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8"
-    >
-      <div>
-        <div class="flex flex-1 items-center gap-4">
-          <a
-            href="/blog"
-            class="inline-flex items-center text-sm font-medium bg-[#FBEBEB] text-primary rounded-full px-3 py-2 hover:bg-[#ebcaca] transition"
-          >
-            BLOG
-          </a>
-
-          <p class="text-sm text-[#737373] font-medium">
-            {
-              new Date(blog.data.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </p>
-        </div>
-        <h1
-          class="text-4xl lg:text-5xl font-semibold mt-6 mb-4 lg:leading-13.5"
-        >
-          {blog.data.title}
-        </h1>
-        <div class="mt-6 items-center gap-3">
-          <!-- <img
-            src=""
-            alt={blog.data.author}
-            class="w-10 h-10 rounded-full object-cover bg-[#CC0000]"
-          /> -->
-          <p class="text-base font-medium">
-            {blog.data.author}
-          </p>
-          <p class="text-sm mt-1 font-medium text-[#525252]">
-            {blog.data.authorRole}
-          </p>
+  <main class={styles.main} id="main-content">
+    <header class={styles.articleHero}>
+      <div class={styles.heroInner}>
+        <div class={styles.breadcrumb}><a href="/blog">EyEagle Journal</a><span aria-hidden="true">/</span><span>{blogTopic(blog.data.title)}</span></div>
+        <h1>{displayTitle(blog.data.title)}</h1>
+        {metaDesc && <p class={styles.deck}>{metaDesc}</p>}
+        <div class={styles.byline}>
+          <div><span>Written by</span><strong>{blog.data.author}</strong></div>
+          <div><span>{blog.data.authorRole}</span><time datetime={blog.data.date.toISOString()}>{formatDate(blog.data.date)}</time></div>
         </div>
       </div>
-      <div class="flex justify-center">
-        <Image
-          src={blog.data.img}
-          alt={blog.data.title}
-          class="max-h-80 w-auto rounded-2xl"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
+      <div class={styles.heroMedia}><Image src={blog.data.img} alt={blog.data.title} class={styles.fillImage} loading="eager" fetchpriority="high" layout="full-width" quality={86} /></div>
+    </header>
+
+    <div class={styles.mobileTools}>
+      <details>
+        <summary>In this article <span aria-hidden="true">+</span></summary>
+        <nav id="toc-mobile" aria-label="Article contents"></nav>
+      </details>
     </div>
-    <div class="flex justify-center mt-14 lg:mt-20">
-      <Image src={Divider} alt="Divider" />
-    </div>
-  </section>
 
-  <article class="px-6 md:px-10 lg:px-40 pt-4 lg:pt-20">
-    <div
-      class="mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 place-content-between"
-    >
-      <!-- Mobile -->
-      <aside class="block lg:hidden mb-8">
-        <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-          <h2 class="text-sm font-semibold uppercase text-primary mb-4">
-            In This Article
-          </h2>
-
-          <nav id="toc-mobile" class="space-y-3 text-sm text-[#525252]"></nav>
-        </div>
-
-        <p class="mt-6 text-sm font-normal text-[#5A5A5A]">SHARE</p>
-
-        <div class="flex items-center gap-4 mt-3">
-          <!-- X -->
-          <a
-            href={xShare}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Share on X"
-            class="text-[#525252] hover:text-[#737373] transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 50 50"
-              fill="currentColor"
-            >
-              <path
-                d="M11 4C7.134 4 4 7.134 4 11V39C4 42.866 7.134 46 11 46H39C42.866 46 46 42.866 46 39V11C46 7.134 42.866 4 39 4H11ZM13.086 13H21.023L26.66 21.01L33.5 13H36L27.789 22.613L37.914 37H29.979L23.438 27.707L15.5 37H13L22.309 26.104L13.086 13Z"
-              ></path>
-            </svg>
-          </a>
-
-          <!-- Facebook -->
-          <a
-            href={facebookShare}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Share on Facebook"
-            class="text-[#525252] hover:text-[#737373] transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 50 50"
-              fill="currentColor"
-            >
-              <path
-                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,.5-3,2v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
-              ></path>
-            </svg>
-          </a>
-          <!-- LinkedIn -->
-          <a
-            href={linkedinShare}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Share on LinkedIn"
-            class="text-[#525252] hover:text-[#737373] transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 50 50"
-              fill="currentColor"
-            >
-              <path
-                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04H29.42C27,24.96,26,27.02,26,29v10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </aside>
-
-      <!-- Desktop -->
-      <aside class="hidden lg:block w-70 shrink-0">
-        <div class="sticky top-28">
-          <div class="rounded-[22px] border border-[#F5DADA] bg-[#FBEBEB] p-6">
-            <h2 class="text-sm font-semibold uppercase text-primary mb-4">
-              In This Article
-            </h2>
-
-            <nav id="toc" class="space-y-3 text-sm text-[#525252]"></nav>
-          </div>
-
-          <p class="mt-8 text-sm font-normal text-[#5A5A5A]">SHARE</p>
-          <div class="flex items-center gap-4 mt-3">
-            <!-- X -->
-            <a
-              href={xShare}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on X"
-              class="text-[#525252] hover:text-[#737373] transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 50 50"
-                fill="currentColor"
-              >
-                <path
-                  d="M11 4C7.134 4 4 7.134 4 11V39C4 42.866 7.134 46 11 46H39C42.866 46 46 42.866 46 39V11C46 7.134 42.866 4 39 4H11ZM13.086 13H21.023L26.66 21.01L33.5 13H36L27.789 22.613L37.914 37H29.979L23.438 27.707L15.5 37H13L22.309 26.104L13.086 13Z"
-                ></path>
-              </svg>
-            </a>
-
-            <!-- Facebook -->
-            <a
-              href={facebookShare}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on Facebook"
-              class="text-[#525252] hover:text-[#737373] transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 50 50"
-                fill="currentColor"
-              >
-                <path
-                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,.5-3,2v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"
-                ></path>
-              </svg>
-            </a>
-            <!-- LinkedIn -->
-            <a
-              href={linkedinShare}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Share on LinkedIn"
-              class="text-[#525252] hover:text-[#737373] transition"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 50 50"
-                fill="currentColor"
-              >
-                <path
-                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10c0-2-1-4-3.5-4.04H29.42C27,24.96,26,27.02,26,29v10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56c3.97,0,7.19,2.73,7.19,8.26V39z"
-                ></path>
-              </svg>
-            </a>
+    <article class={styles.articleShell}>
+      <aside class={styles.sidebar}>
+        <div class={styles.sidebarInner}>
+          <p class={styles.sideLabel}>In this article</p>
+          <nav id="toc" aria-label="Article contents"></nav>
+          <div class={styles.share}>
+            <p class={styles.sideLabel}>Share</p>
+            <a href={xShare} target="_blank" rel="noopener noreferrer">X</a>
+            <a href={facebookShare} target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href={linkedinShare} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </aside>
+      <div id="blog-content" class={styles.articleContent}><Content /></div>
+    </article>
 
-      <!-- Blog Content -->
-      <div
-        id="blog-content"
-        class="prose prose-lg max-w-190
-        prose-li:marker:text-[#111827]
-        prose-h2:scroll-mt-24 prose-h3:scroll-mt-24
-        prose-h1:text-2xl lg:prose-h1:text-5xl prose-h2:text-xl
-        prose-h3:text-lg lg:prose-h3:text-3xl lg:prose-h2:text-4xl
-        prose-h1:leading-tight lg:prose-h1:leading-[1.2]
-        prose-h2:leading-snug lg:prose-h2:leading-normal
-        prose-h1:font-semibold prose-h2:font-semibold prose-h3:font-semibold
-        prose-h3:leading-snug lg:prose-h3:leading-normal"
-      >
-        <Content />
-      </div>
-    </div>
-  </article>
-
-  <!-- CTA -->
-  <!-- <div class="mt-20 px-[120px]">
-    <div
-      class="rounded-[32px] bg-[#CC0000] px-10 py-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8"
-    >
-      <div class="">
-        <p class="text-sm uppercase tracking-wide text-white mb-4">Next Step</p>
-        <h2
-          class="text-white text-3xl font-semibold leading-tight mb-4 max-w-[520px]"
-        >
-          Make every step safer before a fall happens.
-        </h2>
-        <p class="text-white/90 max-w-[640px]">
-          EyEagle helps families move from worry to a practical home safety
-          plan, with support that fits real rooms and real routines.
-        </p>
-      </div>
-      <a
-        href="/contact"
-        class="inline-flex items-center justify-center rounded-full bg-white text-[#262626] px-8 py-4 font-medium hover:bg-gray-100"
-      >
-        Get bathroom assessment
-      </a>
-    </div>
-  </div> -->
-
-  <!-- Related Reading -->
-  <div class="not-prose my-12 lg:my-20 px-6 lg:px-40">
-    <div
-      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 lg:mb-8"
-    >
-      <h2 class="text-2xl lg:text-4xl font-semibold text-[#262626]">
-        Related reading
-      </h2>
-
-      <a
-        href="/blog"
-        class="text-primary text-sm font-medium uppercase hover:underline"
-      >
-        View all articles
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-      {
-        relatedBlogs.map((item) => (
-          <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
-            <a href={`/blogs/${item.data.slug}`}>
-              <div class="aspect-5/3 w-full overflow-hidden">
-                <Image
-                  src={item.data.img}
-                  alt={item.data.title}
-                  class="w-full object-cover"
-                />
-              </div>
-              <div class="p-6 flex flex-col justify-between grow font-barlow">
-                <p class="text-lg text-gray-600 leading-5 mb-4">
-                  {item.data.category}
-                </p>
-                <h3 class="text-xl font-semibold text-left mb-2 line-clamp-2">
-                  {item.data.title}
-                </h3>
-                <div class="mt-auto text-primary font-semibold text-lg inline-flex items-center gap-1 group">
-                  Read
-                  <span class="sr-only">{item.data.title}</span>
-                  <MaterialIcon name="arrow_forward" classNames="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
+    <section class={styles.related} aria-labelledby="related-title">
+      <div class={styles.relatedHeading}><h2 id="related-title">Continue reading</h2><a href="/blog">View all articles</a></div>
+      <div class={styles.relatedGrid}>
+        {relatedBlogs.map((item) => (
+          <article class={styles.relatedStory}>
+            <a href={articleHref(item)}>
+              <div class={styles.relatedMedia}><Image src={item.data.img} alt={item.data.title} class={styles.fillImage} layout="full-width" /></div>
+              <time datetime={item.data.date.toISOString()}>{formatDate(item.data.date)}</time>
+              <h3>{displayTitle(item.data.title)}</h3>
+              <MaterialIcon name="arrow_outward" classNames={styles.relatedArrow} />
             </a>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" />
 </MainLayout>
 
 <script is:inline>
@@ -477,100 +125,61 @@ const xShare = `https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUr
     const article = document.getElementById("blog-content");
     const tocDesktop = document.getElementById("toc");
     const tocMobile = document.getElementById("toc-mobile");
-
     if (!article) return;
 
     const headings = article.querySelectorAll("h2");
-
     headings.forEach((heading, index) => {
-      if (!heading.id) {
-        heading.id = `heading-${index + 1}`;
-      }
-
+      if (!heading.id) heading.id = `heading-${index + 1}`;
       [tocDesktop, tocMobile].forEach((toc) => {
         if (!toc) return;
-
         const link = document.createElement("a");
         link.href = `#${heading.id}`;
         link.textContent = heading.textContent;
-
-        link.className =
-          "block text-[16px] leading-6 text-[#525252] hover:text-primary";
-
         toc.appendChild(link);
       });
     });
 
-    const faqHeading = Array.from(article.querySelectorAll("h2")).find(
-      (heading) => heading.textContent?.trim().toLowerCase() === "faq",
-    );
-
+    const faqHeading = Array.from(article.querySelectorAll("h2")).find((heading) => heading.textContent?.trim().toLowerCase() === "faq");
     if (!faqHeading) return;
     const faqQuestions = [];
     let currentElement = faqHeading.nextElementSibling;
     while (currentElement && currentElement.tagName !== "H2") {
-      if (currentElement.tagName === "H3") {
-        faqQuestions.push(currentElement);
-      }
+      if (currentElement.tagName === "H3") faqQuestions.push(currentElement);
       currentElement = currentElement.nextElementSibling;
     }
 
     faqQuestions.forEach((question) => {
       const accordion = document.createElement("div");
       accordion.className = "faq-accordion";
-
       const button = document.createElement("button");
       button.type = "button";
       button.className = "faq-question";
       button.setAttribute("aria-expanded", "false");
-
       const questionText = document.createElement("span");
       questionText.textContent = question.textContent;
-
       const icon = document.createElement("span");
       icon.className = "faq-icon";
       icon.setAttribute("aria-hidden", "true");
-      button.appendChild(questionText);
-      button.appendChild(icon);
-
+      button.append(questionText, icon);
       const answer = document.createElement("div");
       answer.className = "faq-answer";
-
       question.parentNode.insertBefore(accordion, question);
-      accordion.appendChild(button);
-      accordion.appendChild(answer);
-
+      accordion.append(button, answer);
       let nextElement = question.nextElementSibling;
-      while (
-        nextElement &&
-        nextElement.tagName !== "H3" &&
-        nextElement.tagName !== "H2"
-      ) {
+      while (nextElement && nextElement.tagName !== "H3" && nextElement.tagName !== "H2") {
         const elementToMove = nextElement;
         nextElement = nextElement.nextElementSibling;
-
         answer.appendChild(elementToMove);
       }
-
       question.remove();
-
       button.addEventListener("click", () => {
         const isOpen = accordion.classList.contains("active");
-
         article.querySelectorAll(".faq-accordion.active").forEach((item) => {
-          if (item !== accordion) {
-            item.classList.remove("active");
-
-            const itemButton = item.querySelector(".faq-question");
-
-            if (itemButton) {
-              itemButton.setAttribute("aria-expanded", "false");
-            }
-          }
+          if (item === accordion) return;
+          item.classList.remove("active");
+          item.querySelector(".faq-question")?.setAttribute("aria-expanded", "false");
         });
-
         accordion.classList.toggle("active", !isOpen);
-
         button.setAttribute("aria-expanded", String(!isOpen));
       });
     });
