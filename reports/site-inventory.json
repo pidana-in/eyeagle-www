@@ -201,6 +201,11 @@
       "kind": "blog"
     },
     {
+      "route": "/blogs/the-cost-of-a-senior-fall-in-india",
+      "source": "src/content/blogs/cost-of-fall.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/the-critical-60-minutes-after-a-fall",
       "source": "src/content/blogs/critical.md",
       "kind": "blog"
@@ -1509,6 +1514,77 @@
       ]
     },
     {
+      "file": "src/assets/Blog/BlogImage41.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 1146298,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-1.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2204556,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-2.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2348746,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-3.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2383221,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-4.png",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1421971,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
       "file": "src/assets/Blog/BlogImage5.jpg",
       "format": "jpeg",
       "width": 2124,
@@ -1592,10 +1668,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/pages/blogs/[slug].astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Blog/HoliBanner.jpg",
@@ -1669,6 +1743,20 @@
       ]
     },
     {
+      "file": "src/assets/Brand/eyeagle-site-og.png",
+      "format": "png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1984526,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/layouts/MainLayout.astro"
+      ]
+    },
+    {
       "file": "src/assets/Cart/productImage.png",
       "format": "png",
       "width": 80,
@@ -1705,10 +1793,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/store.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Common/International.png",
@@ -1719,10 +1805,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/store.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Common/RightChervon.png",
@@ -2411,6 +2495,428 @@
       ]
     },
     {
+      "file": "src/assets/HomeV3/alarm-story-01.png",
+      "format": "png",
+      "width": 1600,
+      "height": 1920,
+      "bytes": 3312697,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/AlarmStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/alarm-story-02.png",
+      "format": "png",
+      "width": 1174,
+      "height": 1339,
+      "bytes": 1833065,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/AlarmStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/alarm-story-03.png",
+      "format": "png",
+      "width": 1146,
+      "height": 1373,
+      "bytes": 2207452,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/AlarmStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/alarm-story-04.png",
+      "format": "png",
+      "width": 1149,
+      "height": 1369,
+      "bytes": 2062599,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/AlarmStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/alarm-story-05.png",
+      "format": "png",
+      "width": 1146,
+      "height": 1373,
+      "bytes": 2189197,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/AlarmStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/alarm-story-06.png",
+      "format": "png",
+      "width": 1600,
+      "height": 1920,
+      "bytes": 3733553,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/AlarmStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/app-alert-mockup-v1.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1483119,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/IncludedStory.astro",
+        "src/pages/store.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/check-latest.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 883,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/emergency-latest.png",
+      "format": "png",
+      "width": 1552,
+      "height": 1013,
+      "bytes": 2041317,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/hero-family-mobile-v1.png",
+      "format": "png",
+      "width": 941,
+      "height": 1672,
+      "bytes": 2018230,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/hero-family.png",
+      "format": "png",
+      "width": 1440,
+      "height": 844,
+      "bytes": 1509843,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/included-hardware-latest.png",
+      "format": "png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 1546319,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/IncludedStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/included-install-latest.png",
+      "format": "png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 2232725,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/IncludedStory.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/included-response-latest.png",
+      "format": "png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 2188404,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/IncludedStory.astro",
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/installation-latest.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2127942,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/protection-latest.png",
+      "format": "png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 6862023,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/SafetyHotspots.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/system-alarm-product-v3.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2251214,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/system-map-inside.png",
+      "format": "png",
+      "width": 3082,
+      "height": 2040,
+      "bytes": 5279777,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/SystemMapTabs.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/system-map-outside.png",
+      "format": "png",
+      "width": 3082,
+      "height": 2042,
+      "bytes": 2140280,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HomeV3/SystemMapTabs.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/system-nest-alert-v4.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1588942,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HomeV3/system-response-product-v3.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1296531,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/bathroom-protection-assessment-v1.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1912007,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/door-duration.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2269438,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/everyday-system-eyeagle-v2.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1722235,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/press-after-fall-sos-v2.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1591963,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HowItWorks/SosFlow.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/response-alarm-eyeagle-v2.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1797406,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HowItWorks/SosFlow.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/response-nest-live-v3.png",
+      "format": "png",
+      "width": 2560,
+      "height": 1507,
+      "bytes": 4946906,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/response-nest-natural-phone-v2.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1791208,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/response-nest-v1.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1963431,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/HowItWorks/SosFlow.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/trust-testing-eyeagle-kit-v2.png",
+      "format": "png",
+      "width": 1372,
+      "height": 1146,
+      "bytes": 1863667,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/solution.astro"
+      ]
+    },
+    {
       "file": "src/assets/Join/JoinPhoto.png",
       "format": "png",
       "width": 324,
@@ -2845,10 +3351,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/solution.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Navbar/guardianKit.png",
@@ -3939,8 +4443,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/constants/newHome.ts",
-        "src/layouts/MainLayout.astro"
+        "src/components/constants/newHome.ts"
       ]
     },
     {
@@ -4255,6 +4758,298 @@
       "referenced": true,
       "references": [
         "src/components/Orders/OrderCard.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/about-card-independence-v1.png",
+      "format": "png",
+      "width": 3000,
+      "height": 2000,
+      "bytes": 6737566,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/about-us.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/about-card-privacy-v1.png",
+      "format": "png",
+      "width": 3000,
+      "height": 2000,
+      "bytes": 6115454,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/about-us.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/about-card-response-v1.png",
+      "format": "png",
+      "width": 3000,
+      "height": 2000,
+      "bytes": 5995613,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/about-us.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/about-hero-independence-v1-4k.png",
+      "format": "png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 9652704,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/about-us.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/about-naniji-framed-v1.png",
+      "format": "png",
+      "width": 2400,
+      "height": 3000,
+      "bytes": 7760412,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/about-us.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/about-response-alarm-at-home-v1.png",
+      "format": "png",
+      "width": 2400,
+      "height": 3000,
+      "bytes": 7381448,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/OurStory/about-response-alarm-at-home-v2.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1937178,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/about-us.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/abhinav.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2332349,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/ajay.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2312302,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/bluejeans.png",
+      "format": "png",
+      "width": 700,
+      "height": 350,
+      "bytes": 52330,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/edelweiss.png",
+      "format": "png",
+      "width": 1280,
+      "height": 319,
+      "bytes": 63184,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/flipkart.png",
+      "format": "png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 300217,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/gaurav.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2284634,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/iima.png",
+      "format": "png",
+      "width": 1097,
+      "height": 613,
+      "bytes": 188358,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/iit.png",
+      "format": "png",
+      "width": 2593,
+      "height": 635,
+      "bytes": 531718,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/ipsator.png",
+      "format": "png",
+      "width": 735,
+      "height": 220,
+      "bytes": 16531,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/mango-town.png",
+      "format": "png",
+      "width": 1024,
+      "height": 375,
+      "bytes": 55743,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/nomura.png",
+      "format": "png",
+      "width": 1024,
+      "height": 248,
+      "bytes": 38142,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/phonepe.png",
+      "format": "png",
+      "width": 3840,
+      "height": 1165,
+      "bytes": 187543,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/unoona.png",
+      "format": "png",
+      "width": 447,
+      "height": 447,
+      "bytes": 23357,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
+      ]
+    },
+    {
+      "file": "src/assets/OurStory/team/vaibhav.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2279404,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/FoundersTeam.astro"
       ]
     },
     {
@@ -4686,6 +5481,62 @@
       ]
     },
     {
+      "file": "src/assets/Store/door-sensor-v2.png",
+      "format": "png",
+      "width": 1740,
+      "height": 1280,
+      "bytes": 805726,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Store/ecu-living-room-v1.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1927573,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Store/guardian-kit-v2.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2496491,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
+      "file": "src/assets/Store/sos-installed-v2.png",
+      "format": "png",
+      "width": 1537,
+      "height": 1023,
+      "bytes": 2439910,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
       "file": "src/assets/astro.svg",
       "format": "svg",
       "width": 115,
@@ -4804,6 +5655,54 @@
       ]
     },
     {
+      "file": "public/brand/eyeagle-shield-dark.svg",
+      "format": "svg",
+      "width": 28,
+      "height": 28,
+      "bytes": 3332,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/brand/eyeagle-shield-light.svg",
+      "format": "svg",
+      "width": 28,
+      "height": 28,
+      "bytes": 2477,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/brand/eyeagle-wordmark-dark.svg",
+      "format": "svg",
+      "width": 95,
+      "height": 18,
+      "bytes": 1640,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/brand/eyeagle-wordmark-light.svg",
+      "format": "svg",
+      "width": 95,
+      "height": 18,
+      "bytes": 1640,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "public/favicon.svg",
       "format": "svg",
       "width": 256,
@@ -4864,10 +5763,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/layouts/MainLayout.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "public/svg/tagline-mobile.svg",
@@ -4884,11 +5781,6 @@
   ],
   "links": [
     {
-      "source": "src/components/AppSection/BackupSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/AppSection/HeroSection.astro",
       "href": "#",
       "external": false
@@ -4899,29 +5791,19 @@
       "external": false
     },
     {
+      "source": "src/components/Assessment/AssessmentFormUI.astro",
+      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
+      "external": true
+    },
+    {
       "source": "src/components/Cart/BillingDetail.astro",
       "href": "mailto:${object?.replyto}?subject=Request",
       "external": false
     },
     {
-      "source": "src/components/Home/BathroomSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/Home/Blogs.astro",
       "href": "/blog",
       "external": false
-    },
-    {
-      "source": "src/components/Home/Blogs.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/Blogs.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
     },
     {
       "source": "src/components/Home/CircleMembership.astro",
@@ -4949,11 +5831,6 @@
       "external": false
     },
     {
-      "source": "src/components/Home/DesireSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/Home/FatherSection.astro",
       "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
       "external": true
@@ -4961,21 +5838,6 @@
     {
       "source": "src/components/Home/FatherSection.astro",
       "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/FatherSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/OurTeamSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/OurTeamSection.astro",
-      "href": "http://www.w3.org/2000/svg",
       "external": true
     },
     {
@@ -5049,9 +5911,14 @@
       "external": true
     },
     {
-      "source": "src/components/Home/YogaSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
+      "source": "src/components/HomeV3/SiteFooter.astro",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/components/HomeV3/SiteHeader.astro",
+      "href": "/",
+      "external": false
     },
     {
       "source": "src/components/NewHome/BathroomKit.astro",
@@ -5074,18 +5941,13 @@
       "external": false
     },
     {
-      "source": "src/components/NewHome/Testimonials.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/Testimonials.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/Protection/Benefits.astro",
       "href": "#comparison-section",
+      "external": false
+    },
+    {
+      "source": "src/components/Protection/HeroSection.astro",
+      "href": "/assessment-form",
       "external": false
     },
     {
@@ -5387,6 +6249,26 @@
       "source": "src/content/blogs/checkup.md",
       "href": "/",
       "external": false
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
     },
     {
       "source": "src/content/blogs/critical.md",
@@ -6345,6 +7227,11 @@
     },
     {
       "source": "src/layouts/MainLayout.astro",
+      "href": "/fonts/geist-latin.woff2",
+      "external": false
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
       "href": "/sitemap-index.xml",
       "external": false
     },
@@ -6360,11 +7247,6 @@
     },
     {
       "source": "src/layouts/MainLayout.astro",
-      "href": "/",
-      "external": false
-    },
-    {
-      "source": "src/layouts/MainLayout.astro",
       "href": "https://schema.org",
       "external": true
     },
@@ -6374,9 +7256,9 @@
       "external": true
     },
     {
-      "source": "src/pages/assessment-form.astro",
-      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
-      "external": true
+      "source": "src/pages/about-us.astro",
+      "href": "/solution",
+      "external": false
     },
     {
       "source": "src/pages/assessment-form.astro",
@@ -6389,13 +7271,18 @@
       "external": true
     },
     {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "/blog",
+      "source": "src/pages/blog.astro",
+      "href": "/store",
+      "external": false
+    },
+    {
+      "source": "src/pages/blog.astro",
+      "href": "/solution",
       "external": false
     },
     {
       "source": "src/pages/blogs/[slug].astro",
-      "href": "/contact",
+      "href": "/blog",
       "external": false
     },
     {
@@ -6424,41 +7311,6 @@
       "external": true
     },
     {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/pages/blogs/[slug].astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/pages/blogsList.json.ts",
       "href": "https://eyeagle.ai",
       "external": true
@@ -6467,6 +7319,41 @@
       "source": "src/pages/blogsList.json.ts",
       "href": "https://eyeagle.ai/blogs/",
       "external": true
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "/assessment-form",
+      "external": false
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "/assessment-form",
+      "external": false
+    },
+    {
+      "source": "src/pages/index.astro",
+      "href": "/store",
+      "external": false
+    },
+    {
+      "source": "src/pages/index.astro",
+      "href": "/solution",
+      "external": false
+    },
+    {
+      "source": "src/pages/index.astro",
+      "href": "/assessment-form",
+      "external": false
+    },
+    {
+      "source": "src/pages/index.astro",
+      "href": "/store",
+      "external": false
+    },
+    {
+      "source": "src/pages/index.astro",
+      "href": "/contact",
+      "external": false
     },
     {
       "source": "src/pages/join.astro",
@@ -6544,14 +7431,29 @@
       "external": true
     },
     {
-      "source": "src/pages/store.astro",
-      "href": "https://shop.eyeagle.ai/",
-      "external": true
+      "source": "src/pages/solution.astro",
+      "href": "/store",
+      "external": false
+    },
+    {
+      "source": "src/pages/solution.astro",
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/pages/store.astro",
-      "href": "https://shop.eyeagle.ai/",
-      "external": true
+      "href": "#availability",
+      "external": false
+    },
+    {
+      "source": "src/pages/store.astro",
+      "href": "/contact",
+      "external": false
+    },
+    {
+      "source": "src/pages/store.astro",
+      "href": "/contact",
+      "external": false
     },
     {
       "source": "src/pages/success.astro",

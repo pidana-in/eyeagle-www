@@ -73,6 +73,7 @@ import blogImage37 from "../../assets/Blog/BlogImage37.jpg";
 import blogImage38 from "../../assets/Blog/BlogImage38.png";
 import blogImage39 from "../../assets/Blog/BlogImage39.png";
 import blogImage40 from "../../assets/Blog/BlogImage40.png";
+import blogImage41 from "../../assets/Blog/BlogImage41.png";
 
 export const bathroomData = [
   {
@@ -409,6 +410,12 @@ export const blogsData = [
     title: "You Track Food Deliveries - But Are Your Parents Safe at Home? | EyEagle",
     desc: "Discover how elderly fall detection system can prevent serious injuries and protect aging parents at home. Contact the EyEagle team today.",
     img: blogImage40,
+  },
+     {
+    slug: "the-cost-of-a-senior-fall-in-india",
+    title: "The True Cost of a Senior Fall in India: ₹2-5 Lakh and Counting",
+    desc: "The cost of a senior fall in India could be ₹2-5 lakh once surgery, hospital stay, and recovery are added up. Here's exactly where the money goes.",
+    img: blogImage41,
   },
 ];
 
