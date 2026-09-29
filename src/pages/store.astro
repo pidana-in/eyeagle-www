@@ -76,7 +76,7 @@ const policyLinks = [
           </div>
           <div class={styles.baseSelection} aria-label="Selected EyEagle membership">
             <div><span>EyEagle membership</span><h2>Complete Home System</h2><p>One bathroom · one SOS button · Alarm Unit · Control Unit</p><p class={styles.shippingNotice}><span aria-hidden="true"></span>Shipping starts October 30</p></div>
-            <strong>{basePrice}</strong><span class={styles.selectedMark} aria-label="Selected">✓</span>
+            <div class={styles.basePrice}><strong>{basePrice}</strong><small>Incl. of all taxes</small></div><span class={styles.selectedMark} aria-label="Selected">✓</span>
           </div>
           <ul class={styles.inclusions}>
             <li><span>01</span><p><strong>Installed and tested</strong> in your parent’s home.</p></li>
@@ -122,10 +122,11 @@ const policyLinks = [
             <div><dt>Complete Home System</dt><dd>{basePrice}</dd></div>
             <div data-review-bathrooms hidden><dt data-review-bathroom-label>Additional bathroom</dt><dd data-review-bathroom-price>{formatInr(0)}</dd></div>
             <div data-review-sos hidden><dt data-review-sos-label>Additional SOS button</dt><dd data-review-sos-price>{formatInr(0)}</dd></div>
+            <div class={styles.reviewTotal}><dt>Total <span>Incl. of all taxes</span></dt><dd data-review-total>{basePrice}</dd></div>
           </dl>
           <div class={styles.membershipNote}><span>Included</span><div><h3>Three years of membership</h3><p>Nest, readiness checks and EyEagle Response are included for three years. Membership continues at ₹2,000/month after that.</p></div></div>
           <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
-          <p class={styles.finePrint}>Shipping starts October 30. System prices are shown in INR and exclude applicable taxes. After the included three-year period, membership renews at ₹2,000/month until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>Shipping starts October 30. All prices are in INR and include GST. After the included three-year period, membership renews at ₹2,000/month (incl. GST) until cancelled. Installation is currently available in India.</p>
         </section>
 
         <ul class={styles.helpLinks} aria-label="Help and policies">
@@ -136,7 +137,7 @@ const policyLinks = [
 
       <footer class={styles.checkoutFooter}>
         <button class={styles.backButton} data-back disabled type="button"><span class={styles.backIcon} aria-hidden="true">←</span><span class={styles.backLabel}>Back</span></button>
-        <div class={styles.total}><strong data-total-price aria-live="polite">{basePrice}</strong><p data-order-summary>1 bath · No extra SOS</p></div>
+        <div class={styles.total}><strong data-total-price aria-live="polite">{basePrice}</strong><p><span data-order-summary>1 bath · No extra SOS</span> · Incl. taxes</p></div>
         <div class={styles.checkoutAction}>
           <button class={styles.primaryAction} data-next type="button">Continue</button>
           <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl} hidden><span class={styles.desktopActionLabel}>Continue to checkout</span><span class={styles.mobileActionLabel}>Checkout</span><span aria-hidden="true">↗</span></a>
@@ -198,6 +199,8 @@ const policyLinks = [
     }
 
     if (price) price.textContent = formatInr(purchase.totalInr);
+    const reviewTotal = document.querySelector<HTMLElement>("[data-review-total]");
+    if (reviewTotal) reviewTotal.textContent = formatInr(purchase.totalInr);
     if (summary) {
       const sosSummary = additionalSos === 0 ? "No extra SOS" : `${additionalSos} extra SOS`;
       summary.textContent = `${bathrooms} bath${bathrooms === 1 ? "" : "s"} · ${sosSummary}`;
