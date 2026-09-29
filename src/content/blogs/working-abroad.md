@@ -78,7 +78,7 @@ Smartwatches, blood pressure monitors, glucose monitors, and medication reminder
 
 <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;">Modern elderly care systems include fall detection</a>, SOS buttons, and emergency dispatch services. If a parent falls or presses an alert button, help can be sent immediately, even if you’re abroad.
 
-<a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;">EyEagle’s SOS button</a> ensures instant emergency alerts, while the <a href="https://eyeagle.ai/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a> notifies family members abroad in real time, so even from miles away, you stay informed, and your parents get immediate help from your circle.
+<a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle’s SOS button</a> ensures instant emergency alerts, while the <a href="https://eyeagle.ai/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a> notifies family members abroad in real time, so even from miles away, you stay informed, and your parents get immediate help from your circle.
 
 ## Step 3: Plan Financial and Medical Systems in Advance
 

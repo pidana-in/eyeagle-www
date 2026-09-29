@@ -129,7 +129,7 @@ These steps form the foundation of <a href="/" style="color:#CC0000; text-decora
 
 Bathrooms are one of the most common places for slips and falls among seniors. Installing the right safety fittings can drastically reduce the risk.
 
-<a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety fittings</a>, such as anti-skid mats, grab bars, provide stability, comfort, and added confidence during everyday routines.
+<a href="/protection" style="color:#CC0000; text-decoration:none;">EyEagle bathroom safety fittings</a>, such as anti-skid mats, grab bars, provide stability, comfort, and added confidence during everyday routines.
 
 ## Conclusion
 

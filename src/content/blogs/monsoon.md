@@ -91,7 +91,7 @@ Install them in at least three spots:
 
 Make sure bars are fixed into the wall studs or with proper rawl plugs. A poorly fixed bar that gives way is worse than no bar at all.
 
-For added peace of mind, EyEagle also offers the <a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle Alarm Device</a> and the <a href="/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a>, allowing seniors to send an SOS alert instantly while notifying family members in real time during an emergency.
+For added peace of mind, EyEagle also offers the <a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle Alarm Device</a> and the <a href="/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a>, allowing seniors to send an SOS alert instantly while notifying family members in real time during an emergency.
 
 > EyEagle offers a professional bathroom safety audit and installs premium grab bars based on where YOUR senior actually moves. It is not a one-size-fits-all kit; it is tailored to your home
 
@@ -137,8 +137,8 @@ Call your parent at a fixed time every morning and evening. Keep it consistent. 
 
 A basic phone is not enough in a fall situation. An elderly person who falls may not be able to reach their phone, unlock it, and dial a number while in pain on a wet floor.
 
-This is exactly the gap that
-<a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle</a> device is designed to fill. It is a one-press SOS button that triggers a loud alarm and instantly notifies family members through the EyEagle app. It works even without Wi-Fi and has a battery backup in case of power cuts, which are common during Indian monsoons.
+This is exactly the gap that the
+<a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle</a> device is designed to fill. It is a one-press SOS button that triggers a loud alarm and instantly notifies family members through the EyEagle app. It works even without Wi-Fi and has a battery backup in case of power cuts, which are common during Indian monsoons.
 
 ### Share Emergency Information With Neighbours
 

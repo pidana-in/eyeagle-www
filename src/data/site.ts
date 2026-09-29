@@ -16,7 +16,7 @@ export const navLinks = [
   {
     title: "Products",
     children: [
-      { title: "EyEagle", url: "/device" },
+      { title: "EyEagle", url: "/store" },
       { title: "Protection", url: "/protection" },
     ],
   },
@@ -29,7 +29,6 @@ export const navLinks = [
 export const userMenu = [
   { title: "Login", url: "/login" },
   { title: "Profile", url: "/profile" },
-  { title: "My Orders", url: "/orders" },
   { title: "Logout", url: "" },
 ];
 
@@ -41,7 +40,7 @@ export const footerProductLinks = [
     title: "Bathroom Safety kit",
     url: SHOP_URLS.protectionKit,
   },
-  { title: "EyEagle", url: "/device" },
+  { title: "EyEagle", url: "/store" },
   { title: "Protection", url: "/protection" },
 ];
 

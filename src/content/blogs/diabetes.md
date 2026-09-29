@@ -159,7 +159,7 @@ One of the most worrying situations is a fall that happens when nobody is around
 
 For such situations, having a response system can add an important layer of protection. That is where EyEagle comes in. EyEagle combines connected devices, family alerts and a 24/7 human emergency response system to help your parents get the support they need, even when you are far away.
 
-<a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;">Learn more about EyEagle.</a>
+<a href="/store" style="color:#CC0000; text-decoration:none;">Learn more about EyEagle.</a>
 
 ![Infographic](../../assets/Blog/BlogImage42Info-4.png)
 

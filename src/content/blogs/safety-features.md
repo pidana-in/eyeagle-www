@@ -20,7 +20,7 @@ One morning, my father slipped slightly while stepping out of the shower. He did
 
 That moment made us realize something important: bathroom accidents don’t always end in injuries, but <a href="/blogs/how-fear-of-falling-affects-mental-health" style="color:#CC0000; text-decoration:none;">they always leave behind anxiety</a>. After that incident, he became hesitant. He rushed showers. He avoided bathing when no one was home. A space meant for privacy and comfort had quietly turned into a place of worry.
 
-That’s when we started thinking seriously about <a href="/device" style="color:#CC0000; text-decoration:none;">bathroom fall prevention</a> and senior home safety modifications, not as “elderly solutions,” but as family safety measures.
+That’s when we started thinking seriously about <a href="/protection" style="color:#CC0000; text-decoration:none;">bathroom fall prevention</a> and senior home safety modifications, not as “elderly solutions,” but as family safety measures.
 
 ## Why Bathrooms Are Riskier Than We Think
 

@@ -5,16 +5,23 @@ import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
-const sitemapExcludedPaths = new Set([
-  "/404",
-  "/assessment-form",
-  "/checkout-2",
-  "/enquiry",
-  "/inequiery",
-  "/join",
+const sitemapExcludedPaths = new Set(["/404"]);
+
+// Retired pages. Netlify serves these as permanent (301) redirects.
+const retiredToStore = [
+  "/solution",
+  "/device",
   "/orders",
-  "/store",
+  "/checkout-2",
+  "/join",
   "/success",
+  "/offers/fathers-day-2025",
+  "/offers/yoga-day-2025",
+];
+const retiredToInquiry = ["/enquiry", "/inequiery", "/assessment-form"];
+const redirects = Object.fromEntries([
+  ...retiredToStore.map((path) => [path, { status: 301, destination: "/store" }]),
+  ...retiredToInquiry.map((path) => [path, { status: 301, destination: "/inquiry" }]),
 ]);
 
 export default defineConfig({
@@ -25,6 +32,7 @@ export default defineConfig({
     format: "file",
   },
   adapter: netlify(),
+  redirects,
   devToolbar: {
     enabled: false,
   },
@@ -40,7 +48,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname.replace(/\/$/, "") || "/";
-        return !pathname.startsWith("/offers/") && !sitemapExcludedPaths.has(pathname);
+        return !sitemapExcludedPaths.has(pathname);
       },
     }),
     partytown({
