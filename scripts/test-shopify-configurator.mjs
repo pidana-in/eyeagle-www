@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
   EYEAGLE_VARIANT_IDS,
+  getEyEagleBundleComponents,
   getEyEagleConfiguredPurchase,
 } from "../src/data/shopify-configurator.ts";
 
@@ -35,6 +36,9 @@ for (const [bathrooms, additionalSos, variantId, totalInr] of cases) {
     `https://shop.eyeagle.ai/cart/${variantId}:1`,
   );
 }
+
+assert.deepEqual(getEyEagleBundleComponents(1, 0), { controlUnit: 1, sosUnit: 1, protectionKit: 1, supportPlan: 1 });
+assert.deepEqual(getEyEagleBundleComponents(3, 4), { controlUnit: 1, sosUnit: 7, protectionKit: 3, supportPlan: 1 });
 
 for (const invalid of [[0, 0], [4, 0], [1, -1], [1, 5], [1.5, 0], [1, 0.5]]) {
   assert.equal(getEyEagleConfiguredPurchase(...invalid), null);

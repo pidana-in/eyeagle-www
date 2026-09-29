@@ -32,6 +32,28 @@ export const EYEAGLE_VARIANT_IDS = Object.freeze({
 
 export type EyEagleVariantKey = keyof typeof EYEAGLE_VARIANT_IDS;
 
+// Parts each configurator variant is bundled from in Shopify (see scripts/shopify-setup-bundles.mjs).
+// Parts are never sold on their own, so every order includes the full base system.
+export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
+  controlUnit: { sku: "EYE-CU", title: "Control Unit", stockTracked: true },
+  sosUnit: { sku: "EYE-AU", title: "SOS Alarm Unit", stockTracked: true },
+  protectionKit: { sku: "EYE-KIT", title: "Bathroom protection kit", stockTracked: true },
+  supportPlan: { sku: "EYE-SUP3", title: "3-year support plan", stockTracked: false },
+} as const);
+
+export type EyEagleBundleComponent = keyof typeof EYEAGLE_BUNDLE_COMPONENTS;
+
+// Base system: 1 CU + 1 AU + 1 kit + support. Each extra bathroom adds an AU and a kit; each extra SOS adds an AU.
+export const getEyEagleBundleComponents = (
+  bathrooms: number,
+  additionalSos: number,
+): Record<EyEagleBundleComponent, number> => ({
+  controlUnit: 1,
+  sosUnit: bathrooms + additionalSos,
+  protectionKit: bathrooms,
+  supportPlan: 1,
+});
+
 export interface EyEagleConfiguredPurchase {
   bathrooms: number;
   additionalSos: number;
