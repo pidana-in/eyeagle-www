@@ -111,27 +111,27 @@ const faqItems = [
   <SiteHeader slot="header" solidAtTop showAction={false} variant="figmaHome" />
 
   <main class={styles.main} id="main-content">
-    <header class={styles.intro} data-store-intro>
-      <div>
-        <p class={styles.eyebrow}>Shipping starts October 30</p>
-        <h1>Buy EyEagle</h1>
-        <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
-      </div>
-      <ul class={styles.introLinks}>
-        <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
-        <li><a href="/contact">Talk to a specialist <span aria-hidden="true">↗</span></a></li>
-      </ul>
-    </header>
-
-    <div class={styles.bar} data-store-bar data-visible="false">
+    <div class={styles.bar} data-store-bar data-visible="true">
       <div class={styles.barInner}>
         <p class={styles.barName}>EyEagle Home System</p>
         <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>+ GST</span></p>
-        <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}>Checkout</a>
+        <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
       </div>
     </div>
 
     <div class={styles.layout}>
+      <header class={styles.intro}>
+        <div>
+          <p class={styles.eyebrow}>Shipping starts October 30</p>
+          <h1>Buy EyEagle</h1>
+          <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
+        </div>
+        <ul class={styles.introLinks}>
+          <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
+          <li><a href="/contact">Talk to a specialist <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </header>
+
       <section class={styles.gallery} aria-label="EyEagle system photos">
         <div class={styles.galleryStage}>
           {panels.map((panel, index) => (
@@ -266,7 +266,6 @@ const faqItems = [
 
   const form = document.querySelector<HTMLFormElement>("[data-configurator]");
   const bar = document.querySelector<HTMLElement>("[data-store-bar]");
-  const intro = document.querySelector<HTMLElement>("[data-store-intro]");
   const summarySection = document.querySelector<HTMLElement>("[data-store-summary]");
   const siteHeader = document.querySelector<HTMLElement>("[data-home-v3-header]");
   const checkoutLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-checkout]"));
@@ -387,15 +386,13 @@ const faqItems = [
     }
   });
 
-  // Show the price bar between the intro and the summary, which has its own checkout.
+  // Keep the price bar and its checkout in view from page load until the summary, which has its own checkout.
   // A scroll check rather than IntersectionObserver: a fast fling can skip past the summary without a crossing.
-  if (bar && intro && summarySection) {
+  if (bar && summarySection) {
     let frame = 0;
     const syncBar = () => {
       frame = 0;
-      const pastIntro = intro.getBoundingClientRect().bottom < 0;
-      const beforeSummary = summarySection.getBoundingClientRect().top > window.innerHeight * 0.8;
-      bar.dataset.visible = String(pastIntro && beforeSummary);
+      bar.dataset.visible = String(summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
     };
     const requestSync = () => { if (!frame) frame = requestAnimationFrame(syncBar); };
     window.addEventListener("scroll", requestSync, { passive: true });
