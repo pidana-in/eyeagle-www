@@ -94,7 +94,7 @@ EyEagle was created with one mission in mind: **Preventing falls. Saving lives.*
 **EyEagle combines:**
 
 - Professionally installed grab bars, anti-slip mats, and grip tapes.
-- A smart alarm unit, control hub, responsive switch
+- An Alert Unit with SOS button and Door Lock Sensor, and a Home Hub with Alarm
 - A Circle mobile app that notifies caregivers instantly.
 - An emergency team that responds if caregivers are unreachable.
 

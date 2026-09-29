@@ -16,12 +16,12 @@ const systemParts = [
 ] as const;
 
 const triggerPaths = [
-  ["SOS Button", "Help Within Reach", "Your parent can call for help without reaching for a phone.", "sos-button-scene-opt.webp", "An older adult pressing the EyEagle SOS button in a bathroom"],
-  ["Door Timer", "Support Without a Press", "If the bathroom stays locked too long, trusted people are alerted automatically.", "door-timer-scene-opt.webp", "The EyEagle Door Timer fitted to a bathroom door"],
+  ["SOS Button", "Help Within Reach", "Your parent can call for help from the Alert Unit without reaching for a phone.", "sos-button-scene-opt.webp", "An older adult pressing the SOS button on the EyEagle Alert Unit in a bathroom"],
+  ["Door Lock Sensor", "Support Without a Press", "If the bathroom stays locked too long, the Alert Unit alerts trusted people automatically.", "door-timer-scene-opt.webp", "The Door Lock Sensor of the EyEagle Alert Unit fitted to a bathroom door"],
 ] as const;
 
 const responseSteps = [
-  ["1", "Attention at Home", "The Alarm Unit sounds outside the bathroom so family, neighbours, staff or guards nearby can act.", "response-attention-home-wired-v3-opt.webp", "A parent noticing the wired EyEagle alarm and power adapter at home"],
+  ["1", "Attention at Home", "The Home Hub sounds its alarm outside the bathroom so family, neighbours, staff or guards nearby can act.", "response-attention-home-wired-v3-opt.webp", "A parent noticing the wired EyEagle Home Hub with Alarm and its power adapter at home"],
   ["2", "Awareness Across Distance", "Every connected Nest member receives the alert and its location in the EyEagle app, wherever they are.", "response-awareness-distance-opt.webp", "A family member viewing an EyEagle alert while working away from home"],
   ["3", "EyEagle Is Alerted Too", "The EyEagle Response Team is notified alongside your Nest, ready to step in if needed.", "response-eyeagle-alerted-opt.webp", "An EyEagle response specialist receiving an alert"],
 ] as const;
@@ -42,7 +42,7 @@ const independencePoints = [
 
 const membershipGroups = [
   { label: "A Ready Home", rows: [
-    ["Complete Home System", "SOS Button, Door Timer, Alarm Unit and Control Unit."],
+    ["Complete Home System", "Alert Unit with SOS Button and Door Lock Sensor, and Home Hub with Alarm."],
     ["Professional Installation", "Installed, configured and tested in the home."],
     ["Readiness Checks", "System, backup power and alert flow checked regularly."],
     ["Annual Safety Review", "Home safety reviewed as your parent’s needs change."],

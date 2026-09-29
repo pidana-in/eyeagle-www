@@ -31,7 +31,7 @@ const {
 
 const panels = [
   { image: kitImage, alt: "The complete EyEagle home safety system", caption: "Complete home safety system" },
-  { image: setupImage, alt: "The EyEagle SOS button installed within reach", caption: "SOS within reach" },
+  { image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
   { image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
   { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
 ] as const;
@@ -40,22 +40,22 @@ const range = (min: number, max: number) => Array.from({ length: max - min + 1 }
 const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 const delta = (amount: number) => (amount === 0 ? "Included" : `+ ${formatInr(amount)}`);
 
-// Each bathroom gets a protection kit and its own SOS button.
+// Each bathroom gets a protection kit and its own Alert Unit.
 const bathroomDescriptions: Record<number, string> = {
-  1: "For parents who use one bathroom. A protection kit and SOS button, installed.",
-  2: "Covers both bathrooms in a 2 BHK, each with its own kit and SOS button.",
-  3: "For larger homes, or a guest bathroom they also use. Kit and SOS in each.",
+  1: "For parents who use one bathroom. A protection kit and Alert Unit, installed.",
+  2: "Covers both bathrooms in a 2 BHK, each with its own kit and Alert Unit.",
+  3: "For larger homes, or a guest bathroom they also use. Kit and Alert Unit in each.",
 };
 const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
   value: count,
   title: plural(count, "bathroom"),
-  description: bathroomDescriptions[count] ?? "A protection kit and SOS button in each bathroom.",
+  description: bathroomDescriptions[count] ?? "A protection kit and Alert Unit in each bathroom.",
   price: delta((count - bathroomMin) * additionalBathroomPriceInr),
 }));
 
-// Extra buttons go beyond the bathrooms, wherever else they spend time.
+// Extra Alert Units go beyond the bathrooms, wherever else they spend time.
 const sosDescriptions: Record<number, string> = {
-  0: "Each protected bathroom already has its own SOS button.",
+  0: "Each protected bathroom already has its own Alert Unit.",
   1: "One more where they spend the most time, like beside the bed.",
   2: "Cover the bedroom and one more spot, like the kitchen or stairs.",
   3: "Bedroom, kitchen and stairs, or the places they move around most.",
@@ -63,8 +63,8 @@ const sosDescriptions: Record<number, string> = {
 };
 const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
   value: extra,
-  title: extra === 0 ? "No extra buttons" : plural(extra, "extra button"),
-  description: sosDescriptions[extra] ?? "Extra SOS buttons for the other rooms they use.",
+  title: extra === 0 ? "No extra units" : plural(extra, "extra Alert Unit"),
+  description: sosDescriptions[extra] ?? "Extra Alert Units for the other rooms they use.",
   price: delta(extra * additionalSosPriceInr),
 }));
 
@@ -86,7 +86,7 @@ const faqItems = [
   },
   {
     question: "How is the system installed?",
-    answer: "An EyEagle team member reviews the home, positions the Alert Unit, Home Hub and door sensor, connects the Nest and tests the complete alert path before handover.",
+    answer: "An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.",
   },
   {
     question: "What happens after three years?",
@@ -102,7 +102,7 @@ const faqItems = [
   },
   {
     question: "What if the home needs a larger setup?",
-    answer: "Online orders cover up to three bathrooms and four extra SOS buttons. For larger homes, talk to us and we’ll plan the installation with you.",
+    answer: "Online orders cover up to three bathrooms and four extra Alert Units. For larger homes, talk to us and we’ll plan the installation with you.",
   },
 ] as const;
 ---
@@ -161,7 +161,7 @@ const faqItems = [
               <p><strong>{basePrice}</strong><span>+ GST</span></p>
             </div>
             <ul>
-              <li>Alert Unit: the SOS button that raises alerts</li>
+              <li>Alert Unit with SOS button and Door Lock Sensor</li>
               <li>Home Hub with Alarm</li>
               <li>Bathroom protection kit for one bathroom</li>
               <li>Professional installation and testing</li>
@@ -171,7 +171,7 @@ const faqItems = [
           </div>
           <details class={styles.help}>
             <summary>What happens during installation?</summary>
-            <p>An EyEagle team member reviews the home, positions the Alert Unit, Home Hub and door sensor, connects the Nest and tests the complete alert path before handover.</p>
+            <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.</p>
           </details>
         </section>
 
@@ -196,7 +196,7 @@ const faqItems = [
         </fieldset>
 
         <fieldset class={styles.group} data-gallery-target="1">
-          <legend class={styles.groupTitle}><strong>Extra SOS buttons.</strong> Beyond the bathroom.</legend>
+          <legend class={styles.groupTitle}><strong>Extra Alert Units.</strong> SOS beyond the bathroom.</legend>
           <div class={styles.tiles}>
             {sosOptions.map((option) => (
               <label class={styles.tile}>
@@ -210,7 +210,7 @@ const faqItems = [
             ))}
           </div>
           <details class={styles.help}>
-            <summary>Where should SOS buttons go?</summary>
+            <summary>Where should extra Alert Units go?</summary>
             <p>Wherever a fall could happen and a phone is out of reach. Our team confirms placement during the home review before installation.</p>
           </details>
         </fieldset>
@@ -342,7 +342,7 @@ const faqItems = [
 
     const extraBathrooms = bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
     setSummaryRow("bathrooms", extraBathrooms, plural(extraBathrooms, "additional bathroom"), extraBathrooms * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr);
-    setSummaryRow("sos", additionalSos, plural(additionalSos, "additional SOS button"), additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+    setSummaryRow("sos", additionalSos, plural(additionalSos, "additional Alert Unit"), additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
 
     // Mirror the selection in the URL so a configuration can be shared or restored.
     if (!syncUrl) return purchase;
