@@ -43,21 +43,13 @@ const figmaFooterNavigation = [
 
 const footerNavigation = variant === "figmaHome" ? figmaFooterNavigation : defaultFooterNavigation;
 
-const defaultLegalNavigation = [
+// Warranty and service terms live in /tnc, so every footer links the same four policy pages.
+const legalNavigation = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/tnc" },
   { label: "Shipping", href: "/shipping" },
   { label: "Refunds", href: "/refund" },
 ] as const;
-
-const figmaLegalNavigation = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Use", href: "/tnc" },
-  { label: "Warranty", href: "/tnc" },
-  { label: "Service Terms", href: "/tnc" },
-] as const;
-
-const legalNavigation = variant === "figmaHome" ? figmaLegalNavigation : defaultLegalNavigation;
 ---
 
 <footer class={styles.footer} data-variant={variant}>
