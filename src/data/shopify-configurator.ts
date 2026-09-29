@@ -35,8 +35,8 @@ export type EyEagleVariantKey = keyof typeof EYEAGLE_VARIANT_IDS;
 // Parts each configurator variant is bundled from in Shopify (see scripts/shopify-setup-bundles.mjs).
 // Parts are never sold on their own, so every order includes the full base system.
 export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
-  controlUnit: { sku: "EYE-CU", title: "Control Unit", stockTracked: true },
-  sosUnit: { sku: "EYE-AU", title: "SOS Alarm Unit", stockTracked: true },
+  controlUnit: { sku: "EYE-CU", title: "Home Hub with Alarm", stockTracked: true },
+  sosUnit: { sku: "EYE-AU", title: "Alert Unit", stockTracked: true },
   protectionKit: { sku: "EYE-KIT", title: "Bathroom protection kit", stockTracked: true },
   supportPlan: { sku: "EYE-SUP3", title: "3-year support plan", stockTracked: false },
 } as const);
