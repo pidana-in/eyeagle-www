@@ -186,7 +186,8 @@ const metaDesc =
   const phoneError = document.getElementById("phoneError");
 
   const assessmentFormEl = document.getElementById("assessmentForm");
-
+  assessmentFormEl.noValidate = true;
+  
   const assessmentFormWrapper = document.getElementById(
     "assessmentFormWrapper",
   );
@@ -339,7 +340,7 @@ const metaDesc =
      * EMAIL VALIDATION
      */
 
-    if (!emailRegex.test(emailValue)) {
+    if (emailValue && !emailRegex.test(emailValue)) {
       emailError.classList.remove("hidden");
       emailField.classList.add("border-red-500");
       emailField.focus();
