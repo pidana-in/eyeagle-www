@@ -29,6 +29,12 @@ const panels = [
 const defaultPurchase = getEyEagleConfiguredPurchase(1, 0);
 if (!defaultPurchase) throw new Error("The default EyEagle Shopify configuration is missing.");
 const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
+const policyLinks = [
+  { label: "Shipping", href: "/shipping" },
+  { label: "Refunds", href: "/refund" },
+  { label: "Terms", href: "/tnc" },
+  { label: "Privacy", href: "/privacy" },
+] as const;
 ---
 
 <MainLayout title="Configure your EyEagle system" desc="Configure an EyEagle home safety system with professional installation, Nest and response membership." noindex={true} showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
@@ -66,7 +72,7 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
       <div class={styles.stepViewport}>
         <section class={styles.step} data-checkout-step="0" aria-labelledby="configurator-title">
           <div class={styles.stepHeading}>
-            <h1 id="configurator-title">Safety at home.<br />A response beyond it.</h1>
+            <h1 id="configurator-title" tabindex="-1">Safety at home.<br />A response beyond it.</h1>
           </div>
           <div class={styles.baseSelection} aria-label="Selected EyEagle membership">
             <div><span>EyEagle membership</span><h2>Complete Home System</h2><p>One bathroom · one SOS button · Alarm Unit · Control Unit</p><p class={styles.shippingNotice}><span aria-hidden="true"></span>Shipping starts October 30</p></div>
@@ -82,7 +88,7 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
         <section class={styles.step} data-checkout-step="1" aria-labelledby="home-step-title" hidden>
           <div class={styles.stepHeading}>
             <p class={styles.eyebrow}>Tailor the installation</p>
-            <h2 id="home-step-title">What does the home need?</h2>
+            <h2 id="home-step-title" tabindex="-1">What does the home need?</h2>
             <p>Start with one bathroom and one SOS button. Add only what the home requires.</p>
           </div>
           <div class={styles.quantityList}>
@@ -109,7 +115,7 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
         <section class={styles.step} data-checkout-step="2" aria-labelledby="review-step-title" hidden>
           <div class={styles.stepHeading}>
             <p class={styles.eyebrow}>Review your system</p>
-            <h2 id="review-step-title">Ready for their home.</h2>
+            <h2 id="review-step-title" tabindex="-1">Ready for their home.</h2>
             <p>Confirm the setup below. Installation details and the response plan are completed with our team.</p>
           </div>
           <dl class={styles.reviewList}>
@@ -121,6 +127,11 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
           <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
           <p class={styles.finePrint}>Shipping starts October 30. System prices are shown in INR and exclude applicable taxes. After the included three-year period, membership renews at $20/month until cancelled. Installation is currently available in India.</p>
         </section>
+
+        <ul class={styles.helpLinks} aria-label="Help and policies">
+          <li><a href="/contact">Questions? Talk to us</a></li>
+          {policyLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+        </ul>
       </div>
 
       <footer class={styles.checkoutFooter}>
@@ -155,6 +166,13 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
   const visualCaption = document.querySelector<HTMLElement>("[data-visual-caption]");
   const captions = ["Complete home safety system", "Configured for their home", "Installed, connected and ready", "Bathroom protection, within reach"];
   let currentStep = 0;
+  const siteHeader = document.querySelector<HTMLElement>("[data-home-v3-header]");
+  const configuration = document.querySelector<HTMLElement>("[data-configuration]");
+  if (siteHeader) {
+    const syncHeaderHeight = () => document.documentElement.style.setProperty("--store-header-h", `${Math.round(siteHeader.getBoundingClientRect().height)}px`);
+    new ResizeObserver(syncHeaderHeight).observe(siteHeader);
+    syncHeaderHeight();
+  }
   const inputs = {
     bathrooms: document.querySelector<HTMLInputElement>("#bathrooms"),
     sos: document.querySelector<HTMLInputElement>("#sos"),
@@ -214,7 +232,13 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
     return purchase;
   };
 
-  const showStep = (index: number) => {
+  const showPhoto = (photoIndex: number) => {
+    visualPanels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== photoIndex; });
+    photoButtons.forEach((item, itemIndex) => item.setAttribute("aria-pressed", String(itemIndex === photoIndex)));
+    if (visualCaption) visualCaption.textContent = captions[photoIndex];
+  };
+
+  const showStep = (index: number, { focus = true } = {}) => {
     currentStep = Math.max(0, Math.min(checkoutSteps.length - 1, index));
     checkoutSteps.forEach((step, stepIndex) => { step.hidden = stepIndex !== currentStep; });
     progressSteps.forEach((step, stepIndex) => { step.dataset.state = stepIndex < currentStep ? "complete" : stepIndex === currentStep ? "current" : "upcoming"; });
@@ -222,7 +246,15 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
     nextButton?.toggleAttribute("hidden", currentStep === checkoutSteps.length - 1);
     checkoutLink?.toggleAttribute("hidden", currentStep !== checkoutSteps.length - 1);
     footerShipping?.toggleAttribute("hidden", currentStep !== checkoutSteps.length - 1);
-    document.querySelector<HTMLElement>("[data-configuration]")?.scrollTo({ top: 0, behavior: "smooth" });
+    showPhoto(Math.min(currentStep, visualPanels.length - 1));
+    if (!focus) return;
+    // Desktop scrolls inside the configuration panel; on mobile that panel is display:contents, so scroll the page.
+    if (configuration && configuration.scrollHeight > configuration.clientHeight) {
+      configuration.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (window.scrollY > 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    checkoutSteps[currentStep]?.querySelector<HTMLElement>("h1, h2")?.focus({ preventScroll: true });
   };
   nextButton?.addEventListener("click", () => showStep(currentStep + 1));
   backButton?.addEventListener("click", () => showStep(currentStep - 1));
@@ -237,12 +269,7 @@ const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
     input.value = String(Math.min(Number(input.max), Math.max(Number(input.min), next)));
     updateConfiguration();
   }));
-  photoButtons.forEach((button) => button.addEventListener("click", () => {
-    const photoIndex = Number(button.dataset.photoButton);
-    visualPanels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== photoIndex; });
-    photoButtons.forEach((item, itemIndex) => item.setAttribute("aria-pressed", String(itemIndex === photoIndex)));
-    if (visualCaption) visualCaption.textContent = captions[photoIndex];
-  }));
+  photoButtons.forEach((button) => button.addEventListener("click", () => showPhoto(Number(button.dataset.photoButton))));
   updateConfiguration();
-  showStep(0);
+  showStep(0, { focus: false });
 </script>
