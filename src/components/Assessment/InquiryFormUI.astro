@@ -1,0 +1,288 @@
+---
+import { countries } from "../constants/common";
+import Icon from "../common/Icon.astro";
+import {
+  safetyConcernOptions,
+  preferredContactTimeOptions,
+  checkboxRadioClass,
+} from "../constants/inquiry";
+
+const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
+---
+
+<section class="assessment-shell" aria-labelledby="assessment-title">
+  <div class="assessment-layout">
+    <aside class="assessment-intro">
+      <div class="assessment-intro-inner">
+        <p class="assessment-kicker">Contact EyEagle</p>
+        <h1 id="assessment-title">How can we help?</h1>
+        <p class="assessment-intro-copy">
+          Tell us what you are looking for and our team will help you understand
+          the system, pricing, installation, membership, or the right next step
+          for your family.
+        </p>
+        <div class="assessment-intro-note">
+          <span aria-hidden="true"></span>
+          <p>A member of our team will review your enquiry before getting in touch.</p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="assessment-panel">
+      <div id="assessmentFormWrapper" class="block">
+        <div
+          id="submitErrorBanner"
+          class="assessment-alert assessment-alert-error hidden"
+          role="alert"
+        ></div>
+
+        <form method="POST" id="assessmentForm" class="assessment-form">
+          <section class="assessment-form-section" aria-labelledby="details-heading">
+            <div class="assessment-section-heading">
+              <span aria-hidden="true">01</span>
+              <div>
+                <h2 id="details-heading">Your details</h2>
+                <p>Tell us how to reach you and where support may be needed.</p>
+              </div>
+            </div>
+
+            <div class="assessment-fields">
+              <div class="assessment-field">
+                <label for="fullNameField">
+                  Your Name<span aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="fullNameField"
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Name"
+                  required
+                  maxlength="80"
+                  autocomplete="name"
+                  class="assessment-input"
+                />
+                <p id="fullNameError" class="assessment-error hidden">
+                  Please enter a valid full name
+                </p>
+              </div>
+
+              <div class="assessment-field">
+                <label for="phoneNumField">
+                  Phone Number / WhatsApp No.<span aria-hidden="true">*</span>
+                </label>
+                <div class="assessment-phone-field">
+                  <button
+                    type="button"
+                    id="dropdownButton"
+                    aria-label="Choose country calling code"
+                    aria-controls="dropdownMenu"
+                    aria-expanded="false"
+                    class="assessment-country-button"
+                  >
+                    <span class="flex items-center">
+                      <Icon iconName="keyboard_arrow_down" classNames="hidden" />
+                    </span>
+                    <div class="flex items-center gap-2"></div>
+                  </button>
+
+                  <input id="phCode" name="phCode" value="" class="hidden" />
+
+                  <div
+                    id="dropdownMenu"
+                    role="listbox"
+                    class="assessment-country-menu hidden"
+                  >
+                    {
+                      countries
+                        .sort((a, b) => a.code.localeCompare(b.code))
+                        .map((country) => (
+                          <button
+                            type="button"
+                            role="option"
+                            class="assessment-country-option"
+                            data-value={country.dial_code}
+                            data-country-code={country.code}
+                          >
+                            <img
+                              src={`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`}
+                              alt={`${country.code} flag`}
+                              width="20"
+                              height="15"
+                            />
+                            <span>{country.name}</span>
+                            <strong>{country.dial_code}</strong>
+                          </button>
+                        ))
+                    }
+                  </div>
+
+                  <input
+                    id="phoneNumField"
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    required
+                    inputmode="numeric"
+                    maxlength="15"
+                    pattern="[0-9]{6,15}"
+                    autocomplete="tel-national"
+                    inputmode="numeric"
+                    pattern="[6-9][0-9]{9}"
+                    maxlength="10"
+                    class="assessment-input assessment-phone-input"
+                  />
+                </div>
+                <p id="phoneError" class="assessment-error hidden">
+                  Please enter a valid mobile number
+                </p>
+              </div>
+
+              <div class="assessment-field assessment-field-wide">
+                <label for="siteLocation">City or location</label>
+                <input
+                  id="siteLocation"
+                  type="text"
+                  name="siteLocation"
+                  placeholder="Enter the city or location"
+                  maxlength="160"
+                  autocomplete="street-address"
+                  class="assessment-input"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section class="assessment-form-section" aria-labelledby="safety-heading">
+            <div class="assessment-section-heading">
+              <span aria-hidden="true">02</span>
+              <div>
+                <h2 id="safety-heading">Your enquiry</h2>
+                <p>Choose the topics that will help us direct your enquiry correctly.</p>
+              </div>
+            </div>
+
+            <fieldset class="assessment-question">
+              <legend>
+                What can we help with?<span aria-hidden="true">*</span>
+              </legend>
+              <div class="assessment-choice-list assessment-choice-list-two">
+                {
+                  safetyConcernOptions.map((option) => (
+                    <label class="assessment-choice">
+                      <input
+                        type="checkbox"
+                        name="safetyConcerns"
+                        value={option}
+                        class={choiceControlClass}
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))
+                }
+              </div>
+              <p id="safetyConcernError" class="assessment-error hidden">
+                Please select at least one option
+              </p>
+            </fieldset>
+
+            <div class="assessment-field">
+              <label for="concernDescription">Tell us more about your enquiry</label>
+              <textarea
+                id="concernDescription"
+                name="concernDescription"
+                rows="5"
+                placeholder="Add any questions or context that would help our team prepare"
+                class="assessment-input assessment-textarea"
+              ></textarea>
+            </div>
+          </section>
+
+          <section class="assessment-form-section assessment-form-section-last" aria-labelledby="next-heading">
+            <div class="assessment-section-heading">
+              <span aria-hidden="true">03</span>
+              <div>
+                <h2 id="next-heading">When should we contact you?</h2>
+                <p>Choose a preferred time, or leave it blank and we’ll find a suitable time with you.</p>
+              </div>
+            </div>
+
+            <fieldset class="assessment-question assessment-time-question">
+              <legend>Preferred time</legend>
+              <div class="assessment-choice-list assessment-choice-list-time">
+                {
+                  preferredContactTimeOptions.map((option) => (
+                    <label class="assessment-choice">
+                      <input
+                        type="radio"
+                        name="preferredContactTime"
+                        value={option}
+                        class={choiceControlClass}
+                      />
+                      <span>{option}</span>
+                    </label>
+                  ))
+                }
+              </div>
+            </fieldset>
+          </section>
+
+          <div class="assessment-submit-area">
+            <label class="assessment-consent">
+              <input
+                id="consent"
+                type="checkbox"
+                name="consent"
+                value="yes"
+                required
+                class={choiceControlClass}
+              />
+              <span>
+                I agree to be contacted about this request.<span aria-hidden="true">*</span>
+              </span>
+            </label>
+
+            <button type="submit" id="submitButton" class="assessment-submit">
+              <span id="buttonText">Send enquiry</span>
+              <img
+                alt=""
+                aria-hidden="true"
+                class="assessment-submit-arrow"
+                height="24"
+                src="/figma-home/arrow-outward.svg"
+                width="24"
+              />
+              <div id="loader" class="hidden assessment-loader">
+                <div class="spinner"></div>
+              </div>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        id="assessmentSuccessMessage"
+        class="assessment-success hidden"
+        role="status"
+        tabindex="-1"
+      >
+        <div class="assessment-success-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.2 3.2 7.8-8" /></svg>
+        </div>
+        <p class="assessment-success-kicker">Enquiry received</p>
+        <h2>Thank you. We’ll be in touch.</h2>
+        <p id="assessmentSuccessText" class="assessment-success-copy"></p>
+        <div class="assessment-success-next">
+          <span>What happens next</span>
+          <ol>
+            <li><strong>01</strong><p>Our team reviews your enquiry and routes it to the right specialist.</p></li>
+            <li><strong>02</strong><p>We contact you using the number and preferred time you shared.</p></li>
+          </ol>
+        </div>
+        <div class="assessment-success-actions">
+          <a href="/">Back to home</a>
+          <a href="/membership">Explore membership <img alt="" aria-hidden="true" src="/figma-home/arrow-outward.svg" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

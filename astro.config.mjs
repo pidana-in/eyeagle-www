@@ -5,6 +5,18 @@ import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
+const sitemapExcludedPaths = new Set([
+  "/404",
+  "/assessment-form",
+  "/checkout-2",
+  "/enquiry",
+  "/inequiery",
+  "/join",
+  "/orders",
+  "/store",
+  "/success",
+]);
+
 export default defineConfig({
   site: "https://eyeagle.ai/",
   trailingSlash: "never",
@@ -26,10 +38,10 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) =>
-        !page.includes("/offers/") &&
-        !page.endsWith("/store") &&
-        !page.endsWith("/success"),
+      filter: (page) => {
+        const pathname = new URL(page).pathname.replace(/\/$/, "") || "/";
+        return !pathname.startsWith("/offers/") && !sitemapExcludedPaths.has(pathname);
+      },
     }),
     partytown({
       config: {

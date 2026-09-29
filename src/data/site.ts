@@ -16,13 +16,12 @@ export const navLinks = [
   {
     title: "Products",
     children: [
-      { title: "Guardian X", url: "/device" },
+      { title: "EyEagle", url: "/device" },
       { title: "Protection", url: "/protection" },
       { title: "App", url: "/app" },
     ],
   },
   // { title: "Shop", url: "https://shop.eyeagle.ai/" },
-  { title: "How it Works", url: "/solution" },
   { title: "About Us", url: "/about-us" },
   { title: "Blog", url: "/blog" },
   { title: "Contact Us", url: "/contact" },
@@ -43,8 +42,7 @@ export const footerProductLinks = [
     title: "Bathroom Safety kit",
     url: SHOP_URLS.protectionKit,
   },
-  { title: "How It Works", url: "/solution" },
-  { title: "Guardian X", url: "/device" },
+  { title: "EyEagle", url: "/device" },
   { title: "Protection", url: "/protection" },
   { title: "EyEagle App", url: "/app" },
 ];

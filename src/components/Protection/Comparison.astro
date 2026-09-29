@@ -13,18 +13,18 @@ const comparisonData = Astro.props.comparisonData;
 
 <section id="comparison-section" class="my-20 2xl:container">
   <div class="px-4 md:px-40 text-center md:mb-25 mb-20">
-    <h2 class="text-[28px] md:text-5xl leading-8 md:leading-14 font-bold">
+    <h2 class="protection-section-title">
       {comparisonData.title}
     </h2>
-    <p class="mt-5 text-base leading-7">
+    <p class="protection-section-intro mt-5">
       {comparisonData.desc}
     </p>
   </div>
-  <div class="lg:hidden px-4 space-y-4">
+  <div class="xl:hidden px-4 space-y-4">
     {
       comparisonRows.map((row: ComparisonRow) => (
-        <details class="group border border-gray-200 rounded-xl bg-white overflow-hidden">
-          <summary class="flex justify-between items-center p-4 font-semibold text-lg cursor-pointer list-none">
+        <details class="protection-comparison-card group overflow-hidden">
+          <summary class="protection-body-lg flex justify-between items-center p-4 font-semibold cursor-pointer list-none">
             {row.label}
             <svg
               class="w-5 h-5 transition-transform duration-300 group-open:rotate-180"
@@ -40,17 +40,17 @@ const comparisonData = Astro.props.comparisonData;
               />
             </svg>
           </summary>
-          <div class="text-sm">
-            <div class="grid grid-cols-[110px_1fr] gap-5 px-4 py-4 border-t">
-              <span class="text-gray-500">{comparisonColumns[1]}</span>
+          <div class="protection-caption">
+            <div class="protection-comparison-row grid grid-cols-[110px_1fr] gap-5 px-4 py-4">
+              <span class="protection-subtle">{comparisonColumns[1]}</span>
               <span>{row.noKit}</span>
             </div>
 
-            <div class="grid grid-cols-[110px_1fr] gap-5 px-4 py-4 border-t">
-              <span class="text-gray-500">{comparisonColumns[2]}</span>
+            <div class="protection-comparison-row grid grid-cols-[110px_1fr] gap-5 px-4 py-4">
+              <span class="protection-subtle">{comparisonColumns[2]}</span>
               <span>{row.oneBar}</span>
             </div>
-            <div class="grid grid-cols-[110px_1fr] gap-5 px-4 py-4 bg-[#0E1B2A] text-white">
+            <div class="protection-comparison-highlight grid grid-cols-[110px_1fr] gap-5 px-4 py-4">
               <span>{comparisonColumns[3]}</span>
               <span>{row.planned}</span>
             </div>
@@ -59,17 +59,17 @@ const comparisonData = Astro.props.comparisonData;
       ))
     }
   </div>
-  <div class="hidden lg:block">
+  <div class="hidden xl:block">
     <div
-      class="px-4 md:px-40 overflow-x-auto md:overflow-visible scrollbar-hide"
+      class="px-4 xl:px-10 overflow-x-auto scrollbar-hide"
     >
-      <div class="min-w-275 text-lg">
-        <div class="grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] border-b">
+      <div class="protection-body-lg min-w-275">
+        <div class="protection-comparison-rule grid grid-cols-[1.2fr_1.6fr_1.8fr_280px]">
           <div class="font-semibold py-4 pr-8">{comparisonColumns[0]}</div>
           <div class="font-semibold py-4 pr-8">{comparisonColumns[1]}</div>
           <div class="font-semibold py-4 pr-8">{comparisonColumns[2]}</div>
           <div
-            class="font-semibold py-4 bg-[#0E1B2A] text-white px-4 rounded-t-2xl"
+            class="protection-comparison-highlight protection-comparison-highlight-top font-semibold py-4 px-4"
           >
             {comparisonColumns[3]}
           </div>
@@ -78,15 +78,15 @@ const comparisonData = Astro.props.comparisonData;
           comparisonRows.map((row: ComparisonRow, index: number) => (
             <div
               class={`grid grid-cols-[1.2fr_1.6fr_1.8fr_280px] ${
-                index !== comparisonRows.length - 1 ? "border-b" : ""
+                index !== comparisonRows.length - 1 ? "protection-comparison-rule" : ""
               }`}
             >
               <div class="py-4 pr-8 font-semibold">{row.label}</div>
               <div class="py-4 pr-8">{row.noKit}</div>
               <div class="py-4 pr-8">{row.oneBar}</div>
               <div
-                class={`py-4 bg-[#0E1B2A] text-white px-4 ${
-                  index === comparisonRows.length - 1 ? "rounded-b-2xl" : ""
+                class={`protection-comparison-highlight py-4 px-4 ${
+                  index === comparisonRows.length - 1 ? "protection-comparison-highlight-bottom" : ""
                 }`}
               >
                 {row.planned}

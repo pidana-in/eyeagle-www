@@ -33,13 +33,37 @@ import {
 import CTA from "../components/NewHome/CTA.astro";
 import { ctaSection } from "../components/constants/newHome";
 import FAQs from "../components/Protection/FAQs.astro";
+import "../styles/Protection/page.css";
+import "../styles/home-v4-tokens.css";
 
 const metaTitle = "Bathroom Fall-Prevention and Safety Products | EyEagle";
 const metaDesc =
-  "Make bathrooms safer with professionally installed grab bars, anti-slip mats, grip tape, and a home safety assessment from EyEagle.";
+  "Make bathrooms safer with professionally installed grab bars, anti-slip mats, grip tape, and practical support from EyEagle.";
+
+const protectionCtaSection = {
+  ...ctaSection,
+  eyebrow: "Bathroom protection for everyday movement",
+  title: "Make their bathroom safer.",
+  description:
+    "Add reliable handholds and better grip where everyday bathroom movements become risky. Our team can help you choose the right protection for the space.",
+  primaryCta: {
+    label: "Become a member",
+    href: "/store",
+  },
+  secondaryCta: {
+    label: "Talk to our team",
+    href: "/contact",
+  },
+};
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc}>
+<MainLayout
+  title={metaTitle}
+  desc={metaDesc}
+  bodyClass="eyeagle-home-v4 protection-page"
+  headerActionHref="/store"
+  headerActionLabel="Become a member"
+>
   <HeroSection featurePoints={featurePoints} heroContent={heroContent} />
   <KitSection
     overviewCards={overviewCards}
@@ -64,5 +88,5 @@ const metaDesc =
     comparisonColumns={comparisonColumns}
   />
   <FAQs faqsData={faqsData} />
-  <CTA ctaSection={ctaSection} />
+  <CTA ctaSection={protectionCtaSection} />
 </MainLayout>

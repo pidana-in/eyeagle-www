@@ -1,0 +1,23 @@
+---
+import styles from "../../styles/HomeV3/site-logo.module.css";
+
+interface Props {
+  inverse?: boolean;
+  size?: "header" | "footer";
+}
+
+const { inverse = false, size = "header" } = Astro.props;
+const tone = inverse ? "light" : "dark";
+---
+
+<span class={styles.logo} data-size={size} data-tone={tone}>
+  <span class={styles.wordmark}>
+    <img alt="" class={styles.shield} height="28" src={`/brand/eyeagle-shield-${tone}.svg`} width="28" />
+    <img alt="EyEagle" class={styles.name} height="19" src={`/brand/eyeagle-wordmark-${tone}.svg`} width="105" />
+  </span>
+  <span class={styles.divider} aria-hidden="true"></span>
+  <span class={styles.tagline}>
+    <span>Preventing Falls</span>
+    <span>Saving Lives</span>
+  </span>
+</span>

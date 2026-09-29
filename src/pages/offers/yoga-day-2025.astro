@@ -14,6 +14,9 @@ import YogaSection from "../../components/Home/YogaSection.astro";
 ---
 
 <MainLayout title="Expired International Yoga Day 2025 Offer | EyEagle" desc="This EyEagle International Yoga Day 2025 safety-kit offer has expired." noindex={true}>
+  <div class="fixed top-20 z-50 bg-primary font-sans-instrument text-white text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 shadow-lg w-full text-center">
+    This offer has expired. Contact EyEagle for current availability.
+  </div>
   <section class="relative w-full min-h-110 sm:min-h-150 lg:min-h-300">
     <Image src={img} alt="hero image"  class="absolute inset-0 w-full h-full object-cover" />
     <div class="relative z-10 flex flex-col justify-center items-center text-center px-4 pt-10 lg:pt-20">
@@ -22,7 +25,7 @@ import YogaSection from "../../components/Home/YogaSection.astro";
           Yoga se health,<span class="text-primary"> EyEagle se care</span><br />Dono saath ho, to bane perfect pair!
         </h1>
        <div class="lg:my-4.5 my-2 justify-center flex">
-        <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer">
+        <a href="/inquiry">
        <Image src={Discount} alt="Discount offer" class="w-[30%] mx-auto sm:w-30 lg:w-65" />
        </a>
        </div>
@@ -44,8 +47,8 @@ import YogaSection from "../../components/Home/YogaSection.astro";
         <!-- <p class="font-medium lg:text-[52px] lg:leading-tight text-lg text-primary lg:mx-20">
          Prevent bathroom falls. Protect your parents.
       </p> -->
-        <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer" class="bg-primary lg:py-3 lg:px-5 px-3 py-2 rounded-lg lg:my-17 my-6 inline-block lg:text-2xl text-sm font-semibold text-white">
-          Book Now
+        <a href="/inquiry" class="bg-primary lg:py-3 lg:px-5 px-3 py-2 rounded-lg lg:my-17 my-6 inline-block lg:text-2xl text-sm font-semibold text-white">
+          Contact EyEagle
         </a>
       <p class="lg:text-[40px] lg:leading-tight text-lg font-semibold"><span class="text-primary">EyEagle</span> is built to keep your loved ones safe, around the clock.</p>
     </div>
@@ -67,8 +70,8 @@ import YogaSection from "../../components/Home/YogaSection.astro";
    <p class="lg:text-5xl text-xl font-medium">Get 15% OFF on EyEagle Safety Kit + Free Safety Audit</p>
    <p class="lg:text-2xl text-sm font-medium mt-4 lg:mt-8 lg:mb-4">Offer valid till June 21. Limited slots available.</p>
      <div class="mt-5">
-            <a href="https://payments.cashfree.com/forms/eyeagle-reserve-offer" class="bg-primary lg:py-3 lg:px-5 px-3 py-2 rounded-full inline-flex items-center lg:text-lg text-sm font-normal text-white">
-              Book Now
+            <a href="/inquiry" class="bg-primary lg:py-3 lg:px-5 px-3 py-2 rounded-full inline-flex items-center lg:text-lg text-sm font-normal text-white">
+              Contact EyEagle
               <span class="ml-2 text-sm" aria-hidden="true">→</span>
             </a>
           </div>
@@ -81,33 +84,3 @@ import YogaSection from "../../components/Home/YogaSection.astro";
     <YogaSection item={FatherImage} FatherSection1={FatherSection1} YogaSection2={YogaSection2} descriptionButtonFathersday={descriptionButtonFathersday}/>
   </section>
 </MainLayout>
-
-<script is:inline>
-  const expiryDate = new Date("2025-06-21T23:59:59");
-  const now = new Date();
-
-  const isExpired = now > expiryDate;
-
-  if (isExpired) {
-    const links = document.querySelectorAll("a[href*='eyeagle-reserve-offer']");
-
-    links.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault(); // prevent redirect
-        showToast("This offer has expired. Stay tuned for upcoming deals.");
-      });
-    });
-  }
-
-  function showToast(message) {
-    const toast = document.createElement("div");
-    toast.textContent = message;
-    toast.className =
-      "fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-white font-medium py-2 px-4 rounded-lg shadow-lg z-50 text-center";
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-      toast.remove();
-    }, 3000);
-  }
-</script>

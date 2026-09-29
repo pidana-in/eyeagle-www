@@ -1,0 +1,468 @@
+.main {
+  overflow: hidden;
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+}
+
+.main h1,
+.main h2,
+.main h3,
+.main p { margin: 0; }
+
+.main h1,
+.main h2,
+.main h3 {
+  font-family: var(--type-v4-display-family);
+  font-weight: var(--type-v4-display-weight);
+}
+
+.fillImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eyebrow {
+  color: var(--color-action);
+  font-family: var(--type-v4-body-family);
+  font-size: var(--type-v4-label-size);
+  font-weight: var(--type-v4-medium-weight);
+  line-height: var(--type-v4-label-line);
+  letter-spacing: var(--type-v4-uppercase-tracking);
+  text-transform: uppercase;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 180px max(var(--space-page-x), calc((100vw - var(--content-max)) / 2)) 120px;
+}
+
+.introCopy {
+  display: grid;
+  width: min(840px, 70%);
+  gap: 24px;
+}
+
+.intro h1 {
+  font-size: var(--type-v4-hero-title-size);
+  line-height: var(--type-v4-hero-title-line);
+}
+
+.introCopy p {
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-hero-support-size);
+  line-height: var(--type-v4-hero-support-line);
+}
+
+.introVisual {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--color-media-placeholder);
+}
+
+.storyChapter {
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+}
+
+.naniji {
+  padding: 120px max(var(--space-page-x), calc((100vw - var(--content-max)) / 2));
+}
+
+.nanijiInner {
+  display: grid;
+  max-width: var(--content-max);
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  gap: 80px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nanijiCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.naniji h2,
+.changed h2,
+.leadership h2 {
+  font-size: var(--type-v4-section-title-size);
+  line-height: var(--type-v4-section-title-line);
+}
+
+.naniji h2 { margin-top: 12px; }
+
+.nanijiBody {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-body-lg-size);
+  line-height: var(--type-v4-body-lg-line);
+}
+
+.nanijiBody .emphasis {
+  color: var(--color-text);
+  font-size: var(--type-v4-section-lead-size);
+  font-weight: var(--type-v4-medium-weight);
+  line-height: var(--type-v4-section-lead-line);
+}
+
+.nanijiBody > div {
+  display: grid;
+  gap: 20px;
+}
+
+.nanijiVisual {
+  min-height: 680px;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--color-media-placeholder);
+}
+
+.changed { padding: 24px max(var(--space-page-x), calc((100vw - var(--content-max)) / 2)) 120px; }
+
+.changedInner {
+  display: grid;
+  max-width: var(--content-max);
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 80px;
+  margin: 0 auto;
+  padding-top: 96px;
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.changed h2 { margin-top: 12px; }
+
+.changedCopy {
+  display: grid;
+  gap: 28px;
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-section-lead-size);
+  line-height: var(--type-v4-section-lead-line);
+}
+
+.beliefs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 120px max(var(--space-page-x), calc((100vw - var(--content-max)) / 2));
+  background: #fff;
+}
+
+.beliefsHeading {
+  display: grid;
+  width: min(702px, 100%);
+  gap: 24px;
+  text-align: center;
+}
+
+.beliefsHeading h2 {
+  font-size: var(--type-v4-section-title-size);
+  line-height: var(--type-v4-section-title-line);
+}
+
+.beliefsHeading p {
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-section-lead-size);
+  line-height: var(--type-v4-section-lead-line);
+}
+
+.beliefsGrid {
+  display: grid;
+  width: 100%;
+  max-width: var(--content-max);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.belief {
+  display: grid;
+  gap: 24px;
+}
+
+.beliefVisual {
+  aspect-ratio: 418.667 / 426.233;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--color-media-placeholder);
+}
+
+.beliefVisual .fillImage {
+  transition: transform 420ms var(--motion-ease-enter);
+}
+
+.beliefCopy {
+  display: grid;
+  gap: 16px;
+}
+
+.belief h3 {
+  font-size: var(--type-v4-card-title-size);
+  line-height: var(--type-v4-card-title-line);
+}
+
+.belief p {
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-body-lg-size);
+  font-weight: var(--type-v4-medium-weight);
+  line-height: var(--type-v4-body-lg-line);
+}
+
+.leadership {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 120px max(var(--space-page-x), calc((100vw - var(--content-max)) / 2));
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+}
+
+.leadershipHeading {
+  display: grid;
+  width: min(var(--content-max), 100%);
+  gap: 12px;
+}
+
+.teamGrid {
+  display: grid;
+  width: min(var(--content-max), 100%);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 48px;
+}
+
+.teamMember {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 188px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.teamPortrait {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 32px;
+  background: var(--color-media-placeholder);
+}
+
+.teamContent {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.teamInfo {
+  display: grid;
+  gap: 4px;
+}
+
+.teamInfo h3 {
+  font-size: var(--type-v4-card-title-size);
+  line-height: var(--type-v4-card-title-line);
+}
+
+.teamInfo p {
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-body-size);
+  line-height: var(--type-v4-body-line);
+}
+
+.teamFocus {
+  display: grid;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.teamFocus > span,
+.teamExperience > p {
+  color: var(--color-action);
+  font-family: var(--type-v4-body-family);
+  font-size: 11px;
+  font-weight: var(--type-v4-medium-weight);
+  line-height: 16px;
+  letter-spacing: var(--type-v4-uppercase-tracking);
+  text-transform: uppercase;
+}
+
+.teamDetail {
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-body-sm-size);
+  line-height: var(--type-v4-body-sm-line);
+}
+
+.teamExperience {
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.teamExperience > p { color: var(--color-text-subtle); }
+
+.teamAffiliations {
+  display: flex;
+  min-height: 34px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin: 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--color-line);
+  list-style: none;
+}
+
+.teamAffiliations li {
+  display: flex;
+  height: 24px;
+  align-items: center;
+}
+
+.teamLogo {
+  display: block;
+  width: auto;
+  max-width: 88px;
+  height: 21px;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.teamAffiliations li:last-child .teamLogo { max-width: 100px; }
+
+.closing {
+  display: flex;
+  min-height: 720px;
+  align-items: center;
+  justify-content: center;
+  padding: 120px max(var(--space-page-x), calc((100vw - var(--content-max)) / 2));
+  background: #fff;
+}
+
+.closingInner {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.closingCopy {
+  display: grid;
+  gap: 24px;
+}
+
+.closing h2 {
+  font-size: var(--type-v4-section-title-size);
+  line-height: var(--type-v4-section-title-line);
+}
+
+.closingCopy p {
+  color: var(--color-text-muted);
+  font-size: var(--type-v4-section-lead-size);
+  line-height: var(--type-v4-section-lead-line);
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions a { gap: 10px; }
+.actions img { width: 20px; height: 20px; }
+
+.secondaryAction,
+.secondaryAction:hover {
+  background: var(--color-text) !important;
+  color: #fff !important;
+}
+
+.naniji,
+.changed,
+.beliefs,
+.leadership,
+.closing {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .belief:hover .beliefVisual .fillImage { transform: scale(1.018); }
+}
+
+:global([data-reveal]) {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 560ms var(--motion-ease-enter), transform 560ms var(--motion-ease-enter);
+  transition-delay: calc(var(--item-index, 0) * 70ms);
+}
+
+:global([data-reveal][data-reveal-visible="true"]) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1080px) {
+  .nanijiInner { gap: 48px; }
+  .teamGrid { grid-template-columns: 1fr; }
+  .teamMember { grid-template-columns: 220px minmax(0, 1fr); }
+}
+
+@media (max-width: 960px) {
+  .intro { gap: 44px; padding: 148px 40px 88px; }
+  .introCopy { width: min(720px, 100%); }
+  .introVisual { height: auto; aspect-ratio: 1200 / 453; }
+  .naniji { padding: 100px 40px; }
+  .nanijiInner { grid-template-columns: 1fr; gap: 56px; }
+  .nanijiVisual { min-height: 0; aspect-ratio: 4 / 5; }
+  .changed { padding: 20px 40px 100px; }
+  .changedInner { gap: 48px; padding-top: 80px; }
+  .beliefs,
+  .leadership { padding: 100px 40px; }
+  .closing { min-height: 660px; padding: 100px 40px; }
+}
+
+@media (max-width: 680px) {
+  .intro { gap: 36px; padding: 124px 20px 72px; }
+  .introCopy { gap: 18px; }
+  .introVisual { height: 280px; aspect-ratio: auto; }
+  .naniji { padding: 80px 20px; }
+  .nanijiInner { gap: 40px; }
+  .nanijiBody { margin-top: 32px; }
+  .nanijiVisual { aspect-ratio: 4 / 5; }
+  .changed { padding: 0 20px 80px; }
+  .changedInner { grid-template-columns: 1fr; gap: 40px; padding-top: 72px; }
+  .beliefs { gap: 56px; padding: 88px 20px; }
+  .beliefsHeading { gap: 18px; text-align: left; }
+  .beliefsGrid { grid-template-columns: 1fr; gap: 48px; }
+  .belief { gap: 20px; }
+  .leadership { gap: 56px; padding: 88px 20px; }
+  .teamGrid { grid-template-columns: 1fr; }
+  .teamMember { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; padding: 28px 0 36px; }
+  .teamPortrait { border-radius: 24px; }
+  .teamInfo h3 { font-size: 21px; line-height: 27px; }
+  .teamFocus { margin-top: 20px; }
+  .teamExperience { grid-column: 1 / -1; margin-top: 20px; padding-top: 0; }
+  .teamAffiliations { padding-top: 12px; }
+  .teamLogo { max-width: 78px; height: 19px; }
+  .teamAffiliations li:last-child .teamLogo { max-width: 92px; }
+  .closing { min-height: 580px; padding: 96px 20px; }
+  .actions { width: 100%; flex-direction: column; }
+  .actions > * { width: min(100%, 260px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global([data-reveal]),
+  .beliefVisual .fillImage { transition: none; }
+}

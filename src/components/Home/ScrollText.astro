@@ -25,7 +25,7 @@ import { PowerfulBentoData } from "../constants/home";
     left: 0;
     width: 100%;
     z-index: 20;
-    background: white; /* Optional: Set background to prevent transparency issues */
+    background: var(--color-surface); /* Optional: Set background to prevent transparency issues */
   }
   .visibleOne{
     opacity: 1;
@@ -106,7 +106,6 @@ import { PowerfulBentoData } from "../constants/home";
       }
 
       scrollDistance = window.scrollY - scrollStart;
-      console.log("scrollDistance", scrollDistance);
 
       if (scrollDistance <= 900 && scrollDistance >= 0) {
         if(section.style.top === "0"){

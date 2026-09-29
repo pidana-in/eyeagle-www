@@ -22,7 +22,7 @@ const features = Astro.props.features;
         {heroContent.badge}
       </span>
       <p
-        class="max-lg:text-4xl lg:text-[68px] font-bold leading-[100%] text-white my-5 drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
+        class="device-hero-title font-normal leading-[112%] text-white my-5 drop-shadow-[0_6px_8px_rgba(0,0,0,0.12)]"
         set:html={heroContent.title}
       ></p>
       <p
@@ -87,7 +87,7 @@ const features = Astro.props.features;
   </div>
   <Image
     src={heroContent.images.img2}
-    alt="EyEagle Guardian X emergency alarm kit"
+    alt="EyEagle emergency alarm kit"
     class="w-full object-cover mt-8"
   />
   <div class="mt-20 mb-10 space-y-10 flex flex-col items-center text-center">
@@ -106,3 +106,7 @@ const features = Astro.props.features;
     }
   </div>
 </div>
+
+<style>
+.device-hero-title { font-size: var(--type-display-size); letter-spacing: -.025em; }
+</style>

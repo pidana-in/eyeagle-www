@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-07-21
 ---
 
-# The Day Dad Fell: How One Accident Became Our Wake-Up Call
 
 There are days that divide your life into before and after. For us, it was the day my Dad fell. It was a normal weekday morning. Amma was in the kitchen. Dad had gone to take a shower. Nothing unusual. Nothing dramatic. Just routine. Then we heard a loud noise. Followed by silence.
 
@@ -18,7 +17,7 @@ When we rushed in, he was on the bathroom floor, confused and in pain, trying to
 
 ## It Happened in the “Safest” Place
 
-The bathroom is where we feel most private and comfortable. But for seniors, it is often the most dangerous space in the house. <a href="http://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;">Bathroom falls among elderly people are extremely common.</a> The reasons are simple:
+The bathroom is where we feel most private and comfortable. But for seniors, it is often the most dangerous space in the house. <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;">Bathroom falls among elderly people are extremely common.</a> The reasons are simple:
 
 - Wet and slippery floors
 - Smooth tiles with no grip

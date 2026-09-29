@@ -1,21 +1,22 @@
 {
   "summary": {
-    "auditedRoutes": 53,
+    "auditedRoutes": 66,
     "routesWithIssues": 0,
     "duplicateTitles": [],
-    "duplicateDescriptions": []
+    "duplicateDescriptions": [],
+    "brokenInternalLinks": []
   },
   "results": [
     {
       "route": "/",
       "source": "src/pages/index.astro",
       "status": 200,
-      "title": "EyEagle | Preventing Falls, Saving Lives",
-      "description": "From bathroom fall prevention to real-time emergency response — EyEagle is a complete safety system for families and groups who look out for each other.",
+      "title": "EyEagle | A connected safety and response system",
+      "description": "EyEagle connects parents living independently with trusted family, local help and a 24/7 response team.",
       "canonical": "https://eyeagle.ai/",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "Parents fall can destroy all"
+        "You can’t always be there. EyEagle can."
       ],
       "schemaTypes": [
         "Organization",
@@ -28,37 +29,15 @@
       "issues": []
     },
     {
-      "route": "/about-us",
-      "source": "src/pages/about-us.astro",
-      "status": 200,
-      "title": "About EyEagle | Safer, More Independent Living",
-      "description": "Meet the people and purpose behind EyEagle, founded to help older adults live more safely and independently at home.",
-      "canonical": "https://eyeagle.ai/about-us",
-      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "route": "/404",
+      "source": "src/pages/404.astro",
+      "status": 404,
+      "title": "Page not found | EyEagle",
+      "description": "The page you requested could not be found.",
+      "canonical": "https://eyeagle.ai/404",
+      "robots": "noindex, nofollow, noarchive",
       "h1s": [
-        "From Prevention to Protection , We’re with You"
-      ],
-      "schemaTypes": [
-        "Organization",
-        "WebSite",
-        "AboutPage",
-        "BreadcrumbList"
-      ],
-      "imagesMissingAlt": 0,
-      "headingJumps": [],
-      "vagueLinks": [],
-      "issues": []
-    },
-    {
-      "route": "/app",
-      "source": "src/pages/app.astro",
-      "status": 200,
-      "title": "EyEagle | Your safety, one tap away",
-      "description": "Your trusted people, always one tap away. Create a Nest, send an SOS with live location, and get help instantly — no calls, no texts, no delay.",
-      "canonical": "https://eyeagle.ai/app",
-      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      "h1s": [
-        "Go anywhere. Stay connected. Stay safe."
+        "This page isn’t here."
       ],
       "schemaTypes": [
         "Organization",
@@ -72,21 +51,95 @@
       "issues": []
     },
     {
+      "route": "/about-us",
+      "source": "src/pages/about-us.astro",
+      "status": 200,
+      "title": "Our Story | EyEagle",
+      "description": "The personal story, beliefs and people behind EyEagle.",
+      "canonical": "https://eyeagle.ai/about-us",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Built from something personal."
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/app",
+      "source": "src/pages/app.astro",
+      "status": 200,
+      "title": "Nest App | EyEagle",
+      "description": "Nest keeps family, trusted responders and essential information connected when an EyEagle SOS is raised.",
+      "canonical": "https://eyeagle.ai/app",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Your family, connected when it matters."
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/assessment-form",
+      "source": "src/pages/assessment-form.astro",
+      "status": 301,
+      "redirect": "/inquiry",
+      "issues": []
+    },
+    {
       "route": "/blog",
       "source": "src/pages/blog.astro",
       "status": 200,
-      "title": "Blog | EyEagle",
-      "description": "Read the latest article on EyEagle's blog.",
+      "title": "EyEagle Journal | Safer Living and Family Care",
+      "description": "Practical guidance for safer homes, healthy ageing and caring for older family members from EyEagle.",
       "canonical": "https://eyeagle.ai/blog",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "EyEagle Blog"
+        "You Track Food Deliveries - But Are Your Parents Safe at Home?"
       ],
       "schemaTypes": [
         "Organization",
         "WebSite",
         "CollectionPage",
         "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/apartment-safety-for-elderly-india",
+      "source": "src/content/blogs/apartment-safety.md",
+      "status": 200,
+      "title": "Apartment Safety for Elderly India: A Room-by-Room Guide",
+      "description": "A guide to apartment safety for elderly India, covering flat modifications, high-rise safety for elderly, and a home safety checklist.",
+      "canonical": "https://eyeagle.ai/blogs/apartment-safety-for-elderly-india",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Apartment Safety for Elderly India: A Room-by-Room Guide"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
       ],
       "imagesMissingAlt": 0,
       "headingJumps": [],
@@ -186,6 +239,29 @@
       "issues": []
     },
     {
+      "route": "/blogs/caring-for-elderly-parents-while-working-abroad",
+      "source": "src/content/blogs/working-abroad.md",
+      "status": 200,
+      "title": "Caring for Elderly Parents While Working Abroad | EyEagle",
+      "description": "Read on to know about caring for elderly parents while living abroad and reliable elderly care solutions in India like EyEagle.",
+      "canonical": "https://eyeagle.ai/blogs/caring-for-elderly-parents-while-working-abroad",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Caring for Elderly Parents While Working Abroad"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
       "route": "/blogs/caring-from-distance",
       "source": "src/content/blogs/NRI-parent-care.md",
       "status": 200,
@@ -255,6 +331,29 @@
       "issues": []
     },
     {
+      "route": "/blogs/elderly-fall-story-home-safety-wake-up-call",
+      "source": "src/content/blogs/day-Dad-fell.md",
+      "status": 200,
+      "title": "The Day Dad Fell: How One Accident Became Our Wake-Up Call",
+      "description": "Learn about bathroom falls among the elderly, home safety for elderly parents, and simple fall prevention steps to keep your loved ones safe.",
+      "canonical": "https://eyeagle.ai/blogs/elderly-fall-story-home-safety-wake-up-call",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The Day Dad Fell: How One Accident Became Our Wake-Up Call"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
       "route": "/blogs/falls-kill-more-seniors-than-you-think",
       "source": "src/content/blogs/fall.md",
       "status": 200,
@@ -264,6 +363,29 @@
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
         "Falls Kill More Seniors Than You Think – But No One Talks About It"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/hidden-fall-risk-osteoporosis-in-indian-women",
+      "source": "src/content/blogs/osteoporosis.md",
+      "status": 200,
+      "title": "Osteoporosis in Indian Women: Fall Risks After 50",
+      "description": "Discover why osteoporosis is common in Indian women after 50. Learn the signs, risk factors, DEXA scan cost, and ways to protect bone health.",
+      "canonical": "https://eyeagle.ai/blogs/hidden-fall-risk-osteoporosis-in-indian-women",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Osteoporosis in Indian Women: Fall Risks After 50"
       ],
       "schemaTypes": [
         "Organization",
@@ -462,6 +584,29 @@
       "issues": []
     },
     {
+      "route": "/blogs/kuch-nahi-hoga-the-most-dangerous-sentence-in-indian-households",
+      "source": "src/content/blogs/Kuch-nhi-hoga.md",
+      "status": 200,
+      "title": "“Kuch Nahi Hoga”-The Most Dangerous Sentence in Indian Households",
+      "description": "The “kuch nahi hoga” mentality in Indian households often ignores real safety risks for aging parents. Learn why quiet preparedness matters.",
+      "canonical": "https://eyeagle.ai/blogs/kuch-nahi-hoga-the-most-dangerous-sentence-in-indian-households",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "“Kuch Nahi Hoga”-The Most Dangerous Sentence in Indian Households"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
       "route": "/blogs/mobility-tips-for-seniors",
       "source": "src/content/blogs/mobility.md",
       "status": 200,
@@ -493,7 +638,7 @@
       "canonical": "https://eyeagle.ai/blogs/monsoon-bathroom-safety-tips-for-seniors",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "Monsoon Bathroom Safety Tips for Seniors | EyEagle"
+        "Monsoon Bathroom Safety Tips for Seniors"
       ],
       "schemaTypes": [
         "Organization",
@@ -830,6 +975,29 @@
       "issues": []
     },
     {
+      "route": "/blogs/track-food-delivery-but-not-parents-safety",
+      "source": "src/content/blogs/food-track.md",
+      "status": 200,
+      "title": "You Track Food Deliveries - But Are Your Parents Safe at Home? | EyEagle",
+      "description": "Practical ways to make home safer for ageing parents and help family respond when something goes wrong.",
+      "canonical": "https://eyeagle.ai/blogs/track-food-delivery-but-not-parents-safety",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "You Track Food Deliveries - But Are Your Parents Safe at Home?"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
       "route": "/blogs/why-fall-alarms-for-seniors-matter",
       "source": "src/content/blogs/alarms.md",
       "status": 200,
@@ -922,15 +1090,37 @@
       "issues": []
     },
     {
+      "route": "/checkout-2",
+      "source": "src/pages/checkout-2.astro",
+      "status": 200,
+      "title": "Become an EyEagle member | Checkout concept 2",
+      "description": "Configure your EyEagle home safety system, including professional installation, Nest and three years of response membership.",
+      "canonical": "https://eyeagle.ai/checkout-2",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "The EyEagle system."
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
       "route": "/contact",
       "source": "src/pages/contact.astro",
       "status": 200,
-      "title": "Reach Out for Queries Support - Contact EyEagle",
-      "description": "Need help or have questions about EyEagle’s emergency alarm systems? Contact us today for reliable customer support and assistance.",
+      "title": "Contact EyEagle | Questions, support and partnerships",
+      "description": "Talk to EyEagle about the home system, membership, installation, support, pricing, or partnerships.",
       "canonical": "https://eyeagle.ai/contact",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "Get in Touch With Our Team"
+        "Need help protecting someone at home?"
       ],
       "schemaTypes": [
         "Organization",
@@ -947,12 +1137,48 @@
       "route": "/device",
       "source": "src/pages/device.astro",
       "status": 200,
-      "title": "Guardian X Emergency Alarm for Older Adults | EyEagle",
-      "description": "Explore Guardian X, EyEagle’s emergency alarm with a loud local alert, offline operation, battery backup, and app-connected family notifications.",
+      "title": "EyEagle Emergency Alarm for Older Adults | EyEagle",
+      "description": "Explore EyEagle, EyEagle’s emergency alarm with a loud local alert, offline operation, battery backup, and app-connected family notifications.",
       "canonical": "https://eyeagle.ai/device",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
         "One press. The right people know"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/enquiry",
+      "source": "src/pages/enquiry.astro",
+      "status": 301,
+      "redirect": "/inquiry",
+      "issues": []
+    },
+    {
+      "route": "/inequiery",
+      "source": "src/pages/inequiery.astro",
+      "status": 301,
+      "redirect": "/inquiry",
+      "issues": []
+    },
+    {
+      "route": "/inquiry",
+      "source": "src/pages/inquiry.astro",
+      "status": 200,
+      "title": "Contact EyEagle | Send an enquiry",
+      "description": "Ask EyEagle about the home system, membership, app, installation, pricing, support, partnerships, or a home safety assessment.",
+      "canonical": "https://eyeagle.ai/inquiry",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "How can we help?"
       ],
       "schemaTypes": [
         "Organization",
@@ -972,9 +1198,31 @@
       "title": "Join Our Community for Elderly Safety Solutions – EyEagle",
       "description": "Join EyEagle - Stay connected and ensure safety with our emergency alert devices for the elderly. Reliable, efficient, and easy to set up!",
       "canonical": "https://eyeagle.ai/join",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "Be the First to Experience the EyEagle Kit"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/membership",
+      "source": "src/pages/membership.astro",
+      "status": 200,
+      "title": "EyEagle Membership | Connected safety and human response",
+      "description": "Explore the EyEagle membership: an installed home safety system, connected family alerts, 24/7 human response and bathroom protection for parents in India.",
+      "canonical": "https://eyeagle.ai/membership",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "Be the First to Experience the EyEagle Guardian-X Kit"
+        "You may be far away. Help doesn’t have to be."
       ],
       "schemaTypes": [
         "Organization",
@@ -1032,6 +1280,28 @@
       "issues": []
     },
     {
+      "route": "/orders",
+      "source": "src/pages/orders.astro",
+      "status": 200,
+      "title": "Your EyEagle order",
+      "description": "Review your EyEagle order and complete the next step in your installation.",
+      "canonical": "https://eyeagle.ai/orders",
+      "robots": "noindex, nofollow, noarchive",
+      "h1s": [
+        "Your EyEagle installation."
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
       "route": "/privacy",
       "source": "src/pages/privacy.astro",
       "status": 200,
@@ -1058,11 +1328,11 @@
       "source": "src/pages/protection.astro",
       "status": 200,
       "title": "Bathroom Fall-Prevention and Safety Products | EyEagle",
-      "description": "Make bathrooms safer with professionally installed grab bars, anti-slip mats, grip tape, and a home safety assessment from EyEagle.",
+      "description": "Make bathrooms safer with professionally installed grab bars, anti-slip mats, grip tape, and practical support from EyEagle.",
       "canonical": "https://eyeagle.ai/protection",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "Safer support in the bathroom, every single day."
+        "Safer support in the bathroom, every day."
       ],
       "schemaTypes": [
         "Organization",
@@ -1120,37 +1390,15 @@
       "issues": []
     },
     {
-      "route": "/solution",
-      "source": "src/pages/solution.astro",
-      "status": 200,
-      "title": "How EyEagle’s Home Safety System Works",
-      "description": "See how EyEagle combines fall prevention, Guardian X emergency alerts, family coordination, and practical home-safety support.",
-      "canonical": "https://eyeagle.ai/solution",
-      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      "h1s": [
-        "World’s first PIDANA Protocol. End to End Solution"
-      ],
-      "schemaTypes": [
-        "Organization",
-        "WebSite",
-        "WebPage",
-        "BreadcrumbList"
-      ],
-      "imagesMissingAlt": 0,
-      "headingJumps": [],
-      "vagueLinks": [],
-      "issues": []
-    },
-    {
       "route": "/store",
       "source": "src/pages/store.astro",
       "status": 200,
-      "title": "Choose Your EyEagle Store",
-      "description": "Choose the EyEagle store for your shopping region.",
+      "title": "Configure your EyEagle system",
+      "description": "Configure an EyEagle home safety system with professional installation, Nest and response membership.",
       "canonical": "https://eyeagle.ai/store",
       "robots": "noindex, nofollow, noarchive",
       "h1s": [
-        "Hello! Where are you shopping from?"
+        "Safety at home. A response beyond it."
       ],
       "schemaTypes": [
         "Organization",

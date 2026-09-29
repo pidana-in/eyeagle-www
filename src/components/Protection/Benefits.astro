@@ -15,11 +15,9 @@ const cardsData = Astro.props.cardsData;
 <section class="2xl:container mx-auto py-16 md:py-20 px-4 md:px-8 lg:px-16">
   <!-- Heading -->
   <div class="flex justify-center text-center max-w-225 mx-auto">
-    <p
-      class="text-[32px] leading-10 md:text-5xl md:leading-14 font-bold tracking-wide"
-    >
+    <h2 class="protection-section-title">
       Thoughtfully designed for real bathrooms, not brochures.
-    </p>
+    </h2>
   </div>
 
   <!-- Cards -->
@@ -28,7 +26,7 @@ const cardsData = Astro.props.cardsData;
   >
     {
       cardsData.map((card: Card) => (
-        <div class="flex flex-col rounded-3xl border border-[#00000014] bg-[#F9F7F7] overflow-hidden">
+        <div class="protection-card flex flex-col overflow-hidden">
           <Image
             src={card.image}
             alt={card.alt}
@@ -36,9 +34,9 @@ const cardsData = Astro.props.cardsData;
           />
 
           <div class="p-6">
-            <h3 class="text-xl font-bold">{card.title}</h3>
+            <h3 class="protection-card-title">{card.title}</h3>
 
-            <p class="mt-3 text-base opacity-60 leading-7">{card.desc}</p>
+            <p class="protection-body protection-muted mt-3">{card.desc}</p>
           </div>
         </div>
       ))
@@ -48,9 +46,8 @@ const cardsData = Astro.props.cardsData;
   <!-- CTA -->
   <a
     href="#comparison-section"
-    class="mt-10 md:mt-12 text-primary underline text-center block text-base md:text-lg italic"
+    class="protection-body-lg protection-accent mt-10 md:mt-12 underline text-center block italic"
   >
     Compare with alternatives
   </a>
 </section>
-

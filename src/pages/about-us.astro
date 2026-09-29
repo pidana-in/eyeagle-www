@@ -1,26 +1,213 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeaderSection from "../components/AboutUs/HeaderSection.astro";
-import FoundersSection from "../components/AboutUs/FoundersSection.astro";
-import BannerSection from "../components/AboutUs/BannerSection.astro";
-import CoreValues from "../components/AboutUs/CoreValues.astro";
-import Explanation from "../components/AboutUs/Explanation.astro";
-import CTA from "../components/NewHome/CTA.astro";
-import { ctaSection } from "../components/constants/newHome";
-import Blogs from "../components/Home/Blogs.astro";
-import { blogsData } from "../components/constants/home";
+import Image from "../components/common/OptimizedImage.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import styles from "../styles/OurStory/page.module.css";
+import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
+import heroImage from "../assets/OurStory/about-hero-independence-v1-4k.png";
+import nanijiImage from "../assets/OurStory/about-naniji-framed-v1.png";
+import independenceImage from "../assets/OurStory/about-card-independence-v1.png";
+import privacyImage from "../assets/OurStory/about-card-privacy-v1.png";
+import responseImage from "../assets/OurStory/about-card-response-v1.png";
+import ajayImage from "../assets/OurStory/team/ajay.png";
+import abhinavImage from "../assets/OurStory/team/abhinav.png";
+import gauravImage from "../assets/OurStory/team/gaurav.png";
+import vaibhavImage from "../assets/OurStory/team/vaibhav.png";
+import edelweissLogo from "../assets/OurStory/team/edelweiss.png";
+import mangoTownLogo from "../assets/OurStory/team/mango-town.png";
+import iitLogo from "../assets/OurStory/team/iit.png";
+import iimaLogo from "../assets/OurStory/team/iima.png";
+import ipsatorLogo from "../assets/OurStory/team/ipsator.png";
+import phonepeLogo from "../assets/OurStory/team/phonepe.png";
+import bluejeansLogo from "../assets/OurStory/team/bluejeans.png";
+import flipkartLogo from "../assets/OurStory/team/flipkart.png";
+import nomuraLogo from "../assets/OurStory/team/nomura.png";
+import unoonaLogo from "../assets/OurStory/team/unoona.png";
 
-const metaTitle = "About EyEagle | Safer, More Independent Living";
-const metaDesc =
-  "Meet the people and purpose behind EyEagle, founded to help older adults live more safely and independently at home.";
+const beliefs = [
+  { title: "Independence", description: "Support should help people keep living life on their terms.", image: independenceImage, alt: "An older woman living independently at home" },
+  { title: "Dignity", description: "Safety shouldn’t make home feel clinical or intrusive.", image: privacyImage, alt: "A private bathroom door in a family home" },
+  { title: "Response", description: "Technology matters most when it helps the right people act.", image: responseImage, alt: "A family member receiving an EyEagle response update" },
+] as const;
+
+const team = [
+  {
+    name: "Ajay Sharma",
+    role: "Co-Founder",
+    image: ajayImage,
+    detail: "Building support that protects independence without asking parents to give it up.",
+    affiliations: [
+      { src: edelweissLogo, alt: "Edelweiss" },
+      { src: mangoTownLogo, alt: "Mango Town" },
+      { src: iitLogo, alt: "Indian Institute of Technology (BHU) Varanasi" },
+      { src: iimaLogo, alt: "Indian Institute of Management Ahmedabad" },
+    ],
+  },
+  {
+    name: "Abhinav Kushwaha",
+    role: "Co-Founder",
+    image: abhinavImage,
+    detail: "Connecting families clearly while respecting the privacy of the people they care for.",
+    affiliations: [
+      { src: ipsatorLogo, alt: "Ipsator" },
+      { src: phonepeLogo, alt: "PhonePe" },
+      { src: bluejeansLogo, alt: "BlueJeans by Verizon" },
+      { src: flipkartLogo, alt: "Flipkart" },
+      { src: iitLogo, alt: "Indian Institute of Technology (BHU) Varanasi" },
+    ],
+  },
+  {
+    name: "Gaurav Kumar",
+    role: "Co-Founder",
+    image: gauravImage,
+    detail: "Making installation, testing and every response path dependable in real homes.",
+    affiliations: [
+      { src: ipsatorLogo, alt: "Ipsator" },
+      { src: nomuraLogo, alt: "Nomura" },
+      { src: unoonaLogo, alt: "Unoona" },
+      { src: iitLogo, alt: "Indian Institute of Technology (BHU) Varanasi" },
+    ],
+  },
+  {
+    name: "Vaibhav Saxena",
+    role: "Co-Founder",
+    image: vaibhavImage,
+    detail: "Designing calm, practical support around the routines and choices of older adults.",
+    affiliations: [
+      { src: ipsatorLogo, alt: "Ipsator" },
+      { src: iitLogo, alt: "Indian Institute of Technology (BHU) Varanasi" },
+    ],
+  },
+] as const;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} schemaType="AboutPage">
-  <HeaderSection />
-  <BannerSection />
-  <CoreValues />
-  <Explanation />
-  <FoundersSection />
-  <Blogs blogsData={blogsData} showSeeMoreButton={true} />
-  <CTA ctaSection={ctaSection} />
+<MainLayout title="Our Story | EyEagle" desc="The personal story, beliefs and people behind EyEagle." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+  <SiteHeader slot="header" solidAtTop />
+
+  <main class={styles.main} id="main-content">
+    <section class={styles.intro} aria-labelledby="story-title">
+      <div class={styles.introCopy} data-reveal data-reveal-visible="false">
+        <h1 id="story-title">Built from something personal.</h1>
+        <p>EyEagle began with a loss in our own family, a belief that ageing shouldn’t mean giving up independence.</p>
+      </div>
+      <div class={styles.introVisual} data-reveal data-reveal-visible="false">
+        <Image alt="An older woman tending plants at home" class={styles.fillImage} fetchpriority="high" layout="full-width" loading="eager" quality={88} src={heroImage} />
+      </div>
+    </section>
+
+    <div class={styles.storyChapter}>
+      <section class={styles.naniji} aria-labelledby="naniji-title">
+        <div class={styles.nanijiInner}>
+          <div class={styles.nanijiCopy} data-reveal data-reveal-visible="false">
+            <div class={styles.eyebrow}>Our story</div>
+            <h2 id="naniji-title">It started with Naniji.</h2>
+            <div class={styles.nanijiBody}>
+              <p>Our Naniji, Savitri Devi Sharma was widowed at just 24. She moved from Rajasthan to Kolkata and raised five children, building a life defined by courage, resilience and an unmistakable joy.</p>
+              <p class={styles.emphasis}>Years later, we lost her following a fall in the bathroom.</p>
+              <div>
+                <p>That loss changed the way we thought about safety at home. It showed us that protecting someone should not begin after their independence has already been taken away.</p>
+                <p>EyEagle began in Naniji’s memory—with a determination to make support easier to reach while preserving the dignity she lived with throughout her life.</p>
+              </div>
+            </div>
+          </div>
+          <div class={styles.nanijiVisual} data-reveal data-reveal-visible="false">
+            <Image alt="A framed family photograph of Savitri Devi Sharma" class={styles.fillImage} layout="full-width" quality={88} src={nanijiImage} />
+          </div>
+        </div>
+      </section>
+
+      <section class={styles.changed} aria-labelledby="changed-title">
+        <div class={styles.changedInner}>
+          <div class={styles.changedTitle} data-reveal data-reveal-visible="false">
+            <div class={styles.eyebrow}>What it changed</div>
+            <h2 id="changed-title">We started with falls.<br />We found a bigger problem.</h2>
+          </div>
+          <div class={styles.changedCopy} data-reveal data-reveal-visible="false">
+            <p>A fall showed us the risk. But building EyEagle showed us something larger: families don’t only need to know that something happened.</p>
+            <p>They need a clear way to respond when they can’t be there themselves.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class={styles.beliefs} aria-labelledby="beliefs-title">
+      <header class={styles.beliefsHeading} data-reveal data-reveal-visible="false">
+        <div class={styles.eyebrow}>What we believe</div>
+        <h2 id="beliefs-title">Independence is worth protecting.</h2>
+        <p>Most safety products stop at the alert. We wanted to think about everything that needs to happen after it.</p>
+      </header>
+      <div class={styles.beliefsGrid}>
+        {beliefs.map((belief, index) => (
+          <article class={styles.belief} data-reveal data-reveal-visible="false" style={`--item-index: ${index}`}>
+            <div class={styles.beliefVisual}><Image alt={belief.alt} class={styles.fillImage} layout="full-width" quality={86} src={belief.image} /></div>
+            <div class={styles.beliefCopy}><h3>{belief.title}</h3><p>{belief.description}</p></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class={styles.leadership} aria-labelledby="leadership-title">
+      <header class={styles.leadershipHeading} data-reveal data-reveal-visible="false">
+        <div class={styles.eyebrow}>Leadership</div>
+        <h2 id="leadership-title">The people building EyEagle.</h2>
+      </header>
+      <div class={styles.teamGrid}>
+        {team.map((member, index) => (
+          <article class={styles.teamMember} data-reveal data-reveal-visible="false" style={`--item-index: ${index}`}>
+            <div class={styles.teamPortrait}><Image alt={`${member.name}, Co-Founder of EyEagle`} class={styles.fillImage} layout="full-width" quality={88} src={member.image} /></div>
+            <div class={styles.teamContent}>
+              <div class={styles.teamInfo}><h3>{member.name}</h3><p>{member.role}</p></div>
+              <div class={styles.teamFocus}>
+                <span>What they focus on</span>
+                <p class={styles.teamDetail}>{member.detail}</p>
+              </div>
+              <div class={styles.teamExperience}>
+                <p>Experience across</p>
+                <ul class={styles.teamAffiliations} aria-label={`${member.name} affiliations`}>
+                  {member.affiliations.map((affiliation) => (
+                    <li><Image alt={affiliation.alt} class={styles.teamLogo} layout="constrained" quality={90} src={affiliation.src} /></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class={styles.closing} aria-labelledby="closing-title">
+      <div class={styles.closingInner} data-reveal data-reveal-visible="false">
+        <div class={styles.closingCopy}>
+          <h2 id="closing-title">We’re building a better way to be there.</h2>
+          <p>For parents who want to keep living independently. And families who want to support them, wherever they are.</p>
+        </div>
+        <div class={styles.actions}>
+          <ButtonLink href="/store" size="large">Get EyEagle <img alt="" src="/figma-home/arrow-outward.svg" /></ButtonLink>
+          <ButtonLink class={styles.secondaryAction} href="/app" size="large" variant="inverse">Get App <img alt="" src="/figma-home/arrow-outward.svg" /></ButtonLink>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" variant="figmaHome" />
 </MainLayout>
+
+<script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const reveals = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+    reveals.forEach((element) => element.dataset.revealVisible = "true");
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        (entry.target as HTMLElement).dataset.revealVisible = "true";
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+    reveals.forEach((element) => observer.observe(element));
+  }
+</script>

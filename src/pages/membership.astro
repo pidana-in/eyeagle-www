@@ -1,0 +1,292 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Image from "../components/common/OptimizedImage.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import FAQSection from "../components/HomeV3/FAQSection.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import styles from "../styles/Membership/page.module.css";
+import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
+
+import heroImage from "../assets/MembershipFigma/hero.png";
+import sosImage from "../assets/MembershipFigma/system-sos-wired-v4.png";
+import alarmImage from "../assets/MembershipFigma/system-alarm-canonical-wired-v9.png";
+import alertImage from "../assets/MembershipFigma/system-alert.png";
+import anywhereImage from "../assets/MembershipFigma/app-sos.png";
+import breakthroughImage from "../assets/MembershipFigma/app-breakthrough.png";
+import liveResponseImage from "../assets/MembershipFigma/app-live.png";
+import responseTeamImage from "../assets/MembershipFigma/response-247.png";
+import pidanaImage from "../assets/MembershipFigma/response-pidana-v2.png";
+import professionalImage from "../assets/MembershipFigma/response-professional-video-v2.png";
+import homeVisitImage from "../assets/MembershipFigma/response-home-visit-v1.png";
+import hospitalImage from "../assets/MembershipFigma/response-hospital.png";
+import transportImage from "../assets/MembershipFigma/response-transport.png";
+import assessmentImage from "../assets/MembershipFigma/protection-assessment-v3.png";
+import installationImage from "../assets/MembershipFigma/protection-installation-v3.png";
+import careImage from "../assets/MembershipFigma/protection-care-v3.png";
+
+const homeSystem = [
+  {
+    title: "SOS Button",
+    description: "One press for help. No phone. No app. Just press.",
+    image: sosImage,
+    alt: "An older person pressing the wired EyEagle SOS button",
+  },
+  {
+    title: "Alarm Unit",
+    description: "Help starts at home. A loud alarm immediately alerts people nearby.",
+    image: alarmImage,
+    alt: "The wired EyEagle Alarm Unit connected to a wall socket outside a bathroom",
+  },
+  {
+    title: "Connected Alert",
+    description: "Everyone who matters knows. Family and trusted people are alerted instantly.",
+    image: alertImage,
+    alt: "A parent and trusted family member viewing an EyEagle alert",
+  },
+] as const;
+
+const appFeatures = [
+  {
+    title: "SOS Anywhere",
+    description: "Help goes with them. Raise an SOS from the app, even away from home.",
+    image: anywhereImage,
+    alt: "An older woman raising an SOS from the EyEagle app outdoors",
+  },
+  {
+    title: "Alerts That Break Through",
+    description: "Emergency alerts are designed to sound through silent and Do Not Disturb settings.*",
+    image: breakthroughImage,
+    alt: "A person receiving an EyEagle emergency alert at night",
+  },
+  {
+    title: "Live Response",
+    description: "Know who is responding, who is unavailable and where help is coming from.",
+    image: liveResponseImage,
+    alt: "A family member following a live EyEagle response on his phone",
+  },
+] as const;
+
+const responseFeatures = [
+  {
+    title: "24/7 Response",
+    description: "A trained human response team, available around the clock.",
+    image: responseTeamImage,
+    alt: "EyEagle response specialists coordinating an alert",
+    className: styles.responseStandard,
+  },
+  {
+    title: "PIDANA Protocol",
+    description: "When an alert is unresolved, EyEagle follows a prepared path from assessment to action.",
+    image: pidanaImage,
+    alt: "The EyEagle team coordinating the PIDANA response protocol",
+    className: styles.responseWide,
+  },
+  {
+    title: "Professional Support",
+    description: "A trained team works the response plan and coordinates the next step.",
+    image: professionalImage,
+    alt: "An older couple speaking with an EyEagle response coordinator by video call",
+    className: styles.responseStandard,
+  },
+  {
+    title: "Home Visit Support",
+    description: "An EyEagle team member meets the family at home and helps prepare the response plan.",
+    image: homeVisitImage,
+    alt: "An EyEagle team member reviewing a home safety plan with an older parent",
+    className: styles.responseStandard,
+  },
+  {
+    title: "Hospital Readiness",
+    description: "Preferred hospitals, important contacts and access details are prepared beforehand.",
+    image: hospitalImage,
+    alt: "An older patient being supported in a hospital",
+    className: styles.responseStandard,
+  },
+  {
+    title: "Emergency Transport",
+    description: "EyEagle helps coordinate eligible emergency transport when it is needed.",
+    image: transportImage,
+    alt: "An ambulance arriving during an emergency response",
+    className: styles.responseFull,
+  },
+] as const;
+
+const protectionFeatures = [
+  {
+    title: "Safety Assessment",
+    description: "We assess where support is actually needed.",
+    image: assessmentImage,
+    alt: "A specialist measuring a bathroom before safety equipment is installed",
+  },
+  {
+    title: "Professional Installation",
+    description: "Selected safety additions are installed where they matter.",
+    image: installationImage,
+    alt: "A technician professionally installing a grab bar in a bathroom",
+  },
+  {
+    title: "Ongoing Care",
+    description: "Maintenance and periodic safety reviews help keep the setup effective.",
+    image: careImage,
+    alt: "A specialist performing a periodic bathroom safety maintenance check",
+  },
+] as const;
+
+const faqItems = [
+  {
+    question: "Does EyEagle need home Wi-Fi?",
+    answer: "No. The installed system uses built-in 4G connectivity, so raising an SOS does not depend on the home’s Wi-Fi network. Connectivity is checked during installation.",
+  },
+  {
+    question: "What happens during a power outage?",
+    answer: "The system includes backup power so it can remain available when the home’s main power is interrupted. The backup and testing process are explained during installation.",
+  },
+  {
+    question: "Who receives an SOS alert?",
+    answer: "The family members, neighbours, caregivers or guards chosen for the private Nest receive the alert and its location in the EyEagle app.",
+  },
+  {
+    question: "Do my parents need a smartphone?",
+    answer: "No. They can raise an SOS using the installed button. The app is primarily for Nest members who receive alerts and coordinate the response.",
+  },
+  {
+    question: "Can alerts get through when a phone is silent?",
+    answer: "With the required phone permissions enabled, EyEagle emergency alerts are designed to sound through silent and Do Not Disturb settings.",
+  },
+  {
+    question: "What happens if nobody in the Nest responds?",
+    answer: "With an eligible membership, the EyEagle Response Team reviews the unresolved alert, follows the approved family response plan, contacts available local support and coordinates further help when needed.",
+  },
+  {
+    question: "How is the system installed?",
+    answer: "An EyEagle team member reviews the home, positions the SOS button, Alarm Unit and door sensor, connects the Nest and tests the complete alert path before handover.",
+  },
+  {
+    question: "Does EyEagle use cameras or microphones?",
+    answer: "No. EyEagle provides an SOS and response system without placing cameras or microphones in the bathroom.",
+  },
+] as const;
+---
+
+<MainLayout
+  title="EyEagle Membership | Connected safety and human response"
+  desc="Explore the EyEagle membership: an installed home safety system, connected family alerts, 24/7 human response and bathroom protection for parents in India."
+  showChrome={false}
+  bodyClass="eyeagle-home-v3 eyeagle-home-v4"
+>
+  <SiteHeader slot="header" actionHref="/store" actionLabel="Become a member" solidAtTop variant="figmaHome" />
+
+  <main class={styles.main} id="main-content">
+    <section class={styles.hero} aria-labelledby="membership-title">
+      <div class={styles.heroCopy} data-reveal>
+        <p class={styles.eyebrow}>Membership</p>
+        <h1 id="membership-title">You may be far away.<br />Help doesn’t have to be.</h1>
+        <p>EyEagle Membership puts a 24/7 response system around your parents—connecting the people they trust with the support they may need.</p>
+      </div>
+      <div class={styles.heroMedia} data-reveal>
+        <Image alt="An older Indian couple and their daughter staying connected across distance" class={styles.fillImage} fetchpriority="high" layout="full-width" loading="eager" quality={88} src={heroImage} />
+      </div>
+    </section>
+
+    <section class={styles.section} aria-labelledby="system-title">
+      <header class={styles.sectionHeading} data-reveal>
+        <p class={styles.eyebrow}>EyEagle system</p>
+        <h2 id="system-title">The help starts at home.</h2>
+        <p>One simple action connects your parents to the people and response system around them.</p>
+      </header>
+      <div class={styles.featureGrid}>
+        {homeSystem.map((feature) => (
+          <article class={styles.feature} data-reveal>
+            <div class={styles.featureMedia}><Image alt={feature.alt} class={styles.fillImage} layout="full-width" src={feature.image} /></div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class:list={[styles.section, styles.appSection]} aria-labelledby="app-title">
+      <header class={styles.sectionHeading} data-reveal>
+        <p class={styles.eyebrow}>EyEagle app</p>
+        <h2 id="app-title">Help, even beyond home.</h2>
+        <p>EyEagle App connects your family during an emergency—whether the SOS starts from an EyEagle device or directly from the app.</p>
+      </header>
+      <div class={styles.featureGrid}>
+        {appFeatures.map((feature) => (
+          <article class={styles.feature} data-reveal>
+            <div class={styles.featureMedia}><Image alt={feature.alt} class={styles.fillImage} layout="full-width" src={feature.image} /></div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </article>
+        ))}
+      </div>
+      <p class={styles.footnote}>*Requires supported phone settings and permissions.</p>
+    </section>
+
+    <section class:list={[styles.section, styles.responseSection]} aria-labelledby="response-title">
+      <header class={styles.sectionHeading} data-reveal>
+        <p class={styles.eyebrow}>EyEagle response</p>
+        <h2 id="response-title">When your circle can’t respond,<br />EyEagle steps in.</h2>
+        <p>24/7 human response and professional support when your family needs more help.</p>
+      </header>
+      <div class={styles.responseGrid}>
+        {responseFeatures.map((feature) => (
+          <article class:list={[styles.responseFeature, feature.className]} data-reveal>
+            <div class={styles.responseMedia}>
+              <Image alt={feature.alt} class={styles.fillImage} layout="full-width" src={feature.image} />
+            </div>
+            <div class={styles.responseCopy}><h3>{feature.title}</h3><p>{feature.description}</p></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class={styles.section} aria-labelledby="protection-title">
+      <header class={styles.sectionHeading} data-reveal>
+        <p class={styles.eyebrow}>Protection kit</p>
+        <h2 id="protection-title">Make home safer, too.</h2>
+        <p>EyEagle assesses the bathroom, installs the right safety improvements and helps keep them maintained.</p>
+      </header>
+      <div class={styles.featureGrid}>
+        {protectionFeatures.map((feature) => (
+          <article class={styles.feature} data-reveal>
+            <div class={styles.featureMedia}><Image alt={feature.alt} class={styles.fillImage} layout="full-width" src={feature.image} /></div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <FAQSection eyebrow="EyEagle membership" items={faqItems} />
+
+    <section class={styles.finalCta} aria-labelledby="cta-title">
+      <div data-reveal>
+        <h2 id="cta-title">Be there, even when you can’t.</h2>
+        <p>EyEagle gives your parents a connected response system—and gives you a clearer way to support them from wherever you are.</p>
+        <div class={styles.actions}>
+          <ButtonLink class={styles.primaryButton} href="/store" size="large"><span>Get EyEagle</span><img alt="" aria-hidden="true" height="24" src="/figma-home/arrow-outward.svg" width="24" /></ButtonLink>
+          <ButtonLink class={styles.secondaryButton} href="/contact" size="large">Talk to the team</ButtonLink>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter slot="footer" variant="figmaHome" />
+</MainLayout>
+
+<script>
+  const revealNodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revealNodes.forEach((node) => node.dataset.visible = "true");
+  } else {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      (entry.target as HTMLElement).dataset.visible = "true";
+      observer.unobserve(entry.target);
+    }), { rootMargin: "0px 0px -8%", threshold: 0.08 });
+    revealNodes.forEach((node) => observer.observe(node));
+  }
+</script>

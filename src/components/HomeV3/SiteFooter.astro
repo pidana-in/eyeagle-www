@@ -1,0 +1,82 @@
+---
+import SiteLogo from "./SiteLogo.astro";
+import styles from "../../styles/HomeV3/site-footer.module.css";
+
+interface Props {
+  storeHref?: string;
+  storeLabel?: string;
+  variant?: "default" | "figmaHome";
+}
+
+const { storeHref = "/store", storeLabel = "Get membership", variant = "default" } = Astro.props;
+
+const defaultFooterNavigation = [
+  [
+    { label: "Bathroom Protection", href: "/protection" },
+  ],
+  [
+    { label: storeLabel, href: storeHref },
+  ],
+  [
+    { label: "About Us", href: "/about-us" },
+    { label: "Contact", href: "/contact" },
+    { label: "Blog", href: "/blog" },
+  ],
+] as const;
+
+const figmaFooterNavigation = [
+  [
+    { label: "Membership", href: "/membership" },
+    { label: "App", href: "/app" },
+    { label: "Bathroom Protection", href: "/protection" },
+  ],
+  [
+    { label: "Become a member", href: storeHref },
+    { label: "Blog", href: "/blog" },
+  ],
+  [
+    { label: "Our Story", href: "/about-us" },
+    { label: "Contact", href: "/contact" },
+    { label: "FAQs", href: "/membership#faqs" },
+  ],
+] as const;
+
+const footerNavigation = variant === "figmaHome" ? figmaFooterNavigation : defaultFooterNavigation;
+
+const defaultLegalNavigation = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Use", href: "/tnc" },
+  { label: "Shipping", href: "/shipping" },
+  { label: "Refunds", href: "/refund" },
+] as const;
+
+const figmaLegalNavigation = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Use", href: "/tnc" },
+  { label: "Warranty", href: "/tnc" },
+  { label: "Service Terms", href: "/tnc" },
+] as const;
+
+const legalNavigation = variant === "figmaHome" ? figmaLegalNavigation : defaultLegalNavigation;
+---
+
+<footer class={styles.footer} data-variant={variant}>
+  <div class={styles.primary}>
+    <a class={styles.brand} href="/" aria-label="EyEagle home"><SiteLogo inverse size="footer" /></a>
+    <div class={styles.verticalDivider} aria-hidden="true"></div>
+    <nav class={styles.navigation} aria-label="Footer navigation">
+      {footerNavigation.map((group) => (
+        <div class={styles.linkGroup}>
+          {group.map((item) => <a class={styles.link} href={item.href}>{item.label}</a>)}
+        </div>
+      ))}
+    </nav>
+  </div>
+  <div class={styles.horizontalDivider} aria-hidden="true"></div>
+  <div class={styles.secondary}>
+    <nav class={styles.legalNavigation} aria-label="Legal navigation">
+      {legalNavigation.map((item) => <a class={styles.link} href={item.href}>{item.label}</a>)}
+    </nav>
+    <p class={styles.disclaimer}>© 2026 EyEagle. All rights reserved.<br />Service availability and applicable conditions may vary.</p>
+  </div>
+</footer>

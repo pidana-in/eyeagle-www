@@ -1,64 +1,248 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import India from "../assets/Common/India.png";
-import Inter from "../assets/Common/International.png";
 import Image from "../components/common/OptimizedImage.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import {
+  EYEAGLE_SHOPIFY_CONFIG,
+  formatInr,
+  getEyEagleConfiguredPurchase,
+} from "../data/shopify-configurator";
+import styles from "../styles/Store/page.module.css";
+import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
+import kitImage from "../assets/Store/guardian-kit-v2.png";
+import setupImage from "../assets/Store/sos-installed-v2.png";
+import reviewImage from "../assets/Store/ecu-living-room-v1.png";
+import protectionKitImage from "../assets/NewHome/kit.png";
+
+const steps = [
+  { number: "01", label: "System" },
+  { number: "02", label: "Your home" },
+  { number: "03", label: "Review" },
+] as const;
+const panels = [
+  { image: kitImage, alt: "The complete EyEagle home safety system" },
+  { image: setupImage, alt: "The EyEagle SOS button installed within reach" },
+  { image: reviewImage, alt: "The EyEagle alarm unit installed inside a home" },
+  { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home" },
+] as const;
+const defaultPurchase = getEyEagleConfiguredPurchase(1, 0);
+if (!defaultPurchase) throw new Error("The default EyEagle Shopify configuration is missing.");
+const basePrice = formatInr(EYEAGLE_SHOPIFY_CONFIG.basePriceInr);
 ---
 
-<MainLayout title="Choose Your EyEagle Store" desc="Choose the EyEagle store for your shopping region." noindex={true}>
-  <section
-    class="xl:container py-10 lg:py-20 lg:px-20 px-4 font-sans-instrument bg-[#F6F4F2]"
-  >
-    <div class="md:text-start text-center place-items-center">
-      <!-- Heading -->
-      <div class="lg:px-10 py-12">
-        <h1
-          class="text-3xl md:text-5xl tracking-tight font-semibold md:leading-15"
-        >
-          <span> Hello! </span>
-          <br /> Where are you shopping from?
-        </h1>
-      </div>
-      <!-- Options -->
-      <div
-        class="flex flex-col md:flex-row justify-center items-center text-center gap-24 mt-4"
-      >
-        <!-- India -->
-        <a href="https://shop.eyeagle.ai/" class="flex flex-col items-center">
-          <Image
-            src={India}
-            alt="India"
-            width={220}
-            height={150}
-            class="object-contain"
-            quality="max"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <h2 class="font-bold text-xl md:text-2xl mt-4">India</h2>
-          <p class="text-sm md:text-base">For customers in India</p>
-        </a>
-        <!-- International -->
-        <div class="flex flex-col items-center" aria-label="International store coming soon">
-          <Image
-            src={Inter}
-            alt="International"
-            width={220}
-            height={150}
-            class="object-contain"
-            quality="max"
-            loading="eager"
-            fetchpriority="high"
-          />
-          <h2 class="font-bold text-xl md:text-2xl mt-4">International</h2>
-          <p class="text-sm md:text-base">For customers outside of India</p>
+<MainLayout title="Configure your EyEagle system" desc="Configure an EyEagle home safety system with professional installation, Nest and response membership." noindex={true} showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+  <SiteHeader slot="header" solidAtTop showNavigation={false} showAction={false} />
+  <main class={styles.main} id="main-content" data-configurator>
+    <section class={styles.visual} aria-label="EyEagle system preview">
+      <div class={styles.visualStage}>
+        {panels.map((panel, index) => (
+          <div class={styles.visualPanel} data-visual-panel={index} hidden={index !== 0}>
+            <Image alt={panel.alt} class={styles.visualImage} fetchpriority={index === 0 ? "high" : "auto"} layout="full-width" loading={index === 0 ? "eager" : "lazy"} quality={90} src={panel.image} />
+          </div>
+        ))}
+        <div class={styles.photoPicker} aria-label="Choose product photo">
+          {panels.map((_, index) => (
+            <button aria-label={`Show product photo ${index + 1}`} aria-pressed={index === 0 ? "true" : "false"} data-photo-button={index} type="button"><span></span></button>
+          ))}
         </div>
+        <div class={styles.visualCaption}><span>EyEagle</span><p data-visual-caption>Complete home safety system</p></div>
       </div>
-      <p
-        class="font-barlow text-base md:text-lg font-medium py-16 text-center md:text-left"
-      >
-        Currently installations are available in India only.
-      </p>
-    </div>
-  </section>
+      <div class={styles.visualMeta}>
+        <p><span aria-hidden="true"></span> Professional installation in India</p>
+        <p>Hardware · App · Human response</p>
+      </div>
+    </section>
+
+    <section class={styles.configuration} aria-labelledby="configurator-title" data-configuration>
+      <header class={styles.progressHeader}>
+        <ol class={styles.progress} aria-label="Checkout progress">
+          {steps.map((step, index) => (
+            <li data-progress-step={index} data-state={index === 0 ? "current" : "upcoming"}><span>{step.number}</span><p>{step.label}</p></li>
+          ))}
+        </ol>
+      </header>
+
+      <div class={styles.stepViewport}>
+        <section class={styles.step} data-checkout-step="0" aria-labelledby="configurator-title">
+          <div class={styles.stepHeading}>
+            <h1 id="configurator-title">Safety at home.<br />A response beyond it.</h1>
+          </div>
+          <div class={styles.baseSelection} aria-label="Selected EyEagle membership">
+            <div><span>EyEagle membership</span><h2>Complete Home System</h2><p>One bathroom · one SOS button · Alarm Unit · Control Unit</p><p class={styles.shippingNotice}><span aria-hidden="true"></span>Shipping starts October 30</p></div>
+            <strong>{basePrice}</strong><span class={styles.selectedMark} aria-label="Selected">✓</span>
+          </div>
+          <ul class={styles.inclusions}>
+            <li><span>01</span><p><strong>Installed and tested</strong> in your parent’s home.</p></li>
+            <li><span>02</span><p><strong>Nest connected</strong> with family and trusted contacts.</p></li>
+            <li><span>03</span><p><strong>Response membership included</strong> for three years. Then $20/month.</p></li>
+          </ul>
+        </section>
+
+        <section class={styles.step} data-checkout-step="1" aria-labelledby="home-step-title" hidden>
+          <div class={styles.stepHeading}>
+            <p class={styles.eyebrow}>Tailor the installation</p>
+            <h2 id="home-step-title">What does the home need?</h2>
+            <p>Start with one bathroom and one SOS button. Add only what the home requires.</p>
+          </div>
+          <div class={styles.quantityList}>
+            <article class={styles.quantityRow}>
+              <div><h3>Total bathrooms</h3><p>1 included · ₹19,999 per additional bathroom</p></div>
+              <div class={styles.stepper}>
+                <button aria-label="Decrease total bathrooms" data-delta="-1" data-quantity="bathrooms" disabled type="button">−</button>
+                <output data-output="bathrooms" for="bathrooms">1</output><input id="bathrooms" min="1" max="3" value="1" type="hidden" />
+                <button aria-label="Increase total bathrooms" data-delta="1" data-quantity="bathrooms" type="button">+</button>
+              </div>
+            </article>
+            <article class={styles.quantityRow}>
+              <div><h3>Additional SOS buttons</h3><p>₹8,999 per additional button</p></div>
+              <div class={styles.stepper}>
+                <button aria-label="Decrease additional SOS buttons" data-delta="-1" data-quantity="sos" disabled type="button">−</button>
+                <output data-output="sos" for="sos">0</output><input id="sos" min="0" max="4" value="0" type="hidden" />
+                <button aria-label="Increase additional SOS buttons" data-delta="1" data-quantity="sos" type="button">+</button>
+              </div>
+            </article>
+          </div>
+          <a class={styles.largeSetup} href="/contact">Need a larger setup? Talk to us <span aria-hidden="true">↗</span></a>
+        </section>
+
+        <section class={styles.step} data-checkout-step="2" aria-labelledby="review-step-title" hidden>
+          <div class={styles.stepHeading}>
+            <p class={styles.eyebrow}>Review your system</p>
+            <h2 id="review-step-title">Ready for their home.</h2>
+            <p>Confirm the setup below. Installation details and the response plan are completed with our team.</p>
+          </div>
+          <dl class={styles.reviewList}>
+            <div><dt>Complete Home System</dt><dd>{basePrice}</dd></div>
+            <div data-review-bathrooms hidden><dt data-review-bathroom-label>Additional bathroom</dt><dd data-review-bathroom-price>{formatInr(0)}</dd></div>
+            <div data-review-sos hidden><dt data-review-sos-label>Additional SOS button</dt><dd data-review-sos-price>{formatInr(0)}</dd></div>
+          </dl>
+          <div class={styles.membershipNote}><span>Included</span><div><h3>Three years of membership</h3><p>Nest, readiness checks and EyEagle Response are included for three years. Membership continues at $20/month after that.</p></div></div>
+          <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
+          <p class={styles.finePrint}>Shipping starts October 30. System prices are shown in INR and exclude applicable taxes. After the included three-year period, membership renews at $20/month until cancelled. Installation is currently available in India.</p>
+        </section>
+      </div>
+
+      <footer class={styles.checkoutFooter}>
+        <button class={styles.backButton} data-back disabled type="button"><span class={styles.backIcon} aria-hidden="true">←</span><span class={styles.backLabel}>Back</span></button>
+        <div class={styles.total}><strong data-total-price aria-live="polite">{basePrice}</strong><p data-order-summary>1 bath · No extra SOS</p></div>
+        <div class={styles.checkoutAction}>
+          <button class={styles.primaryAction} data-next type="button">Continue</button>
+          <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl} hidden><span class={styles.desktopActionLabel}>Continue to checkout</span><span class={styles.mobileActionLabel}>Checkout</span><span aria-hidden="true">↗</span></a>
+          <p class={styles.footerShipping} data-footer-shipping hidden>Ships from Oct 30</p>
+        </div>
+      </footer>
+    </section>
+  </main>
 </MainLayout>
+
+<script>
+  import {
+    EYEAGLE_SHOPIFY_CONFIG,
+    formatInr,
+    getEyEagleConfiguredPurchase,
+  } from "../data/shopify-configurator";
+
+  const checkoutSteps = Array.from(document.querySelectorAll<HTMLElement>("[data-checkout-step]"));
+  const visualPanels = Array.from(document.querySelectorAll<HTMLElement>("[data-visual-panel]"));
+  const photoButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-photo-button]"));
+  const progressSteps = Array.from(document.querySelectorAll<HTMLElement>("[data-progress-step]"));
+  const nextButton = document.querySelector<HTMLButtonElement>("[data-next]");
+  const backButton = document.querySelector<HTMLButtonElement>("[data-back]");
+  const checkoutLink = document.querySelector<HTMLAnchorElement>("[data-checkout]");
+  const footerShipping = document.querySelector<HTMLElement>("[data-footer-shipping]");
+  const configurationError = document.querySelector<HTMLElement>("[data-config-error]");
+  const visualCaption = document.querySelector<HTMLElement>("[data-visual-caption]");
+  const captions = ["Complete home safety system", "Configured for their home", "Installed, connected and ready", "Bathroom protection, within reach"];
+  let currentStep = 0;
+  const inputs = {
+    bathrooms: document.querySelector<HTMLInputElement>("#bathrooms"),
+    sos: document.querySelector<HTMLInputElement>("#sos"),
+  };
+
+  const updateConfiguration = () => {
+    if (!inputs.bathrooms || !inputs.sos) return null;
+    const bathrooms = Number(inputs.bathrooms.value);
+    const additionalSos = Number(inputs.sos.value);
+    const extraBathrooms = bathrooms - 1;
+    const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos);
+    const price = document.querySelector<HTMLElement>("[data-total-price]");
+    const summary = document.querySelector<HTMLElement>("[data-order-summary]");
+    if (!purchase) {
+      if (price) price.textContent = "Unavailable";
+      if (summary) summary.textContent = "Review your configuration";
+      if (checkoutLink) {
+        checkoutLink.removeAttribute("href");
+        checkoutLink.setAttribute("aria-disabled", "true");
+      }
+      if (configurationError) configurationError.hidden = false;
+      return null;
+    }
+
+    if (price) price.textContent = formatInr(purchase.totalInr);
+    if (summary) {
+      const sosSummary = additionalSos === 0 ? "No extra SOS" : `${additionalSos} extra SOS`;
+      summary.textContent = `${bathrooms} bath${bathrooms === 1 ? "" : "s"} · ${sosSummary}`;
+    }
+    if (checkoutLink) {
+      checkoutLink.href = purchase.checkoutUrl;
+      checkoutLink.removeAttribute("aria-disabled");
+    }
+    if (configurationError) configurationError.hidden = true;
+    const bathroomReview = document.querySelector<HTMLElement>("[data-review-bathrooms]");
+    const sosReview = document.querySelector<HTMLElement>("[data-review-sos]");
+    bathroomReview?.toggleAttribute("hidden", extraBathrooms === 0);
+    sosReview?.toggleAttribute("hidden", additionalSos === 0);
+    const bathroomLabel = document.querySelector<HTMLElement>("[data-review-bathroom-label]");
+    const bathroomPrice = document.querySelector<HTMLElement>("[data-review-bathroom-price]");
+    const sosLabel = document.querySelector<HTMLElement>("[data-review-sos-label]");
+    const sosPrice = document.querySelector<HTMLElement>("[data-review-sos-price]");
+    if (bathroomLabel) bathroomLabel.textContent = `${extraBathrooms} additional bathroom${extraBathrooms === 1 ? "" : "s"}`;
+    if (bathroomPrice) bathroomPrice.textContent = formatInr(extraBathrooms * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr);
+    if (sosLabel) sosLabel.textContent = `${additionalSos} additional SOS button${additionalSos === 1 ? "" : "s"}`;
+    if (sosPrice) sosPrice.textContent = formatInr(additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+    (Object.keys(inputs) as Array<keyof typeof inputs>).forEach((key) => {
+      const input = inputs[key];
+      if (!input) return;
+      const output = document.querySelector<HTMLOutputElement>(`[data-output="${key}"]`);
+      if (output) output.value = input.value;
+      document.querySelectorAll<HTMLButtonElement>(`[data-quantity="${key}"]`).forEach((button) => {
+        const next = Number(input.value) + Number(button.dataset.delta);
+        button.disabled = next < Number(input.min) || next > Number(input.max);
+      });
+    });
+    return purchase;
+  };
+
+  const showStep = (index: number) => {
+    currentStep = Math.max(0, Math.min(checkoutSteps.length - 1, index));
+    checkoutSteps.forEach((step, stepIndex) => { step.hidden = stepIndex !== currentStep; });
+    progressSteps.forEach((step, stepIndex) => { step.dataset.state = stepIndex < currentStep ? "complete" : stepIndex === currentStep ? "current" : "upcoming"; });
+    if (backButton) backButton.disabled = currentStep === 0;
+    nextButton?.toggleAttribute("hidden", currentStep === checkoutSteps.length - 1);
+    checkoutLink?.toggleAttribute("hidden", currentStep !== checkoutSteps.length - 1);
+    footerShipping?.toggleAttribute("hidden", currentStep !== checkoutSteps.length - 1);
+    document.querySelector<HTMLElement>("[data-configuration]")?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  nextButton?.addEventListener("click", () => showStep(currentStep + 1));
+  backButton?.addEventListener("click", () => showStep(currentStep - 1));
+  checkoutLink?.addEventListener("click", (event) => {
+    if (!updateConfiguration()) event.preventDefault();
+  });
+  document.querySelectorAll<HTMLButtonElement>("[data-quantity]").forEach((button) => button.addEventListener("click", () => {
+    const key = button.dataset.quantity as keyof typeof inputs;
+    const input = inputs[key];
+    if (!input) return;
+    const next = Number(input.value) + Number(button.dataset.delta);
+    input.value = String(Math.min(Number(input.max), Math.max(Number(input.min), next)));
+    updateConfiguration();
+  }));
+  photoButtons.forEach((button) => button.addEventListener("click", () => {
+    const photoIndex = Number(button.dataset.photoButton);
+    visualPanels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== photoIndex; });
+    photoButtons.forEach((item, itemIndex) => item.setAttribute("aria-pressed", String(itemIndex === photoIndex)));
+    if (visualCaption) visualCaption.textContent = captions[photoIndex];
+  }));
+  updateConfiguration();
+  showStep(0);
+</script>

@@ -94,7 +94,7 @@ const { header, steps } = Astro.props as Props;
           step.classList.add("text-white/50");
 
           const underline = step.querySelector(".how-underline");
-          underline.classList.remove("bg-white");
+          underline.classList.remove("bg-[var(--color-surface)]");
           underline.classList.add("bg-white/50");
         });
 
@@ -116,7 +116,7 @@ const { header, steps } = Astro.props as Props;
 
         const underline = stepEls[index].querySelector(".how-underline");
         underline.classList.remove("bg-white/50");
-        underline.classList.add("bg-white");
+        underline.classList.add("bg-[var(--color-surface)]");
 
         const bar = bars[index];
         bar.offsetHeight;

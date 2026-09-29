@@ -26,7 +26,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
         {column.map((item) => (
           <div class="relative">
             <Image src={item.src} alt={item.alt} class="w-full bg-[#595957] rounded-xl" />
-            <div class="absolute top-3 left-3 bg-white lg:h-14 lg:w-14 h-8 w-8 rounded-full grid place-items-center shadow-md">
+            <div class="absolute top-3 left-3 bg-[var(--color-surface)] lg:h-14 lg:w-14 h-8 w-8 rounded-full grid place-items-center shadow-md">
               <svg class="w-4 h-4 lg:w-6 lg:h-6" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
               </svg>
@@ -46,7 +46,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
     {kitImageMobile.flat().map((item) => (
       <div class="relative max-w-45.5 h-70 rounded-[13.17px]">
         <Image src={item.src} alt={item.alt} class="h-full w-full object-cover rounded-[13.17px]" />
-        <div class="absolute top-6 left-5 bg-white h-10 w-10 rounded-full grid place-items-center shadow-md">
+        <div class="absolute top-6 left-5 bg-[var(--color-surface)] h-10 w-10 rounded-full grid place-items-center shadow-md">
           <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.00016 10.1999L3.30016 7.49994L2.3335 8.4666L6.00016 12.1333L14.0002 4.13327L13.0335 3.1666L6.00016 10.1999Z" fill="#CC0000"/>
           </svg>
@@ -57,7 +57,7 @@ const ourTeamHeading1 = Astro.props.ourTeamHeading1;
       </div>
     ))}
   </div>
-  <a href={SHOP_URLS.safetyAudit} class="w-fit mx-auto block bg-white font-semibold border rounded-full px-5 py-2 text-sm lg:text-base my-10 text-center hover:bg-gray-100 transition lg:mb-30">
+  <a href={SHOP_URLS.safetyAudit} class="w-fit mx-auto block bg-[var(--color-surface)] font-semibold border rounded-full px-5 py-2 text-sm lg:text-base my-10 text-center hover:bg-gray-100 transition lg:mb-30">
     Get Free Safety Audit
    </a>
 </div>

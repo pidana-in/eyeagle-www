@@ -1,7 +1,7 @@
 ---
 id: "42"
 title: "You Track Food Deliveries - But Are Your Parents Safe at Home? | EyEagle"
-desc: "Discover how elderly fall detection system can prevent serious injuries and protect aging parents at home. Contact the EyEagle team today."
+desc: "Practical ways to make home safer for ageing parents and help family respond when something goes wrong."
 category: "Blog"
 img: ../../assets/Blog/BlogImage40.png
 slug: "track-food-delivery-but-not-parents-safety"
@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-09-09
 ---
 
-# You track food deliveries, but not your parents’ safety
 
 We live in a time where everything is trackable. From the moment you place a food order, you can see exactly where it is, how far it has traveled, and when it will reach you. We use technology for convenience, comfort, and control, yet when it comes to protecting our aging parents, tools like an <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;">elderly fall detection system</a> or a bathroom emergency alert solution are often not even considered.
 

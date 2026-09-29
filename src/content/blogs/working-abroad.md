@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-08-27
 ---
 
-# When Distance Isn’t Distance: Caring for Elderly Parents While Working Abroad
 
 There’s a unique kind of silence that hits when you end a video call with your parents and realize you’re thousands of miles away. For many living overseas, caring for elderly parents back home isn’t just a responsibility; it’s an emotional tug that never really goes away. You build your career, chase global opportunities, and create a life abroad…but your heart often stays rooted where your parents are.
 

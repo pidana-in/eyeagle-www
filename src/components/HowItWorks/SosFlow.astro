@@ -1,0 +1,54 @@
+---
+import styles from "../../styles/HowItWorks/sos-flow.module.css";
+import Image from "../common/OptimizedImage.astro";
+import pressImage from "../../assets/HowItWorks/press-after-fall-sos-v2.png";
+import alarmImage from "../../assets/HowItWorks/response-alarm-eyeagle-v2.png";
+import nestImage from "../../assets/HowItWorks/response-nest-v1.png";
+
+const steps = [
+  { title: "The person presses the SOS button", description: "When something feels wrong, they press the SOS button installed within reach inside the bathroom.", image: pressImage },
+  { title: "The alarm sounds inside the home", description: "The local alarm activates immediately so someone nearby can become aware and respond.", image: alarmImage },
+  { title: "Nest notifies trusted family", description: "The alert reaches the selected contacts, who can acknowledge it and coordinate the next step.", image: nestImage },
+] as const;
+---
+
+<section class={styles.flow} aria-labelledby="sos-title" data-sos-flow>
+  <header class={styles.heading}><p class={styles.eyebrow}>From the first press</p><h2 id="sos-title">Follow the response, step by step.</h2><p>See how one deliberate press moves from the bathroom to the people who can help.</p></header>
+  <div class={styles.sideBySide}>
+  <div class={styles.stepsColumn}>
+  <div class={styles.stepList} role="tablist" aria-orientation="vertical" aria-label="SOS response steps">
+    {steps.map((step, index) => <button class={styles.step} id={`sos-tab-${index}`} role="tab" aria-selected={index === 0 ? "true" : "false"} aria-controls={`sos-panel-${index}`} tabindex={index === 0 ? 0 : -1} data-sos-step type="button"><span>0{index+1}</span><strong>{step.title}</strong><i class={styles.stepFill} aria-hidden="true" data-sos-fill></i></button>)}
+  </div>
+  </div>
+  <div class={styles.mediaColumn}>
+  {steps.map((step, index) => <div class={styles.panel} id={`sos-panel-${index}`} role="tabpanel" aria-labelledby={`sos-tab-${index}`} tabindex="0" hidden={index !== 0} data-sos-image>
+    <div class={styles.visual}><Image alt={step.title} class={styles.fillImage} layout="full-width" src={step.image} /></div>
+    <p class={styles.description}>{step.description}</p>
+  </div>)}
+  </div>
+  </div>
+</section>
+<script is:inline>
+(() => {
+  const flow = document.querySelector("[data-sos-flow]");
+  const buttons = Array.from(flow?.querySelectorAll("[data-sos-step]") ?? []);
+  const panels = Array.from(flow?.querySelectorAll("[data-sos-image]") ?? []);
+  if (!flow) return;
+  const select = (index) => {
+    buttons.forEach((button,i) => { button.setAttribute('aria-selected',String(i === index)); button.tabIndex = i === index ? 0 : -1; });
+    panels.forEach((panel,i) => panel.hidden = i !== index);
+  };
+  buttons.forEach((button,index) => {
+    button.addEventListener('click',()=>select(index));
+    button.addEventListener('keydown',event=>{
+      let next;
+      if((event.key==='ArrowRight' || event.key==='ArrowDown')) next=(index+1)%buttons.length;
+      else if((event.key==='ArrowLeft' || event.key==='ArrowUp')) next=(index+buttons.length-1)%buttons.length;
+      else if(event.key==='Home') next=0;
+      else if(event.key==='End') next=buttons.length-1;
+      else return;
+      event.preventDefault();select(next);buttons[next].focus({preventScroll:true});
+    });
+  });
+})();
+</script>

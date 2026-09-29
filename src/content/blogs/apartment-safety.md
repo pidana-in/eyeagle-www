@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-08-24
 ---
 
-# Apartment Living After 60: How Small Risks Can Turn Into Big Emergencies
 
 Your parents live in a good apartment. A guard sits at the gate, the lift works most days, and housekeeping mops the floors every morning. It looks safe. But apartment safety for elderly India is not about how new or clean a building looks. It comes down to details most of us never notice: the height of a step, the grip on a tile, the light in a hallway at 2 a.m.
 
@@ -99,7 +98,7 @@ Even a well-modified apartment cannot prevent every fall. A sudden dip in blood 
 
 In an apartment, this gap is wider than most families realise. Neighbours may not hear a call for help through a closed door. Domestic help may only arrive later in the day. If your parent spends long stretches alone, a fall in the bathroom, with the door locked from inside, can go unnoticed for hours.
 
-This is where a dedicated system like <a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;">EyEagle's Guardian-X</a> earns its place. It puts a waterproof SOS button inside the bathroom, sounds an alarm both inside and outside the room, and carries a door sensor that flags it if the bathroom stays locked longer than usual, even if the button was never pressed. Every registered family member gets an alert on their phone the moment it triggers, and if no one responds within a few minutes, the alert moves on to a trained emergency team automatically. It runs on its own battery and connectivity too, so a power cut or a Wi-Fi outage doesn't leave your parents cut off at the exact moment they need help. Prevention lowers the odds of a fall. A system like this lowers what that fall ends up costing.
+This is where a dedicated system like <a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;">EyEagle</a> earns its place. It puts a waterproof SOS button inside the bathroom, sounds an alarm both inside and outside the room, and carries a door sensor that flags it if the bathroom stays locked longer than usual, even if the button was never pressed. Every registered family member gets an alert on their phone the moment it triggers, and if no one responds within a few minutes, the alert moves on to a trained emergency team automatically. It runs on its own battery and connectivity too, so a power cut or a Wi-Fi outage doesn't leave your parents cut off at the exact moment they need help. Prevention lowers the odds of a fall. A system like this lowers what that fall ends up costing.
 
 ![Infographic](../../assets/Blog/BlogImage38Info-4.png)
 

@@ -1,19 +1,16 @@
 ---
 import { getImage } from "astro:assets";
-import plusJakartaSansUrl from "@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2?url";
 import defaultSocialSource from "../assets/NewHome/HomeImage.png";
 import {
-  navLinks,
-  ctaButtonText,
-  ctaHref,
-  footerPolicyLinks,
-  footerProductLinks,
-  footerCompanyLinks,
-  footerCopyright,
-  socialLinks,
   siteMeta,
+  socialLinks,
 } from "../data/site";
 import "../styles/global.css";
+import "../styles/home-v3-tokens.css";
+import "../styles/legacy-theme.css";
+import SitePatterns from "../components/common/SitePatterns.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 
 type SchemaType = "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage";
 
@@ -37,6 +34,10 @@ interface Props {
   footerClass?: string;
   schemaType?: SchemaType;
   article?: ArticleMetadata;
+  showChrome?: boolean;
+  bodyClass?: string;
+  headerActionHref?: string;
+  headerActionLabel?: string;
 }
 
 const {
@@ -48,9 +49,12 @@ const {
   metaImageHeight,
   canonicalPath,
   noindex = false,
-  footerClass = "",
   schemaType = "WebPage",
   article,
+  showChrome = true,
+  bodyClass = "",
+  headerActionHref = "/store",
+  headerActionLabel = "Become a member",
 } = Astro.props as Props;
 
 const site = Astro.site ?? new URL(siteMeta.url);
@@ -58,7 +62,6 @@ const rawPath = canonicalPath ?? Astro.url.pathname;
 const routePath = rawPath.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
 const normalizedPath = routePath === "/" ? "/" : routePath.replace(/\/+$/, "");
 const canonicalUrl = new URL(normalizedPath, site).toString();
-const pathname = normalizedPath;
 
 const defaultSocialImage = await getImage({
   src: defaultSocialSource,
@@ -116,9 +119,9 @@ const segmentLabels: Record<string, string> = {
   "about-us": "About Us",
   app: "App",
   contact: "Contact Us",
-  device: "Guardian X",
+  device: "EyEagle",
   protection: "Protection",
-  solution: "How It Works",
+  membership: "Membership",
   shipping: "Shipping Policy",
   refund: "Refund Policy",
   privacy: "Privacy Policy",
@@ -202,7 +205,8 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={metaImageAlt} />
 
-    <link rel="preload" href={plusJakartaSansUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/faculty-glyphic-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/FavIcon.png" type="image/png" />
     <script type="application/ld+json" is:inline set:html={structuredData}></script>
@@ -216,115 +220,15 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     </script>
   </head>
 
-  <body class="min-h-screen bg-white text-gray-900 antialiased">
-    <a href="#main-content" class="sr-only z-100 rounded bg-white px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
+  <body class:list={["min-h-screen bg-[var(--color-surface)] text-gray-900 antialiased eyeagle-home-v3", bodyClass]}>
+    <a href="#main-content" class="sr-only z-100 rounded bg-[var(--color-surface)] px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
 
-    <header class="sticky top-0 z-50 w-full border-b border-black/5 bg-white/95 shadow-sm backdrop-blur" data-site-header>
-      <nav class="mx-auto flex min-h-18 max-w-360 items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-10" aria-label="Primary navigation">
-        <a href="/" aria-label="EyEagle home" class="shrink-0">
-          <img src="/svg/tag-new.svg" width="234" height="28" alt="EyEagle — Preventing Falls, Saving Lives" class="h-7 w-58.5 sm:h-8 sm:w-66.75" decoding="async" />
-        </a>
-
-        <ul class="hidden items-center gap-6 text-[15px] font-semibold mr-24 lg:flex">
-          {navLinks.map((item) => {
-            const active = item.children
-              ? item.children.some((child) => pathname === child.url || pathname.startsWith(`${child.url}/`))
-              : pathname === item.url || pathname.startsWith(`${item.url}/`);
-            return (
-              <li>
-                {!item.children ? (
-                  <a href={item.url} aria-current={active ? "page" : undefined} class:list={["rounded px-1 py-3 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary", active && "text-primary"]}>
-                    {item.title}
-                  </a>
-                ) : (
-                  <details class="group relative" data-desktop-dropdown>
-                    <summary class:list={["flex cursor-pointer list-none items-center gap-1 rounded px-1 py-3 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary", active && "text-primary"]}>
-                      {item.title}
-                      <svg aria-hidden="true" class="size-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"></path></svg>
-                    </summary>
-                    <ul class="absolute left-0 top-full min-w-52 rounded-xl border border-black/10 bg-white p-2 shadow-xl">
-                      {item.children.map((child) => (
-                        <li><a href={child.url} aria-current={pathname === child.url ? "page" : undefined} class="block rounded-lg px-4 py-3 text-sm text-black hover:bg-gray-100 hover:text-primary">{child.title}</a></li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-
-        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="hidden min-h-11 shrink-0 items-center rounded-full bg-primary px-5 py-2.5 font-bold text-white hover:bg-[#a90000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex">
-          {ctaButtonText}
-        </a>
-
-        <button type="button" class="inline-flex size-12 items-center justify-center rounded-full border border-black/10 lg:hidden" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false" data-menu-toggle>
-          <svg data-menu-open-icon aria-hidden="true" class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg>
-          <svg data-menu-close-icon aria-hidden="true" class="hidden size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" d="m6 6 12 12M18 6 6 18"></path></svg>
-        </button>
-      </nav>
-
-      <div id="mobile-menu" class="absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-black/5 bg-white p-4 shadow-xl lg:hidden" hidden data-mobile-menu>
-        <ul class="space-y-1 font-semibold">
-          {navLinks.map((item) => (
-            <li>
-              {!item.children ? (
-                <a href={item.url} class="block min-h-12 rounded-lg px-4 py-3 hover:bg-gray-100 hover:text-primary">{item.title}</a>
-              ) : (
-                <details class="group">
-                  <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between rounded-lg px-4 py-3 hover:bg-gray-100">
-                    {item.title}
-                    <svg aria-hidden="true" class="size-4 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.25a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08Z" clip-rule="evenodd"></path></svg>
-                  </summary>
-                  <ul class="ml-4 border-l border-gray-200 pl-3">
-                    {item.children.map((child) => <li><a href={child.url} class="block min-h-11 rounded-lg px-4 py-3 text-sm hover:bg-gray-100 hover:text-primary">{child.title}</a></li>)}
-                  </ul>
-                </details>
-              )}
-            </li>
-          ))}
-        </ul>
-        <a href={ctaHref} target="_blank" rel="noopener noreferrer" class="mt-4 flex min-h-12 items-center justify-center rounded-full bg-primary px-5 py-3 font-bold text-white">{ctaButtonText}</a>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <slot />
-    </main>
-
-    <footer id="footer" class={`bg-black py-16 text-white lg:py-20 ${footerClass}`}>
-      <div class="mx-auto grid max-w-360 gap-12 px-6 lg:grid-cols-[1fr_1.5fr] lg:px-20">
-        <div class="flex flex-col items-center gap-6 text-center lg:items-start lg:text-left">
-          <img src="/svg/Logo-new.svg" width="267" height="32" alt="EyEagle — Preventing Falls, Saving Lives" class="h-8 w-66.75" loading="lazy" decoding="async" />
-          <div class="flex gap-3">
-            {[
-              { href: socialLinks.linkedin, label: "LinkedIn", text: "in" },
-              { href: socialLinks.instagram, label: "Instagram", text: "ig" },
-              { href: socialLinks.facebook, label: "Facebook", text: "f" },
-              { href: socialLinks.youtube, label: "YouTube", text: "▶" },
-            ].map((social) => (
-              <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.text}, Visit EyEagle on ${social.label}`} class="inline-flex size-11 items-center justify-center rounded-full border border-white/30 font-bold text-white hover:border-white hover:bg-white hover:text-black"><span aria-hidden="true">{social.text}</span></a>
-            ))}
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-10 sm:grid-cols-3">
-          {[
-            { heading: "Product", links: footerProductLinks },
-            { heading: "Company", links: footerCompanyLinks },
-            { heading: "Resources", links: footerPolicyLinks },
-          ].map((group) => (
-            <div>
-              <h2 class="mb-4 font-bold">{group.heading}</h2>
-              <ul class="space-y-3">
-                {group.links.map((item) => <li><a href={item.url} class="text-white/75 hover:text-white hover:underline">{item.title}</a></li>)}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      <p class="mt-16 px-6 text-center text-sm text-white/65">{footerCopyright}</p>
-    </footer>
+    <slot name="header" />
+    {showChrome && <SiteHeader solidAtTop actionHref={headerActionHref} actionLabel={headerActionLabel} variant="figmaHome" />}
+    {showChrome ? <main id="main-content" class="legacy-content"><slot /></main> : <slot />}
+    {showChrome && <SiteFooter />}
+    <slot name="footer" />
+    <SitePatterns />
 
     <script is:inline>
       const menuButton = document.querySelector("[data-menu-toggle]");
@@ -364,11 +268,31 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
 </html>
 
 <style is:global>
+  :root {
+    --type-display-family: "Faculty Glyphic", "Geist", Arial, sans-serif;
+    --type-body-family: "Geist", Arial, sans-serif;
+    --type-font-family: var(--type-body-family);
+    --type-weight-regular: 400; --type-weight-medium: 500;
+    --type-display-size: clamp(38px, 3.4vw, 48px); --type-display-line: clamp(43px, 3.9vw, 55px);
+    --type-h1-size: clamp(36px, 2.9vw, 42px); --type-h1-line: clamp(42px, 3.45vw, 50px);
+    --type-h2-size: clamp(28px, 2.25vw, 34px); --type-h2-line: clamp(35px, 2.85vw, 41px); --type-h3-size: clamp(22px, 1.667vw, 24px); --type-h3-line: 28px;
+    --type-h4-size: 18px; --type-h4-line: 24px; --type-body-xl-size: clamp(18px, 1.389vw, 20px); --type-body-xl-line: 26px;
+    --type-body-md-size: 16px; --type-body-md-line: 24px; --type-body-sm-size: 16px; --type-body-sm-line: 24px;
+    --type-body-xs-size: 14px; --type-body-xs-line: 20px;
+    --space-page-x: clamp(20px, 4vw, 56px); --space-section-y: clamp(96px, 7.6vw, 112px); --space-section-y-compact: clamp(72px, 6vw, 96px);
+    --content-max: 1180px; --reading-max: 640px;
+    --motion-duration-enter: 820ms; --motion-duration-reveal: 520ms; --motion-duration-ui: 180ms;
+    --motion-ease-enter: cubic-bezier(0.16, 1, 0.3, 1); --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1); --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --color-surface: #ffffff; --color-surface-muted: #f3f3f1; --color-surface-soft: #f7f7f4; --color-surface-dark: #000000; --color-surface-dark-soft: #111111;
+    --color-text: #0a0a0a; --color-text-muted: #6f6f6b; --color-text-soft: #62625e; --color-text-on-dark: #ffffff; --color-text-on-dark-muted: rgba(255,255,255,.72);
+    --color-line: #e5e5e2; --color-action: #d11f2b; --color-action-hover: #b91b25; --color-on-action: #ffffff; --color-focus: #315efb;
+  }
   html { scroll-behavior: smooth; }
-  body { font-family: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif; }
+  body { min-height: 100%; overflow-x: hidden; background: var(--color-surface); color: var(--color-text); font-family: var(--type-font-family); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   [hidden] { display: none !important; }
   summary::-webkit-details-marker { display: none; }
-  :focus-visible { outline: 2px solid #cc0000; outline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+  ::selection { background: var(--color-action); color: var(--color-on-action); }
   article img { border-radius: 16px; }
   .prose ul ul { list-style-type: circle; }
   .prose blockquote { margin: 2rem 0; border: 0; border-radius: 16px; background: #fbebeb; padding: 1.5rem; color: #262626; font-style: normal; }

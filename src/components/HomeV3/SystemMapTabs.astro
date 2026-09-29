@@ -1,0 +1,58 @@
+---
+import styles from "../../styles/HomeV3/system-map-tabs.module.css";
+import Image from "../common/OptimizedImage.astro";
+import insideImage from "../../assets/HomeV3/system-map-inside.png";
+import outsideImage from "../../assets/HomeV3/system-map-outside.png";
+---
+
+<section class={styles.section} aria-label="EyEagle hardware around the home" data-system-map>
+  <div class={styles.scene} data-system-map-scene>
+    <div class={styles.tabs} role="tablist" aria-label="System location" data-system-map-tabs>
+      <span aria-hidden="true" class={styles.indicator} data-system-map-indicator data-placement="inside"></span>
+      <button aria-controls="system-location-panel" aria-selected="true" class={styles.tab} id="system-location-inside" role="tab" tabindex="0" type="button" data-placement="inside">Inside</button>
+      <button aria-controls="system-location-panel" aria-selected="false" class={styles.tab} id="system-location-outside" role="tab" tabindex="-1" type="button" data-placement="outside">Outside</button>
+    </div>
+    <div aria-labelledby="system-location-inside" class={styles.imageFrame} data-system-map-frame data-placement="inside" id="system-location-panel" role="tabpanel">
+      <Image alt="EyEagle SOS button and bathroom hardware, with a locking mechanism on the door" class={styles.image} data-visible="true" data-placement="inside" layout="full-width" src={insideImage} />
+      <Image alt="EyEagle control and alarm hardware installed outside the bathroom" aria-hidden="true" class={styles.image} data-visible="false" data-placement="outside" layout="full-width" src={outsideImage} />
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector<HTMLElement>("[data-system-map]");
+  const tabList = section?.querySelector<HTMLElement>("[data-system-map-tabs]");
+  const tabs = Array.from(section?.querySelectorAll<HTMLButtonElement>('[role="tab"]') ?? []);
+  const images = Array.from(section?.querySelectorAll<HTMLImageElement>("[data-system-map-frame] img") ?? []);
+  const indicator = section?.querySelector<HTMLElement>("[data-system-map-indicator]");
+  const frame = section?.querySelector<HTMLElement>("[data-system-map-frame]");
+  let placement = "inside";
+
+  const setPlacement = (next: string, focus = false) => {
+    placement = next;
+    indicator?.setAttribute("data-placement", next);
+    frame?.setAttribute("data-placement", next);
+    frame?.setAttribute("aria-labelledby", `system-location-${next}`);
+    tabs.forEach((tab) => {
+      const selected = tab.dataset.placement === next;
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      if (selected && focus) tab.focus();
+    });
+    images.forEach((image) => {
+      const visible = image.dataset.placement === next;
+      image.dataset.visible = String(visible);
+      image.setAttribute("aria-hidden", String(!visible));
+    });
+  };
+
+  tabs.forEach((tab) => tab.addEventListener("click", () => setPlacement(tab.dataset.placement ?? "inside")));
+  tabList?.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === "Home") return setPlacement("inside", true);
+    if (event.key === "End") return setPlacement("outside", true);
+    setPlacement(placement === "inside" ? "outside" : "inside", true);
+  });
+  setPlacement("inside");
+</script>

@@ -1,0 +1,5 @@
+body.eyeagle-blog {
+  --blog-reading-width: 660px;
+  --blog-text-color: var(--color-text-soft);
+  --blog-heading-color: var(--color-text);
+}

@@ -21,7 +21,7 @@ const installImages = Astro.props.installImages;
   <div class="flex flex-col lg:flex-row gap-20 justify-center px-4">
     <!-- LEFT -->
     <div class="lg:sticky lg:top-32 lg:self-start max-w-115 py-6">
-      <h2 class="text-3xl md:text-5xl font-bold md:leading-14">
+      <h2 class="protection-section-title">
         {installSteps.title}
       </h2>
     </div>
@@ -34,12 +34,12 @@ const installImages = Astro.props.installImages;
             <Image
               src={installImages[i]}
               alt={card.title}
-              class="rounded-xl w-full"
+              class="protection-media w-full"
             />
 
             <div class="mt-10">
-              <h3 class="text-xl font-bold">{card.title}</h3>
-              <p class="text-base mt-2 opacity-70">{card.description}</p>
+              <h3 class="protection-card-title">{card.title}</h3>
+              <p class="protection-body protection-muted mt-2">{card.description}</p>
             </div>
           </div>
         ))
@@ -54,11 +54,11 @@ const installImages = Astro.props.installImages;
   >
     {
       installFeatures.map((item: FeatureItem) => (
-        <div class="max-w-full md:max-w-67.5 px-2 mx-auto">
-          <p class="text-primary text-xl md:text-2xl font-semibold">
+        <div class="protection-stat-item max-w-full md:max-w-67.5 px-2 mx-auto">
+          <p class="protection-stat protection-accent font-semibold">
             {item.title}
           </p>
-          <p class="mt-2 text-sm text-black opacity-60">{item.desc}</p>
+          <p class="protection-caption protection-muted mt-2">{item.desc}</p>
         </div>
       ))
     }

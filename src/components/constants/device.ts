@@ -22,10 +22,10 @@ export const heroContent = {
   description:
     "A simple, privacy-first bathroom alarm kit built for real Indian bathrooms that makes it easy to ask for help and alert your family, without cameras or complexity.",
   cta: {
-    text: "Join the waitlist",
-    href: "https://eyeagle.ai/join",
+    text: "Configure your kit",
+    href: "/store",
     helper:
-      "No payment now. We'll contact you when installs open in your city.",
+      "Choose your bathroom coverage. Installation availability is confirmed before fulfilment.",
   },
   images: {
     img1: HeroImage,
@@ -94,7 +94,7 @@ export const sections = [
   {
     eyebrow: "alarm unit",
     title:
-      "The Alarm Unit is the voice of Guardian X.<br/>SOS is triggered, it sounds an audible alert within the home.",
+      "The Alarm Unit is the voice of EyEagle.<br/>SOS is triggered, it sounds an audible alert within the home.",
     bullets: [
       "Loud, attention-grabbing siren",
       "Instant SOS pairing",

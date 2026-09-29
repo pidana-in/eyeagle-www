@@ -3,6 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const baseUrl = new URL(process.argv[2] || "http://127.0.0.1:4321");
 const inventory = JSON.parse(await readFile(new URL("../reports/site-inventory.json", import.meta.url), "utf8"));
 const routes = inventory.routes.filter((entry) => !entry.route.includes("["));
+const internalLinks = new Map();
 
 function matches(html, expression) {
   return [...html.matchAll(expression)].map((match) => match[1] ?? match[0]);
@@ -17,6 +18,16 @@ for (const entry of routes) {
   const requestUrl = new URL(entry.route, baseUrl);
   const response = await fetch(requestUrl, { redirect: "manual" });
   const html = await response.text();
+  if (entry.kind === "redirect") {
+    const location = response.headers.get("location") ?? "";
+    const issues = response.status < 300 || response.status >= 400
+      ? [`HTTP ${response.status}; expected redirect`]
+      : location !== "/inquiry"
+        ? [`redirect location ${location || "missing"}`]
+        : [];
+    results.push({ route: entry.route, source: entry.source, status: response.status, redirect: location, issues });
+    continue;
+  }
   const renderedHtml = html.replace(/<!--[\s\S]*?-->/g, "");
   const titles = matches(renderedHtml, /<title>([\s\S]*?)<\/title>/gi).map(stripHtml);
   const descriptions = matches(renderedHtml, /<meta\s+name="description"\s+content="([^"]*)"\s*\/?\s*>/gi);
@@ -33,6 +44,13 @@ for (const entry of routes) {
   const vagueLinks = [...renderedHtml.matchAll(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi)]
     .map((match) => ({ href: match[1], text: stripHtml(match[2]) }))
     .filter((link) => /^(?:click here|here|learn more|read|more|view all)$/i.test(link.text));
+  for (const href of matches(renderedHtml, /<a\b[^>]*href="([^"]+)"/gi)) {
+    if (/^(?:#|mailto:|tel:|javascript:)/i.test(href)) continue;
+    const url = new URL(href, requestUrl);
+    if (url.origin !== baseUrl.origin) continue;
+    url.hash = "";
+    internalLinks.set(url.toString(), [...(internalLinks.get(url.toString()) ?? []), entry.route]);
+  }
   const schemaBlocks = matches(renderedHtml, /<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi);
   const schemaErrors = [];
   const schemaTypes = new Set();
@@ -50,7 +68,8 @@ for (const entry of routes) {
 
   const expectedCanonical = new URL(entry.route === "/" ? "/" : entry.route.replace(/\/+$/, ""), "https://eyeagle.ai").toString();
   const issues = [];
-  if (response.status !== 200) issues.push(`HTTP ${response.status}`);
+  const expectedStatus = entry.route === "/404" ? 404 : 200;
+  if (response.status !== expectedStatus) issues.push(`HTTP ${response.status}; expected ${expectedStatus}`);
   if (titles.length !== 1 || !titles[0]) issues.push(`title count ${titles.length}`);
   if (descriptions.length !== 1 || !descriptions[0]) issues.push(`description count ${descriptions.length}`);
   if (canonicals.length !== 1 || canonicals[0] !== expectedCanonical) issues.push(`canonical ${canonicals.join(", ") || "missing"}`);
@@ -93,11 +112,17 @@ const duplicateValues = (field) => {
 
 const duplicateTitles = duplicateValues("title");
 const duplicateDescriptions = duplicateValues("description");
+const brokenInternalLinks = [];
+for (const [url, sources] of internalLinks) {
+  const response = await fetch(url, { redirect: "follow" });
+  if (response.status >= 400) brokenInternalLinks.push({ url, status: response.status, sources: [...new Set(sources)] });
+}
 const summary = {
   auditedRoutes: results.length,
   routesWithIssues: results.filter((result) => result.issues.length).length,
   duplicateTitles,
   duplicateDescriptions,
+  brokenInternalLinks,
 };
 
 await writeFile(new URL("../reports/rendered-site-audit.json", import.meta.url), JSON.stringify({ summary, results }, null, 2) + "\n");
@@ -108,6 +133,7 @@ const markdown = [
   `- Routes with issues: ${summary.routesWithIssues}`,
   `- Duplicate title groups: ${duplicateTitles.length}`,
   `- Duplicate description groups: ${duplicateDescriptions.length}`,
+  `- Broken internal links: ${brokenInternalLinks.length}`,
   "",
   ...results.filter((result) => result.issues.length).flatMap((result) => [
     `## ${result.route}`,
@@ -115,7 +141,14 @@ const markdown = [
     ...result.issues.map((issue) => `- ${issue}`),
     "",
   ]),
+  ...brokenInternalLinks.flatMap((link) => [
+    `## Broken link: ${link.url}`,
+    "",
+    `- HTTP ${link.status}`,
+    `- Found on: ${link.sources.join(", ")}`,
+    "",
+  ]),
 ];
 await writeFile(new URL("../reports/rendered-site-audit.md", import.meta.url), markdown.join("\n"));
 console.log(JSON.stringify(summary, null, 2));
-if (summary.routesWithIssues || duplicateTitles.length || duplicateDescriptions.length) process.exitCode = 1;
+if (summary.routesWithIssues || duplicateTitles.length || duplicateDescriptions.length || brokenInternalLinks.length) process.exitCode = 1;

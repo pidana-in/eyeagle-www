@@ -1,0 +1,16 @@
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-distance-reveal), 0);
+  transition:
+    opacity var(--motion-duration-reveal) var(--motion-ease-enter) var(--reveal-delay),
+    transform var(--motion-duration-reveal) var(--motion-ease-enter) var(--reveal-delay);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

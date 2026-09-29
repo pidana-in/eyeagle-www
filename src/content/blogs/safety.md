@@ -118,7 +118,7 @@ When it comes to **elderly safety**, the bathroom is one of the most overlooked 
 
 EyEagle focuses on <a href="/blogs/falls-kill-more-seniors-than-you-think" style="color:#CC0000; text-decoration:none;"> preventing accidents for elderly in bathrooms </a>, through a thoughtfully designed combination of support tools and manual alert systems. It’s ideal for families who want simple yet effective protection without relying on digital or complex technologies.
 
-- **Guardian-X Safety System**
+- **EyEagle Safety System**
 
   An alarm and emergency unit that includes:
   - An SOS button for quick help
@@ -141,7 +141,7 @@ EyEagle focuses on <a href="/blogs/falls-kill-more-seniors-than-you-think" style
 
 This combination of bathroom upgrades and 24/7 support makes EyEagle **one of the best safety products for aging parents in India**-especially those living alone.
 
-<a href="/solution"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
+<a href="/protection"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 

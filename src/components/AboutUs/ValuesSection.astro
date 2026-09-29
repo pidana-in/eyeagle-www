@@ -4,7 +4,7 @@ import { Values } from "../constants/aboutus";
 ---
 <section class="bg-[#F6F4F2]">
   <div class="px-6 font-sans-instrument sm:px-10 lg:px-20 py-10 sm:py-15 lg:py-25  grid grid-cols-1 lg:grid-cols-2 gap-10 xl:container">
-  <div class="rounded-lg  lg:bg-none p-6 bg-white  shadow-md lg:bg-transparent lg:shadow-none xl:container">
+  <div class="rounded-lg  lg:bg-none p-6 bg-[var(--color-surface)]  shadow-md lg:bg-transparent lg:shadow-none xl:container">
     <h2 class="text-[32px] sm:text-[36px] lg:text-[40px] text-gray-800 mb-4 font-semibold">
       {Values[0].title}
     </h2>
@@ -14,7 +14,7 @@ import { Values } from "../constants/aboutus";
   </div>
   <div class="grid grid-rows-3 gap-6">
     {Values.slice(1).map((value) => (
-      <div class="rounded-lg bg-white  shadow-md lg:bg-transparent lg:shadow-none p-6">
+      <div class="rounded-lg bg-[var(--color-surface)]  shadow-md lg:bg-transparent lg:shadow-none p-6">
         <h2 class="text-[24px] sm:text-[28px] lg:text-[32px] font-semibold text-gray-800 mb-3">
           {value.title}
         </h2>

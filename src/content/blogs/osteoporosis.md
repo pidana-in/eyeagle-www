@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-08-11
 ---
 
-# Osteoporosis in Indian Women: The Hidden Fall Risk After 50
 
 A small fall should not lead to a major fracture. Yet, this is a reality for many families across India. An elderly mother slips while getting out of bed. A grandmother loses her balance in the bathroom. What appears to be a minor accident suddenly turns into a fractured hip or spine. The family is left wondering how such a simple fall caused such a serious injury. In many cases, the answer is **osteoporosis**.
 

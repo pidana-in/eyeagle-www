@@ -63,7 +63,7 @@ Making small but meaningful changes at home can greatly reduce the risk of falls
 
 #### Bathroom Safety for the Elderly
 
-The bathroom is one of the highest-risk areas for falls due to wet, slippery surfaces. Seniors with arthritis often find it difficult to steady themselves while bending or stepping in and out of showers. Installing grab bars for bathroom safety, using non-slip bathroom flooring or mats, and adding shower chairs can provide much-needed support. Products like the <a href="/solution" style="color:#CC0000; text-decoration:none;">EyEagle Bathroom Safety Kit</a> make these upgrades easier and more accessible for families. Simple solutions like raised toilet seats can also ease strain on painful joints.
+The bathroom is one of the highest-risk areas for falls due to wet, slippery surfaces. Seniors with arthritis often find it difficult to steady themselves while bending or stepping in and out of showers. Installing grab bars for bathroom safety, using non-slip bathroom flooring or mats, and adding shower chairs can provide much-needed support. Products like the <a href="/protection" style="color:#CC0000; text-decoration:none;">EyEagle Bathroom Safety Kit</a> make these upgrades easier and more accessible for families. Simple solutions like raised toilet seats can also ease strain on painful joints.
 
 **Also Read:** <a href="/blogs/step-by-step-bathroom-safety-tips-for-seniors" style="color:#CC0000; text-decoration:none;">How to Make Any Bathroom Senior-Safe</a>
 
