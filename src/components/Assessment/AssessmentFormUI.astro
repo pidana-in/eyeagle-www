@@ -38,15 +38,21 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
           id="submitErrorBanner"
           class="assessment-alert assessment-alert-error hidden"
           role="alert"
-        ></div>
+        >
+        </div>
 
         <form method="POST" id="assessmentForm" class="assessment-form">
-          <section class="assessment-form-section" aria-labelledby="details-heading">
+          <section
+            class="assessment-form-section"
+            aria-labelledby="details-heading"
+          >
             <div class="assessment-section-heading">
               <span aria-hidden="true">01</span>
               <div>
                 <h2 id="details-heading">Your details</h2>
-                <p>Tell us how to reach you and which home we should discuss.</p>
+                <p>
+                  Tell us how to reach you and which home we should discuss.
+                </p>
               </div>
             </div>
 
@@ -82,7 +88,11 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
                     aria-expanded="false"
                     class="assessment-country-button"
                   >
-                    <span id="countryIcon" class="assessment-country-chevron" aria-hidden="true">
+                    <span
+                      id="countryIcon"
+                      class="assessment-country-chevron"
+                      aria-hidden="true"
+                    >
                       <MaterialIcon name="expand_more" />
                     </span>
                   </button>
@@ -137,6 +147,25 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
               </div>
 
               <div class="assessment-field assessment-field-wide">
+                <label for="emailField">
+                  Email Address<span aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="emailField"
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email Address"
+                  required
+                  autocomplete="email"
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                  class="assessment-input"
+                />
+                <p id="emailError" class="assessment-error hidden">
+                  Please enter a valid email address
+                </p>
+              </div>
+
+              <div class="assessment-field assessment-field-wide">
                 <label for="siteLocation">Site name or location</label>
                 <input
                   id="siteLocation"
@@ -150,18 +179,25 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
             </div>
           </section>
 
-          <section class="assessment-form-section" aria-labelledby="safety-heading">
+          <section
+            class="assessment-form-section"
+            aria-labelledby="safety-heading"
+          >
             <div class="assessment-section-heading">
               <span aria-hidden="true">02</span>
               <div>
                 <h2 id="safety-heading">Safety context</h2>
-                <p>Share what is happening at home and where support may help.</p>
+                <p>
+                  Share what is happening at home and where support may help.
+                </p>
               </div>
             </div>
 
             <fieldset class="assessment-question">
               <legend>
-                Who are you considering EyeEagle for?<span aria-hidden="true">*</span>
+                Who are you considering EyeEagle for?<span aria-hidden="true"
+                  >*</span
+                >
               </legend>
               <div class="assessment-choice-list assessment-choice-list-two">
                 {
@@ -185,7 +221,9 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
 
             <fieldset class="assessment-question">
               <legend>
-                What is your main safety concern?<span aria-hidden="true">*</span>
+                What is your main safety concern?<span aria-hidden="true"
+                  >*</span
+                >
               </legend>
               <div class="assessment-choice-list assessment-choice-list-two">
                 {
@@ -211,7 +249,9 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
               <legend>
                 Any immediate safety concern?<span aria-hidden="true">*</span>
               </legend>
-              <div class="assessment-choice-list assessment-choice-list-compact">
+              <div
+                class="assessment-choice-list assessment-choice-list-compact"
+              >
                 {
                   immediateSafetyConcernOptions.map((option) => (
                     <label class="assessment-choice">
@@ -230,23 +270,30 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
             </fieldset>
 
             <div class="assessment-field">
-              <label for="concernDescription">Brief description of concern</label>
+              <label for="concernDescription"
+                >Brief description of concern</label
+              >
               <textarea
                 id="concernDescription"
                 name="concernDescription"
                 rows="5"
                 placeholder="Add any context that would help our team understand the space"
-                class="assessment-input assessment-textarea"
-              ></textarea>
+                class="assessment-input assessment-textarea"></textarea>
             </div>
           </section>
 
-          <section class="assessment-form-section assessment-form-section-last" aria-labelledby="next-heading">
+          <section
+            class="assessment-form-section assessment-form-section-last"
+            aria-labelledby="next-heading"
+          >
             <div class="assessment-section-heading">
               <span aria-hidden="true">03</span>
               <div>
                 <h2 id="next-heading">Preferred next step</h2>
-                <p>Choose what would be most useful and when we should contact you.</p>
+                <p>
+                  Choose what would be most useful and when we should contact
+                  you.
+                </p>
               </div>
             </div>
 
@@ -324,14 +371,19 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
                 class={choiceControlClass}
               />
               <span>
-                I agree to be contacted about this request.<span aria-hidden="true">*</span>
+                I agree to be contacted about this request.<span
+                  aria-hidden="true">*</span
+                >
                 <small>Required</small>
               </span>
             </label>
 
             <button type="submit" id="submitButton" class="assessment-submit">
               <span id="buttonText">Submit assessment</span>
-              <MaterialIcon name="arrow_forward" classNames="assessment-submit-arrow" />
+              <MaterialIcon
+                name="arrow_forward"
+                classNames="assessment-submit-arrow"
+              />
               <div id="loader" class="hidden assessment-loader">
                 <div class="spinner"></div>
               </div>
