@@ -74,6 +74,7 @@ import blogImage38 from "../../assets/Blog/BlogImage38.png";
 import blogImage39 from "../../assets/Blog/BlogImage39.png";
 import blogImage40 from "../../assets/Blog/BlogImage40.png";
 import blogImage41 from "../../assets/Blog/BlogImage41.png";
+import blogImage42 from "../../assets/Blog/BlogImage42.png";
 
 export const bathroomData = [
   {
@@ -422,7 +423,7 @@ export const blogsData = [
     slug: "diabetes-and-falls-in-elderly",
     title: "Diabetes and Falls in Elderly: Fall Risk & Home Safety",
     desc: "Learn how diabetes and falls in elderly are connected, how diabetes increases fall risk, and how to make a diabetic parent's home safer.",
-    img: blogImage41,
+    img: blogImage42,
   },
 ];
 

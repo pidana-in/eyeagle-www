@@ -1600,6 +1600,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
+        "src/components/constants/home.ts",
         "src/content/blogs/diabetes.md"
       ]
     },
