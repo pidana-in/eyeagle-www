@@ -23,7 +23,7 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat("en-IN", { day: "nume
 const articleHref = (article: CollectionEntry<"blogs">) => `/blogs/${article.data.slug ?? article.id}`;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} schemaType="CollectionPage" showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+<MainLayout socialCard="blog" title={metaTitle} desc={metaDesc} schemaType="CollectionPage" showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
   <SiteHeader slot="header" solidAtTop />
   <main class={styles.main} id="main-content">
     {featured && (

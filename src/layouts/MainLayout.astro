@@ -1,6 +1,4 @@
 ---
-import { getImage } from "astro:assets";
-import defaultSocialSource from "../assets/NewHome/HomeImage.png";
 import {
   siteMeta,
   socialLinks,
@@ -26,6 +24,8 @@ interface Props {
   title?: string;
   desc?: string;
   metaImage?: string;
+  /** A generated 1200 x 630 card in public/og/ (scripts/generate-og-images.mjs), e.g. "store". Defaults to "default". */
+  socialCard?: string;
   metaImageAlt?: string;
   metaImageWidth?: number;
   metaImageHeight?: number;
@@ -44,6 +44,7 @@ const {
   title = siteMeta.title,
   desc = siteMeta.description,
   metaImage,
+  socialCard = "default",
   metaImageAlt = siteMeta.defaultSocialImageAlt,
   metaImageWidth,
   metaImageHeight,
@@ -63,15 +64,7 @@ const routePath = rawPath.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
 const normalizedPath = routePath === "/" ? "/" : routePath.replace(/\/+$/, "");
 const canonicalUrl = new URL(normalizedPath, site).toString();
 
-const defaultSocialImage = await getImage({
-  src: defaultSocialSource,
-  width: 1200,
-  height: 630,
-  fit: "cover",
-  format: "jpg",
-  quality: 82,
-});
-const socialImageUrl = new URL(metaImage || defaultSocialImage.src, site).toString();
+const socialImageUrl = new URL(metaImage || `/og/${socialCard}.jpg`, site).toString();
 const socialImageWidth = metaImageWidth ?? (metaImage ? undefined : 1200);
 const socialImageHeight = metaImageHeight ?? (metaImage ? undefined : 630);
 
