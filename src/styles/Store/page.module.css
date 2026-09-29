@@ -43,10 +43,12 @@
 .layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(340px,400px); grid-template-areas:"gallery intro" "gallery options"; grid-template-rows:auto 1fr; column-gap:clamp(32px,4vw,64px); row-gap:36px; align-items:start; width:min(1440px,100%); margin:0 auto; padding:24px var(--store-page-x) 96px; }
 .gallery { grid-area:gallery; position:sticky; top:calc(var(--store-sticky-top) + 20px); display:flex; flex-direction:column; gap:14px; height:calc(100svh - var(--store-sticky-top) - var(--store-dock-space) - 20px); min-height:460px; max-height:860px; transition:top .28s ease; }
 .galleryStage { position:relative; flex:1; min-height:0; overflow:hidden; border-radius:24px; background:#e8e5df; }
-.galleryPanel { position:absolute; inset:0; animation:panelIn .45s cubic-bezier(.2,.65,.3,1); }
-.galleryPanel[hidden] { display:none; }
+/* Photos are stacked and crossfade, so the next one is already loaded when its section is reached. */
+.galleryPanel { position:absolute; inset:0; opacity:0; transform:scale(1.03); transition:opacity .7s cubic-bezier(.4,0,.2,1),transform 1.2s cubic-bezier(.2,.65,.3,1); }
+.galleryPanel[data-active="true"] { opacity:1; transform:scale(1); }
 .galleryImage { width:100%; height:100%; object-fit:cover; }
-.galleryCaption { position:absolute; right:0; bottom:0; left:0; padding:80px 28px 24px; color:#fff; background:linear-gradient(transparent,rgba(0,0,0,.55)); font-size:18px; line-height:26px; }
+.galleryCaption[data-fading="true"] { opacity:0; }
+.galleryCaption { z-index:1; transition:opacity .22s ease; position:absolute; right:0; bottom:0; left:0; padding:80px 28px 24px; color:#fff; background:linear-gradient(transparent,rgba(0,0,0,.55)); font-size:18px; line-height:26px; }
 .galleryControls { display:flex; align-items:center; justify-content:center; gap:10px; }
 .galleryArrow { display:grid; width:36px; height:36px; place-items:center; padding:0 0 2px; border:0; border-radius:50%; color:#3a3733; background:var(--store-soft); cursor:pointer; font-size:22px; line-height:1; }
 .galleryArrow:hover { background:#e9e6e0; }
@@ -55,6 +57,7 @@
 .galleryDots span { width:7px; height:7px; border-radius:99px; background:#b9b5ae; transition:width .2s ease,background .2s ease; }
 .galleryDots [aria-pressed="true"] span { width:18px; background:var(--store-ink); }
 
+.groupMedia { display:none; }
 .options { grid-area:options; display:flex; flex-direction:column; gap:52px; }
 .group { display:flex; flex-direction:column; gap:14px; min-width:0; margin:0; padding:0; border:0; }
 .groupTitle { float:left; width:100%; margin-bottom:6px; padding:0; color:var(--store-muted); font-family:var(--type-v4-display-family); font-size:26px; font-weight:var(--type-v4-display-weight,400); line-height:32px; letter-spacing:-.015em; }
@@ -120,13 +123,15 @@ a.help:hover .helpMuted { color:var(--store-red); }
 .finePrint { color:#8b8882; font-size:12.5px; line-height:19px; }
 
 .main :is(a,button,summary):focus-visible { outline:2px solid var(--store-red); outline-offset:3px; }
-@keyframes panelIn { from { opacity:.4; transform:scale(1.01); } to { opacity:1; transform:scale(1); } }
 
 @media (max-width:1023px) {
   .intro { padding-top:12px; }
   .layout { grid-template-columns:1fr; grid-template-areas:"intro" "gallery" "options"; grid-template-rows:auto; row-gap:28px; padding-bottom:72px; }
   .gallery { position:relative; top:auto; height:auto; min-height:0; max-height:none; }
   .galleryStage { flex:none; aspect-ratio:4 / 3; }
+  /* Without a sticky gallery, each section carries its own photo, as on Apple's mobile buy pages. */
+  .groupMedia { display:block; overflow:hidden; aspect-ratio:4 / 3; margin-bottom:6px; border-radius:18px; background:#e8e5df; }
+  .groupMediaImage { width:100%; height:100%; object-fit:cover; }
   .options { gap:52px; max-width:640px; padding-top:0; }
   .summaryInner { grid-template-columns:1fr; gap:36px; padding-block:56px 64px; }
   .summaryAction { max-width:520px; }
@@ -151,6 +156,6 @@ a.help:hover .helpMuted { color:var(--store-red); }
   .galleryCaption { padding:56px 18px 16px; font-size:16px; line-height:23px; }
 }
 @media (prefers-reduced-motion:reduce) {
-  .galleryPanel { animation:none; }
+  .galleryPanel { transform:none; transition:opacity .2s linear; }
   .main * { transition:none!important; }
 }

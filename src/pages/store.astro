@@ -135,7 +135,7 @@ const faqItems = [
       <section class={styles.gallery} aria-label="EyEagle system photos">
         <div class={styles.galleryStage}>
           {panels.map((panel, index) => (
-            <div class={styles.galleryPanel} data-gallery-panel={index} hidden={index !== 0}>
+            <div class={styles.galleryPanel} aria-hidden={index === 0 ? undefined : "true"} data-active={String(index === 0)} data-gallery-panel={index}>
               <Image alt={panel.alt} class={styles.galleryImage} fetchpriority={index === 0 ? "high" : "auto"} layout="full-width" loading={index === 0 ? "eager" : "lazy"} quality={90} src={panel.image} />
             </div>
           ))}
@@ -177,6 +177,7 @@ const faqItems = [
 
         <fieldset class={styles.group} data-gallery-target="3">
           <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many do they use?</legend>
+          <div class={styles.groupMedia}><Image alt={panels[3].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[3].image} /></div>
           <div class={styles.tiles}>
             {bathroomOptions.map((option) => (
               <label class={styles.tile}>
@@ -197,6 +198,7 @@ const faqItems = [
 
         <fieldset class={styles.group} data-gallery-target="1">
           <legend class={styles.groupTitle}><strong>Extra Alert Units.</strong> SOS beyond the bathroom.</legend>
+          <div class={styles.groupMedia}><Image alt={panels[1].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[1].image} /></div>
           <div class={styles.tiles}>
             {sosOptions.map((option) => (
               <label class={styles.tile}>
@@ -217,6 +219,7 @@ const faqItems = [
 
         <section class={styles.group} aria-labelledby="membership-title" data-gallery-target="2">
           <h2 class={styles.groupTitle} id="membership-title"><strong>Membership.</strong> Response, included.</h2>
+          <div class={styles.groupMedia}><Image alt={panels[2].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[2].image} /></div>
           <div class={styles.membershipCard}>
             <span class={styles.badge}>Included</span>
             <h3>Three years of membership</h3>
@@ -293,11 +296,23 @@ const faqItems = [
   }
 
   let currentPanel = 0;
+  let captionTimer = 0;
   const showPanel = (index: number) => {
     currentPanel = (index + panels.length) % panels.length;
-    panels.forEach((panel, panelIndex) => { panel.hidden = panelIndex !== currentPanel; });
+    panels.forEach((panel, panelIndex) => {
+      panel.dataset.active = String(panelIndex === currentPanel);
+      panel.toggleAttribute("aria-hidden", panelIndex !== currentPanel);
+    });
     dots.forEach((dot, dotIndex) => dot.setAttribute("aria-pressed", String(dotIndex === currentPanel)));
-    if (caption) caption.textContent = captions[currentPanel];
+    if (caption && caption.textContent !== captions[currentPanel]) {
+      // Fade the caption out, swap the text, then fade back in alongside the photo crossfade.
+      caption.dataset.fading = "true";
+      window.clearTimeout(captionTimer);
+      captionTimer = window.setTimeout(() => {
+        caption.textContent = captions[currentPanel];
+        caption.dataset.fading = "false";
+      }, 220);
+    }
   };
   dots.forEach((dot) => dot.addEventListener("click", () => showPanel(Number(dot.dataset.galleryDot))));
   document.querySelectorAll<HTMLButtonElement>("[data-gallery-step]").forEach((button) => {
@@ -386,19 +401,30 @@ const faqItems = [
     }
   });
 
-  // Keep the price bar and its checkout in view from page load until the summary, which has its own checkout.
-  // A scroll check rather than IntersectionObserver: a fast fling can skip past the summary without a crossing.
-  if (bar && summarySection) {
-    let frame = 0;
-    const syncBar = () => {
-      frame = 0;
-      bar.dataset.visible = String(summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
-    };
-    const requestSync = () => { if (!frame) frame = requestAnimationFrame(syncBar); };
-    window.addEventListener("scroll", requestSync, { passive: true });
-    window.addEventListener("resize", requestSync);
-    syncBar();
-  }
+  // On scroll: keep the price bar in view until the summary (which has its own checkout), and on desktop,
+  // where the gallery is sticky, show the photo for the section being read, like Apple's buy pages.
+  // A scroll check rather than IntersectionObserver: a fast fling can skip past a section without a crossing.
+  const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-target]"));
+  const stickyGallery = window.matchMedia("(min-width: 1024px)");
+  let sectionPanel = -1;
+  let frame = 0;
+  const syncOnScroll = () => {
+    frame = 0;
+    if (bar && summarySection) bar.dataset.visible = String(summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
+    if (!stickyGallery.matches || !sections.length) return;
+    const readingLine = window.innerHeight * 0.45;
+    const reading = sections.filter((section) => section.getBoundingClientRect().top <= readingLine).at(-1) ?? sections[0];
+    const target = Number(reading.dataset.galleryTarget);
+    // Only switch when the section changes, so arrows and dots still work within a section.
+    if (target !== sectionPanel) {
+      sectionPanel = target;
+      showPanel(target);
+    }
+  };
+  const requestSync = () => { if (!frame) frame = requestAnimationFrame(syncOnScroll); };
+  window.addEventListener("scroll", requestSync, { passive: true });
+  window.addEventListener("resize", requestSync);
+  syncOnScroll();
 
   updateConfiguration({ syncUrl: false });
 </script>
