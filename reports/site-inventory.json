@@ -66,6 +66,11 @@
       "kind": "blog"
     },
     {
+      "route": "/blogs/diabetes-and-falls-in-elderly",
+      "source": "src/content/blogs/diabetes.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/diet-and-nutrition-in-healthy-aging",
       "source": "src/content/blogs/diet.md",
       "kind": "blog"
@@ -203,6 +208,11 @@
     {
       "route": "/blogs/that-missed-call-on-a-winter-morning",
       "source": "src/content/blogs/missedCall.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/the-cost-of-a-senior-fall-in-india",
+      "source": "src/content/blogs/cost-of-fall.md",
       "kind": "blog"
     },
     {
@@ -1649,6 +1659,148 @@
       ]
     },
     {
+      "file": "src/assets/Blog/BlogImage41.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 1146298,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-1.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2204556,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-2.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2348746,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-3.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2383221,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage41Info-4.png",
+      "format": "png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 1421971,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 1307347,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1398803,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1163450,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1379471,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-4.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1490153,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
       "file": "src/assets/Blog/BlogImage5.jpg",
       "format": "jpeg",
       "width": 2124,
@@ -1805,6 +1957,18 @@
       "references": [
         "src/components/constants/home.ts"
       ]
+    },
+    {
+      "file": "src/assets/Brand/eyeagle-site-og.png",
+      "format": "png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1984526,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Cart/productImage.png",
@@ -7038,11 +7202,6 @@
   ],
   "links": [
     {
-      "source": "src/components/AppSection/BackupSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/AppSection/HeroSection.astro",
       "href": "#",
       "external": false
@@ -7078,24 +7237,9 @@
       "external": false
     },
     {
-      "source": "src/components/Home/BathroomSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/Home/Blogs.astro",
       "href": "/blog",
       "external": false
-    },
-    {
-      "source": "src/components/Home/Blogs.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/Blogs.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
     },
     {
       "source": "src/components/Home/CircleMembership.astro",
@@ -7121,16 +7265,6 @@
       "source": "src/components/Home/DesireSection.astro",
       "href": "/inquiry",
       "external": false
-    },
-    {
-      "source": "src/components/Home/DesireSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/FatherSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
     },
     {
       "source": "src/components/Home/OurTeamSection.astro",
@@ -7203,11 +7337,6 @@
       "external": false
     },
     {
-      "source": "src/components/Home/YogaSection.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
       "source": "src/components/HomeV3/SiteFooter.astro",
       "href": "/",
       "external": false
@@ -7236,16 +7365,6 @@
       "source": "src/components/NewHome/StepsSection.astro",
       "href": "/inquiry",
       "external": false
-    },
-    {
-      "source": "src/components/NewHome/Testimonials.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
-    },
-    {
-      "source": "src/components/NewHome/Testimonials.astro",
-      "href": "http://www.w3.org/2000/svg",
-      "external": true
     },
     {
       "source": "src/components/Protection/Benefits.astro",
@@ -7533,6 +7652,26 @@
       "external": false
     },
     {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/blogs/balance-problems-in-elderly",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/cost-of-fall.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
       "source": "src/content/blogs/critical.md",
       "href": "/",
       "external": false
@@ -7615,6 +7754,66 @@
     {
       "source": "src/content/blogs/day-Dad-fell.md",
       "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/importance-of-regular-vision-checks",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/solution",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/importance-of-regular-vision-checks",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/solution",
       "external": true
     },
     {

@@ -1,0 +1,185 @@
+/*
+ * Full-bleed chapter: the photograph and its headline stay pinned while the
+ * supporting points arrive one at a time, scrubbed by the section's own
+ * scroll progress.
+ */
+
+.scene {
+  position: relative;
+  background: #000;
+  color: #fff;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  min-height: 92svh;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(64px, 10vh, 132px);
+  overflow: hidden;
+  padding:
+    clamp(88px, 13vh, 148px)
+    calc(var(--space-page-x) + clamp(0px, calc((100vw - 760px) * .1), 60px))
+    clamp(56px, 8vh, 96px);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform-origin: center;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .62) 0%,
+    rgba(0, 0, 0, .22) 34%,
+    rgba(0, 0, 0, .28) 62%,
+    rgba(0, 0, 0, .78) 100%
+  );
+}
+
+.heading,
+.details {
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
+  display: flex;
+  width: min(840px, 100%);
+  flex-direction: column;
+  gap: var(--space-copy-gap);
+}
+
+.heading h2 {
+  font-size: var(--type-h1-size);
+  font-weight: var(--type-weight-regular);
+  line-height: var(--type-h1-line);
+  letter-spacing: var(--type-letter-spacing-tight);
+}
+
+.heading p {
+  color: rgba(255, 255, 255, .78);
+  font-size: var(--type-body-md-size);
+  line-height: var(--type-body-md-line);
+}
+
+.details {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 70px);
+}
+
+.detail {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail h3 {
+  font-size: var(--type-h4-size);
+  font-weight: var(--type-weight-medium);
+  line-height: var(--type-h4-line);
+  letter-spacing: var(--type-letter-spacing);
+}
+
+.detail p {
+  color: rgba(255, 255, 255, .72);
+  font-size: var(--type-body-sm-size);
+  line-height: var(--type-body-sm-line);
+}
+
+/* ------------------------------------------------- pinned, scrubbed state */
+
+.scene[data-scene-active="true"] {
+  height: 190svh;
+}
+
+.scene[data-scene-active="true"] .stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 0;
+}
+
+/* Photograph eases out of an overscale as the chapter arrives, then drifts
+   back in a little while it is held. */
+.scene[data-scene-active="true"] .media img {
+  transform: scale(
+    calc(
+      1
+      + (var(--motion-scene-zoom) - 1) * (1 - var(--scene-enter))
+      + .05 * var(--scene-progress)
+    )
+  );
+}
+
+.scene[data-scene-active="true"] .detail {
+  /* Scrubbed by scroll, so the reveal transition must not smear it. */
+  transition: none;
+  --detail-window: .2;
+  --detail-t: clamp(
+    0,
+    calc((var(--scene-progress) - var(--detail-start)) / var(--detail-window)),
+    1
+  );
+  opacity: var(--detail-t);
+  transform: translate3d(0, calc((1 - var(--detail-t)) * 28px), 0);
+}
+
+.scene[data-scene-active="true"] .detail:nth-child(1) { --detail-start: .06; }
+.scene[data-scene-active="true"] .detail:nth-child(2) { --detail-start: .2; }
+.scene[data-scene-active="true"] .detail:nth-child(3) { --detail-start: .34; }
+.scene[data-scene-active="true"] .detail:nth-child(4) { --detail-start: .48; }
+
+/* ------------------------------------------------------------- narrow view */
+
+@media (max-width: 1000px) {
+  .details { gap: 32px; }
+}
+
+@media (max-width: 760px) {
+  .stage {
+    display: grid;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 0;
+  }
+
+  .media {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .shade { display: none; }
+
+  .heading {
+    width: 100%;
+    gap: 16px;
+    padding: 36px 20px 0;
+  }
+
+  .heading p { color: rgba(255, 255, 255, .74); }
+
+  .details {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 34px 20px 52px;
+  }
+}

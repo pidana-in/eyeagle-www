@@ -1,5 +1,6 @@
 ---
 import Image from "../common/OptimizedImage.astro";
+import MaterialIcon from "../common/MaterialIcon.astro";
 
 const backupSection = Astro.props.backupSection;
 ---
@@ -26,21 +27,7 @@ const backupSection = Astro.props.backupSection;
       <p
         class="flex gap-2 text-primary text-base font-medium italic md:mt-auto my-4 items-center"
       >
-        <!-- Red warning icon -->
-        <svg
-          class="w-4 h-4 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="12" r="12" fill="#CC0000"></circle>
-          <path
-            d="M12 6v8"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"></path>
-          <circle cx="12" cy="18" r="1.5" fill="white"></circle>
-        </svg>
+        <MaterialIcon name="error" classNames="w-4 h-4 shrink-0" />
         <span>{backupSection.warning}</span>
       </p>
     </div>

@@ -1,0 +1,44 @@
+---
+import type { ImageMetadata } from "astro";
+import Image from "../common/OptimizedImage.astro";
+import styles from "../../styles/HomeV3/feature-scene.module.css";
+
+interface Detail {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  headingId: string;
+  title: string;
+  description: string;
+  details: readonly Detail[];
+}
+
+const { image, alt, headingId, title, description, details } = Astro.props as Props;
+---
+
+<section class={styles.scene} aria-labelledby={headingId} data-scene data-feature-scene>
+  <div class={styles.stage}>
+    <div class={styles.media}>
+      <Image alt={alt} layout="full-width" src={image} />
+    </div>
+    <div class={styles.shade}></div>
+
+    <div class={styles.heading} data-reveal>
+      <h2 id={headingId} set:html={title} />
+      <p>{description}</p>
+    </div>
+
+    <div class={styles.details}>
+      {details.map((detail) => (
+        <article class={styles.detail} data-reveal>
+          <h3>{detail.title}</h3>
+          <p>{detail.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

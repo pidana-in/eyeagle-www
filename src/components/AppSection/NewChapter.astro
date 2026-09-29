@@ -94,7 +94,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
 
       let activeIndex = Math.floor(total / 2);
 
-      // ✅ handle mobile resize properly
+      // Handle mobile resize properly.
       function recalc() {
         setPosition(activeIndex, false);
       }
@@ -135,7 +135,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
         const item = items[index];
         const itemRect = item.getBoundingClientRect();
 
-        // 🔥 REAL CENTER ALIGNMENT (pixel accurate)
+        // Keep the active item centered to the pixel.
         const offset =
           item.offsetTop - parent.clientHeight / 2 + itemRect.height / 2;
 
@@ -152,7 +152,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
         setPosition(activeIndex);
         updateStyles();
 
-        // ✅ FIXED LOOP (center-safe, works on mobile)
+        // Center-safe loop that works on mobile.
         if (activeIndex >= total + Math.floor(total / 2)) {
           setTimeout(() => {
             container.style.transition = "none";
@@ -169,7 +169,7 @@ const chapterSection = Astro.props.chapterSection as ChapterSection;
         }
       }
 
-      // ✅ correct initial state (centered)
+      // Set the centered initial state.
       setPosition(activeIndex, false);
       updateStyles();
 

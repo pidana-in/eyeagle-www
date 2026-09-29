@@ -1,0 +1,92 @@
+/*
+ * Shared scroll choreography.
+ *
+ * Two primitives:
+ *   [data-reveal]  — one-shot entrance, driven by IntersectionObserver.
+ *   [data-scene]   — pinned section that publishes its scroll progress as a
+ *                    custom property so CSS can scrub the content.
+ *
+ * Everything below is gated on `html[data-motion="on"]`, which an inline head
+ * script sets only when scripting is available and motion is welcome. Without
+ * it the page renders plain and fully visible.
+ */
+
+@property --scene-progress {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --scene-enter {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --scene-exit {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+:root {
+  --motion-reveal-duration: 880ms;
+  --motion-reveal-distance: 24px;
+  --motion-reveal-step: 110ms;
+  --motion-ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  /* Anchor targets clear the fixed header instead of hiding behind it. */
+  scroll-padding-top: 88px;
+}
+
+/* ---------------------------------------------------------------- reveal */
+
+html[data-motion="on"] [data-reveal],
+html[data-motion="on"] [data-reveal-group] > * {
+  transition:
+    opacity var(--motion-reveal-duration) var(--motion-ease-reveal),
+    transform var(--motion-reveal-duration) var(--motion-ease-reveal);
+}
+
+html[data-motion="on"] [data-reveal]:not([data-reveal-visible="true"]) {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-reveal-distance), 0);
+}
+
+html[data-motion="on"] [data-reveal="scale"]:not([data-reveal-visible="true"]) {
+  transform: translate3d(0, var(--motion-reveal-distance), 0) scale(0.985);
+}
+
+html[data-motion="on"] [data-reveal="fade"]:not([data-reveal-visible="true"]) {
+  transform: none;
+}
+
+/* Children of a group enter one after another. */
+html[data-motion="on"] [data-reveal-group] > * {
+  transition-delay: calc(var(--motion-reveal-step) * var(--reveal-index, 0));
+}
+
+html[data-motion="on"] [data-reveal-group]:not([data-reveal-visible="true"]) > * {
+  opacity: 0;
+  transform: translate3d(0, var(--motion-reveal-distance), 0);
+}
+
+html[data-motion="on"] [data-reveal-group] > *:nth-child(1) { --reveal-index: 0; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(2) { --reveal-index: 1; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(3) { --reveal-index: 2; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(4) { --reveal-index: 3; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(5) { --reveal-index: 4; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(6) { --reveal-index: 5; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(7) { --reveal-index: 6; }
+html[data-motion="on"] [data-reveal-group] > *:nth-child(8) { --reveal-index: 7; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

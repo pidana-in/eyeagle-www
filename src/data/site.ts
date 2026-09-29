@@ -18,7 +18,6 @@ export const navLinks = [
     children: [
       { title: "EyEagle", url: "/device" },
       { title: "Protection", url: "/protection" },
-      { title: "App", url: "/app" },
     ],
   },
   // { title: "Shop", url: "https://shop.eyeagle.ai/" },
@@ -44,7 +43,6 @@ export const footerProductLinks = [
   },
   { title: "EyEagle", url: "/device" },
   { title: "Protection", url: "/protection" },
-  { title: "EyEagle App", url: "/app" },
 ];
 
 export const footerCompanyLinks = [

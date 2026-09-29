@@ -1,6 +1,6 @@
 {
   "summary": {
-    "auditedRoutes": 66,
+    "auditedRoutes": 68,
     "routesWithIssues": 0,
     "duplicateTitles": [],
     "duplicateDescriptions": [],
@@ -110,7 +110,7 @@
       "canonical": "https://eyeagle.ai/blog",
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
-        "You Track Food Deliveries - But Are Your Parents Safe at Home?"
+        "Diabetes and Falls in Elderly: Fall Risk Home Safety"
       ],
       "schemaTypes": [
         "Organization",
@@ -271,6 +271,29 @@
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
         "Caring From Distance: An NRI’s Parent Care Story"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/diabetes-and-falls-in-elderly",
+      "source": "src/content/blogs/diabetes.md",
+      "status": 200,
+      "title": "Diabetes and Falls in Elderly: Fall Risk Home Safety",
+      "description": "Learn how diabetes and falls in elderly are connected, how diabetes increases fall risk, and how to make a diabetic parent's home safer.",
+      "canonical": "https://eyeagle.ai/blogs/diabetes-and-falls-in-elderly",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "Diabetes and Falls in Elderly: Fall Risk Home Safety"
       ],
       "schemaTypes": [
         "Organization",
@@ -915,6 +938,29 @@
       "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       "h1s": [
         "That Missed Call on a Winter Morning"
+      ],
+      "schemaTypes": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "BlogPosting"
+      ],
+      "imagesMissingAlt": 0,
+      "headingJumps": [],
+      "vagueLinks": [],
+      "issues": []
+    },
+    {
+      "route": "/blogs/the-cost-of-a-senior-fall-in-india",
+      "source": "src/content/blogs/cost-of-fall.md",
+      "status": 200,
+      "title": "The True Cost of a Senior Fall in India: ₹2-5 Lakh and Counting",
+      "description": "The cost of a senior fall in India could be ₹2-5 lakh once surgery, hospital stay, and recovery are added up. Here's exactly where the money goes.",
+      "canonical": "https://eyeagle.ai/blogs/the-cost-of-a-senior-fall-in-india",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "h1s": [
+        "The True Cost of a Senior Fall in India: ₹2-5 Lakh and Counting"
       ],
       "schemaTypes": [
         "Organization",

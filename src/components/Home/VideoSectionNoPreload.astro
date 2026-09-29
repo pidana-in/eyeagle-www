@@ -1,4 +1,6 @@
 ---
+import MaterialIcon from "../common/MaterialIcon.astro";
+
 type Props = {
   className?: string;
   videoId?: string;
@@ -38,7 +40,7 @@ const thumbMax = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
         <span class="pointer-events-none absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></span>
         <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
           <span class="grid place-items-center rounded-full p-4 md:p-6 bg-white/90 shadow-lg transition-transform group-hover:scale-105">
-            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+            <MaterialIcon name="play_arrow" classNames="text-[28px]" />
           </span>
         </span>
         <span class="sr-only">{title}</span>
