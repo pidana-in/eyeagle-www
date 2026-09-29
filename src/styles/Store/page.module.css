@@ -73,12 +73,14 @@
 .badge { display:inline-block; margin-bottom:10px; padding:3px 9px; border-radius:99px; color:#fff; background:var(--store-red); font-size:11px; font-weight:500; line-height:17px; letter-spacing:.08em; text-transform:uppercase; }
 
 .tiles { display:grid; gap:10px; }
-.tile { position:relative; display:flex; min-height:64px; align-items:center; justify-content:space-between; gap:16px; padding:16px 20px; border:1px solid #cfcbc4; border-radius:14px; cursor:pointer; transition:border-color .15s ease,box-shadow .15s ease; }
+.tile { position:relative; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:20px; min-height:64px; padding:18px 20px; border:1px solid #cfcbc4; border-radius:14px; cursor:pointer; transition:border-color .15s ease,box-shadow .15s ease; }
 .tile:hover { border-color:#8f8b85; }
 .tile input { position:absolute; opacity:0; pointer-events:none; }
 .tile:has(input:checked) { border-color:var(--store-red); box-shadow:inset 0 0 0 1px var(--store-red); }
 .tile:has(input:focus-visible) { outline:2px solid var(--store-red); outline-offset:3px; }
-.tileTitle { font-size:16px; font-weight:500; line-height:24px; }
+.tileBody { display:grid; gap:4px; min-width:0; }
+.tileTitle { font-size:17px; font-weight:500; line-height:24px; }
+.tileText { color:var(--store-muted); font-size:14px; line-height:20px; }
 .tilePrice { color:var(--store-muted); font-size:14px; line-height:20px; white-space:nowrap; font-variant-numeric:tabular-nums; }
 
 .help { display:grid; gap:4px; padding:16px 18px; border-radius:14px; color:var(--store-ink); background:var(--store-soft); font-size:14px; line-height:21px; text-decoration:none; }

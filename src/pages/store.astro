@@ -40,15 +40,31 @@ const range = (min: number, max: number) => Array.from({ length: max - min + 1 }
 const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 const delta = (amount: number) => (amount === 0 ? "Included" : `+ ${formatInr(amount)}`);
 
+// Each bathroom gets a protection kit and its own SOS button.
+const bathroomDescriptions: Record<number, string> = {
+  1: "For parents who use one bathroom. A protection kit and SOS button, installed.",
+  2: "Covers both bathrooms in a 2 BHK, each with its own kit and SOS button.",
+  3: "For larger homes, or a guest bathroom they also use. Kit and SOS in each.",
+};
 const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
   value: count,
   title: plural(count, "bathroom"),
+  description: bathroomDescriptions[count] ?? "A protection kit and SOS button in each bathroom.",
   price: delta((count - bathroomMin) * additionalBathroomPriceInr),
 }));
-// The Shopify variants count additional buttons; customers think in total buttons.
+
+// Extra buttons go beyond the bathrooms, wherever else they spend time.
+const sosDescriptions: Record<number, string> = {
+  0: "Each protected bathroom already has its own SOS button.",
+  1: "One more where they spend the most time, like beside the bed.",
+  2: "Cover the bedroom and one more spot, like the kitchen or stairs.",
+  3: "Bedroom, kitchen and stairs, or the places they move around most.",
+  4: "Every room they use, including a puja room or balcony.",
+};
 const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
   value: extra,
-  title: plural(extra + 1, "SOS button"),
+  title: extra === 0 ? "No extra buttons" : plural(extra, "extra button"),
+  description: sosDescriptions[extra] ?? "Extra SOS buttons for the other rooms they use.",
   price: delta(extra * additionalSosPriceInr),
 }));
 
@@ -86,7 +102,7 @@ const faqItems = [
   },
   {
     question: "What if the home needs a larger setup?",
-    answer: "Online orders cover up to three bathrooms and five SOS buttons. For larger homes, talk to us and we’ll plan the installation with you.",
+    answer: "Online orders cover up to three bathrooms and four extra SOS buttons. For larger homes, talk to us and we’ll plan the installation with you.",
   },
 ] as const;
 ---
@@ -159,12 +175,15 @@ const faqItems = [
         </section>
 
         <fieldset class={styles.group} data-gallery-target="3">
-          <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many need protection?</legend>
+          <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many do they use?</legend>
           <div class={styles.tiles}>
             {bathroomOptions.map((option) => (
               <label class={styles.tile}>
                 <input checked={option.value === bathroomMin} name="bathrooms" type="radio" value={option.value} />
-                <span class={styles.tileTitle}>{option.title}</span>
+                <span class={styles.tileBody}>
+                  <span class={styles.tileTitle}>{option.title}</span>
+                  <span class={styles.tileText}>{option.description}</span>
+                </span>
                 <span class={styles.tilePrice}>{option.price}</span>
               </label>
             ))}
@@ -176,12 +195,15 @@ const faqItems = [
         </fieldset>
 
         <fieldset class={styles.group} data-gallery-target="1">
-          <legend class={styles.groupTitle}><strong>SOS buttons.</strong> Add more within reach.</legend>
+          <legend class={styles.groupTitle}><strong>Extra SOS buttons.</strong> Beyond the bathroom.</legend>
           <div class={styles.tiles}>
             {sosOptions.map((option) => (
               <label class={styles.tile}>
                 <input checked={option.value === additionalSosMin} name="sos" type="radio" value={option.value} />
-                <span class={styles.tileTitle}>{option.title}</span>
+                <span class={styles.tileBody}>
+                  <span class={styles.tileTitle}>{option.title}</span>
+                  <span class={styles.tileText}>{option.description}</span>
+                </span>
                 <span class={styles.tilePrice}>{option.price}</span>
               </label>
             ))}
