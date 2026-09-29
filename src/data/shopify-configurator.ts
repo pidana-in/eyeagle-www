@@ -1,12 +1,15 @@
 export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
   storeDomain: "shop.eyeagle.ai",
-  basePriceInr: 89_999,
+  // Prices exclude GST; Shopify adds GST at checkout.
+  basePriceInr: 79_999,
   additionalBathroomPriceInr: 19_999,
   additionalSosPriceInr: 8_999,
   bathroomMin: 1,
   bathroomMax: 3,
   additionalSosMin: 0,
   additionalSosMax: 4,
+  // Estimate shown before checkout. Keep in sync with the Shopify tax setup.
+  gstRate: 0.18,
 });
 
 export const EYEAGLE_VARIANT_IDS = Object.freeze({
@@ -45,6 +48,8 @@ export const formatInr = (amount: number) =>
     currencyDisplay: "narrowSymbol",
     maximumFractionDigits: 0,
   }).format(amount);
+
+export const estimateGstInr = (amountInr: number) => Math.round(amountInr * EYEAGLE_SHOPIFY_CONFIG.gstRate);
 
 export const isValidEyEagleConfiguration = (bathrooms: number, additionalSos: number) =>
   Number.isInteger(bathrooms) &&

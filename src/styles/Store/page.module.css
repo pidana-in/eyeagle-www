@@ -99,6 +99,8 @@ a.help:hover .helpMuted { color:var(--store-red); }
 .summaryList > div { display:flex; justify-content:space-between; gap:24px; padding:16px 0; border-bottom:1px solid var(--store-line); font-size:15px; line-height:22px; }
 .summaryList > div[hidden] { display:none; }
 .summaryList dd { font-variant-numeric:tabular-nums; }
+.summaryList > .summarySubtotal { margin-top:12px; border-top:1px solid var(--store-ink); }
+.summaryList > .summaryGrand { font-weight:500; border-bottom:0; }
 .summaryAction { display:grid; align-content:start; gap:14px; }
 .summaryTotal { display:grid; gap:2px; }
 .summaryTotal strong { font-family:var(--type-v4-display-family); font-size:36px; font-weight:var(--type-v4-display-weight,400); line-height:44px; font-variant-numeric:tabular-nums; }

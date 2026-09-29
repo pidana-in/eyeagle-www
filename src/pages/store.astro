@@ -6,6 +6,7 @@ import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import FAQSection from "../components/HomeV3/FAQSection.astro";
 import {
   EYEAGLE_SHOPIFY_CONFIG,
+  estimateGstInr,
   formatInr,
   getEyEagleConfiguredPurchase,
 } from "../data/shopify-configurator";
@@ -25,6 +26,7 @@ const {
   bathroomMax,
   additionalSosMin,
   additionalSosMax,
+  gstRate,
 } = EYEAGLE_SHOPIFY_CONFIG;
 
 const panels = [
@@ -53,11 +55,14 @@ const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
 const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin);
 if (!defaultPurchase) throw new Error("The default EyEagle Shopify configuration is missing.");
 const basePrice = formatInr(basePriceInr);
+const gstPercent = `${Math.round(gstRate * 100)}%`;
+const baseGst = formatInr(estimateGstInr(basePriceInr));
+const baseWithGst = formatInr(basePriceInr + estimateGstInr(basePriceInr));
 
 const faqItems = [
   {
     question: "Do prices include GST?",
-    answer: "Yes. All prices are shown in INR and include GST. There is nothing extra to pay at checkout for the system or the included three years of membership.",
+    answer: `No. Prices are shown in INR before GST, and GST (${gstPercent}) is added at checkout. For the standard system that is ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
   },
   {
     question: "When will my system ship?",
@@ -69,7 +74,7 @@ const faqItems = [
   },
   {
     question: "What happens after three years?",
-    answer: "Nest, readiness checks and EyEagle Response are included for three years. Membership then continues at ₹2,000/month (incl. GST) until cancelled.",
+    answer: "Nest, readiness checks and EyEagle Response are included for three years. Membership then continues at ₹2,000/month + GST until cancelled.",
   },
   {
     question: "Does EyEagle need home Wi-Fi?",
@@ -86,7 +91,7 @@ const faqItems = [
 ] as const;
 ---
 
-<MainLayout title="Buy EyEagle | Home safety system with response" desc="Configure an EyEagle home safety system with professional installation, the Nest app and three years of EyEagle Response. Prices include GST." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+<MainLayout title="Buy EyEagle | Home safety system with response" desc="Configure an EyEagle home safety system with professional installation, the Nest app and three years of EyEagle Response." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
   <SiteHeader slot="header" solidAtTop showAction={false} variant="figmaHome" />
 
   <main class={styles.main} id="main-content">
@@ -94,7 +99,7 @@ const faqItems = [
       <div>
         <p class={styles.eyebrow}>Shipping starts October 30</p>
         <h1>Buy EyEagle</h1>
-        <p class={styles.introPrice}>{basePrice} <span>incl. of all taxes · installation and three years of response included</span></p>
+        <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
       </div>
       <ul class={styles.introLinks}>
         <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
@@ -105,7 +110,7 @@ const faqItems = [
     <div class={styles.bar} data-store-bar data-visible="false">
       <div class={styles.barInner}>
         <p class={styles.barName}>EyEagle Home System</p>
-        <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>incl. of all taxes</span></p>
+        <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>+ GST</span></p>
         <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}>Checkout</a>
       </div>
     </div>
@@ -137,7 +142,7 @@ const faqItems = [
           <div class={styles.systemCard}>
             <div class={styles.systemHead}>
               <h3>Complete Home System</h3>
-              <p><strong>{basePrice}</strong><span>incl. of all taxes</span></p>
+              <p><strong>{basePrice}</strong><span>+ GST</span></p>
             </div>
             <ul>
               <li>SOS button, Alarm Unit and Control Unit</li>
@@ -192,7 +197,7 @@ const faqItems = [
           <div class={styles.membershipCard}>
             <span class={styles.badge}>Included</span>
             <h3>Three years of membership</h3>
-            <p>Nest, readiness checks and EyEagle Response are included for three years. Then ₹2,000/month (incl. GST) until cancelled.</p>
+            <p>Nest, readiness checks and EyEagle Response are included for three years. Then ₹2,000/month + GST until cancelled.</p>
           </div>
         </section>
       </form>
@@ -207,14 +212,17 @@ const faqItems = [
             <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd data-summary-bathrooms-price></dd></div>
             <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd data-summary-sos-price></dd></div>
             <div><dt>Three years of membership</dt><dd>Included</dd></div>
+            <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd data-total-price>{basePrice}</dd></div>
+            <div><dt>Estimated GST ({gstPercent})</dt><dd data-total-gst>{baseGst}</dd></div>
+            <div class={styles.summaryGrand}><dt>Total with GST</dt><dd data-total-with-gst>{baseWithGst}</dd></div>
           </dl>
         </div>
         <div class={styles.summaryAction}>
-          <p class={styles.summaryTotal}><strong data-total-price>{basePrice}</strong><span>Total, incl. of all taxes</span></p>
+          <p class={styles.summaryTotal}><strong data-total-price>{basePrice}</strong><span>+ GST · <span data-total-with-gst>{baseWithGst}</span> total with GST</span></p>
           <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
           <button class={styles.shareAction} data-share type="button">Share this setup with family</button>
           <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
-          <p class={styles.finePrint}>Shipping starts October 30. All prices are in INR and include GST. After the included three-year period, membership renews at ₹2,000/month (incl. GST) until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>Shipping starts October 30. All prices are in INR and exclude GST, which is added at checkout. After the included three-year period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
         </div>
       </div>
     </section>
@@ -228,6 +236,7 @@ const faqItems = [
 <script>
   import {
     EYEAGLE_SHOPIFY_CONFIG,
+    estimateGstInr,
     formatInr,
     getEyEagleConfiguredPurchase,
   } from "../data/shopify-configurator";
@@ -239,6 +248,8 @@ const faqItems = [
   const siteHeader = document.querySelector<HTMLElement>("[data-home-v3-header]");
   const checkoutLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-checkout]"));
   const totalPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-total-price]"));
+  const totalGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-gst]"));
+  const totalsWithGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-with-gst]"));
   const configurationError = document.querySelector<HTMLElement>("[data-config-error]");
   const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-panel]"));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"));
@@ -300,7 +311,10 @@ const faqItems = [
         link.setAttribute("aria-disabled", "true");
       }
     });
+    const gst = purchase ? estimateGstInr(purchase.totalInr) : 0;
     totalPrices.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr) : "Unavailable"; });
+    totalGst.forEach((price) => { price.textContent = purchase ? formatInr(gst) : "—"; });
+    totalsWithGst.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr + gst) : "—"; });
     if (!purchase) return null;
 
     const extraBathrooms = bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
