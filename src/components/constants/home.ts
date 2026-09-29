@@ -375,46 +375,53 @@ export const blogsData = [
     desc: "Protect elderly loved ones this monsoon with practical bathroom safety tips to prevent slips, falls, and injuries. Learn how to make bathrooms safer.",
     img: blogImage34,
   },
-   {
+  {
     slug: "kuch-nahi-hoga-the-most-dangerous-sentence-in-indian-households",
     title: "“Kuch Nahi Hoga”-The Most Dangerous Sentence in Indian Household",
     desc: "The “kuch nahi hoga” mentality in Indian households often ignores real safety risks for aging parents. Learn why quiet preparedness matters.",
     img: blogImage35,
   },
-   {
+  {
     slug: "elderly-fall-story-home-safety-wake-up-call",
     title: "The Day Dad Fell: How One Accident Became Our Wake-Up Call",
     desc: "Learn about bathroom falls among the elderly, home safety for elderly parents, and simple fall prevention steps to keep your loved ones safe.",
     img: blogImage36,
   },
-     {
+  {
     slug: "hidden-fall-risk-osteoporosis-in-indian-women",
     title: "Osteoporosis in Indian Women: Fall Risks After 50",
     desc: "Discover why osteoporosis is common in Indian women after 50. Learn the signs, risk factors, DEXA scan cost, and ways to protect bone health.",
     img: blogImage37,
   },
-     {
+  {
     slug: "apartment-safety-for-elderly-india",
     title: "Apartment Safety for Elderly India: A Room-by-Room Guide",
     desc: "A guide to apartment safety for elderly India, covering flat modifications, high-rise safety for elderly, and a home safety checklist.",
     img: blogImage38,
   },
-     {
+  {
     slug: "caring-for-elderly-parents-while-working-abroad",
     title: "Caring for Elderly Parents While Working Abroad | EyEagle",
     desc: "Read on to know about caring for elderly parents while living abroad and reliable elderly care solutions in India like EyEagle.",
     img: blogImage39,
   },
-     {
+  {
     slug: "track-food-delivery-but-not-parents-safety",
-    title: "You Track Food Deliveries - But Are Your Parents Safe at Home? | EyEagle",
+    title:
+      "You Track Food Deliveries - But Are Your Parents Safe at Home? | EyEagle",
     desc: "Discover how elderly fall detection system can prevent serious injuries and protect aging parents at home. Contact the EyEagle team today.",
     img: blogImage40,
   },
-     {
+  {
     slug: "the-cost-of-a-senior-fall-in-india",
     title: "The True Cost of a Senior Fall in India: ₹2-5 Lakh and Counting",
     desc: "The cost of a senior fall in India could be ₹2-5 lakh once surgery, hospital stay, and recovery are added up. Here's exactly where the money goes.",
+    img: blogImage41,
+  },
+  {
+    slug: "diabetes-and-falls-in-elderly",
+    title: "Diabetes and Falls in Elderly: Fall Risk & Home Safety",
+    desc: "Learn how diabetes and falls in elderly are connected, how diabetes increases fall risk, and how to make a diabetic parent's home safer.",
     img: blogImage41,
   },
 ];

@@ -61,6 +61,11 @@
       "kind": "blog"
     },
     {
+      "route": "/blogs/diabetes-and-falls-in-elderly",
+      "source": "src/content/blogs/diabetes.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/diet-and-nutrition-in-healthy-aging",
       "source": "src/content/blogs/diet.md",
       "kind": "blog"
@@ -1582,6 +1587,76 @@
       "referenced": true,
       "references": [
         "src/content/blogs/cost-of-fall.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 1307347,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1398803,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1163450,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1379471,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage42Info-4.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1490153,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/diabetes.md"
       ]
     },
     {
@@ -6358,6 +6433,66 @@
     {
       "source": "src/content/blogs/day-Dad-fell.md",
       "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/importance-of-regular-vision-checks",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/solution",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/importance-of-regular-vision-checks",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/mobility-tips-for-seniors",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/protection",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/diabetes.md",
+      "href": "https://eyeagle.ai/solution",
       "external": true
     },
     {
