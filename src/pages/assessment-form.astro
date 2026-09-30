@@ -32,6 +32,10 @@ const metaDesc =
 
   const phoneNumField = document.getElementById("phoneNumField");
 
+  const emailField = document.getElementById("emailField");
+
+  const emailError = document.getElementById("emailError");
+
   const submitButton = document.getElementById("submitButton");
 
   const buttonText = document.getElementById("buttonText");
@@ -182,7 +186,8 @@ const metaDesc =
   const phoneError = document.getElementById("phoneError");
 
   const assessmentFormEl = document.getElementById("assessmentForm");
-
+  assessmentFormEl.noValidate = true;
+  
   const assessmentFormWrapper = document.getElementById(
     "assessmentFormWrapper",
   );
@@ -277,6 +282,10 @@ const metaDesc =
 
     const nameRegex = /^[A-Za-z\s]{2,}$/;
 
+    const emailValue = emailField.value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     /*
      * RESET ERRORS
      */
@@ -284,6 +293,10 @@ const metaDesc =
     phoneError.classList.add("hidden");
 
     fullNameError.classList.add("hidden");
+
+    emailError.classList.add("hidden");
+
+    emailField.classList.remove("border-red-500");
 
     consideringForError.classList.add("hidden");
 
@@ -319,6 +332,18 @@ const metaDesc =
       phoneNumField.classList.add("border-red-500");
 
       phoneNumField.focus();
+
+      return;
+    }
+
+    /*
+     * EMAIL VALIDATION
+     */
+
+    if (emailValue && !emailRegex.test(emailValue)) {
+      emailError.classList.remove("hidden");
+      emailField.classList.add("border-red-500");
+      emailField.focus();
 
       return;
     }
@@ -387,6 +412,7 @@ const metaDesc =
       clientSubmissionId,
       name: fullNameValue,
       phone: `${phCode.value} ${phoneValue}`,
+      email: emailValue,
       location: siteLocationField ? siteLocationField.value.trim() : "",
       consideringFor: consideringForChecked,
       mainConcerns: safetyConcernsChecked,
@@ -469,6 +495,15 @@ const metaDesc =
     phoneError.classList.add("hidden");
 
     phoneNumField.classList.remove("border-red-500");
+  });
+
+  /*
+   * CLEAR EMAIL ERROR
+   */
+
+  emailField.addEventListener("input", () => {
+    emailError.classList.add("hidden");
+    emailField.classList.remove("border-red-500");
   });
 
   /*
