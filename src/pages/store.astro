@@ -5,6 +5,7 @@ import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import FAQSection from "../components/HomeV3/FAQSection.astro";
 import {
+  EYEAGLE_ORDERING_OPEN as orderingOpen,
   EYEAGLE_SHOPIFY_CONFIG,
   estimateGstInr,
   formatInr,
@@ -80,10 +81,15 @@ const faqItems = [
     question: "Do prices include GST?",
     answer: `No. Prices are shown in INR before GST, and GST (${gstPercent}) is added at checkout. For the standard system that is ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
   },
-  {
-    question: "When will my system ship?",
-    answer: "Shipping starts October 30. After you order, installation details and the response plan are completed with our team.",
-  },
+  orderingOpen
+    ? {
+      question: "When will my system ship?",
+      answer: "Shipping starts October 30. After you order, installation details and the response plan are completed with our team.",
+    }
+    : {
+      question: "When can I order?",
+      answer: "Ordering isn’t open yet. Leave your email under “Get availability updates” and we’ll let you know as soon as it opens.",
+    },
   {
     question: "How is the system installed?",
     answer: "An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.",
@@ -115,14 +121,20 @@ const faqItems = [
       <div class={styles.barInner}>
         <p class={styles.barName}>EyEagle Home System</p>
         <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>+ GST</span></p>
-        <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
+        {orderingOpen ? (
+          <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
+        ) : (
+          <a class={styles.barAction} href="#availability"><span class={styles.barActionLong}>Get availability updates</span><span class={styles.barActionShort}>Notify me</span></a>
+        )}
       </div>
     </div>
 
     <div class={styles.layout}>
       <header class={styles.intro}>
         <div>
-          <p class={styles.eyebrow}>Shipping starts October 30</p>
+          {orderingOpen
+            ? <p class={styles.eyebrow}>Shipping starts October 30</p>
+            : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
           <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
         </div>
@@ -232,7 +244,9 @@ const faqItems = [
     <section class={styles.summary} aria-labelledby="summary-title" data-store-summary>
       <div class={styles.summaryInner}>
         <div>
-          <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
+          {orderingOpen
+            ? <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
+            : <h2 id="summary-title">Your EyEagle setup. <span>We’ll tell you when ordering opens.</span></h2>}
           <dl class={styles.summaryList}>
             <div><dt>Complete Home System</dt><dd>{basePrice}</dd></div>
             <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd data-summary-bathrooms-price></dd></div>
@@ -245,10 +259,27 @@ const faqItems = [
         </div>
         <div class={styles.summaryAction}>
           <p class={styles.summaryTotal}><strong data-total-price>{basePrice}</strong><span>+ GST · <span data-total-with-gst>{baseWithGst}</span> total with GST</span></p>
-          <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
+          {orderingOpen ? (
+            <>
+              <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
+              <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
+            </>
+          ) : (
+            <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
+              <p class={styles.availabilityState}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>
+              <h3>Get availability updates.</h3>
+              <label class={styles.srOnly} for="availability-email">Email address</label>
+              <div class={styles.formRow}>
+                <input aria-describedby="availability-note availability-status" aria-invalid="false" autocomplete="email" id="availability-email" inputmode="email" name="email" placeholder="Your email address" required type="email" />
+                <button type="submit"><span data-submit-label>Notify me</span> <span aria-hidden="true">→</span></button>
+              </div>
+              <p class={styles.formStatus} data-form-status id="availability-status"></p>
+              <p class={styles.formNote} id="availability-note">No marketing.</p>
+              <a class={styles.contactLink} href="/contact"><span>Need help?</span> <strong>Talk to us <span aria-hidden="true">↗</span></strong></a>
+            </form>
+          )}
           <button class={styles.shareAction} data-share type="button">Share this setup with family</button>
-          <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
-          <p class={styles.finePrint}>Shipping starts October 30. All prices are in INR and exclude GST, which is added at checkout. After the included three-year period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}All prices are in INR and exclude GST, which is added at checkout. After the included three-year period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
         </div>
       </div>
     </section>
@@ -425,6 +456,50 @@ const faqItems = [
   window.addEventListener("scroll", requestSync, { passive: true });
   window.addEventListener("resize", requestSync);
   syncOnScroll();
+
+  // Availability signup, shown while ordering is closed.
+  const availabilityForm = document.querySelector<HTMLFormElement>("[data-availability-form]");
+  const emailInput = availabilityForm?.querySelector<HTMLInputElement>('input[name="email"]');
+  const submitButton = availabilityForm?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const submitLabel = submitButton?.querySelector<HTMLElement>("[data-submit-label]");
+  const formStatus = availabilityForm?.querySelector<HTMLElement>("[data-form-status]");
+  const setFormStatus = (message: string, isError = false) => {
+    if (!formStatus || !emailInput) return;
+    formStatus.setAttribute("role", isError ? "alert" : "status");
+    formStatus.dataset.error = String(isError);
+    formStatus.textContent = message;
+    emailInput.setAttribute("aria-invalid", String(isError));
+  };
+  availabilityForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!emailInput || !submitButton || !submitLabel) return;
+    const email = emailInput.value.trim();
+    if (!emailInput.validity.valid || !email) {
+      setFormStatus("Enter a valid email address.", true);
+      emailInput.focus();
+      return;
+    }
+    submitButton.disabled = true;
+    submitLabel.textContent = "Saving…";
+    setFormStatus("");
+    try {
+      const response = await fetch("/api/store-waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.message || "We couldn’t add you to the list. Please try again.");
+      availabilityForm.dataset.complete = "true";
+      emailInput.disabled = true;
+      submitLabel.textContent = "You’re on the list";
+      setFormStatus("We’ll email you when EyEagle is available.");
+    } catch (error) {
+      submitButton.disabled = false;
+      submitLabel.textContent = "Notify me";
+      setFormStatus(error instanceof Error ? error.message : "We couldn’t add you to the list. Please try again.", true);
+    }
+  });
 
   updateConfiguration({ syncUrl: false });
 </script>

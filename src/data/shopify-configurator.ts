@@ -12,6 +12,10 @@ export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
   gstRate: 0.18,
 });
 
+// Master switch for online ordering. While false, /store is a browsable preview with an
+// availability signup (/api/store-waitlist) in place of checkout, and no Shopify links are rendered.
+export const EYEAGLE_ORDERING_OPEN = false;
+
 export const EYEAGLE_VARIANT_IDS = Object.freeze({
   "1:0": "50646822420673",
   "1:1": "50646822453441",
