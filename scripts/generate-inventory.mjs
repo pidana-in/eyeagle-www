@@ -100,10 +100,11 @@ const routes = pageFiles
   .filter((file) => !file.endsWith("src/pages/blogs/[slug].astro"))
   .map((file) => {
     const relative = file.replace(/^src\/pages/, "").replace(/index\.astro$/, "").replace(/\.astro$/, "");
+    const content = textByFile.get(file) ?? "";
     return {
       route: relative || "/",
       source: file,
-      kind: file.includes("[") ? "dynamic" : "page",
+      kind: content.includes("Astro.redirect(") ? "redirect" : file.includes("[") ? "dynamic" : "page",
     };
   });
 

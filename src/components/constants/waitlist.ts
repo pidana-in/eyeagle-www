@@ -1,5 +1,5 @@
 export const WaitlistHeaderData = {
-  title: `Be the First to Experience the EyEagle Guardian-X Kit`,
+  title: `Be the First to Experience the EyEagle Kit`,
   description: "Patent-pending, seamlessly integrated safety system. Sign up to get early access, updates, and exclusive offers.",
 };
 
@@ -13,7 +13,7 @@ export const WaitlistBannerData = {
 export const WaitlistFormData = {
   acceptation: "I want to subscribe to the newsletter",
   buttonTitle: "Reserve My Safety Now!",
-  notifyLaunch: "Notify me when Guardian-X Kit launches",
+  notifyLaunch: "Notify me when EyEagle Kit launches",
   earlyAccess: "I want early access / beta testing",
   talkExpert: "I want to talk to a safety expert",
 };

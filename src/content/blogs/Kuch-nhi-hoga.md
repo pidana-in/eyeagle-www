@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-07-21
 ---
 
-# “Kuch Nahi Hoga” – The Most Dangerous Sentence in Indian Households
 
 “Kuch nahi hoga” is one of the most commonly spoken phrases in Indian homes. It’s said casually, often to reassure someone or to stop a conversation that feels unnecessary. A small slip in the bathroom, a moment of dizziness, a strange noise from the gas stove, everything is brushed aside with this one sentence.
 

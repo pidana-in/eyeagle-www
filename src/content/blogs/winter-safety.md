@@ -54,7 +54,7 @@ Small rugs, misplaced buckets, or low storage shelves create unnecessary obstacl
 
 ## Practical Winter Bathroom Safety Measures
 
-When it comes to winter safety, prevention isn’t complicated; it’s consistent. A safe bathroom doesn’t start with expensive renovations; it starts with simple awareness, practical tools, and a <a href="https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">few caring upgrades that put safety first.</a>
+When it comes to winter safety, prevention isn’t complicated; it’s consistent. A safe bathroom doesn’t start with expensive renovations; it starts with simple awareness, practical tools, and a <a href="/store" style="color:#CC0000; text-decoration:none;">few caring upgrades that put safety first.</a>
 
 Most falls happen in familiar spaces, which means small, thoughtful changes in design and routine can make a huge difference. The goal of winter bathroom safety isn’t to make homes look like hospitals, but to make them feel safer without sacrificing comfort or dignity.
 
@@ -71,7 +71,7 @@ Simple additions like <a href="/" style="color:#CC0000; text-decoration:none;">E
 ### 3. Use Bathroom Fall Prevention Devices
 
 Consider adding motion-sensor lights, anti-skid coatings, and portable emergency buzzers for added security.These
-<a href="/solution" style="color:#CC0000; text-decoration:none;">bathroom fall prevention devices</a> are affordable, easy to install, and work quietly in the background to protect seniors.
+<a href="/protection" style="color:#CC0000; text-decoration:none;">bathroom fall prevention devices</a> are affordable, easy to install, and work quietly in the background to protect seniors.
 
 ### 4. Maintain Warm and Dry Floors
 

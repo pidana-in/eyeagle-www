@@ -47,7 +47,7 @@ There’s a strange silence around this issue — and it stems from two places:
 
 1. **Stigma:** Many seniors feel that falling is a sign of “getting old” or “becoming weak.” They don’t want to admit they’re at risk. They fear losing independence more than injury.
 
-2. **Lack of Awareness:** Families simply don’t know how common and dangerous falls are — especially in spaces like bathrooms. Most homes aren’t designed with elder safety in mind, and basic modifications like <a href="/solution" style="color:#CC0000; text-decoration:none;">
+2. **Lack of Awareness:** Families simply don’t know how common and dangerous falls are — especially in spaces like bathrooms. Most homes aren’t designed with elder safety in mind, and basic modifications like <a href="/protection" style="color:#CC0000; text-decoration:none;">
    non-slip mats, grab bars, or emergency alert systems
    </a>
    are often overlooked.
@@ -94,13 +94,13 @@ EyEagle was created with one mission in mind: **Preventing falls. Saving lives.*
 **EyEagle combines:**
 
 - Professionally installed grab bars, anti-slip mats, and grip tapes.
-- A smart alarm unit, control hub, responsive switch
+- An Alert Unit with SOS button and Door Lock Sensor, and a Home Hub with Alarm
 - A Circle mobile app that notifies caregivers instantly.
 - An emergency team that responds if caregivers are unreachable.
 
 It is a smart, respectful, silent safety system, standing guard when no one else can.
 
-<a href="/solution" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
+<a href="/protection" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 
@@ -112,7 +112,7 @@ EyEagle is more than hardware and alerts. It’s a system built around respect, 
 
 When you choose EyEagle, you’re not just installing safety. You’re creating space for independence, backed by support that never sleeps.
 
-In the event of a fall, especially in isolated spaces like bathrooms, every second counts. That’s where an emergency alert device for elderly individuals becomes a literal lifesaver. Modern fall alert devices like <a href="/solution" style="color:#CC0000; text-decoration:none;">
+In the event of a fall, especially in isolated spaces like bathrooms, every second counts. That’s where an emergency alert device for elderly individuals becomes a literal lifesaver. Modern fall alert devices like <a href="/protection" style="color:#CC0000; text-decoration:none;">
 EyEagle’s bathroom-installed system
 </a>
 are designed for real-world use — simple to trigger, visible even at night, and seamlessly connected to caregivers. When paired with a complete bathroom safety setup — including **grab bars, non-slip mats,** and **smart alerts** — these not only reduce response time but also provide families with peace of mind.

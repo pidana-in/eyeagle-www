@@ -46,7 +46,7 @@ Bathrooms are already one of the <a href="/blogs/falls-kill-more-seniors-than-yo
 
 Wet bathroom floors are a leading cause of winter-related falls. Even a momentary loss of balance near the toilet or shower can result in serious injuries. This makes bathroom safety in winter a critical concern for every household.
 
-Support grab bars near toilets and inside showers help maintain balance during sitting, standing, and bathing. Anti-skid mats and thoughtfully designed safety fittings further improve stability. <a href="/solution" style="color:#CC0000; text-decoration:none;">The EyEagle bathroom safety fittings</a> are designed to blend seamlessly into homes while offering dependable support, making everyday movements safer, particularly during winter.
+Support grab bars near toilets and inside showers help maintain balance during sitting, standing, and bathing. Anti-skid mats and thoughtfully designed safety fittings further improve stability. <a href="/protection" style="color:#CC0000; text-decoration:none;">The EyEagle bathroom safety fittings</a> are designed to blend seamlessly into homes while offering dependable support, making everyday movements safer, particularly during winter.
 
 ## Why Seniors Face Higher Risk During Winter
 

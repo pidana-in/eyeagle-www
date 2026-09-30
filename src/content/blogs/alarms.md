@@ -70,7 +70,7 @@ It’s a small step that can make a big difference in everyday life.
 
 When it comes to bathroom safety for seniors, having a reliable and easy-to-use fall alarm is essential. It should be designed specifically for bathroom environments, where the risk of slipping is highest. That’s where <a href="/" style="color:#CC0000; text-decoration:none;"> EyEagle </a> offers a practical and thoughtful solution.
 
-<a href="/solution" style="color:#CC0000; text-decoration:none;">EyEagle’s Guardian‑X Kit </a> is a bathroom-focused safety setup for Indian homes. It includes alarm buttons placed near high-risk areas like the toilet and shower. If a fall or emergency occurs, the senior can press the button easily even from the floor.
+<a href="/protection" style="color:#CC0000; text-decoration:none;">EyEagle Kit </a> is a bathroom-focused safety setup for Indian homes. It includes alarm buttons placed near high-risk areas like the toilet and shower. If a fall or emergency occurs, the senior can press the button easily even from the floor.
 
 Once pressed, the alarm rings immediately within the home to alert anyone nearby. At the same time, a notification is sent to the **EyCircle app** to family members or caregivers, ensuring quick action without the need for a smartphone or internet connection by the senior. **“If no action is taken by the family member, the EyEagle safety team will step in.”**
 
@@ -78,7 +78,7 @@ The kit is supported with safety add-ons such as **anti-slip mats** and **grab b
 
 For families looking for a reliable elderly safety alarm that works specifically in the bathroom, EyEagle offers a simple yet effective system backed by a strong support team.
 
-<a href="/solution" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
+<a href="/protection" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 

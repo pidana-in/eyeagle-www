@@ -1,0 +1,108 @@
+/*
+ * EyEagle V4 typography
+ *
+ * This is the Figma-derived type sheet used by the redesigned site.
+ * Responsive type changes stay centralized here.
+ */
+body.eyeagle-home-v4 {
+  --type-v4-display-family: var(--type-display-family);
+  --type-v4-body-family: var(--type-body-family);
+  --type-v4-display-weight: 400;
+  --type-v4-medium-weight: 500;
+  --type-v4-display-tracking: 0;
+
+  --type-v4-hero-title-size: 56px;
+  --type-v4-hero-title-line: 62px;
+  --type-v4-hero-support-size: 24px;
+  --type-v4-hero-support-line: 32px;
+  --type-v4-section-title-size: 44px;
+  --type-v4-section-title-line: 50px;
+  --type-v4-section-lead-size: 22px;
+  --type-v4-section-lead-line: 30px;
+  --type-v4-feature-title-size: 30px;
+  --type-v4-feature-title-line: 38px;
+  --type-v4-card-title-size: 26px;
+  --type-v4-card-title-line: 34px;
+  --type-v4-body-lg-size: 18px;
+  --type-v4-body-lg-line: 26px;
+  --type-v4-body-size: 16px;
+  --type-v4-body-line: 24px;
+  --type-v4-body-sm-size: 14px;
+  --type-v4-body-sm-line: 20px;
+  --type-v4-caption-size: 14px;
+  --type-v4-caption-line: 20px;
+  --type-v4-button-size: 18px;
+  --type-v4-button-line: 24px;
+  --type-v4-button-small-size: 16px;
+  --type-v4-button-small-line: 24px;
+  --type-v4-label-size: 18px;
+  --type-v4-label-line: 28px;
+  --type-v4-label-tracking: 2px;
+  --type-v4-index-size: 22px;
+  --type-v4-index-line: 30px;
+  --type-v4-stat-size: 26px;
+  --type-v4-stat-line: 32px;
+  --type-v4-fine-print-size: 12px;
+  --type-v4-fine-print-line: 18px;
+  --type-v4-uppercase-tracking: .08em;
+  --type-v4-group-tracking: .07em;
+
+  --type-figma-hero-size: var(--type-v4-hero-title-size);
+  --type-figma-hero-line: var(--type-v4-hero-title-line);
+  --type-figma-section-size: var(--type-v4-section-title-size);
+  --type-figma-section-line: var(--type-v4-section-title-line);
+  --type-figma-feature-size: var(--type-v4-feature-title-size);
+  --type-figma-feature-line: var(--type-v4-feature-title-line);
+  --type-figma-subhead-size: var(--type-v4-card-title-size);
+  --type-figma-subhead-line: var(--type-v4-card-title-line);
+  --type-figma-lead-size: var(--type-v4-section-lead-size);
+  --type-figma-lead-line: var(--type-v4-section-lead-line);
+  --type-figma-body-lg-size: var(--type-v4-body-lg-size);
+  --type-figma-body-lg-line: var(--type-v4-body-lg-line);
+  --type-figma-body-size: var(--type-v4-body-size);
+  --type-figma-body-line: var(--type-v4-body-line);
+  --type-figma-body-sm-size: var(--type-v4-body-sm-size);
+  --type-figma-body-sm-line: var(--type-v4-body-sm-line);
+  --type-figma-caption-size: var(--type-v4-caption-size);
+  --type-figma-caption-line: var(--type-v4-caption-line);
+  --type-figma-button-size: var(--type-v4-button-size);
+  --type-figma-button-line: var(--type-v4-button-line);
+  --type-figma-button-small-size: var(--type-v4-button-small-size);
+  --type-figma-button-small-line: var(--type-v4-button-small-line);
+  --type-figma-label-size: var(--type-v4-label-size);
+  --type-figma-label-line: var(--type-v4-label-line);
+  --type-figma-label-tracking: var(--type-v4-label-tracking);
+}
+
+@media (max-width: 800px) {
+  body.eyeagle-home-v4 {
+    --type-v4-hero-title-size: 46px;
+    --type-v4-hero-title-line: 51px;
+    --type-v4-hero-support-size: 20px;
+    --type-v4-hero-support-line: 28px;
+    --type-v4-section-title-size: 38px;
+    --type-v4-section-title-line: 44px;
+    --type-v4-section-lead-size: 20px;
+    --type-v4-section-lead-line: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  body.eyeagle-home-v4 {
+    --type-v4-hero-title-size: 39px;
+    --type-v4-hero-title-line: 44px;
+    --type-v4-hero-support-size: 17px;
+    --type-v4-hero-support-line: 24px;
+    --type-v4-section-title-size: 34px;
+    --type-v4-section-title-line: 40px;
+    --type-v4-section-lead-size: 18px;
+    --type-v4-section-lead-line: 26px;
+    --type-v4-feature-title-size: 26px;
+    --type-v4-feature-title-line: 32px;
+    --type-v4-card-title-size: 22px;
+    --type-v4-card-title-line: 28px;
+    --type-v4-body-lg-size: 16px;
+    --type-v4-body-lg-line: 24px;
+    --type-v4-index-size: 14px;
+  }
+}

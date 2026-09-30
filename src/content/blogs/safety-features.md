@@ -20,7 +20,7 @@ One morning, my father slipped slightly while stepping out of the shower. He did
 
 That moment made us realize something important: bathroom accidents don’t always end in injuries, but <a href="/blogs/how-fear-of-falling-affects-mental-health" style="color:#CC0000; text-decoration:none;">they always leave behind anxiety</a>. After that incident, he became hesitant. He rushed showers. He avoided bathing when no one was home. A space meant for privacy and comfort had quietly turned into a place of worry.
 
-That’s when we started thinking seriously about <a href="/device" style="color:#CC0000; text-decoration:none;">bathroom fall prevention</a> and senior home safety modifications, not as “elderly solutions,” but as family safety measures.
+That’s when we started thinking seriously about <a href="/protection" style="color:#CC0000; text-decoration:none;">bathroom fall prevention</a> and senior home safety modifications, not as “elderly solutions,” but as family safety measures.
 
 ## Why Bathrooms Are Riskier Than We Think
 
@@ -69,7 +69,7 @@ These changes reduced bending, stretching, and awkward movements, all common cau
 
 ## How We Discovered EyEagle - A Smarter Way to Keep Bathrooms Safe
 
-As we researched reliable ways to make our bathroom safer beyond just grab bars and mats, one solution that really stood out was <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle</a>. Unlike ordinary products you might pick up off the shelf, EyEagle offers a <a href="https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">comprehensive bathroom safety system</a> that tackles not just fall prevention, but real-time emergency awareness and response as well.
+As we researched reliable ways to make our bathroom safer beyond just grab bars and mats, one solution that really stood out was <a href="/" style="color:#CC0000; text-decoration:none;">EyEagle</a>. Unlike ordinary products you might pick up off the shelf, EyEagle offers a <a href="/store" style="color:#CC0000; text-decoration:none;">comprehensive bathroom safety system</a> that tackles not just fall prevention, but real-time emergency awareness and response as well.
 
 What impressed us most was the thoughtful approach: they start with a bathroom audit to mark all the ways in which a bathroom is unsafe or may have potential danger points. Then comes prevention by installing non-slip surfaces, sturdy grab bars, and anti-skid mats, but they don’t stop there. Their system also includes a smart alert alarm technology. This alarm, when pressed, can immediately notify caregivers or family members <a href="/app" style="color:#CC0000; text-decoration:none;">through an app</a> if something goes wrong, even if you’re far away.
 

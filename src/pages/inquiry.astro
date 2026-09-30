@@ -1,0 +1,431 @@
+---
+export const prerender = false;
+
+import MainLayout from "../layouts/MainLayout.astro";
+import InquiryFormUI from "../components/Assessment/InquiryFormUI.astro";
+import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
+import "../styles/AssessmentForm/page.css";
+
+const metaTitle = "Contact EyEagle | Send an enquiry";
+const metaDesc =
+  "Ask EyEagle about the home system, membership, app, installation, pricing, support, partnerships, or a home safety assessment.";
+---
+
+<MainLayout
+  socialCard="contact"
+  title={metaTitle}
+  desc={metaDesc}
+  bodyClass="eyeagle-home-v3 eyeagle-home-v4 assessment-page"
+>
+  <InquiryFormUI />
+</MainLayout>
+
+<script is:inline>
+  const dropdownButton = document.getElementById("dropdownButton");
+
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  const fullNameField = document.getElementById("fullNameField");
+
+  const fullNameError = document.getElementById("fullNameError");
+
+  const phCode = document.getElementById("phCode");
+
+  const phoneNumField = document.getElementById("phoneNumField");
+
+  const submitButton = document.getElementById("submitButton");
+
+  const buttonText = document.getElementById("buttonText");
+
+  const loader = document.getElementById("loader");
+
+  const safetyConcernError = document.getElementById("safetyConcernError");
+
+  const siteLocationField = document.getElementById("siteLocation");
+
+  const concernDescriptionField = document.getElementById("concernDescription");
+
+  const iconSpan = document.createElement("span");
+
+  iconSpan.className = "text-base md:text-lg ml-2";
+
+  iconSpan.setAttribute("aria-hidden", "true");
+
+  iconSpan.textContent = "⌄";
+
+  /*
+   * COUNTRY DROPDOWN
+   */
+
+  dropdownButton.addEventListener("click", () => {
+    dropdownMenu.classList.toggle("hidden");
+
+    dropdownButton.setAttribute(
+      "aria-expanded",
+      String(!dropdownMenu.classList.contains("hidden")),
+    );
+
+    if (!dropdownMenu.classList.contains("hidden")) {
+      dropdownMenu
+        .querySelector(".bg-gray-300")
+        ?.scrollIntoView({ block: "nearest" });
+    }
+  });
+
+  dropdownMenu.addEventListener("click", (event) => {
+    const option =
+      event.target instanceof Element
+        ? event.target.closest("button[data-value][data-country-code]")
+        : null;
+
+    if (!(option instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const selectedDialCode = option.dataset.value;
+
+    const selectedCountryCode = option.dataset.countryCode;
+
+    if (!selectedDialCode || !selectedCountryCode) {
+      return;
+    }
+
+    dropdownButton.innerHTML = "";
+
+    const flagImage = document.createElement("img");
+
+    flagImage.src = `https://flagcdn.com/w40/${selectedCountryCode.toLowerCase()}.png`;
+
+    flagImage.alt = `${selectedCountryCode} flag`;
+
+    flagImage.width = 20;
+
+    flagImage.className = "mr-2";
+
+    dropdownButton.appendChild(flagImage);
+
+    dropdownButton.appendChild(document.createTextNode(selectedDialCode));
+
+    dropdownButton.appendChild(iconSpan);
+
+    phCode.value = selectedDialCode;
+
+    dropdownMenu.classList.add("hidden");
+
+    dropdownButton.setAttribute("aria-expanded", "false");
+
+    document
+      .querySelectorAll("#dropdownMenu > button[data-value]")
+      .forEach((el) => el.classList.remove("bg-gray-300"));
+
+    option.classList.add("bg-gray-300");
+  });
+
+  /*
+   * CLOSE DROPDOWN OUTSIDE CLICK
+   */
+
+  document.addEventListener("click", (event) => {
+    if (
+      !dropdownButton.contains(event.target) &&
+      !dropdownMenu.contains(event.target)
+    ) {
+      dropdownMenu.classList.add("hidden");
+
+      dropdownButton.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  /*
+   * DEFAULT INDIA CODE
+   */
+
+  function initializeDefaultPhoneCode() {
+    const defaultDialCode = "+91";
+
+    const defaultOption = Array.from(
+      dropdownMenu.querySelectorAll("button[data-value][data-country-code]"),
+    ).find((option) => option.dataset.value === defaultDialCode);
+
+    if (defaultOption instanceof HTMLButtonElement) {
+      const defaultCountryCode = defaultOption.dataset.countryCode;
+
+      if (!defaultCountryCode) {
+        return;
+      }
+
+      const flagImage = document.createElement("img");
+
+      flagImage.src = `https://flagcdn.com/w40/${defaultCountryCode.toLowerCase()}.png`;
+
+      flagImage.alt = `${defaultCountryCode} flag`;
+
+      flagImage.width = 20;
+
+      flagImage.className = "mr-2";
+
+      dropdownButton.innerHTML = "";
+
+      dropdownButton.appendChild(flagImage);
+
+      dropdownButton.appendChild(document.createTextNode(defaultDialCode));
+
+      dropdownButton.appendChild(iconSpan);
+
+      phCode.value = defaultDialCode;
+
+      defaultOption.classList.add("bg-gray-300");
+    }
+  }
+
+  initializeDefaultPhoneCode();
+
+  /*
+   * FORM VALIDATION + CRM API SUBMISSION
+   */
+
+  const phoneError = document.getElementById("phoneError");
+
+  const assessmentFormEl = document.getElementById("assessmentForm");
+
+  const assessmentFormWrapper = document.getElementById(
+    "assessmentFormWrapper",
+  );
+
+  const submitErrorBanner = document.getElementById("submitErrorBanner");
+
+  const successMessageBlock = document.getElementById(
+    "assessmentSuccessMessage",
+  );
+
+  const successMessageText = document.getElementById("assessmentSuccessText");
+
+  const consentField = document.getElementById("consent");
+
+  /*
+   * CLIENT SUBMISSION ID
+   *
+   * Generated once per "attempt" and reused across retries/double
+   * clicks so the backend can dedupe on its side. Persisted in
+   * sessionStorage so it survives a manual page refresh mid-retry.
+   * Only cleared after a confirmed SUCCESS response.
+   */
+
+  const SUBMISSION_ID_KEY = "eyeagle_inquiry_submission_id";
+
+  function getOrCreateClientSubmissionId() {
+    let id = sessionStorage.getItem(SUBMISSION_ID_KEY);
+
+    if (!id) {
+      id = crypto.randomUUID();
+
+      sessionStorage.setItem(SUBMISSION_ID_KEY, id);
+    }
+
+    return id;
+  }
+
+  function clearClientSubmissionId() {
+    sessionStorage.removeItem(SUBMISSION_ID_KEY);
+  }
+
+  function showSubmitError(message) {
+    submitErrorBanner.textContent = message;
+
+    submitErrorBanner.classList.remove("hidden");
+
+    submitErrorBanner.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function hideSubmitError() {
+    submitErrorBanner.classList.add("hidden");
+
+    submitErrorBanner.textContent = "";
+  }
+
+  function setSubmitting(isSubmitting) {
+    buttonText.classList.toggle("opacity-0", isSubmitting);
+
+    loader.classList.toggle("hidden", !isSubmitting);
+
+    submitButton.disabled = isSubmitting;
+  }
+
+  assessmentFormEl.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const phoneValue = phoneNumField.value.trim();
+
+    const phoneRegex = /^\d{6,15}$/;
+
+    const fullNameValue = fullNameField.value.trim();
+
+    const nameRegex = /^[\p{L}\p{M} .'-]{2,80}$/u;
+
+    /*
+     * RESET ERRORS
+     */
+
+    phoneError.classList.add("hidden");
+
+    fullNameError.classList.add("hidden");
+
+    safetyConcernError.classList.add("hidden");
+
+    phoneNumField.classList.remove("border-red-500");
+
+    fullNameField.classList.remove("border-red-500");
+
+    hideSubmitError();
+
+    /*
+     * FULL NAME VALIDATION
+     */
+
+    if (!nameRegex.test(fullNameValue)) {
+      fullNameError.classList.remove("hidden");
+
+      fullNameField.classList.add("border-red-500");
+
+      fullNameField.focus();
+
+      return;
+    }
+
+    /*
+     * PHONE VALIDATION
+     */
+
+    if (!phoneRegex.test(phoneValue)) {
+      phoneError.classList.remove("hidden");
+
+      phoneNumField.classList.add("border-red-500");
+
+      phoneNumField.focus();
+
+      return;
+    }
+
+    /*
+     * SAFETY CONCERN VALIDATION
+     */
+
+    const safetyConcernsChecked = Array.from(
+      document.querySelectorAll('input[name="safetyConcerns"]:checked'),
+    ).map((el) => el.value);
+
+    if (safetyConcernsChecked.length === 0) {
+      safetyConcernError.classList.remove("hidden");
+
+      safetyConcernError.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      return;
+    }
+
+    /*
+     * BUILD CRM API PAYLOAD
+     */
+
+    const preferredTimingField = document.querySelector(
+      'input[name="preferredContactTime"]:checked',
+    );
+
+    const clientSubmissionId = getOrCreateClientSubmissionId();
+
+    const payload = {
+      clientSubmissionId,
+      name: fullNameValue,
+      phone: `${phCode.value} ${phoneValue}`,
+      location: siteLocationField ? siteLocationField.value.trim() : "",
+      consideringFor: ["General enquiry"],
+      mainConcerns: safetyConcernsChecked,
+      immediateConcern: "Not specified",
+      description: concernDescriptionField
+        ? concernDescriptionField.value.trim()
+        : "",
+      interestedIn: "General enquiry",
+      preferredDay: "No preference",
+      preferredTiming: preferredTimingField ? preferredTimingField.value : "",
+      contactConsent: consentField ? consentField.checked : false,
+    };
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/assessment-submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (data?.status?.toLowerCase() === "success") {
+        // SUCCESS
+        successMessageText.textContent =
+          data?.result ||
+          data?.data ||
+          "Thank you for contacting EyEagle. Your enquiry has been submitted, and our team will contact you shortly.";
+
+        assessmentFormWrapper.classList.add("hidden");
+        successMessageBlock.classList.remove("hidden");
+        successMessageBlock.focus();
+        successMessageBlock.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Clear form and submission ID ONLY after successful submission
+        assessmentFormEl.reset();
+        clearClientSubmissionId();
+      } else {
+        // BACKEND FAILURE
+        const errorMessage =
+          data?.error?.message ||
+          data?.error?.title ||
+          "Something went wrong while submitting the form. Please try again.";
+
+        showSubmitError(errorMessage);
+      }
+    } catch (err) {
+      console.error("Error while submitting enquiry form:", err);
+
+      showSubmitError(
+        "Something went wrong while submitting the form. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  });
+
+  /*
+   * CLEAR NAME ERROR
+   */
+
+  fullNameField.addEventListener("input", () => {
+    fullNameError.classList.add("hidden");
+
+    fullNameField.classList.remove("border-red-500");
+  });
+
+  /*
+   * CLEAR PHONE ERROR
+   */
+
+  phoneNumField.addEventListener("input", () => {
+    phoneError.classList.add("hidden");
+
+    phoneNumField.classList.remove("border-red-500");
+  });
+
+  /*
+   * ONLY NUMBERS IN PHONE
+   */
+
+  phoneNumField.addEventListener("input", () => {
+    phoneNumField.value = phoneNumField.value.replace(/\D/g, "");
+  });
+</script>

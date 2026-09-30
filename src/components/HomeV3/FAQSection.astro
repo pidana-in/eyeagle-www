@@ -1,0 +1,47 @@
+---
+import styles from "../../styles/HomeV3/faq-section.module.css";
+
+type FAQItem = {
+  question: string;
+  answer: string;
+};
+
+interface Props {
+  items: readonly FAQItem[];
+  eyebrow: string;
+  title?: string;
+  description?: string;
+  id?: string;
+  class?: string;
+}
+
+const {
+  items,
+  eyebrow,
+  title = "Frequently asked questions.",
+  description = "Clear answers about the system, installation and connected response.",
+  id = "faqs",
+  class: className,
+} = Astro.props;
+
+const titleId = `${id}-title`;
+---
+
+<section class:list={[styles.faq, className]} id={id} aria-labelledby={titleId}>
+  <header class={styles.heading}>
+    <p class={styles.eyebrow}>{eyebrow}</p>
+    <h2 id={titleId}>{title}</h2>
+    <p>{description}</p>
+  </header>
+  <div class={styles.list}>
+    {items.map((item, index) => (
+      <details class={styles.item} open={index === 0}>
+        <summary>
+          <span>{item.question}</span>
+          <i aria-hidden="true"></i>
+        </summary>
+        <div><p>{item.answer}</p></div>
+      </details>
+    ))}
+  </div>
+</section>

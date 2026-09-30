@@ -96,7 +96,7 @@ EyEagle: more than just an alarm- it’s like having a guardian angel at home. W
 
 **Proactive Safety Kit:** Includes grip tapes, anti-skid mats, grab bars, and high-visibility fittings for bathrooms—installed after a personalized safety audit of your home.
 
-**Guardian-X System:**
+**EyEagle System:**
 A patent-pending smart system that features:
 
 - Loud emergency alarm
@@ -116,7 +116,7 @@ From setting up grab bars to configuring the app, EyEagle handles everything- so
 
 EyEagle blends technology, compassion, and reliability, making it your valuable partner in every fall prevention plan.
 
-<a href="/solution" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
+<a href="/protection" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 

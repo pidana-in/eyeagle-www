@@ -33,15 +33,15 @@
 .large {
   min-height: 48px;
   padding: 12px 24px;
-  font-size: var(--type-button-large-size);
-  line-height: var(--type-button-large-line);
+  font-size: var(--type-v4-button-size, var(--type-button-large-size));
+  line-height: var(--type-v4-button-line, var(--type-button-large-line));
 }
 
 .small {
   min-height: 40px;
   padding: 10px 18px;
-  font-size: var(--type-button-small-size);
-  line-height: var(--type-button-small-line);
+  font-size: var(--type-v4-button-small-size, var(--type-button-small-size));
+  line-height: var(--type-v4-button-small-line, var(--type-button-small-line));
 }
 
 @media (hover: hover) and (pointer: fine) {

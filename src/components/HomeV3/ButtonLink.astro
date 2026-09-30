@@ -7,7 +7,8 @@ interface Props {
   variant?: "solid" | "inverse" | "glass";
   class?: string;
   tabindex?: number;
-  [key: string]: unknown;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
 }
 
 const {
@@ -16,10 +17,11 @@ const {
   variant = "solid",
   class: className,
   tabindex,
-  ...rest
+  target,
+  rel,
 } = Astro.props;
 ---
 
-<a {...rest} class:list={[styles.button, styles[size], className]} data-variant={variant} href={href} tabindex={tabindex}>
+<a class:list={[styles.button, styles[size], className]} data-variant={variant} href={href} tabindex={tabindex} target={target} rel={rel}>
   <slot />
 </a>

@@ -11,6 +11,7 @@ import SiteHeader from "../../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../../components/HomeV3/SiteFooter.astro";
 import styles from "../../styles/Blog/article.module.css";
 import "../../styles/home-v3-tokens.css";
+import "../../styles/home-v4-tokens.css";
 import "../../styles/blog-editorial.css";
 import { blogsData } from "../../components/constants/home";
 
@@ -59,7 +60,7 @@ const articleHref = (entry: CollectionEntry<"blogs">) => `/blogs/${entry.data.sl
   metaImageHeight={630}
   article={{ headline: blog.data.title, author: blog.data.author, datePublished: blog.data.date.toISOString(), image: metaImage }}
   showChrome={false}
-  bodyClass="eyeagle-home-v3 eyeagle-blog"
+  bodyClass="eyeagle-home-v3 eyeagle-home-v4 eyeagle-blog"
 >
   <SiteHeader slot="header" solidAtTop />
 

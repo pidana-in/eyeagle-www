@@ -1,0 +1,29 @@
+---
+import Image from "../common/OptimizedImage.astro";
+import styles from "../../styles/OurStory/system-layers.module.css";
+import guardianImage from "../../assets/HowItWorks/system-guardian-x.png";
+import nestImage from "../../assets/HowItWorks/system-nest.png";
+import responseImage from "../../assets/HowItWorks/membership-human-response-v1.png";
+const layers = [
+  { title: "Device", description: "A deliberate press on EyEagle raises an unmistakable alarm inside the home.", image: guardianImage },
+  { title: "App Syncing", description: "Nest brings trusted family members into the moment, wherever they may be.", image: nestImage },
+  { title: "Human Support", description: "When applicable, EyEagle Response can add a human support layer if more help is needed.", image: responseImage },
+] as const;
+---
+<section class={styles.layout} data-system-layers>
+  <div class={styles.copy}>
+    <div><h2>From a moment at home to people who can act.</h2><div class={styles.descriptionStack}>{layers.map((layer, index) => <p data-active={String(index === 0)} data-layer-description>{layer.description}</p>)}</div></div>
+    <div class={styles.tabs} aria-label="The EyEagle system" role="tablist">{layers.map((layer, index) => <button aria-selected={index === 0 ? "true" : "false"} class={styles.tab} data-layer-tab role="tab" tabindex={index === 0 ? 0 : -1} type="button"><span>0{index + 1}</span>{layer.title}</button>)}</div>
+  </div>
+  <div class={styles.visual} role="tabpanel">{layers.map((layer, index) => <div class={styles.visualLayer} data-active={String(index === 0)} data-layer-image><Image alt="" class={styles.fillImage} layout="full-width" src={layer.image} /></div>)}<div class={styles.visualShade}></div><span class={styles.visualIndex} data-layer-index>01</span>{layers.map((layer,index) => <p class={styles.visualLabel} data-active={String(index === 0)} data-layer-label>{layer.title}</p>)}</div>
+</section>
+<script>
+  const system = document.querySelector<HTMLElement>("[data-system-layers]");
+  const tabs = Array.from(system?.querySelectorAll<HTMLButtonElement>("[data-layer-tab]") ?? []);
+  const descriptions = Array.from(system?.querySelectorAll<HTMLElement>("[data-layer-description]") ?? []);
+  const images = Array.from(system?.querySelectorAll<HTMLElement>("[data-layer-image]") ?? []);
+  const labels = Array.from(system?.querySelectorAll<HTMLElement>("[data-layer-label]") ?? []);
+  const indexLabel = system?.querySelector<HTMLElement>("[data-layer-index]");
+  const select = (index: number) => { tabs.forEach((tab, i) => { tab.setAttribute("aria-selected", String(i === index)); tab.tabIndex = i === index ? 0 : -1; }); descriptions.forEach((item, i) => item.dataset.active = String(i === index)); images.forEach((item, i) => item.dataset.active = String(i === index)); labels.forEach((item, i) => item.dataset.active = String(i === index)); if (indexLabel) indexLabel.textContent = `0${index + 1}`; };
+  tabs.forEach((tab, index) => { tab.addEventListener("click", () => select(index)); tab.addEventListener("keydown", (event) => { if (!["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft", "Home", "End"].includes(event.key)) return; event.preventDefault(); const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length; select(next); tabs[next]?.focus(); }); });
+</script>

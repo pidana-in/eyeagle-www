@@ -38,15 +38,15 @@ const { userCards, statsData } = Astro.props as Props;
   >
     {
       userCards.map((card: UserCard) => (
-        <div class="shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col rounded-3xl border border-[#00000014] bg-[#F9F7F7] overflow-hidden text-center">
+        <div class="protection-card shrink-0 w-[85%] sm:w-[70%] md:w-auto snap-center flex flex-col overflow-hidden text-center">
           <Image
             src={card.image}
             alt={card.title}
             class="w-full object-cover"
           />
           <div class="p-6">
-            <h3 class="text-lg md:text-xl font-bold">{card.title}</h3>
-            <p class="mt-3 text-base opacity-60">{card.desc}</p>
+            <h3 class="protection-card-title">{card.title}</h3>
+            <p class="protection-body protection-muted mt-3">{card.desc}</p>
           </div>
         </div>
       ))
@@ -61,11 +61,11 @@ const { userCards, statsData } = Astro.props as Props;
     >
       {
         statsData.map((stat: StatItem) => (
-          <div class="flex flex-col max-w-52 mx-auto">
-            <h3 class="text-primary text-xl md:text-2xl font-bold">
+          <div class="protection-stat-item flex flex-col max-w-52 mx-auto">
+            <h3 class="protection-stat protection-accent font-bold">
               {stat.value}
             </h3>
-            <p class="text-base opacity-60 mt-2">{stat.label}</p>
+            <p class="protection-body protection-muted mt-2">{stat.label}</p>
           </div>
         ))
       }
@@ -74,7 +74,7 @@ const { userCards, statsData } = Astro.props as Props;
       <Image
         src={ContentImage}
         alt="EyEagle wall grab bar and toilet support rail installed in a bathroom"
-        class="w-full object-contain"
+        class="protection-wide-media w-full object-contain"
       />
     </div>
   </div>

@@ -1,12 +1,12 @@
 ---
-import { getImage } from "astro:assets";
-import defaultSocialSource from "../assets/Brand/eyeagle-site-og.png";
 import {
   siteMeta,
   socialLinks,
 } from "../data/site";
 import "../styles/global.css";
-import "../styles/scroll-motion.css";
+import "../styles/home-v3-tokens.css";
+import "../styles/legacy-theme.css";
+import SitePatterns from "../components/common/SitePatterns.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 
@@ -24,6 +24,8 @@ interface Props {
   title?: string;
   desc?: string;
   metaImage?: string;
+  /** A generated 1200 x 630 card in public/og/ (scripts/generate-og-images.mjs), e.g. "store". Defaults to "default". */
+  socialCard?: string;
   metaImageAlt?: string;
   metaImageWidth?: number;
   metaImageHeight?: number;
@@ -34,7 +36,6 @@ interface Props {
   article?: ArticleMetadata;
   showChrome?: boolean;
   bodyClass?: string;
-  mainClass?: string;
   headerActionHref?: string;
   headerActionLabel?: string;
 }
@@ -43,19 +44,18 @@ const {
   title = siteMeta.title,
   desc = siteMeta.description,
   metaImage,
+  socialCard = "default",
   metaImageAlt = siteMeta.defaultSocialImageAlt,
   metaImageWidth,
   metaImageHeight,
   canonicalPath,
   noindex = false,
-  footerClass = "",
   schemaType = "WebPage",
   article,
   showChrome = true,
   bodyClass = "",
-  mainClass = "site-chrome-content",
   headerActionHref = "/store",
-  headerActionLabel = "Get membership",
+  headerActionLabel = "Become a member",
 } = Astro.props as Props;
 
 const site = Astro.site ?? new URL(siteMeta.url);
@@ -64,15 +64,7 @@ const routePath = rawPath.replace(/\/index\.html$/, "/").replace(/\.html$/, "");
 const normalizedPath = routePath === "/" ? "/" : routePath.replace(/\/+$/, "");
 const canonicalUrl = new URL(normalizedPath, site).toString();
 
-const defaultSocialImage = await getImage({
-  src: defaultSocialSource,
-  width: 1200,
-  height: 630,
-  fit: "cover",
-  format: "jpg",
-  quality: 82,
-});
-const socialImageUrl = new URL(metaImage || defaultSocialImage.src, site).toString();
+const socialImageUrl = new URL(metaImage || `/og/${socialCard}.jpg`, site).toString();
 const socialImageWidth = metaImageWidth ?? (metaImage ? undefined : 1200);
 const socialImageHeight = metaImageHeight ?? (metaImage ? undefined : 630);
 
@@ -120,9 +112,9 @@ const segmentLabels: Record<string, string> = {
   "about-us": "About Us",
   app: "App",
   contact: "Contact Us",
-  device: "Guardian X",
+  device: "EyEagle",
   protection: "Protection",
-  solution: "How It Works",
+  membership: "Membership",
   shipping: "Shipping Policy",
   refund: "Refund Policy",
   privacy: "Privacy Policy",
@@ -181,18 +173,6 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
 <html lang="en-IN">
   <head>
     <meta charset="utf-8" />
-    <script is:inline>
-      // Gate every entrance animation on scripting being available, so the page
-      // never renders hidden content it cannot reveal. If the motion module
-      // does not report in, drop the gate and show everything as-is.
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        var root = document.documentElement;
-        root.setAttribute("data-motion", "on");
-        setTimeout(function () {
-          if (root.dataset.motionReady !== "true") root.removeAttribute("data-motion");
-        }, 4000);
-      }
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={desc} />
@@ -219,6 +199,7 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     <meta name="twitter:image:alt" content={metaImageAlt} />
 
     <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/faculty-glyphic-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/FavIcon.png" type="image/png" />
     <script type="application/ld+json" is:inline set:html={structuredData}></script>
@@ -232,28 +213,79 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     </script>
   </head>
 
-  <body class:list={["min-h-screen bg-white text-gray-900 antialiased", bodyClass]}>
-    <a href="#main-content" class="sr-only z-100 rounded bg-white px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
+  <body class:list={["min-h-screen bg-[var(--color-surface)] text-gray-900 antialiased eyeagle-home-v3", bodyClass]}>
+    <a href="#main-content" class="sr-only z-100 rounded bg-[var(--color-surface)] px-4 py-3 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to main content</a>
 
     <slot name="header" />
-    {showChrome && <SiteHeader solidAtTop actionHref={headerActionHref} actionLabel={headerActionLabel} />}
-    {showChrome ? <main id="main-content" class={mainClass}><slot /></main> : <slot />}
-    {showChrome && <SiteFooter footerClass={footerClass} />}
+    {showChrome && <SiteHeader solidAtTop actionHref={headerActionHref} actionLabel={headerActionLabel} variant="figmaHome" />}
+    {showChrome ? <main id="main-content" class="legacy-content"><slot /></main> : <slot />}
+    {showChrome && <SiteFooter />}
     <slot name="footer" />
+    <SitePatterns />
 
-    <script>
-      import "../scripts/scroll-motion";
+    <script is:inline>
+      const menuButton = document.querySelector("[data-menu-toggle]");
+      const mobileMenu = document.querySelector("[data-mobile-menu]");
+      const openIcon = document.querySelector("[data-menu-open-icon]");
+      const closeIcon = document.querySelector("[data-menu-close-icon]");
+
+      const setMenuOpen = (open) => {
+        if (!menuButton || !mobileMenu) return;
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        mobileMenu.hidden = !open;
+        openIcon?.classList.toggle("hidden", open);
+        closeIcon?.classList.toggle("hidden", !open);
+        document.body.classList.toggle("overflow-hidden", open);
+      };
+
+      menuButton?.addEventListener("click", () => setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true"));
+      mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          setMenuOpen(false);
+          document.querySelectorAll("[data-desktop-dropdown][open]").forEach((details) => details.removeAttribute("open"));
+        }
+      });
+      document.addEventListener("click", (event) => {
+        document.querySelectorAll("[data-desktop-dropdown][open]").forEach((details) => {
+          if (!details.contains(event.target)) details.removeAttribute("open");
+        });
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) setMenuOpen(false);
+      }, { passive: true });
     </script>
+
   </body>
 </html>
 
 <style is:global>
+  :root {
+    --type-display-family: "Faculty Glyphic", "Geist", Arial, sans-serif;
+    --type-body-family: "Geist", Arial, sans-serif;
+    --type-font-family: var(--type-body-family);
+    --type-weight-regular: 400; --type-weight-medium: 500;
+    --type-display-size: clamp(38px, 3.4vw, 48px); --type-display-line: clamp(43px, 3.9vw, 55px);
+    --type-h1-size: clamp(36px, 2.9vw, 42px); --type-h1-line: clamp(42px, 3.45vw, 50px);
+    --type-h2-size: clamp(28px, 2.25vw, 34px); --type-h2-line: clamp(35px, 2.85vw, 41px); --type-h3-size: clamp(22px, 1.667vw, 24px); --type-h3-line: 28px;
+    --type-h4-size: 18px; --type-h4-line: 24px; --type-body-xl-size: clamp(18px, 1.389vw, 20px); --type-body-xl-line: 26px;
+    --type-body-md-size: 16px; --type-body-md-line: 24px; --type-body-sm-size: 16px; --type-body-sm-line: 24px;
+    --type-body-xs-size: 14px; --type-body-xs-line: 20px;
+    --space-page-x: clamp(20px, 4vw, 56px); --space-section-y: clamp(96px, 7.6vw, 112px); --space-section-y-compact: clamp(72px, 6vw, 96px);
+    --content-max: 1180px; --reading-max: 640px;
+    --motion-duration-enter: 820ms; --motion-duration-reveal: 520ms; --motion-duration-ui: 180ms;
+    --motion-ease-enter: cubic-bezier(0.16, 1, 0.3, 1); --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1); --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --color-surface: #ffffff; --color-surface-muted: #f3f3f1; --color-surface-soft: #f7f7f4; --color-surface-dark: #000000; --color-surface-dark-soft: #111111;
+    --color-text: #0a0a0a; --color-text-muted: #6f6f6b; --color-text-soft: #62625e; --color-text-on-dark: #ffffff; --color-text-on-dark-muted: rgba(255,255,255,.72);
+    --color-line: #e5e5e2; --color-action: #d11f2b; --color-action-hover: #b91b25; --color-on-action: #ffffff; --color-focus: #315efb;
+  }
   html { scroll-behavior: smooth; }
-  body { font-family: "Geist", system-ui, Arial, sans-serif; }
+  body { min-height: 100%; overflow-x: hidden; background: var(--color-surface); color: var(--color-text); font-family: var(--type-font-family); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   [hidden] { display: none !important; }
   summary::-webkit-details-marker { display: none; }
-  :focus-visible { outline: 2px solid #cc0000; outline-offset: 3px; }
-  .site-chrome-content { padding-top: 68px; }
+  :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+  ::selection { background: var(--color-action); color: var(--color-on-action); }
   article img { border-radius: 16px; }
   .prose ul ul { list-style-type: circle; }
   .prose blockquote { margin: 2rem 0; border: 0; border-radius: 16px; background: #fbebeb; padding: 1.5rem; color: #262626; font-style: normal; }

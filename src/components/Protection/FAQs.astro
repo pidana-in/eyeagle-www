@@ -1,4 +1,6 @@
 ---
+import FAQSection from "../HomeV3/FAQSection.astro";
+
 type FAQItem = {
   question: string;
   answer: string;
@@ -7,22 +9,9 @@ type FAQItem = {
 const faqsData = Astro.props.faqsData as FAQItem[];
 ---
 
-<section id="protection-faq" class="protection-faq" aria-labelledby="protection-faq-title">
-  <header class="protection-faq-heading">
-    <p class="protection-kicker">Planning your bathroom</p>
-    <h2 id="protection-faq-title" class="protection-section-title">
-      Frequently asked questions.
-    </h2>
-    <p>Clear answers about the assessment, protection kit and installation.</p>
-  </header>
-  <div class="protection-faq-list">
-    {
-      faqsData.map((faq, i: number) => (
-        <details class="protection-faq-item" open={i === 0}>
-          <summary><span>{faq.question}</span><i aria-hidden="true" /></summary>
-          <div><p>{faq.answer}</p></div>
-        </details>
-      ))
-    }
-  </div>
-</section>
+<FAQSection
+  description="Clear answers about the protection kit, planning and installation."
+  eyebrow="Planning your bathroom"
+  id="protection-faq"
+  items={faqsData}
+/>

@@ -11,9 +11,9 @@
 .options,
 .detailsInner,
 .closingInner {
-  width: min(100%, 1440px);
+  width: min(100%, calc(var(--content-max) + (2 * var(--space-page-x))));
   margin-inline: auto;
-  padding-inline: clamp(40px, 6vw, 88px);
+  padding-inline: var(--space-page-x);
 }
 
 .heroInner {
@@ -34,7 +34,7 @@
 .closingEyebrow {
   margin: 0 0 18px;
   color: var(--color-action);
-  font-size: var(--type-body-xs-size);
+  font-size: var(--type-v4-caption-size);
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.12em;
@@ -44,10 +44,11 @@
 .hero h1 {
   max-width: 530px;
   margin: 0;
-  font-size: var(--type-huge-size);
+  font-family: var(--type-v4-display-family);
+  font-size: var(--type-v4-hero-title-size);
   font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -0.035em;
+  line-height: var(--type-v4-hero-title-line);
+  letter-spacing: var(--type-v4-display-tracking);
   text-wrap: balance;
 }
 
@@ -55,8 +56,8 @@
   max-width: 480px;
   margin: 26px 0 0;
   color: var(--color-text-muted);
-  font-size: var(--type-body-md-size);
-  line-height: 1.6;
+  font-size: var(--type-v4-body-lg-size);
+  line-height: var(--type-v4-body-lg-line);
 }
 
 .heroActions,
@@ -67,6 +68,13 @@
   margin-top: 32px;
 }
 
+.options,
+.details,
+.closing {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
 .secondaryLink,
 .closingLink {
   display: inline-flex;
@@ -74,14 +82,14 @@
   gap: 10px;
   min-height: 48px;
   color: var(--color-text);
-  font-size: var(--type-body-sm-size);
+  font-size: var(--type-v4-button-size);
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.secondaryLink :global(.material-symbol-rounded),
-.closingLink :global(.material-symbol-rounded) { transition: transform 180ms ease; }
+.secondaryLink span,
+.closingLink span { transition: transform 180ms ease; }
 
 .heroImage,
 .cardImage {
@@ -116,10 +124,11 @@
 .detailsIntro h2,
 .closing h2 {
   margin: 0;
-  font-size: var(--type-h1-size);
+  font-family: var(--type-v4-display-family);
+  font-size: var(--type-v4-section-title-size);
   font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  line-height: var(--type-v4-section-title-line);
+  letter-spacing: var(--type-v4-display-tracking);
   text-wrap: balance;
 }
 
@@ -128,8 +137,8 @@
   max-width: 520px;
   margin: 20px 0 0;
   color: var(--color-text-muted);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: var(--type-v4-body-size);
+  line-height: var(--type-v4-body-line);
 }
 
 .actionGrid {
@@ -161,14 +170,14 @@
 .cardNumber {
   margin: 0 0 16px;
   color: var(--color-action);
-  font-size: var(--type-body-xs-size);
+  font-size: var(--type-v4-caption-size);
   font-weight: 500;
   letter-spacing: 0.1em;
 }
 
 .card h3 {
   margin: 0 0 12px;
-  font-size: 21px;
+  font-size: var(--type-v4-card-title-size);
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: -0.025em;
@@ -178,8 +187,8 @@
   max-width: 380px;
   margin: 0 0 26px;
   color: var(--color-text-muted);
-  font-size: var(--type-body-sm-size);
-  line-height: 1.65;
+  font-size: var(--type-v4-body-size);
+  line-height: var(--type-v4-body-line);
 }
 
 .cardBody > a { margin-top: auto; }
@@ -200,7 +209,10 @@
 }
 
 .detailsIntro { max-width: 400px; }
-.detailsIntro h2 { font-size: var(--type-h1-size); }
+.detailsIntro h2 {
+  font-size: var(--type-v4-feature-title-size);
+  line-height: var(--type-v4-feature-title-line);
+}
 
 .infoGrid {
   display: grid;
@@ -228,7 +240,7 @@
 
 .infoHeader h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: var(--type-v4-body-lg-size);
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -253,11 +265,11 @@
   display: block;
   margin-bottom: 5px;
   color: var(--color-text-muted);
-  font-size: var(--type-body-xs-size);
+  font-size: var(--type-v4-caption-size);
 }
 
 .contactRow strong {
-  font-size: var(--type-body-sm-size);
+  font-size: var(--type-v4-body-size);
   font-weight: 400;
   line-height: 1.5;
   overflow-wrap: anywhere;
@@ -271,7 +283,7 @@
   place-items: center;
   border: 1px solid rgba(10, 10, 10, 0.14);
   border-radius: 50%;
-  font-size: 17px;
+  font-size: var(--type-v4-body-size);
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
@@ -281,7 +293,7 @@
   gap: 4px;
   padding-top: 22px;
   color: var(--color-text-muted);
-  font-size: var(--type-body-sm-size);
+  font-size: var(--type-v4-caption-size);
   font-style: normal;
   line-height: 1.65;
 }
@@ -321,8 +333,8 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .secondaryLink:hover :global(.material-symbol-rounded),
-  .closingLink:hover :global(.material-symbol-rounded) { transform: translate(2px, -2px); }
+  .secondaryLink:hover span,
+  .closingLink:hover span { transform: translate(2px, -2px); }
   .card:hover .cardImage img { transform: scale(1.03); }
 
   .secondaryCardAction:hover {
@@ -408,16 +420,12 @@
 
   .heroCopy { max-width: 600px; }
 
-  .hero h1 {
-    max-width: 440px;
-    font-size: clamp(38px, 11vw, 44px);
-    line-height: 1.06;
-  }
+  .hero h1 { max-width: 440px; }
 
   .intro {
     margin-top: 22px;
-    font-size: 16px;
-    line-height: 1.58;
+    font-size: var(--type-v4-body-size);
+    line-height: var(--type-v4-body-line);
   }
 
   .heroActions {
@@ -436,10 +444,9 @@
   .sectionIntro { margin-bottom: 38px; }
 
   .sectionIntro h2,
-  .detailsIntro h2,
   .closing h2 {
-    font-size: 34px;
-    line-height: 1.1;
+    font-size: var(--type-v4-section-title-size);
+    line-height: var(--type-v4-section-title-line);
   }
 
   .actionGrid {
@@ -508,7 +515,7 @@
   .card { animation: none; }
 
   .cardImage img,
-  .secondaryLink :global(.material-symbol-rounded),
-  .closingLink :global(.material-symbol-rounded),
+  .secondaryLink span,
+  .closingLink span,
   .rowArrow { transition: none; }
 }

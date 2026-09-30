@@ -91,7 +91,7 @@ Install them in at least three spots:
 
 Make sure bars are fixed into the wall studs or with proper rawl plugs. A poorly fixed bar that gives way is worse than no bar at all.
 
-For added peace of mind, EyEagle also offers the <a href="/device" style="color:#CC0000; text-decoration:none;">Guardian-X Alarm Device</a> and the <a href="/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a>, allowing seniors to send an SOS alert instantly while notifying family members in real time during an emergency.
+For added peace of mind, EyEagle also offers the <a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle Alarm Device</a> and the <a href="/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a>, allowing seniors to send an SOS alert instantly while notifying family members in real time during an emergency.
 
 > EyEagle offers a professional bathroom safety audit and installs premium grab bars based on where YOUR senior actually moves. It is not a one-size-fits-all kit; it is tailored to your home
 
@@ -137,14 +137,14 @@ Call your parent at a fixed time every morning and evening. Keep it consistent. 
 
 A basic phone is not enough in a fall situation. An elderly person who falls may not be able to reach their phone, unlock it, and dial a number while in pain on a wet floor.
 
-This is exactly the gap that
-<a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle's Guardian-X</a> device is designed to fill. It is a one-press SOS button that triggers a loud alarm and instantly notifies family members through the EyEagle app. It works even without Wi-Fi and has a battery backup in case of power cuts, which are common during Indian monsoons.
+This is exactly the gap that the
+<a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle</a> device is designed to fill. It is a one-press SOS button that triggers a loud alarm and instantly notifies family members through the EyEagle app. It works even without Wi-Fi and has a battery backup in case of power cuts, which are common during Indian monsoons.
 
 ### Share Emergency Information With Neighbours
 
 Tell at least one trusted neighbour that your parent lives alone. Share your number with them. Ask them to listen for any unusual sounds. This is an old community safety habit in India that works; revive it.
 
-<a href="https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Ensure your parents' safety, if they are living alone</a>
+<a href="/store" style="color:#CC0000; text-decoration:none;">Ensure your parents' safety, if they are living alone</a>
 
 ![Infographic](../../assets/Blog/Blog34Infographic.png)
 
@@ -183,7 +183,7 @@ The steps in this guide are not complicated. They do not require a renovation. M
 
 Start with the checklist. Walk through the bathroom today. Fix what you can right now. And for anything you cannot fix yourself, get a professional to look at it.
 
-Along with simple bathroom safety upgrades, solutions like the **EyEagle App** and **Guardian-X Alarm Device** provide an additional layer of protection by connecting seniors with their loved ones during emergencies, making independent living safer and more reassuring.
+Along with simple bathroom safety upgrades, solutions like the **EyEagle App** and **EyEagle Alarm Device** provide an additional layer of protection by connecting seniors with their loved ones during emergencies, making independent living safer and more reassuring.
 
 Monsoon bathroom safety is not a luxury. For Indian seniors, it is essential. This rainy season, choose to act before something goes wrong.
 

@@ -1,0 +1,32 @@
+<style is:global>
+  /* Shared controls and retained-page presentation, grounded in HomeV3. */
+  body.eyeagle-home-v3 :is(a, button, input, textarea, select, summary):focus-visible {
+    outline: 2px solid var(--color-focus); outline-offset: 4px;
+  }
+  .legacy-content > section { padding-inline: var(--space-page-x); }
+  .legacy-content :is(article, details) { border-radius: var(--radius-media); }
+  .legacy-content :is(input:not([type=checkbox]):not([type=radio]), textarea, select) {
+    border-radius: var(--radius-control); font-family: var(--type-font-family);
+  }
+  .legacy-content :is(button, a)[class*="rounded-full"] {
+    transition: background-color var(--motion-duration-ui) var(--motion-ease-standard), color var(--motion-duration-ui) var(--motion-ease-standard);
+  }
+  [data-site-entry] { transition: opacity var(--motion-duration-enter) var(--motion-ease-enter), translate var(--motion-duration-enter) var(--motion-ease-enter); }
+  [data-site-entry="pending"] { opacity:0; translate:0 var(--motion-distance-enter); }
+  @media(prefers-reduced-motion:reduce) { [data-site-entry] { opacity:1; translate:none; transition:none; } }
+</style>
+<script>
+  // Existing story/reveal components retain ownership of their animations.
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const candidates = Array.from(document.querySelectorAll<HTMLElement>('.legacy-content > section > :is(h2, header)'));
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { (entry.target as HTMLElement).dataset.siteEntry = 'visible'; observer.unobserve(entry.target); }
+  }), { threshold: .1 });
+  if (!reduced.matches) candidates.forEach(el => {
+    if (el.closest('[data-reveal]') || el.getBoundingClientRect().top < innerHeight) return;
+    el.dataset.siteEntry = 'pending'; observer.observe(el);
+  });
+  reduced.addEventListener('change', () => {
+    if (reduced.matches) { observer.disconnect(); candidates.forEach(el => el.dataset.siteEntry = 'visible'); }
+  });
+</script>

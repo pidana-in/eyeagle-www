@@ -2,7 +2,7 @@
 import { aboutUsFoundersData } from "../constants/aboutus";
 import Image from "../common/OptimizedImage.astro";
 ---
-<section class="bg-white font-sans-instrument pb-20 px-5 lg:px-10 py-30">
+<section class="bg-[var(--color-surface)] font-sans-instrument pb-20 px-5 lg:px-10 py-30">
   <div class="xl:container">
     <div class="w-full pb-12 lg:pb-25">
       <p class="text-primary font-medium text-center text-[18px] leading-5.25 mb-2">TEAM</p>
@@ -11,7 +11,7 @@ import Image from "../common/OptimizedImage.astro";
 <div class="w-full flex flex-col gap-20 lg:flex-row justify-center items-center">
   {aboutUsFoundersData.map((founder) => (
     <div class="bg-[#ffffff] flex flex-col gap-5 h-full relative overflow-hidden group">
-            <div class="relative bg-white m-auto rounded-xl">
+            <div class="relative bg-[var(--color-surface)] m-auto rounded-xl">
         <Image
           src={founder.photo}
           alt={`${founder.name}'s Photo`}

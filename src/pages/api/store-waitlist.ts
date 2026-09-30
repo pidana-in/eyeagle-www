@@ -3,6 +3,7 @@ import type { APIRoute } from "astro";
 export const prerender = false;
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_REQUEST_BYTES = 2_000;
 const waitlistApiUrl = String(
   import.meta.env.STORE_WAITLIST_API_URL ??
   process.env.STORE_WAITLIST_API_URL ??
@@ -20,8 +21,25 @@ const jsonResponse = (body: Record<string, unknown>, status: number) =>
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const body = await request.json();
-    const email = String(body?.email ?? "").trim().toLowerCase();
+    if (!request.headers.get("content-type")?.includes("application/json")) {
+      return jsonResponse({ ok: false, message: "This endpoint accepts JSON submissions only." }, 415);
+    }
+
+    const contentLength = Number(request.headers.get("content-length") || 0);
+    if (contentLength > MAX_REQUEST_BYTES) {
+      return jsonResponse({ ok: false, message: "The request is too large." }, 413);
+    }
+
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return jsonResponse({ ok: false, message: "Enter a valid email address." }, 400);
+    }
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return jsonResponse({ ok: false, message: "Enter a valid email address." }, 400);
+    }
+    const email = String((body as Record<string, unknown>).email ?? "").trim().toLowerCase();
 
     if (!emailPattern.test(email)) {
       return jsonResponse({ ok: false, message: "Enter a valid email address." }, 400);

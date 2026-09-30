@@ -1,0 +1,63 @@
+---
+import styles from "../../styles/HomeV3/family-response-story.module.css";
+import Image from "../common/OptimizedImage.astro";
+import familyImage from "../../assets/HomeV3/family-response-story.png";
+
+const steps = [
+  { number: "01", title: "The Home Hub sounds", description: "The paired Home Hub sounds its alarm outside the bathroom so someone nearby can hear it." },
+  { number: "02", title: "The Nest is alerted", description: "Trusted contacts receive the SOS and its bathroom location in the EyEagle app." },
+  { number: "03", title: "Someone responds—or EyEagle does", description: "A Nest member can acknowledge the alert. If no one does within five minutes, our team steps in." },
+] as const;
+---
+
+<section class={styles.track} aria-labelledby="family-title" data-family-story>
+  <div class={styles.scene} data-family-scene>
+    <div class={styles.heading}>
+      <h2 id="family-title">Family responds first. EyEagle is always behind them.</h2>
+      <p>The Nest keeps the people closest to the situation connected. EyEagle provides the next layer when they cannot respond.</p>
+    </div>
+    <div class={styles.story}>
+      <div class={styles.stepWindow}>
+        <div class={styles.stepList} data-family-step-list style="transform: translate3d(0, 74px, 0)">
+          {steps.map((step, index) => (
+            <article aria-hidden={index !== 0} class={styles.step} data-active={String(index === 0)} data-family-step>
+              <span class={styles.rule} aria-hidden="true"></span>
+              <div class={styles.stepContent}>
+                <span class={styles.number}>{step.number}</span>
+                <div class={styles.stepCopy}><h3>{step.title}</h3><p>{step.description}</p></div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div class={styles.imageWrap}>
+        <Image alt="A family member responding to an EyEagle SOS at the parent’s home" layout="full-width" src={familyImage} />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const story = document.querySelector<HTMLElement>("[data-family-story]");
+  const scene = story?.querySelector<HTMLElement>("[data-family-scene]");
+  const list = story?.querySelector<HTMLElement>("[data-family-step-list]");
+  const steps = Array.from(story?.querySelectorAll<HTMLElement>("[data-family-step]") ?? []);
+  let active = 0;
+  let frameId = 0;
+  const update = () => {
+    if (!story || !scene || !list || steps.length === 0) return;
+    const bounds = story.getBoundingClientRect();
+    const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
+    const travel = Math.max(story.offsetHeight - scene.offsetHeight, 1);
+    const ratio = Math.min(Math.max((stickyTop - bounds.top) / travel, 0), 1);
+    const next = Math.min(steps.length - 1, Math.floor(ratio * steps.length));
+    if (next === active) return;
+    active = next;
+    list.style.transform = `translate3d(0, ${74 - active * 217}px, 0)`;
+    steps.forEach((step, index) => { step.dataset.active = String(index === active); step.setAttribute("aria-hidden", String(index !== active)); });
+  };
+  const requestUpdate = () => { if (!frameId) frameId = requestAnimationFrame(() => { update(); frameId = 0; }); };
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  update();
+</script>

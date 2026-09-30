@@ -10,8 +10,6 @@ authorRole: "Consultant"
 date: 2026-09-29
 ---
 
-# Diabetes and Falls in Elderly: Why India's 100 Million Diabetics Need Extra Floor Safety
-
 Most families know that diabetes can affect the eyes, kidneys, heart, and blood vessels. But another connection often goes unnoticed: diabetes and falls in elderly people. If your parent has lived with diabetes for years, you may already help with medicines, diet, doctor visits, and blood sugar checks. You may even have noticed that your mother walks more carefully than before. Perhaps she says her feet feel numb. Maybe your father has started holding the wall while walking at night.
 
 These signs can be easy to dismiss as part of aging. But diabetes can affect the nerves in the feet, vision, muscle strength and balance. Low blood sugar can also cause dizziness, confusion or weakness. Together, these problems can make a simple walk across the house much less safe. For an adult child caring for a diabetic parent, this changes the question.
@@ -161,7 +159,7 @@ One of the most worrying situations is a fall that happens when nobody is around
 
 For such situations, having a response system can add an important layer of protection. That is where EyEagle comes in. EyEagle combines connected devices, family alerts and a 24/7 human emergency response system to help your parents get the support they need, even when you are far away.
 
-<a href="https://eyeagle.ai/solution" style="color:#CC0000; text-decoration:none;">Learn more about EyEagle.</a>
+<a href="/store" style="color:#CC0000; text-decoration:none;">Learn more about EyEagle.</a>
 
 ![Infographic](../../assets/Blog/BlogImage42Info-4.png)
 

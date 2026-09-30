@@ -6,6 +6,11 @@
       "kind": "page"
     },
     {
+      "route": "/404",
+      "source": "src/pages/404.astro",
+      "kind": "page"
+    },
+    {
       "route": "/about-us",
       "source": "src/pages/about-us.astro",
       "kind": "page"
@@ -18,7 +23,7 @@
     {
       "route": "/assessment-form",
       "source": "src/pages/assessment-form.astro",
-      "kind": "page"
+      "kind": "redirect"
     },
     {
       "route": "/blog",
@@ -246,6 +251,11 @@
       "kind": "blog"
     },
     {
+      "route": "/checkout-2",
+      "source": "src/pages/checkout-2.astro",
+      "kind": "page"
+    },
+    {
       "route": "/contact",
       "source": "src/pages/contact.astro",
       "kind": "page"
@@ -256,8 +266,28 @@
       "kind": "page"
     },
     {
+      "route": "/enquiry",
+      "source": "src/pages/enquiry.astro",
+      "kind": "redirect"
+    },
+    {
+      "route": "/inequiery",
+      "source": "src/pages/inequiery.astro",
+      "kind": "redirect"
+    },
+    {
+      "route": "/inquiry",
+      "source": "src/pages/inquiry.astro",
+      "kind": "page"
+    },
+    {
       "route": "/join",
       "source": "src/pages/join.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/membership",
+      "source": "src/pages/membership.astro",
       "kind": "page"
     },
     {
@@ -268,6 +298,11 @@
     {
       "route": "/offers/yoga-day-2025",
       "source": "src/pages/offers/yoga-day-2025.astro",
+      "kind": "page"
+    },
+    {
+      "route": "/orders",
+      "source": "src/pages/orders.astro",
       "kind": "page"
     },
     {
@@ -288,11 +323,6 @@
     {
       "route": "/shipping",
       "source": "src/pages/shipping.astro",
-      "kind": "page"
-    },
-    {
-      "route": "/solution",
-      "source": "src/pages/solution.astro",
       "kind": "page"
     },
     {
@@ -460,6 +490,116 @@
       "referenced": true,
       "references": [
         "src/components/AboutUs/EmpoweringSection.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/alert-device.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1558967,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/arrow-up-right.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 1025,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/health-documents.png",
+      "format": "png",
+      "width": 1177,
+      "height": 1094,
+      "bytes": 951351,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/hero-phones.png",
+      "format": "png",
+      "width": 2400,
+      "height": 1800,
+      "bytes": 1015285,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/medical-support.png",
+      "format": "png",
+      "width": 1066,
+      "height": 2198,
+      "bytes": 3374442,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/AppFigma/response-status.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2013588,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/response-team.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1973912,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
+      ]
+    },
+    {
+      "file": "src/assets/AppFigma/sos-anywhere.png",
+      "format": "png",
+      "width": 706,
+      "height": 1003,
+      "bytes": 446879,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/app.astro"
       ]
     },
     {
@@ -1827,10 +1967,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/layouts/MainLayout.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Cart/productImage.png",
@@ -1844,6 +1982,68 @@
       "referenced": true,
       "references": [
         "src/components/constants/cart.ts"
+      ]
+    },
+    {
+      "file": "src/assets/CheckoutFigma/add.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 1069,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/checkout-2.astro"
+      ]
+    },
+    {
+      "file": "src/assets/CheckoutFigma/arrow-outward.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 1023,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Assessment/InquiryFormUI.astro",
+        "src/components/HomeV3/SiteHeader.astro",
+        "src/pages/404.astro",
+        "src/pages/about-us.astro",
+        "src/pages/checkout-2.astro",
+        "src/pages/index.astro",
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/CheckoutFigma/check.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 885,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/checkout-2.astro"
+      ]
+    },
+    {
+      "file": "src/assets/CheckoutFigma/remove.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 757,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/checkout-2.astro"
       ]
     },
     {
@@ -2581,7 +2781,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro"
+        "src/components/HomeV3/AlarmStory.astro",
+        "public/previews/response-interactions/steps.json"
       ]
     },
     {
@@ -2595,7 +2796,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro"
+        "src/components/HomeV3/AlarmStory.astro",
+        "public/previews/response-interactions/steps.json"
       ]
     },
     {
@@ -2609,7 +2811,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro"
+        "src/components/HomeV3/AlarmStory.astro",
+        "public/previews/response-interactions/steps.json"
       ]
     },
     {
@@ -2623,7 +2826,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro"
+        "src/components/HomeV3/AlarmStory.astro",
+        "public/previews/response-interactions/steps.json"
       ]
     },
     {
@@ -2637,7 +2841,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro"
+        "src/components/HomeV3/AlarmStory.astro",
+        "public/previews/response-interactions/steps.json"
       ]
     },
     {
@@ -2651,7 +2856,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro"
+        "src/components/HomeV3/AlarmStory.astro",
+        "public/previews/response-interactions/steps.json"
       ]
     },
     {
@@ -2665,8 +2871,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/IncludedStory.astro",
-        "src/pages/store.astro"
+        "src/components/HomeV3/IncludedStory.astro"
       ]
     },
     {
@@ -2678,10 +2883,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HomeV3/emergency-latest.png",
@@ -2692,9 +2895,21 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HomeV3/family-response-story.png",
+      "format": "png",
+      "width": 1600,
+      "height": 1920,
+      "bytes": 3657268,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/index.astro"
+        "src/components/HomeV3/FamilyResponseStory.astro"
       ]
     },
     {
@@ -2706,10 +2921,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HomeV3/hero-family.png",
@@ -2720,10 +2933,20 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HomeV3/included-app-latest.png",
+      "format": "png",
+      "width": 1402,
+      "height": 1122,
+      "bytes": 1760892,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HomeV3/included-hardware-latest.png",
@@ -2764,8 +2987,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/IncludedStory.astro",
-        "src/pages/solution.astro"
+        "src/components/HomeV3/IncludedStory.astro"
       ]
     },
     {
@@ -2777,10 +2999,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HomeV3/protection-latest.png",
@@ -2797,6 +3017,18 @@
       ]
     },
     {
+      "file": "src/assets/HomeV3/system-alarm-editorial-v2.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2179698,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "src/assets/HomeV3/system-alarm-product-v3.png",
       "format": "png",
       "width": 1122,
@@ -2805,10 +3037,20 @@
       "category": "product imagery",
       "classificationConfidence": "medium",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HomeV3/system-app-editorial-v2.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1894027,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HomeV3/system-map-inside.png",
@@ -2847,10 +3089,32 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HomeV3/system-nest-product-v3.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1571495,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HomeV3/system-response-editorial-v2.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1929866,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HomeV3/system-response-product-v3.png",
@@ -2861,10 +3125,8 @@
       "category": "product imagery",
       "classificationConfidence": "medium",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/index.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HowItWorks/bathroom-protection-assessment-v1.png",
@@ -2875,10 +3137,8 @@
       "category": "product imagery",
       "classificationConfidence": "medium",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/solution.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HowItWorks/door-duration.png",
@@ -2889,10 +3149,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/solution.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HowItWorks/everyday-system-eyeagle-v2.png",
@@ -2903,10 +3161,58 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HowItWorks/everyday-system-v1.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1826967,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HowItWorks/membership-home-visit-v1.png",
+      "format": "png",
+      "width": 1373,
+      "height": 1146,
+      "bytes": 2076594,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HowItWorks/membership-human-response-v1.png",
+      "format": "png",
+      "width": 1373,
+      "height": 1146,
+      "bytes": 1628490,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/solution.astro"
+        "src/components/OurStory/SystemLayers.astro"
       ]
+    },
+    {
+      "file": "src/assets/HowItWorks/membership-medical-coordination-v1.png",
+      "format": "png",
+      "width": 1375,
+      "height": 1144,
+      "bytes": 2063291,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HowItWorks/press-after-fall-sos-v2.png",
@@ -2923,6 +3229,18 @@
       ]
     },
     {
+      "file": "src/assets/HowItWorks/press-after-fall-v1.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1719573,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "src/assets/HowItWorks/response-alarm-eyeagle-v2.png",
       "format": "png",
       "width": 1122,
@@ -2937,6 +3255,18 @@
       ]
     },
     {
+      "file": "src/assets/HowItWorks/response-alarm-v1.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1913778,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "src/assets/HowItWorks/response-nest-live-v3.png",
       "format": "png",
       "width": 2560,
@@ -2945,10 +3275,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/solution.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HowItWorks/response-nest-natural-phone-v2.png",
@@ -2959,10 +3287,20 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/solution.astro"
-      ]
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HowItWorks/response-nest-overhead-v2.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1636311,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/HowItWorks/response-nest-v1.png",
@@ -2979,6 +3317,58 @@
       ]
     },
     {
+      "file": "src/assets/HowItWorks/system-eyeagle-sos.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1817813,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HowItWorks/system-guardian-x.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2016908,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/SystemLayers.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/system-nest.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 1773462,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/OurStory/SystemLayers.astro"
+      ]
+    },
+    {
+      "file": "src/assets/HowItWorks/trust-service-clarity-v1.png",
+      "format": "png",
+      "width": 1373,
+      "height": 1146,
+      "bytes": 2072954,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "src/assets/HowItWorks/trust-testing-eyeagle-kit-v2.png",
       "format": "png",
       "width": 1372,
@@ -2987,10 +3377,20 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/solution.astro"
-      ]
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/HowItWorks/trust-testing-v1.png",
+      "format": "png",
+      "width": 1373,
+      "height": 1146,
+      "bytes": 1981846,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Join/JoinPhoto.png",
@@ -3131,6 +3531,482 @@
       "references": [
         "src/components/constants/manifesto.ts"
       ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/app-breakthrough.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2012977,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/app-live.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2086903,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/app-sos.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2650367,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/hero.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2249313,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-assessment-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1967640,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-assessment-v3.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1946438,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-assessment.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2337190,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-care-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2110128,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-care-v3.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1989066,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-care.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2242624,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-installation-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2103434,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-installation-v3.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1959609,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/protection-installation.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2420826,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-247.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2074682,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-home-visit-v1.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2119441,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-hospital.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2605682,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-medical-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1889482,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-medical.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2506781,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-pidana-v2.png",
+      "format": "png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1742301,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-pidana.png",
+      "format": "png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 2072487,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-professional-video-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2171315,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-professional.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2357382,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/response-transport.png",
+      "format": "png",
+      "width": 1942,
+      "height": 809,
+      "bytes": 3006470,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-v3.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3650433,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-v4.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3620713,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-v5.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3627332,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-v6.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2216924,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-wired-v7.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3507300,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-wired-v8.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1964416,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-canonical-wired-v9.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1914126,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm-wired-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1844404,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alarm.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2209314,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-alert.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2009525,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-sos-wired-v2.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1781150,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-sos-wired-v3.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1734549,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-sos-wired-v4.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1702797,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "src/assets/MembershipFigma/system-sos.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2052649,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Navbar/Account.png",
@@ -4519,7 +5395,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/constants/newHome.ts"
+        "src/components/constants/newHome.ts",
+        "src/layouts/MainLayout.astro"
       ]
     },
     {
@@ -4735,7 +5612,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/constants/newHome.ts"
+        "src/components/constants/newHome.ts",
+        "src/pages/app.astro"
       ]
     },
     {
@@ -4749,7 +5627,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/constants/newHome.ts"
+        "src/components/constants/newHome.ts",
+        "src/pages/store.astro"
       ]
     },
     {
@@ -4833,7 +5712,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/Orders/OrderCard.astro"
+        "src/components/Orders/OrderCard.astro",
+        "src/pages/orders.astro"
       ]
     },
     {
@@ -4893,6 +5773,18 @@
       ]
     },
     {
+      "file": "src/assets/OurStory/about-hero-v1.png",
+      "format": "png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 1971563,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "src/assets/OurStory/about-naniji-framed-v1.png",
       "format": "png",
       "width": 2400,
@@ -4927,10 +5819,20 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/about-us.astro"
-      ]
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/OurStory/family-memory-v1.png",
+      "format": "png",
+      "width": 1122,
+      "height": 1402,
+      "bytes": 2270338,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/OurStory/team/abhinav.png",
@@ -4943,7 +5845,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -4957,7 +5860,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -4971,7 +5875,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -4985,7 +5890,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -4999,7 +5905,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5013,7 +5920,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5027,7 +5935,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5041,7 +5950,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5055,7 +5965,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5069,7 +5980,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5083,7 +5995,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5097,7 +6010,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5111,7 +6025,8 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
     },
     {
@@ -5125,8 +6040,81 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/OurStory/FoundersTeam.astro"
+        "src/components/OurStory/FoundersTeam.astro",
+        "src/pages/about-us.astro"
       ]
+    },
+    {
+      "file": "src/assets/OurStory/team-portrait-01-signal-v1.png",
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "bytes": 4617519,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/OurStory/team-portrait-02-signal-v1.png",
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "bytes": 5045101,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/OurStory/team-portrait-03-signal-v1.png",
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "bytes": 5077136,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/OurStory/team-portrait-04-signal-v1.png",
+      "format": "png",
+      "width": 2000,
+      "height": 2000,
+      "bytes": 5113294,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/OurStory/trust-privacy-v1.png",
+      "format": "png",
+      "width": 1373,
+      "height": 1146,
+      "bytes": 1766997,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Product/eyeagle-alarm-unit-canonical.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1144615,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Protection/BathroomFloorImage.png",
@@ -5557,6 +6545,30 @@
       ]
     },
     {
+      "file": "src/assets/Store/alarm-unit-v1.png",
+      "format": "png",
+      "width": 1373,
+      "height": 1146,
+      "bytes": 1897024,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Store/door-sensor-v1.png",
+      "format": "png",
+      "width": 1379,
+      "height": 1141,
+      "bytes": 1727939,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
       "file": "src/assets/Store/door-sensor-v2.png",
       "format": "png",
       "width": 1740,
@@ -5567,8 +6579,20 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/store.astro"
+        "src/pages/checkout-2.astro"
       ]
+    },
+    {
+      "file": "src/assets/Store/ecu-living-room-canonical-v3.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3628477,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Store/ecu-living-room-v1.png",
@@ -5581,8 +6605,45 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
+        "src/pages/checkout-2.astro",
         "src/pages/store.astro"
       ]
+    },
+    {
+      "file": "src/assets/Store/ecu-outdoor-v1.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2347596,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Store/guardian-kit-canonical-v3.png",
+      "format": "png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 3288920,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Store/guardian-kit-v1.png",
+      "format": "png",
+      "width": 1375,
+      "height": 1144,
+      "bytes": 1737805,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Store/guardian-kit-v2.png",
@@ -5595,8 +6656,33 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
+        "src/pages/checkout-2.astro",
         "src/pages/store.astro"
       ]
+    },
+    {
+      "file": "src/assets/Store/sos-button-v1.png",
+      "format": "png",
+      "width": 1394,
+      "height": 1128,
+      "bytes": 2001745,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "src/assets/Store/sos-button-v2.png",
+      "format": "png",
+      "width": 1740,
+      "height": 1280,
+      "bytes": 982671,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Store/sos-installed-v2.png",
@@ -5609,6 +6695,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
+        "src/pages/checkout-2.astro",
         "src/pages/store.astro"
       ]
     },
@@ -5793,6 +6880,264 @@
       ]
     },
     {
+      "file": "public/figma-home/arrow-outward.svg",
+      "format": "svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 1027,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/components/Assessment/InquiryFormUI.astro",
+        "src/components/HomeV3/SiteHeader.astro",
+        "src/pages/404.astro",
+        "src/pages/about-us.astro",
+        "src/pages/checkout-2.astro",
+        "src/pages/index.astro",
+        "src/pages/membership.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/bathroom-safety-opt.webp",
+      "format": "webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 58104,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/door-timer-scene-opt.webp",
+      "format": "webp",
+      "width": 840,
+      "height": 780,
+      "bytes": 22534,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/flight-takeoff.svg",
+      "format": "svg",
+      "width": 48,
+      "height": 48,
+      "bytes": 1701,
+      "category": "icon",
+      "classificationConfidence": "high",
+      "needsVisualReview": false,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/hero-home-opt.webp",
+      "format": "webp",
+      "width": 1920,
+      "height": 1094,
+      "bytes": 153120,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/independence-parent-opt.webp",
+      "format": "webp",
+      "width": 900,
+      "height": 652,
+      "bytes": 21288,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/independence-texture-opt.webp",
+      "format": "webp",
+      "width": 800,
+      "height": 534,
+      "bytes": 6400,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/ownership-assess-dispatch-v2-opt.webp",
+      "format": "webp",
+      "width": 520,
+      "height": 520,
+      "bytes": 24800,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/ownership-coordinate-opt.webp",
+      "format": "webp",
+      "width": 520,
+      "height": 520,
+      "bytes": 45120,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/ownership-handover-opt.webp",
+      "format": "webp",
+      "width": 520,
+      "height": 520,
+      "bytes": 31408,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/ownership-inform-opt.webp",
+      "format": "webp",
+      "width": 520,
+      "height": 520,
+      "bytes": 22030,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/response-attention-home-wired-v3-opt.webp",
+      "format": "webp",
+      "width": 800,
+      "height": 501,
+      "bytes": 44288,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/response-awareness-distance-opt.webp",
+      "format": "webp",
+      "width": 800,
+      "height": 501,
+      "bytes": 41504,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/response-eyeagle-alerted-opt.webp",
+      "format": "webp",
+      "width": 800,
+      "height": 480,
+      "bytes": 39508,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/sos-button-scene-opt.webp",
+      "format": "webp",
+      "width": 840,
+      "height": 777,
+      "bytes": 24536,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/system-app-alert-opt.webp",
+      "format": "webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 48006,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/system-call-help-wired-v3-opt.webp",
+      "format": "webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 39356,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
+      "file": "public/figma-home/system-response-team-polo-v2-opt.webp",
+      "format": "webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 41530,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/index.astro"
+      ]
+    },
+    {
       "file": "public/svg/Logo-new.svg",
       "format": "svg",
       "width": 242,
@@ -5872,6 +7217,21 @@
       "external": true
     },
     {
+      "source": "src/components/Assessment/InquiryFormUI.astro",
+      "href": "/",
+      "external": false
+    },
+    {
+      "source": "src/components/Assessment/InquiryFormUI.astro",
+      "href": "/membership",
+      "external": false
+    },
+    {
+      "source": "src/components/Assessment/InquiryFormUI.astro",
+      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
+      "external": true
+    },
+    {
       "source": "src/components/Cart/BillingDetail.astro",
       "href": "mailto:${object?.replyto}?subject=Request",
       "external": false
@@ -5903,28 +7263,23 @@
     },
     {
       "source": "src/components/Home/DesireSection.astro",
-      "href": "/join",
+      "href": "/inquiry",
       "external": false
     },
     {
-      "source": "src/components/Home/FatherSection.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
+      "source": "src/components/Home/OurTeamSection.astro",
+      "href": "http://www.w3.org/2000/svg",
       "external": true
     },
     {
-      "source": "src/components/Home/FatherSection.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/ServiceSection.astro",
-      "href": "https://eyeagle.ai/join",
+      "source": "src/components/Home/OurTeamSection.astro",
+      "href": "http://www.w3.org/2000/svg",
       "external": true
     },
     {
       "source": "src/components/Home/ServiceSection.astro",
-      "href": "https://eyeagle.ai/join",
-      "external": true
+      "href": "/inquiry",
+      "external": false
     },
     {
       "source": "src/components/Home/VideoSection.astro",
@@ -5978,13 +7333,8 @@
     },
     {
       "source": "src/components/Home/YogaSection.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/components/Home/YogaSection.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
+      "href": "/inquiry",
+      "external": false
     },
     {
       "source": "src/components/HomeV3/SiteFooter.astro",
@@ -6013,17 +7363,12 @@
     },
     {
       "source": "src/components/NewHome/StepsSection.astro",
-      "href": "/assessment-form",
+      "href": "/inquiry",
       "external": false
     },
     {
       "source": "src/components/Protection/Benefits.astro",
       "href": "#comparison-section",
-      "external": false
-    },
-    {
-      "source": "src/components/Protection/HeroSection.astro",
-      "href": "/assessment-form",
       "external": false
     },
     {
@@ -6117,21 +7462,6 @@
       "external": false
     },
     {
-      "source": "src/components/constants/device.ts",
-      "href": "https://eyeagle.ai/join",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/home.ts",
-      "href": "https://eyeagle.ai/join",
-      "external": true
-    },
-    {
-      "source": "src/components/constants/newHome.ts",
-      "href": "https://eyeagle.ai/solution",
-      "external": true
-    },
-    {
       "source": "src/content/blogs/Kuch-nhi-hoga.md",
       "href": "/blogs/caring-from-distance",
       "external": false
@@ -6168,13 +7498,8 @@
     },
     {
       "source": "src/content/blogs/aging-reality.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/aging-reality.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/alarms.md",
@@ -6188,12 +7513,12 @@
     },
     {
       "source": "src/content/blogs/alarms.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
       "source": "src/content/blogs/alarms.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6238,7 +7563,7 @@
     },
     {
       "source": "src/content/blogs/arthritis.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6278,7 +7603,7 @@
     },
     {
       "source": "src/content/blogs/balance.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6298,12 +7623,12 @@
     },
     {
       "source": "src/content/blogs/caring.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
       "source": "src/content/blogs/caring.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6378,8 +7703,8 @@
     },
     {
       "source": "src/content/blogs/day-Dad-fell.md",
-      "href": "http://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
-      "external": true
+      "href": "/blogs/falls-kill-more-seniors-than-you-think",
+      "external": false
     },
     {
       "source": "src/content/blogs/day-Dad-fell.md",
@@ -6404,11 +7729,6 @@
     {
       "source": "src/content/blogs/day-Dad-fell.md",
       "href": "https://eyeagle.ai/app",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/day-Dad-fell.md",
-      "href": "http://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
       "external": true
     },
     {
@@ -6533,7 +7853,7 @@
     },
     {
       "source": "src/content/blogs/epidemic.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6548,17 +7868,17 @@
     },
     {
       "source": "src/content/blogs/fall.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
       "source": "src/content/blogs/fall.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
       "source": "src/content/blogs/fall.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6653,7 +7973,7 @@
     },
     {
       "source": "src/content/blogs/footwear.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6708,7 +8028,7 @@
     },
     {
       "source": "src/content/blogs/mental-health.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -6793,8 +8113,8 @@
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/monsoon.md",
@@ -6804,11 +8124,6 @@
     {
       "source": "src/content/blogs/monsoon.md",
       "href": "https://shop.eyeagle.ai/products/bathroom-audit",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/monsoon.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
       "external": true
     },
     {
@@ -6868,8 +8183,8 @@
     },
     {
       "source": "src/content/blogs/newYear-gift.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/newYear-gift.md",
@@ -6880,11 +8195,6 @@
       "source": "src/content/blogs/newYear-gift.md",
       "href": "/blogs/new-year-safer-home-safety-tips",
       "external": false
-    },
-    {
-      "source": "src/content/blogs/newYear-gift.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
     },
     {
       "source": "src/content/blogs/osteoporosis.md",
@@ -6998,18 +8308,13 @@
     },
     {
       "source": "src/content/blogs/safety-features.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/safety-features.md",
       "href": "/app",
       "external": false
-    },
-    {
-      "source": "src/content/blogs/safety-features.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
     },
     {
       "source": "src/content/blogs/safety-tips.md",
@@ -7023,12 +8328,12 @@
     },
     {
       "source": "src/content/blogs/safety-tips.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
       "source": "src/content/blogs/safety-tips.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -7048,7 +8353,7 @@
     },
     {
       "source": "src/content/blogs/safety.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -7158,7 +8463,7 @@
     },
     {
       "source": "src/content/blogs/vision.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
     },
     {
@@ -7198,8 +8503,8 @@
     },
     {
       "source": "src/content/blogs/winter-safety.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/winter-safety.md",
@@ -7208,13 +8513,8 @@
     },
     {
       "source": "src/content/blogs/winter-safety.md",
-      "href": "/solution",
+      "href": "/protection",
       "external": false
-    },
-    {
-      "source": "src/content/blogs/winter-safety.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
     },
     {
       "source": "src/content/blogs/working-abroad.md",
@@ -7288,8 +8588,8 @@
     },
     {
       "source": "src/content/blogs/zindagi.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/zindagi.md",
@@ -7312,18 +8612,13 @@
       "external": false
     },
     {
-      "source": "src/content/blogs/zindagi.md",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
-      "external": true
-    },
-    {
       "source": "src/data/shop.ts",
       "href": "https://shop.eyeagle.ai/products/bathroom-audit",
       "external": true
     },
     {
-      "source": "src/data/shop.ts",
-      "href": "https://shop.eyeagle.ai/products/eyeagle-bathroom-safety-package-audit-prevention-kit-installation-app-membership",
+      "source": "src/data/shopify-configurator.ts",
+      "href": "https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1",
       "external": true
     },
     {
@@ -7368,6 +8663,11 @@
     },
     {
       "source": "src/layouts/MainLayout.astro",
+      "href": "/fonts/faculty-glyphic-latin.woff2",
+      "external": false
+    },
+    {
+      "source": "src/layouts/MainLayout.astro",
       "href": "/sitemap-index.xml",
       "external": false
     },
@@ -7392,28 +8692,38 @@
       "external": true
     },
     {
-      "source": "src/pages/about-us.astro",
-      "href": "/solution",
+      "source": "src/pages/404.astro",
+      "href": "/",
       "external": false
     },
     {
-      "source": "src/pages/assessment-form.astro",
-      "href": "https://flagcdn.com/w40/${selectedCountryCode.toLowerCase(",
-      "external": true
+      "source": "src/pages/about-us.astro",
+      "href": "/store",
+      "external": false
     },
     {
-      "source": "src/pages/assessment-form.astro",
-      "href": "https://flagcdn.com/w40/${defaultCountryCode.toLowerCase(",
+      "source": "src/pages/about-us.astro",
+      "href": "/app",
+      "external": false
+    },
+    {
+      "source": "src/pages/app.astro",
+      "href": "#download",
+      "external": false
+    },
+    {
+      "source": "src/pages/app.astro",
+      "href": "/store",
+      "external": false
+    },
+    {
+      "source": "src/pages/app.astro",
+      "href": "https://apps.apple.com/in/app/eyeagle/id6740724011",
       "external": true
     },
     {
       "source": "src/pages/blog.astro",
       "href": "/store",
-      "external": false
-    },
-    {
-      "source": "src/pages/blog.astro",
-      "href": "/solution",
       "external": false
     },
     {
@@ -7453,17 +8763,22 @@
     },
     {
       "source": "src/pages/blogsList.json.ts",
-      "href": "https://eyeagle.ai/blogs/",
+      "href": "https://eyeagle.ai/blogs/${blog.data.slug",
       "external": true
     },
     {
-      "source": "src/pages/contact.astro",
-      "href": "/assessment-form",
+      "source": "src/pages/checkout-2.astro",
+      "href": "/contact",
       "external": false
     },
     {
       "source": "src/pages/contact.astro",
-      "href": "/assessment-form",
+      "href": "/inquiry",
+      "external": false
+    },
+    {
+      "source": "src/pages/contact.astro",
+      "href": "/inquiry",
       "external": false
     },
     {
@@ -7473,12 +8788,12 @@
     },
     {
       "source": "src/pages/index.astro",
-      "href": "/solution",
+      "href": "/membership",
       "external": false
     },
     {
       "source": "src/pages/index.astro",
-      "href": "/assessment-form",
+      "href": "/protection",
       "external": false
     },
     {
@@ -7490,6 +8805,16 @@
       "source": "src/pages/index.astro",
       "href": "/contact",
       "external": false
+    },
+    {
+      "source": "src/pages/inquiry.astro",
+      "href": "https://flagcdn.com/w40/${selectedCountryCode.toLowerCase(",
+      "external": true
+    },
+    {
+      "source": "src/pages/inquiry.astro",
+      "href": "https://flagcdn.com/w40/${defaultCountryCode.toLowerCase(",
+      "external": true
     },
     {
       "source": "src/pages/join.astro",
@@ -7507,82 +8832,37 @@
       "external": true
     },
     {
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "https://payments.cashfree.com/forms/eyeagle-reserve-offer",
-      "external": true
-    },
-    {
-      "source": "src/pages/solution.astro",
+      "source": "src/pages/membership.astro",
       "href": "/store",
       "external": false
     },
     {
-      "source": "src/pages/solution.astro",
-      "href": "/store",
+      "source": "src/pages/membership.astro",
+      "href": "/contact",
       "external": false
     },
     {
-      "source": "src/pages/store.astro",
-      "href": "#availability",
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "/inquiry",
       "external": false
     },
     {
-      "source": "src/pages/store.astro",
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "/inquiry",
+      "external": false
+    },
+    {
+      "source": "src/pages/offers/yoga-day-2025.astro",
+      "href": "/inquiry",
+      "external": false
+    },
+    {
+      "source": "src/pages/orders.astro",
+      "href": "/contact?source=order",
+      "external": false
+    },
+    {
+      "source": "src/pages/orders.astro",
       "href": "/contact",
       "external": false
     },
@@ -7593,27 +8873,12 @@
     },
     {
       "source": "src/pages/success.astro",
-      "href": "/solution",
+      "href": "/",
       "external": false
     },
     {
       "source": "src/server/shopify.ts",
       "href": "https://${trimmed}",
-      "external": true
-    },
-    {
-      "source": "src/utils/urls.ts",
-      "href": "https://dev01.eyeagle.ai/api/v1/user/waitlist",
-      "external": true
-    },
-    {
-      "source": "src/utils/urls.ts",
-      "href": "https://dev.eyeagle.ai",
-      "external": true
-    },
-    {
-      "source": "src/utils/urls.ts",
-      "href": "https://uat.eyeagle.ai",
       "external": true
     }
   ]

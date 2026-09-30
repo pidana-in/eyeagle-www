@@ -38,17 +38,6 @@ export const heroContent = {
     "When an older parent is alone, small moments can turn serious fast. EyEagle reduces risk in the bathroom—and helps families respond quickly if something still goes wrong.",
 };
 
-// export const ctaButtons = [
-//   {
-//     label: "Get the app",
-//     href: SHOP_URLS.protectionKit,
-//   },
-//   {
-//     label: "How it works",
-//     href: "https://eyeagle.ai/solution",
-//   },
-// ];
-
 // export const featureTicks = ["No cameras", "No complex setup"];
 
 export const heroData = {
@@ -205,7 +194,7 @@ export const membershipItems = [
     image: kit,
   },
   {
-    title: "Guardian-X Safety Device",
+    title: "EyEagle Safety Device",
     description:
       "One-press SOS with loud alarm and reliable backup—so alerts go out instantly when needed.",
     image: device,
@@ -233,7 +222,7 @@ export const testimonialData = {
     },
     {
       quote:
-        "Love that it doesn't need WiFi and works during power cuts. The Guardian-X kit has been incredibly dependable. It's reassuring to know the system is always ready when needed.",
+        "Love that it doesn't need WiFi and works during power cuts. The EyEagle kit has been incredibly dependable. It's reassuring to know the system is always ready when needed.",
       author: "— Anil Jain, Gurugram",
       image: testimonialImg2,
     },
@@ -340,8 +329,8 @@ export const ctaSection = {
   description:
     "Tell us about your family — who you’re thinking about, what worries you, and what life looks like right now. We’ll help you choose the gentlest, most effective way to make them safer without overwhelming anyone.",
   primaryCta: {
-    label: "Get your kit today",
-    href: SHOP_URLS.protectionKit,
+    label: "Configure your kit",
+    href: "/store",
   },
   secondaryCta: {
     label: "Book a safety assessment",

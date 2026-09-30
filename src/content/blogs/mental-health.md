@@ -58,7 +58,7 @@ For many older adults, independence is more than just moving around freely; it i
 
 Independence doesn’t have to disappear because of fear.<a href="/blogs/how-to-ensure-safety-for-parents-living-alone" style="color:#CC0000; text-decoration:none;"> With the right support</a>, seniors can continue to live fully while staying safe. Gentle adjustments like creating safer home environments, encouraging light daily exercises, or using mobility aids when needed can protect both safety and freedom.
 
-It’s also important to remember that many falls happen in the bathroom, a place where floors can be slippery and movements are less steady. Prevention is always better than reacting after an accident. Simple safety upgrades, such as grab bars, non-slip mats, or a bathroom safety kit, can make a big difference. The <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kit</a> is designed to give seniors confidence in one of the most vulnerable areas of the home, helping them maintain their independence with peace of mind.
+It’s also important to remember that many falls happen in the bathroom, a place where floors can be slippery and movements are less steady. Prevention is always better than reacting after an accident. Simple safety upgrades, such as grab bars, non-slip mats, or a bathroom safety kit, can make a big difference. The <a href="/protection" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kit</a> is designed to give seniors confidence in one of the most vulnerable areas of the home, helping them maintain their independence with peace of mind.
 
 ## Finding strength – steps that help
 

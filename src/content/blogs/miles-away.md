@@ -43,9 +43,9 @@ EyEagle doesn’t just alert; it also helps prevent accidents from happening in 
 - Professional safety audit of the bathroom.
 - Installation of non-slip mats and grip tapes.
 - High-visibility grab bars.
-- Smart door timers and alarm triggers.
+- An Alert Unit with an SOS button and Door Lock Sensor, and a Home Hub with Alarm.
 
-These physical safety upgrades drastically reduce the risk of slips and falls, especially in bathrooms, where many accidents occur. Safety by design is a core principle that sets EyEagle apart from devices that only alert after something goes wrong. Unlike many wearable or sensor-based products, the <a href="/device" style="color:#CC0000; text-decoration:none;">EyEagle fall alert device</a> focuses on immediate, user-initiated emergency alerts combined with professional response and home safety enhancements.
+These physical safety upgrades drastically reduce the risk of slips and falls, especially in bathrooms, where many accidents occur. Safety by design is a core principle that sets EyEagle apart from devices that only alert after something goes wrong. Unlike many wearable or sensor-based products, the <a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle fall alert device</a> focuses on immediate, user-initiated emergency alerts combined with professional response and home safety enhancements.
 
 ![Infographic](../../assets/Blog/Blog33Infographic.jpg)
 

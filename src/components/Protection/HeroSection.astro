@@ -1,12 +1,11 @@
 ---
 import Image from "../common/OptimizedImage.astro";
-import ButtonLink from "../HomeV3/ButtonLink.astro";
 
 const heroContent = Astro.props.heroContent;
 const featurePoints: string[] = Astro.props.featurePoints;
 ---
 
-<section class="protection-hero bg-[var(--color-surface)] py-20 lg:py-36">
+<section class="protection-hero py-20 lg:py-36">
   <div class="2xl:container">
     <div class="text-center px-3 md:px-0">
       <div class="mx-auto max-w-275 mb-10 md:mb-20">
@@ -22,11 +21,6 @@ const featurePoints: string[] = Astro.props.featurePoints;
         <p class="protection-hero-intro">
           {heroContent.description}
         </p>
-        <div class="protection-hero-action">
-          <ButtonLink href="/assessment-form" size="large">
-            Get a bathroom assessment
-          </ButtonLink>
-        </div>
       </div>
       <div
         class="protection-benefit-list flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8"
@@ -36,7 +30,7 @@ const featurePoints: string[] = Astro.props.featurePoints;
             <>
               <span class="protection-benefit text-center">{point}</span>
               {i !== featurePoints.length - 1 && (
-                <span class="hidden md:inline text-primary">|</span>
+                <span class="protection-benefit-separator hidden md:inline">|</span>
               )}
             </>
           ))
@@ -47,7 +41,7 @@ const featurePoints: string[] = Astro.props.featurePoints;
       <Image
         src={heroContent.image}
         alt={heroContent.imageAlt}
-        class="w-144.5 h-61.25 object-cover md:size-full"
+        class="protection-hero-media w-144.5 h-61.25 object-cover md:size-full"
         loading="lazy"
       />
     </div>

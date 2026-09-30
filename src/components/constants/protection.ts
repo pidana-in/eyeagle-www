@@ -366,9 +366,9 @@ export const faqsData = [
       "The recommended kit can include wall grab bars, a toilet support rail, an anti-slip mat and transparent anti-slip tape. The exact combination depends on your bathroom, the wall and floor surfaces, and how the person using the space moves through it.",
   },
   {
-    question: "Why do I need an assessment before buying?",
+    question: "How do I choose the right supports?",
     answer:
-      "Support works best when it is placed where you naturally sit, stand, turn and reach. The assessment helps us understand those movements, review the bathroom surfaces and recommend a layout before installation.",
+      "Support works best when it is placed where you naturally sit, stand, turn and reach. Our team can discuss those movements, the bathroom surfaces and a suitable layout before installation.",
   },
   {
     question: "How do you decide where the supports should go?",
@@ -378,7 +378,7 @@ export const faqsData = [
   {
     question: "Will the kit suit my bathroom?",
     answer:
-      "Most recommendations can be adapted to the bathroom’s layout and finish. During the assessment, we review the available wall and floor surfaces and explain which supports can be installed safely in your space.",
+      "Most recommendations can be adapted to the bathroom’s layout and finish. Before installation, we confirm the available wall and floor surfaces and explain which supports can be installed safely in your space.",
   },
   {
     question: "Who is the protection kit designed for?",
@@ -393,6 +393,6 @@ export const faqsData = [
   {
     question: "How do I get started?",
     answer:
-      "Complete the bathroom assessment form with a few details about the person and the space. Our team will contact you to understand your needs and arrange the next step.",
+      "Choose EyEagle from the store or contact our team. We’ll understand what the home needs and help arrange the next step.",
   },
 ];

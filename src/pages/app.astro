@@ -1,49 +1,100 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import HeroSection from "../components/AppSection/HeroSection.astro";
-import {
-  HeroSectionData,
-  heroTitle,
-  heroDescription,
-  features,
-  featureData,
-  backupSection,
-  chapterSection,
-  testimonials,
-  nestSection,
-  contentData,
-  stores,
-} from "../components/constants/app";
-import Campus from "../components/AppSection/Campus.astro";
-import Feature from "../components/AppSection/Feature.astro";
-import Testimonials from "../components/AppSection/Testimonials.astro";
-import NewChapter from "../components/AppSection/NewChapter.astro";
-import AppDownload from "../components/AppSection/AppDownload.astro";
-import BackupSection from "../components/AppSection/BackupSection.astro";
-const metaTitle = "EyEagle | Your safety, one tap away";
-const metaDesc =
-  "Your trusted people, always one tap away. Create a Nest, send an SOS with live location, and get help instantly — no calls, no texts, no delay.";
+import Image from "../components/common/OptimizedImage.astro";
+import ButtonLink from "../components/HomeV3/ButtonLink.astro";
+import FAQSection from "../components/HomeV3/FAQSection.astro";
+import SiteFooter from "../components/HomeV3/SiteFooter.astro";
+import SiteHeader from "../components/HomeV3/SiteHeader.astro";
+import styles from "../styles/AppV2/page.module.css";
+import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
+
+import heroPhones from "../assets/AppFigma/hero-phones.png";
+import alertDevice from "../assets/AppFigma/alert-device.png";
+import responseStatus from "../assets/AppFigma/response-status.png";
+import responseTeam from "../assets/AppFigma/response-team.png";
+import sosAnywhere from "../assets/AppFigma/sos-anywhere.png";
+import healthDocuments from "../assets/AppFigma/health-documents.png";
+import arrowIcon from "../assets/AppFigma/arrow-up-right.svg";
+
+const appStoreUrl = "https://apps.apple.com/in/app/eyeagle/id6740724011";
+const overview = [
+  { title: "Know right away.", description: "Receive an emergency alert when the EyEagle device is triggered.", image: alertDevice, alt: "EyEagle alert visible on a phone beside the EyEagle Home Hub" },
+  { title: "See who’s responding.", description: "Know who has seen the SOS, who’s on the way and who can’t attend.", image: responseStatus, alt: "The Nest app showing who is responding to an SOS" },
+  { title: "We step in when needed.", description: "If no one responds, the EyEagle Response Team steps in and helps coordinate what happens next.", image: responseTeam, alt: "An EyEagle response professional coordinating an alert" },
+] as const;
+
+const sosPoints = [
+  { title: "One-tap SOS", description: "Ask for help directly from your phone." },
+  { title: "Share your location", description: "Let responders know where help is needed." },
+  { title: "Alert your Nest", description: "Family and trusted responders are notified together." },
+] as const;
+const documentPoints = [
+  { title: "Health", description: "Health conditions, allergies, medications and other important medical information." },
+  { title: "Insurance", description: "Keep health insurance details ready when hospital care is needed." },
+  { title: "Documents", description: "Keep Aadhaar, medical records and admission-related documents together." },
+] as const;
+const faqs = [
+  { question: "Does Nest only work with the EyEagle device?", answer: "No. Nest receives SOS alerts from the EyEagle device, and an SOS can also be raised directly from the app." },
+  { question: "Who receives an SOS?", answer: "The family members, neighbours and other trusted responders added to your Nest receive the alert together." },
+  { question: "What if nobody responds?", answer: "For eligible memberships, the EyEagle Response Team takes ownership of an unanswered alert and helps coordinate the next steps." },
+  { question: "Will I know who is responding?", answer: "Yes. Nest shows who has seen the alert, who has accepted it and who is on the way, so the family has one clear view of the response." },
+  { question: "Do SOS alerts work on Silent or Do Not Disturb?", answer: "Nest can deliver critical alerts through Silent and Do Not Disturb when the required notification permissions are enabled on the phone." },
+  { question: "Can someone send an SOS when they’re away from home?", answer: "Yes. An SOS can be raised from the Nest app and the phone’s location can be shared with responders when location access is enabled." },
+  { question: "What information can I keep in Nest?", answer: "You can keep key health conditions, allergies, medications, insurance information, identity documents and medical records together." },
+  { question: "Can I speak to a doctor through Nest?", answer: "Yes. Eligible members can use Nest to speak with an on-call doctor and connect with specialist support when needed." },
+] as const;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} noindex>
-  <HeroSection
-    HeroSectionData={HeroSectionData}
-    heroTitle={heroTitle}
-    heroDescription={heroDescription}
-  />
-  <Campus nestSection={nestSection} />
-  <Feature features={features} featureData={featureData} />
-  <BackupSection backupSection={backupSection} />
-  <NewChapter
-    chapterSection={chapterSection}
-    HeroSectionData={HeroSectionData}
-  />
-  <Testimonials testimonials={testimonials} />
-  <!-- <Family
-    sectionContent={sectionContent}
-    FamilySection={FamilySection}
-    familyCard={familyCard}
-  /> -->
-  <!-- <Membership membershipContent={membershipContent} plans={plans} /> -->
-  <AppDownload contentData={contentData} stores={stores} />
+<MainLayout socialCard="app" title="Nest App | EyEagle" desc="Nest keeps family, trusted responders and essential information connected when an EyEagle SOS is raised." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+  <SiteHeader slot="header" actionHref="/store" actionLabel="Become a member" solidAtTop variant="figmaHome" />
+  <main class={styles.main} id="main-content">
+    <section class={styles.hero} aria-labelledby="app-title">
+      <div class={styles.heroCopy} data-reveal>
+        <p class={styles.eyebrow}>EyEagle App</p>
+        <h1 id="app-title">Your family, connected when it matters.</h1>
+        <p class={styles.heroText}>From an SOS to the people responding, Nest keeps everyone connected to what’s happening.</p>
+        <ButtonLink href="#download" size="large" class={styles.heroButton}>Download App <img src={arrowIcon.src} alt="" /></ButtonLink>
+      </div>
+      <div class={styles.heroMedia} data-reveal><Image alt="Three Nest app screens showing an SOS, family alerts and response status" class={styles.heroImage} fetchpriority="high" layout="full-width" loading="eager" quality={92} src={heroPhones} /></div>
+    </section>
+
+    <section class={styles.overview} aria-label="How Nest keeps your family connected">
+      <div class={styles.overviewGrid}>
+        {overview.map((item) => <article class={styles.overviewCard} data-reveal><div class={styles.overviewMedia}><Image alt={item.alt} class={styles.fillImage} layout="full-width" quality={90} src={item.image} /></div><h2>{item.title}</h2><p>{item.description}</p></article>)}
+      </div>
+    </section>
+
+    <section class:list={[styles.showcase, styles.sosShowcase]} aria-labelledby="sos-title">
+      <div class={styles.showcaseIntro} data-reveal><p class={styles.eyebrow}>SOS from app</p><h2 id="sos-title"><span>Ask for help.</span> <span>Wherever you are.</span></h2><p>Send an SOS directly from the Nest app when the EyEagle button isn’t nearby.</p></div>
+      <div class:list={[styles.showcaseMedia, styles.sosMedia]} data-reveal><Image alt="The Nest app SOS screen" class={styles.containImage} layout="full-width" quality={92} src={sosAnywhere} /></div>
+      <div class={styles.pointGrid}>{sosPoints.map((item) => <article data-reveal><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
+    </section>
+
+    <section class={styles.showcase} aria-labelledby="documents-title">
+      <div class={styles.showcaseIntro} data-reveal><p class={styles.eyebrow}>Health &amp; documents</p><h2 id="documents-title">Everything important.<br />Ready.</h2><p>Keep essential health, insurance and identity information together in Nest, so it’s available when it’s needed.</p></div>
+      <div class:list={[styles.showcaseMedia, styles.documentMedia]} data-reveal><Image alt="Health and identity documents organised in the Nest app" class={styles.containImage} layout="full-width" quality={92} src={healthDocuments} /></div>
+      <div class={styles.pointGrid}>{documentPoints.map((item) => <article data-reveal><h3>{item.title}</h3><p>{item.description}</p></article>)}</div>
+    </section>
+
+    <section class={styles.download} id="download" aria-labelledby="download-title">
+      <div data-reveal><h2 id="download-title">Everything around them, connected.</h2><p>Nest brings alerts, response, important information and support together in one place.</p><div class={styles.actions}><ButtonLink class={styles.downloadPrimary} href="/store" size="large">Get EyEagle <img src={arrowIcon.src} alt="" /></ButtonLink><ButtonLink class={styles.downloadSecondary} href={appStoreUrl} size="large" target="_blank" rel="noopener noreferrer" variant="inverse">Get App</ButtonLink></div></div>
+    </section>
+
+    <FAQSection eyebrow="EyEagle Membership" items={faqs} />
+  </main>
+  <SiteFooter slot="footer" variant="figmaHome" />
 </MainLayout>
+
+<script>
+  const revealElements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) revealElements.forEach((element) => element.dataset.visible = "true");
+  else {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      (entry.target as HTMLElement).dataset.visible = "true";
+      observer.unobserve(entry.target);
+    }), { rootMargin: "0px 0px -8%", threshold: 0.08 });
+    revealElements.forEach((element) => observer.observe(element));
+  }
+</script>

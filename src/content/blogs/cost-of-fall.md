@@ -10,8 +10,6 @@ authorRole: "Consultant"
 date: 2026-09-21
 ---
 
-# The True Cost of a Senior Fall in India: ₹2–5 Lakh and Counting
-
 Ask any family that has been through it, and they'll tell you the same thing: nobody budgets for a fall. You budget for school fees, for weddings, for the occasional home renovation. A fall isn't on that list until it happens, and suddenly it's the only line item that matters. A fall that lasts two seconds can lead to an ambulance ride, emergency scans, surgery, a week in hospital, months of physiotherapy, and a caregiver at home. What initially looks like a simple accident can become a ₹2–5 lakh expense before recovery is complete. The exact amount varies depending on the injury, hospital, city, treatment, and recovery time. A complicated fracture or prolonged hospitalisation can cost considerably more. Once you understand the cost of a senior fall in India, the financial argument for prevention becomes much easier to evaluate.
 
 ## The Fall Itself Costs Almost Nothing

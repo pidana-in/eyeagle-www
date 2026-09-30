@@ -1,0 +1,79 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import arrowIcon from "../assets/CheckoutFigma/arrow-outward.svg";
+---
+
+<MainLayout
+  title="Page not found | EyEagle"
+  desc="The page you requested could not be found."
+  noindex={true}
+>
+  <section class="not-found" aria-labelledby="not-found-title">
+    <div>
+      <p>404</p>
+      <h1 id="not-found-title">This page isn’t here.</h1>
+      <span>The link may be outdated, or the page may have moved.</span>
+      <a href="/">
+        Return home
+        <img src={arrowIcon.src} alt="" />
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .not-found {
+    align-items: center;
+    background: var(--color-surface-soft);
+    display: flex;
+    min-height: 68vh;
+    padding: clamp(6rem, 12vw, 10rem) var(--space-page-x);
+  }
+
+  .not-found > div {
+    margin: 0 auto;
+    max-width: 44rem;
+    text-align: center;
+  }
+
+  .not-found p {
+    color: var(--color-action);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin: 0 0 1rem;
+  }
+
+  .not-found h1 {
+    font-family: var(--type-display-family);
+    font-size: clamp(2.5rem, 6vw, 4.75rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .not-found span {
+    color: var(--color-text-muted);
+    display: block;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 1.25rem auto 2rem;
+  }
+
+  .not-found a {
+    align-items: center;
+    background: var(--color-action);
+    border-radius: 999px;
+    color: white;
+    display: inline-flex;
+    font-weight: 600;
+    gap: 0.7rem;
+    min-height: 3.25rem;
+    padding: 0.85rem 1.4rem;
+    text-decoration: none;
+  }
+
+  .not-found a:hover { background: var(--color-action-hover); }
+  .not-found img { border-radius: 0; height: 1.1rem; width: 1.1rem; }
+</style>

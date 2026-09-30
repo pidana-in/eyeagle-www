@@ -59,12 +59,12 @@ export const ACTION_CARDS: ActionCard[] = [
   },
   {
     image: contactImage3,
-    alt: "EyEagle specialist completing a bathroom assessment",
-    title: "Get your bathroom assessment",
+    alt: "EyEagle specialist preparing to speak with a family",
+    title: "Send an enquiry",
     description:
-      "Schedule a home visit and let our experts assess potential risks and recommend practical safety improvements.",
-    ctaLabel: "Request a bathroom assessment",
-    ctaHref: "/assessment-form",
+      "Tell us what you need help with and we’ll direct your enquiry to the right person on our team.",
+    ctaLabel: "Start your enquiry",
+    ctaHref: "/inquiry",
   },
 ];
 

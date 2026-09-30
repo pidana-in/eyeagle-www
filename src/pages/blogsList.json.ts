@@ -54,7 +54,7 @@ export async function GET({ request }: { request: Request }) {
         author: blog.data.author,
         image: "https://eyeagle.ai" + (image?.src ?? "/favicon.svg"),
         date: blog.data.date,
-        slug: "https://eyeagle.ai/blogs/" + blog.id,
+        slug: `https://eyeagle.ai/blogs/${blog.data.slug ?? blog.id}`,
         // raw: blog,
       };
     }),

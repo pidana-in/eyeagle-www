@@ -32,13 +32,13 @@ Providing physical safety support remotely becomes crucial.
 
 **How EyEagle Supports Safety:**
 
-- EyEagle offers a <a href="/solution" style="color:#CC0000; text-decoration:none;"> bathroom safety kit</a> featuring grab bars, anti‑slip mats, and high‑visibility grip tapes, installed after a personalized safety audit to proactively prevent falls.
-- An alarm unit, control hub, and responsive switch offer emergency-ready features designed for low effort and high reliability.
+- EyEagle offers a <a href="/protection" style="color:#CC0000; text-decoration:none;"> bathroom safety kit</a> featuring grab bars, anti‑slip mats, and high‑visibility grip tapes, installed after a personalized safety audit to proactively prevent falls.
+- An Alert Unit with an SOS button and Door Lock Sensor, and a Home Hub with Alarm, offer emergency-ready features designed for low effort and high reliability.
 - Installations are done by trained professionals who handle setup, calibration, app onboarding, and full testing, so you don’t need to manage logistics from afar.
 
 These components ensure your parents are protected around the clock, even when you're miles away.
 
-<a href="/solution"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
+<a href="/protection"  style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; border: 1px solid #CC0000; color: white; background-color: #cc0000; font-weight: 600; border-radius: 0.5rem; text-decoration: none; transition: background-color 0.3s;">
 Know more
 </a>
 
@@ -96,7 +96,7 @@ While health check-ins and emotional support for elderly parents in India matter
 EyEagle helps by:
 
 - Installing personalized safety kits that include anti-slip mats, grab bars, and visibility aids.
-- Providing an alarm unit with an emergency switch and control hub that allows your parents to call for help when needed.
+- Providing an Alert Unit with an SOS button, and a Home Hub with Alarm, that allows your parents to call for help when needed.
 - Offering professional installation services to ensure everything is set up correctly and customized for your parents' needs.
 - Giving you access to an EyEagle circle mobile app where you can receive alerts, updates, and maintain a connected line of support.
 

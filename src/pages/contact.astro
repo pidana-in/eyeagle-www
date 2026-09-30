@@ -4,7 +4,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import ButtonLink from "../components/HomeV3/ButtonLink.astro";
-import MaterialIcon from "../components/common/MaterialIcon.astro";
 import {
   HERO,
   ACTION_CARDS,
@@ -14,16 +13,18 @@ import {
 } from "../components/constants/contactus";
 import styles from "../styles/Contact/page.module.css";
 import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
 
 const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
 ---
 
 <MainLayout
+  socialCard="contact"
   title="Contact EyEagle | Questions, support and partnerships"
-  desc="Talk to EyEagle about your home, request a bathroom assessment or discuss a partnership."
+  desc="Talk to EyEagle about the home system, membership, installation, support, pricing, or partnerships."
   schemaType="ContactPage"
   showChrome={false}
-  bodyClass="eyeagle-home-v3"
+  bodyClass="eyeagle-home-v3 eyeagle-home-v4"
 >
   <SiteHeader slot="header" solidAtTop />
 
@@ -35,9 +36,9 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
           <h1 id="contact-title">{HERO.heading}</h1>
           <p class={styles.intro}>{HERO.description}</p>
           <div class={styles.heroActions}>
-            <ButtonLink href="/assessment-form">Request a bathroom assessment</ButtonLink>
+            <ButtonLink href="/inquiry">Send an enquiry</ButtonLink>
             <a class={styles.secondaryLink} href={PHONE_TEL_LINK}>
-              Call the team <MaterialIcon name="arrow_outward" />
+              Call the team <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -105,7 +106,7 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
                         <small>{line.href.startsWith("mailto:") ? "Email us" : "Call us"}</small>
                         <strong>{line.text}</strong>
                       </span>
-                      <span class={styles.rowArrow} aria-hidden="true"><MaterialIcon name="arrow_outward" /></span>
+                      <span class={styles.rowArrow} aria-hidden="true">↗</span>
                     </a>
                   ))}
                 </div>
@@ -127,12 +128,12 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
     <section class={styles.closing} aria-labelledby="closing-title">
       <div class={styles.closingInner}>
         <div>
-          <p class={styles.closingEyebrow}>A safer bathroom starts here</p>
-          <h2 id="closing-title">Ready to make the bathroom safer?</h2>
+          <p class={styles.closingEyebrow}>Talk to EyEagle</p>
+          <h2 id="closing-title">Ready to discuss what your family needs?</h2>
         </div>
         <div class={styles.closingActions}>
-          <ButtonLink href="/assessment-form">Request a bathroom assessment</ButtonLink>
-          <a class={styles.closingLink} href={PHONE_TEL_LINK}>Call the team <MaterialIcon name="arrow_outward" /></a>
+          <ButtonLink href="/inquiry">Send an enquiry</ButtonLink>
+          <a class={styles.closingLink} href={PHONE_TEL_LINK}>Call the team <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

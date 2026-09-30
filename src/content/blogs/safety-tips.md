@@ -41,7 +41,7 @@ Families often end up facing heavy medical expenses, emotional stress, and chang
 
 ### Prevention is Always Better Than Cure
 
-While these risks are real, the good news is that most bathroom falls can be prevented. By making small, practical changes and using solutions like <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle’s fall prevention care package,</a> you can create a senior-friendly bathroom.
+While these risks are real, the good news is that most bathroom falls can be prevented. By making small, practical changes and using solutions like <a href="/protection" style="color:#CC0000; text-decoration:none;"> EyEagle’s fall prevention care package,</a> you can create a senior-friendly bathroom.
 
 After all, the goal isn’t just to prevent accidents but to allow your loved ones to live with dignity, comfort, and peace of mind.
 
@@ -105,7 +105,7 @@ Clutter increases fall risks. Seniors need toiletries, towels, and supplies with
 
 Even with bathroom grab bars installation, non-slip mats, and raised toilet seats, emergencies can happen. That’s why having an alert system in the bathroom provides an extra layer of safety and quick response.
 
-Solutions like <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle’s Guardian-X Safety System </a> are designed to keep seniors protected 24/7. The system includes:
+Solutions like <a href="/protection" style="color:#CC0000; text-decoration:none;"> EyEagle Safety System </a> are designed to keep seniors protected 24/7. The system includes:
 
 - **Emergency Press Buttons:**
   Easy-to-access SOS buttons that seniors can press if they slip, feel unwell, or need urgent help. These are strategically placed within reach in the bathroom.

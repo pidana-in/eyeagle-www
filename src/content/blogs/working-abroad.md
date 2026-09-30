@@ -10,7 +10,6 @@ authorRole: "Consultant"
 date: 2026-08-27
 ---
 
-# When Distance Isn’t Distance: Caring for Elderly Parents While Working Abroad
 
 There’s a unique kind of silence that hits when you end a video call with your parents and realize you’re thousands of miles away. For many living overseas, caring for elderly parents back home isn’t just a responsibility; it’s an emotional tug that never really goes away. You build your career, chase global opportunities, and create a life abroad…but your heart often stays rooted where your parents are.
 
@@ -79,7 +78,7 @@ Smartwatches, blood pressure monitors, glucose monitors, and medication reminder
 
 <a href="https://eyeagle.ai/" style="color:#CC0000; text-decoration:none;">Modern elderly care systems include fall detection</a>, SOS buttons, and emergency dispatch services. If a parent falls or presses an alert button, help can be sent immediately, even if you’re abroad.
 
-<a href="https://eyeagle.ai/device" style="color:#CC0000; text-decoration:none;">EyEagle’s SOS button</a> ensures instant emergency alerts, while the <a href="https://eyeagle.ai/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a> notifies family members abroad in real time, so even from miles away, you stay informed, and your parents get immediate help from your circle.
+<a href="/store" style="color:#CC0000; text-decoration:none;">EyEagle’s SOS button</a> ensures instant emergency alerts, while the <a href="https://eyeagle.ai/app" style="color:#CC0000; text-decoration:none;">EyEagle App</a> notifies family members abroad in real time, so even from miles away, you stay informed, and your parents get immediate help from your circle.
 
 ## Step 3: Plan Financial and Medical Systems in Advance
 

@@ -142,7 +142,7 @@ Loose rugs, cords across walkways, wobbly furniture, all of these are avoidable 
 
 ### 3. Add Grab Bars Where They Matter Most
 
-Bathrooms are high-risk zones for slips and falls. Install grab bars next to toilets, inside showers, and near bathtubs to provide steady support where it’s needed most. The <a href="/solution" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kit</a> makes it easier as it has easy-to-install grab bars and other safety essentials designed specifically for seniors.
+Bathrooms are high-risk zones for slips and falls. Install grab bars next to toilets, inside showers, and near bathtubs to provide steady support where it’s needed most. The <a href="/protection" style="color:#CC0000; text-decoration:none;"> EyEagle Bathroom Safety Kit</a> makes it easier as it has easy-to-install grab bars and other safety essentials designed specifically for seniors.
 
 ### 4. Rethink Shoe and Slipper Choices
 

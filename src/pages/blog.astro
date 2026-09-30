@@ -9,6 +9,7 @@ import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import styles from "../styles/Blog/page.module.css";
 import "../styles/home-v3-tokens.css";
+import "../styles/home-v4-tokens.css";
 
 const displayTitle = (title: string) => title.replace(/\s*\|\s*EyEagle\s*$/i, "");
 const metaTitle = "EyEagle Journal | Safer Living and Family Care";
@@ -22,22 +23,16 @@ const formatDate = (date: Date) => new Intl.DateTimeFormat("en-IN", { day: "nume
 const articleHref = (article: CollectionEntry<"blogs">) => `/blogs/${article.data.slug ?? article.id}`;
 ---
 
-<MainLayout title={metaTitle} desc={metaDesc} schemaType="CollectionPage" showChrome={false} bodyClass="eyeagle-home-v3">
+<MainLayout socialCard="blog" title={metaTitle} desc={metaDesc} schemaType="CollectionPage" showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
   <SiteHeader slot="header" solidAtTop />
   <main class={styles.main} id="main-content">
-    <section class={styles.intro} aria-labelledby="journal-title">
-      <p class={styles.eyebrow}>EyEagle Journal</p>
-      <h1 id="journal-title">Useful thinking for <br />safer living.</h1>
-      <p class={styles.introCopy}>Practical guidance for safer homes, healthy ageing and staying close to the people who matter.</p>
-    </section>
-
     {featured && (
       <section class={styles.featured} aria-labelledby="featured-title" data-reveal data-reveal-visible="false">
         <a class={styles.featuredLink} href={articleHref(featured)}>
           <div class={styles.featuredMedia}><Image alt={featured.data.title} class={styles.fillImage} fetchpriority="high" layout="full-width" loading="eager" quality={84} src={featured.data.img} /></div>
           <div class={styles.featuredCopy}>
             <div class={styles.meta}><span>Featured</span><time datetime={featured.data.date.toISOString()}>{formatDate(featured.data.date)}</time></div>
-            <h2 id="featured-title">{displayTitle(featured.data.title)}</h2>
+            <h1 id="featured-title">{displayTitle(featured.data.title)}</h1>
             {featured.data.desc && <p>{featured.data.desc}</p>}
             <span class={styles.readLink}>Read the story <MaterialIcon name="arrow_outward" classNames={styles.readIcon} /></span>
           </div>
@@ -74,7 +69,7 @@ const articleHref = (article: CollectionEntry<"blogs">) => `/blogs/${article.dat
 
     <section class={styles.closing} aria-labelledby="closing-title" data-reveal data-reveal-visible="false">
       <div><p class={styles.eyebrow}>A safer home starts here</p><h2 id="closing-title">Put a clear response behind one simple press.</h2></div>
-      <div class={styles.closingActions}><ButtonLink href="/store" size="large">Configure your kit</ButtonLink><ButtonLink href="/solution" size="large" variant="inverse">See how it works</ButtonLink></div>
+      <div class={styles.closingActions}><ButtonLink href="/store" size="large">Configure your kit</ButtonLink></div>
     </section>
   </main>
   <SiteFooter slot="footer" />
