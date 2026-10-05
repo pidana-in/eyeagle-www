@@ -40,3 +40,5 @@ SMTP credentials use private server-only variable names and must never use Astro
 ## Deployment
 
 `pnpm build` produces the Netlify server bundle and static assets in `dist/`. This repository does not contain a `netlify.toml`; build and environment settings are managed outside the repository.
+
+<!-- Documentation refresh: 2026-10-05. -->
