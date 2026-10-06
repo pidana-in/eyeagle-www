@@ -9,16 +9,25 @@ export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
   bathroomMin: 1,
   bathroomMax: 3,
   additionalSosMin: 0,
-  additionalSosMax: 4,
+  additionalSosMax: 2,
   // Estimate shown before checkout. Keep in sync with the Shopify tax setup.
   gstRate: 0.18,
 });
+
+export const EYEAGLE_BASE_PLANS = Object.freeze({
+  oneYear: { priceInr: 49_999, membershipYears: 1 },
+  threeYears: { priceInr: EYEAGLE_SHOPIFY_CONFIG.basePriceInr, membershipYears: 3 },
+} as const);
+
+export type EyEagleBasePlan = keyof typeof EYEAGLE_BASE_PLANS;
 
 // Master switch for online ordering, set in config/store.json. While false, /store is a browsable
 // preview with an availability signup (/api/store-waitlist) in place of checkout, and no Shopify
 // links are rendered. Only an explicit `true` opens ordering.
 export const EYEAGLE_ORDERING_OPEN = storeConfig.orderingOpen === true;
 
+// Existing three-year variant mapping. Kept for the legacy bundle setup script;
+// these IDs have not been verified against the new two-plan Shopify setup.
 export const EYEAGLE_VARIANT_IDS = Object.freeze({
   "1:0": "50646822420673",
   "1:1": "50646822453441",
@@ -92,7 +101,16 @@ export const getEyEagleConfiguredPurchase = (
   bathrooms: number,
   additionalSos: number,
 ): EyEagleConfiguredPurchase | null => {
-  if (!isValidEyEagleConfiguration(bathrooms, additionalSos)) return null;
+  // Preserve the old 15-variant bundle setup without exposing its 3- and 4-unit
+  // choices in the new store configurator.
+  if (
+    !Number.isInteger(bathrooms) ||
+    !Number.isInteger(additionalSos) ||
+    bathrooms < EYEAGLE_SHOPIFY_CONFIG.bathroomMin ||
+    bathrooms > EYEAGLE_SHOPIFY_CONFIG.bathroomMax ||
+    additionalSos < 0 ||
+    additionalSos > 4
+  ) return null;
 
   const key = `${bathrooms}:${additionalSos}` as EyEagleVariantKey;
   const variantId = EYEAGLE_VARIANT_IDS[key];
@@ -110,5 +128,31 @@ export const getEyEagleConfiguredPurchase = (
     variantId,
     quantity: 1,
     checkoutUrl: `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1`,
+  };
+};
+
+// The two-plan setup needs 18 verified variant IDs. The IDs above predate that setup;
+// don't route a new selection to one of those legacy checkout URLs.
+export const getEyEagleStoreSelection = (
+  plan: EyEagleBasePlan,
+  bathrooms: number,
+  additionalSos: number,
+) => {
+  if (!isValidEyEagleConfiguration(bathrooms, additionalSos)) return null;
+
+  const base = EYEAGLE_BASE_PLANS[plan];
+  if (!base) return null;
+
+  const totalInr =
+    base.priceInr +
+    (bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin) * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr +
+    additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr;
+
+  return {
+    plan,
+    membershipYears: base.membershipYears,
+    basePriceInr: base.priceInr,
+    totalInr,
+    checkoutUrl: null,
   };
 };

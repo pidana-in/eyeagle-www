@@ -1,0 +1,27 @@
+---
+interface Props {
+  class?: string;
+  size?: number;
+}
+
+const { class: className, size = 24 } = Astro.props;
+---
+
+<span
+  aria-hidden="true"
+  class:list={["arrow-outward", className]}
+  style={`--arrow-outward-size: ${size}px`}
+></span>
+
+<style>
+  .arrow-outward {
+    display: inline-block;
+    width: var(--arrow-outward-size);
+    height: var(--arrow-outward-size);
+    flex: 0 0 var(--arrow-outward-size);
+    background: currentColor;
+    vertical-align: middle;
+    -webkit-mask: url("/figma-home/arrow-outward.svg") center / contain no-repeat;
+    mask: url("/figma-home/arrow-outward.svg") center / contain no-repeat;
+  }
+</style>

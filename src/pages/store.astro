@@ -4,23 +4,22 @@ import Image from "../components/common/OptimizedImage.astro";
 import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import FAQSection from "../components/HomeV3/FAQSection.astro";
+import ArrowOutward from "../components/common/ArrowOutward.astro";
 import {
+  EYEAGLE_BASE_PLANS,
   EYEAGLE_ORDERING_OPEN as orderingOpen,
   EYEAGLE_SHOPIFY_CONFIG,
   estimateGstInr,
   formatInr,
-  getEyEagleConfiguredPurchase,
 } from "../data/shopify-configurator";
 import styles from "../styles/Store/page.module.css";
 import "../styles/home-v3-tokens.css";
 import "../styles/home-v4-tokens.css";
-import kitImage from "../assets/Store/guardian-kit-v2.png";
-import setupImage from "../assets/Store/sos-installed-v2.png";
-import reviewImage from "../assets/Store/ecu-living-room-v1.png";
-import protectionKitImage from "../assets/NewHome/kit.png";
+import kitImage from "../assets/Store/guardian-kit-v3.png";
+import bathroomImage from "../assets/Store/bathroom-protection-hd-3000.png";
+import sosImage from "../assets/Store/sos-installed-wired-scale-hd-3000.png";
 
 const {
-  basePriceInr,
   additionalBathroomPriceInr,
   additionalSosPriceInr,
   bathroomMin,
@@ -32,9 +31,8 @@ const {
 
 const panels = [
   { image: kitImage, alt: "The complete EyEagle home safety system", caption: "Complete home safety system" },
-  { image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
-  { image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
-  { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
+  { image: bathroomImage, alt: "EyEagle bathroom protection installed in a warm contemporary bathroom", caption: "Bathroom protection, installed" },
+  { image: sosImage, alt: "An older adult pressing the EyEagle SOS button in a bathroom", caption: "SOS within reach" },
 ] as const;
 
 const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, index) => min + index);
@@ -43,9 +41,9 @@ const delta = (amount: number) => (amount === 0 ? "Included" : `+ ${formatInr(am
 
 // Each bathroom gets a protection kit and its own Alert Unit.
 const bathroomDescriptions: Record<number, string> = {
-  1: "For parents who use one bathroom. A protection kit and Alert Unit, installed.",
-  2: "Covers both bathrooms in a 2 BHK, each with its own kit and Alert Unit.",
-  3: "For larger homes, or a guest bathroom they also use. Kit and Alert Unit in each.",
+  1: "One protection kit and Alert Unit, installed.",
+  2: "A kit and Alert Unit in each bathroom.",
+  3: "A kit and Alert Unit in all three bathrooms.",
 };
 const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
   value: count,
@@ -56,11 +54,9 @@ const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
 
 // Extra Alert Units go beyond the bathrooms, wherever else they spend time.
 const sosDescriptions: Record<number, string> = {
-  0: "Each protected bathroom already has its own Alert Unit.",
-  1: "One more where they spend the most time, like beside the bed.",
-  2: "Cover the bedroom and one more spot, like the kitchen or stairs.",
-  3: "Bedroom, kitchen and stairs, or the places they move around most.",
-  4: "Every room they use, including a puja room or balcony.",
+  0: "Bathroom Alert Units are already included.",
+  1: "Add one near the bed or another daily-use space.",
+  2: "Add two in spaces such as a bedroom and kitchen.",
 };
 const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
   value: extra,
@@ -69,8 +65,12 @@ const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
   price: delta(extra * additionalSosPriceInr),
 }));
 
-const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin);
-if (!defaultPurchase) throw new Error("The default EyEagle Shopify configuration is missing.");
+const basePlanOptions = [
+  { key: "oneYear", label: "1 year of membership", detail: "Home system and installation included" },
+  { key: "threeYears", label: "3 years of membership", detail: `Two extra years for +${formatInr(EYEAGLE_BASE_PLANS.threeYears.priceInr - EYEAGLE_BASE_PLANS.oneYear.priceInr)}` },
+] as const;
+const defaultPlan = EYEAGLE_BASE_PLANS.oneYear;
+const basePriceInr = defaultPlan.priceInr;
 const basePrice = formatInr(basePriceInr);
 const gstPercent = `${Math.round(gstRate * 100)}%`;
 const baseGst = formatInr(estimateGstInr(basePriceInr));
@@ -79,7 +79,7 @@ const baseWithGst = formatInr(basePriceInr + estimateGstInr(basePriceInr));
 const faqItems = [
   {
     question: "Do prices include GST?",
-    answer: `No. Prices are shown in INR before GST, and GST (${gstPercent}) is added at checkout. For the standard system that is ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
+    answer: `No. Prices are shown in INR before GST, and GST (${gstPercent}) is added at checkout. The one-year system starts at ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
   },
   orderingOpen
     ? {
@@ -95,8 +95,8 @@ const faqItems = [
     answer: "An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.",
   },
   {
-    question: "What happens after three years?",
-    answer: "Nest, readiness checks and EyEagle Response are included for three years. Membership then continues at ₹2,000/month + GST until cancelled.",
+    question: "What happens after the included membership period?",
+    answer: "Choose one or three years of included membership. After that period, membership continues at ₹2,000/month + GST until cancelled.",
   },
   {
     question: "Does EyEagle need home Wi-Fi?",
@@ -108,23 +108,23 @@ const faqItems = [
   },
   {
     question: "What if the home needs a larger setup?",
-    answer: "Online orders cover up to three bathrooms and four extra Alert Units. For larger homes, talk to us and we’ll plan the installation with you.",
+    answer: "Online orders cover up to three bathrooms and two extra Alert Units. For larger homes, talk to us and we’ll plan the installation with you.",
   },
 ] as const;
 ---
 
-<MainLayout socialCard="store" title="Buy EyEagle | Home safety system with response" desc="Configure an EyEagle home safety system with professional installation, the Nest app and three years of EyEagle Response." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+<MainLayout socialCard="store" title="Buy EyEagle | Home safety system with response" desc="Configure an EyEagle home safety system with professional installation, the Nest app and one or three years of EyEagle Response." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
   <SiteHeader slot="header" solidAtTop showAction={false} variant="figmaHome" />
 
   <main class={styles.main} id="main-content">
-    <div class={styles.bar} data-store-bar data-visible="true">
+    <div class={styles.bar} data-store-bar data-visible="false">
       <div class={styles.barInner}>
-        <p class={styles.barName}>EyEagle Home System</p>
+        <p class={styles.barName}>Your EyEagle setup</p>
         <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>+ GST</span></p>
         {orderingOpen ? (
-          <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
+          <a aria-disabled="true" class={styles.barAction} data-checkout><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
         ) : (
-          <a class={styles.barAction} href="#availability"><span class={styles.barActionLong}>Get availability updates</span><span class={styles.barActionShort}>Notify me</span></a>
+          <a class={styles.barAction} href="#availability">Get notified</a>
         )}
       </div>
     </div>
@@ -136,12 +136,10 @@ const faqItems = [
             ? <p class={styles.eyebrow}>Shipping starts October 30</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
-          <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
+          <p class={styles.introLead}>Protection for the rooms they use every day.</p>
+          <p class={styles.trustLine}>Professional installation · Built-in 4G · EyEagle Response</p>
         </div>
-        <ul class={styles.introLinks}>
-          <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
-          <li><a href="/contact">Talk to a specialist <span aria-hidden="true">↗</span></a></li>
-        </ul>
+        <a class={styles.introContact} href="/contact">Questions? Talk to a specialist <ArrowOutward size={18} /></a>
       </header>
 
       <section class={styles.gallery} aria-label="EyEagle system photos">
@@ -165,35 +163,45 @@ const faqItems = [
       </section>
 
       <form class={styles.options} data-configurator>
-        <section class={styles.group} aria-labelledby="system-title" data-gallery-target="0">
-          <h2 class={styles.groupTitle} id="system-title"><strong>System.</strong> Everything one bathroom needs.</h2>
-          <div class={styles.systemCard}>
-            <div class={styles.systemHead}>
-              <h3>Complete Home System</h3>
-              <p><strong>{basePrice}</strong><span>+ GST</span></p>
-            </div>
+        <fieldset class={styles.group} data-gallery-target="0">
+          <legend class={styles.stepHeading}><span>01</span> Choose your plan</legend>
+          <p class={styles.stepLead}>The system and installation stay the same. Only the included membership term changes.</p>
+          <div class={styles.planOptions}>
+            {basePlanOptions.map((option) => (
+              <label class={styles.planTile}>
+                <input name="plan" type="radio" value={option.key} />
+                <span class={styles.selectMark} aria-hidden="true"></span>
+                <span class={styles.planBody}><span class={styles.planTitleRow}>{option.label}</span><span class={styles.planDetail}>{option.detail}</span></span>
+                <strong class={styles.planTilePrice}>{formatInr(EYEAGLE_BASE_PLANS[option.key].priceInr)}</strong>
+              </label>
+            ))}
+          </div>
+          <p class={styles.planTaxNote}>Prices exclude GST. Your total updates as you add coverage.</p>
+          <details class={styles.planIncluded}>
+            <summary>What’s included with either plan?</summary>
             <ul>
               <li>Alert Unit with SOS button and Door Lock Sensor</li>
               <li>Home Hub with Alarm</li>
               <li>Bathroom protection kit for one bathroom</li>
               <li>Professional installation and testing</li>
               <li>Nest app for family and trusted contacts</li>
-              <li>Three years of EyEagle Response</li>
             </ul>
-          </div>
-          <details class={styles.help}>
+          </details>
+          <details class:list={[styles.help, styles.planDisclosure]}>
             <summary>What happens during installation?</summary>
             <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.</p>
           </details>
-        </section>
+        </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="3">
-          <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many do they use?</legend>
-          <div class={styles.groupMedia}><Image alt={panels[3].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[3].image} /></div>
+        <fieldset class={styles.group} data-gallery-target="1">
+          <legend class={styles.stepHeading}><span>02</span> Bathrooms</legend>
+          <p class={styles.stepLead}>How many do they use?</p>
+          <div class={styles.groupMedia}><Image alt={panels[1].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[1].image} /></div>
           <div class={styles.tiles}>
             {bathroomOptions.map((option) => (
               <label class={styles.tile}>
-                <input checked={option.value === bathroomMin} name="bathrooms" type="radio" value={option.value} />
+                <input name="bathrooms" type="radio" value={option.value} />
+                <span class={styles.selectMark} aria-hidden="true"></span>
                 <span class={styles.tileBody}>
                   <span class={styles.tileTitle}>{option.title}</span>
                   <span class={styles.tileText}>{option.description}</span>
@@ -204,17 +212,19 @@ const faqItems = [
           </div>
           <a class={styles.help} href="/contact">
             <span>Need more than {bathroomMax} bathrooms?</span>
-            <span class={styles.helpMuted}>Talk to us about a larger setup <span aria-hidden="true">↗</span></span>
+            <span class={styles.helpMuted}>Talk to us about a larger setup <ArrowOutward size={18} /></span>
           </a>
         </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="1">
-          <legend class={styles.groupTitle}><strong>Extra Alert Units.</strong> SOS beyond the bathroom.</legend>
-          <div class={styles.groupMedia}><Image alt={panels[1].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[1].image} /></div>
+        <fieldset class={styles.group} data-gallery-target="2">
+          <legend class={styles.stepHeading}><span>03</span> Extra Alert Units</legend>
+          <p class={styles.stepLead}>SOS access beyond the bathroom.</p>
+          <div class={styles.groupMedia}><Image alt={panels[2].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[2].image} /></div>
           <div class={styles.tiles}>
             {sosOptions.map((option) => (
               <label class={styles.tile}>
-                <input checked={option.value === additionalSosMin} name="sos" type="radio" value={option.value} />
+                <input name="sos" type="radio" value={option.value} />
+                <span class={styles.selectMark} aria-hidden="true"></span>
                 <span class={styles.tileBody}>
                   <span class={styles.tileTitle}>{option.title}</span>
                   <span class={styles.tileText}>{option.description}</span>
@@ -229,15 +239,6 @@ const faqItems = [
           </details>
         </fieldset>
 
-        <section class={styles.group} aria-labelledby="membership-title" data-gallery-target="2">
-          <h2 class={styles.groupTitle} id="membership-title"><strong>Membership.</strong> Response, included.</h2>
-          <div class={styles.groupMedia}><Image alt={panels[2].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[2].image} /></div>
-          <div class={styles.membershipCard}>
-            <span class={styles.badge}>Included</span>
-            <h3>Three years of membership</h3>
-            <p>Nest, readiness checks and EyEagle Response are included for three years. Then ₹2,000/month + GST until cancelled.</p>
-          </div>
-        </section>
       </form>
     </div>
 
@@ -247,44 +248,44 @@ const faqItems = [
           {orderingOpen
             ? <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
             : <h2 id="summary-title">Your EyEagle setup. <span>We’ll tell you when ordering opens.</span></h2>}
-          <dl class={styles.summaryList}>
-            <div><dt>Complete Home System</dt><dd>{basePrice}</dd></div>
+          <div class={styles.summaryPending} data-summary-pending role="status" aria-live="polite">
+            <strong data-summary-progress>0 of 3 choices made</strong>
+            <p>Choose a plan, bathrooms and extra Alert Units to see your estimate.</p>
+          </div>
+          <dl class={styles.summaryList} data-summary-list hidden>
+            <div class={styles.summaryPlan}><dt>Complete Home System <span data-summary-membership>One year of membership included</span></dt><dd data-base-price>{basePrice}</dd></div>
             <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd data-summary-bathrooms-price></dd></div>
             <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd data-summary-sos-price></dd></div>
-            <div><dt>Three years of membership</dt><dd>Included</dd></div>
-            <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd data-total-price>{basePrice}</dd></div>
+            <div class={styles.summarySubtotal} data-summary-subtotal hidden><dt>Subtotal</dt><dd data-total-price>{basePrice}</dd></div>
             <div><dt>Estimated GST ({gstPercent})</dt><dd data-total-gst>{baseGst}</dd></div>
-            <div class={styles.summaryGrand}><dt>Total with GST</dt><dd data-total-with-gst>{baseWithGst}</dd></div>
+            <div class={styles.summaryGrand}><dt>Estimated total incl. GST</dt><dd data-total-with-gst>{baseWithGst}</dd></div>
           </dl>
         </div>
         <div class={styles.summaryAction}>
-          <p class={styles.summaryTotal}><strong data-total-price>{basePrice}</strong><span>+ GST · <span data-total-with-gst>{baseWithGst}</span> total with GST</span></p>
           {orderingOpen ? (
             <>
-              <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
-              <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
+              <a aria-disabled="true" class={styles.primaryAction} data-checkout>Continue to checkout <ArrowOutward /></a>
+              <p class={styles.checkoutError} data-config-error role="alert" hidden>Checkout is being updated for these plan combinations. Please contact us in the meantime.</p>
             </>
           ) : (
             <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
-              <p class={styles.availabilityState}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>
               <h3>Get availability updates.</h3>
               <label class={styles.srOnly} for="availability-email">Email address</label>
               <div class={styles.formRow}>
                 <input aria-describedby="availability-note availability-status" aria-invalid="false" autocomplete="email" id="availability-email" inputmode="email" name="email" placeholder="Your email address" required type="email" />
-                <button type="submit"><span data-submit-label>Notify me</span> <span aria-hidden="true">→</span></button>
+                <button type="submit"><span data-submit-label>Notify me</span> <ArrowOutward size={20} /></button>
               </div>
               <p class={styles.formStatus} data-form-status id="availability-status"></p>
-              <p class={styles.formNote} id="availability-note">No marketing.</p>
-              <a class={styles.contactLink} href="/contact"><span>Need help?</span> <strong>Talk to us <span aria-hidden="true">↗</span></strong></a>
+              <p class={styles.formNote} id="availability-note">Availability updates only. No marketing.</p>
+              <a class={styles.contactLink} href="/contact"><span>Need help?</span> <strong>Talk to us <ArrowOutward size={18} /></strong></a>
             </form>
           )}
-          <button class={styles.shareAction} data-share type="button">Share this setup with family</button>
-          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}All prices are in INR and exclude GST, which is added at checkout. After the included three-year period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}All prices are in INR and exclude GST, which is added at checkout. After the included membership period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
         </div>
       </div>
     </section>
 
-    <FAQSection eyebrow="Buying EyEagle" title="Questions before you buy." description="Delivery, installation, pricing and what happens after three years." items={faqItems} id="store-faqs" />
+    <FAQSection eyebrow="Buying EyEagle" title="Questions before you buy." description="Delivery, installation, pricing and what happens after the included membership period." items={faqItems} id="store-faqs" />
   </main>
 
   <SiteFooter slot="footer" variant="figmaHome" />
@@ -292,17 +293,23 @@ const faqItems = [
 
 <script>
   import {
+    EYEAGLE_BASE_PLANS,
     EYEAGLE_SHOPIFY_CONFIG,
     estimateGstInr,
     formatInr,
-    getEyEagleConfiguredPurchase,
+    getEyEagleStoreSelection,
   } from "../data/shopify-configurator";
 
   const form = document.querySelector<HTMLFormElement>("[data-configurator]");
   const bar = document.querySelector<HTMLElement>("[data-store-bar]");
   const summarySection = document.querySelector<HTMLElement>("[data-store-summary]");
+  const summaryPending = document.querySelector<HTMLElement>("[data-summary-pending]");
+  const summaryProgress = document.querySelector<HTMLElement>("[data-summary-progress]");
+  const summaryList = document.querySelector<HTMLElement>("[data-summary-list]");
   const siteHeader = document.querySelector<HTMLElement>("[data-home-v3-header]");
   const checkoutLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-checkout]"));
+  const basePrices = Array.from(document.querySelectorAll<HTMLElement>("[data-base-price]"));
+  const summaryMembership = document.querySelector<HTMLElement>("[data-summary-membership]");
   const totalPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-total-price]"));
   const totalGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-gst]"));
   const totalsWithGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-with-gst]"));
@@ -310,19 +317,19 @@ const faqItems = [
   const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-panel]"));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"));
   const caption = document.querySelector<HTMLElement>("[data-gallery-caption]");
-  const captions = ["Complete home safety system", "SOS within reach", "Installed, connected and ready", "Bathroom protection, within reach"];
+  const captions = ["Complete home safety system", "Bathroom protection, installed", "SOS within reach"];
   const root = document.documentElement;
   const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 
-  // Keep sticky elements below the fixed site header, which hides on scroll down.
+  // Keep sticky elements below the fixed header using a stable offset. The header
+  // hides with a transform; tying gallery geometry to that state causes a visible
+  // jump whenever a small scroll reversal shows the header again.
   if (siteHeader) {
     const syncHeader = () => {
       const height = Math.round(siteHeader.getBoundingClientRect().height);
       root.style.setProperty("--store-header-h", `${height}px`);
-      root.style.setProperty("--store-header-visible", siteHeader.dataset.hidden === "true" ? "0px" : `${height}px`);
     };
     new ResizeObserver(syncHeader).observe(siteHeader);
-    new MutationObserver(syncHeader).observe(siteHeader, { attributes: true, attributeFilter: ["data-hidden"] });
     syncHeader();
   }
 
@@ -351,10 +358,13 @@ const faqItems = [
   });
 
   const readSelection = () => {
-    const data = form ? new FormData(form) : null;
+    const plan = form?.querySelector<HTMLInputElement>('input[name="plan"]:checked')?.value;
+    const bathrooms = form?.querySelector<HTMLInputElement>('input[name="bathrooms"]:checked')?.value;
+    const additionalSos = form?.querySelector<HTMLInputElement>('input[name="sos"]:checked')?.value;
     return {
-      bathrooms: Number(data?.get("bathrooms") ?? EYEAGLE_SHOPIFY_CONFIG.bathroomMin),
-      additionalSos: Number(data?.get("sos") ?? EYEAGLE_SHOPIFY_CONFIG.additionalSosMin),
+      plan: plan === "oneYear" ? "oneYear" as const : plan === "threeYears" ? "threeYears" as const : null,
+      bathrooms: bathrooms === undefined ? null : Number(bathrooms),
+      additionalSos: additionalSos === undefined ? null : Number(additionalSos),
     };
   };
 
@@ -366,12 +376,24 @@ const faqItems = [
     if (priceElement) priceElement.textContent = formatInr(price);
   };
 
+  let configurationComplete = false;
   const updateConfiguration = ({ syncUrl = true } = {}) => {
-    const { bathrooms, additionalSos } = readSelection();
-    const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos);
-    if (configurationError) configurationError.hidden = Boolean(purchase);
+    const { plan, bathrooms, additionalSos } = readSelection();
+    const purchase = plan !== null && bathrooms !== null && additionalSos !== null
+      ? getEyEagleStoreSelection(plan, bathrooms, additionalSos)
+      : null;
+    configurationComplete = Boolean(purchase);
+    const completedCount = sections.reduce((count, section) => {
+      const complete = Boolean(section.querySelector('input[type="radio"]:checked'));
+      section.dataset.complete = String(complete);
+      return count + Number(complete);
+    }, 0);
+    if (summaryProgress) summaryProgress.textContent = `${completedCount} of 3 choices made`;
+    if (summaryPending) summaryPending.hidden = configurationComplete;
+    if (summaryList) summaryList.hidden = !configurationComplete;
+    if (configurationError) configurationError.hidden = !configurationComplete || Boolean(purchase?.checkoutUrl);
     checkoutLinks.forEach((link) => {
-      if (purchase) {
+      if (purchase?.checkoutUrl) {
         link.href = purchase.checkoutUrl;
         link.removeAttribute("aria-disabled");
       } else {
@@ -379,69 +401,85 @@ const faqItems = [
         link.setAttribute("aria-disabled", "true");
       }
     });
+    const planDetails = plan ? EYEAGLE_BASE_PLANS[plan] : null;
+    basePrices.forEach((price) => { price.textContent = planDetails ? formatInr(planDetails.priceInr) : "—"; });
+    if (summaryMembership && planDetails) summaryMembership.textContent = `${planDetails.membershipYears === 1 ? "One year" : "Three years"} of membership included`;
     const gst = purchase ? estimateGstInr(purchase.totalInr) : 0;
     totalPrices.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr) : "Unavailable"; });
     totalGst.forEach((price) => { price.textContent = purchase ? formatInr(gst) : "—"; });
     totalsWithGst.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr + gst) : "—"; });
-    if (!purchase) return null;
-
-    const extraBathrooms = bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
+    const extraBathrooms = purchase && bathrooms !== null ? bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin : 0;
     setSummaryRow("bathrooms", extraBathrooms, plural(extraBathrooms, "additional bathroom"), extraBathrooms * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr);
-    setSummaryRow("sos", additionalSos, plural(additionalSos, "additional Alert Unit"), additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+    const extraSos = purchase && additionalSos !== null ? additionalSos : 0;
+    setSummaryRow("sos", extraSos, plural(extraSos, "additional Alert Unit"), extraSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+    document.querySelector<HTMLElement>("[data-summary-subtotal]")?.toggleAttribute("hidden", extraBathrooms === 0 && extraSos === 0);
 
     // Mirror the selection in the URL so a configuration can be shared or restored.
     if (!syncUrl) return purchase;
     const url = new URL(window.location.href);
-    url.searchParams.set("bathrooms", String(bathrooms));
-    url.searchParams.set("sos", String(additionalSos));
+    const selectedPlan = form?.querySelector<HTMLInputElement>('input[name="plan"]:checked');
+    const selectedBathroom = form?.querySelector<HTMLInputElement>('input[name="bathrooms"]:checked');
+    const selectedSos = form?.querySelector<HTMLInputElement>('input[name="sos"]:checked');
+    if (selectedPlan) url.searchParams.set("plan", selectedPlan.value);
+    else url.searchParams.delete("plan");
+    if (selectedBathroom) url.searchParams.set("bathrooms", selectedBathroom.value);
+    else url.searchParams.delete("bathrooms");
+    if (selectedSos) url.searchParams.set("sos", selectedSos.value);
+    else url.searchParams.delete("sos");
     history.replaceState(null, "", url);
     return purchase;
   };
 
   // Restore a shared configuration, ignoring values the form doesn't offer.
   const params = new URLSearchParams(window.location.search);
-  (["bathrooms", "sos"] as const).forEach((name) => {
+  (["plan", "bathrooms", "sos"] as const).forEach((name) => {
     const value = params.get(name);
     const input = value === null ? null : form?.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`);
     if (input) input.checked = true;
   });
 
+  const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-target]"));
+  const stickyGallery = window.matchMedia("(min-width: 1024px)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  updateConfiguration({ syncUrl: false });
+
   form?.addEventListener("change", (event) => {
-    updateConfiguration();
     const group = (event.target as HTMLElement).closest<HTMLElement>("[data-gallery-target]");
-    if (group) showPanel(Number(group.dataset.galleryTarget));
+    const wasComplete = group?.dataset.complete === "true";
+    const purchase = updateConfiguration();
+    if (!group) return;
+
+    if (stickyGallery.matches) showPanel(Number(group.dataset.galleryTarget));
+    requestSync();
+    if (wasComplete) return;
+
+    const nextSection = sections[sections.indexOf(group) + 1] ?? summarySection;
+    if (nextSection === summarySection && !purchase) return;
+    if (nextSection) {
+      requestAnimationFrame(() => {
+        nextSection.scrollIntoView({
+          behavior: reducedMotion.matches ? "auto" : "smooth",
+          block: "start",
+        });
+      });
+    }
   });
   form?.addEventListener("submit", (event) => event.preventDefault());
   checkoutLinks.forEach((link) => link.addEventListener("click", (event) => {
-    if (!updateConfiguration()) event.preventDefault();
+    if (!updateConfiguration()?.checkoutUrl) event.preventDefault();
   }));
-
-  const shareButton = document.querySelector<HTMLButtonElement>("[data-share]");
-  shareButton?.addEventListener("click", async () => {
-    const url = window.location.href;
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: "EyEagle Home System", text: "The EyEagle setup I’m considering:", url });
-        return;
-      }
-      await navigator.clipboard.writeText(url);
-      shareButton.textContent = "Link copied";
-      window.setTimeout(() => { shareButton.textContent = "Share this setup with family"; }, 2400);
-    } catch {
-      // Share sheet dismissed or clipboard unavailable; nothing to do.
-    }
-  });
 
   // On scroll: keep the price bar in view until the summary (which has its own checkout), and on desktop,
   // where the gallery is sticky, show the photo for the section being read, like Apple's buy pages.
   // A scroll check rather than IntersectionObserver: a fast fling can skip past a section without a crossing.
-  const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-target]"));
-  const stickyGallery = window.matchMedia("(min-width: 1024px)");
   let sectionPanel = -1;
   let frame = 0;
   const syncOnScroll = () => {
     frame = 0;
-    if (bar && summarySection) bar.dataset.visible = String(summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
+    if (bar && summarySection) {
+      bar.dataset.visible = String(configurationComplete && summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
+    }
     if (!stickyGallery.matches || !sections.length) return;
     const readingLine = window.innerHeight * 0.45;
     const reading = sections.filter((section) => section.getBoundingClientRect().top <= readingLine).at(-1) ?? sections[0];
@@ -455,6 +493,10 @@ const faqItems = [
   const requestSync = () => { if (!frame) frame = requestAnimationFrame(syncOnScroll); };
   window.addEventListener("scroll", requestSync, { passive: true });
   window.addEventListener("resize", requestSync);
+  stickyGallery.addEventListener("change", (event) => {
+    if (!event.matches) showPanel(0);
+    requestSync();
+  });
   syncOnScroll();
 
   // Availability signup, shown while ordering is closed.
@@ -501,5 +543,4 @@ const faqItems = [
     }
   });
 
-  updateConfiguration({ syncUrl: false });
 </script>
