@@ -14,6 +14,7 @@ export interface ActionCard {
   description: string;
   ctaLabel: string;
   ctaHref: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
 }
 export interface InfoCardLine {
   href: string;
@@ -60,11 +61,12 @@ export const ACTION_CARDS: ActionCard[] = [
   {
     image: contactImage3,
     alt: "EyEagle specialist preparing to speak with a family",
-    title: "Send an enquiry",
+    title: "Chat with us on WhatsApp",
     description:
       "Tell us what you need help with and we’ll direct your enquiry to the right person on our team.",
-    ctaLabel: "Start your enquiry",
-    ctaHref: "/inquiry",
+    ctaLabel: "WhatsApp Us",
+      ctaHref: "https://wa.me/918527522911",
+    target: "_blank",
   },
 ];
 
