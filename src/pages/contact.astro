@@ -55,7 +55,11 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
       </div>
     </section>
 
-    <section class={styles.options} id="contact-options" aria-labelledby="contact-options-title">
+    <section
+      class={styles.options}
+      id="contact-options"
+      aria-labelledby="contact-options-title"
+    >
       <div class={styles.sectionIntro}>
         <p class={styles.eyebrow}>How can we help?</p>
         <h2 id="contact-options-title">Choose the support you need.</h2>
@@ -63,22 +67,31 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
       </div>
 
       <div class={styles.actionGrid}>
-        {contactRoutes.map((card, index) => (
-          <article class={styles.card} style={`--card-index: ${index}`}>
-            <div class={styles.cardImage}>
-              <Image src={card.image} alt={card.alt} layout="full-width" />
-            </div>
-            <div class={styles.cardBody}>
-              <p class={styles.cardNumber}>0{index + 1}</p>
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-              <ButtonLink
-                href={card.ctaHref}
-                class={index === 1 ? styles.primaryCardAction : styles.secondaryCardAction}
-              >{card.ctaLabel}</ButtonLink>
-            </div>
-          </article>
-        ))}
+        {
+          contactRoutes.map((card, index) => (
+            <article class={styles.card} style={`--card-index: ${index}`}>
+              <div class={styles.cardImage}>
+                <Image src={card.image} alt={card.alt} layout="full-width" />
+              </div>
+              <div class={styles.cardBody}>
+                <p class={styles.cardNumber}>0{index + 1}</p>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <ButtonLink
+                  href={card.ctaHref}
+                  target={card.target}
+                  class={
+                    index === 1
+                      ? styles.primaryCardAction
+                      : styles.secondaryCardAction
+                  }
+                >
+                  {card.ctaLabel}
+                </ButtonLink>
+              </div>
+            </article>
+          ))
+        }
       </div>
     </section>
 
@@ -91,36 +104,46 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
         </div>
 
         <div class={styles.infoGrid}>
-          {INFO_CARDS.map((card) => (
-            <section class={styles.info}>
-              <div class={styles.infoHeader}>
-                <h3>{card.lines ? "Contact details" : "Registered address"}</h3>
-                <Image src={card.logo} alt="" width={32} height={32} />
-              </div>
-
-              {card.lines ? (
-                <div class={styles.contactRows}>
-                  {card.lines.map((line) => (
-                    <a class={styles.contactRow} href={line.href}>
-                      <span>
-                        <small>{line.href.startsWith("mailto:") ? "Email us" : "Call us"}</small>
-                        <strong>{line.text}</strong>
-                      </span>
-                      <span class={styles.rowArrow} aria-hidden="true">↗</span>
-                    </a>
-                  ))}
+          {
+            INFO_CARDS.map((card) => (
+              <section class={styles.info}>
+                <div class={styles.infoHeader}>
+                  <h3>
+                    {card.lines ? "Contact details" : "Registered address"}
+                  </h3>
+                  <Image src={card.logo} alt="" width={32} height={32} />
                 </div>
-              ) : (
-                <address class={styles.address}>
-                  <strong>BHIVE Workspace</strong>
-                  <span>No.112, AKR Tech Park, 7th Mile Hosur Rd</span>
-                  <span>Krishna Reddy Industrial Area, Madivala</span>
-                  <span>Bangalore, Bangalore South, Karnataka</span>
-                  <span>India · 560068</span>
-                </address>
-              )}
-            </section>
-          ))}
+
+                {card.lines ? (
+                  <div class={styles.contactRows}>
+                    {card.lines.map((line) => (
+                      <a class={styles.contactRow} href={line.href}>
+                        <span>
+                          <small>
+                            {line.href.startsWith("mailto:")
+                              ? "Email us"
+                              : "Call us"}
+                          </small>
+                          <strong>{line.text}</strong>
+                        </span>
+                        <span class={styles.rowArrow} aria-hidden="true">
+                          ↗
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <address class={styles.address}>
+                    <strong>BHIVE Workspace</strong>
+                    <span>No.112, AKR Tech Park, 7th Mile Hosur Rd</span>
+                    <span>Krishna Reddy Industrial Area, Madivala</span>
+                    <span>Bangalore, Bangalore South, Karnataka</span>
+                    <span>India · 560068</span>
+                  </address>
+                )}
+              </section>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -133,7 +156,9 @@ const contactRoutes = [...ACTION_CARDS, PARTNER_CARD];
         </div>
         <div class={styles.closingActions}>
           <ButtonLink href="/inquiry">Send an enquiry</ButtonLink>
-          <a class={styles.closingLink} href={PHONE_TEL_LINK}>Call the team <span aria-hidden="true">↗</span></a>
+          <a class={styles.closingLink} href={PHONE_TEL_LINK}
+            >Call the team <span aria-hidden="true">↗</span></a
+          >
         </div>
       </div>
     </section>
