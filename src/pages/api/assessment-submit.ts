@@ -12,6 +12,7 @@ type InquiryPayload = {
   clientSubmissionId?: string;
   name?: string;
   phone?: string;
+  email?: string;
   location?: string;
   mainConcerns?: string[];
   description?: string;
@@ -43,7 +44,9 @@ const failureResponse = (code: string, message: string, status: number) =>
   );
 
 const normalizeText = (value: unknown, maxLength: number) =>
-  String(value ?? "").trim().slice(0, maxLength);
+  String(value ?? "")
+    .trim()
+    .slice(0, maxLength);
 
 const normalizeList = (value: unknown, maxItems = 12, maxLength = 120) =>
   (Array.isArray(value) ? value : [])
@@ -59,6 +62,7 @@ const validatePayload = (value: unknown): InquiryPayload | null => {
     clientSubmissionId: normalizeText(source.clientSubmissionId, 80),
     name: normalizeText(source.name, 80),
     phone: normalizeText(source.phone, 24),
+    email: normalizeText(source.email, 120),
     location: normalizeText(source.location, 160),
     mainConcerns: normalizeList(source.mainConcerns),
     description: normalizeText(source.description, 2_000),
@@ -72,10 +76,12 @@ const validatePayload = (value: unknown): InquiryPayload | null => {
 
   const validName = /^[\p{L}\p{M} .'-]{2,80}$/u.test(payload.name ?? "");
   const validPhone = /^\+\d{1,4}\s\d{6,15}$/.test(payload.phone ?? "");
-
+  const validEmail =
+    !payload.email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email);
   if (
     !validName ||
     !validPhone ||
+    !validEmail ||
     !payload.mainConcerns?.length ||
     payload.contactConsent !== true
   ) {
@@ -86,7 +92,9 @@ const validatePayload = (value: unknown): InquiryPayload | null => {
 };
 
 const cleanLine = (value: unknown, fallback = "Not provided") => {
-  const text = String(value ?? "").replace(/[\r\n]+/g, " ").trim();
+  const text = String(value ?? "")
+    .replace(/[\r\n]+/g, " ")
+    .trim();
   return text || fallback;
 };
 
@@ -138,6 +146,7 @@ const sendInquiryNotification = async (payload: InquiryPayload) => {
       "",
       `Name: ${name}`,
       `Phone: ${cleanLine(payload.phone)}`,
+      `Email: ${cleanLine(payload.email)}`,
       `City or location: ${cleanLine(payload.location)}`,
       `Topics: ${topics}`,
       `Preferred time: ${cleanLine(payload.preferredTiming, "No preference")}`,
@@ -161,14 +170,18 @@ export const POST: APIRoute = async ({ request }) => {
 
     const contentLength = Number(request.headers.get("content-length") || 0);
     if (contentLength > MAX_REQUEST_BYTES) {
-      return failureResponse("PAYLOAD_TOO_LARGE", "The enquiry is too large.", 413);
+      return failureResponse(
+        "PAYLOAD_TOO_LARGE",
+        "The enquiry is too large.",
+        413,
+      );
     }
 
     const payload = validatePayload(await request.json());
     if (!payload) {
       return failureResponse(
         "VALIDATION_ERROR",
-        "Please check your name, phone number, enquiry topic, and consent.",
+        "Please check your name, email, phone number, enquiry topic, and consent.",
         400,
       );
     }
@@ -190,7 +203,10 @@ export const POST: APIRoute = async ({ request }) => {
 
     let assessmentApiUrl: URL;
     try {
-      assessmentApiUrl = new URL(ASSESSMENT_API_PATH, `${configuredBaseUrl.replace(/\/$/, "")}/`);
+      assessmentApiUrl = new URL(
+        ASSESSMENT_API_PATH,
+        `${configuredBaseUrl.replace(/\/$/, "")}/`,
+      );
     } catch {
       console.error("ASSESSMENT_API_BASE_URL is invalid");
       return failureResponse(
@@ -243,10 +259,7 @@ export const POST: APIRoute = async ({ request }) => {
       },
     });
   } catch (error) {
-    console.error(
-      "Error proxying assessment submission to CRM API:",
-      error,
-    );
+    console.error("Error proxying assessment submission to CRM API:", error);
 
     return failureResponse(
       "PROXY_ERROR",

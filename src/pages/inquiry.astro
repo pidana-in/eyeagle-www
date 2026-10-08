@@ -34,6 +34,10 @@ const metaDesc =
 
   const phoneNumField = document.getElementById("phoneNumField");
 
+  const emailField = document.getElementById("emailField");
+
+  const emailError = document.getElementById("emailError");
+
   const submitButton = document.getElementById("submitButton");
 
   const buttonText = document.getElementById("buttonText");
@@ -277,6 +281,8 @@ const metaDesc =
 
     fullNameField.classList.remove("border-red-500");
 
+    emailField.classList.remove("border-red-500");
+
     hideSubmitError();
 
     /*
@@ -340,6 +346,7 @@ const metaDesc =
       clientSubmissionId,
       name: fullNameValue,
       phone: `${phCode.value} ${phoneValue}`,
+      email: emailField ? emailField.value.trim() : "",
       location: siteLocationField ? siteLocationField.value.trim() : "",
       consideringFor: ["General enquiry"],
       mainConcerns: safetyConcernsChecked,
@@ -376,7 +383,10 @@ const metaDesc =
         assessmentFormWrapper.classList.add("hidden");
         successMessageBlock.classList.remove("hidden");
         successMessageBlock.focus();
-        successMessageBlock.scrollIntoView({ behavior: "smooth", block: "center" });
+        successMessageBlock.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
 
         // Clear form and submission ID ONLY after successful submission
         assessmentFormEl.reset();
@@ -427,5 +437,15 @@ const metaDesc =
 
   phoneNumField.addEventListener("input", () => {
     phoneNumField.value = phoneNumField.value.replace(/\D/g, "");
+  });
+
+  /*
+   * CLEAR EMAIL ERROR
+   */
+
+  emailField.addEventListener("input", () => {
+    emailError.classList.add("hidden");
+
+    emailField.classList.remove("border-red-500");
   });
 </script>

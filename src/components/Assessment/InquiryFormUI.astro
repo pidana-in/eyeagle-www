@@ -23,7 +23,10 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
         </p>
         <div class="assessment-intro-note">
           <span aria-hidden="true"></span>
-          <p>A member of our team will review your enquiry before getting in touch.</p>
+          <p>
+            A member of our team will review your enquiry before getting in
+            touch.
+          </p>
         </div>
       </div>
     </aside>
@@ -34,10 +37,14 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
           id="submitErrorBanner"
           class="assessment-alert assessment-alert-error hidden"
           role="alert"
-        ></div>
+        >
+        </div>
 
         <form method="POST" id="assessmentForm" class="assessment-form">
-          <section class="assessment-form-section" aria-labelledby="details-heading">
+          <section
+            class="assessment-form-section"
+            aria-labelledby="details-heading"
+          >
             <div class="assessment-section-heading">
               <span aria-hidden="true">01</span>
               <div>
@@ -80,7 +87,10 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
                     class="assessment-country-button"
                   >
                     <span class="flex items-center">
-                      <Icon iconName="keyboard_arrow_down" classNames="hidden" />
+                      <Icon
+                        iconName="keyboard_arrow_down"
+                        classNames="hidden"
+                      />
                     </span>
                     <div class="flex items-center gap-2"></div>
                   </button>
@@ -123,17 +133,34 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
                     placeholder="Phone Number"
                     required
                     inputmode="numeric"
-                    maxlength="15"
-                    pattern="[0-9]{6,15}"
-                    autocomplete="tel-national"
-                    inputmode="numeric"
-                    pattern="[6-9][0-9]{9}"
                     maxlength="10"
+                    pattern="[6-9][0-9]{9}"
+                    autocomplete="tel-national"
                     class="assessment-input assessment-phone-input"
                   />
                 </div>
                 <p id="phoneError" class="assessment-error hidden">
                   Please enter a valid mobile number
+                </p>
+              </div>
+
+              <div class="assessment-field assessment-field-wide">
+                <label for="emailField">
+                  Email Address<span aria-hidden="true"></span>
+                </label>
+
+                <input
+                  id="emailField"
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email Address"
+                  maxlength="120"
+                  autocomplete="email"
+                  class="assessment-input"
+                />
+
+                <p id="emailError" class="assessment-error hidden">
+                  Please enter a valid email address
                 </p>
               </div>
 
@@ -152,12 +179,18 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
             </div>
           </section>
 
-          <section class="assessment-form-section" aria-labelledby="safety-heading">
+          <section
+            class="assessment-form-section"
+            aria-labelledby="safety-heading"
+          >
             <div class="assessment-section-heading">
               <span aria-hidden="true">02</span>
               <div>
                 <h2 id="safety-heading">Your enquiry</h2>
-                <p>Choose the topics that will help us direct your enquiry correctly.</p>
+                <p>
+                  Choose the topics that will help us direct your enquiry
+                  correctly.
+                </p>
               </div>
             </div>
 
@@ -186,23 +219,30 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
             </fieldset>
 
             <div class="assessment-field">
-              <label for="concernDescription">Tell us more about your enquiry</label>
+              <label for="concernDescription"
+                >Tell us more about your enquiry</label
+              >
               <textarea
                 id="concernDescription"
                 name="concernDescription"
                 rows="5"
                 placeholder="Add any questions or context that would help our team prepare"
-                class="assessment-input assessment-textarea"
-              ></textarea>
+                class="assessment-input assessment-textarea"></textarea>
             </div>
           </section>
 
-          <section class="assessment-form-section assessment-form-section-last" aria-labelledby="next-heading">
+          <section
+            class="assessment-form-section assessment-form-section-last"
+            aria-labelledby="next-heading"
+          >
             <div class="assessment-section-heading">
               <span aria-hidden="true">03</span>
               <div>
                 <h2 id="next-heading">When should we contact you?</h2>
-                <p>Choose a preferred time, or leave it blank and we’ll find a suitable time with you.</p>
+                <p>
+                  Choose a preferred time, or leave it blank and we’ll find a
+                  suitable time with you.
+                </p>
               </div>
             </div>
 
@@ -237,7 +277,9 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
                 class={choiceControlClass}
               />
               <span>
-                I agree to be contacted about this request.<span aria-hidden="true">*</span>
+                I agree to be contacted about this request.<span
+                  aria-hidden="true">*</span
+                >
               </span>
             </label>
 
@@ -266,7 +308,9 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
         tabindex="-1"
       >
         <div class="assessment-success-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="m6.5 12.5 3.2 3.2 7.8-8" /></svg>
+          <svg viewBox="0 0 24 24"
+            ><path d="m6.5 12.5 3.2 3.2 7.8-8"></path></svg
+          >
         </div>
         <p class="assessment-success-kicker">Enquiry received</p>
         <h2>Thank you. We’ll be in touch.</h2>
@@ -274,13 +318,28 @@ const choiceControlClass = `${checkboxRadioClass} assessment-choice-control`;
         <div class="assessment-success-next">
           <span>What happens next</span>
           <ol>
-            <li><strong>01</strong><p>Our team reviews your enquiry and routes it to the right specialist.</p></li>
-            <li><strong>02</strong><p>We contact you using the number and preferred time you shared.</p></li>
+            <li>
+              <strong>01</strong><p>
+                Our team reviews your enquiry and routes it to the right
+                specialist.
+              </p>
+            </li>
+            <li>
+              <strong>02</strong><p>
+                We contact you using the number and preferred time you shared.
+              </p>
+            </li>
           </ol>
         </div>
         <div class="assessment-success-actions">
           <a href="/">Back to home</a>
-          <a href="/membership">Explore membership <img alt="" aria-hidden="true" src="/figma-home/arrow-outward.svg" /></a>
+          <a href="/membership"
+            >Explore membership <img
+              alt=""
+              aria-hidden="true"
+              src="/figma-home/arrow-outward.svg"
+            /></a
+          >
         </div>
       </div>
     </div>
