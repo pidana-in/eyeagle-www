@@ -20,6 +20,7 @@ import kitImage from "../assets/Store/guardian-kit-v2.png";
 import setupImage from "../assets/Store/sos-installed-v2.png";
 import reviewImage from "../assets/Store/ecu-living-room-v1.png";
 import protectionKitImage from "../assets/NewHome/kit.png";
+import membershipImage from "../assets/Store/membership-app-hospital-v1.png";
 
 const {
   basePriceInr,
@@ -38,6 +39,9 @@ const panels = [
   { image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
   { image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
   { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
+  // Built by scripts/compose-store-membership-image.mjs. The phone sits low in the frame, so crops
+  // keep the lower part in view.
+  { image: membershipImage, alt: "The EyEagle app showing an SOS alert and who is responding, over a hospital where EyEagle Response arranges care", caption: "Nest app and 24/7 response", focus: styles.focusLower },
 ] as const;
 
 const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, index) => min + index);
@@ -165,7 +169,7 @@ const faqItems = [
         <div class={styles.galleryStage}>
           {panels.map((panel, index) => (
             <div class={styles.galleryPanel} aria-hidden={index === 0 ? undefined : "true"} data-active={String(index === 0)} data-gallery-panel={index}>
-              <Image alt={panel.alt} class={styles.galleryImage} fetchpriority={index === 0 ? "high" : "auto"} layout="full-width" loading={index === 0 ? "eager" : "lazy"} quality={90} src={panel.image} />
+              <Image alt={panel.alt} class={`${styles.galleryImage} ${"focus" in panel ? panel.focus : ""}`} fetchpriority={index === 0 ? "high" : "auto"} layout="full-width" loading={index === 0 ? "eager" : "lazy"} quality={90} src={panel.image} />
             </div>
           ))}
           <p class={styles.galleryCaption} data-gallery-caption aria-live="polite">{panels[0].caption}</p>
@@ -245,9 +249,9 @@ const faqItems = [
           </details>
         </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="2">
+        <fieldset class={styles.group} data-gallery-target="4">
           <legend class={styles.groupTitle}><strong>Membership.</strong> Pay ahead and save.</legend>
-          <div class={styles.groupMedia}><Image alt={panels[2].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[2].image} /></div>
+          <div class={styles.groupMedia}><Image alt={panels[4].alt} class={`${styles.groupMediaImage} ${panels[4].focus}`} layout="full-width" loading="lazy" quality={85} src={panels[4].image} /></div>
           <div class={styles.tiles}>
             {membershipOptions.map((option) => (
               <label class={styles.tile}>
@@ -344,7 +348,7 @@ const faqItems = [
   const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-panel]"));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"));
   const caption = document.querySelector<HTMLElement>("[data-gallery-caption]");
-  const captions = ["Complete home safety system", "SOS within reach", "Installed, connected and ready", "Bathroom protection, within reach"];
+  const captions = ["Complete home safety system", "SOS within reach", "Installed, connected and ready", "Bathroom protection, within reach", "Nest app and 24/7 response"];
   const root = document.documentElement;
   const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 
