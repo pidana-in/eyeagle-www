@@ -29,6 +29,19 @@ const inrPerUnit = Object.fromEntries([
 ]);
 
 const current = JSON.parse(await readFile(outputPath, "utf8").catch(() => "{}"));
+
+// Refuse to write anything doubtful; a failed run keeps the last good rates. A currency moving by
+// more than a fifth in one refresh is far likelier to be a bad feed than a real move.
+const MAX_MOVE = 0.2;
+if (!/^\d{4}-\d{2}-\d{2}$/.test(date ?? "")) throw new Error(`Rate lookup returned no usable date: ${date}`);
+for (const [code, rate] of Object.entries(inrPerUnit)) {
+  if (!Number.isFinite(rate) || rate <= 0) throw new Error(`No usable rate for ${code}: ${rate}`);
+  const previous = current.inrPerUnit?.[code];
+  if (previous && Math.abs(rate / previous - 1) > MAX_MOVE) {
+    throw new Error(`${code} moved from ₹${previous} to ₹${rate}; check it, then update config/fx-rates.json by hand.`);
+  }
+}
+
 await writeFile(outputPath, `${JSON.stringify({
   $comment: current.$comment ?? "INR per one unit of each currency, for the approximate local prices on /store. Refresh with: node scripts/update-fx-rates.mjs",
   date,
