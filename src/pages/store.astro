@@ -8,10 +8,12 @@ import {
   EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS as defaultMembershipMonths,
   EYEAGLE_MEMBERSHIP_PLANS,
   EYEAGLE_ORDERING_OPEN as orderingOpen,
+  EYEAGLE_ORDERING_PREVIEW_OPEN as orderingPreviewOpen,
   EYEAGLE_SHOPIFY_CONFIG,
   estimateGstInr,
   formatInr,
   getEyEagleConfiguredPurchase,
+  getMissingEyEagleVariantKeys,
 } from "../data/shopify-configurator";
 import styles from "../styles/Store/page.module.css";
 import "../styles/home-v3-tokens.css";
@@ -19,7 +21,7 @@ import "../styles/home-v4-tokens.css";
 import kitImage from "../assets/Store/guardian-kit-v2.png";
 import setupImage from "../assets/Store/sos-installed-v2.png";
 import reviewImage from "../assets/Store/ecu-living-room-v1.png";
-import protectionKitImage from "../assets/NewHome/kit.png";
+import protectionKitImage from "../assets/Store/bathroom-protection-v2.png";
 import membershipImage from "../assets/Store/membership-app-hospital-v1.png";
 
 const {
@@ -38,7 +40,7 @@ const panels = [
   { image: kitImage, alt: "The complete EyEagle home safety system", caption: "Complete home safety system" },
   { image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
   { image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
-  { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
+  { image: protectionKitImage, alt: "EyEagle bathroom protection with white grab bars and anti-slip strips beside the shower and toilet", caption: "Bathroom protection, within reach" },
   // Built by scripts/compose-store-membership-image.mjs. The phone sits low in the frame, so crops
   // keep the lower part in view.
   { image: membershipImage, alt: "The EyEagle app showing an SOS alert and who is responding, over a hospital where EyEagle Response arranges care", caption: "Nest app and 24/7 response", focus: styles.focusLower },
@@ -80,7 +82,6 @@ const membershipOptions = ([36, 12, 0] as const).map((months) => ({
   value: months,
   title: EYEAGLE_MEMBERSHIP_PLANS[months].title,
   priceInr: EYEAGLE_MEMBERSHIP_PLANS[months].priceInr,
-  period: months === 36 ? "three years" : "one year",
   savingInr: months * membershipMonthlyInr - EYEAGLE_MEMBERSHIP_PLANS[months].priceInr,
 }));
 // GST applies to the monthly membership too.
@@ -88,7 +89,13 @@ const membershipMonthlyWithGstInr = membershipMonthlyInr + estimateGstInr(member
 
 const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin, defaultMembershipMonths);
 if (!defaultPurchase) throw new Error("The default EyEagle configuration is invalid.");
-if (orderingOpen && !defaultPurchase.checkoutUrl) throw new Error("Ordering is open, but the default configuration has no Shopify variant.");
+// Let the team test every Shopify variant from the local dev server without opening ordering on the published site.
+const localCheckoutPreview = import.meta.env.DEV && orderingPreviewOpen;
+const checkoutLinksEnabled = orderingOpen || localCheckoutPreview;
+if (checkoutLinksEnabled) {
+  const missingVariants = getMissingEyEagleVariantKeys();
+  if (missingVariants.length) throw new Error(`Checkout testing needs all Shopify variants, but ${missingVariants.length} are missing from the map.`);
+}
 const basePrice = formatInr(basePriceInr);
 const gstPercent = `${Math.round(gstRate * 100)}%`;
 const defaultMembershipInr = EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].priceInr;
@@ -140,12 +147,14 @@ const faqItems = [
   <SiteHeader slot="header" solidAtTop showAction={false} variant="figmaHome" />
 
   <main class={styles.main} id="main-content">
-    <div class={styles.bar} data-store-bar data-visible="true">
+    <div class={styles.bar} data-store-bar data-visible="false">
       <div class={styles.barInner}>
         <p class={styles.barName}>EyEagle Home System</p>
         <p class={styles.barPrice}><strong data-total-price data-inr={defaultTotalInr}>{defaultTotal}</strong> <span>+ GST <small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} data-suffix=" + GST" hidden></small></span></p>
-        {orderingOpen ? (
-          <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
+        {checkoutLinksEnabled ? (
+          <a aria-disabled="true" class={styles.barAction} data-checkout><span class={styles.barActionLong}>Checkout</span><span class={styles.barActionShort}>Checkout</span></a>
+        ) : orderingPreviewOpen ? (
+          <a class={styles.barAction} href="#store-summary"><span class={styles.barActionLong}>Review your setup</span><span class={styles.barActionShort}>Review setup</span></a>
         ) : (
           <a class={styles.barAction} href="#availability"><span class={styles.barActionLong}>Get availability updates</span><span class={styles.barActionShort}>Notify me</span></a>
         )}
@@ -157,6 +166,8 @@ const faqItems = [
         <div>
           {orderingOpen
             ? <p class={styles.eyebrow}>Shipping starts October 30</p>
+            : orderingPreviewOpen
+            ? <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> {localCheckoutPreview ? "Choose your setup" : "Ordering preview · checkout unavailable"}</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
           <p class={styles.introPrice}>From <span data-inr={basePriceInr}>{basePrice}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small> · installation included, membership from <span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month + GST</span></p>
@@ -190,7 +201,7 @@ const faqItems = [
       <form class={styles.options} data-configurator>
         <section class={styles.group} aria-labelledby="system-title" data-gallery-target="0">
           <h2 class={styles.groupTitle} id="system-title"><strong>System.</strong> Everything one bathroom needs.</h2>
-          <div class={styles.systemCard}>
+          <div class={styles.systemCard} data-system-card data-selected="false">
             <div class={styles.systemHead}>
               <h3>Complete Home System</h3>
               <p><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></p>
@@ -202,6 +213,8 @@ const faqItems = [
               <li>Professional installation and testing</li>
               <li>Nest app for family and trusted contacts</li>
             </ul>
+            <span class={styles.systemChoice} data-system-choice>Choose this system <span aria-hidden="true">↗</span></span>
+            <button aria-label="Choose Complete Home System" aria-pressed="false" class={styles.systemSelect} data-system-select type="button"></button>
           </div>
           <details class={styles.help}>
             <summary>What happens during installation?</summary>
@@ -254,6 +267,7 @@ const faqItems = [
         <fieldset class={styles.group} data-gallery-target="4">
           <legend class={styles.groupTitle}><strong>Membership.</strong> Pay ahead and save.</legend>
           <div class={styles.groupMedia}><Image alt={panels[4].alt} class={`${styles.groupMediaImage} ${panels[4].focus}`} layout="full-width" loading="lazy" quality={85} src={panels[4].image} /></div>
+          <p class={styles.groupIntro}>Every plan includes Nest, readiness checks and EyEagle Response.</p>
           <div class={styles.tiles}>
             {membershipOptions.map((option) => (
               <label class={styles.tile}>
@@ -261,8 +275,8 @@ const faqItems = [
                 <span class={styles.tileBody}>
                   <span class={styles.tileTitle}>{option.title}</span>
                   {option.value === 0
-                    ? <span class={styles.tileText}>Nest, readiness checks and EyEagle Response, billed monthly from installation: <span data-inr={membershipMonthlyWithGstInr}>{formatInr(membershipMonthlyWithGstInr)}</span>/month with {gstPercent} GST.</span>
-                    : <span class={styles.tileText}>Nest, readiness checks and EyEagle Response for {option.period}. Saves <span data-inr={option.savingInr}>{formatInr(option.savingInr)}</span> on paying monthly.</span>}
+                    ? <span class={styles.tileText}>Billed monthly from installation.</span>
+                    : <span class={styles.tileText}>Save <span data-inr={option.savingInr}>{formatInr(option.savingInr)}</span> versus monthly.</span>}
                 </span>
                 <span class={styles.tilePrice}>{option.value === 0
                   ? <><span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month<small class={styles.inrAlt} data-inr-alt={membershipMonthlyInr} data-suffix="/month" hidden></small><small class={styles.tileGst}>+ GST</small></>
@@ -278,11 +292,13 @@ const faqItems = [
       </form>
     </div>
 
-    <section class={styles.summary} aria-labelledby="summary-title" data-store-summary>
+    <section class={styles.summary} aria-labelledby="summary-title" data-store-summary id="store-summary">
       <div class={styles.summaryInner}>
         <div>
           {orderingOpen
             ? <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
+            : orderingPreviewOpen
+            ? <h2 id="summary-title">Your EyEagle setup. <span>Review the details.</span></h2>
             : <h2 id="summary-title">Your EyEagle setup. <span>We’ll tell you when ordering opens.</span></h2>}
           <dl class={styles.summaryList}>
             <div><dt>Complete Home System</dt><dd><span data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-inr-alt={basePriceInr} hidden></small></dd></div>
@@ -296,10 +312,21 @@ const faqItems = [
         </div>
         <div class={styles.summaryAction}>
           <p class={styles.summaryTotal}><strong data-total-price data-inr={defaultTotalInr}>{defaultTotal}</strong><span>+ GST · <span data-total-with-gst data-inr={defaultWithGstInr}>{defaultWithGst}</span> total with GST</span><small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} data-suffix=" + GST" hidden></small></p>
-          {orderingOpen ? (
+          {checkoutLinksEnabled ? (
             <>
-              <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
+              <a aria-disabled="true" class={styles.primaryAction} data-checkout>Checkout <span aria-hidden="true">↗</span></a>
+              {localCheckoutPreview && (
+                <>
+                  <a aria-disabled="true" class={styles.shopifyPreviewLink} data-product-variant>View selected variant on Shopify</a>
+                  <p class={styles.finePrint}>Some Shopify variants have zero stock, so checkout may stop there. Use the variant link to check their selection and price.</p>
+                </>
+              )}
               <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
+            </>
+          ) : orderingPreviewOpen ? (
+            <>
+              <span aria-disabled="true" class={styles.primaryAction}>Checkout unavailable</span>
+              <p class={styles.checkoutError} role="status">This is a pricing preview. Checkout will open after the Shopify variants and prices are verified.</p>
             </>
           ) : (
             <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
@@ -341,8 +368,13 @@ const faqItems = [
   const form = document.querySelector<HTMLFormElement>("[data-configurator]");
   const bar = document.querySelector<HTMLElement>("[data-store-bar]");
   const summarySection = document.querySelector<HTMLElement>("[data-store-summary]");
+  const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-target]"));
+  const systemCard = document.querySelector<HTMLElement>("[data-system-card]");
+  const systemSelect = document.querySelector<HTMLButtonElement>("[data-system-select]");
+  const systemChoice = document.querySelector<HTMLElement>("[data-system-choice]");
   const siteHeader = document.querySelector<HTMLElement>("[data-home-v3-header]");
   const checkoutLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-checkout]"));
+  const productVariantLink = document.querySelector<HTMLAnchorElement>("[data-product-variant]");
   const totalPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-total-price]"));
   const totalGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-gst]"));
   const totalsWithGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-with-gst]"));
@@ -353,6 +385,14 @@ const faqItems = [
   const captions = ["Complete home safety system", "SOS within reach", "Installed, connected and ready", "Bathroom protection, within reach", "Nest app and 24/7 response"];
   const root = document.documentElement;
   const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
+  let systemSelected = false;
+  const setSystemSelected = () => {
+    systemSelected = true;
+    if (systemCard) systemCard.dataset.selected = "true";
+    systemSelect?.setAttribute("aria-pressed", "true");
+    systemSelect?.setAttribute("aria-label", "Complete Home System selected");
+    if (systemChoice) systemChoice.textContent = "System selected";
+  };
 
   // Show an amount (INR) in each price element, or the fallback when there is none.
   const showAmount = (elements: HTMLElement[], amountInr: number | null, fallback: string) => elements.forEach((element) => {
@@ -417,9 +457,10 @@ const faqItems = [
   const updateConfiguration = ({ syncUrl = true } = {}) => {
     const { bathrooms, additionalSos, membershipMonths } = readSelection();
     const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, membershipMonths);
-    if (configurationError) configurationError.hidden = Boolean(purchase?.checkoutUrl);
+    const checkoutReady = systemSelected && Boolean(purchase?.checkoutUrl);
+    if (configurationError) configurationError.hidden = !systemSelected || Boolean(purchase?.checkoutUrl);
     checkoutLinks.forEach((link) => {
-      if (purchase?.checkoutUrl) {
+      if (checkoutReady && purchase?.checkoutUrl) {
         link.href = purchase.checkoutUrl;
         link.removeAttribute("aria-disabled");
       } else {
@@ -427,6 +468,15 @@ const faqItems = [
         link.setAttribute("aria-disabled", "true");
       }
     });
+    if (productVariantLink) {
+      if (checkoutReady && purchase?.productUrl) {
+        productVariantLink.href = purchase.productUrl;
+        productVariantLink.removeAttribute("aria-disabled");
+      } else {
+        productVariantLink.removeAttribute("href");
+        productVariantLink.setAttribute("aria-disabled", "true");
+      }
+    }
     const gst = purchase ? estimateGstInr(purchase.totalInr) : 0;
     showAmount(totalPrices, purchase ? purchase.totalInr : null, "Unavailable");
     showAmount(totalGst, purchase ? gst : null, "—");
@@ -448,27 +498,69 @@ const faqItems = [
     showAmount(membershipPrices, monthly ? EYEAGLE_SHOPIFY_CONFIG.membershipMonthlyInr : plan.priceInr, "");
 
     // Mirror the selection in the URL so a configuration can be shared or restored.
-    if (!syncUrl) return purchase;
+    if (!syncUrl) return systemSelected ? purchase : null;
     const url = new URL(window.location.href);
     url.searchParams.set("bathrooms", String(bathrooms));
     url.searchParams.set("sos", String(additionalSos));
     url.searchParams.set("membership", String(purchase.membershipMonths));
     history.replaceState(null, "", url);
-    return purchase;
+    return systemSelected ? purchase : null;
   };
 
   // Restore a shared configuration, ignoring values the form doesn't offer.
   const params = new URLSearchParams(window.location.search);
+  let restoredBathroom = false;
   (["bathrooms", "sos", "membership"] as const).forEach((name) => {
     const value = params.get(name);
     const input = value === null ? null : form?.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`);
-    if (input) input.checked = true;
+    if (input) {
+      input.checked = true;
+      if (name === "bathrooms") restoredBathroom = true;
+    }
   });
+  if (restoredBathroom) setSystemSelected();
 
-  form?.addEventListener("change", (event) => {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let guidedScrollTimer = 0;
+  let guidedScrollActive = false;
+  const finishGuidedScroll = () => {
+    guidedScrollActive = false;
+    window.clearTimeout(guidedScrollTimer);
+    requestSync();
+  };
+  const advanceFrom = (group: HTMLElement) => {
+    const next = sections[sections.indexOf(group) + 1] ?? summarySection;
+    if (!next) return;
+    guidedScrollActive = true;
+    if (next !== summarySection) {
+      const target = Number(next.dataset.galleryTarget);
+      sectionPanel = target;
+      showPanel(target);
+    }
+    next.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+    window.clearTimeout(guidedScrollTimer);
+    guidedScrollTimer = window.setTimeout(finishGuidedScroll, reducedMotion.matches ? 0 : 1200);
+  };
+  systemSelect?.addEventListener("click", () => {
+    setSystemSelected();
     updateConfiguration();
-    const group = (event.target as HTMLElement).closest<HTMLElement>("[data-gallery-target]");
-    if (group) showPanel(Number(group.dataset.galleryTarget));
+    requestSync();
+    const group = systemSelect.closest<HTMLElement>("[data-gallery-target]");
+    if (group) advanceFrom(group);
+  });
+  form?.addEventListener("change", () => updateConfiguration());
+  // Click also fires for an already-selected radio, so the first/default choice can start the flow.
+  form?.addEventListener("click", (event) => {
+    const input = (event.target as HTMLElement).closest<HTMLInputElement>('input[type="radio"]');
+    const group = input?.closest<HTMLElement>("[data-gallery-target]");
+    if (group) {
+      if (!systemSelected) {
+        setSystemSelected();
+        updateConfiguration();
+        requestSync();
+      }
+      advanceFrom(group);
+    }
   });
   form?.addEventListener("submit", (event) => event.preventDefault());
   checkoutLinks.forEach((link) => link.addEventListener("click", (event) => {
@@ -494,14 +586,13 @@ const faqItems = [
   // On scroll: keep the price bar in view until the summary (which has its own checkout), and on desktop,
   // where the gallery is sticky, show the photo for the section being read, like Apple's buy pages.
   // A scroll check rather than IntersectionObserver: a fast fling can skip past a section without a crossing.
-  const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-target]"));
   const stickyGallery = window.matchMedia("(min-width: 1024px)");
   let sectionPanel = -1;
   let frame = 0;
   const syncOnScroll = () => {
     frame = 0;
-    if (bar && summarySection) bar.dataset.visible = String(summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
-    if (!stickyGallery.matches || !sections.length) return;
+    if (bar && summarySection) bar.dataset.visible = String(systemSelected && summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
+    if (!stickyGallery.matches || !sections.length || guidedScrollActive) return;
     const readingLine = window.innerHeight * 0.45;
     const reading = sections.filter((section) => section.getBoundingClientRect().top <= readingLine).at(-1) ?? sections[0];
     const target = Number(reading.dataset.galleryTarget);
