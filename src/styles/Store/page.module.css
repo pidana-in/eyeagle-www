@@ -88,6 +88,13 @@
 .tileText { color:var(--store-muted); font-size:14px; line-height:20px; }
 .tilePrice { color:var(--store-muted); font-size:14px; line-height:20px; white-space:nowrap; font-variant-numeric:tabular-nums; }
 
+/* The INR price beside a local-currency one, for visitors abroad (src/scripts/local-price.ts). */
+.inrAlt { font-size:inherit; font-weight:400; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.tilePrice .inrAlt { display:block; font-size:12px; line-height:16px; text-align:right; }
+.summaryList dd { text-align:right; }
+.summaryList .inrAlt { display:block; color:var(--store-muted); font-size:13px; font-weight:400; line-height:19px; }
+.summaryTotal .inrAlt { color:var(--store-muted); font-size:13px; line-height:19px; }
+
 .help { display:grid; gap:4px; padding:16px 18px; border-radius:14px; color:var(--store-ink); background:var(--store-soft); font-size:14px; line-height:21px; text-decoration:none; }
 a.help:hover .helpMuted { color:var(--store-red); }
 .helpMuted { color:var(--store-muted); }

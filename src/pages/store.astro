@@ -39,7 +39,8 @@ const panels = [
 
 const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, index) => min + index);
 const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
-const delta = (amount: number) => (amount === 0 ? "Included" : `+ ${formatInr(amount)}`);
+// Membership after the included three years. Kept in step with the Shopify plan by hand.
+const membershipMonthlyInr = 2_000;
 
 // Each bathroom gets a protection kit and its own Alert Unit.
 const bathroomDescriptions: Record<number, string> = {
@@ -51,7 +52,7 @@ const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
   value: count,
   title: plural(count, "bathroom"),
   description: bathroomDescriptions[count] ?? "A protection kit and Alert Unit in each bathroom.",
-  price: delta((count - bathroomMin) * additionalBathroomPriceInr),
+  priceInr: (count - bathroomMin) * additionalBathroomPriceInr,
 }));
 
 // Extra Alert Units go beyond the bathrooms, wherever else they spend time.
@@ -66,20 +67,22 @@ const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
   value: extra,
   title: extra === 0 ? "No extra units" : plural(extra, "extra Alert Unit"),
   description: sosDescriptions[extra] ?? "Extra Alert Units for the other rooms they use.",
-  price: delta(extra * additionalSosPriceInr),
+  priceInr: extra * additionalSosPriceInr,
 }));
 
 const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin);
 if (!defaultPurchase) throw new Error("The default EyEagle Shopify configuration is missing.");
 const basePrice = formatInr(basePriceInr);
 const gstPercent = `${Math.round(gstRate * 100)}%`;
-const baseGst = formatInr(estimateGstInr(basePriceInr));
-const baseWithGst = formatInr(basePriceInr + estimateGstInr(basePriceInr));
+const baseGstInr = estimateGstInr(basePriceInr);
+const baseWithGstInr = basePriceInr + baseGstInr;
+const baseGst = formatInr(baseGstInr);
+const baseWithGst = formatInr(baseWithGstInr);
 
 const faqItems = [
   {
     question: "Do prices include GST?",
-    answer: `No. Prices are shown in INR before GST, and GST (${gstPercent}) is added at checkout. For the standard system that is ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
+    answer: `No. Prices are before GST, and GST (${gstPercent}) is added at checkout. For the standard system that is ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
   },
   orderingOpen
     ? {
@@ -96,7 +99,7 @@ const faqItems = [
   },
   {
     question: "What happens after three years?",
-    answer: "Nest, readiness checks and EyEagle Response are included for three years. Membership then continues at ₹2,000/month + GST until cancelled.",
+    answer: `Nest, readiness checks and EyEagle Response are included for three years. Membership then continues at ${formatInr(membershipMonthlyInr)}/month + GST until cancelled.`,
   },
   {
     question: "Does EyEagle need home Wi-Fi?",
@@ -120,7 +123,7 @@ const faqItems = [
     <div class={styles.bar} data-store-bar data-visible="true">
       <div class={styles.barInner}>
         <p class={styles.barName}>EyEagle Home System</p>
-        <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>+ GST</span></p>
+        <p class={styles.barPrice}><strong data-total-price data-inr={basePriceInr}>{basePrice}</strong> <span>+ GST <small class={styles.inrAlt} data-total-price data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></p>
         {orderingOpen ? (
           <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
         ) : (
@@ -136,7 +139,7 @@ const faqItems = [
             ? <p class={styles.eyebrow}>Shipping starts October 30</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
-          <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
+          <p class={styles.introPrice}><span data-inr={basePriceInr}>{basePrice}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small> · installation and three years of response included</span></p>
         </div>
         <ul class={styles.introLinks}>
           <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
@@ -170,7 +173,7 @@ const faqItems = [
           <div class={styles.systemCard}>
             <div class={styles.systemHead}>
               <h3>Complete Home System</h3>
-              <p><strong>{basePrice}</strong><span>+ GST</span></p>
+              <p><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></p>
             </div>
             <ul>
               <li>Alert Unit with SOS button and Door Lock Sensor</li>
@@ -198,7 +201,7 @@ const faqItems = [
                   <span class={styles.tileTitle}>{option.title}</span>
                   <span class={styles.tileText}>{option.description}</span>
                 </span>
-                <span class={styles.tilePrice}>{option.price}</span>
+                <span class={styles.tilePrice}>{option.priceInr === 0 ? "Included" : <>+ <span data-inr={option.priceInr}>{formatInr(option.priceInr)}</span><small class={styles.inrAlt} data-inr-alt={option.priceInr} hidden></small></>}</span>
               </label>
             ))}
           </div>
@@ -219,7 +222,7 @@ const faqItems = [
                   <span class={styles.tileTitle}>{option.title}</span>
                   <span class={styles.tileText}>{option.description}</span>
                 </span>
-                <span class={styles.tilePrice}>{option.price}</span>
+                <span class={styles.tilePrice}>{option.priceInr === 0 ? "Included" : <>+ <span data-inr={option.priceInr}>{formatInr(option.priceInr)}</span><small class={styles.inrAlt} data-inr-alt={option.priceInr} hidden></small></>}</span>
               </label>
             ))}
           </div>
@@ -235,7 +238,7 @@ const faqItems = [
           <div class={styles.membershipCard}>
             <span class={styles.badge}>Included</span>
             <h3>Three years of membership</h3>
-            <p>Nest, readiness checks and EyEagle Response are included for three years. Then ₹2,000/month + GST until cancelled.</p>
+            <p>Nest, readiness checks and EyEagle Response are included for three years. Then <span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month + GST <small class={styles.inrAlt} data-inr-alt={membershipMonthlyInr} data-suffix="/month + GST" hidden></small> until cancelled.</p>
           </div>
         </section>
       </form>
@@ -248,17 +251,17 @@ const faqItems = [
             ? <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
             : <h2 id="summary-title">Your EyEagle setup. <span>We’ll tell you when ordering opens.</span></h2>}
           <dl class={styles.summaryList}>
-            <div><dt>Complete Home System</dt><dd>{basePrice}</dd></div>
-            <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd data-summary-bathrooms-price></dd></div>
-            <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd data-summary-sos-price></dd></div>
+            <div><dt>Complete Home System</dt><dd><span data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-inr-alt={basePriceInr} hidden></small></dd></div>
+            <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd><span data-summary-bathrooms-price data-inr="0"></span><small class={styles.inrAlt} data-summary-bathrooms-price data-inr-alt="0" hidden></small></dd></div>
+            <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd><span data-summary-sos-price data-inr="0"></span><small class={styles.inrAlt} data-summary-sos-price data-inr-alt="0" hidden></small></dd></div>
             <div><dt>Three years of membership</dt><dd>Included</dd></div>
-            <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd data-total-price>{basePrice}</dd></div>
-            <div><dt>Estimated GST ({gstPercent})</dt><dd data-total-gst>{baseGst}</dd></div>
-            <div class={styles.summaryGrand}><dt>Total with GST</dt><dd data-total-with-gst>{baseWithGst}</dd></div>
+            <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd><span data-total-price data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-total-price data-inr-alt={basePriceInr} hidden></small></dd></div>
+            <div><dt>Estimated GST ({gstPercent})</dt><dd><span data-total-gst data-inr={baseGstInr}>{baseGst}</span><small class={styles.inrAlt} data-total-gst data-inr-alt={baseGstInr} hidden></small></dd></div>
+            <div class={styles.summaryGrand}><dt>Total with GST</dt><dd><span data-total-with-gst data-inr={baseWithGstInr}>{baseWithGst}</span><small class={styles.inrAlt} data-total-with-gst data-inr-alt={baseWithGstInr} hidden></small></dd></div>
           </dl>
         </div>
         <div class={styles.summaryAction}>
-          <p class={styles.summaryTotal}><strong data-total-price>{basePrice}</strong><span>+ GST · <span data-total-with-gst>{baseWithGst}</span> total with GST</span></p>
+          <p class={styles.summaryTotal}><strong data-total-price data-inr={basePriceInr}>{basePrice}</strong><span>+ GST · <span data-total-with-gst data-inr={baseWithGstInr}>{baseWithGst}</span> total with GST</span><small class={styles.inrAlt} data-total-price data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></p>
           {orderingOpen ? (
             <>
               <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
@@ -279,7 +282,8 @@ const faqItems = [
             </form>
           )}
           <button class={styles.shareAction} data-share type="button">Share this setup with family</button>
-          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}All prices are in INR and exclude GST, which is added at checkout. After the included three-year period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}Checkout is in INR, and prices exclude GST, which is added at checkout. After the included three-year period, membership renews at {formatInr(membershipMonthlyInr)}/month + GST until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint} data-local-note hidden></p>
         </div>
       </div>
     </section>
@@ -294,9 +298,9 @@ const faqItems = [
   import {
     EYEAGLE_SHOPIFY_CONFIG,
     estimateGstInr,
-    formatInr,
     getEyEagleConfiguredPurchase,
   } from "../data/shopify-configurator";
+  import { renderPrices, setPrice } from "../scripts/local-price";
 
   const form = document.querySelector<HTMLFormElement>("[data-configurator]");
   const bar = document.querySelector<HTMLElement>("[data-store-bar]");
@@ -313,6 +317,15 @@ const faqItems = [
   const captions = ["Complete home safety system", "SOS within reach", "Installed, connected and ready", "Bathroom protection, within reach"];
   const root = document.documentElement;
   const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
+
+  // Show an amount (INR) in each price element, or the fallback when there is none.
+  const showAmount = (elements: HTMLElement[], amountInr: number | null, fallback: string) => elements.forEach((element) => {
+    if (amountInr !== null) setPrice(element, amountInr);
+    else if ("inrAlt" in element.dataset) element.hidden = true;
+    else element.textContent = fallback;
+  });
+
+  renderPrices();
 
   // Keep sticky elements below the fixed site header, which hides on scroll down.
   if (siteHeader) {
@@ -361,9 +374,8 @@ const faqItems = [
   const setSummaryRow = (key: "bathrooms" | "sos", count: number, label: string, price: number) => {
     document.querySelector<HTMLElement>(`[data-summary-${key}]`)?.toggleAttribute("hidden", count === 0);
     const labelElement = document.querySelector<HTMLElement>(`[data-summary-${key}-label]`);
-    const priceElement = document.querySelector<HTMLElement>(`[data-summary-${key}-price]`);
     if (labelElement) labelElement.textContent = label;
-    if (priceElement) priceElement.textContent = formatInr(price);
+    showAmount(Array.from(document.querySelectorAll<HTMLElement>(`[data-summary-${key}-price]`)), price, "");
   };
 
   const updateConfiguration = ({ syncUrl = true } = {}) => {
@@ -380,9 +392,9 @@ const faqItems = [
       }
     });
     const gst = purchase ? estimateGstInr(purchase.totalInr) : 0;
-    totalPrices.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr) : "Unavailable"; });
-    totalGst.forEach((price) => { price.textContent = purchase ? formatInr(gst) : "—"; });
-    totalsWithGst.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr + gst) : "—"; });
+    showAmount(totalPrices, purchase ? purchase.totalInr : null, "Unavailable");
+    showAmount(totalGst, purchase ? gst : null, "—");
+    showAmount(totalsWithGst, purchase ? purchase.totalInr + gst : null, "—");
     if (!purchase) return null;
 
     const extraBathrooms = bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
