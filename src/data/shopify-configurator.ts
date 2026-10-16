@@ -36,7 +36,7 @@ export const isEyEagleMembershipMonths = (months: number): months is EyEagleMemb
 // preview with an availability signup (/api/store-waitlist) in place of checkout, and no Shopify
 // links are rendered. Only an explicit `true` opens ordering.
 export const EYEAGLE_ORDERING_OPEN = storeConfig.orderingOpen === true;
-export const EYEAGLE_ORDERING_PREVIEW_OPEN = !EYEAGLE_ORDERING_OPEN && storeConfig.orderingPreviewOpen === true;
+export const EYEAGLE_ORDERING_PREVIEW_OPEN = !EYEAGLE_ORDERING_OPEN && import.meta.env?.DEV === true && storeConfig.orderingPreviewOpen === true;
 
 // Shopify variant per configuration, keyed "bathrooms:extraSos:membershipMonths". A configuration
 // without an entry is priced on the page but can't be checked out until its variant exists; the

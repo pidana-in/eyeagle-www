@@ -1,5 +1,5 @@
 {
-  "$comment": "orderingPreviewOpen shows the local ordering layout without checkout links. Set orderingOpen to true only after all 45 Shopify variants, prices, bundles and checkout links are verified.",
+  "$comment": "orderingPreviewOpen enables checkout testing only on the local dev server. Set orderingOpen to true only after all Shopify variants, prices, bundles and inventory are verified.",
   "orderingOpen": false,
   "orderingPreviewOpen": true
 }
