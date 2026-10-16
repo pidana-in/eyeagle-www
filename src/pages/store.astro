@@ -20,7 +20,7 @@ import kitImage from "../assets/Store/guardian-kit-v2.png";
 import setupImage from "../assets/Store/sos-installed-v2.png";
 import reviewImage from "../assets/Store/ecu-living-room-v1.png";
 import protectionKitImage from "../assets/NewHome/kit.png";
-import membershipImage from "../assets/MembershipFigma/app-live.png";
+import membershipImage from "../assets/Store/membership-app-hospital-v1.png";
 
 const {
   basePriceInr,
@@ -39,8 +39,9 @@ const panels = [
   { image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
   { image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
   { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
-  // Its app notifications sit low in the frame, so crops keep the lower part in view.
-  { image: membershipImage, alt: "A family member following an SOS in the EyEagle app while the EyEagle Response Team coordinates help", caption: "Nest app and 24/7 response", focus: styles.focusLower },
+  // Built by scripts/compose-store-membership-image.mjs. The phone sits low in the frame, so crops
+  // keep the lower part in view.
+  { image: membershipImage, alt: "The EyEagle app showing an SOS alert and who is responding, over a hospital where EyEagle Response arranges care", caption: "Nest app and 24/7 response", focus: styles.focusLower },
 ] as const;
 
 const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, index) => min + index);
