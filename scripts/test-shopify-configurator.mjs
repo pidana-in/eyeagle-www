@@ -1,10 +1,12 @@
 import assert from "node:assert/strict";
 import {
+  EYEAGLE_MEMBERSHIP_PLANS,
   EYEAGLE_VARIANT_IDS,
   getEyEagleBundleComponents,
   getEyEagleConfiguredPurchase,
 } from "../src/data/shopify-configurator.ts";
 
+// Three years of membership, paid ahead: the configurations that have Shopify variants today.
 const cases = [
   [1, 0, "50646822420673", 79_999],
   [1, 1, "50646822453441", 88_998],
@@ -23,11 +25,12 @@ const cases = [
   [3, 4, "50646822879425", 155_993],
 ];
 
-assert.equal(Object.keys(EYEAGLE_VARIANT_IDS).length, 15);
+assert.ok(Object.keys(EYEAGLE_VARIANT_IDS).length >= 15);
 
 for (const [bathrooms, additionalSos, variantId, totalInr] of cases) {
-  const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos);
-  assert.ok(purchase, `Missing purchase for ${bathrooms}:${additionalSos}`);
+  const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, 36);
+  assert.ok(purchase, `Missing purchase for ${bathrooms}:${additionalSos}:36`);
+  assert.equal(purchase.membershipMonths, 36);
   assert.equal(purchase.variantId, variantId);
   assert.equal(purchase.totalInr, totalInr);
   assert.equal(purchase.quantity, 1);
@@ -37,10 +40,35 @@ for (const [bathrooms, additionalSos, variantId, totalInr] of cases) {
   );
 }
 
-assert.deepEqual(getEyEagleBundleComponents(1, 0), { controlUnit: 1, sosUnit: 1, protectionKit: 1, supportPlan: 1 });
-assert.deepEqual(getEyEagleBundleComponents(3, 4), { controlUnit: 1, sosUnit: 7, protectionKit: 3, supportPlan: 1 });
+// Three years stays the default.
+assert.equal(getEyEagleConfiguredPurchase(1, 0)?.totalInr, 79_999);
 
-for (const invalid of [[0, 0], [4, 0], [1, -1], [1, 5], [1.5, 0], [1, 0.5]]) {
+// The three system prices: upfront only, with one year, with three years.
+assert.deepEqual(
+  [0, 12, 36].map((months) => getEyEagleConfiguredPurchase(1, 0, months)?.totalInr),
+  [39_999, 54_999, 79_999],
+);
+assert.equal(getEyEagleConfiguredPurchase(3, 4, 12)?.totalInr, 130_993);
+assert.equal(getEyEagleConfiguredPurchase(2, 1, 0)?.totalInr, 68_997);
+
+// Every configuration is priced; one without a Shopify variant yet has no checkout link.
+for (const bathrooms of [1, 2, 3]) {
+  for (const additionalSos of [0, 1, 2, 3, 4]) {
+    for (const months of Object.keys(EYEAGLE_MEMBERSHIP_PLANS).map(Number)) {
+      const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, months);
+      assert.ok(purchase, `Missing purchase for ${bathrooms}:${additionalSos}:${months}`);
+      const variantId = EYEAGLE_VARIANT_IDS[`${bathrooms}:${additionalSos}:${months}`] ?? null;
+      assert.equal(purchase.variantId, variantId);
+      assert.equal(purchase.checkoutUrl, variantId && `https://shop.eyeagle.ai/cart/${variantId}:1`);
+    }
+  }
+}
+
+assert.deepEqual(getEyEagleBundleComponents(1, 0, 36), { controlUnit: 1, sosUnit: 1, protectionKit: 1, supportPlan3: 1, supportPlan1: 0 });
+assert.deepEqual(getEyEagleBundleComponents(3, 4, 12), { controlUnit: 1, sosUnit: 7, protectionKit: 3, supportPlan3: 0, supportPlan1: 1 });
+assert.deepEqual(getEyEagleBundleComponents(2, 1, 0), { controlUnit: 1, sosUnit: 3, protectionKit: 2, supportPlan3: 0, supportPlan1: 0 });
+
+for (const invalid of [[0, 0, 36], [4, 0, 36], [1, -1, 36], [1, 5, 36], [1.5, 0, 36], [1, 0.5, 36], [1, 0, 24], [1, 0, Number.NaN]]) {
   assert.equal(getEyEagleConfiguredPurchase(...invalid), null);
 }
 

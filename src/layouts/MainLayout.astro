@@ -280,7 +280,11 @@ const structuredData = JSON.stringify({ "@context": "https://schema.org", "@grap
     --color-text: #0a0a0a; --color-text-muted: #6f6f6b; --color-text-soft: #62625e; --color-text-on-dark: #ffffff; --color-text-on-dark-muted: rgba(255,255,255,.72);
     --color-line: #e5e5e2; --color-action: #d11f2b; --color-action-hover: #b91b25; --color-on-action: #ffffff; --color-focus: #315efb;
   }
-  html { scroll-behavior: smooth; }
+  /* The site header is always on screen, so anchor jumps (and anything that
+     pins) must clear it. Tracks the tallest bar (figmaHome) at each width. */
+  :root { --site-header-height: 80px; }
+  @media (max-width: 1080px) { :root { --site-header-height: 64px; } }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--site-header-height) + 16px); }
   body { min-height: 100%; overflow-x: hidden; background: var(--color-surface); color: var(--color-text); font-family: var(--type-font-family); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   [hidden] { display: none !important; }
   summary::-webkit-details-marker { display: none; }

@@ -1,0 +1,71 @@
+# Keeps config/fx-rates.json fresh for the local-currency prices on /store.
+#
+# Every Monday it reruns scripts/update-fx-rates.mjs and, if the rates moved, opens (or updates) one PR
+# from the chore/fx-rates branch. It never pushes to main: merging to main redeploys the site, so a
+# person reviews the new rates first. If the rate feed is down or looks wrong, the script exits
+# non-zero, this run fails, and the last good rates stay in place.
+#
+# To change the schedule, edit the cron line (UTC). Run it now from Actions → Refresh FX rates →
+# Run workflow.
+#
+# Needs the repository setting "Allow GitHub Actions to create and approve pull requests"
+# (Settings → Actions → General → Workflow permissions).
+
+name: Refresh FX rates
+
+on:
+  schedule:
+    - cron: "30 3 * * 1" # Mondays 03:30 UTC (09:00 IST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-fx-rates
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BRANCH: chore/fx-rates
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # The script only uses Node built-ins, so there is nothing to install.
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+
+      - name: Fetch the latest rates
+        run: node scripts/update-fx-rates.mjs
+
+      - name: Open or update the rates PR
+        run: |
+          if git diff --quiet -- config/fx-rates.json; then
+            echo "Rates unchanged; nothing to do."
+            exit 0
+          fi
+
+          date=$(node -p 'require("./config/fx-rates.json").date')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git commit -m "chore(store): refresh FX rates to $date" -- config/fx-rates.json
+          git push --force origin "$BRANCH"
+
+          if [ "$(gh pr view "$BRANCH" --json state --jq .state 2>/dev/null)" = "OPEN" ]; then
+            echo "Updated the open rates PR."
+          else
+            gh pr create --base "${{ github.event.repository.default_branch }}" --head "$BRANCH" \
+              --title "Refresh FX rates for /store" \
+              --body "Weekly refresh of \`config/fx-rates.json\`, the rates behind the approximate local-currency prices on /store. Checkout stays in INR.
+
+          Rates as of $date (ECB reference rates; Gulf currencies via their USD pegs). The script refuses any currency that moved by more than 20%, so the changes here are ordinary moves. Merging redeploys the site.
+
+          Opened by .github/workflows/refresh-fx-rates.yml; it updates this PR each week until it is merged."
+          fi
