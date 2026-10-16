@@ -83,6 +83,8 @@ const membershipOptions = ([36, 12, 0] as const).map((months) => ({
   period: months === 36 ? "three years" : "one year",
   savingInr: months * membershipMonthlyInr - EYEAGLE_MEMBERSHIP_PLANS[months].priceInr,
 }));
+// GST applies to the monthly membership too.
+const membershipMonthlyWithGstInr = membershipMonthlyInr + estimateGstInr(membershipMonthlyInr);
 
 const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin, defaultMembershipMonths);
 if (!defaultPurchase) throw new Error("The default EyEagle configuration is invalid.");
@@ -117,7 +119,7 @@ const faqItems = [
   },
   {
     question: "How does membership work?",
-    answer: `Membership covers the Nest, readiness checks and EyEagle Response. It is ${formatInr(membershipMonthlyInr)}/month + GST, or pay ahead when you order: ${formatInr(EYEAGLE_MEMBERSHIP_PLANS[12].priceInr)} for one year or ${formatInr(EYEAGLE_MEMBERSHIP_PLANS[36].priceInr)} for three years. After a paid-ahead period it continues monthly until cancelled.`,
+    answer: `Membership covers the Nest, readiness checks and EyEagle Response. It is ${formatInr(membershipMonthlyInr)}/month + ${gstPercent} GST (${formatInr(membershipMonthlyWithGstInr)}/month in total), or pay ahead when you order: ${formatInr(EYEAGLE_MEMBERSHIP_PLANS[12].priceInr)} for one year or ${formatInr(EYEAGLE_MEMBERSHIP_PLANS[36].priceInr)} for three years. After a paid-ahead period it continues monthly until cancelled.`,
   },
   {
     question: "Does EyEagle need home Wi-Fi?",
@@ -157,7 +159,7 @@ const faqItems = [
             ? <p class={styles.eyebrow}>Shipping starts October 30</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
-          <p class={styles.introPrice}>From <span data-inr={basePriceInr}>{basePrice}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small> · installation included, membership from <span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month</span></p>
+          <p class={styles.introPrice}>From <span data-inr={basePriceInr}>{basePrice}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small> · installation included, membership from <span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month + GST</span></p>
         </div>
         <ul class={styles.introLinks}>
           <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
@@ -259,11 +261,11 @@ const faqItems = [
                 <span class={styles.tileBody}>
                   <span class={styles.tileTitle}>{option.title}</span>
                   {option.value === 0
-                    ? <span class={styles.tileText}>Nest, readiness checks and EyEagle Response, billed monthly from installation.</span>
+                    ? <span class={styles.tileText}>Nest, readiness checks and EyEagle Response, billed monthly from installation: <span data-inr={membershipMonthlyWithGstInr}>{formatInr(membershipMonthlyWithGstInr)}</span>/month with {gstPercent} GST.</span>
                     : <span class={styles.tileText}>Nest, readiness checks and EyEagle Response for {option.period}. Saves <span data-inr={option.savingInr}>{formatInr(option.savingInr)}</span> on paying monthly.</span>}
                 </span>
                 <span class={styles.tilePrice}>{option.value === 0
-                  ? <><span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month<small class={styles.inrAlt} data-inr-alt={membershipMonthlyInr} data-suffix="/month" hidden></small></>
+                  ? <><span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month<small class={styles.inrAlt} data-inr-alt={membershipMonthlyInr} data-suffix="/month" hidden></small><small class={styles.tileGst}>+ GST</small></>
                   : <>+ <span data-inr={option.priceInr}>{formatInr(option.priceInr)}</span><small class={styles.inrAlt} data-inr-alt={option.priceInr} hidden></small></>}</span>
               </label>
             ))}
@@ -286,7 +288,7 @@ const faqItems = [
             <div><dt>Complete Home System</dt><dd><span data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-inr-alt={basePriceInr} hidden></small></dd></div>
             <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd><span data-summary-bathrooms-price data-inr="0"></span><small class={styles.inrAlt} data-summary-bathrooms-price data-inr-alt="0" hidden></small></dd></div>
             <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd><span data-summary-sos-price data-inr="0"></span><small class={styles.inrAlt} data-summary-sos-price data-inr-alt="0" hidden></small></dd></div>
-            <div><dt data-summary-membership-label>Membership · {EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].title}</dt><dd><span data-summary-membership-price data-inr={defaultMembershipInr}>{formatInr(defaultMembershipInr)}</span><span data-summary-membership-monthly hidden>/month</span><small class={styles.inrAlt} data-summary-membership-price data-inr-alt={defaultMembershipInr} hidden></small></dd></div>
+            <div><dt data-summary-membership-label>Membership · {EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].title}</dt><dd><span data-summary-membership-price data-inr={defaultMembershipInr}>{formatInr(defaultMembershipInr)}</span><span data-summary-membership-monthly hidden>/month + GST</span><small class={styles.inrAlt} data-summary-membership-price data-inr-alt={defaultMembershipInr} hidden></small></dd></div>
             <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd><span data-total-price data-inr={defaultTotalInr}>{defaultTotal}</span><small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} hidden></small></dd></div>
             <div><dt>Estimated GST ({gstPercent})</dt><dd><span data-total-gst data-inr={defaultGstInr}>{defaultGst}</span><small class={styles.inrAlt} data-total-gst data-inr-alt={defaultGstInr} hidden></small></dd></div>
             <div class={styles.summaryGrand}><dt>Total with GST</dt><dd><span data-total-with-gst data-inr={defaultWithGstInr}>{defaultWithGst}</span><small class={styles.inrAlt} data-total-with-gst data-inr-alt={defaultWithGstInr} hidden></small></dd></div>
@@ -442,7 +444,7 @@ const faqItems = [
     if (membershipLabel) membershipLabel.textContent = `Membership · ${plan.title}`;
     document.querySelector<HTMLElement>("[data-summary-membership-monthly]")?.toggleAttribute("hidden", !monthly);
     const membershipPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-summary-membership-price]"));
-    membershipPrices.forEach((element) => { element.dataset.suffix = monthly ? "/month" : ""; });
+    membershipPrices.forEach((element) => { element.dataset.suffix = monthly ? "/month + GST" : ""; });
     showAmount(membershipPrices, monthly ? EYEAGLE_SHOPIFY_CONFIG.membershipMonthlyInr : plan.priceInr, "");
 
     // Mirror the selection in the URL so a configuration can be shared or restored.
