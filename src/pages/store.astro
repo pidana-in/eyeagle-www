@@ -314,15 +314,14 @@ const faqItems = [
   const root = document.documentElement;
   const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 
-  // Keep sticky elements below the fixed site header, which hides on scroll down.
+  // Keep sticky elements below the fixed site header, which is always on screen.
   if (siteHeader) {
     const syncHeader = () => {
       const height = Math.round(siteHeader.getBoundingClientRect().height);
       root.style.setProperty("--store-header-h", `${height}px`);
-      root.style.setProperty("--store-header-visible", siteHeader.dataset.hidden === "true" ? "0px" : `${height}px`);
+      root.style.setProperty("--store-header-visible", `${height}px`);
     };
     new ResizeObserver(syncHeader).observe(siteHeader);
-    new MutationObserver(syncHeader).observe(siteHeader, { attributes: true, attributeFilter: ["data-hidden"] });
     syncHeader();
   }
 
