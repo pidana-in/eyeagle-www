@@ -49,16 +49,16 @@ const panels = [
 const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, index) => min + index);
 const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 
-// Each bathroom gets a protection kit and its own Alert Unit.
+// Each bathroom gets a complete Control Unit, Alert Unit and protection kit set.
 const bathroomDescriptions: Record<number, string> = {
-  1: "For parents who use one bathroom. A protection kit and Alert Unit, installed.",
-  2: "Covers both bathrooms in a 2 BHK, each with its own kit and Alert Unit.",
-  3: "For larger homes, or a guest bathroom they also use. Kit and Alert Unit in each.",
+  1: "One complete set, installed in their bathroom.",
+  2: "Two complete sets, one for each bathroom.",
+  3: "Three complete sets, one for each bathroom.",
 };
 const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
   value: count,
   title: plural(count, "bathroom"),
-  description: bathroomDescriptions[count] ?? "A protection kit and Alert Unit in each bathroom.",
+  description: bathroomDescriptions[count] ?? "A complete Control Unit, Alert Unit and protection kit in each bathroom.",
   priceInr: (count - bathroomMin) * additionalBathroomPriceInr,
 }));
 
@@ -122,7 +122,7 @@ const faqItems = [
     },
   {
     question: "How is the system installed?",
-    answer: "An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.",
+    answer: "An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and Control Unit, connects the Nest and tests the complete alert path before handover.",
   },
   {
     question: "How does membership work?",
@@ -208,7 +208,7 @@ const faqItems = [
             </div>
             <ul>
               <li>Alert Unit with SOS button and Door Lock Sensor</li>
-              <li>Home Hub with Alarm</li>
+              <li>EyEagle Control Unit</li>
               <li>Bathroom protection kit for one bathroom</li>
               <li>Professional installation and testing</li>
               <li>Nest app for family and trusted contacts</li>
@@ -218,7 +218,7 @@ const faqItems = [
           </div>
           <details class={styles.help}>
             <summary>What happens during installation?</summary>
-            <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.</p>
+            <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and Control Unit, connects the Nest and tests the complete alert path before handover.</p>
           </details>
         </section>
 

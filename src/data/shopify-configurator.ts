@@ -105,7 +105,7 @@ export const getMissingEyEagleVariantKeys = (): string[] => {
 // Parts each configurator variant is bundled from in Shopify (see scripts/shopify-setup-bundles.mjs).
 // Parts are never sold on their own, so every order includes the full base system.
 export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
-  controlUnit: { sku: "EYE-CU", title: "Home Hub with Alarm", stockTracked: true },
+  controlUnit: { sku: "EYE-CU", title: "EyEagle Control Unit", stockTracked: true },
   sosUnit: { sku: "EYE-AU", title: "Alert Unit", stockTracked: true },
   protectionKit: { sku: "EYE-KIT", title: "Bathroom protection kit", stockTracked: true },
   supportPlan3: { sku: "EYE-SUP3", title: "3-year support plan", stockTracked: false },
@@ -114,14 +114,14 @@ export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
 
 export type EyEagleBundleComponent = keyof typeof EYEAGLE_BUNDLE_COMPONENTS;
 
-// Base system: 1 CU + 1 AU + 1 kit. Each extra bathroom adds an AU and a kit; each extra SOS adds an
-// AU. A paid-ahead membership adds its support plan; paying monthly adds none.
+// Base system: 1 CU + 1 AU + 1 kit. Each extra bathroom adds another complete CU + AU + kit set;
+// each extra SOS adds only an AU. A paid-ahead membership adds its support plan; monthly adds none.
 export const getEyEagleBundleComponents = (
   bathrooms: number,
   additionalSos: number,
   membershipMonths: EyEagleMembershipMonths,
 ): Record<EyEagleBundleComponent, number> => ({
-  controlUnit: 1,
+  controlUnit: bathrooms,
   sosUnit: bathrooms + additionalSos,
   protectionKit: bathrooms,
   supportPlan3: membershipMonths === 36 ? 1 : 0,

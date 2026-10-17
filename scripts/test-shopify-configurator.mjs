@@ -67,8 +67,8 @@ if (process.argv.includes("--require-all-variants")) {
 }
 
 assert.deepEqual(getEyEagleBundleComponents(1, 0, 36), { controlUnit: 1, sosUnit: 1, protectionKit: 1, supportPlan3: 1, supportPlan1: 0 });
-assert.deepEqual(getEyEagleBundleComponents(3, 4, 12), { controlUnit: 1, sosUnit: 7, protectionKit: 3, supportPlan3: 0, supportPlan1: 1 });
-assert.deepEqual(getEyEagleBundleComponents(2, 1, 0), { controlUnit: 1, sosUnit: 3, protectionKit: 2, supportPlan3: 0, supportPlan1: 0 });
+assert.deepEqual(getEyEagleBundleComponents(3, 4, 12), { controlUnit: 3, sosUnit: 7, protectionKit: 3, supportPlan3: 0, supportPlan1: 1 });
+assert.deepEqual(getEyEagleBundleComponents(2, 1, 0), { controlUnit: 2, sosUnit: 3, protectionKit: 2, supportPlan3: 0, supportPlan1: 0 });
 
 for (const invalid of [[0, 0, 36], [4, 0, 36], [1, -1, 36], [1, 5, 36], [1.5, 0, 36], [1, 0.5, 36], [1, 0, 24], [1, 0, Number.NaN]]) {
   assert.equal(getEyEagleConfiguredPurchase(...invalid), null);

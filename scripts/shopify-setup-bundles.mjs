@@ -187,7 +187,7 @@ for (const { variant, totalInr, components } of plan) {
 
 const stockOf = (key) => parts[key].inventoryQuantity;
 const baseHomes = Math.min(stockOf("controlUnit"), stockOf("sosUnit"), stockOf("protectionKit"));
-console.log(`\nCurrent stock covers up to ${baseHomes} single-bathroom homes; each extra bathroom or SOS button uses more AUs (and kits).`);
+console.log(`\nCurrent stock covers up to ${baseHomes} single-bathroom homes. Each extra bathroom uses another CU, AU and kit; each extra SOS uses one AU.`);
 
 if (!apply) {
   console.log("\nDry run only. Re-run with --apply to write these bundles and prices to Shopify.");
