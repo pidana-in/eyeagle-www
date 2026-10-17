@@ -1,14 +1,12 @@
 import assert from "node:assert/strict";
 import {
   EYEAGLE_MEMBERSHIP_PLANS,
-  EYEAGLE_SHOPIFY_CONFIG,
-  EYEAGLE_VARIANT_IDS,
-  getEyEagleBundleComponents,
+  EYEAGLE_SHOPIFY_CART_ITEMS,
   getEyEagleConfiguredPurchase,
-  getMissingEyEagleVariantKeys,
+  getMissingEyEagleCartItems,
 } from "../src/data/shopify-configurator.ts";
+import { checkEyEagleShopifyCheckout } from "../src/server/store-checkout.ts";
 
-// Independent prices from the agreed 45-combination table, before GST.
 const prices = [
   [1, 0, 79_999, 54_999, 39_999],
   [1, 1, 88_998, 63_998, 48_998],
@@ -27,73 +25,76 @@ const prices = [
   [3, 4, 155_993, 130_993, 115_993],
 ];
 
-for (const [bathrooms, additionalSos, threeYears, oneYear, monthly] of prices) {
+assert.deepEqual(getMissingEyEagleCartItems(), []);
+
+for (const [bathrooms, extraSos, threeYears, oneYear, monthly] of prices) {
   for (const [months, expectedPrice] of [[36, threeYears], [12, oneYear], [0, monthly]]) {
-    const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, months);
-    assert.ok(purchase, `Missing purchase for ${bathrooms}:${additionalSos}:${months}`);
-    assert.equal(purchase.totalInr, expectedPrice, `Wrong price for ${bathrooms}:${additionalSos}:${months}`);
-    assert.equal(purchase.quantity, 1);
+    const purchase = getEyEagleConfiguredPurchase(bathrooms, extraSos, months);
+    assert.ok(purchase, `Missing purchase for ${bathrooms}:${extraSos}:${months}`);
+    assert.equal(purchase.totalInr, expectedPrice);
+    assert.deepEqual(
+      Object.fromEntries(purchase.cartLines.map(({ item, quantity }) => [item, quantity])),
+      {
+        base: 1,
+        ...(bathrooms > 1 ? { additionalBathroom: bathrooms - 1 } : {}),
+        ...(extraSos > 0 ? { additionalSos: extraSos } : {}),
+        ...(months === 12 ? { plan1: 1 } : {}),
+        ...(months === 36 ? { plan3: 1 } : {}),
+      },
+    );
+    const cartUrl = new URL(purchase.shopifyCartUrl);
+    assert.equal(cartUrl.host, "shop.eyeagle.ai");
+    assert.equal(cartUrl.pathname, `/cart/${[...purchase.cartLines].reverse().map(({ variantId, quantity }) => `${variantId}:${quantity}`).join(",")}`);
+    assert.equal(cartUrl.searchParams.get("attributes[EyEagle plan]"), EYEAGLE_MEMBERSHIP_PLANS[months].title);
+    assert.equal(cartUrl.searchParams.get("attributes[EyEagle bathrooms]"), String(bathrooms));
+    assert.equal(cartUrl.searchParams.get("attributes[EyEagle additional SOS]"), String(extraSos));
+    assert.equal(purchase.checkoutUrl, `/api/store-checkout?bathrooms=${bathrooms}&sos=${extraSos}&membership=${months}`);
   }
 }
 
-// Three years stays the default.
 assert.equal(getEyEagleConfiguredPurchase(1, 0)?.totalInr, 79_999);
-
-// The three system prices: upfront only, with one year, with three years.
+assert.equal(getEyEagleConfiguredPurchase(2, 3, 12)?.totalInr, 101_995);
 assert.deepEqual(
-  [0, 12, 36].map((months) => getEyEagleConfiguredPurchase(1, 0, months)?.totalInr),
-  [39_999, 54_999, 79_999],
+  getEyEagleConfiguredPurchase(2, 3, 12)?.cartLines.map(({ item, quantity }) => [item, quantity]),
+  [["base", 1], ["additionalBathroom", 1], ["additionalSos", 3], ["plan1", 1]],
 );
-assert.equal(getEyEagleConfiguredPurchase(3, 4, 12)?.totalInr, 130_993);
-assert.equal(getEyEagleConfiguredPurchase(2, 1, 0)?.totalInr, 68_997);
-
-// Every configuration is priced; one without a Shopify variant yet has no checkout link.
-for (const bathrooms of [1, 2, 3]) {
-  for (const additionalSos of [0, 1, 2, 3, 4]) {
-    for (const months of Object.keys(EYEAGLE_MEMBERSHIP_PLANS).map(Number)) {
-      const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, months);
-      assert.ok(purchase, `Missing purchase for ${bathrooms}:${additionalSos}:${months}`);
-      const variantId = EYEAGLE_VARIANT_IDS[`${bathrooms}:${additionalSos}:${months}`] ?? null;
-      assert.equal(purchase.variantId, variantId);
-      assert.equal(purchase.checkoutUrl, variantId && `https://shop.eyeagle.ai/cart/${variantId}:1`);
-      assert.equal(purchase.productUrl, variantId && `https://shop.eyeagle.ai/products/${EYEAGLE_SHOPIFY_CONFIG.productHandle}?variant=${variantId}`);
-    }
-  }
-}
-
-assert.equal(new Set(Object.values(EYEAGLE_VARIANT_IDS)).size, Object.keys(EYEAGLE_VARIANT_IDS).length, "Duplicate Shopify variant IDs");
-if (process.argv.includes("--require-all-variants")) {
-  assert.deepEqual(getMissingEyEagleVariantKeys(), [], "Checkout must have a variant for every plan and configuration");
-}
-
-assert.deepEqual(getEyEagleBundleComponents(1, 0, 36), { controlUnit: 1, sosUnit: 1, protectionKit: 1, supportPlan3: 1, supportPlan1: 0 });
-assert.deepEqual(getEyEagleBundleComponents(3, 4, 12), { controlUnit: 3, sosUnit: 7, protectionKit: 3, supportPlan3: 0, supportPlan1: 1 });
-assert.deepEqual(getEyEagleBundleComponents(2, 1, 0), { controlUnit: 2, sosUnit: 3, protectionKit: 2, supportPlan3: 0, supportPlan1: 0 });
 
 for (const invalid of [[0, 0, 36], [4, 0, 36], [1, -1, 36], [1, 5, 36], [1.5, 0, 36], [1, 0.5, 36], [1, 0, 24], [1, 0, Number.NaN]]) {
   assert.equal(getEyEagleConfiguredPurchase(...invalid), null);
 }
 
+const chosen = getEyEagleConfiguredPurchase(2, 2, 12);
+assert.ok(chosen);
+const productResponse = (handle, overridePrice = null, available = true) => {
+  const item = Object.values(EYEAGLE_SHOPIFY_CART_ITEMS).find((entry) => entry.handle === handle);
+  assert.ok(item);
+  return new Response(JSON.stringify({
+    handle,
+    title: handle === EYEAGLE_SHOPIFY_CART_ITEMS.base.handle ? "EyEagle Safety System" : handle,
+    variants: [{ id: Number(item.variantId), price: (overridePrice ?? item.priceInr) * 100, available }],
+  }), { status: 200 });
+};
+const healthyFetch = async (url) => productResponse(new URL(url).pathname.split("/").at(-1).replace(/\.js$/, ""));
+assert.deepEqual(await checkEyEagleShopifyCheckout(chosen, healthyFetch), { ok: true });
+const badSosFetch = async (url) => {
+  const handle = new URL(url).pathname.split("/").at(-1).replace(/\.js$/, "");
+  return productResponse(handle, handle === EYEAGLE_SHOPIFY_CART_ITEMS.additionalSos.handle ? 0 : null);
+};
+const badSos = await checkEyEagleShopifyCheckout(chosen, badSosFetch);
+assert.equal(badSos.ok, false);
+assert.match(badSos.message, /Additional Alert Unit.*₹0.*₹8,999/);
+const unavailableBaseFetch = async (url) => {
+  const handle = new URL(url).pathname.split("/").at(-1).replace(/\.js$/, "");
+  return productResponse(handle, null, handle !== EYEAGLE_SHOPIFY_CART_ITEMS.base.handle);
+};
+const unavailableBase = await checkEyEagleShopifyCheckout(chosen, unavailableBaseFetch);
+assert.equal(unavailableBase.ok, false);
+assert.match(unavailableBase.message, /EyEagle Safety System is currently unavailable/);
+
 if (process.argv.includes("--live")) {
-  const response = await fetch(`https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/products/${EYEAGLE_SHOPIFY_CONFIG.productHandle}.js`);
-  assert.equal(response.status, 200, "Shopify product JSON must be accessible");
-  const product = await response.json();
-  assert.equal(product.handle, EYEAGLE_SHOPIFY_CONFIG.productHandle);
-  assert.equal(product.variants.length, prices.length * 3, "Shopify must have exactly 45 variants");
-  const seen = new Set();
-  for (const variant of product.variants) {
-    const bathrooms = Number(variant.option1?.match(/^(\d) Bathrooms?$/)?.[1]);
-    const additionalSos = variant.option2 === "None" ? 0 : Number(variant.option2?.match(/^(\d) additional$/)?.[1]);
-    const months = { Monthly: 0, "1 Year": 12, "3 Year": 36 }[variant.option3];
-    const key = `${bathrooms}:${additionalSos}:${months}`;
-    assert.ok(!seen.has(key), `Duplicate Shopify option combination ${key}`);
-    seen.add(key);
-    const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, months);
-    assert.ok(purchase, `Unexpected Shopify option combination ${variant.title}`);
-    assert.equal(purchase.variantId, String(variant.id), `Wrong Shopify variant for ${variant.title}`);
-    assert.equal(purchase.totalInr * 100, variant.price, `Wrong Shopify price for ${variant.title}`);
-  }
-  console.log(`Matched all ${seen.size} Shopify variant IDs, options and prices against the live product.`);
+  const liveCheck = await checkEyEagleShopifyCheckout(chosen);
+  console.log(`Live Shopify checkout check: ${liveCheck.ok ? "ready" : liveCheck.message}`);
+  if (!liveCheck.ok) process.exitCode = 1;
 }
 
-console.log(`Validated all ${prices.length * 3} EyEagle prices. ${getMissingEyEagleVariantKeys().length} Shopify variant IDs remain unconfigured.`);
+console.log(`Validated all ${prices.length * 3} EyEagle prices and multi-item carts.`);

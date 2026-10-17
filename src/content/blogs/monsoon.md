@@ -173,7 +173,7 @@ Some bathroom safety problems cannot be fixed with a mat and a stool. If your ba
 - No solid wall near the toilet for grab bar installation
 - Cramped layout that forces the senior to twist or turn in tight spaces
 
-EyEagle provides an <a href="https://shop.eyeagle.ai/products/bathroom-audit" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">in-home bathroom safety audit</a> by trained professionals. They assess the actual risk in your bathroom, not a generic checklist. Based on that, they install the right combination of safety hardware. Families across India have used this service to finally feel confident about leaving a parent alone at home.
+EyEagle provides an <a href="/inquiry" style="color:#CC0000; text-decoration:none;">in-home bathroom safety audit</a> by trained professionals. They assess the actual risk in your bathroom, not a generic checklist. Based on that, they install the right combination of safety hardware. Families across India have used this service to finally feel confident about leaving a parent alone at home.
 
 ## Final Thoughts: Act Before the Rains Do
 
@@ -187,4 +187,4 @@ Along with simple bathroom safety upgrades, solutions like the **EyEagle App** a
 
 Monsoon bathroom safety is not a luxury. For Indian seniors, it is essential. This rainy season, choose to act before something goes wrong.
 
-> **Is your bathroom ready for monsoon?** EyEagle offers a free safety consultation and professional bathroom audit for Indian homes. <a href="https://shop.eyeagle.ai/products/bathroom-audit" style="color:#CC0000; text-decoration:none;" target="_blank" rel="noopener noreferrer">Book your EyEagle safety audit</a> and give your family peace of mind this rainy season.
+> **Is your bathroom ready for monsoon?** EyEagle offers a free safety consultation and professional bathroom audit for Indian homes. <a href="/inquiry" style="color:#CC0000; text-decoration:none;">Enquire about an EyEagle safety audit</a> and give your family peace of mind this rainy season.
