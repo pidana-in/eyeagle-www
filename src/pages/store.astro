@@ -13,7 +13,7 @@ import {
   estimateGstInr,
   formatInr,
   getEyEagleConfiguredPurchase,
-  getMissingEyEagleVariantKeys,
+  getMissingEyEagleCartItems,
 } from "../data/shopify-configurator";
 import styles from "../styles/Store/page.module.css";
 import "../styles/home-v3-tokens.css";
@@ -89,12 +89,12 @@ const membershipMonthlyWithGstInr = membershipMonthlyInr + estimateGstInr(member
 
 const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin, defaultMembershipMonths);
 if (!defaultPurchase) throw new Error("The default EyEagle configuration is invalid.");
-// Let the team test every Shopify variant from the local dev server without opening ordering on the published site.
+// Let the team test the Shopify multi-item cart locally without opening ordering on the published site.
 const localCheckoutPreview = import.meta.env.DEV && orderingPreviewOpen;
 const checkoutLinksEnabled = orderingOpen || localCheckoutPreview;
 if (checkoutLinksEnabled) {
-  const missingVariants = getMissingEyEagleVariantKeys();
-  if (missingVariants.length) throw new Error(`Checkout testing needs all Shopify variants, but ${missingVariants.length} are missing from the map.`);
+  const missingItems = getMissingEyEagleCartItems();
+  if (missingItems.length) throw new Error(`Checkout testing needs Shopify IDs for: ${missingItems.join(", ")}.`);
 }
 const basePrice = formatInr(basePriceInr);
 const gstPercent = `${Math.round(gstRate * 100)}%`;
@@ -316,17 +316,14 @@ const faqItems = [
             <>
               <a aria-disabled="true" class={styles.primaryAction} data-checkout>Checkout <span aria-hidden="true">↗</span></a>
               {localCheckoutPreview && (
-                <>
-                  <a aria-disabled="true" class={styles.shopifyPreviewLink} data-product-variant>View selected variant on Shopify</a>
-                  <p class={styles.finePrint}>Some Shopify variants have zero stock, so checkout may stop there. Use the variant link to check their selection and price.</p>
-                </>
+                <p class={styles.finePrint}>Checkout checks the live Shopify prices and availability for every selected item before opening the cart.</p>
               )}
               <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
             </>
           ) : orderingPreviewOpen ? (
             <>
               <span aria-disabled="true" class={styles.primaryAction}>Checkout unavailable</span>
-              <p class={styles.checkoutError} role="status">This is a pricing preview. Checkout will open after the Shopify variants and prices are verified.</p>
+              <p class={styles.checkoutError} role="status">This is a pricing preview. Checkout will open after the Shopify bundles, inventory, and plans are verified.</p>
             </>
           ) : (
             <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
@@ -374,7 +371,6 @@ const faqItems = [
   const systemChoice = document.querySelector<HTMLElement>("[data-system-choice]");
   const siteHeader = document.querySelector<HTMLElement>("[data-home-v3-header]");
   const checkoutLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-checkout]"));
-  const productVariantLink = document.querySelector<HTMLAnchorElement>("[data-product-variant]");
   const totalPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-total-price]"));
   const totalGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-gst]"));
   const totalsWithGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-with-gst]"));
@@ -468,15 +464,6 @@ const faqItems = [
         link.setAttribute("aria-disabled", "true");
       }
     });
-    if (productVariantLink) {
-      if (checkoutReady && purchase?.productUrl) {
-        productVariantLink.href = purchase.productUrl;
-        productVariantLink.removeAttribute("aria-disabled");
-      } else {
-        productVariantLink.removeAttribute("href");
-        productVariantLink.setAttribute("aria-disabled", "true");
-      }
-    }
     const gst = purchase ? estimateGstInr(purchase.totalInr) : 0;
     showAmount(totalPrices, purchase ? purchase.totalInr : null, "Unavailable");
     showAmount(totalGst, purchase ? gst : null, "—");
@@ -563,8 +550,31 @@ const faqItems = [
     }
   });
   form?.addEventListener("submit", (event) => event.preventDefault());
-  checkoutLinks.forEach((link) => link.addEventListener("click", (event) => {
-    if (!updateConfiguration()?.checkoutUrl) event.preventDefault();
+  let checkoutPending = false;
+  checkoutLinks.forEach((link) => link.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const purchase = updateConfiguration();
+    if (!purchase?.checkoutUrl || checkoutPending) return;
+    checkoutPending = true;
+    checkoutLinks.forEach((checkoutLink) => checkoutLink.setAttribute("aria-busy", "true"));
+    if (configurationError) configurationError.hidden = true;
+    try {
+      const response = await fetch(purchase.checkoutUrl, { headers: { Accept: "application/json" } });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || typeof result.checkoutUrl !== "string") {
+        throw new Error(result.message || "We couldn’t prepare Shopify checkout. Please try again.");
+      }
+      window.location.assign(result.checkoutUrl);
+    } catch (error) {
+      if (configurationError) {
+        configurationError.textContent = error instanceof Error ? error.message : "We couldn’t prepare Shopify checkout. Please try again.";
+        configurationError.hidden = false;
+        summarySection?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } finally {
+      checkoutPending = false;
+      checkoutLinks.forEach((checkoutLink) => checkoutLink.removeAttribute("aria-busy"));
+    }
   }));
 
   const shareButton = document.querySelector<HTMLButtonElement>("[data-share]");

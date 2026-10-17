@@ -2,7 +2,6 @@ import storeConfig from "../../config/store.json" with { type: "json" };
 
 export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
   storeDomain: "shop.eyeagle.ai",
-  productHandle: "test-variants",
   // Prices exclude GST; Shopify adds GST at checkout.
   // The system for one bathroom, installed, with no membership paid ahead.
   basePriceInr: 39_999,
@@ -38,9 +37,34 @@ export const isEyEagleMembershipMonths = (months: number): months is EyEagleMemb
 export const EYEAGLE_ORDERING_OPEN = storeConfig.orderingOpen === true;
 export const EYEAGLE_ORDERING_PREVIEW_OPEN = !EYEAGLE_ORDERING_OPEN && import.meta.env?.DEV === true && storeConfig.orderingPreviewOpen === true;
 
-// Shopify variant per configuration, keyed "bathrooms:extraSos:membershipMonths". A configuration
-// without an entry is priced on the page but can't be checked out until its variant exists; the
-// setup script (scripts/shopify-setup-bundles.mjs) lists the IDs to add here.
+// These are sellable cart lines. Shopify currently expands the base bundle into a Control Unit,
+// Alarm Unit and Bathroom Protection item. Each additional-bathroom bundle expands into a Control
+// Unit, Alarm Unit and four bathroom-safety parts. Both bundles and extra SOS units must consume
+// the same tracked Alarm Unit variant; the base Bathroom Protection item's inner parts still need
+// their own inventory reconciliation in Shopify.
+export const EYEAGLE_SHOPIFY_CART_ITEMS = Object.freeze({
+  base: { handle: "complete-home-safety-response-system", variantId: "50767558181057", priceInr: 39_999 },
+  additionalBathroom: { handle: "additional-bathroom", variantId: "50769365663937", priceInr: 19_999 },
+  additionalSos: { handle: "eyeagle-alarm-unit-with-sos-button", variantId: "50767489237185", priceInr: 8_999 },
+  plan1: { handle: "1-year-plan", variantId: "50768026665153", priceInr: 15_000 },
+  plan3: { handle: "3-year-plan", variantId: "50768026239169", priceInr: 40_000 },
+} as const);
+
+export type EyEagleCartItem = keyof typeof EYEAGLE_SHOPIFY_CART_ITEMS;
+export interface EyEagleCartLine {
+  item: EyEagleCartItem;
+  variantId: string;
+  quantity: number;
+  expectedUnitPriceInr: number;
+}
+
+export const getMissingEyEagleCartItems = (): EyEagleCartItem[] =>
+  (Object.keys(EYEAGLE_SHOPIFY_CART_ITEMS) as EyEagleCartItem[]).filter((item) =>
+    !/^\d+$/.test(EYEAGLE_SHOPIFY_CART_ITEMS[item].variantId),
+  );
+
+// Legacy 45-variant map retained only for reference while the new cart flow is tested locally.
+// The checkout no longer uses these IDs or the old bundle setup script.
 export const EYEAGLE_VARIANT_IDS: Readonly<Record<string, string>> = Object.freeze({
   "1:0:0": "50762161488065",
   "1:0:12": "50646822420673",
@@ -133,11 +157,9 @@ export interface EyEagleConfiguredPurchase {
   additionalSos: number;
   membershipMonths: EyEagleMembershipMonths;
   totalInr: number;
-  // Null until the configuration's Shopify variant exists (see EYEAGLE_VARIANT_IDS).
-  variantId: string | null;
-  quantity: 1;
+  cartLines: EyEagleCartLine[];
+  shopifyCartUrl: string;
   checkoutUrl: string | null;
-  productUrl: string | null;
 }
 
 export const formatInr = (amount: number) =>
@@ -167,22 +189,46 @@ export const getEyEagleConfiguredPurchase = (
   if (!isValidEyEagleConfiguration(bathrooms, additionalSos, membershipMonths)) return null;
   const months = membershipMonths as EyEagleMembershipMonths;
 
-  const variantId = EYEAGLE_VARIANT_IDS[`${bathrooms}:${additionalSos}:${months}`] ?? null;
-
   const totalInr =
     EYEAGLE_SHOPIFY_CONFIG.basePriceInr +
     (bathrooms - 1) * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr +
     additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr +
     EYEAGLE_MEMBERSHIP_PLANS[months].priceInr;
 
+  const quantities: Partial<Record<EyEagleCartItem, number>> = {
+    base: 1,
+    additionalBathroom: bathrooms - 1,
+    additionalSos,
+    plan1: months === 12 ? 1 : 0,
+    plan3: months === 36 ? 1 : 0,
+  };
+  const cartLines = (Object.entries(quantities) as [EyEagleCartItem, number][])
+    .filter(([, quantity]) => quantity > 0)
+    .map(([item, quantity]) => ({
+      item,
+      variantId: EYEAGLE_SHOPIFY_CART_ITEMS[item].variantId,
+      quantity,
+      expectedUnitPriceInr: EYEAGLE_SHOPIFY_CART_ITEMS[item].priceInr,
+    }));
+  const cartTotalInr = cartLines.reduce((sum, line) => sum + line.quantity * line.expectedUnitPriceInr, 0);
+  if (cartTotalInr !== totalInr) throw new Error("EyEagle cart item prices do not match the store configurator.");
+
+  // Shopify displays cart-permalink lines in reverse order. Send the plan first so the
+  // EyEagle Safety System appears first in the checkout summary.
+  const cartUrl = new URL(`https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${[...cartLines].reverse().map((line) => `${line.variantId}:${line.quantity}`).join(",")}`);
+  cartUrl.searchParams.set("attributes[EyEagle plan]", EYEAGLE_MEMBERSHIP_PLANS[months].title);
+  cartUrl.searchParams.set("attributes[EyEagle bathrooms]", String(bathrooms));
+  cartUrl.searchParams.set("attributes[EyEagle additional SOS]", String(additionalSos));
+
+  const checkoutUrl = new URLSearchParams({ bathrooms: String(bathrooms), sos: String(additionalSos), membership: String(months) });
+
   return {
     bathrooms,
     additionalSos,
     membershipMonths: months,
     totalInr,
-    variantId,
-    quantity: 1,
-    checkoutUrl: variantId ? `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1` : null,
-    productUrl: variantId ? `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/products/${EYEAGLE_SHOPIFY_CONFIG.productHandle}?variant=${variantId}` : null,
+    cartLines,
+    shopifyCartUrl: cartUrl.toString(),
+    checkoutUrl: `/api/store-checkout?${checkoutUrl}`,
   };
 };

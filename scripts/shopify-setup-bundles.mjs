@@ -27,6 +27,12 @@ const {
 } = process.env;
 const apply = process.argv.includes("--apply");
 
+// The storefront now uses separate base, extra-bathroom, Alarm Unit and plan cart lines.
+// Keep this historical script for reference, but never let it overwrite the new setup.
+if (apply) {
+  throw new Error("The 45-variant Shopify setup is retired. Do not use --apply for the new multi-item cart.");
+}
+
 // The "Membership" option's value for each plan (months), exactly as entered in Shopify.
 const MEMBERSHIP_OPTION = "Plan";
 const MEMBERSHIP_OPTION_VALUES = { 36: "3 Year", 12: "1 Year", 0: "Monthly" };

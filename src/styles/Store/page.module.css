@@ -134,9 +134,6 @@ a.help:hover .helpMuted { color:var(--store-red); }
 :is(.primaryAction,.barAction)[aria-disabled="true"] { opacity:.5; pointer-events:none; }
 .shareAction { justify-self:center; padding:6px 10px; border:0; color:#3a3733; background:transparent; cursor:pointer; font:inherit; font-size:14px; line-height:20px; text-decoration:underline; text-underline-offset:4px; }
 .shareAction:hover { color:var(--store-red); }
-.shopifyPreviewLink { justify-self:center; color:#3a3733; font-size:14px; line-height:20px; text-underline-offset:4px; }
-.shopifyPreviewLink:hover { color:var(--store-red); }
-.shopifyPreviewLink[aria-disabled="true"] { opacity:.5; pointer-events:none; }
 .checkoutError { padding:12px 14px; border:1px solid rgba(220,31,46,.28); border-radius:10px; color:#a4101d; background:#fff4f4; font-size:13px; line-height:19px; }
 .checkoutError[hidden] { display:none; }
 .srOnly { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
