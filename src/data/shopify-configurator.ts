@@ -2,6 +2,7 @@ import storeConfig from "../../config/store.json" with { type: "json" };
 
 export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
   storeDomain: "shop.eyeagle.ai",
+  productHandle: "test-variants",
   // Prices exclude GST; Shopify adds GST at checkout.
   // The system for one bathroom, installed, with no membership paid ahead.
   basePriceInr: 39_999,
@@ -35,32 +36,76 @@ export const isEyEagleMembershipMonths = (months: number): months is EyEagleMemb
 // preview with an availability signup (/api/store-waitlist) in place of checkout, and no Shopify
 // links are rendered. Only an explicit `true` opens ordering.
 export const EYEAGLE_ORDERING_OPEN = storeConfig.orderingOpen === true;
+export const EYEAGLE_ORDERING_PREVIEW_OPEN = !EYEAGLE_ORDERING_OPEN && import.meta.env?.DEV === true && storeConfig.orderingPreviewOpen === true;
 
 // Shopify variant per configuration, keyed "bathrooms:extraSos:membershipMonths". A configuration
 // without an entry is priced on the page but can't be checked out until its variant exists; the
 // setup script (scripts/shopify-setup-bundles.mjs) lists the IDs to add here.
 export const EYEAGLE_VARIANT_IDS: Readonly<Record<string, string>> = Object.freeze({
-  "1:0:36": "50646822420673",
-  "1:1:36": "50646822453441",
-  "1:2:36": "50646822486209",
-  "1:3:36": "50646822518977",
-  "1:4:36": "50646822551745",
-  "2:0:36": "50646822584513",
-  "2:1:36": "50646822617281",
-  "2:2:36": "50646822650049",
-  "2:3:36": "50646822682817",
-  "2:4:36": "50646822715585",
-  "3:0:36": "50646822748353",
-  "3:1:36": "50646822781121",
-  "3:2:36": "50646822813889",
-  "3:3:36": "50646822846657",
-  "3:4:36": "50646822879425",
+  "1:0:0": "50762161488065",
+  "1:0:12": "50646822420673",
+  "1:0:36": "50694869844161",
+  "1:1:0": "50762161520833",
+  "1:1:12": "50646822453441",
+  "1:1:36": "50694869876929",
+  "1:2:0": "50762161553601",
+  "1:2:12": "50646822486209",
+  "1:2:36": "50694869909697",
+  "1:3:0": "50762206511297",
+  "1:3:12": "50762206544065",
+  "1:3:36": "50762206576833",
+  "1:4:0": "50762232430785",
+  "1:4:12": "50762232463553",
+  "1:4:36": "50762232496321",
+  "2:0:0": "50762161586369",
+  "2:0:12": "50646822584513",
+  "2:0:36": "50694869942465",
+  "2:1:0": "50762161619137",
+  "2:1:12": "50646822617281",
+  "2:1:36": "50694869975233",
+  "2:2:0": "50762161651905",
+  "2:2:12": "50646822650049",
+  "2:2:36": "50694870008001",
+  "2:3:0": "50762206609601",
+  "2:3:12": "50762206642369",
+  "2:3:36": "50762206675137",
+  "2:4:0": "50762232529089",
+  "2:4:12": "50762232561857",
+  "2:4:36": "50762232594625",
+  "3:0:0": "50762161684673",
+  "3:0:12": "50646822748353",
+  "3:0:36": "50694870040769",
+  "3:1:0": "50762161717441",
+  "3:1:12": "50646822781121",
+  "3:1:36": "50694870073537",
+  "3:2:0": "50762161750209",
+  "3:2:12": "50646822813889",
+  "3:2:36": "50694870106305",
+  "3:3:0": "50762206707905",
+  "3:3:12": "50762206740673",
+  "3:3:36": "50762206773441",
+  "3:4:0": "50762232627393",
+  "3:4:12": "50762232660161",
+  "3:4:36": "50762232692929",
 });
+
+export const getMissingEyEagleVariantKeys = (): string[] => {
+  const missing: string[] = [];
+  for (let bathrooms = EYEAGLE_SHOPIFY_CONFIG.bathroomMin; bathrooms <= EYEAGLE_SHOPIFY_CONFIG.bathroomMax; bathrooms++) {
+    for (let additionalSos = EYEAGLE_SHOPIFY_CONFIG.additionalSosMin; additionalSos <= EYEAGLE_SHOPIFY_CONFIG.additionalSosMax; additionalSos++) {
+      for (const months of Object.keys(EYEAGLE_MEMBERSHIP_PLANS)) {
+        const key = `${bathrooms}:${additionalSos}:${months}`;
+        if (!EYEAGLE_VARIANT_IDS[key]) missing.push(key);
+      }
+    }
+  }
+  return missing;
+};
 
 // Parts each configurator variant is bundled from in Shopify (see scripts/shopify-setup-bundles.mjs).
 // Parts are never sold on their own, so every order includes the full base system.
 export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
-  controlUnit: { sku: "EYE-CU", title: "Home Hub with Alarm", stockTracked: true },
+  controlUnit: { sku: "EYE-CU", title: "EyEagle Control Unit", stockTracked: true },
   sosUnit: { sku: "EYE-AU", title: "Alert Unit", stockTracked: true },
   protectionKit: { sku: "EYE-KIT", title: "Bathroom protection kit", stockTracked: true },
   supportPlan3: { sku: "EYE-SUP3", title: "3-year support plan", stockTracked: false },
@@ -69,14 +114,14 @@ export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
 
 export type EyEagleBundleComponent = keyof typeof EYEAGLE_BUNDLE_COMPONENTS;
 
-// Base system: 1 CU + 1 AU + 1 kit. Each extra bathroom adds an AU and a kit; each extra SOS adds an
-// AU. A paid-ahead membership adds its support plan; paying monthly adds none.
+// Base system: 1 CU + 1 AU + 1 kit. Each extra bathroom adds another complete CU + AU + kit set;
+// each extra SOS adds only an AU. A paid-ahead membership adds its support plan; monthly adds none.
 export const getEyEagleBundleComponents = (
   bathrooms: number,
   additionalSos: number,
   membershipMonths: EyEagleMembershipMonths,
 ): Record<EyEagleBundleComponent, number> => ({
-  controlUnit: 1,
+  controlUnit: bathrooms,
   sosUnit: bathrooms + additionalSos,
   protectionKit: bathrooms,
   supportPlan3: membershipMonths === 36 ? 1 : 0,
@@ -92,6 +137,7 @@ export interface EyEagleConfiguredPurchase {
   variantId: string | null;
   quantity: 1;
   checkoutUrl: string | null;
+  productUrl: string | null;
 }
 
 export const formatInr = (amount: number) =>
@@ -137,5 +183,6 @@ export const getEyEagleConfiguredPurchase = (
     variantId,
     quantity: 1,
     checkoutUrl: variantId ? `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1` : null,
+    productUrl: variantId ? `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/products/${EYEAGLE_SHOPIFY_CONFIG.productHandle}?variant=${variantId}` : null,
   };
 };

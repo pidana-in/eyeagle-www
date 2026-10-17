@@ -2,13 +2,14 @@
 // its pre-GST price. Parts are looked up by SKU (EYEAGLE_BUNDLE_COMPONENTS).
 //
 // Variants are found on the product by their option values: the bathroom and extra-SOS values are learned
-// from the variants already in EYEAGLE_VARIANT_IDS, and membership from a "Membership" option whose values
+// from the saved IDs in EYEAGLE_VARIANT_IDS, even if their current membership mapping is stale. The actual
+// plan comes from Shopify's "Plan" option whose values
 // are MEMBERSHIP_OPTION_VALUES below. The run prints the full EYEAGLE_VARIANT_IDS map to paste into
 // src/data/shopify-configurator.ts.
 //
 // Dry run (default) prints the plan and checks the parts; --apply writes to Shopify.
-//   SHOPIFY_STORE_DOMAIN=<store>.myshopify.com SHOPIFY_ADMIN_ACCESS_TOKEN=shpat_... \
-//     node scripts/shopify-setup-bundles.mjs [--apply]
+//   Fill in the Shopify values in an untracked .env file, then run:
+//     node --env-file=.env scripts/shopify-setup-bundles.mjs [--apply]
 import {
   EYEAGLE_BUNDLE_COMPONENTS,
   EYEAGLE_MEMBERSHIP_PLANS,
@@ -20,17 +21,18 @@ import {
 
 const {
   SHOPIFY_STORE_DOMAIN: domain,
+  SHOPIFY_EXPECTED_PRODUCT_HANDLE: expectedProductHandle,
   SHOPIFY_ADMIN_ACCESS_TOKEN: token,
   SHOPIFY_API_VERSION: apiVersion = "2026-07",
 } = process.env;
 const apply = process.argv.includes("--apply");
 
 // The "Membership" option's value for each plan (months), exactly as entered in Shopify.
-const MEMBERSHIP_OPTION = "Membership";
-const MEMBERSHIP_OPTION_VALUES = { 36: "3 years", 12: "1 year", 0: "Monthly" };
+const MEMBERSHIP_OPTION = "Plan";
+const MEMBERSHIP_OPTION_VALUES = { 36: "3 Year", 12: "1 Year", 0: "Monthly" };
 
-if (!domain || !token) {
-  console.error("Set SHOPIFY_STORE_DOMAIN (*.myshopify.com) and SHOPIFY_ADMIN_ACCESS_TOKEN.");
+if (!domain || !expectedProductHandle || !token) {
+  console.error("Set SHOPIFY_STORE_DOMAIN (*.myshopify.com), SHOPIFY_EXPECTED_PRODUCT_HANDLE and SHOPIFY_ADMIN_ACCESS_TOKEN.");
   process.exit(1);
 }
 
@@ -90,7 +92,7 @@ const productData = await gql(
   `query ($id: ID!) {
     productVariant(id: $id) {
       product {
-        id title
+        id title handle
         variants(first: 250) { nodes { id title selectedOptions { name value } } }
       }
     }
@@ -99,6 +101,9 @@ const productData = await gql(
 );
 const product = productData.productVariant?.product;
 if (!product) throw new Error(`Variant ${EYEAGLE_VARIANT_IDS[anchorKey]} (${anchorKey}) not found in ${domain}.`);
+if (product.handle !== expectedProductHandle) {
+  throw new Error(`The saved variant IDs belong to ${product.handle}, not ${expectedProductHandle}. Check the target Shopify product and update the variant IDs before applying changes.`);
+}
 
 const monthsByValue = Object.fromEntries(Object.entries(MEMBERSHIP_OPTION_VALUES).map(([months, value]) => [value, Number(months)]));
 const membershipOf = (variant) => variant.selectedOptions.find((option) => option.name === MEMBERSHIP_OPTION)?.value;
@@ -114,9 +119,14 @@ for (const [key, id] of Object.entries(EYEAGLE_VARIANT_IDS)) {
   }
   const months = Number(key.split(":")[2]);
   if (membershipOf(variant) !== MEMBERSHIP_OPTION_VALUES[months]) {
-    problems.push(`${variant.title} (${key}) should have ${MEMBERSHIP_OPTION} = "${MEMBERSHIP_OPTION_VALUES[months]}", found "${membershipOf(variant) ?? "no such option"}".`);
+    console.warn(`Saved ID ${id} is mapped as ${key}, but Shopify calls it "${membershipOf(variant) ?? "no Membership option"}". The generated map will use Shopify's actual option value.`);
   }
-  layouts.set(layoutOf(variant), key.split(":").slice(0, 2).join(":"));
+  const layout = layoutOf(variant);
+  const layoutKey = key.split(":").slice(0, 2).join(":");
+  if (layouts.has(layout) && layouts.get(layout) !== layoutKey) {
+    problems.push(`Saved ID ${id} has the same bathroom/Alert Unit options as another layout, but is mapped as ${layoutKey}.`);
+  }
+  layouts.set(layout, layoutKey);
 }
 
 const found = new Map(); // "bathrooms:extraSos:months" → variant
@@ -127,7 +137,9 @@ for (const variant of product.variants.nodes) {
     problems.push(`Can't place ${variant.title}: unknown option values ${JSON.stringify(variant.selectedOptions)}.`);
     continue;
   }
-  found.set(`${layout}:${months}`, variant);
+  const key = `${layout}:${months}`;
+  if (found.has(key)) problems.push(`Duplicate variant for ${key}: ${found.get(key).title} and ${variant.title}.`);
+  found.set(key, variant);
 }
 for (const layout of new Set(layouts.values())) {
   for (const months of Object.keys(EYEAGLE_MEMBERSHIP_PLANS)) {
@@ -175,7 +187,7 @@ for (const { variant, totalInr, components } of plan) {
 
 const stockOf = (key) => parts[key].inventoryQuantity;
 const baseHomes = Math.min(stockOf("controlUnit"), stockOf("sosUnit"), stockOf("protectionKit"));
-console.log(`\nCurrent stock covers up to ${baseHomes} single-bathroom homes; each extra bathroom or SOS button uses more AUs (and kits).`);
+console.log(`\nCurrent stock covers up to ${baseHomes} single-bathroom homes. Each extra bathroom uses another CU, AU and kit; each extra SOS uses one AU.`);
 
 if (!apply) {
   console.log("\nDry run only. Re-run with --apply to write these bundles and prices to Shopify.");
