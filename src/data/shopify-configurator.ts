@@ -100,6 +100,17 @@ export interface EyEagleConfiguredPurchase {
   checkoutUrl: string | null;
 }
 
+// Shopify discount codes passed in from links like /store?code=DIWALI (event QR codes). Codes are
+// case-insensitive in Shopify; only letters, digits, "-" and "_" are carried through.
+export const normalizeDiscountCode = (raw: string | null | undefined): string | null => {
+  const code = raw?.trim().toUpperCase() ?? "";
+  return /^[A-Z0-9_-]{1,50}$/.test(code) ? code : null;
+};
+
+// Cart permalinks apply a code at checkout with ?discount=. Shopify ignores a code that isn't valid.
+export const withDiscountCode = (checkoutUrl: string, code: string | null) =>
+  code ? `${checkoutUrl}?discount=${encodeURIComponent(code)}` : checkoutUrl;
+
 export const formatInr = (amount: number) =>
   new Intl.NumberFormat("en-IN", {
     style: "currency",

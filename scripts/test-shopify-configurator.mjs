@@ -3,6 +3,8 @@ import {
   EYEAGLE_MEMBERSHIP_PLANS,
   EYEAGLE_VARIANT_IDS,
   getEyEagleConfiguredPurchase,
+  normalizeDiscountCode,
+  withDiscountCode,
 } from "../src/data/shopify-configurator.ts";
 
 // Spot checks against shop.eyeagle.ai/products/eyeagle-home-system: bathrooms, extra Alert Units, months,
@@ -64,5 +66,13 @@ for (const bathrooms of [1, 2, 3]) {
 for (const invalid of [[0, 0, 36], [4, 0, 36], [1, -1, 36], [1, 5, 36], [1.5, 0, 36], [1, 0.5, 36], [1, 0, 24], [1, 0, Number.NaN]]) {
   assert.equal(getEyEagleConfiguredPurchase(...invalid), null);
 }
+
+// Event discount codes from /store?code=… are carried to checkout.
+assert.equal(normalizeDiscountCode(" diwali-2026 "), "DIWALI-2026");
+for (const invalid of [null, undefined, "", "   ", "SAVE 10", "A,B", "10%OFF", "X".repeat(51)]) {
+  assert.equal(normalizeDiscountCode(invalid), null);
+}
+assert.equal(withDiscountCode("https://shop.eyeagle.ai/cart/1:1", "DIWALI"), "https://shop.eyeagle.ai/cart/1:1?discount=DIWALI");
+assert.equal(withDiscountCode("https://shop.eyeagle.ai/cart/1:1", null), "https://shop.eyeagle.ai/cart/1:1");
 
 console.log(`Validated ${cases.length} EyEagle Shopify configurations.`);

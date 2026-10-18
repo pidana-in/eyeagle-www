@@ -300,6 +300,7 @@ const faqItems = [
             <>
               <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
               <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
+              <p class={styles.discountNote} data-discount-note hidden></p>
             </>
           ) : (
             <form id="availability" class={styles.notifyForm} data-availability-form novalidate>
@@ -335,6 +336,8 @@ const faqItems = [
     EYEAGLE_SHOPIFY_CONFIG,
     estimateGstInr,
     getEyEagleConfiguredPurchase,
+    normalizeDiscountCode,
+    withDiscountCode,
   } from "../data/shopify-configurator";
   import { renderPrices, setPrice } from "../scripts/local-price";
 
@@ -362,6 +365,24 @@ const faqItems = [
   });
 
   renderPrices();
+
+  // A discount code from an event link (/store?code=DIWALI) rides along to checkout. It's kept for the
+  // browser session, so it survives browsing other pages before buying.
+  const discountStorageKey = "eyeagle-discount-code";
+  const discountCode = (() => {
+    const fromUrl = normalizeDiscountCode(new URLSearchParams(window.location.search).get("code"));
+    try {
+      if (fromUrl) sessionStorage.setItem(discountStorageKey, fromUrl);
+      return fromUrl ?? normalizeDiscountCode(sessionStorage.getItem(discountStorageKey));
+    } catch {
+      return fromUrl;
+    }
+  })();
+  const discountNote = document.querySelector<HTMLElement>("[data-discount-note]");
+  if (discountNote && discountCode) {
+    discountNote.textContent = `Discount code ${discountCode} will be applied at checkout.`;
+    discountNote.hidden = false;
+  }
 
   // Keep sticky elements below the fixed site header, which is always on screen.
   if (siteHeader) {
@@ -420,7 +441,7 @@ const faqItems = [
     if (configurationError) configurationError.hidden = Boolean(purchase?.checkoutUrl);
     checkoutLinks.forEach((link) => {
       if (purchase?.checkoutUrl) {
-        link.href = purchase.checkoutUrl;
+        link.href = withDiscountCode(purchase.checkoutUrl, discountCode);
         link.removeAttribute("aria-disabled");
       } else {
         link.removeAttribute("href");
