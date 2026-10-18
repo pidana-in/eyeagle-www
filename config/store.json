@@ -1,4 +1,4 @@
 {
   "$comment": "Store switches. Set orderingOpen to true to enable checkout on /store; merging the change to main redeploys the site.",
-  "orderingOpen": false
+  "orderingOpen": true
 }

@@ -36,51 +36,57 @@ export const isEyEagleMembershipMonths = (months: number): months is EyEagleMemb
 // links are rendered. Only an explicit `true` opens ordering.
 export const EYEAGLE_ORDERING_OPEN = storeConfig.orderingOpen === true;
 
-// Shopify variant per configuration, keyed "bathrooms:extraSos:membershipMonths". A configuration
-// without an entry is priced on the page but can't be checked out until its variant exists; the
-// setup script (scripts/shopify-setup-bundles.mjs) lists the IDs to add here.
+// Shopify variant per configuration, keyed "bathrooms:extraSos:membershipMonths". The EyEagle Home System
+// product (shop.eyeagle.ai/products/eyeagle-home-system) is a Shopify Bundles bundle set up by hand: 1 Home
+// Hub, an "Alert Units" quantity option (bathrooms + extra units), a "Bathroom Protection Kits" quantity
+// option (one per bathroom) and the membership plan. Each variant's price is the sum of its parts. A
+// configuration without an entry is priced on the page but can't be checked out.
 export const EYEAGLE_VARIANT_IDS: Readonly<Record<string, string>> = Object.freeze({
-  "1:0:36": "50646822420673",
-  "1:1:36": "50646822453441",
-  "1:2:36": "50646822486209",
-  "1:3:36": "50646822518977",
-  "1:4:36": "50646822551745",
-  "2:0:36": "50646822584513",
-  "2:1:36": "50646822617281",
-  "2:2:36": "50646822650049",
-  "2:3:36": "50646822682817",
-  "2:4:36": "50646822715585",
-  "3:0:36": "50646822748353",
-  "3:1:36": "50646822781121",
-  "3:2:36": "50646822813889",
-  "3:3:36": "50646822846657",
-  "3:4:36": "50646822879425",
-});
-
-// Parts each configurator variant is bundled from in Shopify (see scripts/shopify-setup-bundles.mjs).
-// Parts are never sold on their own, so every order includes the full base system.
-export const EYEAGLE_BUNDLE_COMPONENTS = Object.freeze({
-  controlUnit: { sku: "EYE-CU", title: "Home Hub with Alarm", stockTracked: true },
-  sosUnit: { sku: "EYE-AU", title: "Alert Unit", stockTracked: true },
-  protectionKit: { sku: "EYE-KIT", title: "Bathroom protection kit", stockTracked: true },
-  supportPlan3: { sku: "EYE-SUP3", title: "3-year support plan", stockTracked: false },
-  supportPlan1: { sku: "EYE-SUP1", title: "1-year support plan", stockTracked: false },
-} as const);
-
-export type EyEagleBundleComponent = keyof typeof EYEAGLE_BUNDLE_COMPONENTS;
-
-// Base system: 1 CU + 1 AU + 1 kit. Each extra bathroom adds an AU and a kit; each extra SOS adds an
-// AU. A paid-ahead membership adds its support plan; paying monthly adds none.
-export const getEyEagleBundleComponents = (
-  bathrooms: number,
-  additionalSos: number,
-  membershipMonths: EyEagleMembershipMonths,
-): Record<EyEagleBundleComponent, number> => ({
-  controlUnit: 1,
-  sosUnit: bathrooms + additionalSos,
-  protectionKit: bathrooms,
-  supportPlan3: membershipMonths === 36 ? 1 : 0,
-  supportPlan1: membershipMonths === 12 ? 1 : 0,
+  "1:0:36": "50777552093377",
+  "1:0:12": "50777552126145",
+  "1:0:0": "50777552158913",
+  "1:1:36": "50777552388289",
+  "1:1:12": "50777552421057",
+  "1:1:0": "50777552453825",
+  "1:2:36": "50777552683201",
+  "1:2:12": "50777552715969",
+  "1:2:0": "50777552748737",
+  "1:3:36": "50777552978113",
+  "1:3:12": "50777553010881",
+  "1:3:0": "50777553043649",
+  "1:4:36": "50777553273025",
+  "1:4:12": "50777553305793",
+  "1:4:0": "50777553338561",
+  "2:0:36": "50777552486593",
+  "2:0:12": "50777552519361",
+  "2:0:0": "50777552552129",
+  "2:1:36": "50777552781505",
+  "2:1:12": "50777552814273",
+  "2:1:0": "50777552847041",
+  "2:2:36": "50777553076417",
+  "2:2:12": "50777553109185",
+  "2:2:0": "50777553141953",
+  "2:3:36": "50777553371329",
+  "2:3:12": "50777553404097",
+  "2:3:0": "50777553436865",
+  "2:4:36": "50777553666241",
+  "2:4:12": "50777553699009",
+  "2:4:0": "50777553731777",
+  "3:0:36": "50777552879809",
+  "3:0:12": "50777552912577",
+  "3:0:0": "50777552945345",
+  "3:1:36": "50777553174721",
+  "3:1:12": "50777553207489",
+  "3:1:0": "50777553240257",
+  "3:2:36": "50777553469633",
+  "3:2:12": "50777553502401",
+  "3:2:0": "50777553535169",
+  "3:3:36": "50777553764545",
+  "3:3:12": "50777553797313",
+  "3:3:0": "50777553830081",
+  "3:4:36": "50777554059457",
+  "3:4:12": "50777554092225",
+  "3:4:0": "50777554124993",
 });
 
 export interface EyEagleConfiguredPurchase {
