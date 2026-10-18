@@ -376,13 +376,14 @@ const faqItems = [
 
   renderPrices();
 
-  // Discount codes, typed in or from an event link (/store?code=SG-20). /api/store-discount prices a code
-  // for the chosen variant exactly as Shopify checkout will. The code is kept for the browser session and
-  // goes to checkout unless Shopify said it doesn't apply.
-  type DiscountCheck = { applicable: boolean; discountInr: number; valueType: string | null; value: number | null };
+  // Discount codes, typed in or from an event link (/store?code=SG-P40). /api/store-discount looks up each
+  // code's rule once (a percentage or a fixed amount, as Shopify checkout applies it), and the page applies it
+  // to whichever setup is chosen. The code is kept for the browser session and goes to checkout unless Shopify
+  // said it doesn't apply.
+  type DiscountCheck = { applicable: boolean; valueType: string | null; value: number | null };
   type DiscountState = "none" | "checking" | "applied" | "invalid" | "error";
   const discountStorageKey = "eyeagle-discount-code";
-  const discountChecks = new Map<string, DiscountCheck | "error">(); // keyed "CODE:variantId"
+  const discountChecks = new Map<string, DiscountCheck | "error">(); // keyed by code
   const discountRequests = new Set<string>();
   const storeDiscountCode = (code: string | null) => {
     try {
@@ -404,41 +405,40 @@ const faqItems = [
       return null;
     }
   })();
-  // The last rule Shopify confirmed for the code, to keep the price steady while another setup is checked.
+  // The rule of the code that applies right now, for the labels.
   let discountRule: { valueType: string; value: number } | null = null;
 
-  const estimateDiscountInr = (totalInr: number) => {
-    if (!discountRule) return 0;
-    return discountRule.valueType === "percentage"
-      ? Math.round(totalInr * discountRule.value) / 100
-      : Math.min(discountRule.value, totalInr);
-  };
-
-  const checkDiscount = async (code: string, variantId: string) => {
-    const key = `${code}:${variantId}`;
-    if (discountRequests.has(key)) return;
-    discountRequests.add(key);
+  const checkDiscount = async (code: string) => {
+    if (discountRequests.has(code)) return;
+    discountRequests.add(code);
     try {
-      const response = await fetch(`/api/store-discount?${new URLSearchParams({ code, variant: variantId })}`);
+      const response = await fetch(`/api/store-discount?${new URLSearchParams({ code })}`);
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.message);
-      discountChecks.set(key, result);
-      if (result.applicable && result.valueType && result.value) discountRule = { valueType: result.valueType, value: result.value };
+      discountChecks.set(code, result);
     } catch {
-      discountChecks.set(key, "error");
+      discountChecks.set(code, "error");
     } finally {
-      discountRequests.delete(key);
+      discountRequests.delete(code);
     }
     if (code === discountCode) updateConfiguration({ syncUrl: false });
   };
 
-  const getDiscount = (variantId: string | null, totalInr: number): { state: DiscountState; amountInr: number } => {
-    if (!discountCode || !variantId) return { state: "none", amountInr: 0 };
-    const check = discountChecks.get(`${discountCode}:${variantId}`);
+  // As Shopify applies it: a percentage of the total to the paisa, or a fixed amount once per order.
+  const getDiscount = (totalInr: number): { state: DiscountState; amountInr: number } => {
+    discountRule = null;
+    if (!discountCode) return { state: "none", amountInr: 0 };
+    const check = discountChecks.get(discountCode);
+    if (!check) {
+      void checkDiscount(discountCode);
+      return { state: "checking", amountInr: 0 };
+    }
     if (check === "error") return { state: "error", amountInr: 0 };
-    if (check) return check.applicable ? { state: "applied", amountInr: check.discountInr } : { state: "invalid", amountInr: 0 };
-    void checkDiscount(discountCode, variantId);
-    return { state: "checking", amountInr: estimateDiscountInr(totalInr) };
+    if (!check.applicable) return { state: "invalid", amountInr: 0 };
+    if (!check.valueType || !check.value) return { state: "error", amountInr: 0 };
+    discountRule = { valueType: check.valueType, value: check.value };
+    const amountInr = check.valueType === "percentage" ? Math.round(totalInr * check.value) / 100 : Math.min(check.value, totalInr);
+    return { state: "applied", amountInr };
   };
 
   const discountForm = document.querySelector<HTMLFormElement>("[data-discount-form]");
@@ -520,7 +520,7 @@ const faqItems = [
     const { bathrooms, additionalSos, membershipMonths } = readSelection();
     const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, membershipMonths);
     if (configurationError) configurationError.hidden = Boolean(purchase?.checkoutUrl);
-    const discount = purchase ? getDiscount(purchase.variantId, purchase.totalInr) : { state: "none" as const, amountInr: 0 };
+    const discount = purchase ? getDiscount(purchase.totalInr) : { state: "none" as const, amountInr: 0 };
     const checkoutCode = discount.state === "none" || discount.state === "invalid" ? null : discountCode;
     checkoutLinks.forEach((link) => {
       if (purchase?.checkoutUrl) {
