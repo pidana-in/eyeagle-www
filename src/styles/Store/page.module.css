@@ -148,7 +148,17 @@ a.help:hover .helpMuted { color:var(--store-red); }
 .contactLink { display:inline-flex; gap:6px; color:var(--store-muted); font-size:14px; line-height:20px; text-decoration:none; }
 .contactLink strong { color:var(--store-red); font-weight:500; text-decoration:underline; text-underline-offset:4px; }
 .finePrint { color:#8b8882; font-size:12.5px; line-height:19px; }
-.discountNote { color:#1f1f1f; font-size:13.5px; font-weight:600; line-height:20px; }
+.wasPrice { color:var(--store-muted); font-size:.8em; font-weight:400; text-decoration:line-through; }
+.wasPrice[hidden] { display:none; }
+.summaryTotal .wasPrice { font-size:15px; line-height:22px; }
+.barPrice .wasPrice { color:rgba(255,255,255,.56); }
+.discountAmount { color:#1f7a3f; }
+.discountForm { display:grid; gap:8px; }
+.discountForm label { color:var(--store-muted); font-size:13px; line-height:19px; }
+.discountForm input { text-transform:uppercase; }
+.discountForm input:read-only { color:#1f7a3f; font-weight:600; }
+.discountForm .formRow button { background:var(--store-ink); }
+.discountForm .formRow button:hover { background:#000; }
 
 .main :is(a,button,summary):focus-visible { outline:2px solid var(--store-red); outline-offset:3px; }
 
