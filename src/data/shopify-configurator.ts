@@ -156,3 +156,26 @@ export const getEyEagleConfiguredPurchase = (
     checkoutUrl: variantId ? `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1` : null,
   };
 };
+
+// Device only: the Home Hub with Alarm and one Alert Unit, installed, with one year of membership paid ahead, and
+// no bathroom protection kit. In Shopify it's its own Shopify Bundles product (Home Hub + Alert Unit + the
+// membership's "1 year paid ahead" variant), priced as the sum of its parts. /store offers it only once its
+// variant ID is set here.
+export const EYEAGLE_DEVICE_ONLY = Object.freeze({
+  title: "Device only",
+  // Home Hub with Alarm (₹20,000) and Alert Unit (₹8,999), installed.
+  devicePriceInr: 28_999,
+  membershipMonths: 12 as const,
+  variantId: null as string | null,
+});
+
+export const getEyEagleDevicePurchase = () => {
+  const { devicePriceInr, membershipMonths, variantId } = EYEAGLE_DEVICE_ONLY;
+  return {
+    membershipMonths,
+    totalInr: devicePriceInr + EYEAGLE_MEMBERSHIP_PLANS[membershipMonths].priceInr,
+    variantId,
+    quantity: 1 as const,
+    checkoutUrl: variantId ? `https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1` : null,
+  };
+};

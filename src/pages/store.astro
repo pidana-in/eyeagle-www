@@ -6,12 +6,14 @@ import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import FAQSection from "../components/HomeV3/FAQSection.astro";
 import {
   EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS as defaultMembershipMonths,
+  EYEAGLE_DEVICE_ONLY,
   EYEAGLE_MEMBERSHIP_PLANS,
   EYEAGLE_ORDERING_OPEN as orderingOpen,
   EYEAGLE_SHOPIFY_CONFIG,
   estimateGstInr,
   formatInr,
   getEyEagleConfiguredPurchase,
+  getEyEagleDevicePurchase,
 } from "../data/shopify-configurator";
 import styles from "../styles/Store/page.module.css";
 import "../styles/home-v3-tokens.css";
@@ -90,6 +92,9 @@ const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosM
 if (!defaultPurchase) throw new Error("The default EyEagle configuration is invalid.");
 if (orderingOpen && !defaultPurchase.checkoutUrl) throw new Error("Ordering is open, but the default configuration has no Shopify variant.");
 const basePrice = formatInr(basePriceInr);
+// Device only is offered once its Shopify variant exists.
+const devicePurchase = getEyEagleDevicePurchase();
+const deviceOnlyAvailable = Boolean(devicePurchase.variantId);
 const gstPercent = `${Math.round(gstRate * 100)}%`;
 const defaultMembershipInr = EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].priceInr;
 const defaultTotalInr = defaultPurchase.totalInr;
@@ -142,7 +147,7 @@ const faqItems = [
   <main class={styles.main} id="main-content">
     <div class={styles.bar} data-store-bar data-visible="true">
       <div class={styles.barInner}>
-        <p class={styles.barName}>EyEagle Home System</p>
+        <p class={styles.barName} data-bar-name>EyEagle Home System</p>
         <p class={styles.barPrice}><s class={styles.wasPrice} data-total-original data-inr={defaultTotalInr} hidden>{defaultTotal}</s> <strong data-total-price data-inr={defaultTotalInr}>{defaultTotal}</strong> <span>+ GST <small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} data-suffix=" + GST" hidden></small></span></p>
         {orderingOpen ? (
           <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
@@ -188,13 +193,14 @@ const faqItems = [
       </section>
 
       <form class={styles.options} data-configurator>
-        <section class={styles.group} aria-labelledby="system-title" data-gallery-target="0">
-          <h2 class={styles.groupTitle} id="system-title"><strong>System.</strong> Everything one bathroom needs.</h2>
-          <div class={styles.systemCard}>
-            <div class={styles.systemHead}>
-              <h3>Complete Home System</h3>
-              <p><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></p>
-            </div>
+        <fieldset class={styles.group} data-gallery-target="0">
+          <legend class={styles.groupTitle}><strong>System.</strong> {deviceOnlyAvailable ? "Choose what they need." : "Everything one bathroom needs."}</legend>
+          <label class={styles.systemCard}>
+            <input checked name="system" type="radio" value="complete" />
+            <span class={styles.systemHead}>
+              <span class={styles.systemName}>Complete Home System</span>
+              <span class={styles.systemPrice}><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></span>
+            </span>
             <ul>
               <li>Alert Unit with SOS button and Door Lock Sensor</li>
               <li>Home Hub with Alarm</li>
@@ -202,14 +208,30 @@ const faqItems = [
               <li>Professional installation and testing</li>
               <li>Nest app for family and trusted contacts</li>
             </ul>
-          </div>
+          </label>
+          {deviceOnlyAvailable && (
+            <label class={styles.systemCard}>
+              <input name="system" type="radio" value="device" />
+              <span class={styles.systemHead}>
+                <span class={styles.systemName}>{EYEAGLE_DEVICE_ONLY.title}</span>
+                <span class={styles.systemPrice}><strong data-inr={devicePurchase.totalInr}>{formatInr(devicePurchase.totalInr)}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={devicePurchase.totalInr} data-suffix=" + GST" hidden></small></span></span>
+              </span>
+              <ul>
+                <li>Alert Unit with SOS button and Door Lock Sensor</li>
+                <li>Home Hub with Alarm</li>
+                <li>Professional installation and testing</li>
+                <li>1 year of membership: Nest app, readiness checks and EyEagle Response</li>
+                <li>No bathroom protection kit</li>
+              </ul>
+            </label>
+          )}
           <details class={styles.help}>
             <summary>What happens during installation?</summary>
             <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.</p>
           </details>
-        </section>
+        </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="3">
+        <fieldset class={styles.group} data-complete-only data-gallery-target="3">
           <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many do they use?</legend>
           <div class={styles.groupMedia}><Image alt={panels[3].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[3].image} /></div>
           <div class={styles.tiles}>
@@ -230,7 +252,7 @@ const faqItems = [
           </a>
         </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="1">
+        <fieldset class={styles.group} data-complete-only data-gallery-target="1">
           <legend class={styles.groupTitle}><strong>Extra Alert Units.</strong> SOS beyond the bathroom.</legend>
           <div class={styles.groupMedia}><Image alt={panels[1].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[1].image} /></div>
           <div class={styles.tiles}>
@@ -251,7 +273,7 @@ const faqItems = [
           </details>
         </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="4">
+        <fieldset class={styles.group} data-complete-only data-gallery-target="4">
           <legend class={styles.groupTitle}><strong>Membership.</strong> Pay ahead and save.</legend>
           <div class={styles.groupMedia}><Image alt={panels[4].alt} class={`${styles.groupMediaImage} ${panels[4].focus}`} layout="full-width" loading="lazy" quality={85} src={panels[4].image} /></div>
           <div class={styles.tiles}>
@@ -285,7 +307,7 @@ const faqItems = [
             ? <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
             : <h2 id="summary-title">Your EyEagle setup. <span>We’ll tell you when ordering opens.</span></h2>}
           <dl class={styles.summaryList}>
-            <div><dt>Complete Home System</dt><dd><span data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-inr-alt={basePriceInr} hidden></small></dd></div>
+            <div><dt data-summary-base-label>Complete Home System</dt><dd><span data-summary-base-price data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-summary-base-price data-inr-alt={basePriceInr} hidden></small></dd></div>
             <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd><span data-summary-bathrooms-price data-inr="0"></span><small class={styles.inrAlt} data-summary-bathrooms-price data-inr-alt="0" hidden></small></dd></div>
             <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd><span data-summary-sos-price data-inr="0"></span><small class={styles.inrAlt} data-summary-sos-price data-inr-alt="0" hidden></small></dd></div>
             <div><dt data-summary-membership-label>Membership · {EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].title}</dt><dd><span data-summary-membership-price data-inr={defaultMembershipInr}>{formatInr(defaultMembershipInr)}</span><span data-summary-membership-monthly hidden>/month + GST</span><small class={styles.inrAlt} data-summary-membership-price data-inr-alt={defaultMembershipInr} hidden></small></dd></div>
@@ -340,11 +362,13 @@ const faqItems = [
 <script>
   import {
     EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS,
+    EYEAGLE_DEVICE_ONLY,
     EYEAGLE_MEMBERSHIP_PLANS,
     EYEAGLE_SHOPIFY_CONFIG,
     estimateGstInr,
     formatInr,
     getEyEagleConfiguredPurchase,
+    getEyEagleDevicePurchase,
     normalizeDiscountCode,
     withDiscountCode,
   } from "../data/shopify-configurator";
@@ -359,6 +383,8 @@ const faqItems = [
   const totalGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-gst]"));
   const totalsWithGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-with-gst]"));
   const originalTotals = Array.from(document.querySelectorAll<HTMLElement>("[data-total-original]"));
+  const completeOnlyGroups = Array.from(document.querySelectorAll<HTMLElement>("[data-complete-only]"));
+  const barName = document.querySelector<HTMLElement>("[data-bar-name]");
   const configurationError = document.querySelector<HTMLElement>("[data-config-error]");
   const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-panel]"));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"));
@@ -382,8 +408,10 @@ const faqItems = [
   // said it doesn't apply.
   type DiscountCheck = { applicable: boolean; valueType: string | null; value: number | null };
   type DiscountState = "none" | "checking" | "applied" | "invalid" | "error";
+  // "system" is the EyEagle Home System bundle; "device" is device only.
+  type Product = "system" | "device";
   const discountStorageKey = "eyeagle-discount-code";
-  const discountChecks = new Map<string, DiscountCheck | "error">(); // keyed by code
+  const discountChecks = new Map<string, DiscountCheck | "error">(); // keyed "product:CODE"
   const discountRequests = new Set<string>();
   const storeDiscountCode = (code: string | null) => {
     try {
@@ -408,29 +436,30 @@ const faqItems = [
   // The rule of the code that applies right now, for the labels.
   let discountRule: { valueType: string; value: number } | null = null;
 
-  const checkDiscount = async (code: string) => {
-    if (discountRequests.has(code)) return;
-    discountRequests.add(code);
+  const checkDiscount = async (code: string, product: Product) => {
+    const key = `${product}:${code}`;
+    if (discountRequests.has(key)) return;
+    discountRequests.add(key);
     try {
-      const response = await fetch(`/api/store-discount?${new URLSearchParams({ code })}`);
+      const response = await fetch(`/api/store-discount?${new URLSearchParams({ code, product })}`);
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.message);
-      discountChecks.set(code, result);
+      discountChecks.set(key, result);
     } catch {
-      discountChecks.set(code, "error");
+      discountChecks.set(key, "error");
     } finally {
-      discountRequests.delete(code);
+      discountRequests.delete(key);
     }
     if (code === discountCode) updateConfiguration({ syncUrl: false });
   };
 
   // As Shopify applies it: a percentage of the total to the paisa, or a fixed amount once per order.
-  const getDiscount = (totalInr: number): { state: DiscountState; amountInr: number } => {
+  const getDiscount = (product: Product, totalInr: number): { state: DiscountState; amountInr: number } => {
     discountRule = null;
     if (!discountCode) return { state: "none", amountInr: 0 };
-    const check = discountChecks.get(discountCode);
+    const check = discountChecks.get(`${product}:${discountCode}`);
     if (!check) {
-      void checkDiscount(discountCode);
+      void checkDiscount(discountCode, product);
       return { state: "checking", amountInr: 0 };
     }
     if (check === "error") return { state: "error", amountInr: 0 };
@@ -503,6 +532,7 @@ const faqItems = [
   const readSelection = () => {
     const data = form ? new FormData(form) : null;
     return {
+      product: (data?.get("system") === "device" ? "device" : "system") as Product,
       bathrooms: Number(data?.get("bathrooms") ?? EYEAGLE_SHOPIFY_CONFIG.bathroomMin),
       additionalSos: Number(data?.get("sos") ?? EYEAGLE_SHOPIFY_CONFIG.additionalSosMin),
       membershipMonths: Number(data?.get("membership") ?? EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS),
@@ -517,10 +547,14 @@ const faqItems = [
   };
 
   const updateConfiguration = ({ syncUrl = true } = {}) => {
-    const { bathrooms, additionalSos, membershipMonths } = readSelection();
-    const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos, membershipMonths);
+    const { product, bathrooms, additionalSos, membershipMonths } = readSelection();
+    const deviceOnly = product === "device";
+    const purchase = deviceOnly ? getEyEagleDevicePurchase() : getEyEagleConfiguredPurchase(bathrooms, additionalSos, membershipMonths);
+    // Device only has no bathrooms, extra units or plan choice: one Alert Unit and a year of membership.
+    completeOnlyGroups.forEach((group) => { group.hidden = deviceOnly; });
+    if (barName) barName.textContent = deviceOnly ? `EyEagle ${EYEAGLE_DEVICE_ONLY.title}` : "EyEagle Home System";
     if (configurationError) configurationError.hidden = Boolean(purchase?.checkoutUrl);
-    const discount = purchase ? getDiscount(purchase.totalInr) : { state: "none" as const, amountInr: 0 };
+    const discount = purchase ? getDiscount(product, purchase.totalInr) : { state: "none" as const, amountInr: 0 };
     const checkoutCode = discount.state === "none" || discount.state === "invalid" ? null : discountCode;
     checkoutLinks.forEach((link) => {
       if (purchase?.checkoutUrl) {
@@ -549,9 +583,13 @@ const faqItems = [
     if (discountRowLabel) discountRowLabel.textContent = `Discount · ${discountCode}${discountLabel() ? ` (${discountLabel()})` : ""}`;
     showAmount(Array.from(document.querySelectorAll<HTMLElement>("[data-summary-discount-price]")), discount.amountInr, "");
 
-    const extraBathrooms = bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
+    const baseLabel = document.querySelector<HTMLElement>("[data-summary-base-label]");
+    if (baseLabel) baseLabel.textContent = deviceOnly ? `${EYEAGLE_DEVICE_ONLY.title} · Home Hub and Alert Unit` : "Complete Home System";
+    showAmount(Array.from(document.querySelectorAll<HTMLElement>("[data-summary-base-price]")), deviceOnly ? EYEAGLE_DEVICE_ONLY.devicePriceInr : EYEAGLE_SHOPIFY_CONFIG.basePriceInr, "");
+    const extraBathrooms = deviceOnly ? 0 : bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
+    const extraSos = deviceOnly ? 0 : additionalSos;
     setSummaryRow("bathrooms", extraBathrooms, plural(extraBathrooms, "additional bathroom"), extraBathrooms * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr);
-    setSummaryRow("sos", additionalSos, plural(additionalSos, "additional Alert Unit"), additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+    setSummaryRow("sos", extraSos, plural(extraSos, "additional Alert Unit"), extraSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
 
     // Paying monthly shows the monthly rate, which isn't part of this order's total.
     const plan = EYEAGLE_MEMBERSHIP_PLANS[purchase.membershipMonths];
@@ -566,9 +604,15 @@ const faqItems = [
     // Mirror the selection in the URL so a configuration can be shared or restored.
     if (!syncUrl) return purchase;
     const url = new URL(window.location.href);
-    url.searchParams.set("bathrooms", String(bathrooms));
-    url.searchParams.set("sos", String(additionalSos));
-    url.searchParams.set("membership", String(purchase.membershipMonths));
+    if (deviceOnly) {
+      url.searchParams.set("system", "device");
+      ["bathrooms", "sos", "membership"].forEach((name) => url.searchParams.delete(name));
+    } else {
+      url.searchParams.delete("system");
+      url.searchParams.set("bathrooms", String(bathrooms));
+      url.searchParams.set("sos", String(additionalSos));
+      url.searchParams.set("membership", String(purchase.membershipMonths));
+    }
     if (discountCode) url.searchParams.set("code", discountCode);
     else url.searchParams.delete("code");
     history.replaceState(null, "", url);
@@ -577,7 +621,7 @@ const faqItems = [
 
   // Restore a shared configuration, ignoring values the form doesn't offer.
   const params = new URLSearchParams(window.location.search);
-  (["bathrooms", "sos", "membership"] as const).forEach((name) => {
+  (["system", "bathrooms", "sos", "membership"] as const).forEach((name) => {
     const value = params.get(name);
     const input = value === null ? null : form?.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`);
     if (input) input.checked = true;
