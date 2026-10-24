@@ -214,13 +214,13 @@ const faqItems = [
               <input name="system" type="radio" value="device" />
               <span class={styles.systemHead}>
                 <span class={styles.systemName}>{EYEAGLE_DEVICE_ONLY.title}</span>
-                <span class={styles.systemPrice}><strong data-inr={devicePurchase.totalInr}>{formatInr(devicePurchase.totalInr)}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={devicePurchase.totalInr} data-suffix=" + GST" hidden></small></span></span>
+                <span class={styles.systemPrice}><strong data-inr={EYEAGLE_DEVICE_ONLY.devicePriceInr}>{formatInr(EYEAGLE_DEVICE_ONLY.devicePriceInr)}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={EYEAGLE_DEVICE_ONLY.devicePriceInr} data-suffix=" + GST" hidden></small></span></span>
               </span>
               <ul>
                 <li>Alert Unit with SOS button and Door Lock Sensor</li>
                 <li>Home Hub with Alarm</li>
                 <li>Professional installation and testing</li>
-                <li>1 year of membership: Nest app, readiness checks and EyEagle Response</li>
+                <li>Nest app for family and trusted contacts</li>
                 <li>No bathroom protection kit</li>
               </ul>
             </label>
@@ -273,12 +273,12 @@ const faqItems = [
           </details>
         </fieldset>
 
-        <fieldset class={styles.group} data-complete-only data-gallery-target="4">
+        <fieldset class={styles.group} data-gallery-target="4">
           <legend class={styles.groupTitle}><strong>Membership.</strong> Pay ahead and save.</legend>
           <div class={styles.groupMedia}><Image alt={panels[4].alt} class={`${styles.groupMediaImage} ${panels[4].focus}`} layout="full-width" loading="lazy" quality={85} src={panels[4].image} /></div>
           <div class={styles.tiles}>
             {membershipOptions.map((option) => (
-              <label class={styles.tile}>
+              <label class={styles.tile} data-complete-only={option.value === EYEAGLE_DEVICE_ONLY.membershipMonths ? undefined : ""}>
                 <input checked={option.value === defaultMembershipMonths} name="membership" type="radio" value={option.value} />
                 <span class={styles.tileBody}>
                   <span class={styles.tileTitle}>{option.title}</span>
@@ -548,11 +548,29 @@ const faqItems = [
     showAmount(Array.from(document.querySelectorAll<HTMLElement>(`[data-summary-${key}-price]`)), price, "");
   };
 
+  // Device only comes with one plan. Its tile is selected while device only is chosen, and the buyer's plan for the
+  // complete system comes back when they switch to it.
+  let completeSystemPlan: HTMLInputElement | null = null;
+  const syncDevicePlan = (deviceOnly: boolean) => {
+    const checked = form?.querySelector<HTMLInputElement>('input[name="membership"]:checked') ?? null;
+    if (deviceOnly) {
+      const devicePlan = form?.querySelector<HTMLInputElement>(`input[name="membership"][value="${EYEAGLE_DEVICE_ONLY.membershipMonths}"]`);
+      if (devicePlan && checked !== devicePlan) {
+        completeSystemPlan = checked;
+        devicePlan.checked = true;
+      }
+    } else if (completeSystemPlan) {
+      completeSystemPlan.checked = true;
+      completeSystemPlan = null;
+    }
+  };
+
   const updateConfiguration = ({ syncUrl = true } = {}) => {
+    syncDevicePlan(readSelection().product === "device");
     const { product, bathrooms, additionalSos, membershipMonths } = readSelection();
     const deviceOnly = product === "device";
     const purchase = deviceOnly ? getEyEagleDevicePurchase() : getEyEagleConfiguredPurchase(bathrooms, additionalSos, membershipMonths);
-    // Device only has no bathrooms, extra units or plan choice: one Alert Unit and a year of membership.
+    // Device only has no bathrooms or extra units, and one plan: a year of membership paid ahead.
     completeOnlyGroups.forEach((group) => { group.hidden = deviceOnly; });
     if (barName) barName.textContent = deviceOnly ? `EyEagle ${EYEAGLE_DEVICE_ONLY.title}` : "EyEagle Home System";
     if (configurationError) configurationError.hidden = Boolean(purchase?.checkoutUrl);
