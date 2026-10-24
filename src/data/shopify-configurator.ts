@@ -36,6 +36,9 @@ export const isEyEagleMembershipMonths = (months: number): months is EyEagleMemb
 // links are rendered. Only an explicit `true` opens ordering.
 export const EYEAGLE_ORDERING_OPEN = storeConfig.orderingOpen === true;
 
+// While false (config/store.json), /store hides the Complete Home System and sells the EyEagle Device only.
+export const EYEAGLE_COMPLETE_SYSTEM_OPEN = storeConfig.completeSystemOpen !== false;
+
 // Shopify variant per configuration, keyed "bathrooms:extraSos:membershipMonths". The EyEagle Home System
 // product (shop.eyeagle.ai/products/eyeagle-home-system) is a Shopify Bundles bundle set up by hand: 1 Home
 // Hub, an "Alert Units" quantity option (bathrooms + extra units), a "Bathroom Protection Kits" quantity
@@ -157,12 +160,12 @@ export const getEyEagleConfiguredPurchase = (
   };
 };
 
-// Device only: the Home Hub with Alarm and one Alert Unit, installed, with one year of membership paid ahead, and
+// The EyEagle Device: the Home Hub with Alarm and one Alert Unit, installed, with one year of membership paid ahead, and
 // no bathroom protection kit. In Shopify it's its own Shopify Bundles product
 // (shop.eyeagle.ai/products/eyeagle-device-with-1-yr-subscription: Home Hub + Alert Unit + the membership's
 // "1 year paid ahead" variant), priced as the sum of its parts. /store offers it only while a variant ID is set.
 export const EYEAGLE_DEVICE_ONLY = Object.freeze({
-  title: "Device only",
+  title: "EyEagle Device",
   // Home Hub with Alarm (₹20,000) and Alert Unit (₹8,999), installed.
   devicePriceInr: 28_999,
   membershipMonths: 12 as const,
