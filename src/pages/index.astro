@@ -6,6 +6,8 @@ import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import styles from "../styles/HomeV3/home.module.css";
 import "../styles/home-v3-tokens.css";
 import "../styles/home-v4-tokens.css";
+// Italic serif for the "in India" accent in the hero title (latin only, self-hosted).
+import "@fontsource/instrument-serif/latin-400-italic.css";
 
 const assetRoot = "/figma-home";
 
@@ -90,7 +92,7 @@ const metaDesc = "EyEagle connects parents living independently with trusted fam
       <div class={styles.heroShade}></div>
       <div class={styles.heroContent}>
         <div class={styles.heroCopy}>
-          <h1 id="home-title">You can’t always be there.<br />EyEagle can.</h1>
+          <h1 id="home-title">You can’t always be <em class={styles.heroAccent}>in India</em>.<br />EyEagle is.</h1>
           <p>A connected safety and response system for parents living independently.</p>
         </div>
         <div class={styles.actions}>
