@@ -478,7 +478,7 @@ const faqItems = [
     if (!discountRule) return "";
     return discountRule.valueType === "percentage" ? `${discountRule.value}% off` : `${formatInr(discountRule.value)} off`;
   };
-  const renderDiscountForm = (state: DiscountState, amountInr: number) => {
+  const renderDiscountForm = (state: DiscountState, amountInr: number, product: Product) => {
     if (!discountInput || !discountSubmit || !discountStatus) return;
     const active = state === "checking" || state === "applied" || state === "error";
     if (discountCode && document.activeElement !== discountInput) discountInput.value = discountCode;
@@ -489,7 +489,9 @@ const faqItems = [
       none: "",
       checking: `Checking ${discountCode}…`,
       applied: `${discountCode} applied${discountRule?.valueType === "percentage" ? ` · ${discountLabel()}` : ""}. You save ${formatInr(amountInr)} before GST.`,
-      invalid: `${discountCode} can’t be applied to this setup. Check the code; it may have expired.`,
+      invalid: product === "device"
+        ? `${discountCode} can’t be applied to ${EYEAGLE_DEVICE_ONLY.title.toLowerCase()}.`
+        : `${discountCode} can’t be applied to this setup. Check the code; it may have expired.`,
       error: `We couldn’t check ${discountCode} right now. It will still be tried at checkout.`,
     }[state];
   };
@@ -575,7 +577,7 @@ const faqItems = [
       element.hidden = !purchase || discount.amountInr <= 0;
       if (purchase) setPrice(element, purchase.totalInr);
     });
-    renderDiscountForm(discount.state, discount.amountInr);
+    renderDiscountForm(discount.state, discount.amountInr, product);
     if (!purchase) return null;
 
     document.querySelector<HTMLElement>("[data-summary-discount]")?.toggleAttribute("hidden", discount.amountInr <= 0);

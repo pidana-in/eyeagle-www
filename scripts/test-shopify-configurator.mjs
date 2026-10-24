@@ -71,6 +71,7 @@ for (const invalid of [[0, 0, 36], [4, 0, 36], [1, -1, 36], [1, 5, 36], [1.5, 0,
 // Device only: Home Hub + Alert Unit, installed, with one year of membership.
 assert.equal(getEyEagleDevicePurchase().totalInr, 43_999);
 assert.equal(getEyEagleDevicePurchase().membershipMonths, 12);
+assert.equal(getEyEagleDevicePurchase().checkoutUrl, "https://shop.eyeagle.ai/cart/50815924895937:1");
 
 // Event discount codes from /store?code=… are carried to checkout.
 assert.equal(normalizeDiscountCode(" diwali-2026 "), "DIWALI-2026");
