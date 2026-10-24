@@ -41,6 +41,7 @@
 .heroContent { display: flex; width: min(var(--home-content-max), 100%); margin-inline: auto; flex-direction: column; align-items: center; gap: 40px; padding: 88px var(--home-gutter) 80px; text-align: center; }
 .heroCopy { display: flex; width: min(820px, 100%); flex-direction: column; align-items: center; gap: 20px; }
 .heroCopy h1 { font-size: var(--type-v4-hero-title-size); line-height: var(--type-v4-hero-title-line); }
+.heroAccent { font-family: "Instrument Serif", Georgia, serif; font-size: 1.12em; font-style: italic; font-weight: 400; letter-spacing: 0; }
 .heroCopy p { max-width: 680px; color: rgba(255,255,255,.84); font-size: var(--type-v4-hero-support-size); line-height: var(--type-v4-hero-support-line); }
 .actions { display: flex; align-items: center; justify-content: center; gap: 16px; }
 .primaryButton,
