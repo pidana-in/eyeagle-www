@@ -61,16 +61,23 @@
 .groupMedia { display:none; }
 .options { grid-area:options; display:flex; flex-direction:column; gap:52px; }
 .group { display:flex; flex-direction:column; gap:14px; min-width:0; margin:0; padding:0; border:0; }
+.group[hidden] { display:none; }
 .groupTitle { float:left; width:100%; margin-bottom:6px; padding:0; color:var(--store-muted); font-family:var(--type-v4-display-family); font-size:26px; font-weight:var(--type-v4-display-weight,400); line-height:32px; letter-spacing:-.015em; }
 .groupTitle strong { color:var(--store-ink); font-weight:inherit; }
 .group > .groupTitle + * { clear:both; }
 
 .systemCard, .membershipCard { padding:22px; border:2px solid var(--store-red); border-radius:16px; }
+/* System cards are radios: the chosen one has the red border. */
+.systemCard { position:relative; display:block; cursor:pointer; transition:border-color .15s ease; }
+.systemCard input { position:absolute; opacity:0; pointer-events:none; }
+.systemCard:not(:has(input:checked)) { padding:23px; border:1px solid #cfcbc4; }
+.systemCard:not(:has(input:checked)):hover { border-color:#8f8b85; }
+.systemCard:has(input:focus-visible) { outline:2px solid var(--store-red); outline-offset:3px; }
 .systemHead { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
-.systemHead h3, .membershipCard h3 { font-size:18px; font-weight:500; line-height:26px; }
-.systemHead p { display:grid; justify-items:end; font-variant-numeric:tabular-nums; }
+.systemName, .membershipCard h3 { font-size:18px; font-weight:500; line-height:26px; }
+.systemPrice { display:grid; justify-items:end; font-variant-numeric:tabular-nums; }
 .systemHead strong { font-size:18px; font-weight:500; line-height:26px; }
-.systemHead span { color:var(--store-muted); font-size:11px; line-height:15px; white-space:nowrap; }
+.systemPrice > span { color:var(--store-muted); font-size:11px; line-height:15px; white-space:nowrap; }
 .systemCard ul { display:grid; gap:8px; margin-top:16px; padding:16px 0 0; border-top:1px solid #eeebe6; list-style:none; }
 .systemCard li { position:relative; padding-left:20px; color:#4d4a46; font-size:14px; line-height:21px; }
 .systemCard li::before { position:absolute; top:7px; left:2px; width:7px; height:7px; border-radius:50%; background:var(--store-red); content:""; }
