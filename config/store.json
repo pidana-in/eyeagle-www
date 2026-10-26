@@ -1,5 +1,5 @@
 {
   "$comment": "Store switches; merging a change to main redeploys the site. orderingOpen: true enables checkout on /store. completeSystemOpen: false hides the Complete Home System (bathrooms, kits, extra units), so /store sells the EyEagle Device only.",
   "orderingOpen": true,
-  "completeSystemOpen": false
+  "completeSystemOpen": true
 }
