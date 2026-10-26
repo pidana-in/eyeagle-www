@@ -21,11 +21,6 @@
       "kind": "page"
     },
     {
-      "route": "/assessment-form",
-      "source": "src/pages/assessment-form.astro",
-      "kind": "redirect"
-    },
-    {
       "route": "/blog",
       "source": "src/pages/blog.astro",
       "kind": "page"
@@ -48,6 +43,11 @@
     {
       "route": "/blogs/bathroom-safety-features-at-home",
       "source": "src/content/blogs/safety-features.md",
+      "kind": "blog"
+    },
+    {
+      "route": "/blogs/build-trusted-support-network-with-eyeagle",
+      "source": "src/content/blogs/build-nest.md",
       "kind": "blog"
     },
     {
@@ -251,29 +251,9 @@
       "kind": "blog"
     },
     {
-      "route": "/checkout-2",
-      "source": "src/pages/checkout-2.astro",
-      "kind": "page"
-    },
-    {
       "route": "/contact",
       "source": "src/pages/contact.astro",
       "kind": "page"
-    },
-    {
-      "route": "/device",
-      "source": "src/pages/device.astro",
-      "kind": "page"
-    },
-    {
-      "route": "/enquiry",
-      "source": "src/pages/enquiry.astro",
-      "kind": "redirect"
-    },
-    {
-      "route": "/inequiery",
-      "source": "src/pages/inequiery.astro",
-      "kind": "redirect"
     },
     {
       "route": "/inquiry",
@@ -281,28 +261,8 @@
       "kind": "page"
     },
     {
-      "route": "/join",
-      "source": "src/pages/join.astro",
-      "kind": "page"
-    },
-    {
       "route": "/membership",
       "source": "src/pages/membership.astro",
-      "kind": "page"
-    },
-    {
-      "route": "/offers/fathers-day-2025",
-      "source": "src/pages/offers/fathers-day-2025.astro",
-      "kind": "page"
-    },
-    {
-      "route": "/offers/yoga-day-2025",
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "kind": "page"
-    },
-    {
-      "route": "/orders",
-      "source": "src/pages/orders.astro",
       "kind": "page"
     },
     {
@@ -328,11 +288,6 @@
     {
       "route": "/store",
       "source": "src/pages/store.astro",
-      "kind": "page"
-    },
-    {
-      "route": "/success",
-      "source": "src/pages/success.astro",
       "kind": "page"
     },
     {
@@ -1801,6 +1756,77 @@
       ]
     },
     {
+      "file": "src/assets/Blog/BlogImage43.png",
+      "format": "png",
+      "width": 1100,
+      "height": 660,
+      "bytes": 1287303,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/build-nest.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage43Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1342832,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/build-nest.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage43Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1408025,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/build-nest.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage43Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1042485,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/build-nest.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage43Info-4.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1570767,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/build-nest.md"
+      ]
+    },
+    {
       "file": "src/assets/Blog/BlogImage5.jpg",
       "format": "jpeg",
       "width": 2124,
@@ -1993,10 +2019,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/pages/checkout-2.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/CheckoutFigma/arrow-outward.svg",
@@ -2013,7 +2037,6 @@
         "src/components/HomeV3/SiteHeader.astro",
         "src/pages/404.astro",
         "src/pages/about-us.astro",
-        "src/pages/checkout-2.astro",
         "src/pages/index.astro",
         "src/pages/membership.astro"
       ]
@@ -2027,10 +2050,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/pages/checkout-2.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/CheckoutFigma/remove.svg",
@@ -2041,10 +2062,8 @@
       "category": "icon",
       "classificationConfidence": "high",
       "needsVisualReview": false,
-      "referenced": true,
-      "references": [
-        "src/pages/checkout-2.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Common/Group.png",
@@ -2055,10 +2074,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/success.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Common/India.png",
@@ -2432,10 +2449,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/offers/fathers-day-2025.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Home/DiscountNew.png",
@@ -2446,10 +2461,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/offers/yoga-day-2025.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Home/FatherBannerNew.png",
@@ -2460,10 +2473,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/offers/fathers-day-2025.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Home/FatherImage.png",
@@ -2474,11 +2485,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/offers/fathers-day-2025.astro",
-        "src/pages/offers/yoga-day-2025.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Home/FathersdayImage.png",
@@ -2517,9 +2525,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/constants/home.ts",
-        "src/pages/offers/fathers-day-2025.astro",
-        "src/pages/offers/yoga-day-2025.astro"
+        "src/components/constants/home.ts"
       ]
     },
     {
@@ -2555,10 +2561,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/offers/yoga-day-2025.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Home/appStore.png",
@@ -2781,8 +2785,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro",
-        "public/previews/response-interactions/steps.json"
+        "src/components/HomeV3/AlarmStory.astro"
       ]
     },
     {
@@ -2796,8 +2799,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro",
-        "public/previews/response-interactions/steps.json"
+        "src/components/HomeV3/AlarmStory.astro"
       ]
     },
     {
@@ -2811,8 +2813,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro",
-        "public/previews/response-interactions/steps.json"
+        "src/components/HomeV3/AlarmStory.astro"
       ]
     },
     {
@@ -2826,8 +2827,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro",
-        "public/previews/response-interactions/steps.json"
+        "src/components/HomeV3/AlarmStory.astro"
       ]
     },
     {
@@ -2841,8 +2841,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro",
-        "public/previews/response-interactions/steps.json"
+        "src/components/HomeV3/AlarmStory.astro"
       ]
     },
     {
@@ -2856,8 +2855,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/HomeV3/AlarmStory.astro",
-        "public/previews/response-interactions/steps.json"
+        "src/components/HomeV3/AlarmStory.astro"
       ]
     },
     {
@@ -5395,8 +5393,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/constants/newHome.ts",
-        "src/layouts/MainLayout.astro"
+        "src/components/constants/newHome.ts"
       ]
     },
     {
@@ -5712,8 +5709,7 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/components/Orders/OrderCard.astro",
-        "src/pages/orders.astro"
+        "src/components/Orders/OrderCard.astro"
       ]
     },
     {
@@ -6577,10 +6573,8 @@
       "category": "illustration or photograph",
       "classificationConfidence": "low",
       "needsVisualReview": true,
-      "referenced": true,
-      "references": [
-        "src/pages/checkout-2.astro"
-      ]
+      "referenced": false,
+      "references": []
     },
     {
       "file": "src/assets/Store/ecu-living-room-canonical-v3.png",
@@ -6605,7 +6599,6 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/checkout-2.astro",
         "src/pages/store.astro"
       ]
     },
@@ -6656,7 +6649,6 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/checkout-2.astro",
         "src/pages/store.astro"
       ]
     },
@@ -6695,7 +6687,6 @@
       "needsVisualReview": true,
       "referenced": true,
       "references": [
-        "src/pages/checkout-2.astro",
         "src/pages/store.astro"
       ]
     },
@@ -6894,7 +6885,6 @@
         "src/components/HomeV3/SiteHeader.astro",
         "src/pages/404.astro",
         "src/pages/about-us.astro",
-        "src/pages/checkout-2.astro",
         "src/pages/index.astro",
         "src/pages/membership.astro"
       ]
@@ -7136,6 +7126,104 @@
       "references": [
         "src/pages/index.astro"
       ]
+    },
+    {
+      "file": "public/og/app.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 62549,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/og/blog.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 67251,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/og/contact.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 73935,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/og/default.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 90991,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/Home/VideoSectionNoPreload.astro"
+      ]
+    },
+    {
+      "file": "public/og/membership.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 98676,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/og/our-story.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 109482,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/og/protection.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 61345,
+      "category": "product imagery",
+      "classificationConfidence": "medium",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
+    },
+    {
+      "file": "public/og/store.jpg",
+      "format": "jpeg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 78179,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": false,
+      "references": []
     },
     {
       "file": "public/svg/Logo-new.svg",
@@ -7462,6 +7550,11 @@
       "external": false
     },
     {
+      "source": "src/components/constants/contactus.ts",
+      "href": "https://wa.me/918527522911",
+      "external": true
+    },
+    {
       "source": "src/content/blogs/Kuch-nhi-hoga.md",
       "href": "/blogs/caring-from-distance",
       "external": false
@@ -7533,8 +7626,8 @@
     },
     {
       "source": "src/content/blogs/apartment-safety.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/apartment-safety.md",
@@ -7549,11 +7642,6 @@
     {
       "source": "src/content/blogs/apartment-safety.md",
       "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/apartment-safety.md",
-      "href": "https://eyeagle.ai/device",
       "external": true
     },
     {
@@ -7614,6 +7702,46 @@
     {
       "source": "src/content/blogs/balance.md",
       "href": "https://www.mayoclinic.org/diseases-conditions/menieres-disease/symptoms-causes/syc-20374910",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/blogs/falls-kill-more-seniors-than-you-think",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/build-nest.md",
+      "href": "https://eyeagle.ai/",
       "external": true
     },
     {
@@ -7783,8 +7911,8 @@
     },
     {
       "source": "src/content/blogs/diabetes.md",
-      "href": "https://eyeagle.ai/solution",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/diabetes.md",
@@ -7809,11 +7937,6 @@
     {
       "source": "src/content/blogs/diabetes.md",
       "href": "https://eyeagle.ai/protection",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/diabetes.md",
-      "href": "https://eyeagle.ai/solution",
       "external": true
     },
     {
@@ -7898,8 +8021,8 @@
     },
     {
       "source": "src/content/blogs/food-track.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/food-track.md",
@@ -7913,13 +8036,13 @@
     },
     {
       "source": "src/content/blogs/food-track.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/food-track.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/food-track.md",
@@ -7938,27 +8061,12 @@
     },
     {
       "source": "src/content/blogs/food-track.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/food-track.md",
       "href": "https://eyeagle.ai/blogs/how-to-make-your-home-safe",
       "external": true
     },
     {
       "source": "src/content/blogs/food-track.md",
       "href": "https://eyeagle.ai/blogs/caring-for-elderly-parents-while-working-abroad",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/food-track.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/food-track.md",
-      "href": "https://eyeagle.ai/device",
       "external": true
     },
     {
@@ -8053,7 +8161,7 @@
     },
     {
       "source": "src/content/blogs/miles-away.md",
-      "href": "/device",
+      "href": "/store",
       "external": false
     },
     {
@@ -8098,7 +8206,7 @@
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "/device",
+      "href": "/store",
       "external": false
     },
     {
@@ -8108,7 +8216,7 @@
     },
     {
       "source": "src/content/blogs/monsoon.md",
-      "href": "/device",
+      "href": "/store",
       "external": false
     },
     {
@@ -8293,7 +8401,7 @@
     },
     {
       "source": "src/content/blogs/safety-features.md",
-      "href": "/device",
+      "href": "/protection",
       "external": false
     },
     {
@@ -8493,7 +8601,7 @@
     },
     {
       "source": "src/content/blogs/why-not-me.md",
-      "href": "/device",
+      "href": "/protection",
       "external": false
     },
     {
@@ -8528,8 +8636,8 @@
     },
     {
       "source": "src/content/blogs/working-abroad.md",
-      "href": "https://eyeagle.ai/device",
-      "external": true
+      "href": "/store",
+      "external": false
     },
     {
       "source": "src/content/blogs/working-abroad.md",
@@ -8544,11 +8652,6 @@
     {
       "source": "src/content/blogs/working-abroad.md",
       "href": "https://eyeagle.ai/",
-      "external": true
-    },
-    {
-      "source": "src/content/blogs/working-abroad.md",
-      "href": "https://eyeagle.ai/device",
       "external": true
     },
     {
@@ -8767,11 +8870,6 @@
       "external": true
     },
     {
-      "source": "src/pages/checkout-2.astro",
-      "href": "/contact",
-      "external": false
-    },
-    {
       "source": "src/pages/contact.astro",
       "href": "/inquiry",
       "external": false
@@ -8817,21 +8915,6 @@
       "external": true
     },
     {
-      "source": "src/pages/join.astro",
-      "href": "https://flagcdn.com/w40/${country.code.toLowerCase(",
-      "external": true
-    },
-    {
-      "source": "src/pages/join.astro",
-      "href": "https://flagcdn.com/w40/${selectedCountryCode.toLowerCase(",
-      "external": true
-    },
-    {
-      "source": "src/pages/join.astro",
-      "href": "https://flagcdn.com/w40/${defaultCountryCode.toLowerCase(",
-      "external": true
-    },
-    {
       "source": "src/pages/membership.astro",
       "href": "/store",
       "external": false
@@ -8842,27 +8925,12 @@
       "external": false
     },
     {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "/inquiry",
+      "source": "src/pages/store.astro",
+      "href": "#availability",
       "external": false
     },
     {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "/inquiry",
-      "external": false
-    },
-    {
-      "source": "src/pages/offers/yoga-day-2025.astro",
-      "href": "/inquiry",
-      "external": false
-    },
-    {
-      "source": "src/pages/orders.astro",
-      "href": "/contact?source=order",
-      "external": false
-    },
-    {
-      "source": "src/pages/orders.astro",
+      "source": "src/pages/store.astro",
       "href": "/contact",
       "external": false
     },
@@ -8872,8 +8940,8 @@
       "external": false
     },
     {
-      "source": "src/pages/success.astro",
-      "href": "/",
+      "source": "src/pages/store.astro",
+      "href": "/contact",
       "external": false
     },
     {

@@ -75,6 +75,7 @@ import blogImage39 from "../../assets/Blog/BlogImage39.png";
 import blogImage40 from "../../assets/Blog/BlogImage40.png";
 import blogImage41 from "../../assets/Blog/BlogImage41.png";
 import blogImage42 from "../../assets/Blog/BlogImage42.png";
+import blogImage43 from "../../assets/Blog/BlogImage43.png";
 
 export const bathroomData = [
   {
@@ -424,6 +425,12 @@ export const blogsData = [
     title: "Diabetes and Falls in Elderly: Fall Risk & Home Safety",
     desc: "Learn how diabetes and falls in elderly are connected, how diabetes increases fall risk, and how to make a diabetic parent's home safer.",
     img: blogImage42,
+  },
+  {
+    slug: "build-trusted-support-network-with-eyeagle",
+    title: "How to Build a Trusted Nest for Parents While you are Abroad",
+    desc: "Living abroad while your parents are in India? Learn how to build a trusted Nest around them so they have the right people to turn to when you cannot be there.",
+    img: blogImage43,
   },
 ];
 
