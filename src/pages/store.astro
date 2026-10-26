@@ -5,11 +5,16 @@ import SiteHeader from "../components/HomeV3/SiteHeader.astro";
 import SiteFooter from "../components/HomeV3/SiteFooter.astro";
 import FAQSection from "../components/HomeV3/FAQSection.astro";
 import {
+  EYEAGLE_COMPLETE_SYSTEM_OPEN as completeSystemOpen,
+  EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS,
+  EYEAGLE_DEVICE_ONLY,
+  EYEAGLE_MEMBERSHIP_PLANS,
   EYEAGLE_ORDERING_OPEN as orderingOpen,
   EYEAGLE_SHOPIFY_CONFIG,
   estimateGstInr,
   formatInr,
   getEyEagleConfiguredPurchase,
+  getEyEagleDevicePurchase,
 } from "../data/shopify-configurator";
 import styles from "../styles/Store/page.module.css";
 import "../styles/home-v3-tokens.css";
@@ -18,6 +23,7 @@ import kitImage from "../assets/Store/guardian-kit-v2.png";
 import setupImage from "../assets/Store/sos-installed-v2.png";
 import reviewImage from "../assets/Store/ecu-living-room-v1.png";
 import protectionKitImage from "../assets/NewHome/kit.png";
+import membershipImage from "../assets/Store/membership-app-hospital-v1.png";
 
 const {
   basePriceInr,
@@ -28,18 +34,27 @@ const {
   additionalSosMin,
   additionalSosMax,
   gstRate,
+  membershipMonthlyInr,
 } = EYEAGLE_SHOPIFY_CONFIG;
 
-const panels = [
-  { image: kitImage, alt: "The complete EyEagle home safety system", caption: "Complete home safety system" },
-  { image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
-  { image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
-  { image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
-] as const;
+const allPanels = [
+  completeSystemOpen
+    ? { key: "system", image: kitImage, alt: "The complete EyEagle home safety system", caption: "Complete home safety system" }
+    : { key: "system", image: kitImage, alt: "The EyEagle Device: Home Hub with Alarm, SOS button and Door Lock Sensor", caption: "The EyEagle Device" },
+  { key: "sos", image: setupImage, alt: "The EyEagle Alert Unit installed within reach", caption: "SOS within reach" },
+  { key: "hub", image: reviewImage, alt: "The EyEagle Home Hub with Alarm installed in a living room", caption: "Installed, connected and ready" },
+  { key: "kit", image: protectionKitImage, alt: "EyEagle bathroom protection supports installed in a home", caption: "Bathroom protection, within reach" },
+  // Built by scripts/compose-store-membership-image.mjs. The phone sits low in the frame, so crops
+  // keep the lower part in view.
+  { key: "membership", image: membershipImage, alt: "The EyEagle app showing an SOS alert and who is responding, over a hospital where EyEagle Response arranges care", caption: "Nest app and 24/7 response", focus: styles.focusLower },
+];
+// The bathroom protection photo only shows while the Complete Home System is on sale.
+const panels = completeSystemOpen ? allPanels : allPanels.filter((panel) => panel.key !== "kit");
+const panelFor = (key: string) => allPanels.find((panel) => panel.key === key)!;
+const panelIndex = (key: string) => panels.findIndex((panel) => panel.key === key);
 
 const range = (min: number, max: number) => Array.from({ length: max - min + 1 }, (_, index) => min + index);
 const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
-const delta = (amount: number) => (amount === 0 ? "Included" : `+ ${formatInr(amount)}`);
 
 // Each bathroom gets a protection kit and its own Alert Unit.
 const bathroomDescriptions: Record<number, string> = {
@@ -51,7 +66,7 @@ const bathroomOptions = range(bathroomMin, bathroomMax).map((count) => ({
   value: count,
   title: plural(count, "bathroom"),
   description: bathroomDescriptions[count] ?? "A protection kit and Alert Unit in each bathroom.",
-  price: delta((count - bathroomMin) * additionalBathroomPriceInr),
+  priceInr: (count - bathroomMin) * additionalBathroomPriceInr,
 }));
 
 // Extra Alert Units go beyond the bathrooms, wherever else they spend time.
@@ -66,20 +81,43 @@ const sosOptions = range(additionalSosMin, additionalSosMax).map((extra) => ({
   value: extra,
   title: extra === 0 ? "No extra units" : plural(extra, "extra Alert Unit"),
   description: sosDescriptions[extra] ?? "Extra Alert Units for the other rooms they use.",
-  price: delta(extra * additionalSosPriceInr),
+  priceInr: extra * additionalSosPriceInr,
 }));
 
-const defaultPurchase = getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin);
-if (!defaultPurchase) throw new Error("The default EyEagle Shopify configuration is missing.");
+// Paying ahead is discounted against the monthly rate; the tiles show what it saves.
+const membershipOptions = ([36, 12, 0] as const).map((months) => ({
+  value: months,
+  title: EYEAGLE_MEMBERSHIP_PLANS[months].title,
+  priceInr: EYEAGLE_MEMBERSHIP_PLANS[months].priceInr,
+  period: months === 36 ? "three years" : "one year",
+  savingInr: months * membershipMonthlyInr - EYEAGLE_MEMBERSHIP_PLANS[months].priceInr,
+}));
+// GST applies to the monthly membership too.
+const membershipMonthlyWithGstInr = membershipMonthlyInr + estimateGstInr(membershipMonthlyInr);
+
+// Device only is offered once its Shopify variant exists; while the Complete Home System is hidden, it's all
+// /store sells.
+const devicePurchase = getEyEagleDevicePurchase();
+const deviceOnlyAvailable = Boolean(devicePurchase.variantId);
+if (!completeSystemOpen && !deviceOnlyAvailable) throw new Error("The Complete Home System is hidden, but the EyEagle Device has no Shopify variant.");
+const defaultMembershipMonths = completeSystemOpen ? EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS : EYEAGLE_DEVICE_ONLY.membershipMonths;
+const defaultPurchase = completeSystemOpen ? getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin, defaultMembershipMonths) : devicePurchase;
+if (!defaultPurchase) throw new Error("The default EyEagle configuration is invalid.");
+if (orderingOpen && !defaultPurchase.checkoutUrl) throw new Error("Ordering is open, but the default configuration has no Shopify variant.");
 const basePrice = formatInr(basePriceInr);
 const gstPercent = `${Math.round(gstRate * 100)}%`;
-const baseGst = formatInr(estimateGstInr(basePriceInr));
-const baseWithGst = formatInr(basePriceInr + estimateGstInr(basePriceInr));
+const defaultMembershipInr = EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].priceInr;
+const defaultTotalInr = defaultPurchase.totalInr;
+const defaultGstInr = estimateGstInr(defaultTotalInr);
+const defaultWithGstInr = defaultTotalInr + defaultGstInr;
+const defaultTotal = formatInr(defaultTotalInr);
+const defaultGst = formatInr(defaultGstInr);
+const defaultWithGst = formatInr(defaultWithGstInr);
 
 const faqItems = [
   {
     question: "Do prices include GST?",
-    answer: `No. Prices are shown in INR before GST, and GST (${gstPercent}) is added at checkout. For the standard system that is ${basePrice} + ${baseGst} GST, or ${baseWithGst} in total. Your GST invoice is issued with the order.`,
+    answer: `No. Prices are before GST, and GST (${gstPercent}) is added at checkout. For ${completeSystemOpen ? "the standard system with three years of membership" : `the ${EYEAGLE_DEVICE_ONLY.title} with a year of membership`} that is ${defaultTotal} + ${defaultGst} GST, or ${defaultWithGst} in total. Your GST invoice is issued with the order.`,
   },
   orderingOpen
     ? {
@@ -95,8 +133,10 @@ const faqItems = [
     answer: "An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.",
   },
   {
-    question: "What happens after three years?",
-    answer: "Nest, readiness checks and EyEagle Response are included for three years. Membership then continues at ₹2,000/month + GST until cancelled.",
+    question: "How does membership work?",
+    answer: completeSystemOpen
+      ? `Membership covers the Nest, readiness checks and EyEagle Response. It is ${formatInr(membershipMonthlyInr)}/month + ${gstPercent} GST (${formatInr(membershipMonthlyWithGstInr)}/month in total), or pay ahead when you order: ${formatInr(EYEAGLE_MEMBERSHIP_PLANS[12].priceInr)} for one year or ${formatInr(EYEAGLE_MEMBERSHIP_PLANS[36].priceInr)} for three years. After a paid-ahead period it continues monthly until cancelled.`
+      : `Membership covers the Nest, readiness checks and EyEagle Response. The ${EYEAGLE_DEVICE_ONLY.title} comes with the first year paid ahead (${formatInr(EYEAGLE_MEMBERSHIP_PLANS[12].priceInr)} + GST). After that it continues at ${formatInr(membershipMonthlyInr)}/month + ${gstPercent} GST (${formatInr(membershipMonthlyWithGstInr)}/month in total) until cancelled.`,
   },
   {
     question: "Does EyEagle need home Wi-Fi?",
@@ -108,19 +148,21 @@ const faqItems = [
   },
   {
     question: "What if the home needs a larger setup?",
-    answer: "Online orders cover up to three bathrooms and four extra Alert Units. For larger homes, talk to us and we’ll plan the installation with you.",
+    answer: completeSystemOpen
+      ? "Online orders cover up to three bathrooms and four extra Alert Units. For larger homes, talk to us and we’ll plan the installation with you."
+      : `Online orders cover one ${EYEAGLE_DEVICE_ONLY.title}: the Home Hub and one Alert Unit. For more Alert Units or bathroom protection, talk to us and we’ll plan the installation with you.`,
   },
 ] as const;
 ---
 
-<MainLayout socialCard="store" title="Buy EyEagle | Home safety system with response" desc="Configure an EyEagle home safety system with professional installation, the Nest app and three years of EyEagle Response." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
+<MainLayout socialCard="store" title="Buy EyEagle | Home safety system with response" desc="Configure an EyEagle home safety system with professional installation, the Nest app and EyEagle Response membership." showChrome={false} bodyClass="eyeagle-home-v3 eyeagle-home-v4">
   <SiteHeader slot="header" solidAtTop showAction={false} variant="figmaHome" />
 
   <main class={styles.main} id="main-content">
     <div class={styles.bar} data-store-bar data-visible="true">
       <div class={styles.barInner}>
-        <p class={styles.barName}>EyEagle Home System</p>
-        <p class={styles.barPrice}><strong data-total-price>{basePrice}</strong> <span>+ GST</span></p>
+        <p class={styles.barName} data-bar-name>EyEagle Home System</p>
+        <p class={styles.barPrice}><s class={styles.wasPrice} data-total-original data-inr={defaultTotalInr} hidden>{defaultTotal}</s> <strong data-total-price data-inr={defaultTotalInr}>{defaultTotal}</strong> <span>+ GST <small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} data-suffix=" + GST" hidden></small></span></p>
         {orderingOpen ? (
           <a class={styles.barAction} data-checkout href={defaultPurchase.checkoutUrl}><span class={styles.barActionLong}>Continue to checkout</span><span class={styles.barActionShort}>Checkout</span></a>
         ) : (
@@ -136,7 +178,9 @@ const faqItems = [
             ? <p class={styles.eyebrow}>Shipping starts October 30</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
-          <p class={styles.introPrice}>{basePrice} <span>+ GST · installation and three years of response included</span></p>
+          {completeSystemOpen
+            ? <p class={styles.introPrice}>From <span data-inr={basePriceInr}>{basePrice}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small> · installation included, membership from <span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month + GST</span></p>
+            : <p class={styles.introPrice}><span data-inr={EYEAGLE_DEVICE_ONLY.devicePriceInr}>{formatInr(EYEAGLE_DEVICE_ONLY.devicePriceInr)}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={EYEAGLE_DEVICE_ONLY.devicePriceInr} data-suffix=" + GST" hidden></small> · installation included, with a year of membership for <span data-inr={EYEAGLE_MEMBERSHIP_PLANS[12].priceInr}>{formatInr(EYEAGLE_MEMBERSHIP_PLANS[12].priceInr)}</span> + GST</span></p>}
         </div>
         <ul class={styles.introLinks}>
           <li><span class={styles.dot} aria-hidden="true"></span>Professional installation in India</li>
@@ -147,8 +191,8 @@ const faqItems = [
       <section class={styles.gallery} aria-label="EyEagle system photos">
         <div class={styles.galleryStage}>
           {panels.map((panel, index) => (
-            <div class={styles.galleryPanel} aria-hidden={index === 0 ? undefined : "true"} data-active={String(index === 0)} data-gallery-panel={index}>
-              <Image alt={panel.alt} class={styles.galleryImage} fetchpriority={index === 0 ? "high" : "auto"} layout="full-width" loading={index === 0 ? "eager" : "lazy"} quality={90} src={panel.image} />
+            <div class={styles.galleryPanel} aria-hidden={index === 0 ? undefined : "true"} data-active={String(index === 0)} data-caption={panel.caption} data-gallery-panel={index}>
+              <Image alt={panel.alt} class={`${styles.galleryImage} ${panel.focus ?? ""}`} fetchpriority={index === 0 ? "high" : "auto"} layout="full-width" loading={index === 0 ? "eager" : "lazy"} quality={90} src={panel.image} />
             </div>
           ))}
           <p class={styles.galleryCaption} data-gallery-caption aria-live="polite">{panels[0].caption}</p>
@@ -165,31 +209,47 @@ const faqItems = [
       </section>
 
       <form class={styles.options} data-configurator>
-        <section class={styles.group} aria-labelledby="system-title" data-gallery-target="0">
-          <h2 class={styles.groupTitle} id="system-title"><strong>System.</strong> Everything one bathroom needs.</h2>
-          <div class={styles.systemCard}>
-            <div class={styles.systemHead}>
-              <h3>Complete Home System</h3>
-              <p><strong>{basePrice}</strong><span>+ GST</span></p>
-            </div>
+        <fieldset class={styles.group} data-gallery-target={panelIndex("system")}>
+          <legend class={styles.groupTitle}><strong>System.</strong> {!completeSystemOpen ? "What’s included." : deviceOnlyAvailable ? "Choose what they need." : "Everything one bathroom needs."}</legend>
+          {completeSystemOpen && <label class={styles.systemCard}>
+            <input checked name="system" type="radio" value="complete" />
+            <span class={styles.systemHead}>
+              <span class={styles.systemName}>Complete Home System</span>
+              <span class={styles.systemPrice}><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></span>
+            </span>
             <ul>
               <li>Alert Unit with SOS button and Door Lock Sensor</li>
               <li>Home Hub with Alarm</li>
               <li>Bathroom protection kit for one bathroom</li>
               <li>Professional installation and testing</li>
               <li>Nest app for family and trusted contacts</li>
-              <li>Three years of EyEagle Response</li>
             </ul>
-          </div>
+          </label>}
+          {deviceOnlyAvailable && (
+            <label class={styles.systemCard}>
+              <input checked={!completeSystemOpen} name="system" type="radio" value="device" />
+              <span class={styles.systemHead}>
+                <span class={styles.systemName}>{EYEAGLE_DEVICE_ONLY.title}</span>
+                <span class={styles.systemPrice}><strong data-inr={EYEAGLE_DEVICE_ONLY.devicePriceInr}>{formatInr(EYEAGLE_DEVICE_ONLY.devicePriceInr)}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={EYEAGLE_DEVICE_ONLY.devicePriceInr} data-suffix=" + GST" hidden></small></span></span>
+              </span>
+              <ul>
+                <li>Alert Unit with SOS button and Door Lock Sensor</li>
+                <li>Home Hub with Alarm</li>
+                <li>Professional installation and testing</li>
+                <li>Nest app for family and trusted contacts</li>
+                {completeSystemOpen && <li>No bathroom protection kit</li>}
+              </ul>
+            </label>
+          )}
           <details class={styles.help}>
             <summary>What happens during installation?</summary>
             <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.</p>
           </details>
-        </section>
+        </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="3">
+        <fieldset class={styles.group} data-complete-only data-gallery-target={panelIndex("kit")} hidden={!completeSystemOpen}>
           <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many do they use?</legend>
-          <div class={styles.groupMedia}><Image alt={panels[3].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[3].image} /></div>
+          <div class={styles.groupMedia}><Image alt={panelFor("kit").alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panelFor("kit").image} /></div>
           <div class={styles.tiles}>
             {bathroomOptions.map((option) => (
               <label class={styles.tile}>
@@ -198,7 +258,7 @@ const faqItems = [
                   <span class={styles.tileTitle}>{option.title}</span>
                   <span class={styles.tileText}>{option.description}</span>
                 </span>
-                <span class={styles.tilePrice}>{option.price}</span>
+                <span class={styles.tilePrice}>{option.priceInr === 0 ? "Included" : <>+ <span data-inr={option.priceInr}>{formatInr(option.priceInr)}</span><small class={styles.inrAlt} data-inr-alt={option.priceInr} hidden></small></>}</span>
               </label>
             ))}
           </div>
@@ -208,9 +268,9 @@ const faqItems = [
           </a>
         </fieldset>
 
-        <fieldset class={styles.group} data-gallery-target="1">
+        <fieldset class={styles.group} data-complete-only data-gallery-target={panelIndex("sos")} hidden={!completeSystemOpen}>
           <legend class={styles.groupTitle}><strong>Extra Alert Units.</strong> SOS beyond the bathroom.</legend>
-          <div class={styles.groupMedia}><Image alt={panels[1].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[1].image} /></div>
+          <div class={styles.groupMedia}><Image alt={panelFor("sos").alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panelFor("sos").image} /></div>
           <div class={styles.tiles}>
             {sosOptions.map((option) => (
               <label class={styles.tile}>
@@ -219,7 +279,7 @@ const faqItems = [
                   <span class={styles.tileTitle}>{option.title}</span>
                   <span class={styles.tileText}>{option.description}</span>
                 </span>
-                <span class={styles.tilePrice}>{option.price}</span>
+                <span class={styles.tilePrice}>{option.priceInr === 0 ? "Included" : <>+ <span data-inr={option.priceInr}>{formatInr(option.priceInr)}</span><small class={styles.inrAlt} data-inr-alt={option.priceInr} hidden></small></>}</span>
               </label>
             ))}
           </div>
@@ -229,15 +289,30 @@ const faqItems = [
           </details>
         </fieldset>
 
-        <section class={styles.group} aria-labelledby="membership-title" data-gallery-target="2">
-          <h2 class={styles.groupTitle} id="membership-title"><strong>Membership.</strong> Response, included.</h2>
-          <div class={styles.groupMedia}><Image alt={panels[2].alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panels[2].image} /></div>
-          <div class={styles.membershipCard}>
-            <span class={styles.badge}>Included</span>
-            <h3>Three years of membership</h3>
-            <p>Nest, readiness checks and EyEagle Response are included for three years. Then ₹2,000/month + GST until cancelled.</p>
+        <fieldset class={styles.group} data-gallery-target={panelIndex("membership")}>
+          <legend class={styles.groupTitle}><strong>Membership.</strong> {completeSystemOpen ? "Pay ahead and save." : "The first year, paid ahead."}</legend>
+          <div class={styles.groupMedia}><Image alt={panelFor("membership").alt} class={`${styles.groupMediaImage} ${panelFor("membership").focus}`} layout="full-width" loading="lazy" quality={85} src={panelFor("membership").image} /></div>
+          <div class={styles.tiles}>
+            {membershipOptions.map((option) => (
+              <label class={styles.tile} data-complete-only={option.value === EYEAGLE_DEVICE_ONLY.membershipMonths ? undefined : ""} hidden={!completeSystemOpen && option.value !== EYEAGLE_DEVICE_ONLY.membershipMonths}>
+                <input checked={option.value === defaultMembershipMonths} name="membership" type="radio" value={option.value} />
+                <span class={styles.tileBody}>
+                  <span class={styles.tileTitle}>{option.title}</span>
+                  {option.value === 0
+                    ? <span class={styles.tileText}>Nest, readiness checks and EyEagle Response, billed monthly from installation: <span data-inr={membershipMonthlyWithGstInr}>{formatInr(membershipMonthlyWithGstInr)}</span>/month with {gstPercent} GST.</span>
+                    : <span class={styles.tileText}>Nest, readiness checks and EyEagle Response for {option.period}. Saves <span data-inr={option.savingInr}>{formatInr(option.savingInr)}</span> on paying monthly.</span>}
+                </span>
+                <span class={styles.tilePrice}>{option.value === 0
+                  ? <><span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month<small class={styles.inrAlt} data-inr-alt={membershipMonthlyInr} data-suffix="/month" hidden></small><small class={styles.tileGst}>+ GST</small></>
+                  : <>+ <span data-inr={option.priceInr}>{formatInr(option.priceInr)}</span><small class={styles.inrAlt} data-inr-alt={option.priceInr} hidden></small></>}</span>
+              </label>
+            ))}
           </div>
-        </section>
+          <details class={styles.help}>
+            <summary>What happens when a paid-ahead membership ends?</summary>
+            <p>It continues at {formatInr(membershipMonthlyInr)}/month + GST until cancelled, so response never lapses by accident. Monthly membership is billed separately from this order.</p>
+          </details>
+        </fieldset>
       </form>
     </div>
 
@@ -248,19 +323,28 @@ const faqItems = [
             ? <h2 id="summary-title">Your EyEagle system is ready. <span>Make it theirs.</span></h2>
             : <h2 id="summary-title">Your EyEagle setup. <span>We’ll tell you when ordering opens.</span></h2>}
           <dl class={styles.summaryList}>
-            <div><dt>Complete Home System</dt><dd>{basePrice}</dd></div>
-            <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd data-summary-bathrooms-price></dd></div>
-            <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd data-summary-sos-price></dd></div>
-            <div><dt>Three years of membership</dt><dd>Included</dd></div>
-            <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd data-total-price>{basePrice}</dd></div>
-            <div><dt>Estimated GST ({gstPercent})</dt><dd data-total-gst>{baseGst}</dd></div>
-            <div class={styles.summaryGrand}><dt>Total with GST</dt><dd data-total-with-gst>{baseWithGst}</dd></div>
+            <div><dt data-summary-base-label>Complete Home System</dt><dd><span data-summary-base-price data-inr={basePriceInr}>{basePrice}</span><small class={styles.inrAlt} data-summary-base-price data-inr-alt={basePriceInr} hidden></small></dd></div>
+            <div data-summary-bathrooms hidden><dt data-summary-bathrooms-label></dt><dd><span data-summary-bathrooms-price data-inr="0"></span><small class={styles.inrAlt} data-summary-bathrooms-price data-inr-alt="0" hidden></small></dd></div>
+            <div data-summary-sos hidden><dt data-summary-sos-label></dt><dd><span data-summary-sos-price data-inr="0"></span><small class={styles.inrAlt} data-summary-sos-price data-inr-alt="0" hidden></small></dd></div>
+            <div><dt data-summary-membership-label>Membership · {EYEAGLE_MEMBERSHIP_PLANS[defaultMembershipMonths].title}</dt><dd><span data-summary-membership-price data-inr={defaultMembershipInr}>{formatInr(defaultMembershipInr)}</span><span data-summary-membership-monthly hidden>/month + GST</span><small class={styles.inrAlt} data-summary-membership-price data-inr-alt={defaultMembershipInr} hidden></small></dd></div>
+            <div data-summary-discount hidden><dt data-summary-discount-label>Discount</dt><dd><span class={styles.discountAmount}>− <span data-summary-discount-price data-inr="0"></span></span><small class={styles.inrAlt} data-summary-discount-price data-inr-alt="0" hidden></small></dd></div>
+            <div class={styles.summarySubtotal}><dt>Subtotal</dt><dd><span data-total-price data-inr={defaultTotalInr}>{defaultTotal}</span><small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} hidden></small></dd></div>
+            <div><dt>Estimated GST ({gstPercent})</dt><dd><span data-total-gst data-inr={defaultGstInr}>{defaultGst}</span><small class={styles.inrAlt} data-total-gst data-inr-alt={defaultGstInr} hidden></small></dd></div>
+            <div class={styles.summaryGrand}><dt>Total with GST</dt><dd><span data-total-with-gst data-inr={defaultWithGstInr}>{defaultWithGst}</span><small class={styles.inrAlt} data-total-with-gst data-inr-alt={defaultWithGstInr} hidden></small></dd></div>
           </dl>
         </div>
         <div class={styles.summaryAction}>
-          <p class={styles.summaryTotal}><strong data-total-price>{basePrice}</strong><span>+ GST · <span data-total-with-gst>{baseWithGst}</span> total with GST</span></p>
+          <p class={styles.summaryTotal}><s class={styles.wasPrice} data-total-original data-inr={defaultTotalInr} hidden>{defaultTotal}</s><strong data-total-price data-inr={defaultTotalInr}>{defaultTotal}</strong><span>+ GST · <span data-total-with-gst data-inr={defaultWithGstInr}>{defaultWithGst}</span> total with GST</span><small class={styles.inrAlt} data-total-price data-inr-alt={defaultTotalInr} data-suffix=" + GST" hidden></small></p>
           {orderingOpen ? (
             <>
+              <form class={styles.discountForm} data-discount-form novalidate>
+                <label for="discount-code">Discount code</label>
+                <div class={styles.formRow}>
+                  <input aria-describedby="discount-status" autocapitalize="characters" autocomplete="off" id="discount-code" maxlength="50" name="code" placeholder="Enter code" spellcheck="false" type="text" />
+                  <button type="submit" data-discount-submit>Apply</button>
+                </div>
+                <p class={styles.formStatus} data-discount-status id="discount-status" role="status"></p>
+              </form>
               <a class={styles.primaryAction} data-checkout href={defaultPurchase.checkoutUrl}>Continue to checkout <span aria-hidden="true">↗</span></a>
               <p class={styles.checkoutError} data-config-error role="alert" hidden>We couldn’t prepare checkout for this configuration. Please review your choices or contact us.</p>
             </>
@@ -279,7 +363,8 @@ const faqItems = [
             </form>
           )}
           <button class={styles.shareAction} data-share type="button">Share this setup with family</button>
-          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}All prices are in INR and exclude GST, which is added at checkout. After the included three-year period, membership renews at ₹2,000/month + GST until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}Checkout is in INR, and prices exclude GST, which is added at checkout. After any membership paid ahead here, it continues at {formatInr(membershipMonthlyInr)}/month + GST, billed separately, until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint} data-local-note hidden></p>
         </div>
       </div>
     </section>
@@ -292,11 +377,19 @@ const faqItems = [
 
 <script>
   import {
+    EYEAGLE_COMPLETE_SYSTEM_OPEN,
+    EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS,
+    EYEAGLE_DEVICE_ONLY,
+    EYEAGLE_MEMBERSHIP_PLANS,
     EYEAGLE_SHOPIFY_CONFIG,
     estimateGstInr,
     formatInr,
     getEyEagleConfiguredPurchase,
+    getEyEagleDevicePurchase,
+    normalizeDiscountCode,
+    withDiscountCode,
   } from "../data/shopify-configurator";
+  import { renderPrices, setPrice } from "../scripts/local-price";
 
   const form = document.querySelector<HTMLFormElement>("[data-configurator]");
   const bar = document.querySelector<HTMLElement>("[data-store-bar]");
@@ -306,23 +399,128 @@ const faqItems = [
   const totalPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-total-price]"));
   const totalGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-gst]"));
   const totalsWithGst = Array.from(document.querySelectorAll<HTMLElement>("[data-total-with-gst]"));
+  const originalTotals = Array.from(document.querySelectorAll<HTMLElement>("[data-total-original]"));
+  const completeOnlyGroups = Array.from(document.querySelectorAll<HTMLElement>("[data-complete-only]"));
+  const barName = document.querySelector<HTMLElement>("[data-bar-name]");
   const configurationError = document.querySelector<HTMLElement>("[data-config-error]");
   const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-gallery-panel]"));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"));
   const caption = document.querySelector<HTMLElement>("[data-gallery-caption]");
-  const captions = ["Complete home safety system", "SOS within reach", "Installed, connected and ready", "Bathroom protection, within reach"];
+  const captions = panels.map((panel) => panel.dataset.caption ?? "");
   const root = document.documentElement;
   const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 
-  // Keep sticky elements below the fixed site header, which hides on scroll down.
+  // Show an amount (INR) in each price element, or the fallback when there is none.
+  const showAmount = (elements: HTMLElement[], amountInr: number | null, fallback: string) => elements.forEach((element) => {
+    if (amountInr !== null) setPrice(element, amountInr);
+    else if ("inrAlt" in element.dataset) element.hidden = true;
+    else element.textContent = fallback;
+  });
+
+  renderPrices();
+
+  // Discount codes, typed in or from an event link (/store?code=SG-P40). /api/store-discount looks up each
+  // code's rule once (a percentage or a fixed amount, as Shopify checkout applies it), and the page applies it
+  // to whichever setup is chosen. The code is kept for the browser session and goes to checkout unless Shopify
+  // said it doesn't apply.
+  type DiscountCheck = { applicable: boolean; valueType: string | null; value: number | null };
+  type DiscountState = "none" | "checking" | "applied" | "invalid" | "error";
+  // "system" is the EyEagle Home System bundle; "device" is device only.
+  type Product = "system" | "device";
+  const discountStorageKey = "eyeagle-discount-code";
+  const discountChecks = new Map<string, DiscountCheck | "error">(); // keyed "product:CODE"
+  const discountRequests = new Set<string>();
+  const storeDiscountCode = (code: string | null) => {
+    try {
+      if (code) sessionStorage.setItem(discountStorageKey, code);
+      else sessionStorage.removeItem(discountStorageKey);
+    } catch {
+      // Storage blocked; the code still applies on this page.
+    }
+  };
+  let discountCode = (() => {
+    const fromUrl = normalizeDiscountCode(new URLSearchParams(window.location.search).get("code"));
+    if (fromUrl) {
+      storeDiscountCode(fromUrl);
+      return fromUrl;
+    }
+    try {
+      return normalizeDiscountCode(sessionStorage.getItem(discountStorageKey));
+    } catch {
+      return null;
+    }
+  })();
+  // The rule of the code that applies right now, for the labels.
+  let discountRule: { valueType: string; value: number } | null = null;
+
+  const checkDiscount = async (code: string, product: Product) => {
+    const key = `${product}:${code}`;
+    if (discountRequests.has(key)) return;
+    discountRequests.add(key);
+    try {
+      const response = await fetch(`/api/store-discount?${new URLSearchParams({ code, product })}`);
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.message);
+      discountChecks.set(key, result);
+    } catch {
+      discountChecks.set(key, "error");
+    } finally {
+      discountRequests.delete(key);
+    }
+    if (code === discountCode) updateConfiguration({ syncUrl: false });
+  };
+
+  // As Shopify applies it: a percentage of the total to the paisa, or a fixed amount once per order.
+  const getDiscount = (product: Product, totalInr: number): { state: DiscountState; amountInr: number } => {
+    discountRule = null;
+    if (!discountCode) return { state: "none", amountInr: 0 };
+    const check = discountChecks.get(`${product}:${discountCode}`);
+    if (!check) {
+      void checkDiscount(discountCode, product);
+      return { state: "checking", amountInr: 0 };
+    }
+    if (check === "error") return { state: "error", amountInr: 0 };
+    if (!check.applicable) return { state: "invalid", amountInr: 0 };
+    if (!check.valueType || !check.value) return { state: "error", amountInr: 0 };
+    discountRule = { valueType: check.valueType, value: check.value };
+    const amountInr = check.valueType === "percentage" ? Math.round(totalInr * check.value) / 100 : Math.min(check.value, totalInr);
+    return { state: "applied", amountInr };
+  };
+
+  const discountForm = document.querySelector<HTMLFormElement>("[data-discount-form]");
+  const discountInput = discountForm?.querySelector<HTMLInputElement>('input[name="code"]');
+  const discountSubmit = discountForm?.querySelector<HTMLButtonElement>("[data-discount-submit]");
+  const discountStatus = discountForm?.querySelector<HTMLElement>("[data-discount-status]");
+  const discountLabel = () => {
+    if (!discountRule) return "";
+    return discountRule.valueType === "percentage" ? `${discountRule.value}% off` : `${formatInr(discountRule.value)} off`;
+  };
+  const renderDiscountForm = (state: DiscountState, amountInr: number, product: Product) => {
+    if (!discountInput || !discountSubmit || !discountStatus) return;
+    const active = state === "checking" || state === "applied" || state === "error";
+    if (discountCode && document.activeElement !== discountInput) discountInput.value = discountCode;
+    discountInput.readOnly = active;
+    discountSubmit.textContent = active ? "Remove" : "Apply";
+    discountStatus.dataset.error = String(state === "invalid");
+    discountStatus.textContent = {
+      none: "",
+      checking: `Checking ${discountCode}…`,
+      applied: `${discountCode} applied${discountRule?.valueType === "percentage" ? ` · ${discountLabel()}` : ""}. You save ${formatInr(amountInr)} before GST.`,
+      invalid: product === "device"
+        ? `${discountCode} can’t be applied to the ${EYEAGLE_DEVICE_ONLY.title}.`
+        : `${discountCode} can’t be applied to this setup. Check the code; it may have expired.`,
+      error: `We couldn’t check ${discountCode} right now. It will still be tried at checkout.`,
+    }[state];
+  };
+
+  // Keep sticky elements below the fixed site header, which is always on screen.
   if (siteHeader) {
     const syncHeader = () => {
       const height = Math.round(siteHeader.getBoundingClientRect().height);
       root.style.setProperty("--store-header-h", `${height}px`);
-      root.style.setProperty("--store-header-visible", siteHeader.dataset.hidden === "true" ? "0px" : `${height}px`);
+      root.style.setProperty("--store-header-visible", `${height}px`);
     };
     new ResizeObserver(syncHeader).observe(siteHeader);
-    new MutationObserver(syncHeader).observe(siteHeader, { attributes: true, attributeFilter: ["data-hidden"] });
     syncHeader();
   }
 
@@ -353,54 +551,116 @@ const faqItems = [
   const readSelection = () => {
     const data = form ? new FormData(form) : null;
     return {
+      product: (data?.get("system") === "device" ? "device" : "system") as Product,
       bathrooms: Number(data?.get("bathrooms") ?? EYEAGLE_SHOPIFY_CONFIG.bathroomMin),
       additionalSos: Number(data?.get("sos") ?? EYEAGLE_SHOPIFY_CONFIG.additionalSosMin),
+      membershipMonths: Number(data?.get("membership") ?? EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS),
     };
   };
 
   const setSummaryRow = (key: "bathrooms" | "sos", count: number, label: string, price: number) => {
     document.querySelector<HTMLElement>(`[data-summary-${key}]`)?.toggleAttribute("hidden", count === 0);
     const labelElement = document.querySelector<HTMLElement>(`[data-summary-${key}-label]`);
-    const priceElement = document.querySelector<HTMLElement>(`[data-summary-${key}-price]`);
     if (labelElement) labelElement.textContent = label;
-    if (priceElement) priceElement.textContent = formatInr(price);
+    showAmount(Array.from(document.querySelectorAll<HTMLElement>(`[data-summary-${key}-price]`)), price, "");
+  };
+
+  // Device only comes with one plan. Its tile is selected while device only is chosen, and the buyer's plan for the
+  // complete system comes back when they switch to it.
+  let completeSystemPlan: HTMLInputElement | null = null;
+  const syncDevicePlan = (deviceOnly: boolean) => {
+    const checked = form?.querySelector<HTMLInputElement>('input[name="membership"]:checked') ?? null;
+    if (deviceOnly) {
+      const devicePlan = form?.querySelector<HTMLInputElement>(`input[name="membership"][value="${EYEAGLE_DEVICE_ONLY.membershipMonths}"]`);
+      if (devicePlan && checked !== devicePlan) {
+        completeSystemPlan = checked;
+        devicePlan.checked = true;
+      }
+    } else if (completeSystemPlan) {
+      completeSystemPlan.checked = true;
+      completeSystemPlan = null;
+    }
   };
 
   const updateConfiguration = ({ syncUrl = true } = {}) => {
-    const { bathrooms, additionalSos } = readSelection();
-    const purchase = getEyEagleConfiguredPurchase(bathrooms, additionalSos);
-    if (configurationError) configurationError.hidden = Boolean(purchase);
+    syncDevicePlan(readSelection().product === "device");
+    const { product, bathrooms, additionalSos, membershipMonths } = readSelection();
+    const deviceOnly = product === "device";
+    const purchase = deviceOnly ? getEyEagleDevicePurchase() : getEyEagleConfiguredPurchase(bathrooms, additionalSos, membershipMonths);
+    // Device only has no bathrooms or extra units, and one plan: a year of membership paid ahead.
+    completeOnlyGroups.forEach((group) => { group.hidden = deviceOnly; });
+    if (barName) barName.textContent = deviceOnly ? EYEAGLE_DEVICE_ONLY.title : "EyEagle Home System";
+    if (configurationError) configurationError.hidden = Boolean(purchase?.checkoutUrl);
+    const discount = purchase ? getDiscount(product, purchase.totalInr) : { state: "none" as const, amountInr: 0 };
+    const checkoutCode = discount.state === "none" || discount.state === "invalid" ? null : discountCode;
     checkoutLinks.forEach((link) => {
-      if (purchase) {
-        link.href = purchase.checkoutUrl;
+      if (purchase?.checkoutUrl) {
+        link.href = withDiscountCode(purchase.checkoutUrl, checkoutCode);
         link.removeAttribute("aria-disabled");
       } else {
         link.removeAttribute("href");
         link.setAttribute("aria-disabled", "true");
       }
     });
-    const gst = purchase ? estimateGstInr(purchase.totalInr) : 0;
-    totalPrices.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr) : "Unavailable"; });
-    totalGst.forEach((price) => { price.textContent = purchase ? formatInr(gst) : "—"; });
-    totalsWithGst.forEach((price) => { price.textContent = purchase ? formatInr(purchase.totalInr + gst) : "—"; });
+    // GST applies to the price after any discount, as at checkout.
+    const netInr = purchase ? purchase.totalInr - discount.amountInr : 0;
+    const gst = purchase ? estimateGstInr(netInr) : 0;
+    showAmount(totalPrices, purchase ? netInr : null, "Unavailable");
+    showAmount(totalGst, purchase ? gst : null, "—");
+    showAmount(totalsWithGst, purchase ? netInr + gst : null, "—");
+    originalTotals.forEach((element) => {
+      element.hidden = !purchase || discount.amountInr <= 0;
+      if (purchase) setPrice(element, purchase.totalInr);
+    });
+    renderDiscountForm(discount.state, discount.amountInr, product);
     if (!purchase) return null;
 
-    const extraBathrooms = bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
+    document.querySelector<HTMLElement>("[data-summary-discount]")?.toggleAttribute("hidden", discount.amountInr <= 0);
+    const discountRowLabel = document.querySelector<HTMLElement>("[data-summary-discount-label]");
+    if (discountRowLabel) discountRowLabel.textContent = `Discount · ${discountCode}${discountLabel() ? ` (${discountLabel()})` : ""}`;
+    showAmount(Array.from(document.querySelectorAll<HTMLElement>("[data-summary-discount-price]")), discount.amountInr, "");
+
+    const baseLabel = document.querySelector<HTMLElement>("[data-summary-base-label]");
+    if (baseLabel) baseLabel.textContent = deviceOnly ? `${EYEAGLE_DEVICE_ONLY.title} · Home Hub and Alert Unit` : "Complete Home System";
+    showAmount(Array.from(document.querySelectorAll<HTMLElement>("[data-summary-base-price]")), deviceOnly ? EYEAGLE_DEVICE_ONLY.devicePriceInr : EYEAGLE_SHOPIFY_CONFIG.basePriceInr, "");
+    const extraBathrooms = deviceOnly ? 0 : bathrooms - EYEAGLE_SHOPIFY_CONFIG.bathroomMin;
+    const extraSos = deviceOnly ? 0 : additionalSos;
     setSummaryRow("bathrooms", extraBathrooms, plural(extraBathrooms, "additional bathroom"), extraBathrooms * EYEAGLE_SHOPIFY_CONFIG.additionalBathroomPriceInr);
-    setSummaryRow("sos", additionalSos, plural(additionalSos, "additional Alert Unit"), additionalSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+    setSummaryRow("sos", extraSos, plural(extraSos, "additional Alert Unit"), extraSos * EYEAGLE_SHOPIFY_CONFIG.additionalSosPriceInr);
+
+    // Paying monthly shows the monthly rate, which isn't part of this order's total.
+    const plan = EYEAGLE_MEMBERSHIP_PLANS[purchase.membershipMonths];
+    const monthly = purchase.membershipMonths === 0;
+    const membershipLabel = document.querySelector<HTMLElement>("[data-summary-membership-label]");
+    if (membershipLabel) membershipLabel.textContent = `Membership · ${plan.title}`;
+    document.querySelector<HTMLElement>("[data-summary-membership-monthly]")?.toggleAttribute("hidden", !monthly);
+    const membershipPrices = Array.from(document.querySelectorAll<HTMLElement>("[data-summary-membership-price]"));
+    membershipPrices.forEach((element) => { element.dataset.suffix = monthly ? "/month + GST" : ""; });
+    showAmount(membershipPrices, monthly ? EYEAGLE_SHOPIFY_CONFIG.membershipMonthlyInr : plan.priceInr, "");
 
     // Mirror the selection in the URL so a configuration can be shared or restored.
     if (!syncUrl) return purchase;
     const url = new URL(window.location.href);
-    url.searchParams.set("bathrooms", String(bathrooms));
-    url.searchParams.set("sos", String(additionalSos));
+    if (deviceOnly) {
+      // Device only needs no parameter while it's all /store sells.
+      if (EYEAGLE_COMPLETE_SYSTEM_OPEN) url.searchParams.set("system", "device");
+      else url.searchParams.delete("system");
+      ["bathrooms", "sos", "membership"].forEach((name) => url.searchParams.delete(name));
+    } else {
+      url.searchParams.delete("system");
+      url.searchParams.set("bathrooms", String(bathrooms));
+      url.searchParams.set("sos", String(additionalSos));
+      url.searchParams.set("membership", String(purchase.membershipMonths));
+    }
+    if (discountCode) url.searchParams.set("code", discountCode);
+    else url.searchParams.delete("code");
     history.replaceState(null, "", url);
     return purchase;
   };
 
   // Restore a shared configuration, ignoring values the form doesn't offer.
   const params = new URLSearchParams(window.location.search);
-  (["bathrooms", "sos"] as const).forEach((name) => {
+  (["system", "bathrooms", "sos", "membership"] as const).forEach((name) => {
     const value = params.get(name);
     const input = value === null ? null : form?.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`);
     if (input) input.checked = true;
@@ -413,8 +673,34 @@ const faqItems = [
   });
   form?.addEventListener("submit", (event) => event.preventDefault());
   checkoutLinks.forEach((link) => link.addEventListener("click", (event) => {
-    if (!updateConfiguration()) event.preventDefault();
+    if (!updateConfiguration()?.checkoutUrl) event.preventDefault();
   }));
+
+  discountForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!discountInput || !discountStatus) return;
+    if (discountInput.readOnly) {
+      discountCode = null;
+      discountRule = null;
+      discountInput.value = "";
+      storeDiscountCode(null);
+      updateConfiguration();
+      discountInput.focus();
+      return;
+    }
+    const code = normalizeDiscountCode(discountInput.value);
+    if (!code) {
+      discountStatus.dataset.error = "true";
+      discountStatus.textContent = "Enter the code as given, using letters, numbers and dashes.";
+      discountInput.focus();
+      return;
+    }
+    discountCode = code;
+    discountRule = null;
+    discountInput.value = code;
+    storeDiscountCode(code);
+    updateConfiguration();
+  });
 
   const shareButton = document.querySelector<HTMLButtonElement>("[data-share]");
   shareButton?.addEventListener("click", async () => {
@@ -444,7 +730,9 @@ const faqItems = [
     if (bar && summarySection) bar.dataset.visible = String(summarySection.getBoundingClientRect().top > window.innerHeight * 0.8);
     if (!stickyGallery.matches || !sections.length) return;
     const readingLine = window.innerHeight * 0.45;
-    const reading = sections.filter((section) => section.getBoundingClientRect().top <= readingLine).at(-1) ?? sections[0];
+    // Hidden steps (complete system only) have no position, so they don't count.
+    const shown = sections.filter((section) => !section.hidden);
+    const reading = shown.filter((section) => section.getBoundingClientRect().top <= readingLine).at(-1) ?? shown[0];
     const target = Number(reading.dataset.galleryTarget);
     // Only switch when the section changes, so arrows and dots still work within a section.
     if (target !== sectionPanel) {

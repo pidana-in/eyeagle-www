@@ -40,11 +40,9 @@ const isActive = (href: string) =>
 <header
   class={styles.header}
   data-fixed="true"
-  data-hidden="false"
   data-menu-open="false"
   data-overlay="true"
   data-solid-at-top={String(solidAtTop)}
-  data-auto-hide={String(showNavigation || showAction)}
   data-compact-action="true"
   data-variant={variant}
   data-home-v3-header
@@ -132,6 +130,8 @@ const isActive = (href: string) =>
 </header>
 
 <script>
+  import { onScroll } from "../../scripts/scroll-ticker";
+
   const header = document.querySelector<HTMLElement>("[data-home-v3-header]");
   const menuButton = header?.querySelector<HTMLButtonElement>("[data-home-v3-menu-button]");
   const mobileMenu = header?.querySelector<HTMLElement>("[data-home-v3-mobile-menu]");
@@ -140,16 +140,12 @@ const isActive = (href: string) =>
   const mobileLinks = Array.from(header?.querySelectorAll<HTMLElement>("[data-mobile-nav-link]") ?? []);
   const mobileMenuLinks = Array.from(mobileMenu?.querySelectorAll<HTMLElement>("a") ?? []);
   const solidAtTop = header?.dataset.solidAtTop === "true";
-  const autoHide = header?.dataset.autoHide === "true";
   let menuOpen = false;
-  let lastScrollY = Math.max(window.scrollY, 0);
-  let frameId = 0;
 
   const setMenuOpen = (open: boolean) => {
     if (!header || !menuButton || !mobileMenu) return;
     menuOpen = open;
     header.dataset.menuOpen = String(open);
-    header.dataset.hidden = "false";
     menuButton.setAttribute("aria-expanded", String(open));
     menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     mobileMenu.dataset.open = String(open);
@@ -164,34 +160,18 @@ const isActive = (href: string) =>
     else menuButton.focus();
   };
 
+  // The header stays put; only its treatment changes, from transparent over
+  // the top of the page to solid once anything has scrolled under it.
   const updateHeader = () => {
     if (!header) return;
-    const currentY = Math.max(window.scrollY, 0);
-    const atTop = currentY < 32;
-    const overlay = atTop && !solidAtTop;
+    const overlay = Math.max(window.scrollY, 0) < 32 && !solidAtTop;
     header.dataset.overlay = String(overlay);
     lightLogo?.setAttribute("data-visible", String(overlay && !menuOpen));
     darkLogo?.setAttribute("data-visible", String(!overlay || menuOpen));
-
-    if (!autoHide || atTop || menuOpen) header.dataset.hidden = "false";
-    else {
-      const distance = currentY - lastScrollY;
-      if (distance > 8) header.dataset.hidden = "true";
-      if (distance < -8) header.dataset.hidden = "false";
-    }
-    if (Math.abs(currentY - lastScrollY) > 8 || atTop) lastScrollY = currentY;
   };
 
   menuButton?.addEventListener("click", () => setMenuOpen(!menuOpen));
   mobileLinks.forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
-  window.addEventListener("scroll", () => {
-    if (frameId) return;
-    frameId = requestAnimationFrame(() => {
-      updateHeader();
-      frameId = 0;
-    });
-  }, { passive: true });
-  header?.addEventListener("focusin", () => { if (header) header.dataset.hidden = "false"; });
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menuOpen) setMenuOpen(false);
     if (event.key !== "Tab" || !menuOpen || !header) return;
@@ -202,5 +182,8 @@ const isActive = (href: string) =>
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
   });
-  updateHeader();
+  // Shares the site's scroll ticker, which keeps updating when animation
+  // frames stop: a header that is always on screen must never be left
+  // transparent over content that has scrolled under it.
+  onScroll(updateHeader);
 </script>
