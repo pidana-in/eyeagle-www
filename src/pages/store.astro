@@ -100,8 +100,10 @@ const membershipMonthlyWithGstInr = membershipMonthlyInr + estimateGstInr(member
 const devicePurchase = getEyEagleDevicePurchase();
 const deviceOnlyAvailable = Boolean(devicePurchase.variantId);
 if (!completeSystemOpen && !deviceOnlyAvailable) throw new Error("The Complete Home System is hidden, but the EyEagle Device has no Shopify variant.");
-const defaultMembershipMonths = completeSystemOpen ? EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS : EYEAGLE_DEVICE_ONLY.membershipMonths;
-const defaultPurchase = completeSystemOpen ? getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin, defaultMembershipMonths) : devicePurchase;
+// The EyEagle Device comes first and is chosen to start with, whenever it's on sale.
+const defaultIsDevice = deviceOnlyAvailable;
+const defaultMembershipMonths = defaultIsDevice ? EYEAGLE_DEVICE_ONLY.membershipMonths : EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS;
+const defaultPurchase = defaultIsDevice ? devicePurchase : getEyEagleConfiguredPurchase(bathroomMin, additionalSosMin, defaultMembershipMonths);
 if (!defaultPurchase) throw new Error("The default EyEagle configuration is invalid.");
 if (orderingOpen && !defaultPurchase.checkoutUrl) throw new Error("Ordering is open, but the default configuration has no Shopify variant.");
 const basePrice = formatInr(basePriceInr);
@@ -117,7 +119,7 @@ const defaultWithGst = formatInr(defaultWithGstInr);
 const faqItems = [
   {
     question: "Do prices include GST?",
-    answer: `No. Prices are before GST, and GST (${gstPercent}) is added at checkout. For ${completeSystemOpen ? "the standard system with three years of membership" : `the ${EYEAGLE_DEVICE_ONLY.title} with a year of membership`} that is ${defaultTotal} + ${defaultGst} GST, or ${defaultWithGst} in total. Your GST invoice is issued with the order.`,
+    answer: `No. Prices are before GST, and GST (${gstPercent}) is added at checkout. For ${defaultIsDevice ? `the ${EYEAGLE_DEVICE_ONLY.title} with a year of membership` : "the standard system with three years of membership"} that is ${defaultTotal} + ${defaultGst} GST, or ${defaultWithGst} in total. Your GST invoice is issued with the order.`,
   },
   orderingOpen
     ? {
@@ -178,7 +180,9 @@ const faqItems = [
             ? <p class={styles.eyebrow}>Shipping starts October 30</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
-          {completeSystemOpen
+          {completeSystemOpen && deviceOnlyAvailable
+            ? <p class={styles.introPrice}>From <span data-inr={EYEAGLE_DEVICE_ONLY.devicePriceInr}>{formatInr(EYEAGLE_DEVICE_ONLY.devicePriceInr)}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={EYEAGLE_DEVICE_ONLY.devicePriceInr} data-suffix=" + GST" hidden></small> · installation included, plus membership</span></p>
+            : completeSystemOpen
             ? <p class={styles.introPrice}>From <span data-inr={basePriceInr}>{basePrice}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small> · installation included, membership from <span data-inr={membershipMonthlyInr}>{formatInr(membershipMonthlyInr)}</span>/month + GST</span></p>
             : <p class={styles.introPrice}><span data-inr={EYEAGLE_DEVICE_ONLY.devicePriceInr}>{formatInr(EYEAGLE_DEVICE_ONLY.devicePriceInr)}</span> <span>+ GST <small class={styles.inrAlt} data-inr-alt={EYEAGLE_DEVICE_ONLY.devicePriceInr} data-suffix=" + GST" hidden></small> · installation included, with a year of membership for <span data-inr={EYEAGLE_MEMBERSHIP_PLANS[12].priceInr}>{formatInr(EYEAGLE_MEMBERSHIP_PLANS[12].priceInr)}</span> + GST</span></p>}
         </div>
@@ -211,23 +215,9 @@ const faqItems = [
       <form class={styles.options} data-configurator>
         <fieldset class={styles.group} data-gallery-target={panelIndex("system")}>
           <legend class={styles.groupTitle}><strong>System.</strong> {!completeSystemOpen ? "What’s included." : deviceOnlyAvailable ? "Choose what they need." : "Everything one bathroom needs."}</legend>
-          {completeSystemOpen && <label class={styles.systemCard}>
-            <input checked name="system" type="radio" value="complete" />
-            <span class={styles.systemHead}>
-              <span class={styles.systemName}>Complete Home System</span>
-              <span class={styles.systemPrice}><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></span>
-            </span>
-            <ul>
-              <li>Alert Unit with SOS button and Door Lock Sensor</li>
-              <li>Home Hub with Alarm</li>
-              <li>Bathroom protection kit for one bathroom</li>
-              <li>Professional installation and testing</li>
-              <li>Nest app for family and trusted contacts</li>
-            </ul>
-          </label>}
           {deviceOnlyAvailable && (
             <label class={styles.systemCard}>
-              <input checked={!completeSystemOpen} name="system" type="radio" value="device" />
+              <input checked={defaultIsDevice} name="system" type="radio" value="device" />
               <span class={styles.systemHead}>
                 <span class={styles.systemName}>{EYEAGLE_DEVICE_ONLY.title}</span>
                 <span class={styles.systemPrice}><strong data-inr={EYEAGLE_DEVICE_ONLY.devicePriceInr}>{formatInr(EYEAGLE_DEVICE_ONLY.devicePriceInr)}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={EYEAGLE_DEVICE_ONLY.devicePriceInr} data-suffix=" + GST" hidden></small></span></span>
@@ -241,13 +231,27 @@ const faqItems = [
               </ul>
             </label>
           )}
+          {completeSystemOpen && <label class={styles.systemCard}>
+            <input checked={!defaultIsDevice} name="system" type="radio" value="complete" />
+            <span class={styles.systemHead}>
+              <span class={styles.systemName}>Complete Home System</span>
+              <span class={styles.systemPrice}><strong data-inr={basePriceInr}>{basePrice}</strong><span>+ GST <small class={styles.inrAlt} data-inr-alt={basePriceInr} data-suffix=" + GST" hidden></small></span></span>
+            </span>
+            <ul>
+              <li>Alert Unit with SOS button and Door Lock Sensor</li>
+              <li>Home Hub with Alarm</li>
+              <li>Bathroom protection kit for one bathroom</li>
+              <li>Professional installation and testing</li>
+              <li>Nest app for family and trusted contacts</li>
+            </ul>
+          </label>}
           <details class={styles.help}>
             <summary>What happens during installation?</summary>
             <p>An EyEagle team member reviews the home, positions the Alert Unit (SOS button and Door Lock Sensor) and the Home Hub, connects the Nest and tests the complete alert path before handover.</p>
           </details>
         </fieldset>
 
-        <fieldset class={styles.group} data-complete-only data-gallery-target={panelIndex("kit")} hidden={!completeSystemOpen}>
+        <fieldset class={styles.group} data-complete-only data-gallery-target={panelIndex("kit")} hidden={defaultIsDevice}>
           <legend class={styles.groupTitle}><strong>Bathrooms.</strong> How many do they use?</legend>
           <div class={styles.groupMedia}><Image alt={panelFor("kit").alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panelFor("kit").image} /></div>
           <div class={styles.tiles}>
@@ -268,7 +272,7 @@ const faqItems = [
           </a>
         </fieldset>
 
-        <fieldset class={styles.group} data-complete-only data-gallery-target={panelIndex("sos")} hidden={!completeSystemOpen}>
+        <fieldset class={styles.group} data-complete-only data-gallery-target={panelIndex("sos")} hidden={defaultIsDevice}>
           <legend class={styles.groupTitle}><strong>Extra Alert Units.</strong> SOS beyond the bathroom.</legend>
           <div class={styles.groupMedia}><Image alt={panelFor("sos").alt} class={styles.groupMediaImage} layout="full-width" loading="lazy" quality={85} src={panelFor("sos").image} /></div>
           <div class={styles.tiles}>
@@ -294,7 +298,7 @@ const faqItems = [
           <div class={styles.groupMedia}><Image alt={panelFor("membership").alt} class={`${styles.groupMediaImage} ${panelFor("membership").focus}`} layout="full-width" loading="lazy" quality={85} src={panelFor("membership").image} /></div>
           <div class={styles.tiles}>
             {membershipOptions.map((option) => (
-              <label class={styles.tile} data-complete-only={option.value === EYEAGLE_DEVICE_ONLY.membershipMonths ? undefined : ""} hidden={!completeSystemOpen && option.value !== EYEAGLE_DEVICE_ONLY.membershipMonths}>
+              <label class={styles.tile} data-complete-only={option.value === EYEAGLE_DEVICE_ONLY.membershipMonths ? undefined : ""} hidden={defaultIsDevice && option.value !== EYEAGLE_DEVICE_ONLY.membershipMonths}>
                 <input checked={option.value === defaultMembershipMonths} name="membership" type="radio" value={option.value} />
                 <span class={styles.tileBody}>
                   <span class={styles.tileTitle}>{option.title}</span>
@@ -665,6 +669,16 @@ const faqItems = [
     const input = value === null ? null : form?.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`);
     if (input) input.checked = true;
   });
+  // Links from before the EyEagle Device (bathrooms, extra units or a plan, but no system) are for the Complete
+  // Home System.
+  const completeSystemInput = form?.querySelector<HTMLInputElement>('input[name="system"][value="complete"]');
+  if (!params.has("system") && ["bathrooms", "sos", "membership"].some((name) => params.has(name)) && completeSystemInput) {
+    completeSystemInput.checked = true;
+  }
+  // Starting on the EyEagle Device, switching to the Complete Home System picks its usual plan.
+  if (readSelection().product === "device") {
+    completeSystemPlan = form?.querySelector<HTMLInputElement>(`input[name="membership"][value="${EYEAGLE_DEFAULT_MEMBERSHIP_MONTHS}"]`) ?? null;
+  }
 
   form?.addEventListener("change", (event) => {
     updateConfiguration();
