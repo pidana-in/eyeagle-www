@@ -11,15 +11,15 @@ import {
 // Spot checks against shop.eyeagle.ai/products/eyeagle-home-system: bathrooms, extra Alert Units, months,
 // variant, price before GST.
 const cases = [
-  [1, 0, 36, "50777552093377", 79_999],
-  [1, 0, 12, "50777552126145", 54_999],
-  [1, 0, 0, "50777552158913", 39_999],
-  [1, 1, 36, "50777552388289", 88_998],
-  [2, 0, 36, "50777552486593", 99_998],
-  [2, 1, 0, "50777552847041", 68_997],
-  [3, 4, 36, "50777554059457", 155_993],
-  [3, 4, 12, "50777554092225", 130_993],
-  [3, 4, 0, "50777554124993", 115_993],
+  [1, 0, 36, "50777552093377", 44_999],
+  [1, 0, 12, "50777552126145", 35_999],
+  [1, 0, 0, "50777552158913", 29_999],
+  [1, 1, 36, "50777552388289", 53_998],
+  [2, 0, 36, "50777552486593", 64_998],
+  [2, 1, 0, "50777552847041", 58_997],
+  [3, 4, 36, "50777554059457", 120_993],
+  [3, 4, 12, "50777554092225", 111_993],
+  [3, 4, 0, "50777554124993", 105_993],
 ];
 
 // Every configuration the page offers can be checked out.
@@ -39,15 +39,15 @@ for (const [bathrooms, additionalSos, months, variantId, totalInr] of cases) {
 }
 
 // Three years stays the default.
-assert.equal(getEyEagleConfiguredPurchase(1, 0)?.totalInr, 79_999);
+assert.equal(getEyEagleConfiguredPurchase(1, 0)?.totalInr, 44_999);
 
 // The three system prices: upfront only, with one year, with three years.
 assert.deepEqual(
   [0, 12, 36].map((months) => getEyEagleConfiguredPurchase(1, 0, months)?.totalInr),
-  [39_999, 54_999, 79_999],
+  [29_999, 35_999, 44_999],
 );
-assert.equal(getEyEagleConfiguredPurchase(3, 4, 12)?.totalInr, 130_993);
-assert.equal(getEyEagleConfiguredPurchase(2, 1, 0)?.totalInr, 68_997);
+assert.equal(getEyEagleConfiguredPurchase(3, 4, 12)?.totalInr, 111_993);
+assert.equal(getEyEagleConfiguredPurchase(2, 1, 0)?.totalInr, 58_997);
 
 // Every configuration is priced and links to its Shopify variant.
 for (const bathrooms of [1, 2, 3]) {
@@ -69,7 +69,7 @@ for (const invalid of [[0, 0, 36], [4, 0, 36], [1, -1, 36], [1, 5, 36], [1.5, 0,
 }
 
 // Device only: Home Hub + Alert Unit, installed, with one year of membership.
-assert.equal(getEyEagleDevicePurchase().totalInr, 43_999);
+assert.equal(getEyEagleDevicePurchase().totalInr, 24_999);
 assert.equal(getEyEagleDevicePurchase().membershipMonths, 12);
 assert.equal(getEyEagleDevicePurchase().checkoutUrl, "https://shop.eyeagle.ai/cart/50815924895937:1");
 
