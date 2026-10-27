@@ -4,7 +4,7 @@ export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
   storeDomain: "shop.eyeagle.ai",
   // Prices exclude GST; Shopify adds GST at checkout.
   // The system for one bathroom, installed, with no membership paid ahead.
-  basePriceInr: 39_999,
+  basePriceInr: 29_999,
   additionalBathroomPriceInr: 19_999,
   additionalSosPriceInr: 8_999,
   bathroomMin: 1,
@@ -20,8 +20,8 @@ export const EYEAGLE_SHOPIFY_CONFIG = Object.freeze({
 
 // Membership can be paid ahead at checkout for a discount on the monthly rate. Keyed by months.
 export const EYEAGLE_MEMBERSHIP_PLANS = Object.freeze({
-  36: { title: "3 years, paid ahead", priceInr: 40_000 },
-  12: { title: "1 year, paid ahead", priceInr: 15_000 },
+  36: { title: "3 years, paid ahead", priceInr: 15_000 },
+  12: { title: "1 year, paid ahead", priceInr: 6_000 },
   0: { title: "Pay monthly", priceInr: 0 },
 } as const);
 
@@ -166,8 +166,8 @@ export const getEyEagleConfiguredPurchase = (
 // "1 year paid ahead" variant), priced as the sum of its parts. /store offers it only while a variant ID is set.
 export const EYEAGLE_DEVICE_ONLY = Object.freeze({
   title: "EyEagle Device",
-  // Home Hub with Alarm (₹20,000) and Alert Unit (₹8,999), installed.
-  devicePriceInr: 28_999,
+  // Home Hub with Alarm (₹10,000) and Alert Unit (₹8,999), installed.
+  devicePriceInr: 18_999,
   membershipMonths: 12 as const,
   variantId: "50815924895937" as string | null,
 });
