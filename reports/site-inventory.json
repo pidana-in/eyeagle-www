@@ -156,6 +156,11 @@
       "kind": "blog"
     },
     {
+      "route": "/blogs/parents-living-alone-in-india-safety-guide",
+      "source": "src/content/blogs/parents-alone.md",
+      "kind": "blog"
+    },
+    {
       "route": "/blogs/protecting-elders-at-home-safety-guide",
       "source": "src/content/blogs/kabhi-khushi.md",
       "kind": "blog"
@@ -1824,6 +1829,77 @@
       "referenced": true,
       "references": [
         "src/content/blogs/build-nest.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage44.png",
+      "format": "png",
+      "width": 1100,
+      "height": 734,
+      "bytes": 1401498,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/components/constants/home.ts",
+        "src/content/blogs/parents-alone.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage44Info-1.png",
+      "format": "png",
+      "width": 1100,
+      "height": 734,
+      "bytes": 1201143,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/parents-alone.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage44Info-2.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1303720,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/parents-alone.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage44Info-3.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 1004284,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/parents-alone.md"
+      ]
+    },
+    {
+      "file": "src/assets/Blog/BlogImage44Info-4.png",
+      "format": "png",
+      "width": 1100,
+      "height": 733,
+      "bytes": 925176,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/content/blogs/parents-alone.md"
       ]
     },
     {
@@ -6653,6 +6729,20 @@
       ]
     },
     {
+      "file": "src/assets/Store/membership-app-hospital-v1.png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3099053,
+      "category": "illustration or photograph",
+      "classificationConfidence": "low",
+      "needsVisualReview": true,
+      "referenced": true,
+      "references": [
+        "src/pages/store.astro"
+      ]
+    },
+    {
       "file": "src/assets/Store/sos-button-v1.png",
       "format": "png",
       "width": 1394,
@@ -8375,6 +8465,96 @@
       "external": true
     },
     {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.cdc.gov/falls/prevention/index.html?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.who.int/news-room/fact-sheets/detail/falls?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/blogs/caring-for-elderly-parents-while-working-abroad",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.cdc.gov/falls/prevention/index.html?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.cdc.gov/falls/prevention/index.html?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/store",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.cdc.gov/falls/prevention/index.html?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.who.int/news-room/fact-sheets/detail/falls?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/blogs/caring-for-elderly-parents-while-working-abroad",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.cdc.gov/falls/prevention/index.html?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://www.cdc.gov/falls/prevention/index.html?",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/store",
+      "external": true
+    },
+    {
+      "source": "src/content/blogs/parents-alone.md",
+      "href": "https://eyeagle.ai/app",
+      "external": true
+    },
+    {
       "source": "src/content/blogs/safe-home.md",
       "href": "/blogs/falls-kill-more-seniors-than-you-think",
       "external": false
@@ -8725,6 +8905,11 @@
       "external": true
     },
     {
+      "source": "src/data/shopify-configurator.ts",
+      "href": "https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}/cart/${variantId}:1",
+      "external": true
+    },
+    {
       "source": "src/data/site.ts",
       "href": "https://eyeagle.ai/",
       "external": true
@@ -8808,6 +8993,11 @@
       "source": "src/pages/about-us.astro",
       "href": "/app",
       "external": false
+    },
+    {
+      "source": "src/pages/api/store-discount.ts",
+      "href": "https://${EYEAGLE_SHOPIFY_CONFIG.storeDomain}",
+      "external": true
     },
     {
       "source": "src/pages/app.astro",

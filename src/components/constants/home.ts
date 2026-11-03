@@ -76,6 +76,7 @@ import blogImage40 from "../../assets/Blog/BlogImage40.png";
 import blogImage41 from "../../assets/Blog/BlogImage41.png";
 import blogImage42 from "../../assets/Blog/BlogImage42.png";
 import blogImage43 from "../../assets/Blog/BlogImage43.png";
+import blogImage44 from "../../assets/Blog/BlogImage44.png";
 
 export const bathroomData = [
   {
@@ -431,6 +432,12 @@ export const blogsData = [
     title: "How to Build a Trusted Nest for Parents While you are Abroad",
     desc: "Living abroad while your parents are in India? Learn how to build a trusted Nest around them so they have the right people to turn to when you cannot be there.",
     img: blogImage43,
+  },
+  {
+    slug: "parents-living-alone-in-india-safety-guide",
+    title: "Parents Living Alone in India: NRI Safety Setup Guide | EyEagle",
+    desc: "Heading home to India? Use your trip to set up a safety plan for parents living alone: bathroom checks, emergency contacts and a 24/7 SOS response",
+    img: blogImage44,
   },
 ];
 
