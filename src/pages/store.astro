@@ -124,7 +124,7 @@ const faqItems = [
   orderingOpen
     ? {
       question: "When will my system ship?",
-      answer: "Shipping starts October 30. After you order, installation details and the response plan are completed with our team.",
+      answer: "Shipping starts November 15. After you order, installation details and the response plan are completed with our team.",
     }
     : {
       question: "When can I order?",
@@ -177,7 +177,7 @@ const faqItems = [
       <header class={styles.intro}>
         <div>
           {orderingOpen
-            ? <p class={styles.eyebrow}>Shipping starts October 30</p>
+            ? <p class={styles.eyebrow}>Shipping starts November 15</p>
             : <p class={styles.eyebrow}><span class={styles.dot} aria-hidden="true"></span> Ordering is currently unavailable</p>}
           <h1>Buy EyEagle</h1>
           {completeSystemOpen && deviceOnlyAvailable
@@ -367,7 +367,7 @@ const faqItems = [
             </form>
           )}
           <button class={styles.shareAction} data-share type="button">Share this setup with family</button>
-          <p class={styles.finePrint}>{orderingOpen && "Shipping starts October 30. "}Checkout is in INR, and prices exclude GST, which is added at checkout. After any membership paid ahead here, it continues at {formatInr(membershipMonthlyInr)}/month + GST, billed separately, until cancelled. Installation is currently available in India.</p>
+          <p class={styles.finePrint}>{orderingOpen && "Shipping starts November 15. "}Checkout is in INR, and prices exclude GST, which is added at checkout. After any membership paid ahead here, it continues at {formatInr(membershipMonthlyInr)}/month + GST, billed separately, until cancelled. Installation is currently available in India.</p>
           <p class={styles.finePrint} data-local-note hidden></p>
         </div>
       </div>
