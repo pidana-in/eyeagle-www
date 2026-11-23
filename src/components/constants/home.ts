@@ -77,6 +77,7 @@ import blogImage41 from "../../assets/Blog/BlogImage41.png";
 import blogImage42 from "../../assets/Blog/BlogImage42.png";
 import blogImage43 from "../../assets/Blog/BlogImage43.png";
 import blogImage44 from "../../assets/Blog/BlogImage44.png";
+import blogImage45 from "../../assets/Blog/BlogImage45.png";
 
 export const bathroomData = [
   {
@@ -438,6 +439,12 @@ export const blogsData = [
     title: "Parents Living Alone in India: NRI Safety Setup Guide | EyEagle",
     desc: "Heading home to India? Use your trip to set up a safety plan for parents living alone: bathroom checks, emergency contacts and a 24/7 SOS response",
     img: blogImage44,
+  },
+  {
+    slug: "small-falls-and-near-misses",
+    title: "Small Falls & Near-Misses: What Parents Aren’t Telling You",
+    desc: "Learn why small falls and near-misses matter, how to talk to parents about home safety, and ways to reduce bathroom fall risks with EyEagle.",
+    img: blogImage45,
   },
 ];
 
